@@ -1,0 +1,174 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="my-icons.html">
+
+<link rel="lazy-import" href="views/home-view.html">
+<link rel="lazy-import" href="views/contacts-view.html">
+<link rel="lazy-import" href="views/download-view.html">
+<link rel="lazy-import" href="views/home-view.html">
+<link rel="lazy-import" href="views/view-404.html">
+
+<dom-module id="documentation-app">
+    <template>
+        <style>
+            :host {
+                --app-primary-color: #3c3c3b;;
+                --app-secondary-color: white;
+                --button-active-background-color: #0b97c4;
+                display: block;
+            }
+
+            app-toolbar {
+                padding-left: 0px;
+            }
+
+            app-drawer-layout:not([narrow]) [drawer-toggle] {
+                display: none;
+            }
+
+            app-header {
+                color: #fff;
+                background-color: var(--app-primary-color);
+            }
+
+            app-header paper-icon-button {
+                --paper-icon-button-ink-color: white;
+            }
+
+            .drawer-list {
+                margin: 0 20px;
+                display: flex;
+            }
+
+            .drawer-list a {
+                display: block;
+                padding: 0 16px;
+                text-decoration: none;
+                color: var(--app-secondary-color);
+                font-family: Open Sans, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+                /*font-size: .8125rem;*/
+                font-size: 0.9125rem;
+                line-height: 64px;
+            }
+
+            .drawer-list a.iron-selected {
+                color: white;
+                background-color: var(--button-active-background-color);
+            }
+
+            div[main-title] {
+                background-image: url(http://web-components.fact-finder.de/bower_components/fff-elements/fff-header/logo_background.png);
+                background-repeat: no-repeat;
+                height: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding-left: 40px;
+            }
+        </style>
+
+        <app-location route="{{route}}" url-space-regex="^[[rootPath]]"></app-location>
+        <app-route
+                route="{{route}}"
+                pattern="[[rootPath]]:page"
+                data="{{routeData}}"
+                tail="{{subroute}}"></app-route>
+
+        <!-- Main content -->
+        <app-header-layout>
+
+            <app-header slot="header" condenses reveals effects="waterfall">
+                <app-toolbar>
+                    <div main-title>
+                        <img src="http://web-components.fact-finder.de/bower_components/fff-elements/fff-header/logo_fact-finder.png"
+                             alt="FF Logo">
+                    </div>
+                    <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+                        <a name="home" href="[[rootPath]]home">Home</a>
+                        <a name="documentation" href="[[rootPath]]documentation">Documentation</a>
+                        <a name="download" href="[[rootPath]]download">Download</a>
+                        <a name="contacts" href="[[rootPath]]contacts">Contacts</a>
+                    </iron-selector>
+                </app-toolbar>
+            </app-header>
+
+            <iron-pages
+                    selected="[[page]]"
+                    attr-for-selected="name"
+                    fallback-selection="view404"
+                    role="main">
+                <home-view name="home"></home-view>
+                <documentation-view name="documentation"></documentation-view>
+                <download-view name="download"></download-view>
+                <contacts-view name="contacts"></contacts-view>
+                <view-404 name="view404"></view-404>
+            </iron-pages>
+        </app-header-layout>
+    </template>
+
+    <script>
+        class DocumentationApp extends Polymer.Element {
+            static get is() {
+                return 'documentation-app';
+            }
+
+            static get properties() {
+                return {
+                    page: {
+                        type: String,
+                        reflectToAttribute: true,
+                        observer: '_pageChanged',
+                    },
+                    routeData: Object,
+                    subroute: String,
+                    // This shouldn't be neccessary, but the Analyzer isn't picking up
+                    // Polymer.Element#rootPath
+                    rootPath: String,
+                };
+            }
+
+            static get observers() {
+                return [
+                    '_routePageChanged(routeData.page)',
+                ];
+            }
+
+            _routePageChanged(page) {
+                // If no page was found in the route data, page will be an empty string.
+                // Deault to 'view1' in that case.
+                this.page = page || 'home';
+
+                // Close a non-persistent drawer when the page & route are changed.
+//                if (!this.$.drawer.persistent) {
+//                    this.$.drawer.close();
+//                }
+            }
+
+            _pageChanged(page) {
+                // Load page import on demand. Show 404 page if fails
+                var resolvedPageUrl = this.resolveUrl("views/" + page + '-view.html');
+                Polymer.importHref(
+                        resolvedPageUrl,
+                        null,
+                        this._showPage404.bind(this),
+                        true);
+            }
+
+            _showPage404() {
+                this.page = 'view-404';
+            }
+        }
+
+        window.customElements.define(DocumentationApp.is, DocumentationApp);
+    </script>
+</dom-module>

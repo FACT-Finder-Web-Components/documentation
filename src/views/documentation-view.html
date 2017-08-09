@@ -1,0 +1,63 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="documentation-view">
+    <template>
+        <style include="shared-styles">
+            :host {
+                display: block;
+                padding: 10px;
+            }
+
+            iron-selector a {
+                display: block;
+            }
+        </style>
+        <app-drawer-layout narrow="{{narrow}}">
+            <!-- Drawer content -->
+            <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
+                <app-toolbar>Menu</app-toolbar>
+                <iron-selector selected="{{page}}" attr-for-selected="name" class="drawer-list" role="navigation">
+                    <a name="view1">View One</a>
+                    <a name="view2">View Two</a>
+                    <a name="view3">View Three</a>
+                </iron-selector>
+            </app-drawer>
+
+            <iron-pages
+                    selected="[[page]]"
+                    attr-for-selected="name"
+                    fallback-selection="view404"
+                    role="main">
+                <div name="view1">View 1</div>
+                <div name="view2">View 2</div>
+                <div name="view3">View 3</div>
+            </iron-pages>
+        </app-drawer-layout>
+    </template>
+
+    <script>
+        class DocumentationView extends Polymer.Element {
+            static get is() {
+                return 'documentation-view';
+            }
+
+            static get properties() {
+                return {
+                    page: {
+                        type: String,
+                        reflectToAttribute: true
+                    }
+                };
+            }
+        }
+
+        window.customElements.define(DocumentationView.is, DocumentationView);
+    </script>
+</dom-module>
