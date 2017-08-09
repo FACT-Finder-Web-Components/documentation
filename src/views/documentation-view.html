@@ -17,6 +17,13 @@
             :host {
                 display: block;
                 padding: 10px;
+                background-color: white;
+            }
+
+            marked-element {
+                max-width: 1024px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             iron-selector a {
@@ -29,6 +36,33 @@
 
             [slot="markdown-html"] {
                 padding: 0 25px;
+            }
+
+            app-drawer {
+                background-color: lightgray;
+            }
+
+            app-drawer-layout > marked-element > div > table > tbody > tr:nth-child(1) > td:nth-child(1),
+            app-drawer-layout > marked-element > div > table > tbody > tr:nth-child(1) > td:nth-child(3) {
+                max-width: 30%;
+                min-width: 20%;
+            }
+
+            app-drawer-layout > marked-element th {
+                background-color: #1b4385;
+                color: white;
+                padding: 15px;
+            }
+
+            app-drawer-layout > marked-element td {
+                padding: 15px;
+            }
+
+            app-drawer-layout > marked-element table {
+                border: 1px solid #1b4385;
+                max-width: 960px;
+                margin-left: auto;
+                margin-right: auto;
             }
         </style>
         <app-drawer-layout narrow="{{narrow}}">
