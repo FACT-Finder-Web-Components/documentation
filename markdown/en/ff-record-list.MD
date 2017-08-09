@@ -97,8 +97,8 @@ This will enable additional information for the data-track attribute. For checko
 </ff-record-list>
 ```
 
-To track how many products are put into the cart or checked out, you need to add the attribute ``data-track-count` to an element.
-If you want to read the count from the textContent property, you need to set the attribute value, e.g. `data-track-count="textContent"`. You can use any other value for the attribute. For example "innerHTML" or "value". The data-track-count will try to read the count value from your given property. Without, it will try and read the value from the element prototype. If the element has no value property it will default to 1.
+To track how many products are put into the cart or checked out, you need to add the attribute `[data-track-count]` to an element.
+If you want to read the count from the textContent property, you need to set the attribute value, e.g. `[data-track-count="textContent"]`. You can use any other value for the attribute. For example "innerHTML" or "value". The data-track-count will try to read the count value from your given property. Without, it will try and read the value from the element prototype. If the element has no value property it will default to 1.
 
 ```html
 <ff-record-list>
