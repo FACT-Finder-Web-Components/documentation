@@ -18,6 +18,10 @@
             iron-selector a {
                 display: block;
             }
+
+            app-drawer-layout:not([narrow]) [drawer-toggle] {
+                display: none;
+            }
         </style>
         <app-drawer-layout narrow="{{narrow}}">
             <!-- Drawer content -->
@@ -29,6 +33,7 @@
                     <a name="view3">View Three</a>
                 </iron-selector>
             </app-drawer>
+            <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
 
             <iron-pages
                     selected="[[page]]"
