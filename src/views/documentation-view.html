@@ -28,6 +28,10 @@
 
             iron-selector a {
                 display: block;
+                text-align: center;
+                padding: 20px 0;
+                cursor: pointer;
+                font-size: 1.4rem;
             }
 
             app-drawer-layout:not([narrow]) [drawer-toggle] {
@@ -38,36 +42,40 @@
                 padding: 0 25px;
             }
 
-            app-drawer {
-                background-color: lightgray;
-            }
-
-            app-drawer-layout > marked-element > div > table > tbody > tr:nth-child(1) > td:nth-child(1),
-            app-drawer-layout > marked-element > div > table > tbody > tr:nth-child(1) > td:nth-child(3) {
+            app-drawer-layout marked-element table tbody > tr:nth-child(1) > td:nth-child(1),
+            app-drawer-layout marked-element table tbody > tr:nth-child(1) > td:nth-child(3) {
                 max-width: 30%;
                 min-width: 20%;
             }
 
-            app-drawer-layout > marked-element th {
+            app-drawer-layout marked-element th {
                 background-color: #1b4385;
                 color: white;
                 padding: 15px;
             }
 
-            app-drawer-layout > marked-element td {
+            app-drawer-layout marked-element td {
                 padding: 15px;
             }
 
-            app-drawer-layout > marked-element table {
+            app-drawer-layout marked-element table {
                 border: 1px solid #1b4385;
                 max-width: 960px;
                 margin-left: auto;
                 margin-right: auto;
             }
+
+            app-drawer-layout marked-element table  code {
+                display: inherit;
+                word-break: break-all;
+            }
         </style>
         <app-drawer-layout narrow="{{narrow}}">
             <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
                 <app-toolbar>Menu</app-toolbar>
+                <div class="panel-heading">
+                    <h2 style="text-align: center">API-Reference</h2>
+                </div>
                 <iron-selector selected="{{fileName}}" attr-for-selected="name" class="drawer-list" role="navigation">
                     <template is="dom-repeat" items="{{apiReferences}}">
                         <a name="{{item.markdownFileName}}">{{item.title}}</a>
