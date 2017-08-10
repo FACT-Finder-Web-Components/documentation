@@ -17,7 +17,9 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
     "bootstrap": "^3.3.7",
     "components-font-awesome": "^4.7.0",
-    "polymer-bootstrap": "https://github.com/toarm/polymer-bootstrap.git#0.1.3"
+    "polymer-bootstrap": "https://github.com/toarm/polymer-bootstrap.git#0.1.3",
+    "marked-element": "PolymerElements/marked-element#^2.2.0",
+    "highlightjs": "^9.12.0"
   },
   "resolutions": {
     "polymer": "^2.0.0"

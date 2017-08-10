@@ -1,9 +1,8 @@
-# Explanation
 With the ff-record and `ff-record-list` element you can design a template for each record.
 You can access different record information such as name, price, rating etc... with the mustache-syntax `{{record.xxx}}`.
 The possible values a record can have are defined in the FF-backend and are the field names from the imported feed.
 
-## Adding the image
+# Adding the image
 To display the image you can use the `[data-image]` attribute. Just add as attribute value the `{{data-binding}}` according to
 your data feed. In the example above the image url field is named ImageName.
 In Addition you can add an error image which is displayed if the data-image can't be loaded.
@@ -18,7 +17,7 @@ Add the error image by annotating the img tag with the `[data-image-onerror="url
 </ff-record-list>
 ```
 
-## Redirecting to product page
+# Redirecting to product page
 To redirect to your product you should always rely on the [data-redirect] attribute. You can specify the target with the [data-redirect-target] attribute with all html compliant target values `(_blank|_self|_parent|_top|framename)`
 **NOTE**: The `[data-redirect]` attribute combines the **redirect** and the **tracking** request.
 
@@ -34,7 +33,7 @@ To redirect to your product you should always rely on the [data-redirect] attrib
 </ff-record-list>
 ```
 
-## Adding links
+# Adding links
 If you want to add links to your product, use the `data-anchor` attribute instead of href.
 This attribute will set up the `href` attribute with the correct injected data from the record,
 when you use the mustache annotation to select fields from said record.
@@ -60,7 +59,7 @@ To use the normal href behavior add the `disable-overwrite` to the ff-record.
 </ff-record-list>
 ```
 
-## Adding tracking
+# Adding tracking
 To add tracking requests to your `ff-record` element you can use the `data-track` attribute.
 This might be useful if you don't want to redirect to a product detail page but track the user click anyway.
 
@@ -78,7 +77,7 @@ This might be useful if you don't want to redirect to a product detail page but 
 </ff-record-list>
 ```
 
-## Cart and checkout tracking
+# Cart and checkout tracking
 If you want to add cart and/or checkout tracking to your search result page you can enable the tracking functionality by add one or both of `[add-checkout-click]`, `[add-cart-click]` to the ff-record element.
 This will enable additional information for the data-track attribute. For checkout tracking you can add `[data-track="checkoutClick"]` or for cart tracking `[data-track="cartClick"]` to any ancestor.
 
@@ -97,8 +96,8 @@ This will enable additional information for the data-track attribute. For checko
 </ff-record-list>
 ```
 
-To track how many products are put into the cart or checked out, you need to add the attribute ``data-track-count` to an element.
-If you want to read the count from the textContent property, you need to set the attribute value, e.g. `data-track-count="textContent"`. You can use any other value for the attribute. For example "innerHTML" or "value". The data-track-count will try to read the count value from your given property. Without, it will try and read the value from the element prototype. If the element has no value property it will default to 1.
+To track how many products are put into the cart or checked out, you need to add the attribute `[data-track-count]` to an element.
+If you want to read the count from the textContent property, you need to set the attribute value, e.g. `[data-track-count="textContent"]`. You can use any other value for the attribute. For example "innerHTML" or "value". The data-track-count will try to read the count value from your given property. Without, it will try and read the value from the element prototype. If the element has no value property it will default to 1.
 
 ```html
 <ff-record-list>
@@ -117,7 +116,7 @@ If you want to read the count from the textContent property, you need to set the
 </ff-record-list>
 ```
 
-## Infinite Scrolling
+# Infinite Scrolling
 You can also make the `ff-record-list` load the next page automatically when the bottom of the record-list gets into view. Just add the attribute `[infinite-scrolling]` to the element.
 
 With the attribute `[infinite-debounce-delay]`, you can set a delay for when the page should be loaded after it hits the bottom (in milliseconds). This prevents the page from loading twice, or too fast.
@@ -143,84 +142,40 @@ We recommend using higher values for `[infinite-debounce-delay]` and `infinite-s
 ```
 
 # API Reference
-### ff-record-list
-#### Properties
-##### subscribe
-**type**: String | **Options**: true, false (default: true)
+## ff-record-list
+### Properties
+| Name | Description |
+| ---- | ----------- |
+| **subscribe**&nbsp;(String) **Options**:&nbsp;true,&nbsp;false (default: true) | If this is set to false the element no longer listens to events and therefore does not receive new data. This is useful if you want to dispatch your own data to the element. |
+| **records**&nbsp;(Array)    | An Array of Objects containing the record data returned by FACT-Finder.|
+| **is-recommendation** (Boolean)| Indicates if this record-list is placed inside a ff-recommendation element. This attribute is set automatically by the ff-recommendation element and used for tracking purposes.|
+| **infinite-scrolling** (Boolean) | When present, the record list will load the next page when the bottom of the record list comes in view.|
+| **infinite-debounce-delay** (Number) (default:32) | Sets the delay for when the next page should be loaded after the bottom is reached. This prevents loading multiple pages at once because it triggers to fast. The number is in milliseconds. |
+| **infinite-scroll-margin** (Number) (default: 0) |  Sets the margin of the page loading trigger element. This value can be positive or negative and is in 'px'. Is only applied when infinite-scroll is `true` |
+| **is-recommendation** (Boolean) | Indicates if this record-list is placed inside a ff-recommendation element. This attribute is set automatically by the ff-recommendation element and used for tracking purposes. |
 
-If this is set to `false` the element no longer listens to events and therefore does not receive new data. This is useful if you want to dispatch your own data to the element.
+### Events
+| Name | Description |
+| ---- | ----------- |
+| **dom-updated** |  This event is triggered when the element has received new data and the template for the element and all sub elements was punched out. |
 
-##### records
-**type**: Array |
+## ff-record
+### Properties
+| Name | Description |
+| ---- | ----------- |
+| **record-data** (Object) |  The record object returned by FACT-Finder. |
+| **is-recommendation** (Boolean)| Indicates if this record-list is placed inside a ff-recommendation element. This attribute is set automatically by the ff-recommendation element and used for tracking purposes.|
 
-An Array of Objects containing the record data returned by FACT-Finder.
+### Directives
+| Name | Description |
+| ---- | ----------- |
+| **data-redirect** |  Forwards to the product details page if a valid url is provided. This attributes takes the URL of the product detail page and can be used in conjunction with the data-binding e.g. `<div data-redirect="{{record.YourProductUrlFieldname}}"></div>` |
+| **data-redirect-target** | Indicates the target for the `[data-redirect]` attribute. Can take all [w3c compliant values](https://www.w3schools.com/TAGS/att_a_target.asp).|
+| **data-track** | Triggers a tracking request if the annotated element is clicked. |
+| **data-image** | Annotate a `<img>` tag with this attribute. Can be used in Conjunction with the {{data-binding}} e.g. `<img data-image="{{record.YourImageUrlFieldname}}" />`|
+| **data-anchor** | Annotate a `<a>` tag with this attribute. Can be used in Conjunction with the {{data-binding}} e.g. `<a data-anchor="www.myshop.de/{{record.YourImageUrlFieldname}}" />`. This will resolve in a proper href attribute for that anchor. |
+| **disable-overwrite** | Add this to the ff-record-tag to disable the default blocking of the anchor-tag behavior when clicked. Use this only when you don't want to track these clicks. Otherwise use the 'data-redirect' directive. This will enable tracking of the clicked anchor. |
 
-##### is-recommendation
-**type**: Boolean |
 
-Indicates if this record-list is placed inside a ff-recommendation element. This attribute is set automatically by the ff-recommendation element and used for tracking purposes.
 
-##### infinite-scrolling
-**type**: Boolean |
 
-When present, the record list will load the next page when the bottom of the record list comes in view.
-
-##### infinite-debounce-delay
-**type**: Number | (default:32)
-
-Sets the delay for when the next page should be loaded after the bottom is reached. This prevents loading multiple pages at once because it triggers to fast. The number is in milliseconds.
-
-##### infinite-scroll-margin
-**type**: Number | (default:0)
-
-Sets the margin of the page loading trigger element. This value can be positive or negative and is in 'px'. Is only applied when infinite-scroll is `true`
-
-##### is-recommendation
-**type**: Boolean |
-
-Indicates if this record-list is placed inside a ff-recommendation element. This attribute is set automatically by the ff-recommendation element and used for tracking purposes.
-
-#### Events
-##### dom-updated
-This event is triggered when the element has received new data and the template for the element and all sub elements was punched out.
-
-### ff-record
-#### Properties
-##### record-data
-**type**: Object |
-
-The record object returned by FACT-Finder.
-
-##### is-recommendation
-**type**: Boolean |
-
-Indicates if this record-list is placed inside a ff-recommendation element. This attribute is set automatically by the ff-recommendation element and used for tracking purposes.
-
-#### Directives
-##### data-redirect
-
-Forwards to the product details page if a valid url is provided. This attributes takes the URL of the product detail page and can be used in conjunction with the data-binding e.g. ``<div data-redirect="{{record.YourProductUrlFieldname}}"></div>``
-
-##### data-redirect-target
-
-Indicates the target for the `[data-redirect]` attribute. Can take all [w3c compliant values](https://www.w3schools.com/TAGS/att_a_target.asp).
-
-##### data-track
-
-Triggers a tracking request if the annotated element is clicked.
-
-##### data-image
-
-Annotate a `<img>` tag with this attribute. Can be used in Conjunction with the {{data-binding}} e.g. `<img data-image="{{record.YourImageUrlFieldname}}" />`
-
-##### data-anchor
-
-Annotate a `<a>` tag with this attribute. Can be used in Conjunction with the {{data-binding}} e.g. `<a data-anchor="www.myshop.de/{{record.YourImageUrlFieldname}}" />`. This will resolve in a proper href attribute for that anchor.
-
-##### disable-overwrite
-
-Add this to the ff-record-tag to disable the default blocking of the anchor-tag behavior when clicked. Use this only when you don't want to track these clicks. Otherwise use the 'data-redirect' directive. This will enable tracking of the clicked anchor.
-
-##### data-redirect-target
-
-The record object returned by FACT-Finder.
