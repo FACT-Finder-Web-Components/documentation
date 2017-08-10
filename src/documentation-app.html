@@ -11,6 +11,7 @@
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="my-icons.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
 
 <link rel="lazy-import" href="views/home-view.html">
 <link rel="lazy-import" href="views/contacts-view.html">
@@ -77,6 +78,13 @@
             }
         </style>
 
+        <paper-dialog id="dialog"
+                      entry-animation="scale-up-animation"
+                      exit-animation="fade-out-animation"
+                      with-backdrop>
+            Test Test
+        </paper-dialog>
+
         <app-location route="{{route}}" url-space-regex="^[[rootPath]]"></app-location>
         <app-route
                 route="{{route}}"
@@ -87,7 +95,7 @@
         <!-- Main content -->
         <app-header-layout>
 
-            <app-header slot="header" fixed  effects="waterfall">
+            <app-header slot="header" fixed effects="waterfall">
                 <app-toolbar>
                     <div main-title>
                         <img src="http://web-components.fact-finder.de/bower_components/fff-elements/fff-header/logo_fact-finder.png"
@@ -141,6 +149,19 @@
                 return [
                     '_routePageChanged(routeData.page)',
                 ];
+            }
+
+            connectedCallback() {
+                super.connectedCallback();
+                this.addEventListener("open-dialog", function (event) {
+                    this.$.dialog.innerHTML = "";
+                    this.$.dialog.appendChild(document.importNode(event.detail.template.content, true));
+                    this.$.dialog.open();
+                }.bind(this));
+
+                this.addEventListener("close-dialog", function (event) {
+                    this.$.dialog.close();
+                }.bind(this));
             }
 
             _routePageChanged(page) {

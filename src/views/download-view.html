@@ -1,26 +1,382 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html">
+<link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/neon-animation/web-animations.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../shared-styles.html">
+<link rel="import" href="../my-icons.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+
+<template id="asn">
+    asn
+</template>
+
+<template id="navigation">
+    navigation
+</template>
+
+<template id="headerNavigation">
+    headerNavigation
+</template>
+
+<template id="paging">
+    paging
+</template>
+
+<template id="sort">
+    sort
+</template>
+
+<template id="productsPerPageDropdown">
+    productsPerPageDropdown
+</template>
+
+<template id="productsPerPageList">
+    productsPerPageList
+</template>
+
+<template id="suggest">
+    suggest
+</template>
+
+<template id="focusSuggest">
+    focusSuggest
+</template>
+
+<template id="campaigns">
+    campaigns
+</template>
+
+<template id="compare">
+    compare
+</template>
+
+<template id="carousel">
+    carousel
+</template>
+
+<template id="recommendation">
+    recommendation
+</template>
+
+<template id="similarProducts">
+    similarProducts
+</template>
+
+<template id="singleWordSearch">
+    singleWordSearch
+</template>
+
+<template id="tagCloud">
+    tagCloud
+</template>
+
+<template id="searchFeedback">
+    searchFeedback
+</template>
 
 <dom-module id="download-view">
     <template>
         <style include="shared-styles">
             :host {
-                display: block;
+                display: flex;
+                justify-content: center;
                 padding: 10px;
+            }
+
+            paper-toggle-button {
+                user-select: none;
+                transition: font-weight 300ms;
+                transition: color 300ms;
+                /*font-weight: bold;*/
+            }
+
+            paper-toggle-button[active] {
+                --paper-toggle-button-label-color: #0b97c4;
+                /*font-weight: bold;*/
+                text-decoration: underline;
+            }
+
+            iron-icon {
+                color: black;
+                cursor: pointer;
+                transition: 300ms;
+                border-radius: 12px;
+                margin-left: 5px;
+            }
+
+            iron-icon:hover {
+                background-color: #0b97c4;
+                color: white;
+            }
+
+            .card {
+                max-width: 1256px;
+                padding: 5px;
+                margin: 5px;
+            }
+
+            section.container {
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+
+            section.container section {
+                margin: 25px 0;
+            }
+
+            .buttonContainer {
+                display: flex;
+                justify-content: flex-start;
+                font-size: 18px;
+                margin: 5px 0;
             }
         </style>
 
         <div class="card">
-            <div class="circle">2</div>
             <h1>Download</h1>
-            <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-            <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
+            <section class="container">
+                <paper-dropdown-menu>
+                    <paper-listbox slot="dropdown-content" selected="0"
+                                   on-selected-item-changed="_selectedVersionChanged">
+                        <template is="dom-repeat" items="{{versions}}">
+                            <paper-item data-api-name$="{{item.apiName}}">{{item.label}}</paper-item>
+                        </template>
+                    </paper-listbox>
+                </paper-dropdown-menu>
+            </section>
+            <section class="container">
+                <section>
+                    <h2>Core</h2>
+                    <div class="buttonContainer">
+                        <paper-toggle-button checked disabled>Core</paper-toggle-button>
+                        <iron-icon icon="my-icons:info-outline"></iron-icon>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Navigation</h2>
+                    <paper-toggle-button on-active-changed="_toggleAll"
+                                         style="border-bottom: 1px solid lightgray">All
+                    </paper-toggle-button>
+                    <div>
+                        <template is="dom-repeat" items="{{navigationFeatures}}" mutable-data>
+                            <div class="buttonContainer">
+                                <paper-toggle-button active="{{item.active}}">{{item.label}}</paper-toggle-button>
+                                <iron-icon icon="my-icons:info-outline" on-tap="_openDialog"></iron-icon>
+                            </div>
+                        </template>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>More Features</h2>
+                    <paper-toggle-button on-active-changed="_toggleAll" style="border-bottom: 1px solid lightgray">All
+                    </paper-toggle-button>
+                    <div>
+                        <template is="dom-repeat" items="{{moreFeatures}}" mutable-data>
+                            <div class="buttonContainer">
+                                <paper-toggle-button active="{{item.active}}">{{item.label}}</paper-toggle-button>
+                                <iron-icon icon="my-icons:info-outline" on-tap="_openDialog"></iron-icon>
+                            </div>
+                        </template>
+                    </div>
+                </section>
+            </section>
+
+            <section class="container">
+                <style>
+                    paper-button {
+                        background-color: blue;
+                        color: white;
+                        cursor: pointer;
+                        margin-bottom: 15px;
+                    }
+
+                    paper-button[disabled] {
+                        background-color: darkgray;
+                        color: white;
+                    }
+                </style>
+                <paper-button disabled="{{hasFeatureSelected}}" on-tap="_download">download</paper-button>
+            </section>
         </div>
     </template>
 
     <script>
+        /**
+         * Reference this for templating purposes
+         */
+        var importDoc = document.currentScript.ownerDocument;
+
         class DownloadView extends Polymer.Element {
-            static get is() { return 'download-view'; }
+            static get is() {
+                return 'download-view';
+            }
+
+            static get properties() {
+                return {
+                    versions: {
+                        type: Array,
+                        value: [{
+                            label: "v.1.2.2",
+                            apiName: "1.2.2"
+                        }, {
+                            label: "v.1.2.1",
+                            apiName: "1.2.1"
+                        }, {
+                            label: "v.1.2.0",
+                            apiName: "1.2.0"
+                        }]
+                    },
+                    selectedVersion: {
+                        type: String
+                    },
+                    navigationFeatures: {
+                        type: Array,
+                        value: [{
+                            label: "After Search Navigation (Facets)",
+                            apiName: "asn",
+                            active: false
+                        }, {
+                            label: "Navigation",
+                            apiName: "navigation",
+                            active: false
+                        }, {
+                            label: "Header Navigation",
+                            apiName: "headerNavigation",
+                            active: false
+                        }, {
+                            label: "Pagination",
+                            apiName: "paging",
+                            active: false
+                        }, {
+                            label: "Sorting",
+                            apiName: "sort",
+                            active: false
+                        }, {
+                            label: "Products Per Page Dropdown",
+                            apiName: "productsPerPageDropdown",
+                            active: false
+                        }, {
+                            label: "Products Per Page List",
+                            apiName: "productsPerPageList",
+                            active: false
+                        }]
+                    },
+                    moreFeatures: {
+                        type: Array,
+                        value: [{
+                            label: "Suggest",
+                            apiName: "suggest",
+                            active: false
+                        }, {
+                            label: "Onfocus Suggest",
+                            apiName: "focusSuggest",
+                            active: false
+                        }, {
+                            label: "Campaigns",
+                            apiName: "campaigns",
+                            active: false
+                        }, {
+                            label: "Carousel",
+                            apiName: "carousel",
+                            active: false
+                        }, {
+                            label: "Compare",
+                            apiName: "compare",
+                            active: false
+                        }, {
+                            label: "Recommendations",
+                            apiName: "recommendation",
+                            active: false
+                        }, {
+                            label: "Similar Products",
+                            apiName: "similarProducts",
+                            active: false
+                        }, {
+                            label: "Single Word Search",
+                            apiName: "singleWordSearch",
+                            active: false
+                        }, {
+                            label: "Tag Cloud",
+                            apiName: "tagCloud",
+                            active: false
+                        }, {
+                            label: "Search Feedback",
+                            apiName: "searchFeedback",
+                            active: false
+                        }]
+                    },
+                    apiOptions: {
+                        type: Object,
+                        computed: "_computeApiOptions(selectedVersion, navigationFeatures.*, moreFeatures.*)"
+                    },
+                    hasFeatureSelected: {
+                        type: Boolean,
+                        computed: "_computeHasFeatures(apiOptions.features)"
+                    }
+                }
+            }
+
+            _download() {
+                alert("Features:" + this.apiOptions.features);
+            }
+
+            _toggleAll(event) {
+                var buttons = event.currentTarget.nextElementSibling.querySelectorAll("div paper-toggle-button");
+                var active = event.srcElement.active;
+                for (var i = 0; i < buttons.length; i++) {
+                    var button = buttons[i];
+                    button.active = event.detail.value;
+                }
+            }
+
+            _openDialog(event) {
+                const template = importDoc.querySelector("template#" + event.model.item.apiName);
+                this.dispatchEvent(new CustomEvent('open-dialog', {
+                    bubbles: true,
+                    composed: true,
+                    detail: {template: template}
+                }));
+            }
+
+            _selectedVersionChanged(event) {
+                if (event.detail.value) {
+                    this.selectedVersion = event.detail.value.getAttribute("data-api-name");
+                }
+            }
+
+            _hasDifference(arr) {
+                var result = arr.filter(function (item) {
+                    return item.active;
+                });
+                return !(result.length === arr.length || result.length === 0);
+            }
+
+            _computeApiOptions(selectedVersion, navigationFeatures, moreFeatures) {
+                return {
+                    version: selectedVersion,
+                    features: (function () {
+                        let result = [];
+                        navigationFeatures.base.concat(moreFeatures.base).forEach(function (feature) {
+                            if (feature.active === true) {
+                                result.push("" + feature.apiName);
+                            }
+                        });
+                        return result;
+                    })()
+                };
+            }
+
+            _computeHasFeatures(features) {
+                return features.length === 0;
+            }
         }
 
         window.customElements.define(DownloadView.is, DownloadView);
