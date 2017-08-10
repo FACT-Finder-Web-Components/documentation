@@ -26,12 +26,21 @@
                 margin-right: auto;
             }
 
+            marked-element h1 {
+                font-weight: bold;
+            }
+
             iron-selector a {
                 display: block;
                 text-align: center;
                 padding: 20px 0;
                 cursor: pointer;
                 font-size: 1.4rem;
+            }
+
+            iron-selector a.iron-selected {
+                background-color: #1b4385;
+                color: white;
             }
 
             app-drawer-layout:not([narrow]) [drawer-toggle] {
@@ -65,7 +74,7 @@
                 margin-right: auto;
             }
 
-            app-drawer-layout marked-element table  code {
+            app-drawer-layout marked-element table code {
                 display: inherit;
                 word-break: break-all;
             }
