@@ -114,20 +114,21 @@
             }
 
             .card {
-                max-width: 1256px;
+                max-width: 1024px;
                 padding: 5px;
                 margin: 5px;
             }
 
-            section.container {
+            section.downloadContainer {
+                padding: 15px;
                 display: flex;
                 justify-content: space-around;
                 align-items: flex-start;
                 flex-wrap: wrap;
             }
 
-            section.container section {
-                margin: 25px 0;
+            section.downloadContainer section {
+                margin: 25px 25px;
             }
 
             .buttonContainer {
@@ -140,7 +141,7 @@
 
         <div class="card">
             <h1>Download</h1>
-            <section class="container">
+            <section class="downloadContainer">
                 <paper-dropdown-menu>
                     <paper-listbox slot="dropdown-content" selected="0"
                                    on-selected-item-changed="_selectedVersionChanged">
@@ -150,7 +151,7 @@
                     </paper-listbox>
                 </paper-dropdown-menu>
             </section>
-            <section class="container">
+            <section class="downloadContainer">
                 <section>
                     <h2>Core</h2>
                     <div class="buttonContainer">
@@ -189,7 +190,7 @@
                 </section>
             </section>
 
-            <section class="container">
+            <section class="downloadContainer">
                 <style>
                     paper-button {
                         background-color: blue;
