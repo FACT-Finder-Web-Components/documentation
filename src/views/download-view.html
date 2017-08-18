@@ -84,7 +84,9 @@
             :host {
                 display: flex;
                 justify-content: center;
-                padding: 10px;
+                flex-direction: column;
+                align-items: center;
+                background-color: #fff;
             }
 
             paper-toggle-button {
@@ -133,28 +135,42 @@
             }
         </style>
 
-        <div class="card container">
-            <h1>Download</h1>
-            <section class="downloadContainer">
-                <paper-dropdown-menu>
-                    <paper-listbox slot="dropdown-content" selected="0"
-                                   on-selected-item-changed="_selectedVersionChanged">
-                        <template is="dom-repeat" items="{{versions}}">
-                            <paper-item data-api-name$="{{item.apiName}}">{{item.label}}</paper-item>
-                        </template>
-                    </paper-listbox>
-                </paper-dropdown-menu>
-            </section>
-            <section class="downloadContainer">
-                <section>
+        <section style="width: 100%;background-color: #eeeeee;min-height: 200px">
+            <div class="container">
+                <h1>Download</h1>
+                <p>
+                <span style="line-height: 24px">
+                Please select your desired version and modules from below. You can read more about each feature by clicking the info icon<iron-icon
+                        icon="my-icons:info-outline"></iron-icon>. <br> Regardless of your chosen modules you'll get the core module with the minimum amount of functionality to get started.</span>
+                </p>
+                <p>
+                    If you are looking for older versions please check out our <a
+                        href="https://github.com/FACT-Finder-Web-Components">Github repository</a>.
+                </p>
+                <p>&nbsp;</p>
+            </div>
+        </section>
+
+        <div class="container row" style="background-color: white">
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="col-md-4">
+                    <paper-dropdown-menu>
+                        <paper-listbox slot="dropdown-content" selected="0"
+                                       on-selected-item-changed="_selectedVersionChanged">
+                            <template is="dom-repeat" items="{{versions}}">
+                                <paper-item data-api-name$="{{item.apiName}}">{{item.label}}</paper-item>
+                            </template>
+                        </paper-listbox>
+                    </paper-dropdown-menu>
+
                     <h2>Core</h2>
                     <div class="buttonContainer">
                         <paper-toggle-button checked disabled>Core</paper-toggle-button>
                         <iron-icon icon="my-icons:info-outline"></iron-icon>
                     </div>
-                </section>
-
-                <section>
+                </div>
+                <div class="col-md-4">
                     <h2>Navigation</h2>
                     <paper-toggle-button on-active-changed="_toggleAll"
                                          style="border-bottom: 1px solid lightgray">All
@@ -167,11 +183,11 @@
                             </div>
                         </template>
                     </div>
-                </section>
-
-                <section>
+                </div>
+                <div class="col-md-4">
                     <h2>More Features</h2>
-                    <paper-toggle-button on-active-changed="_toggleAll" style="border-bottom: 1px solid lightgray">All
+                    <paper-toggle-button on-active-changed="_toggleAll" style="border-bottom: 1px solid lightgray">
+                        All
                     </paper-toggle-button>
                     <div>
                         <template is="dom-repeat" items="{{moreFeatures}}" mutable-data>
@@ -181,25 +197,22 @@
                             </div>
                         </template>
                     </div>
-                </section>
-            </section>
+                </div>
+            </div>
 
-            <section class="downloadContainer">
+            <div class="row" style="display: flex;justify-content: center;margin-top: 35px;padding-bottom: 35px">
                 <style>
                     paper-button {
-                        background-color: blue;
+                        background-color: #0b97c4;
                         color: white;
                         cursor: pointer;
                         margin-bottom: 15px;
                     }
 
-                    paper-button[disabled] {
-                        background-color: darkgray;
-                        color: white;
-                    }
+
                 </style>
                 <paper-button disabled="{{hasFeatureSelected}}" on-tap="_download">download</paper-button>
-            </section>
+            </div>
         </div>
     </template>
 
