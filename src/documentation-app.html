@@ -12,6 +12,13 @@
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="my-icons.html">
 <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
+<link rel="import" href="../bower_components/neon-animation/web-animations.html">
+<link rel="import" href="../bower_components/neon-animation/animations/scale-up-animation.html">
+<link rel="import" href="../bower_components/neon-animation/animations/fade-out-animation.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+
+<link rel="import" href="shared-styles.html">
 
 <link rel="lazy-import" href="views/home-view.html">
 <link rel="lazy-import" href="views/contacts-view.html">
@@ -21,7 +28,7 @@
 
 <dom-module id="documentation-app">
     <template>
-        <style>
+        <style include="shared-styles">
             :host {
                 --app-primary-color: #3c3c3b;;
                 --app-secondary-color: white;
@@ -77,6 +84,10 @@
                 justify-content: flex-start;
                 align-items: center;
                 padding-left: 40px;
+            }
+
+            paper-dialog {
+                max-width: 800px;
             }
         </style>
 
