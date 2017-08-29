@@ -133,15 +133,45 @@
             }
 
             _getFileLocation(fileName) {
-                return "markdown/en/" + fileName;
+                return "markdown/en/" + fileName + ".md";
             }
 
             connectedCallback() {
                 super.connectedCallback();
                 this.apiReferences = [
                     {
+                        title: "Searchbox",
+                        markdownFileName: "ff-searchbox"
+                    }, {
                         title: "Record List",
-                        markdownFileName: "ff-record-list.MD"
+                        markdownFileName: "ff-record-list"
+                    }, {
+                        title: "Suggest",
+                        markdownFileName: "ff-suggest"
+                    }, {
+                        title: "Breadcrumb",
+                        markdownFileName: "ff-breadcrumb-trail"
+                    }, {
+                        title: "Record List",
+                        markdownFileName: "ff-asn"
+                    }, {
+                        title: "Navigation",
+                        markdownFileName: "ff-navigation"
+                    }, {
+                        title: "Header Navigation",
+                        markdownFileName: "ff-header-navigation"
+                    }, {
+                        title: "Paging",
+                        markdownFileName: "ff-paging"
+                    }, {
+                        title: "Paging Dropdown",
+                        markdownFileName: "ff-paging-dropdown"
+                    }, {
+                        title: "Products Per Page",
+                        markdownFileName: "ff-products-per-page"
+                    }, {
+                        title: "Sortbox",
+                        markdownFileName: "ff-sortbox"
                     }
                 ]
             }
