@@ -72,6 +72,10 @@
                 padding: 0 25px;
             }
 
+            h1, h2, h3, h4 {
+                margin-bottom: 0;
+            }
+
             app-drawer-layout marked-element table tbody > tr:nth-child(1) > td:nth-child(1),
             app-drawer-layout marked-element table tbody > tr:nth-child(1) > td:nth-child(3) {
                 max-width: 30%;
@@ -104,11 +108,11 @@
             <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
                 <app-toolbar>Menu</app-toolbar>
                 <div class="panel-heading">
-                    <h2 style="text-align: center">API-Reference</h2>
+                    <h2 style="text-align: left">API-Reference</h2>
                 </div>
 
                 <div class="panel-heading">
-                    <h3 style="text-align: center">Basics</h3>
+                    <h3 style="text-align: left">Basics</h3>
                 </div>
                 <iron-selector selected="{{fileName}}" attr-for-selected="name" class="drawer-list" role="navigation">
                     <template is="dom-repeat" items="{{basics}}">
@@ -117,7 +121,7 @@
                 </iron-selector>
 
                 <div class="panel-heading">
-                    <h3 style="text-align: center">Navigation</h3>
+                    <h3 style="text-align: left">Navigation</h3>
                 </div>
                 <iron-selector selected="{{fileName}}" attr-for-selected="name" class="drawer-list" role="navigation">
                     <template is="dom-repeat" items="{{navigation}}">
@@ -126,7 +130,7 @@
                 </iron-selector>
 
                 <div class="panel-heading">
-                    <h3 style="text-align: center">More Features</h3>
+                    <h3 style="text-align: left">More Features</h3>
                 </div>
                 <iron-selector selected="{{fileName}}" attr-for-selected="name" class="drawer-list" role="navigation">
                     <template is="dom-repeat" items="{{navigation}}">
