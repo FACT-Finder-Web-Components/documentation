@@ -17,6 +17,7 @@
 <link rel="import" href="../bower_components/neon-animation/animations/scale-up-animation.html">
 <link rel="import" href="../bower_components/neon-animation/animations/fade-out-animation.html">
 <link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
 
 <link rel="import" href="shared-styles.html">
 
@@ -71,7 +72,7 @@
                 line-height: 64px;
             }
 
-            .drawer-list a.iron-selected {
+            .drawer-list paper-tab.iron-selected {
                 color: white;
                 background-color: var(--button-active-background-color);
             }
@@ -88,6 +89,39 @@
 
             paper-dialog {
                 max-width: 800px;
+            }
+
+            paper-tabs {
+                display: flex;
+                width: 100%;
+                padding-top: 0;
+                padding-bottom: 0;
+                height: 64px;
+                text-align: center;
+            }
+
+            paper-tab {
+                user-select: none;
+                font-weight: normal !important;
+            }
+
+            paper-tab a {
+                font-weight: normal !important;
+            }
+
+            iron-selector {
+                width: 70%;
+                margin: 0 !important;
+            }
+
+            @media screen and (max-width: 1180px) {
+                div[main-title] {
+                    display: none;
+                }
+
+                iron-selector {
+                    width: 100%;
+                }
             }
         </style>
 
@@ -115,12 +149,28 @@
                              alt="FF Logo">
                     </div>
                     <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-                        <a name="home" href="[[rootPath]]home">Home</a>
-                        <a name="documentation" href="[[rootPath]]documentation">Documentation</a>
-                        <a name="download" href="[[rootPath]]download">Download</a>
-                        <a name="contacts" href="[[rootPath]]contacts">Contacts</a>
+                        <paper-tabs selected="0" noink scrollable fit-container no-slide no-bar>
+                            <paper-tab><a name="home" href="[[rootPath]]home">Home</a></paper-tab>
+                            <paper-tab><a name="documentation" href="[[rootPath]]documentation">Documentation</a>
+                            </paper-tab>
+                            <paper-tab><a name="download" href="[[rootPath]]download">Download</a></paper-tab>
+                            <paper-tab><a name="contacts" href="[[rootPath]]contacts">Contacts</a></paper-tab>
+                        </paper-tabs>
+
+                        <!--<a name="home" href="[[rootPath]]home">Home</a>-->
+                        <!--<a name="documentation" href="[[rootPath]]documentation">Documentation</a>-->
+                        <!--<a name="download" href="[[rootPath]]download">Download</a>-->
+                        <!--<a name="contacts" href="[[rootPath]]contacts">Contacts</a>-->
                     </iron-selector>
                 </app-toolbar>
+                <!--<app-toolbar>-->
+                <!--<iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">-->
+                <!--<a name="home" href="[[rootPath]]home">Home</a>-->
+                <!--<a name="documentation" href="[[rootPath]]documentation">Documentation</a>-->
+                <!--<a name="download" href="[[rootPath]]download">Download</a>-->
+                <!--<a name="contacts" href="[[rootPath]]contacts">Contacts</a>-->
+                <!--</iron-selector>-->
+                <!--</app-toolbar>-->
             </app-header>
 
             <iron-pages
@@ -192,10 +242,10 @@
                 // Load page import on demand. Show 404 page if fails
                 var resolvedPageUrl = this.resolveUrl("views/" + page + '-view.html');
                 Polymer.importHref(
-                        resolvedPageUrl,
-                        null,
-                        this._showPage404.bind(this),
-                        true);
+                    resolvedPageUrl,
+                    null,
+                    this._showPage404.bind(this),
+                    true);
             }
 
             _showPage404() {
