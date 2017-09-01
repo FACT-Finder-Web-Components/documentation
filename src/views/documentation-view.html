@@ -42,12 +42,10 @@
                 margin: 10px 10px;
             }
 
-
             ::-webkit-scrollbar {
                 width: 0px;
                 background: transparent; /* make scrollbar transparent */
             }
-
 
             iron-selector a:hover {
                 text-decoration: none;
@@ -114,7 +112,8 @@
                 <div class="panel-heading">
                     <h3 style="text-align: left">Basics</h3>
                 </div>
-                <iron-selector selected="{{fileName}}" attr-for-selected="name" class="drawer-list" role="navigation">
+                <iron-selector selected="{{fileName}}" on-selected-changed="_updateSubroute" attr-for-selected="name"
+                               class="drawer-list" role="navigation">
                     <template is="dom-repeat" items="{{basics}}">
                         <a name="{{item.markdownFileName}}">{{item.title}}</a>
                     </template>
@@ -163,8 +162,41 @@
                     markdownFile: {
                         type: String,
                         computed: "_getFileLocation(fileName)"
+                    },
+                    subroute: {
+                        type: Object,
+                        observer: "_subrouteChanged",
+                        value: {
+                            path: "/ff-searchbox"
+                        },
+                        notify: true
                     }
                 };
+            }
+
+            /**
+             * Guess this could be done much better but app-route documentation isn't that helpful
+             */
+            _updateSubroute(changed) {
+                let newRoute = changed.detail.value;
+                if (this.subroute !== newRoute) {
+                    this.subroute = {
+                        path: "/" + newRoute
+                    };
+                }
+            }
+
+            _subrouteChanged(subroute) {
+                //do it async when all anchor elements are rendered
+                setTimeout(() => {
+                    let path = subroute.path.substring(1, subroute.path.length);
+                    let anchor = this.shadowRoot.querySelector('a[name="' + path + '"]');
+                    if (anchor) {
+                        anchor.click();
+                    } else {
+                        console.warn("no anchor for subroute " + path + " found");
+                    }
+                });
             }
 
             _addHiglightJs(event) {

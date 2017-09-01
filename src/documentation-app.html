@@ -168,7 +168,7 @@
                     fallback-selection="view404"
                     role="main">
                 <home-view name="home"></home-view>
-                <documentation-view name="documentation"></documentation-view>
+                <documentation-view name="documentation" subroute="{{subroute}}"></documentation-view>
                 <download-view name="download"></download-view>
                 <contacts-view name="contacts"></contacts-view>
                 <view-404 name="view404"></view-404>
@@ -190,7 +190,9 @@
                         observer: '_pageChanged',
                     },
                     routeData: Object,
-                    subroute: String,
+                    subroute: {
+                        type: Object
+                    },
                     // This shouldn't be neccessary, but the Analyzer isn't picking up
                     // Polymer.Element#rootPath
                     rootPath: String,
@@ -204,8 +206,17 @@
             static get observers() {
                 return [
                     '_routePageChanged(routeData.page)',
-                    '_computeSelectedTab(page)'
+                    '_computeSelectedTab(page)',
+                    '_subrouteChanged(subroute)'
                 ];
+            }
+
+            _subrouteChanged(subroute) {
+                /**
+                 * Guess this could be done much better but app-route documentation isn't that helpful
+                 */
+                let split = this.route.path.split("/");
+                this.route.path = "/" + split[1] + subroute.path;
             }
 
             _computeSelectedTab(page) {
