@@ -149,7 +149,7 @@
                              alt="FF Logo">
                     </div>
                     <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-                        <paper-tabs selected="0" noink scrollable fit-container no-slide no-bar>
+                        <paper-tabs selected="[[selectedTab]]" noink scrollable fit-container no-slide no-bar>
                             <paper-tab><a name="home" href="[[rootPath]]home">Home</a></paper-tab>
                             <paper-tab><a name="documentation" href="[[rootPath]]documentation">Documentation</a>
                             </paper-tab>
@@ -205,13 +205,38 @@
                     // This shouldn't be neccessary, but the Analyzer isn't picking up
                     // Polymer.Element#rootPath
                     rootPath: String,
+                    selectedTab: {
+                        type: Number,
+                        reflectToAttribute: true
+                    }
                 };
             }
 
             static get observers() {
                 return [
                     '_routePageChanged(routeData.page)',
+                    '_computeSelectedTab(page)'
                 ];
+            }
+
+            _computeSelectedTab(page) {
+                //return does not seem to work oO x/
+                switch (page) {
+                    case "home":
+                        this.selectedTab = 0;
+                        break;
+                    case "documentation":
+                        this.selectedTab = 1;
+                        break;
+                    case "download":
+                        this.selectedTab = 2;
+                        break;
+                    case "contacts":
+                        this.selectedTab = 3;
+                        break;
+                    default:
+                        this.selectedTab = 0;
+                }
             }
 
             connectedCallback() {
