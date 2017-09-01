@@ -42,6 +42,13 @@
                 margin: 10px 10px;
             }
 
+
+            ::-webkit-scrollbar {
+                width: 0px;
+                background: transparent; /* make scrollbar transparent */
+            }
+
+
             iron-selector a:hover {
                 text-decoration: none;
                 color: #fff;
@@ -51,6 +58,10 @@
             iron-selector a.iron-selected {
                 background-color: var(--button-active-background-color);
                 color: white;
+            }
+
+            app-drawer {
+                overflow-y: scroll;
             }
 
             app-drawer-layout:not([narrow]) [drawer-toggle] {
