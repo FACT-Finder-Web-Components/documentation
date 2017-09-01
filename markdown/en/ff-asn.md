@@ -1,7 +1,3 @@
-With the ff-record and `ff-record-list` element you can design a template for each record.
-You can access different record information such as name, price, rating etc... with the mustache-syntax `{{record.xxx}}`.
-The possible values a record can have are defined in the FF-backend and are the field names from the imported feed.
-
 # Using the After Search Navigation
 You can use the asn by just adding one line to your HTML code.
 ```html

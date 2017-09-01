@@ -33,13 +33,23 @@
             iron-selector a {
                 display: block;
                 text-align: center;
-                padding: 20px 0;
+                padding: 10px 0;
                 cursor: pointer;
-                font-size: 1.4rem;
+                font-size: 1.1rem;
+                background: rgba(20, 20, 20, 0.7);
+                margin: 4px 0;
+                color: #fff;
+                margin: 10px 10px;
+            }
+
+            iron-selector a:hover {
+                text-decoration: none;
+                color: #fff;
+                background-color: var(--button-active-background-color);
             }
 
             iron-selector a.iron-selected {
-                background-color: #1b4385;
+                background-color: var(--button-active-background-color);
                 color: white;
             }
 
@@ -85,8 +95,30 @@
                 <div class="panel-heading">
                     <h2 style="text-align: center">API-Reference</h2>
                 </div>
+
+                <div class="panel-heading">
+                    <h3 style="text-align: center">Basics</h3>
+                </div>
                 <iron-selector selected="{{fileName}}" attr-for-selected="name" class="drawer-list" role="navigation">
-                    <template is="dom-repeat" items="{{apiReferences}}">
+                    <template is="dom-repeat" items="{{basics}}">
+                        <a name="{{item.markdownFileName}}">{{item.title}}</a>
+                    </template>
+                </iron-selector>
+
+                <div class="panel-heading">
+                    <h3 style="text-align: center">Navigation</h3>
+                </div>
+                <iron-selector selected="{{fileName}}" attr-for-selected="name" class="drawer-list" role="navigation">
+                    <template is="dom-repeat" items="{{navigation}}">
+                        <a name="{{item.markdownFileName}}">{{item.title}}</a>
+                    </template>
+                </iron-selector>
+
+                <div class="panel-heading">
+                    <h3 style="text-align: center">More Features</h3>
+                </div>
+                <iron-selector selected="{{fileName}}" attr-for-selected="name" class="drawer-list" role="navigation">
+                    <template is="dom-repeat" items="{{navigation}}">
                         <a name="{{item.markdownFileName}}">{{item.title}}</a>
                     </template>
                 </iron-selector>
@@ -138,21 +170,25 @@
 
             connectedCallback() {
                 super.connectedCallback();
-                this.apiReferences = [
+                this.apiReferences = [];
+
+                this.basics = [{
+                    title: "Searchbox",
+                    markdownFileName: "ff-searchbox"
+                }, {
+                    title: "Record List",
+                    markdownFileName: "ff-record-list"
+                }, {
+                    title: "Suggest",
+                    markdownFileName: "ff-suggest"
+                }];
+
+                this.navigation = [
                     {
-                        title: "Searchbox",
-                        markdownFileName: "ff-searchbox"
-                    }, {
-                        title: "Record List",
-                        markdownFileName: "ff-record-list"
-                    }, {
-                        title: "Suggest",
-                        markdownFileName: "ff-suggest"
-                    }, {
                         title: "Breadcrumb",
                         markdownFileName: "ff-breadcrumb-trail"
                     }, {
-                        title: "Record List",
+                        title: "Facets (ASN)",
                         markdownFileName: "ff-asn"
                     }, {
                         title: "Navigation",
@@ -173,7 +209,7 @@
                         title: "Sortbox",
                         markdownFileName: "ff-sortbox"
                     }
-                ]
+                ];
             }
         }
 
