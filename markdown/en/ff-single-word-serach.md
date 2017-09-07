@@ -39,9 +39,6 @@ Define the `data-search="singleWord"` attribute to trigger a search for just tha
 
 # API Reference
 ## ff-single-word-search
-### Properties
-| Name | Description |
-| ---- | ----------- |
 
 ### Events
 | Name | Description |
