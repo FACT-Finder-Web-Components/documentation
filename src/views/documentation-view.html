@@ -107,8 +107,7 @@
         <app-route
                 route="{{route}}"
                 pattern="/:fileName"
-                data="{{routeData}}"
-                tail="{{subroute}}"></app-route>
+                data="{{routeData}}"></app-route>
 
         <app-drawer-layout narrow="{{narrow}}">
             <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
@@ -130,7 +129,8 @@
                 <div class="panel-heading">
                     <h3 style="text-align: left">Navigation</h3>
                 </div>
-                <iron-selector selected="{{routeData.fileName}}" attr-for-selected="name" class="drawer-list" role="navigation">
+                <iron-selector selected="{{routeData.fileName}}" attr-for-selected="name" class="drawer-list"
+                               role="navigation">
                     <template is="dom-repeat" items="{{navigation}}">
                         <a name="{{item.markdownFileName}}">{{item.title}}</a>
                     </template>
@@ -139,7 +139,8 @@
                 <div class="panel-heading">
                     <h3 style="text-align: left">More Features</h3>
                 </div>
-                <iron-selector selected="{{routeData.fileName}}" attr-for-selected="name" class="drawer-list" role="navigation">
+                <iron-selector selected="{{routeData.fileName}}" attr-for-selected="name" class="drawer-list"
+                               role="navigation">
                     <template is="dom-repeat" items="{{navigation}}">
                         <a name="{{item.markdownFileName}}">{{item.title}}</a>
                     </template>
@@ -213,30 +214,30 @@
                 }];
 
                 this.navigation = [{
-                        title: "Breadcrumb",
-                        markdownFileName: "ff-breadcrumb-trail"
-                    }, {
-                        title: "Facets (ASN)",
-                        markdownFileName: "ff-asn"
-                    }, {
-                        title: "Navigation",
-                        markdownFileName: "ff-navigation"
-                    }, {
-                        title: "Header Navigation",
-                        markdownFileName: "ff-header-navigation"
-                    }, {
-                        title: "Paging",
-                        markdownFileName: "ff-paging"
-                    }, {
-                        title: "Paging Dropdown",
-                        markdownFileName: "ff-paging-dropdown"
-                    }, {
-                        title: "Products Per Page",
-                        markdownFileName: "ff-products-per-page"
-                    }, {
-                        title: "Sortbox",
-                        markdownFileName: "ff-sortbox"
-                    }
+                    title: "Breadcrumb",
+                    markdownFileName: "ff-breadcrumb-trail"
+                }, {
+                    title: "Facets (ASN)",
+                    markdownFileName: "ff-asn"
+                }, {
+                    title: "Navigation",
+                    markdownFileName: "ff-navigation"
+                }, {
+                    title: "Header Navigation",
+                    markdownFileName: "ff-header-navigation"
+                }, {
+                    title: "Paging",
+                    markdownFileName: "ff-paging"
+                }, {
+                    title: "Paging Dropdown",
+                    markdownFileName: "ff-paging-dropdown"
+                }, {
+                    title: "Products Per Page",
+                    markdownFileName: "ff-products-per-page"
+                }, {
+                    title: "Sortbox",
+                    markdownFileName: "ff-sortbox"
+                }
                 ];
             }
         }

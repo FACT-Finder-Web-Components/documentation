@@ -151,7 +151,7 @@
                     <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
                         <paper-tabs selected="[[selectedTab]]" noink scrollable fit-container no-slide no-bar>
                             <paper-tab><a name="home" href="[[rootPath]]home">Home</a></paper-tab>
-                            <paper-tab><a name="documentation" href="[[rootPath]]documentation"
+                            <paper-tab><a name="documentation" href="[[rootPath]]documentation/ff-searchbox"
                                           target="">Documentation</a>
                             </paper-tab>
                             <paper-tab><a name="download" href="[[rootPath]]download">Download</a></paper-tab>
@@ -193,8 +193,6 @@
                     subroute: {
                         type: Object
                     },
-                    // This shouldn't be neccessary, but the Analyzer isn't picking up
-                    // Polymer.Element#rootPath
                     rootPath: String,
                     selectedTab: {
                         type: Number,
@@ -203,21 +201,19 @@
                 };
             }
 
+
+
             static get observers() {
                 return [
                     '_routePageChanged(routeData.page)',
                     '_computeSelectedTab(page)',
-                    '_subrouteChanged(subroute)'
+//                    '_subrouteChanged(subroute)'
                 ];
             }
 
-            _subrouteChanged(subroute) {
-                /**
-                 * Guess this could be done much better but app-route documentation isn't that helpful
-                 */
-                let split = this.route.path.split("/");
-                this.route.path = "/" + split[1] + subroute.path;
-            }
+//            _subrouteChanged(subroute) {
+//                console.log(subroute);
+//            }
 
             _computeSelectedTab(page) {
                 //return does not seem to work oO x/
