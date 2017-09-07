@@ -187,14 +187,12 @@
             }
 
             _subrouteChanged(subroute) {
-                //do it async when all anchor elements are rendered
+                //do it async after all anchor elements are rendered
                 setTimeout(() => {
                     let path = subroute.path.substring(1, subroute.path.length);
-                    let anchor = this.shadowRoot.querySelector('a[name="' + path + '"]');
+                    let anchor = this.shadowRoot.querySelector('a[name="' + path + '"]') || this.shadowRoot.querySelector('a[name="ff-searchbox"]');
                     if (anchor) {
                         anchor.click();
-                    } else {
-                        console.warn("no anchor for subroute " + path + " found");
                     }
                 });
             }
