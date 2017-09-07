@@ -5,6 +5,7 @@
 <link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
 <link rel="import" href="../../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
 <link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
 <link rel="import" href="../../bower_components/marked-element/marked-element.html">
 
 <script src="../../bower_components/highlightjs/highlight.pack.min.js"></script>
@@ -102,6 +103,13 @@
                 word-break: break-all;
             }
         </style>
+
+        <app-route
+                route="{{route}}"
+                pattern="/:fileName"
+                data="{{routeData}}"
+                tail="{{subroute}}"></app-route>
+
         <app-drawer-layout narrow="{{narrow}}">
             <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
                 <app-toolbar>Menu</app-toolbar>
@@ -112,7 +120,7 @@
                 <div class="panel-heading">
                     <h3 style="text-align: left">Basics</h3>
                 </div>
-                <iron-selector selected="{{fileName}}" on-selected-changed="_updateSubroute" attr-for-selected="name"
+                <iron-selector selected="{{routeData.fileName}}" attr-for-selected="name"
                                class="drawer-list" role="navigation">
                     <template is="dom-repeat" items="{{basics}}">
                         <a name="{{item.markdownFileName}}">{{item.title}}</a>
@@ -122,7 +130,7 @@
                 <div class="panel-heading">
                     <h3 style="text-align: left">Navigation</h3>
                 </div>
-                <iron-selector selected="{{fileName}}" attr-for-selected="name" class="drawer-list" role="navigation">
+                <iron-selector selected="{{routeData.fileName}}" attr-for-selected="name" class="drawer-list" role="navigation">
                     <template is="dom-repeat" items="{{navigation}}">
                         <a name="{{item.markdownFileName}}">{{item.title}}</a>
                     </template>
@@ -131,7 +139,7 @@
                 <div class="panel-heading">
                     <h3 style="text-align: left">More Features</h3>
                 </div>
-                <iron-selector selected="{{fileName}}" attr-for-selected="name" class="drawer-list" role="navigation">
+                <iron-selector selected="{{routeData.fileName}}" attr-for-selected="name" class="drawer-list" role="navigation">
                     <template is="dom-repeat" items="{{navigation}}">
                         <a name="{{item.markdownFileName}}">{{item.title}}</a>
                     </template>
@@ -161,40 +169,18 @@
                     },
                     markdownFile: {
                         type: String,
-                        computed: "_getFileLocation(fileName)"
+                        computed: "_getFileLocation(routeData.fileName)"
                     },
-                    subroute: {
+                    route: {
                         type: Object,
-                        observer: "_subrouteChanged",
-                        value: {
-                            path: "/ff-searchbox"
-                        },
-                        notify: true
+                        notify: true,
+                        observer: "_routeChanged"
+                    },
+                    routeData: {
+                        type: Object,
+                        observer: "_rDataChanged"
                     }
                 };
-            }
-
-            /**
-             * Guess this could be done much better but app-route documentation isn't that helpful
-             */
-            _updateSubroute(changed) {
-                let newRoute = changed.detail.value;
-                if (this.subroute !== newRoute) {
-                    this.subroute = {
-                        path: "/" + newRoute
-                    };
-                }
-            }
-
-            _subrouteChanged(subroute) {
-                //do it async after all anchor elements are rendered
-                setTimeout(() => {
-                    let path = subroute.path.substring(1, subroute.path.length);
-                    let anchor = this.shadowRoot.querySelector('a[name="' + path + '"]') || this.shadowRoot.querySelector('a[name="ff-searchbox"]');
-                    if (anchor) {
-                        anchor.click();
-                    }
-                });
             }
 
             _addHiglightJs(event) {
@@ -228,8 +214,7 @@
                     markdownFileName: "ff-suggest"
                 }];
 
-                this.navigation = [
-                    {
+                this.navigation = [{
                         title: "Breadcrumb",
                         markdownFileName: "ff-breadcrumb-trail"
                     }, {
