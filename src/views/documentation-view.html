@@ -30,6 +30,10 @@
                 background-color: #fff
             }
 
+            iframe {
+                width: 95%;
+            }
+
             app-drawer {
                 --app-drawer-content-container: {
                     background: #eee;
@@ -195,6 +199,10 @@
                         type: String,
                         computed: "_getFileLocation(routeData.fileName)"
                     },
+                    demoFilePath: {
+                        type: String,
+                        computed: "_getDemoFilePath(routeData.fileName)"
+                    },
                     route: {
                         type: Object,
                         notify: true
@@ -215,6 +223,10 @@
                 // Render the highlighted code with `hljs` class.
 //                event.detail.code = `<pre><code class="hljs ${language}">${highlighted}</code></pre>`;
                 event.detail.code = `${highlighted}`;
+            }
+
+            _getDemoFilePath(fileName) {
+                return "http://web-components.fact-finder.de/demos/1.2.2/" + fileName;
             }
 
             _getFileLocation(fileName) {
