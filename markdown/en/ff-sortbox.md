@@ -97,7 +97,7 @@ Example shown below:
 </style>
 ```
 
-# API Reference
+## API Reference
 ## ff-sortbox
 ### Properties
 | Name | Description |

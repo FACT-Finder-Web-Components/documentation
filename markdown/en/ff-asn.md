@@ -1,11 +1,11 @@
-# Using the After Search Navigation
+## Using the After Search Navigation
 You can use the asn by just adding one line to your HTML code.
 ```html
 <ff-asn></ff-asn>
 ```
 If you do so, the ASN will look pretty much like nothing. So let's style it.
 
-# Adding a filter group
+## Adding a filter group
 ```html
 <ff-asn>
     <ff-asn-group></ff-asn-group>
@@ -13,7 +13,7 @@ If you do so, the ASN will look pretty much like nothing. So let's style it.
 ```
 Adding a bare `ff-asn-group` does not change the styles but it lets us control how different kinds of `ff-asn-groups` should look.
 
-# Styling filter groups by [filter-style]
+## Styling filter groups by [filter-style]
 If you set the ``[filter-style]` attribute properly the `ff-asn-group` acts as default template for all groups, which match that filter style.
 ```html
 <ff-asn>
@@ -25,7 +25,7 @@ If you set the ``[filter-style]` attribute properly the `ff-asn-group` acts as d
 </ff-asn>
 ```
 
-# Styling slider groups
+## Styling slider groups
 The only exception is the ff-asn-group-slider. To style slider groups you need to use the ff-asn-group-slider element.
 
 ```html
@@ -62,7 +62,7 @@ The `ff-slider-control` can have two `input` elements annotated with the `[data-
 </ff-asn-group-slider>
 ```
 
-# Styling filter groups by [for-group]
+## Styling filter groups by [for-group]
 If you set the `[filter-style]` attribute properly the `ff-asn-group` acts as default template for all groups which match that filter style.
 ```html
 <ff-asn>
@@ -71,7 +71,7 @@ If you set the `[filter-style]` attribute properly the `ff-asn-group` acts as de
 </ff-asn>
 ```
 
-# Changing the group caption
+## Changing the group caption
 If you want to change the group caption you can annotate an HTML element with the `[data-container="groupCaption"]` attribute. By doing so you can change the style and appearance.
 ```html
 <ff-asn-group>
@@ -82,7 +82,7 @@ If you want to change the group caption you can annotate an HTML element with th
 ```
 **NOTE**: The group caption will always be displayed at the top of the ff-asn-group. No other elements are altered in any way.
 
-# Adding a Filter Element Template
+## Adding a Filter Element Template
 By annotating two different html elements with the `[data-selected]` and the `[data-unselected]` attribute you are telling the `ff-asn-group-element` which HTML template to use if the filter is selected or not.
 
 The position of the `ff-asn-group-element` inside the `ff-asn-group` does not matter. The element is removed from the dom and saved for later usage.
@@ -103,7 +103,7 @@ The position of the `ff-asn-group-element` inside the `ff-asn-group` does not ma
 ```
 The `{{data-binding}}` for the `ff-asn-group-element` allows accessing both scopes - the `{{element}}` scope and the `{{group}}` scope. This is especially important if you want to display the unit which is configured on the server side.
 
-# Adding filter elements
+## Adding filter elements
 A common After Search Navigation group consists of two basic parts. The detailedLinks and the hiddenLinks.
 The detailedLinks are the amount of filter items which should be displayed immediately when the group receives data.
 The hiddenLinks instead are the filter items which should stay hidden until they are needed. You can configure these numbers in the FACT-Finder backend.
@@ -137,15 +137,15 @@ If you are using both, the `[data-container="detailedLinks"]` and `[data-contain
 
 **NOTE**: You can change the animation duration by changing the CSS transition-duration property. Cause the elements themselves are transitioned we recommend adding padding and margin not the container elements themselves.
 
-# Remove all filter
+## Remove all filter
 Sometimes you want to reset the filter and go back to your search result for the query. For this case we have an extra element which you can place anywhere. This element will trigger a new search request with the current search query.
 
 The `ff-asn-remove-all-filter` element has a few properties:
 
-## show-always
+### show-always
 With the `show-always` property you can define if the element is only visible when some filters are set, or always. Default is 'false'
 
-## remove-params
+### remove-params
 The `remove-params` property defines whether the 'reset request' should only contain a search with the current search query or if the reset request should keep the current parameters like 'products-per-page' and 'sort' and only remove the parameters which starts with 'filter*'.
 
 ```html
@@ -154,7 +154,7 @@ The `remove-params` property defines whether the 'reset request' should only con
 </ff-asn-remove-all-filter>
 ```
 
-# API Reference
+## API Reference
 ## ff-asn
 ### Properties
 | Name | Description |

@@ -1,4 +1,4 @@
-# Bare BCT
+## Bare BCT
 
 By using a bare element, we tell the BCT to default everything. This means that the separator, which is displayed between the `ff-breadcrumb-trail-items`, defaults to < and the `ff-breadcrumb-trail-item` innerHTML defaults to the {{description}} data binding
 
@@ -6,7 +6,7 @@ By using a bare element, we tell the BCT to default everything. This means that 
 <ff-breadcrumb-trail></ff-breadcrumb-trail>
 ```
 
-# Changing the separator appearance
+## Changing the separator appearance
 
 By annotating an HTML element with the [data-separator] attribute we tell the `ff-breadcrumb-trail` to use this element as the separator template.
 
@@ -16,7 +16,7 @@ By annotating an HTML element with the [data-separator] attribute we tell the `f
 </ff-breadcrumb-trail>
 ```
 
-# Changing the item appearance
+## Changing the item appearance
 
 By annotating the `ff-breadcrumb-trail-item` with the [type] attribute you can use this item as default template for that specific BCT type.
 
@@ -53,7 +53,7 @@ By annotating the `ff-breadcrumb-trail-item` with the [type] attribute you can u
 </ff-breadcrumb-trail>
 ```
 
-# API Reference
+## API Reference
 ## `ff-breadcrumb-trail`
 ### Properties
 | Name | Description |

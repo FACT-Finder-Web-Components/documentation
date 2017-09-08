@@ -1,4 +1,4 @@
-# ff-searchbox properties for Suggest
+## ff-searchbox properties for Suggest
 
 The searchbox has 2 attributes which affect the `ff-suggest`:
 
@@ -17,7 +17,7 @@ The `ff-suggest` is triggered when at least 2 charakters are in the searchbox.
 
 For more information on the `ff-searchbox`, see [Searchbox Example](http://web-components.fact-finder.de/element-data/searchbox/searchbox-demo.html)
 
-# The basics
+## The basics
 
 The `ff-suggest` element respects only section child elements. The section elements are used for the built-in list/block layout.
 
@@ -32,7 +32,7 @@ The `ff-suggest` element respects only section child elements. The section eleme
 </ff-suggest>
 ```
 
-# Adding a Suggest container
+## Adding a Suggest container
 
 You need to annotate an element with the `data-container="suggestType"` attribute for each suggest type configured in the FACT-Finder backend.
 
@@ -58,7 +58,7 @@ Repeat this process for all configured suggest types.
 </ff-suggest>
 ```
 
-# Add Keyboard Support
+## Add Keyboard Support
 
 Keyboard arrow key support is enabled by default. You just need to specify the layout for the highlighted item.
 
@@ -70,7 +70,7 @@ Keyboard arrow key support is enabled by default. You just need to specify the l
 </style>
 ```
 
-# Changing the layout (block/list)
+## Changing the layout (block/list)
 
 With the "layout" attribute you can define a basic layout of the suggest items.
 
@@ -91,7 +91,7 @@ Setting the **list** (default) value results in a layout where all section child
 </ff-suggest>
 ```
 
-# Overriding default click action
+## Overriding default click action
 
 To override the action that happens on click/tap, you can use the "suggest-item-clicked" event.
 
@@ -122,7 +122,7 @@ See the following example:
 </script>
 ```
 
-# Capture record on suggest `productName` click and redirect to detail page
+## Capture record on suggest `productName` click and redirect to detail page
 
 Listen for the `suggest-product-record` event and capture the record of the clicked suggest item.
 
@@ -144,7 +144,7 @@ Take a look at the following example:
 </script>
 ```
 
-# API Reference
+## API Reference
 ## `ff-suggest`
 ### Properties
 | Name | Description |

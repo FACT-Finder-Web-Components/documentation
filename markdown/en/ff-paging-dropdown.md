@@ -37,7 +37,7 @@ The selected one will have a type attribute like `&lt;ff-paging-item type=&quot;
 </ff-paging-dropdown>
 ```
 
-# API Reference
+## API Reference
 ## ff-header-navigation
 
 ### Properties

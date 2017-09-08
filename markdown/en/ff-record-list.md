@@ -2,7 +2,7 @@ With the ff-record and `ff-record-list` element you can design a template for ea
 You can access different record information such as name, price, rating etc... with the mustache-syntax `{{record.xxx}}`.
 The possible values a record can have are defined in the FF-backend and are the field names from the imported feed.
 
-# Adding the image
+## Adding the image
 To display the image you can use the `[data-image]` attribute. Just add as attribute value the `{{data-binding}}` according to
 your data feed. In the example above the image url field is named ImageName.
 In Addition you can add an error image which is displayed if the data-image can't be loaded.
@@ -17,7 +17,7 @@ Add the error image by annotating the img tag with the `[data-image-onerror="url
 </ff-record-list>
 ```
 
-# Redirecting to product page
+## Redirecting to product page
 To redirect to your product you should always rely on the [data-redirect] attribute. You can specify the target with the [data-redirect-target] attribute with all html compliant target values `(_blank|_self|_parent|_top|framename)`
 **NOTE**: The `[data-redirect]` attribute combines the **redirect** and the **tracking** request.
 
@@ -33,7 +33,7 @@ To redirect to your product you should always rely on the [data-redirect] attrib
 </ff-record-list>
 ```
 
-# Adding links
+## Adding links
 If you want to add links to your product, use the `data-anchor` attribute instead of href.
 This attribute will set up the `href` attribute with the correct injected data from the record,
 when you use the mustache annotation to select fields from said record.
@@ -59,7 +59,7 @@ To use the normal href behavior add the `disable-overwrite` to the ff-record.
 </ff-record-list>
 ```
 
-# Adding tracking
+## Adding tracking
 To add tracking requests to your `ff-record` element you can use the `data-track` attribute.
 This might be useful if you don't want to redirect to a product detail page but track the user click anyway.
 
@@ -77,7 +77,7 @@ This might be useful if you don't want to redirect to a product detail page but 
 </ff-record-list>
 ```
 
-# Cart and checkout tracking
+## Cart and checkout tracking
 If you want to add cart and/or checkout tracking to your search result page you can enable the tracking functionality by add one or both of `[add-checkout-click]`, `[add-cart-click]` to the ff-record element.
 This will enable additional information for the data-track attribute. For checkout tracking you can add `[data-track="checkoutClick"]` or for cart tracking `[data-track="cartClick"]` to any ancestor.
 
@@ -116,7 +116,7 @@ If you want to read the count from the textContent property, you need to set the
 </ff-record-list>
 ```
 
-# Infinite Scrolling
+## Infinite Scrolling
 You can also make the `ff-record-list` load the next page automatically when the bottom of the record-list gets into view. Just add the attribute `[infinite-scrolling]` to the element.
 
 With the attribute `[infinite-debounce-delay]`, you can set a delay for when the page should be loaded after it hits the bottom (in milliseconds). This prevents the page from loading twice, or too fast.
@@ -141,7 +141,7 @@ We recommend using higher values for `[infinite-debounce-delay]` and `infinite-s
 </ff-record-list>
 ```
 
-# API Reference
+## API Reference
 ## ff-record-list
 ### Properties
 | Name | Description |

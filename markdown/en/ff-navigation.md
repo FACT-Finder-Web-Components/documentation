@@ -1,4 +1,4 @@
-# Using the Navigation
+## Using the Navigation
 
 To get a simple `ff-navigation` started, you only need to use the following code snippet.
 
@@ -29,11 +29,11 @@ In this `ff-navigation-item` you have access to the element's values. Such as `'
 </ff-navigation>
 ```
 
-# Templates
+## Templates
 
 You can also define 3 possible templates, which are used in different situations. To define these set the `'type'` propertie on the `ff-navigation-item`. A `ff-navigation-item` with no type is used as the **default** fallback template and has to be defined.
 
-## 'header'
+### 'header'
 
 The **header** template is used in your first level of the navigation. This allows you to style the Header differently than all following elements. You can define different Layouts inside the navigation element. For example, if you want to display the `'recordCounts'` inside a normal element, but not in the header:
 
@@ -85,7 +85,7 @@ Each `ff-navigation-item` has a `'cluster-level'` attribute, which indicates in 
 </ff-navigation>
 ```
 
-## 'parent'
+### 'parent'
 
 The **parent** template is used for each element, which has one or more sub-elements. The exception is the first level, where a 'header' template is used. For example, if you want an arrow to indicate that this element has more elements:
 
@@ -140,7 +140,7 @@ A second indicator that an element has sub-elements is the `'has-subelements'` a
 </ff-navigation>
 ```
 
-## 'layer'
+### 'layer'
 
 The **layer** template is used for a specific layer. More than one **layer** template can be defined. If a **parent** template is defined and matches, then that one has a higher priority than a **layer** template and is used instead. You can use a **layer** templates like this:
 
@@ -177,7 +177,7 @@ The **layer** template is used for a specific layer. More than one **layer** tem
 </ff-navigation>
 ```
 
-# Layouts
+## Layouts
 
 The `ff-navigation` can be used in two different layouts, **horizontal** and **vertical** (default). When using the navigation with the **vertical** layout, you should define a width for it.
 
@@ -198,7 +198,7 @@ In the **horizontal** layout, the 'level 0' or 'header' elements extend down. Al
 </ff-navigation>
 ```
 
-# Responsiveness
+## Responsiveness
 
 To make the `ff-navigation` responsive, you need to add more slots.
 
@@ -249,7 +249,7 @@ You also need a logic outside of the element, to define when it will switch to t
 </ff-navigation>
 ```
 
-## Touch vs hover
+### Touch vs hover
 
 There is no hover on mobile devices, so we need to adjust the behavior of the navigation.
 
@@ -259,7 +259,7 @@ To have be able to navigate to that 'parent' element, we need to add a seperate 
 
 The Element with the 'data-search' property will only be visible on elements which has sub-elements, and when the `ff-navigation` has the attribute 'mobile' set to true. A 'click' on that elements navigates the user to that category.
 
-# API Reference
+## API Reference
 ## `ff-navigation`
 ### Properties
 | Name | Description |

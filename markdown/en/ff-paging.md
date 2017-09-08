@@ -123,7 +123,7 @@ will always be visible.
 </ff-paging>
 ```
 
-# API Reference
+## API Reference
 ## ff-paging
 ### Properties
 | Name | Description |

@@ -38,7 +38,7 @@ You can also display a Products per Page handle like a list with the `ff-product
 <ff-products-per-page-list></ff-products-per-page-list>
 ```
 
-# API Reference
+## API Reference
 ## ff-products-per-page-dropdown
 
 ### Properties

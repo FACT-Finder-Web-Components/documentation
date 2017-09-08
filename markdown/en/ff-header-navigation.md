@@ -257,7 +257,7 @@ based and if you really want to, you can also modify that behavior with mixins:
 container-top,container-middle and container-bottom are in ` flex-direction: row` inside the --container.
 container-left,container-center and container-right ar in ` flex-direction: column` inside the --container-middle.
 
-# API Reference
+## API Reference
 ## ff-header-navigation
 
 ### Properties
