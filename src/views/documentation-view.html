@@ -6,6 +6,10 @@
 <link rel="import" href="../../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
 <link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../../bower_components/app-route/app-route.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html">
 <link rel="import" href="../../bower_components/marked-element/marked-element.html">
 
 <script src="../../bower_components/highlightjs/highlight.pack.min.js"></script>
@@ -18,8 +22,9 @@
             :host {
                 display: block;
                 padding: 0px 10px 10px 10px;
-                margin-top: -20px;
                 background-color: #eee;
+                font-family: "Open Sans", sans-serif !important;
+                font-size: 14px;
             }
 
             #demo {
@@ -27,7 +32,8 @@
                 max-width: 1024px;
                 margin-left: auto;
                 margin-right: auto;
-                background-color: #fff
+                background-color: #fff;
+                cursor: pointer;
             }
 
             iframe {
@@ -38,9 +44,6 @@
                 --app-drawer-content-container: {
                     background: #eee;
                 };
-                /*position: relative;*/
-                /*display: block;*/
-                /*overflow: inherit !important;*/
             }
 
             marked-element {
@@ -48,7 +51,6 @@
                 margin-left: auto;
                 margin-right: auto;
                 background-color: #fff;
-                margin-top: -20px;
                 padding-top: 10px;
             }
 
@@ -61,16 +63,16 @@
                 text-align: center;
                 padding: 10px 0;
                 cursor: pointer;
-                font-size: 1.1rem;
-                background: rgba(20, 20, 20, 0.7);
+                font-size: 16px;
+                background: #3c3c3b;
                 margin: 4px 0;
                 color: #fff;
                 margin: 10px 10px;
             }
 
             ::-webkit-scrollbar {
-                width: 0px;
-                background: transparent; /* make scrollbar transparent */
+                /*width: 0px;*/
+                /*background: transparent; !* make scrollbar transparent *!*/
             }
 
             iron-selector a:hover {
@@ -80,12 +82,13 @@
             }
 
             iron-selector a.iron-selected {
-                background-color: var(--button-active-background-color);
+                background-color: rgb(27, 67, 133);
+            /*var(--button-active-background-color);*/
                 color: white;
             }
 
             app-drawer {
-                overflow-y: scroll;
+                /*overflow-y: scroll;*/
             }
 
             app-drawer-layout:not([narrow]) [drawer-toggle] {
@@ -124,6 +127,19 @@
             app-drawer-layout marked-element table code {
                 display: inline;
                 word-break: break-all;
+            }
+
+            paper-tabs {
+                background-color: #3c3c3b;
+                max-width: 1024px;
+                margin-left: auto;
+                margin-right: auto;
+                --paper-tabs-selection-bar-color: lightblue;
+            }
+
+            paper-tab {
+                color: #fff;
+                --paper-tab-ink: #fff;
             }
         </style>
 
@@ -170,16 +186,29 @@
             </app-drawer>
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
 
-            <div id="demo">
-                <h2>Demo</h2>
-                <iframe src="[[demoFilePath]]" frameborder="0" height="800px"></iframe>
+            <paper-tabs selected="{{selectedTab}}" style="margin-top:30px">
+                <paper-tab>Documentation</paper-tab>
+                <paper-tab>Demo</paper-tab>
+                <paper-tab>Api</paper-tab>
+            </paper-tabs>
+
+            <div style="max-width: 1024px;margin-left: auto;margin-right: auto;background-color: rgb(27, 67, 133);font-size: 20px;color: white;text-align: center;padding: 10px 0px;text-transform: uppercase">
+                [[routeData.fileName]]
             </div>
 
-            <marked-element on-syntax-highlight="_addHiglightJs">
-                <div slot="markdown-html">
-                    <script type="text/markdown" src="{{markdownFile}}"></script>
+            <iron-pages selected="{{selectedTab}}" attr-for-selected="name">
+                <marked-element on-syntax-highlight="_addHiglightJs" name="0">
+                    <div slot="markdown-html">
+                        <script type="text/markdown" src="{{markdownFile}}"></script>
+                    </div>
+                </marked-element>
+
+                <div id="demo" name="1">
+                    <h2 style="border-bottom: 1px solid lightgray;margin-bottom: 10px;padding-bottom: 5px;">Demo</h2>
+                    <iframe src="[[demoFilePath]]" frameborder="0" height="800px"></iframe>
                 </div>
-            </marked-element>
+
+            </iron-pages>
         </app-drawer-layout>
     </template>
 
@@ -206,6 +235,10 @@
                     route: {
                         type: Object,
                         notify: true
+                    },
+                    selectedTab: {
+                        type: Number,
+                        value: 0
                     },
                     routeData: {
                         type: Object
