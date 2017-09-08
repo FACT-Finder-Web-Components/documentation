@@ -17,14 +17,35 @@
         <style include="shared-styles">
             :host {
                 display: block;
-                padding: 10px;
-                background-color: white;
+                padding: 0px 10px 10px 10px;
+                margin-top: -20px;
+                background-color: #eee;
+            }
+
+            #demo {
+                padding: 15px;
+                max-width: 1024px;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: #fff
+            }
+
+            app-drawer {
+                --app-drawer-content-container: {
+                    background: none;
+                };
+                position: relative;
+                display: block;
+                overflow: inherit !important;
             }
 
             marked-element {
                 max-width: 1024px;
                 margin-left: auto;
                 margin-right: auto;
+                background-color: #fff;
+                margin-top: -20px;
+                padding-top: 10px;
             }
 
             marked-element h1 {
@@ -120,7 +141,6 @@
 
         <app-drawer-layout narrow="{{narrow}}">
             <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
-                <app-toolbar>Menu</app-toolbar>
                 <div class="panel-heading">
                     <h2 style="text-align: left">API-Reference</h2>
                 </div>
@@ -157,7 +177,7 @@
             </app-drawer>
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
 
-            <div style="max-width: 1024px;margin-left: auto;margin-right: auto;">
+            <div id="demo">
                 <h2>Demo</h2>
                 <iframe src="[[demoFilePath]]" frameborder="0" height="800px"></iframe>
             </div>
