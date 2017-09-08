@@ -75,6 +75,10 @@
                 margin-bottom: 0;
             }
 
+            app-drawer-layout marked-element h1, h2, h3, h4 {
+                font-weight: bold;
+            }
+
             app-drawer-layout marked-element table tbody > tr:nth-child(1) > td:nth-child(1),
             app-drawer-layout marked-element table tbody > tr:nth-child(1) > td:nth-child(3) {
                 max-width: 30%;
@@ -99,6 +103,13 @@
             app-drawer-layout marked-element table code {
                 display: inline;
                 word-break: break-all;
+            }
+
+            iframe {
+                margin-left: auto;
+                margin-right: auto;
+                width: 85%;
+                display: block;
             }
         </style>
 
@@ -146,9 +157,13 @@
             </app-drawer>
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
 
+            <div style="max-width: 1024px;margin-left: auto;margin-right: auto;">
+                <h2>Demo</h2>
+                <iframe src="[[demoFilePath]]" frameborder="0" height="800px"></iframe>
+            </div>
             <marked-element on-syntax-highlight="_addHiglightJs">
                 <div slot="markdown-html">
-                    <script type="text/markdown" src="{{markdownFile}}"></script>
+                    <script type="text/markdown" src="[[markdownFile]]"></script>
                 </div>
             </marked-element>
         </app-drawer-layout>
@@ -170,6 +185,10 @@
                         type: String,
                         computed: "_getFileLocation(routeData.fileName)"
                     },
+                    demoFilePath: {
+                        type: String,
+                        computed: "_getDemoFilePath(routeData.fileName)"
+                    },
                     route: {
                         type: Object,
                         notify: true
@@ -179,6 +198,11 @@
                     }
                 };
             }
+
+            _getDemoFilePath(fileName) {
+                return "http://web-components.fact-finder.de/demos/1.2.2/" + fileName;
+            }
+
 
             _addHiglightJs(event) {
                 let code = event.detail.code;
@@ -251,7 +275,7 @@
                     markdownFileName: "ff-campaign-shopping-cart"
                 }, {
                     title: "Product Campaign",
-                    markdownFileName: "ff-campaign-produc"
+                    markdownFileName: "ff-campaign-product"
                 }, {
                     title: "Search Feedback",
                     markdownFileName: "ff-search-feedback"
