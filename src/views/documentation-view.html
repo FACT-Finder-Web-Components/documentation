@@ -140,6 +140,18 @@
                 margin-top: 18px;
                 border-bottom: 1px solid lightgray;
             }
+
+            #caption {
+                max-width: 1024px;
+                margin-left: auto;
+                margin-right: auto;
+                background-color: white;
+                font-size: 34px;
+                color: #000;
+                padding: 10px 0px;
+                text-transform: uppercase;
+                text-align: center;
+            }
         </style>
 
         <app-route
@@ -191,8 +203,8 @@
                 <paper-tab>Api</paper-tab>
             </paper-tabs>
 
-            <div style="max-width: 1024px;margin-left: auto;margin-right: auto;background-color: rgb(27, 67, 133);font-size: 20px;color: white;text-align: center;padding: 10px 0px;text-transform: uppercase">
-                [[routeData.fileName]]
+            <div id="caption">
+                <span style="border-bottom: 4px solid darkgray;">[[routeData.fileName]]</span>
             </div>
 
             <iron-pages selected="{{selectedTab}}" attr-for-selected="name">
