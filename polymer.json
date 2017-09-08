@@ -3,7 +3,8 @@
   "shell": "src/documentation-app.html",
   "fragments": [
     "src/views/documentation-view.html",
-    "src/views/downlaod-view.html",
+    "src/views/download-view.html",
+    "src/views/contacts-view.html",
     "src/views/home-view.html",
     "src/views/my-view404.html"
   ],
