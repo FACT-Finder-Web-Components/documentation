@@ -42,8 +42,12 @@
 
             app-drawer {
                 --app-drawer-content-container: {
-                    background: #eee;
+                    background: #fcfcff;
                 };
+
+                --app-drawer-width: 272px;
+
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
             }
 
             marked-element {
@@ -60,14 +64,11 @@
 
             iron-selector a {
                 display: block;
-                text-align: center;
-                padding: 10px 0;
+                padding: 10px 20px;
                 cursor: pointer;
-                font-size: 16px;
-                background: #3c3c3b;
+                font-size: 15px;
                 margin: 4px 0;
-                color: #fff;
-                margin: 10px 10px;
+                color: black;
             }
 
             ::-webkit-scrollbar {
@@ -75,16 +76,9 @@
                 /*background: transparent; !* make scrollbar transparent *!*/
             }
 
-            iron-selector a:hover {
-                text-decoration: none;
-                color: #fff;
-                background-color: var(--button-active-background-color);
-            }
-
             iron-selector a.iron-selected {
-                background-color: rgb(27, 67, 133);
-            /*var(--button-active-background-color);*/
-                color: white;
+                border-left: 6px solid rgb(27, 67, 133);
+                color: rgb(27, 67, 133);
             }
 
             app-drawer {
@@ -141,6 +135,11 @@
                 color: #fff;
                 --paper-tab-ink: #fff;
             }
+
+            .border {
+                margin-top: 18px;
+                border-bottom: 1px solid lightgray;
+            }
         </style>
 
         <app-route
@@ -163,7 +162,7 @@
                         <a name="{{item.markdownFileName}}">{{item.title}}</a>
                     </template>
                 </iron-selector>
-
+                <div class="border"></div>
                 <div class="panel-heading">
                     <h3 style="text-align: left">Navigation</h3>
                 </div>
@@ -173,7 +172,7 @@
                         <a name="{{item.markdownFileName}}">{{item.title}}</a>
                     </template>
                 </iron-selector>
-
+                <div class="border"></div>
                 <div class="panel-heading">
                     <h3 style="text-align: left">More Features</h3>
                 </div>
