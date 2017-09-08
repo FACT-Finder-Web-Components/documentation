@@ -1,4 +1,4 @@
-# Adding Feedback campaigns
+## Adding Feedback campaigns
 You can add `ff-campaign-feedbacktext` anywhere in the document. Just set the `[label]` attribute to an appropriate value. This value has to match a configured label value inside the FACT-Finder backend. The only necessary {{data-binding}} is the {{text}}.
 
 **NOTE**: If you are using **HTML feedacktexts** you need to use the **{{{triple mustache syntax}}}**
@@ -11,7 +11,7 @@ You can add `ff-campaign-feedbacktext` anywhere in the document. Just set the `[
 </ff-campaign-feedbacktext>
 ```
 
-# Adding Advisor campaigns
+## Adding Advisor campaigns
 To integrate Advisor campaigns properly, you need to use the `ff-campaign-advisor`, `ff-campaign-advisor-question` and `ff-campaign-advisor-answer` elements.
 
 The `ff-campaign-advisor-question` is copied for each answer configured in FACT-Finder. It is inserted at its current position on element load. 
@@ -38,7 +38,7 @@ You can use the `[not]` attribute to use the `ff-campaign-advisor-answer` elemen
 </ff-campaign-advisor>
 ```
 
-# Adding Redirect campaigns
+## Adding Redirect campaigns
 You should add the `ff-campaign-redirect` element directly after the body tag to ensure it is executed before any other elements. As soon as a configured Redirect campaign matches the criteria of the last request, this element will redirect to the destination URL of the matching campaign. Internally the element uses `document.location.replace`.
 
 ```html
@@ -54,7 +54,7 @@ You should add the `ff-campaign-redirect` element directly after the body tag to
 </html>
 ```
 
-# API Reference
+## API Reference
 ## ff-campaign-advisor
 ### Properties
 | Name | Description |

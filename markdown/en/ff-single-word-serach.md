@@ -1,4 +1,4 @@
-# Basics
+## Basics
 With the `ff-single-word-search` element, you can split a search into separate words. Each word and its search results are rendered in a `ff-single-word-search-record` element.
 
 This element has no additional attributes. In addition, this element is only shown when the search request has more than one word!
@@ -37,7 +37,7 @@ Define the `data-search="singleWord"` attribute to trigger a search for just tha
 </ff-single-word-search>
 ```
 
-# API Reference
+## API Reference
 ## ff-single-word-search
 
 ### Events

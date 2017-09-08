@@ -153,7 +153,7 @@ The information is added to the dispatched Records in the ff-record-list so that
 </ff-compare>
 ```
 
-# API Reference
+## API Reference
 ## ff-compare
 
 ### Properties

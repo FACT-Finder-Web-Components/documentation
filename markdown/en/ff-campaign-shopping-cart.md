@@ -1,4 +1,4 @@
-# Display Shopping Cart Campaigns
+## Display Shopping Cart Campaigns
 With the `ff-campaign-shopping-cart` you can retrieve shopping cart campaigns for a given set of record (product) ids. This element is meant to be used in conjunction with [`ff-campaign-pushed-products`](http://web-components.fact-finder.de/documentation/ff-campaign-pushed-products) and [`ff-campaign-feedbacktext`](http://web-components.fact-finder.de/documentation/ff-campaign-feedbacktext) and the `[is-shopping-cart-campaign]` attribute.
 
 ```html
@@ -17,7 +17,7 @@ With the `ff-campaign-shopping-cart` you can retrieve shopping cart campaigns fo
 </ff-campaign-pushed-products>
 ```
 
-# API Reference
+## API Reference
 ## ff-campaign-shopping-cart
 ### Properties
 | Name | Description |

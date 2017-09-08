@@ -1,4 +1,4 @@
-# Adding a Pushed Products campaign
+## Adding a Pushed Products campaign
 Adding a Pushed Products campaign is as simple as adding the products to your search result page. Just add a valid `ff-record-list` to the `ff-campaign-pushed-products` element. For more information on how to customize the product visualization please refer to the [ff-record-list](http://web-components.fact-finder.de/documentation/ff-record-list).
 
 ```html
@@ -20,7 +20,7 @@ Adding a Pushed Products campaign is as simple as adding the products to your se
 </ff-campaign-pushed-products>
 ```
 
-# Adding a (Product) Pushed Product campaign
+## Adding a (Product) Pushed Product campaign
 To make your `ff-campaign-pushed-products` react to product detail campaigns just add the `[is-product-campaign]` attribute.
 
 ```html
@@ -42,7 +42,7 @@ To make your `ff-campaign-pushed-products` react to product detail campaigns jus
 </ff-campaign-pushed-products>
 ```
 
-# API Reference
+## API Reference
 ## ff-campaign-pushed-products
 ### Properties
 | Name | Description |

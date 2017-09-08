@@ -124,7 +124,7 @@ dots and can be styled with mix-in's. As default it is turned of.
 * `--ff-carousel-bullet-button-hover`: The hover effect on a button.
 * `--ff-carousel-bullet-button-selected`: The selected bullet button.
 
-# API Reference
+## API Reference
 ## ff-carousel
 
 ### Properties

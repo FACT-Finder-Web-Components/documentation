@@ -139,7 +139,7 @@
                 </div>
                 <iron-selector selected="{{routeData.fileName}}" attr-for-selected="name" class="drawer-list"
                                role="navigation">
-                    <template is="dom-repeat" items="{{navigation}}">
+                    <template is="dom-repeat" items="{{moreFeatures}}">
                         <a name="{{item.markdownFileName}}">{{item.title}}</a>
                     </template>
                 </iron-selector>
@@ -235,8 +235,48 @@
                 }, {
                     title: "Sortbox",
                     markdownFileName: "ff-sortbox"
-                }
-                ];
+                }];
+
+                this.moreFeatures = [{
+                    title: "Campaign",
+                    markdownFileName: "ff-campaign"
+                }, {
+                    title: "Pushed Products",
+                    markdownFileName: "ff-campaign-pushed-products"
+                }, {
+                    title: "Landing Page Campaign",
+                    markdownFileName: "ff-campaign-landing-page"
+                }, {
+                    title: "Shopping Cart Campaign",
+                    markdownFileName: "ff-campaign-shopping-cart"
+                }, {
+                    title: "Product Campaign",
+                    markdownFileName: "ff-campaign-produc"
+                }, {
+                    title: "Search Feedback",
+                    markdownFileName: "ff-search-feedback"
+                }, {
+                    title: "Recommendation",
+                    markdownFileName: "ff-recommendation"
+                }, {
+                    title: "Compare",
+                    markdownFileName: "ff-compare"
+                }, {
+                    title: "Similar Products",
+                    markdownFileName: "ff-similar-products"
+                }, {
+                    title: "Single Word Search",
+                    markdownFileName: "ff-single-word-serach"
+                }, {
+                    title: "Carousel",
+                    markdownFileName: "ff-carousel"
+                }, {
+                    title: "Tag Cloud",
+                    markdownFileName: "ff-tag-cloud"
+                }, {
+                    title: "Template",
+                    markdownFileName: "ff-template"
+                }];
             }
         }
 

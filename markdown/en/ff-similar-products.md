@@ -1,4 +1,4 @@
-# Basics
+## Basics
 With the `ff-similar-products` element, you can display a record-list of products which are similar to another product.
  
 In this element, you should use a `ff-record-list` to let the `ff-similar-products` inject the records returned from the similar-products service.
@@ -23,8 +23,8 @@ In this element, you should use a `ff-record-list` to let the `ff-similar-produc
 </ff-similar-products>
 ```
 
-#Attributes
-##record-id
+## Attributes
+### record-id
 Set this to trigger a call to the similar-products service for that specific record.
 ```html
 <script>
@@ -39,7 +39,7 @@ Set this to trigger a call to the similar-products service for that specific rec
 </ff-similar-products>
 ```
 
-##max-results
+### max-results
 The max-results attribute defines, how many records should be loaded (defaults to 4).
 ```html
 <script>
@@ -49,7 +49,7 @@ The max-results attribute defines, how many records should be loaded (defaults t
 </script>
 ```
 
-# API Reference
+## API Reference
 ## ff-similar-products
 ### Properties
 | Name | Description |

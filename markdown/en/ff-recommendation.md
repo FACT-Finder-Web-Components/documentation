@@ -72,7 +72,7 @@ This will overwrite the settings from `ff-communication` for this `ff-recommenda
 ```
 
 
-# API Reference
+## API Reference
 ## ff-recommendation
 ### Properties
 | Name | Description |

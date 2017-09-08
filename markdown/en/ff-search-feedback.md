@@ -40,7 +40,7 @@ To send the feedback to FACT-Finder you need to include another HTMLElement with
 
 Last but not least, you have the option to add the attribute `[data-toggle]` to any HTMLElement, which should toggle the opened property of the `ff-search-feedback`
 
-# API Reference
+## API Reference
 ## ff-search-feedback
 
 ### Properties
