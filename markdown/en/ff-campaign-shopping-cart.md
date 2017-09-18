@@ -16,10 +16,3 @@ With the `ff-campaign-shopping-cart` you can retrieve shopping cart campaigns fo
     </ff-record-list>
 </ff-campaign-pushed-products>
 ```
-
-## API Reference
-## ff-campaign-shopping-cart
-### Properties
-| Name | Description |
-| ---- | ----------- |
-|**record-id**&nbsp;(String) (default: empty)| The value of the FACT-Finder field which you configured with the role **Product number (campaign)** |

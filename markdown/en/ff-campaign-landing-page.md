@@ -6,10 +6,3 @@ With the `ff-campaign-landing-page` you can display product campaigns on a custo
 ```
 
 The element triggers the campaign but doesn't display anything. Depending on the configured campaign, you need to add a `ff-campaign-feedbacktext` to display the feedback text and/or a `ff-campaign-pushed-products` to display pushed products. For more information, see: [Campaign](http://web-components.fact-finder.de/documentation/ff-campaign) and [Pushed Products](http://web-components.fact-finder.de/documentation/ff-campaign-pushed-products).
-
-## API Reference
-## ff-campaign-landing-page
-### Properties
-| Name | Description |
-| ---- | ----------- |
-|**page-id**&nbsp;(String) (default: empty)| Binds the campaign to a product campaign with the criterion **page-id** equals the defined pageID in the FACT-Finder backend. |
