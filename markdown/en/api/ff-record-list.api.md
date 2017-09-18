@@ -1,5 +1,5 @@
-## API Reference
-## ff-record-list
+## `ff-record-list`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
@@ -16,7 +16,8 @@
 | ---- | ----------- |
 | **dom-updated** |  This event is triggered when the element has received new data and the template for the element and all sub elements was punched out. |
 
-## ff-record
+## `ff-record`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |

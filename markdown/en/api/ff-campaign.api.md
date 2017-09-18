@@ -1,5 +1,5 @@
-## API Reference
-## ff-campaign-advisor
+## `ff-campaign-advisor`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
@@ -11,7 +11,8 @@
 | ---- | ----------- |
 |**dom-updated**| This event is triggered when the element has received new data and the template for the element and all sub elements was punched out. |
 
-## ff-campaign-advisor-answer
+## `ff-campaign-advisor-answer`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
@@ -22,13 +23,15 @@
 | ---- | ----------- |
 |**dom-updated**| This event is triggered when the element has received new data and the template for the element and all sub elements was punched out. |
 
-## ff-campaign-advisor-question
+## `ff-campaign-advisor-question`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
 |**question**&nbsp;(Object) (default: empty)| The required data from FACT-Finder. |
 
-## ff-campaign-feedbacktext
+## `ff-campaign-feedbacktext`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |

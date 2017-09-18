@@ -1,5 +1,5 @@
-# API Reference
-## ff-tag-cloud
+## `ff-tag-cloud`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
@@ -28,11 +28,5 @@
 | ---- | ----------- |
 |**--tag-cloud-container**| Mixin applied to the tag cloud wrapper container. <br /> Default: `display: flex;justify-content: space-around;flex-wrap: wrap;` |
 |**--tag-cloud-link**| Mixin applied to the tag cloud link. <br /> Default: `padding: 2px;` |
-
-## `ff-searchbutton`
-### Properties
-| Name | Description |
-| ---- | ----------- |
-|**align**&nbsp;(Boolean) **Options**: &nbsp;vertical, &nbsp;horizontal (default: vertical)| Die Ausrichtung des Search Buttons.|
 
 

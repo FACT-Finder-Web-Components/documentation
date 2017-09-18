@@ -1,5 +1,5 @@
-## API Reference
-## ff-similar-products
+## `ff-similar-products`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |

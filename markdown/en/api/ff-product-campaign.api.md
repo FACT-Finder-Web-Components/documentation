@@ -1,5 +1,5 @@
-# API Reference
-## ff-product-campaign
+## `ff-product-campaign`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |

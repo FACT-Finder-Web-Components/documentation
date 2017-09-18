@@ -1,6 +1,5 @@
-## API Reference
-## ff-search-feedback
-
+## `ff-search-feedback`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |

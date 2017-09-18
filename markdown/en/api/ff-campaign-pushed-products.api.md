@@ -1,5 +1,5 @@
-## API Reference
-## ff-campaign-pushed-products
+## `ff-campaign-pushed-products`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |

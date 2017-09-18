@@ -1,5 +1,5 @@
-## API Reference
-## ff-campaign-shopping-cart
+## `ff-campaign-shopping-cart`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |

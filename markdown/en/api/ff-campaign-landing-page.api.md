@@ -1,5 +1,5 @@
-## API Reference
-## ff-campaign-landing-page
+## `ff-campaign-landing-page`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |

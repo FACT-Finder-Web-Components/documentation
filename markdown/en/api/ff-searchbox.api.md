@@ -1,5 +1,5 @@
-## API Reference
-## ff-searchbox
+## `ff-searchbox`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
@@ -20,12 +20,14 @@
 |**search**| Initializes a search.|
 
 ## `ff-searchbutton`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
 |**align**&nbsp;(Boolean) **Options**: &nbsp;vertical, &nbsp;horizontal (default: vertical)| Die Ausrichtung des Search Buttons.|
 
 ## `ff-communication`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |

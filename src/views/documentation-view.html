@@ -21,20 +21,15 @@
         <style include="shared-styles">
             :host {
                 display: block;
-                padding: 0px 0px 0px 10px;
+                padding: 0 0 0 10px;
                 background-color: #eee;
                 font-family: "Open Sans", sans-serif !important;
                 font-size: 14px;
             }
 
-            h1, h2, h3, h4 {
-                margin-bottom: 0;
-            }
-
             /*
             *   Sidebar
             */
-
             app-drawer {
                 --app-drawer-content-container: {
                     background: #fcfcff;
@@ -83,20 +78,8 @@
                 font-weight: bold;
             }
 
-            /*
-            *   DEMO
-            */
-            #demo {
-                padding: 15px;
-                max-width: 1024px;
-                margin-left: auto;
-                margin-right: auto;
-                background-color: #fff;
-                cursor: pointer;
-            }
-
             iframe {
-                width: 95%;
+                width: 100%;
             }
 
             app-drawer-layout:not([narrow]) [drawer-toggle] {
@@ -150,7 +133,8 @@
                 color: #000;
                 text-align: center;
                 padding-top: 20px;
-                margin-top: 0px;
+                margin-top: 0;
+                margin-bottom: 0;
             }
 
         </style>
@@ -213,7 +197,14 @@
                     </div>
 
                     <!--API-->
-
+                    <div id="api" name="2">
+                        <!--<h2>{{markdownApiFile}}</h2>-->
+                        <marked-element on-syntax-highlight="_addHiglightJs" name="0">
+                            <div slot="markdown-html">
+                                <script type="text/markdown" src="{{markdownApiFile}}"></script>
+                            </div>
+                        </marked-element>
+                    </div>
                 </iron-pages>
             </div>
 
@@ -235,6 +226,10 @@
                     markdownFile: {
                         type: String,
                         computed: "_getFileLocation(routeData.fileName)"
+                    },
+                    markdownApiFile: {
+                        type: String,
+                        computed: "_getApiFileLocation(routeData.fileName)"
                     },
                     demoFilePath: {
                         type: String,
@@ -272,6 +267,10 @@
 
             _getFileLocation(fileName) {
                 return "markdown/en/" + fileName + ".md";
+            }
+
+            _getApiFileLocation(fileName) {
+                return "markdown/en/api/" + fileName + ".api.md";
             }
 
             connectedCallback() {

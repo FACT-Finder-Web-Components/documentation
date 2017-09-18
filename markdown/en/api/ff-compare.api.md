@@ -1,8 +1,6 @@
-## API Reference
-## ff-compare
-
+## `ff-compare`
+___
 ### Properties
-
 | Name | Description |
 | ---- | ----------- |
 |**record-id** (Array) |The record Id's of the products to compare.|

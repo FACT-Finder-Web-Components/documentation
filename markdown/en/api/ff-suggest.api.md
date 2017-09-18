@@ -1,5 +1,5 @@
-## API Reference
 ## `ff-suggest`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
@@ -20,6 +20,7 @@
 |**dom-updated**|This event is triggered when the element has received new data and the template for the element and all sub elements was punched out.|
 
 ## `ff-suggest-item`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |

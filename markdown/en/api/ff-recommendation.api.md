@@ -1,5 +1,5 @@
-## API Reference
-## ff-recommendation
+## `ff-recommendation`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
@@ -9,7 +9,6 @@
 |**subscribe** (String) **Options**: true, false (default:false)|  If this is set to `false` the element no longer listens to events and therefore does not receive new data. This is useful if you want to dispatch your own data to the element.|
 
 ### Methods
-
 | Name | Description |
 | ---- | ----------- |
 |**getRecommendations()**|Calls up the product recommendations again.|

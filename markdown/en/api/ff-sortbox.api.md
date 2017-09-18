@@ -1,5 +1,5 @@
-## API Reference
-## ff-sortbox
+## `ff-sortbox`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |

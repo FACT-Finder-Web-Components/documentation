@@ -1,6 +1,5 @@
-## API Reference
-## ff-products-per-page-dropdown
-
+## `ff-products-per-page-dropdown`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
@@ -25,14 +24,15 @@
 | ---- | ----------- |
 |**dom-updated**|  This event is triggered when the element has received new data and the template for the element and all sub elements was punched out.|
 
-## ff-products-per-page-list
+## `ff-products-per-page-list`
+___
 ### Events
 | Name | Description |
 | ---- | ----------- |
 |**dom-updated**|  This event is triggered when the element has received new data and the template for the element and all sub elements was punched out.|
 
-## ff-products-per-page-item
-
+## `ff-products-per-page-item`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |

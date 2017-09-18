@@ -1,5 +1,5 @@
-## API Reference
-## ff-asn
+## `ff-asn`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
@@ -10,7 +10,8 @@
 | ---- | ----------- |
 | **dom-updated** |  This event is triggered when the element has received new data and the template for the element and all sub elements was punched out. |
 
-## ff-asn-group
+## `ff-asn-group`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
@@ -41,7 +42,8 @@
 | **hideHiddenLinksContainer(animated?)** | Close the hiddenLink container. Parameter animated:boolean is optional. |
 | **toggleHiddenLinksContainer(animated?)** |Toggle the hiddenLink container. Parameter animated:boolean is optional. |
 
-## ff-asn-group-element
+## `ff-asn-group-element`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
@@ -54,7 +56,8 @@
 | ---- | ----------- |
 | **clone** | Enables cloning of elements with all properties, behaviors, private fields, staes and HTML templates. |
 
-## ff-slider
+## `ff-slider`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
@@ -76,7 +79,8 @@
 | ---- | ----------- |
 | **--slidebar-mixin** | Used to style the path the slider buttons will follow. |
 
-## ff-slider-control
+## `ff-slider-control`
+___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
