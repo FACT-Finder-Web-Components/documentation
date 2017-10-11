@@ -138,6 +138,9 @@
                 margin-bottom: 0;
             }
 
+            img {
+                width: 100%;
+            }
         </style>
 
         <app-route route="{{route}}" pattern="/:fileName" data="{{routeData}}" tail="subRoute"></app-route>
@@ -147,7 +150,8 @@
             <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
                 <div class="panel-menus">
 
-                    <iron-selector id="pageSelector" selected="{{routeData.fileName}}"
+                    <iron-selector id="pageSelector"
+                                   selected="{{routeData.fileName}}"
                                    attr-for-selected="name"
                                    class="drawer-list"
                                    role="navigation">
@@ -182,22 +186,24 @@
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
 
             <div id="center-content">
-                <h3>[[selectedItem.title]]</h3>
+                <h3>[[dokuTitle]]</h3>
 
-                <app-toolbar class="medium-tall">
-                    <paper-tabs selected="{{subRoute}}" attr-for-selected="name">
-                        <paper-tab name="/">Documentation</paper-tab>
-                        <paper-tab name="/demo">Demo</paper-tab>
-                        <paper-tab name="/api">Api</paper-tab>
-                    </paper-tabs>
-                </app-toolbar>
+                <template is="dom-if" if="[[showTabs]]">
+                    <app-toolbar class="medium-tall">
+                        <paper-tabs selected="{{subRoute}}" attr-for-selected="name">
+                            <paper-tab name="/">Documentation</paper-tab>
+                            <paper-tab name="/demo">Demo</paper-tab>
+                            <paper-tab name="/api">Api</paper-tab>
+                        </paper-tabs>
+                    </app-toolbar>
+                </template>
 
                 <iron-pages selected="{{subRoute}}" attr-for-selected="name">
 
                     <!--Documentation-->
                     <marked-element on-syntax-highlight="_addHiglightJs" name="/">
                         <div slot="markdown-html">
-                            <script type="text/markdown" src="{{selectedItem.file}}"></script>
+                            <script type="text/markdown" src="{{filePath}}"></script>
                         </div>
                     </marked-element>
 
@@ -205,17 +211,17 @@
                     <div id="demo" name="/demo">
                         <!--TODO: add link to github source code here, icon, move right-->
                         <a href="">Source code on Github</a>
-                        <iframe src="[[selectedItem.demo]]" frameborder="0" height="800px"></iframe>
+                        <iframe src="[[demoPath]]" frameborder="0" height="800px"></iframe>
                     </div>
 
                     <!--API-->
-                    <div id="api" name="/api">
-                        <marked-element on-syntax-highlight="_addHiglightJs" name="0">
-                            <div slot="markdown-html">
-                                <script type="text/markdown" src="{{selectedItem.api}}"></script>
-                            </div>
-                        </marked-element>
-                    </div>
+                    <marked-element id="api_markdown"
+                                    name="/api"
+                                    on-syntax-highlight="_addHiglightJs">
+                        <div slot="markdown-html">
+                            <script type="text/markdown" src="{{apiPath}}"></script>
+                        </div>
+                    </marked-element>
                 </iron-pages>
             </div>
 
@@ -239,8 +245,6 @@
 
             static get observers() {
                 return [
-                    "changeRoute(route)",
-                    "changeSubRoute(subRoute)",
                     "changeRouteData(routeData)",
                     "fileNameChanged(fileName)"
                 ]
@@ -261,36 +265,42 @@
                 event.detail.code = `${highlighted}`;
             }
 
-            changeRoute(route) {
-                console.log("dokumentation.view.changeRoute", route, route.path);
-            }
-
-            changeRouteData(data) {
-                console.log("routeData changed", data);
-//                this.fileName = data.fileName;
-            }
-
             connectedCallback() {
                 super.connectedCallback();
                 this.$.pageSelector.addEventListener("selected-changed", function (event) {
                     this.fileName = event.detail.value;
                     this.subRoute = "/";
                 }.bind(this));
+                this.$.api_markdown.addEventListener("xhr-changed", e => this.onApiXhrChanged(e));
+
                 this.init();
-                console.log("connectedCallback.routeData", this.routeData);
                 this.fileName = this.routeData.fileName;
             }
 
-            fileNameChanged(fileName) {
-                console.log("fileNameChanged", fileName);
-                if (this.doku) {
-                    this.selectedItem = this.doku[fileName];
-                }
-                this.subRoute = "/";
+            onApiXhrChanged(event) {
+                event.detail.value.onload = function (result) {
+                    this.showTabs = (result.target.status == 200);
+                }.bind(this);
             }
 
-            changeSubRoute(subRoute) {
-                console.log("changeSubRoute", subRoute);
+            changeRouteData(data) {
+                this.fileName = data.fileName;
+            }
+
+            fileNameChanged(fileName) {
+                this.filePath = "markdown/" + this.language + "/" + fileName + ".md";
+                this.demoPath = "http://web-components.fact-finder.de/demos/1.2.2/" + fileName;
+                this.apiPath = "markdown/" + this.language + "/api/" + fileName + ".api.md";
+
+                if (this.doku) {
+                    this.dokuTitle = this.doku[fileName].title;
+                } else {
+                    //set Title delayed, because doku info array is only initialized on connectedCallback
+                    setTimeout(function () {
+                        this.dokuTitle = this.doku[fileName].title;
+                    }.bind(this), 100)
+                }
+                this.subRoute = "/";
             }
 
             /**
@@ -301,44 +311,30 @@
                     "overview-get-started": {//key
                         path: "overview-get-started",
                         title: "Get started",
-                        noDemo: true,
-                        noApi: true
                     },
                     "overview-styling-elements": {
                         path: "overview-styling-elements",
                         title: "Styling Elements",
-                        noDemo: true,
-                        noApi: true
                     },
                     "overview-communication": {
                         path: "overview-communication",
                         title: "Communication",
-                        noDemo: true,
-                        noApi: true
                     },
                     "overview-template-engine": {
                         path: "overview-template-engine",
                         title: "Template Engine",
-                        noDemo: true,
-                        noApi: true
                     },
                     "overview-utils": {
                         path: "overview-utils",
                         title: "Utils",
-                        noDemo: true,
-                        noApi: true
                     },
                     "core-result-dispatcher": {
                         path: "core-result-dispatcher",
                         title: "ResultDispatcher",
-                        noDemo: true,
-                        noApi: true
                     },
                     "core-event-aggregator": {
                         path: "core-event-aggregator",
                         title: "EventAggregator",
-                        noDemo: true,
-                        noApi: true
                     },
                     "ff-searchbox": {
                         path: "ff-searchbox",
@@ -439,11 +435,11 @@
                     }
                 };
 
-                for (var key in this.doku) {
-                    if (this.doku.hasOwnProperty(key)) {
-                        this.updateItem(this.doku[key]);
-                    }
-                }
+//                for (var key in this.doku) {
+//                    if (this.doku.hasOwnProperty(key)) {
+//                        this.updateItem(this.doku[key]);
+//                    }
+//                }
 
                 //sidebar data
                 this.overview = [];
@@ -488,15 +484,6 @@
                 this.moreFeatures.push(this.doku["ff-template"]);
             }
 
-            /**
-             * This will update the items according to their language.
-             * @param item
-             */
-            updateItem(item) {
-                item.file = "markdown/" + this.language + "/" + item.path + ".md";
-                item.api = item.noApi ? "" : "markdown/" + this.language + "/api/" + item.path + ".md";
-                item.demo = item.noDemo ? "" : "http://web-components.fact-finder.de/demos/1.2.2/" + item.path;
-            }
         }
 
         window.customElements.define(DocumentationView.is, DocumentationView);
