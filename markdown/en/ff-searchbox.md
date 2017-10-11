@@ -15,7 +15,7 @@ For more information, see the [API reference](http://web-components.fact-finder.
 ```
 
 ## Extending the input
-The `ff-searchbox extends` a normal input field with the attribute `is="ff-searchbox"`. Simply add the attribute `is="ff-searchbox"` to a standard `input` element.
+The `ff-searchbox` extends a normal input field with the attribute `is="ff-searchbox"`. Simply add the attribute `is="ff-searchbox"` to a standard `input` element.
 On ENTER a search event is fired with the current value.
 ```html
 <input is="ff-searchbox" />

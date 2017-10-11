@@ -1,4 +1,3 @@
-# Web Components Utils</h1>
 ## Motivation
 You might want a little bit more controll of the dataflow for different reasons:
 

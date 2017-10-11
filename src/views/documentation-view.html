@@ -48,9 +48,10 @@
                 height: 100%;
             }
 
-            .panel-menus > h3 {
+            .panel-menus h3 {
                 border-bottom: 1px solid lightgray;
                 padding: 5px 10px;
+                text-align: left;
             }
 
             .panel-menus > iron-selector a {
@@ -139,32 +140,41 @@
 
         </style>
 
-        <app-route route="{{route}}" pattern="/:fileName" data="{{routeData}}"></app-route>
+        <app-route route="{{route}}" pattern="/:fileName" data="{{routeData}}" tail="subRoute"></app-route>
+        <app-route route="{{subRoute}}" pattern="/:tab" data="{{subRouteData}}"></app-route>
 
         <app-drawer-layout narrow="{{narrow}}">
             <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
                 <div class="panel-menus">
-                    <h3 style="text-align: left">Basics</h3>
-                    <iron-selector selected="{{routeData.fileName}}" attr-for-selected="name"
-                                   class="drawer-list" role="navigation">
+
+                    <iron-selector id="pageSelector" selected="{{routeData.fileName}}"
+                                   attr-for-selected="name"
+                                   class="drawer-list"
+                                   role="navigation">
+
+                        <h3>Overview</h3>
+                        <template is="dom-repeat" items="{{overview}}">
+                            <a name="{{item.path}}">{{item.title}}</a>
+                        </template>
+
+                        <h3>Core API</h3>
+                        <template is="dom-repeat" items="{{core}}">
+                            <a name="{{item.path}}">{{item.title}}</a>
+                        </template>
+
+                        <h3>Basic Elements</h3>
                         <template is="dom-repeat" items="{{basics}}">
-                            <a name="{{item.markdownFileName}}">{{item.title}}</a>
+                            <a name="{{item.path}}">{{item.title}}</a>
                         </template>
-                    </iron-selector>
 
-                    <h3 style="text-align: left">Navigation</h3>
-                    <iron-selector selected="{{routeData.fileName}}" attr-for-selected="name" class="drawer-list"
-                                   role="navigation">
+                        <h3>Navigation</h3>
                         <template is="dom-repeat" items="{{navigation}}">
-                            <a name="{{item.markdownFileName}}">{{item.title}}</a>
+                            <a name="{{item.path}}">{{item.title}}</a>
                         </template>
-                    </iron-selector>
 
-                    <h3 style="text-align: left">More Features</h3>
-                    <iron-selector selected="{{routeData.fileName}}" attr-for-selected="name" class="drawer-list"
-                                   role="navigation">
+                        <h3>More Features</h3>
                         <template is="dom-repeat" items="{{moreFeatures}}">
-                            <a name="{{item.markdownFileName}}">{{item.title}}</a>
+                            <a name="{{item.path}}">{{item.title}}</a>
                         </template>
                     </iron-selector>
                 </div>
@@ -172,36 +182,37 @@
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
 
             <div id="center-content">
-                <h3>[[routeData.fileName]]</h3>
-                <app-toolbar sticky class="medium-tall">
-                    <paper-tabs selected="{{selectedTab}}">
-                        <paper-tab>Documentation</paper-tab>
-                        <paper-tab>Demo</paper-tab>
-                        <paper-tab>Api</paper-tab>
+                <h3>[[selectedItem.title]]</h3>
+
+                <app-toolbar class="medium-tall">
+                    <paper-tabs selected="{{subRoute}}" attr-for-selected="name">
+                        <paper-tab name="/">Documentation</paper-tab>
+                        <paper-tab name="/demo">Demo</paper-tab>
+                        <paper-tab name="/api">Api</paper-tab>
                     </paper-tabs>
                 </app-toolbar>
 
-                <iron-pages selected="{{selectedTab}}" attr-for-selected="name">
+                <iron-pages selected="{{subRoute}}" attr-for-selected="name">
 
-                    <!--Dokumentation-->
-                    <marked-element on-syntax-highlight="_addHiglightJs" name="0">
+                    <!--Documentation-->
+                    <marked-element on-syntax-highlight="_addHiglightJs" name="/">
                         <div slot="markdown-html">
-                            <script type="text/markdown" src="{{markdownFile}}"></script>
+                            <script type="text/markdown" src="{{selectedItem.file}}"></script>
                         </div>
                     </marked-element>
 
                     <!--Demo-->
-                    <div id="demo" name="1">
-                        <!--<h2 style="border-bottom: 1px solid lightgray;margin-bottom: 10px;padding-bottom: 5px;">Demo</h2>-->
-                        <iframe src="[[demoFilePath]]" frameborder="0" height="800px"></iframe>
+                    <div id="demo" name="/demo">
+                        <!--TODO: add link to github source code here, icon, move right-->
+                        <a href="">Source code on Github</a>
+                        <iframe src="[[selectedItem.demo]]" frameborder="0" height="800px"></iframe>
                     </div>
 
                     <!--API-->
-                    <div id="api" name="2">
-                        <!--<h2>{{markdownApiFile}}</h2>-->
+                    <div id="api" name="/api">
                         <marked-element on-syntax-highlight="_addHiglightJs" name="0">
                             <div slot="markdown-html">
-                                <script type="text/markdown" src="{{markdownApiFile}}"></script>
+                                <script type="text/markdown" src="{{selectedItem.api}}"></script>
                             </div>
                         </marked-element>
                     </div>
@@ -219,36 +230,25 @@
 
             static get properties() {
                 return {
-                    fileName: {
+                    language: {
                         type: String,
-                        reflectToAttribute: true
-                    },
-                    markdownFile: {
-                        type: String,
-                        computed: "_getFileLocation(routeData.fileName)"
-                    },
-                    markdownApiFile: {
-                        type: String,
-                        computed: "_getApiFileLocation(routeData.fileName)"
-                    },
-                    demoFilePath: {
-                        type: String,
-                        computed: "_getDemoFilePath(routeData.fileName)"
-                    },
-                    route: {
-                        type: Object,
-                        notify: true
-                    },
-                    selectedTab: {
-                        type: Number,
-                        value: 0
-                    },
-                    routeData: {
-                        type: Object
+                        value: "en"
                     }
                 };
             }
 
+            static get observers() {
+                return [
+                    "changeRoute(route)",
+                    "changeSubRoute(subRoute)",
+                    "changeRouteData(routeData)",
+                    "fileNameChanged(fileName)"
+                ]
+            }
+
+            /**
+             * Used in the markdown for syntax highlighting.
+             */
             _addHiglightJs(event) {
                 let code = event.detail.code;
                 let language = event.detail.lang;
@@ -261,99 +261,241 @@
                 event.detail.code = `${highlighted}`;
             }
 
-            _getDemoFilePath(fileName) {
-                return "http://web-components.fact-finder.de/demos/1.2.2/" + fileName;
+            changeRoute(route) {
+                console.log("dokumentation.view.changeRoute", route, route.path);
             }
 
-            _getFileLocation(fileName) {
-                return "markdown/en/" + fileName + ".md";
-            }
-
-            _getApiFileLocation(fileName) {
-                return "markdown/en/api/" + fileName + ".api.md";
+            changeRouteData(data) {
+                console.log("routeData changed", data);
+//                this.fileName = data.fileName;
             }
 
             connectedCallback() {
                 super.connectedCallback();
-                this.apiReferences = [];
+                this.$.pageSelector.addEventListener("selected-changed", function (event) {
+                    this.fileName = event.detail.value;
+                    this.subRoute = "/";
+                }.bind(this));
+                this.init();
+                console.log("connectedCallback.routeData", this.routeData);
+                this.fileName = this.routeData.fileName;
+            }
 
-                this.basics = [{
-                    title: "Searchbox",
-                    markdownFileName: "ff-searchbox"
-                }, {
-                    title: "Record List",
-                    markdownFileName: "ff-record-list"
-                }, {
-                    title: "Suggest",
-                    markdownFileName: "ff-suggest"
-                }];
+            fileNameChanged(fileName) {
+                console.log("fileNameChanged", fileName);
+                if (this.doku) {
+                    this.selectedItem = this.doku[fileName];
+                }
+                this.subRoute = "/";
+            }
 
-                this.navigation = [{
-                    title: "Breadcrumb",
-                    markdownFileName: "ff-breadcrumb-trail"
-                }, {
-                    title: "Facets (ASN)",
-                    markdownFileName: "ff-asn"
-                }, {
-                    title: "Navigation",
-                    markdownFileName: "ff-navigation"
-                }, {
-                    title: "Header Navigation",
-                    markdownFileName: "ff-header-navigation"
-                }, {
-                    title: "Paging",
-                    markdownFileName: "ff-paging"
-                }, {
-                    title: "Paging Dropdown",
-                    markdownFileName: "ff-paging-dropdown"
-                }, {
-                    title: "Products Per Page",
-                    markdownFileName: "ff-products-per-page"
-                }, {
-                    title: "Sortbox",
-                    markdownFileName: "ff-sortbox"
-                }];
+            changeSubRoute(subRoute) {
+                console.log("changeSubRoute", subRoute);
+            }
 
-                this.moreFeatures = [{
-                    title: "Campaign",
-                    markdownFileName: "ff-campaign"
-                }, {
-                    title: "Pushed Products",
-                    markdownFileName: "ff-campaign-pushed-products"
-                }, {
-                    title: "Landing Page Campaign",
-                    markdownFileName: "ff-campaign-landing-page"
-                }, {
-                    title: "Shopping Cart Campaign",
-                    markdownFileName: "ff-campaign-shopping-cart"
-                }, {
-                    title: "Product Campaign",
-                    markdownFileName: "ff-campaign-produc"
-                }, {
-                    title: "Search Feedback",
-                    markdownFileName: "ff-search-feedback"
-                }, {
-                    title: "Recommendation",
-                    markdownFileName: "ff-recommendation"
-                }, {
-                    title: "Compare",
-                    markdownFileName: "ff-compare"
-                }, {
-                    title: "Similar Products",
-                    markdownFileName: "ff-similar-products"
-                }, {
-                    title: "Single Word Search",
-                    markdownFileName: "ff-single-word-serach"
-                }, {
-                    title: "Carousel",
-                    markdownFileName: "ff-carousel"
-                }, {
-                    title: "Tag Cloud",
-                    markdownFileName: "ff-tag-cloud"
-                }, {
-                    title: "Template",
-                    markdownFileName: "ff-template"
-                }];
+            /**
+             * This will init the doku object with all page data for documentation, demo and api.
+             */
+            init() {
+                this.doku = {
+                    "overview-get-started": {//key
+                        path: "overview-get-started",
+                        title: "Get started",
+                        noDemo: true,
+                        noApi: true
+                    },
+                    "overview-styling-elements": {
+                        path: "overview-styling-elements",
+                        title: "Styling Elements",
+                        noDemo: true,
+                        noApi: true
+                    },
+                    "overview-communication": {
+                        path: "overview-communication",
+                        title: "Communication",
+                        noDemo: true,
+                        noApi: true
+                    },
+                    "overview-template-engine": {
+                        path: "overview-template-engine",
+                        title: "Template Engine",
+                        noDemo: true,
+                        noApi: true
+                    },
+                    "overview-utils": {
+                        path: "overview-utils",
+                        title: "Utils",
+                        noDemo: true,
+                        noApi: true
+                    },
+                    "core-result-dispatcher": {
+                        path: "core-result-dispatcher",
+                        title: "ResultDispatcher",
+                        noDemo: true,
+                        noApi: true
+                    },
+                    "core-event-aggregator": {
+                        path: "core-event-aggregator",
+                        title: "EventAggregator",
+                        noDemo: true,
+                        noApi: true
+                    },
+                    "ff-searchbox": {
+                        path: "ff-searchbox",
+                        title: "Searchbox",
+                    },
+                    "ff-record-list": {
+                        path: "ff-record-list",
+                        title: "Record List",
+                    },
+                    "ff-suggest": {
+                        path: "ff-suggest",
+                        title: "Suggest",
+                    },
+                    "ff-breadcrumb-trail": {
+                        path: "ff-breadcrumb-trail",
+                        title: "Breadcrumb",
+                    },
+                    "ff-asn": {
+                        title: "Facets (ASN)",
+                        path: "ff-asn"
+                    },
+                    "ff-navigation": {
+                        title: "Navigation",
+                        path: "ff-navigation"
+                    },
+                    "ff-header-navigation": {
+                        title: "Header Navigation",
+                        path: "ff-header-navigation"
+                    },
+                    "ff-paging": {
+                        title: "Paging",
+                        path: "ff-paging"
+                    },
+                    "ff-paging-dropdown": {
+                        title: "Paging Dropdown",
+                        path: "ff-paging-dropdown"
+                    },
+                    "ff-products-per-page": {
+                        title: "Products Per Page",
+                        path: "ff-products-per-page"
+                    },
+                    "ff-sortbox": {
+                        title: "Sortbox",
+                        path: "ff-sortbox"
+                    },
+                    "ff-campaign": {
+                        title: "Campaign",
+                        path: "ff-campaign"
+                    },
+                    "ff-campaign-pushed-products": {
+                        title: "Pushed Products",
+                        path: "ff-campaign-pushed-products"
+                    },
+                    "ff-campaign-landing-page": {
+                        title: "Landing Page Campaign",
+                        path: "ff-campaign-landing-page"
+                    },
+                    "ff-campaign-shopping-cart": {
+                        title: "Shopping Cart Campaign",
+                        path: "ff-campaign-shopping-cart"
+                    },
+                    "ff-product-campaign": {
+                        title: "Product Campaign",
+                        path: "ff-product-campaign"
+                    },
+                    "ff-search-feedback": {
+                        title: "Search Feedback",
+                        path: "ff-search-feedback"
+                    },
+                    "ff-recommendation": {
+                        title: "Recommendation",
+                        path: "ff-recommendation"
+                    },
+                    "ff-compare": {
+                        title: "Compare",
+                        path: "ff-compare"
+                    },
+                    "ff-similar-products": {
+                        title: "Similar Products",
+                        path: "ff-similar-products"
+                    },
+                    "ff-single-word-search": {
+                        title: "Single Word Search",
+                        path: "ff-single-word-search"
+                    },
+                    "ff-carousel": {
+                        title: "Carousel",
+                        path: "ff-carousel"
+                    },
+                    "ff-tag-cloud": {
+                        title: "Tag Cloud",
+                        path: "ff-tag-cloud"
+                    },
+                    "ff-template": {
+                        title: "Template",
+                        path: "ff-template",
+                        noApi: true
+                    }
+                };
+
+                for (var key in this.doku) {
+                    if (this.doku.hasOwnProperty(key)) {
+                        this.updateItem(this.doku[key]);
+                    }
+                }
+
+                //sidebar data
+                this.overview = [];
+                this.overview.push(this.doku["overview-get-started"]);
+                this.overview.push(this.doku["overview-styling-elements"]);
+                this.overview.push(this.doku["overview-communication"]);
+                this.overview.push(this.doku["overview-template-engine"]);
+                this.overview.push(this.doku["overview-utils"]);
+
+                this.core = [];
+                this.core.push(this.doku["core-result-dispatcher"]);
+                this.core.push(this.doku["core-event-aggregator"]);
+
+                this.basics = [];
+                this.basics.push(this.doku["ff-searchbox"]);
+                this.basics.push(this.doku["ff-record-list"]);
+                this.basics.push(this.doku["ff-suggest"]);
+
+                this.navigation = [];
+                this.navigation.push(this.doku["ff-breadcrumb-trail"]);
+                this.navigation.push(this.doku["ff-asn"]);
+                this.navigation.push(this.doku["ff-navigation"]);
+                this.navigation.push(this.doku["ff-header-navigation"]);
+                this.navigation.push(this.doku["ff-paging"]);
+                this.navigation.push(this.doku["ff-paging-dropdown"]);
+                this.navigation.push(this.doku["ff-products-per-page"]);
+                this.navigation.push(this.doku["ff-sortbox"]);
+
+                this.moreFeatures = [];
+                this.moreFeatures.push(this.doku["ff-campaign"]);
+                this.moreFeatures.push(this.doku["ff-campaign-pushed-products"]);
+                this.moreFeatures.push(this.doku["ff-campaign-landing-page"]);
+                this.moreFeatures.push(this.doku["ff-campaign-shopping-cart"]);
+                this.moreFeatures.push(this.doku["ff-product-campaign"]);
+                this.moreFeatures.push(this.doku["ff-search-feedback"]);
+                this.moreFeatures.push(this.doku["ff-recommendation"]);
+                this.moreFeatures.push(this.doku["ff-compare"]);
+                this.moreFeatures.push(this.doku["ff-similar-products"]);
+                this.moreFeatures.push(this.doku["ff-single-word-search"]);
+                this.moreFeatures.push(this.doku["ff-carousel"]);
+                this.moreFeatures.push(this.doku["ff-tag-cloud"]);
+                this.moreFeatures.push(this.doku["ff-template"]);
+            }
+
+            /**
+             * This will update the items according to their language.
+             * @param item
+             */
+            updateItem(item) {
+                item.file = "markdown/" + this.language + "/" + item.path + ".md";
+                item.api = item.noApi ? "" : "markdown/" + this.language + "/api/" + item.path + ".md";
+                item.demo = item.noDemo ? "" : "http://web-components.fact-finder.de/demos/1.2.2/" + item.path;
             }
         }
 

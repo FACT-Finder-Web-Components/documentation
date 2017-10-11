@@ -1,6 +1,4 @@
-# FFCommunicationEventAggregator
-
-### factfinder.communication.FFCommunicationEventAggregator
+## factfinder.communication.FFCommunicationEventAggregator
 Use an event based function to query the FACT-Finder APIs. Every event needs to have a  type 
 property to specify how to handle the event.
 *NOTE*: Each property which is not not a function or an object is translated to an http request parameter with a few exceptions:
