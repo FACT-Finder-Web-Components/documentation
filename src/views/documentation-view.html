@@ -130,7 +130,7 @@
                 box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
             }
 
-            #center-content > h3 {
+            #center-content > h2 {
                 color: #000;
                 text-align: center;
                 padding-top: 20px;
@@ -140,6 +140,15 @@
 
             img {
                 width: 100%;
+            }
+
+            #github-logo-container {
+                align-content: flex-end;
+            }
+
+            #github-logo-container > img {
+                width: 32px;
+                height: 32px;
             }
         </style>
 
@@ -186,7 +195,7 @@
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
 
             <div id="center-content">
-                <h3>[[dokuTitle]]</h3>
+                <h2>[[dokuTitle]]</h2>
 
                 <template is="dom-if" if="[[showTabs]]">
                     <app-toolbar class="medium-tall">
@@ -209,8 +218,12 @@
 
                     <!--Demo-->
                     <div id="demo" name="/demo">
-                        <!--TODO: add link to github source code here, icon, move right-->
-                        <a href="">Source code on Github</a>
+                        <div id="github-logo-container">
+                            <a href="[[githubPath]]" target="_blank">Source code on Github</a>
+                            <a href="[[githubPath]]" target="_blank">
+                                <img src="../../images/GitHub-Logos/GitHub-Mark-32px.png">
+                            </a>
+                        </div>
                         <iframe src="[[demoPath]]" frameborder="0" height="800px"></iframe>
                     </div>
 
@@ -291,6 +304,9 @@
                 this.filePath = "markdown/" + this.language + "/" + fileName + ".md";
                 this.demoPath = "http://web-components.fact-finder.de/demos/1.2.2/" + fileName;
                 this.apiPath = "markdown/" + this.language + "/api/" + fileName + ".api.md";
+                this.githubPath = "https://github.com/FACT-Finder-Web-Components/demos/tree/master/" + fileName;
+                //AP: alternative to redirect directly to the source file
+                // this.githubPath = "https://github.com/FACT-Finder-Web-Components/demos/blob/master/" + fileName + "/index.html";
 
                 if (this.doku) {
                     this.dokuTitle = this.doku[fileName].title;
