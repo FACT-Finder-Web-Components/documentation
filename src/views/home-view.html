@@ -9,6 +9,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400' type='text/css'>
+<link rel="stylesheet" href="../../bower_components/components-font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="import" href="../shared-styles.html">
 
 <dom-module id="home-view">
@@ -16,21 +19,217 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <style include="shared-styles">
             :host {
                 display: block;
-                padding: 10px;
+                font-family: Open Sans, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif !important;
+            }
+
+            .container {
+                padding-right: 15px;
+                padding-left: 15px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            @media (min-width: 768px) {
+                .container {
+                    width: 750px;
+                }
+            }
+
+            @media (min-width: 992px) {
+                .container {
+                    width: 970px;
+                }
+            }
+
+            @media (min-width: 1200px) {
+                .container {
+                    width: 1170px;
+                }
+            }
+
+            h1 {
+                font-size: 4.3125rem;
+                text-align: center;
+            }
+
+            h1, h2, h3 {
+                color: #222;
+                font-family: Open Sans, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+            }
+
+            p {
+                font-weight: 400;
+                color: #3c3c3b;
+                font-size: 1.5em;
+                text-align: left;
+            }
+
+            .row {
+                margin: 30px auto;
+                display: flex;
+            }
+
+            .row > a {
+                margin: auto;
+            }
+
+            .row-item {
+                flex: 1;
+            }
+
+            button {
+                color: #fff;
+                background-color: #3498db;
+
+                border: none;
+                font-size: 40px;
+                font-family: Open Sans, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+
+                font-weight: 700;
+                line-height: normal;
+                padding: 18px 36px 19px;
+                transition: background-color 0.8s;
+            }
+
+            button:hover {
+                background-color: #007bbf;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .jumbotron {
+                margin-top: 0px;
+                padding: 0px;
+            }
+
+            .jumbotron > .row {
+                margin: 0px;
+            }
+
+            .link-box-container {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .link-box {
+                flex: 1 auto;
+                flex-grow: 1;
+                background-color: #35a9e1;
+                color: #fff;
+                margin: 1px;
+                padding: 30px;
+                flex-basis: 250px;
+                vertical-align: middle;
+                text-decoration: none !important;
+                cursor: auto;
+            }
+
+            .link-box :hover {
+                text-decoration: none !important;
+            }
+
+            .link-box > p {
+                color: white;
+                font-size: 16px;
+                text-align: left;
+            }
+
+            .link-box > i {
+                color: rgb(45, 132, 174);
             }
         </style>
 
-        <div class="card">
-            <div class="circle">2</div>
-            <h1>Home</h1>
-            <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-            <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
+        <img src="../../images/index/hero_image_web_components.png">
+
+        <div class="container">
+            <div class="row">
+                <div class="row-item">
+                    <h1><b>Up to 98% faster integration</b></h1>
+                    <p style="text-align: center">
+                        With the new FACT-Finder Web Components
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                TODO: fast menu
+            </div>
+
+            <div clas="row" p style="text-align: center">
+                <div>
+                    <h1><b>Integrating FACT-Finder has never been easier</b></h1>
+                    <p>
+                        As of now, FACT-Finder can be integrated into your online shop as easy as a YouTube video or a
+                        Google map – by means of prefabricated HTML elements, so called Web Components. This enables you
+                        to gain the ROI of FACT-Finder even faster.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="../../images/index/integration-gif.gif">
+            </div>
+
+            <div class="row">
+                <div class="row-item">
+                    <img src="../../images/index/time_saving_r.gif">
+                </div>
+                <div class="row-item">
+                    <h1>Front-end changes in a flash</h1>
+                    <p>
+                        Whether you’re including new store features, customising existing ones or setting up A / B
+                        tests: all can now be done in record speed. It has never been so easy to quickly respond to
+                        new demands and trends.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="row-item">
+                    <h1>Updates – made simple</h1>
+                    <p>
+                        Whenever there’s an update for a newer version of FACT-Finder, you can get it up and running
+                        with minimal adjustments. And when it comes to updating your shop system, Web Components
+                        ensure all FACT-Finder functions remain fully operational.
+                    </p>
+                </div>
+                <div class="row-item">
+                    <img src="../../images/index/update_v3_1.gif">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="row-item">
+                    <img src="../../images/index/kompatibel_1.gif">
+                </div>
+                <div class="row-item">
+                    <h1>Compatible with all major browsers</h1>
+                    <p>
+                        Web Components display the FACT-Finder functions directly in the browser and can be arranged
+                        according to the look and feel of your online shop. In addition, they are functional
+                        regardless of the shop system and web technologies that you are using.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row" style="text-align: center">
+                <a href="/documentation/get-started">
+                    <button style="margin: 0 auto">Get Started</button>
+                </a>
+            </div>
+
         </div>
+
     </template>
 
     <script>
         class HomeView extends Polymer.Element {
-            static get is() { return 'home-view'; }
+            static get is() {
+                return 'home-view';
+            }
         }
 
         window.customElements.define(HomeView.is, HomeView);
