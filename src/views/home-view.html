@@ -1,117 +1,15 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
-<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400' type='text/css'>
-<link rel="stylesheet" href="../../bower_components/components-font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+<link rel="import" href="../../bower_components/slate-font-awesome/slate-font-awesome.html">
 <link rel="import" href="../shared-styles.html">
 
 <dom-module id="home-view">
     <template>
-        <style include="shared-styles">
-            :host {
-                display: block;
-                font-family: Open Sans, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif !important;
-            }
-
-            .container {
-                padding-right: 15px;
-                padding-left: 15px;
-                margin-right: auto;
-                margin-left: auto;
-            }
-
-            @media (min-width: 768px) {
-                .container {
-                    width: 750px;
-                }
-            }
-
-            @media (min-width: 992px) {
-                .container {
-                    width: 970px;
-                }
-            }
-
-            @media (min-width: 1200px) {
-                .container {
-                    width: 1170px;
-                }
-            }
-
-            h1 {
-                font-size: 4.3125rem;
-                text-align: center;
-            }
-
-            h1, h2, h3 {
-                color: #222;
-                font-family: Open Sans, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
-            }
-
-            p {
-                font-weight: 400;
-                color: #3c3c3b;
-                font-size: 1.5em;
-                text-align: left;
-            }
-
-            .row {
-                margin: 30px auto;
-                display: flex;
-            }
-
-            .row > a {
-                margin: auto;
-            }
-
-            .row-item {
-                flex: 1;
-            }
-
-            button {
-                color: #fff;
-                background-color: #3498db;
-
-                border: none;
-                font-size: 40px;
-                font-family: Open Sans, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
-
-                font-weight: 700;
-                line-height: normal;
-                padding: 18px 36px 19px;
-                transition: background-color 0.8s;
-            }
-
-            button:hover {
-                background-color: #007bbf;
-            }
-
-            img {
-                max-width: 100%;
-                height: auto;
-            }
-
-            .jumbotron {
-                margin-top: 0px;
-                padding: 0px;
-            }
-
-            .jumbotron > .row {
-                margin: 0px;
-            }
-
+        <style include="slate-font-awesome">
             .link-box-container {
                 display: flex;
                 flex-wrap: wrap;
+                background-color: #f5f6f6;
             }
 
             .link-box {
@@ -139,6 +37,68 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             .link-box > i {
                 color: rgb(45, 132, 174);
+                float: left !important;
+                width: 1.28571429em;
+                text-align: center;
+                margin-right: .3em;
+                font-size: 4em;
+            }
+        </style>
+
+        <style include="shared-styles">
+            :host {
+                display: block;
+            }
+
+            h1 {
+                font-size: 3rem;
+                text-align: center;
+            }
+
+            p {
+                font-weight: 400;
+                color: #3c3c3b;
+                font-size: 1.5em;
+                text-align: left;
+            }
+
+            button {
+                color: #fff;
+                background-color: #3498db;
+
+                border: none;
+                font-size: 40px;
+                font-family: Open Sans, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+
+                font-weight: 700;
+                line-height: normal;
+                padding: 18px 36px 19px;
+                transition: background-color 0.8s;
+            }
+
+            button:hover {
+                background-color: #007bbf;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .row {
+                margin: 50px auto;
+                display: flex;
+                flex-wrap: wrap;
+                text-align: center;
+            }
+
+            .row > a {
+                margin: auto;
+            }
+
+            .row-item {
+                flex: 1;
+                min-width: 350px;
             }
         </style>
 
@@ -154,11 +114,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </div>
             </div>
 
-            <div class="row">
-                TODO: fast menu
+            <hr>
+            <div class="link-box-container">
+                <a class="link-box" href="[[rootPath]]home/cost">
+                    <i class="fa fa-eur fa-4x fa-fw pull-left"></i>
+                    <p>Less project costs</p>
+                </a>
+                <a class="link-box" href="[[rootPath]]home/fast">
+                    <i class="fa fa-code fa-4x fa-fw pull-left"></i>
+                    <p>Faster frontend adjustments</p>
+                </a>
+                <a class="link-box" href="[[rootPath]]home/updates">
+                    <i class="fa fa-calendar-o fa-4x fa-fw pull-left"></i>
+                    <p>Easier updates</p>
+                </a>
+                <a class="link-box" href="[[rootPath]]home/browser">
+                    <!--AP: fa-chrome dose not work with new font awsome wrapper-->
+                    <i class="fa fa-thumbs-up fa-4x fa-fw pull-left"></i>
+                    <p>Works in all major browsers</p>
+                </a>
             </div>
 
-            <div clas="row" p style="text-align: center">
+            <hr>
+            <div class="row" style="text-align: center">
                 <div>
                     <h1><b>Integrating FACT-Finder has never been easier</b></h1>
                     <p>
@@ -169,16 +147,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </div>
             </div>
 
-            <div class="row">
+            <hr>
+            <div id="cost" class="row">
                 <img src="../../images/index/integration-gif.gif">
             </div>
 
-            <div class="row">
+            <hr>
+            <div id="fast" class="row">
                 <div class="row-item">
                     <img src="../../images/index/time_saving_r.gif">
                 </div>
                 <div class="row-item">
-                    <h1>Front-end changes in a flash</h1>
+                    <h1><b>Front-end changes in a flash</b></h1>
                     <p>
                         Whether you’re including new store features, customising existing ones or setting up A / B
                         tests: all can now be done in record speed. It has never been so easy to quickly respond to
@@ -187,9 +167,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </div>
             </div>
 
-            <div class="row">
+            <hr>
+            <div id="updates" class="row">
                 <div class="row-item">
-                    <h1>Updates – made simple</h1>
+                    <h1><b>Updates – made simple</b></h1>
                     <p>
                         Whenever there’s an update for a newer version of FACT-Finder, you can get it up and running
                         with minimal adjustments. And when it comes to updating your shop system, Web Components
@@ -201,12 +182,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </div>
             </div>
 
-            <div class="row">
+            <hr>
+            <div id="browser" class="row">
                 <div class="row-item">
                     <img src="../../images/index/kompatibel_1.gif">
                 </div>
                 <div class="row-item">
-                    <h1>Compatible with all major browsers</h1>
+                    <h1><b>Compatible with all major browsers</b></h1>
                     <p>
                         Web Components display the FACT-Finder functions directly in the browser and can be arranged
                         according to the look and feel of your online shop. In addition, they are functional
@@ -215,6 +197,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 </div>
             </div>
 
+            <hr>
             <div class="row" style="text-align: center">
                 <a href="/documentation/get-started">
                     <button style="margin: 0 auto">Get Started</button>
@@ -222,13 +205,36 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </div>
 
         </div>
-
     </template>
 
     <script>
         class HomeView extends Polymer.Element {
             static get is() {
                 return 'home-view';
+            }
+
+            static get observers() {
+                return [
+                    "changeRoute(route)"
+                ]
+            }
+
+            changeRoute(route) {
+                console.log("home.changeRoute", route);
+                if (route.prefix === "/home") {
+                    this.scrollTo(route.path);
+                }
+            }
+
+            /**
+             * Should scroll to element with that id
+             * @param id, id of the element
+             */
+            scrollTo(id) {
+                if (id && id != "") {
+                    var element = this.$[id.replace("/", "")];
+                    window.scrollTo(0, element.getBoundingClientRect().top);
+                }
             }
         }
 

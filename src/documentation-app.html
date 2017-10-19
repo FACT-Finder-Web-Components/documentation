@@ -127,6 +127,7 @@
             }
         </style>
 
+        <!--TODO (AP): remove this? -->
         <paper-dialog id="dialog"
                       entry-animation="scale-up-animation"
                       exit-animation="fade-out-animation"
@@ -135,11 +136,7 @@
         </paper-dialog>
 
         <app-location route="{{route}}" url-space-regex="^[[rootPath]]"></app-location>
-        <app-route
-                route="{{route}}"
-                pattern="[[rootPath]]:page"
-                data="{{routeData}}"
-                tail="{{subroute}}"></app-route>
+        <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
 
         <!-- Main content -->
         <app-header-layout>
@@ -151,25 +148,29 @@
                              alt="FF Logo">
                     </div>
                     <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-                        <paper-tabs selected="[[selectedTab]]" noink scrollable fit-container no-slide no-bar>
-                            <paper-tab><a name="home" href="[[rootPath]]home">Home</a></paper-tab>
-                            <paper-tab><a name="documentation" href="[[rootPath]]documentation/overview-get-started"
-                                          target="">Documentation</a>
+                        <paper-tabs selected="[[page]]" noink scrollable fit-container no-slide no-bar attr-for-selected="name">
+                            <paper-tab name="home">
+                                <a name="home" href="[[rootPath]]home">Home</a>
                             </paper-tab>
-                            <paper-tab><a name="download" href="[[rootPath]]download">Download</a></paper-tab>
-                            <paper-tab><a name="contacts" href="[[rootPath]]contacts">Contacts</a></paper-tab>
-                            <paper-tab><a href="https://github.com/FACT-Finder-Web-Components" target="_blank">Github</a></paper-tab>
+                            <paper-tab name="documentation">
+                                <a name="documentation" href="[[rootPath]]documentation/overview-get-started" target="">Documentation</a>
+                            </paper-tab>
+                            <paper-tab name="download">
+                                <a name="download" href="[[rootPath]]download">Download</a>
+                            </paper-tab>
+                            <paper-tab name="contacts">
+                                <a name="contacts" href="[[rootPath]]contacts">Contacts</a>
+                            </paper-tab>
+                            <paper-tab>
+                                <a href="https://github.com/FACT-Finder-Web-Components" target="_blank">Github</a>
+                            </paper-tab>
                         </paper-tabs>
                     </iron-selector>
                 </app-toolbar>
             </app-header>
 
-            <iron-pages
-                    selected="[[page]]"
-                    attr-for-selected="name"
-                    fallback-selection="view404"
-                    role="main">
-                <home-view name="home"></home-view>
+            <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="view404" role="main">
+                <home-view name="home" route="{{subroute}}"></home-view>
                 <documentation-view name="documentation" route="{{subroute}}"></documentation-view>
                 <download-view name="download"></download-view>
                 <contacts-view name="contacts"></contacts-view>
@@ -190,51 +191,14 @@
                         type: String,
                         reflectToAttribute: true,
                         observer: '_pageChanged',
-                    },
-                    routeData: Object,
-                    subroute: {
-                        type: Object
-                    },
-                    rootPath: String,
-                    selectedTab: {
-                        type: Number,
-                        reflectToAttribute: true
                     }
                 };
             }
 
-
-
             static get observers() {
                 return [
                     '_routePageChanged(routeData.page)',
-                    '_computeSelectedTab(page)',
-//                    '_subrouteChanged(subroute)'
                 ];
-            }
-
-//            _subrouteChanged(subroute) {
-//                console.log(subroute);
-//            }
-
-            _computeSelectedTab(page) {
-                //return does not seem to work oO x/
-                switch (page) {
-                    case "home":
-                        this.selectedTab = 0;
-                        break;
-                    case "documentation":
-                        this.selectedTab = 1;
-                        break;
-                    case "download":
-                        this.selectedTab = 2;
-                        break;
-                    case "contacts":
-                        this.selectedTab = 3;
-                        break;
-                    default:
-                        this.selectedTab = 0;
-                }
             }
 
             connectedCallback() {
@@ -251,24 +215,13 @@
             }
 
             _routePageChanged(page) {
-                // If no page was found in the route data, page will be an empty string.
-                // Deault to 'view1' in that case.
                 this.page = page || 'home';
-
-                // Close a non-persistent drawer when the page & route are changed.
-//                if (!this.$.drawer.persistent) {
-//                    this.$.drawer.close();
-//                }
             }
 
             _pageChanged(page) {
                 // Load page import on demand. Show 404 page if fails
                 var resolvedPageUrl = this.resolveUrl("views/" + page + '-view.html');
-                Polymer.importHref(
-                    resolvedPageUrl,
-                    null,
-                    this._showPage404.bind(this),
-                    true);
+                Polymer.importHref(resolvedPageUrl, null, this._showPage404.bind(this), true);
             }
 
             _showPage404() {

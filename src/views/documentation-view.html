@@ -303,20 +303,22 @@
             }
 
             fileNameChanged(fileName) {
-                this.filePath = "markdown/" + this.language + "/" + fileName + ".md";
-                this.demoPath = "http://web-components.fact-finder.de/demos/1.2.2/" + fileName;
-                this.apiPath = "markdown/" + this.language + "/api/" + fileName + ".api.md";
-                this.githubPath = "https://github.com/FACT-Finder-Web-Components/demos/blob/master/" + fileName + "/index.html";
+                if (this.route.prefix === "/documentation") {//only apply when in dokumentation route
+                    this.filePath = "markdown/" + this.language + "/" + fileName + ".md";
+                    this.demoPath = "http://web-components.fact-finder.de/demos/1.2.2/" + fileName;
+                    this.apiPath = "markdown/" + this.language + "/api/" + fileName + ".api.md";
+                    this.githubPath = "https://github.com/FACT-Finder-Web-Components/demos/blob/master/" + fileName + "/index.html";
 
-                if (this.doku) {
-                    this.dokuTitle = this.doku[fileName].title;
-                } else {
-                    //set Title delayed, because doku info array is only initialized on connectedCallback
-                    setTimeout(function () {
+                    if (this.doku) {
                         this.dokuTitle = this.doku[fileName].title;
-                    }.bind(this), 100)
+                    } else {
+                        //set Title delayed, because doku info array is only initialized on connectedCallback
+                        setTimeout(function () {
+                            this.dokuTitle = this.doku[fileName].title;
+                        }.bind(this), 100)
+                    }
+                    this.subRoute = "/";
                 }
-                this.subRoute = "/";
             }
 
             /**

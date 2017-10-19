@@ -15,7 +15,8 @@
   ],
   "extraDependencies": [
     "manifest.json",
-    "bower_components/webcomponentsjs/*.js"
+    "bower_components/webcomponentsjs/*.js",
+    "bower_components/slate-font-awesome/fonts/*.*"
   ],
   "lint": {
     "rules": ["polymer-2"]

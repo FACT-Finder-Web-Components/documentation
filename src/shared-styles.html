@@ -1,7 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/polymer-bootstrap/polymer-bootstrap-min.html">
-<!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>-->
-<!--<link rel="stylesheet" href="../../bower_components/components-font-awesome/css/font-awesome.min.css">-->
 
 <!-- shared styles for all views -->
 <dom-module id="shared-styles">
@@ -11,13 +9,25 @@
                 opacity: 0;
             }
 
-            body {
-                font-family: 'Open Sans', sans-serif;
+            h1 {
+                font-size: 4.5rem;
                 font-weight: 300;
-                transition: opacity 800ms;
-                padding-top: 65px;
-                background-color: #f5f6f6;
-                /*height: 100%;*/
+                line-height: 1.1;
+            }
+
+            h1, h2, h3 {
+                color: #222;
+                font-family: Open Sans, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+            }
+
+            ul, ol, dl {
+                font-family: inherit;
+                font-size: 24px;
+                font-size: 1.5rem;
+                line-height: 1.6;
+                list-style-position: outside;
+                margin-bottom: 20px;
+                margin-bottom: 1.25rem;
             }
 
             paper-button {
@@ -37,167 +47,10 @@
                 background-color: var(--button-hover-background-color);
             }
 
-            h1 {
-                font-size: 4.5rem;
-                font-weight: 300;
-                line-height: 1.1;
-            }
-
             paper-item {
                 cursor: pointer;
             }
 
-            pre code {
-                border: none;
-            }
-
-            .main {
-                padding-bottom: 50px;
-                border-right: 1px solid lightgrey;
-                border-left: 1px solid lightgrey;
-                background-color: #fff;
-                min-height: 1300px;
-            }
-
-            /*
-                Menu style
-            */
-            #menu {
-                padding-right: 0px;
-                padding-top: 60px;
-                margin-right: -1px;
-                min-width: 220px;
-            }
-
-            #menu > .panel {
-                padding-right: 0px;
-                box-shadow: none;
-            }
-
-            #menu > .side-menu {
-                background-color: transparent;
-                border: none;
-            }
-
-            #menu > .panel > .panel-heading {
-                background-color: #1b4385;
-                border-top-left-radius: 0px;
-                border-top-right-radius: 0px;
-            }
-
-            #menu > .panel > .panel-heading > h2 {
-                color: #fff !important;
-            }
-
-            #menu > .panel > .list-group > .list-group-item:hover {
-                background-color: #b2b2b2;
-                border-left: 1px solid #b2b2b2;
-                border-top: 1px solid #b2b2b2;
-                border-bottom: 1px solid #b2b2b2;
-            }
-
-            #menu > .panel > .list-group > .list-group-item {
-                margin-top: 1px;
-                border: none;
-                background-color: transparent;
-                border-left: 1px solid #f5f6f6;
-                border-top: 1px solid #f5f6f6;
-                border-bottom: 1px solid #f5f6f6;
-            }
-
-            #menu > .panel > .list-group :first-child {
-                margin-top: 0px;
-            }
-
-            #menu > .panel > .list-group > .list-group-item.active {
-                color: #0a0a0a;
-                background-color: #fff;
-                border-right: 0;
-                border-left: 1px solid lightgrey;
-                border-top: 1px solid lightgrey;
-                border-bottom: 1px solid lightgrey;
-                padding: 10px 14px 10px 15px;
-                /*margin-right: -1px;*/
-            }
-
-            .api-ref > .panel {
-                border-radius: 0px;
-            }
-
-            .api-ref > .panel > .panel-heading {
-                border-radius: 0px;
-                background-color: #1b4385;
-            }
-
-            .api-ref > .panel > .panel-heading > h2 {
-                color: white !important;
-
-            }
-
-            .api-ref > .panel > .panel-body > div > {
-                padding: 5px 10px;
-                margin-bottom: 10px;
-                border-right: none;
-            }
-
-            .api-ref-main {
-                padding: 5px 10px;
-                margin-bottom: 10px;
-                border-right: none;
-                border-left: 1px solid lightgrey;
-                background-color: #fff;
-            }
-
-            .demo {
-                background-color: #f5f6f6;
-                padding: 15px 10px;
-                border-top: 1px solid lightgray;
-                border-bottom: 1px solid lightgray;
-                border: 1px solid lightgray;
-            }
-
-            #showcaseFrame {
-                border: none;
-            }
-
-            ul, ol, dl {
-                font-family: inherit;
-                font-size: 24px;
-                font-size: 1.5rem;
-                line-height: 1.6;
-                list-style-position: outside;
-                margin-bottom: 20px;
-                margin-bottom: 1.25rem;
-            }
-
-            /** --------------------------------------------------- **/
-
-            .card {
-                margin: 24px;
-                padding: 16px;
-                color: #757575;
-                border-radius: 5px;
-                background-color: #fff;
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-            }
-
-            .circle {
-                display: inline-block;
-                width: 64px;
-                height: 64px;
-                text-align: center;
-                color: #555;
-                border-radius: 50%;
-                background: #ddd;
-                font-size: 30px;
-                line-height: 64px;
-            }
-
-            /*h1 {*/
-            /*margin: 16px 0;*/
-            /*color: #212121;*/
-            /*font-size: 22px;*/
-            /*}*/
         </style>
     </template>
 </dom-module>
