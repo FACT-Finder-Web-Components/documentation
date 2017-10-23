@@ -227,7 +227,11 @@
 
 
                 </style>
-                <paper-button disabled="{{hasFeatureSelected}}" on-tap="_download">download</paper-button>
+                <paper-button id="downloadButton" disabled="{{hasFeatureSelected}}" on-tap="_download">download
+                </paper-button>
+                <p id="buildingInfo" style="display: none">
+                    Version is currently building... Download will start when finished!
+                </p>
             </div>
         </div>
     </template>
@@ -344,12 +348,41 @@
                     hasFeatureSelected: {
                         type: Boolean,
                         computed: "_computeHasFeatures(apiOptions.features)"
+                    },
+                    server: {
+                        type: String,
+                    },
+                    isDownloading: {
+                        type: Boolean,
+                        value: false,
+                        observer: "_isDownloadingChanged"
                     }
                 }
             }
 
             _download() {
-                alert("Features:" + this.apiOptions.features);
+                let data = JSON.stringify(this.apiOptions);
+                let headers = new Headers();
+                headers.append("Content-Type", "application/json");
+                headers.append("Content-Length", data.length.toString());
+
+                fetch(this.server + "/build", {
+                    method: "POST",
+                    headers: headers,
+                    body: data
+                }).then(r => r.json()).then(function (json) {
+                    if (json.finished) {//open download dialog
+                        this.isDownloading = false;
+                        window.open(this.server + json.url, "Download");
+                    } else {
+                        this.isDownloading = true;
+                        setTimeout(function () {
+                            this._download();
+                        }.bind(this), 1000);
+                    }
+                }.bind(this)).catch(function (error) {
+                    console.error("download.error", error);
+                });
             }
 
             _toggleAll(event) {
@@ -400,6 +433,16 @@
 
             _computeHasFeatures(features) {
                 return features.length === 0;
+            }
+
+            _isDownloadingChanged(newValue) {
+                if (newValue) {
+                    this.$.downloadButton.style.opacity = 0;            //disable download button
+                    this.$.buildingInfo.style.display = "inline-block"; //add info for 'building...'
+                } else {
+                    this.$.downloadButton.style.opacity = 1000;
+                    this.$.buildingInfo.style.display = "none";
+                }
             }
         }
 
