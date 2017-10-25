@@ -122,7 +122,7 @@
                 cursor: pointer;
                 transition: 300ms;
                 border-radius: 12px;
-                margin-left: 5px;
+                margin-right: 20px;
             }
 
             iron-icon:hover {
@@ -148,6 +148,13 @@
                 font-size: 16px;
                 margin: 5px 0;
             }
+
+            .toggle-button-all {
+                border-bottom: 1px solid lightgray;
+                padding-left: 44px;
+                margin-bottom: 10px;
+                padding-bottom: 5px;
+            }
         </style>
 
         <section style="width: 100%;background-color: #eeeeee;min-height: 200px">
@@ -169,6 +176,7 @@
 
         <div class="container row" style="background-color: white;">
             <div class="row" style="margin-top: 0">
+                <span style="margin-right: 10px;vertical-align: middle"><b>Version:</b></span>
                 <paper-dropdown-menu>
                     <paper-listbox slot="dropdown-content" selected="0"
                                    on-selected-item-changed="_selectedVersionChanged">
@@ -179,37 +187,49 @@
                 </paper-dropdown-menu>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <h2>Core</h2>
-                    <div class="buttonContainer" style="justify-content: center">
-                        <paper-toggle-button checked disabled>Core</paper-toggle-button>
-                        <iron-icon icon="my-icons:info-outline"></iron-icon>
-                    </div>
-                </div>
-                <div class="col-md-4">
+                <p>
+                    <b>The basic elements are always included in every download:</b><br>
+                    <code>ff-communication</code>,
+                    <code>ff-record</code>,
+                    <code>ff-record-list</code>,
+                    <code>ff-searchbox</code>,
+                    <code>ff-searchbutton</code>,
+                    <code>ff-breadcumb-trail</code>,
+                    <code>ff-template</code>.
+                    <!--<code>ff-use-class</code>, -->
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
                     <h2>Navigation</h2>
-                    <paper-toggle-button on-active-changed="_toggleAll"
-                                         style="border-bottom: 1px solid lightgray">All
+                    <p style="padding-bottom: 22px">
+                        This are the common features a shop mostly needs.
+                    </p>
+                    <paper-toggle-button on-active-changed="_toggleAll" class="toggle-button-all">
+                        All
                     </paper-toggle-button>
                     <div>
                         <template is="dom-repeat" items="{{navigationFeatures}}" mutable-data>
                             <div class="buttonContainer">
-                                <paper-toggle-button active="{{item.active}}">{{item.label}}</paper-toggle-button>
                                 <iron-icon icon="my-icons:info-outline" on-tap="_openDialog"></iron-icon>
+                                <paper-toggle-button active="{{item.active}}">{{item.label}}</paper-toggle-button>
                             </div>
                         </template>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <h2>More Features</h2>
-                    <paper-toggle-button on-active-changed="_toggleAll" style="border-bottom: 1px solid lightgray">
+                    <p>
+                        These are some more advanced features which you may only need in special cases.
+                    </p>
+                    <paper-toggle-button on-active-changed="_toggleAll" class="toggle-button-all">
                         All
                     </paper-toggle-button>
                     <div>
                         <template is="dom-repeat" items="{{moreFeatures}}" mutable-data>
                             <div class="buttonContainer">
-                                <paper-toggle-button active="{{item.active}}">{{item.label}}</paper-toggle-button>
                                 <iron-icon icon="my-icons:info-outline" on-tap="_openDialog"></iron-icon>
+                                <paper-toggle-button active="{{item.active}}">{{item.label}}</paper-toggle-button>
                             </div>
                         </template>
                     </div>
