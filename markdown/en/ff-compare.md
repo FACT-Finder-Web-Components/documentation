@@ -1,5 +1,3 @@
-## Basics
-
 With the `ff-compare` element, you can display a set of records with additional information and styling on
 fields which are different.
 

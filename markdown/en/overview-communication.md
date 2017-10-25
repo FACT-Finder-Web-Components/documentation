@@ -1,4 +1,3 @@
-## Basics
 By default Web Components are communicating directly with FACT-Finder. This is configured in 
 the `ff-communication` element.
 

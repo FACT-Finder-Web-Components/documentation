@@ -1,4 +1,3 @@
-# Template 1
 With an `ff-template` element you can see how the data binding for the ff-webcomponents works and use a model to update the view.
 
 Set a **data** object for a template to store your data. With the "**{{}}**" mustache syntax you can access the data inside of that object:
@@ -17,7 +16,7 @@ Set a **data** object for a template to store your data. With the "**{{}}**" mus
 </ff-template>
 ```
 
-# Template 2
+## Complex Data
 You can also set a more complex model and access the data in it with the mustache syntax.
 
 ```html
@@ -48,7 +47,7 @@ You can also set a more complex model and access the data in it with the mustach
 </ff-template>
 ```
 
-# Template 3
+## Raw HTML
 If you have raw HTML in the data, e.g. configured in the FF-Backend as result for a campaign or campaign feedback, then you can let the renderer insert the raw html with 3 x { instead of 2 times.
 
 ```html
@@ -83,7 +82,7 @@ If you have raw HTML in the data, e.g. configured in the FF-Backend as result fo
 </ff-template>
 ```
 
-# Template 4
+## Template scope
 The `ff-template` element has the attribute 'scope'. When you set it to "result" the data inserted as a model for this template is the search result from a search request.
 
 Configure the connection to the FF-Search backend and a default query.

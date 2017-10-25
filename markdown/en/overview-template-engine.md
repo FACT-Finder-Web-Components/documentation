@@ -1,4 +1,3 @@
-## Basics
 All {{data-bindings}} used in FACT-Finder Web Components refer to the underlying JSON response returned by
 FACT-Finder.
 

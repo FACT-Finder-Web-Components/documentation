@@ -1,5 +1,3 @@
-## Basics
-
 The `ff-paging-dropdown` acts like the `ff-paging` element, but is displayed as a dropdown.
 
 You can access the value of a paging item with the **{{caption}}** syntax.

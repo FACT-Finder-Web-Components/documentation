@@ -1,4 +1,4 @@
-# Display the most searched words in a tag cloud
+## Display the most searched words in a tag cloud
 With the `ff-tag-cloud`, you can display the most searched words in your shop. The terms displayed in the Tag Cloud are provided by the Logfile Analysis which uses data provided by the Tracking API. Since this module is updated once per day by default, the terms appearing in the Tag Cloud will also be updated daily. Therefore, it is imperative that you integrate the Tracking API.
 
 The maximum number of terms that can be returned may be configured by Omikron; by default it is 70. If fewer search terms exist, then a correspondingly lower number will be returned.

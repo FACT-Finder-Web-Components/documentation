@@ -1,4 +1,4 @@
-# Adding a Product Campaign
+## Adding a Product Campaign
 With the `ff-campaign-product` you can display product campaigns on the product detail page. Simply add the `ff-campaign-product` element to your product detail page and set the attribute product-id to the value of the FACT-Finder field which you configured with the role **Product number (campaign)**. Please check the Field summary menu in the FACT-Finder backend if you are unsure which field you should use. Usually you will set the attribute dynamically via JavaScript, every time the product viewed changes.
 
 ```html

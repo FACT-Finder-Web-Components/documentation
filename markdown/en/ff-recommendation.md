@@ -1,5 +1,3 @@
-## Basics
-
 With the `ff-recommendation` you can display a set of records, which are presented to the user, based
 on his or her search history and his or her last purchased products or product views. The recommendation service learns
 the shopping behavior for each user and creates a list record which can be displayed to him or her.
