@@ -1,95 +1,19 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
+<link rel="import" href="../../bower_components/marked-element/marked-element.html">
+
 <link rel="import" href="../shared-styles.html">
 <link rel="import" href="../my-icons.html">
 <link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 
-<template id="asn">
-    <h1>After Search Navigation</h1>
-    <div>
-        <div class="row">
-            <paper-dialog-scrollable style="height: 500px">
-                <div class="col-md-4">
-                    <img style="max-height: 500px" src="../../images/elements/asn.png" alt="Facets Image">
-                </div>
-                <div class="col-md-4">
-                    <p>The ASN module may be used to allow customers to further adjust the results of a search or
-                        navigation request to correspond to their needs, by selecting corresponding filters. The ASN
-                        module allows you to specify which filter options will be available for customers to select.</p>
-                </div>
-            </paper-dialog-scrollable>
-        </div>
-    </div>
-</template>
-
-<template id="navigation">
-    navigation
-</template>
-
-<template id="headerNavigation">
-    headerNavigation
-</template>
-
-<template id="paging">
-    paging
-</template>
-
-<template id="sort">
-    sort
-</template>
-
-<template id="productsPerPageDropdown">
-    productsPerPageDropdown
-</template>
-
-<template id="productsPerPageList">
-    productsPerPageList
-</template>
-
-<template id="suggest">
-    suggest
-</template>
-
-<template id="focusSuggest">
-    focusSuggest
-</template>
-
-<template id="campaigns">
-    campaigns
-</template>
-
-<template id="compare">
-    compare
-</template>
-
-<template id="carousel">
-    carousel
-</template>
-
-<template id="recommendation">
-    recommendation
-</template>
-
-<template id="similarProducts">
-    similarProducts
-</template>
-
-<template id="singleWordSearch">
-    singleWordSearch
-</template>
-
-<template id="tagCloud">
-    tagCloud
-</template>
-
-<template id="searchFeedback">
-    searchFeedback
-</template>
+<script src="../../bower_components/highlightjs/highlight.pack.min.js"></script>
 
 <dom-module id="download-view">
     <template>
@@ -108,12 +32,10 @@
                 user-select: none;
                 transition: font-weight 300ms;
                 transition: color 300ms;
-                /*font-weight: bold;*/
             }
 
             paper-toggle-button[active] {
                 --paper-toggle-button-label-color: #0b97c4;
-                /*font-weight: bold;*/
                 text-decoration: underline;
             }
 
@@ -122,6 +44,9 @@
                 cursor: pointer;
                 transition: 300ms;
                 border-radius: 12px;
+            }
+
+            .buttonContainer > iron-icon {
                 margin-right: 20px;
             }
 
@@ -155,7 +80,49 @@
                 margin-bottom: 10px;
                 padding-bottom: 5px;
             }
+
+            #downloadButton {
+                width: 150px;
+                height: 60px;
+            }
+
+            paper-toolbar {
+                --paper-toolbar-background: #3c3c3b;
+                --button-active-background-color: #1b4385;
+                padding: 0px;
+                margin-top: 0px;
+            }
+
+            marked-element {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            img{
+                -webkit-box-shadow: 1px 1px 10px 2px rgba(194,194,194,1);
+                -moz-box-shadow: 1px 1px 10px 2px rgba(194,194,194,1);
+                box-shadow: 1px 1px 10px 2px rgba(194,194,194,1);
+            }
         </style>
+
+        <!--dialog for information about modules-->
+        <paper-dialog id="dialog"
+                      style="max-width: 1000px;margin-top: 90px"
+                      always-on-top
+                      entry-animation="scale-up-animation">
+            <paper-toolbar>
+                <span slot="top" class="title">{{model.label}}</span>
+                <paper-icon-button slot="top" icon="my-icons:close" dialog-dismiss></paper-icon-button>
+            </paper-toolbar>
+
+            <paper-dialog-scrollable style="margin: 0px">
+                <marked-element id="api_markdown" name="/api" on-syntax-highlight="_addHiglightJs">
+                    <div slot="markdown-html">
+                        <script type="text/markdown" src="/markdown/en/info/{{model.apiName}}.md"></script>
+                    </div>
+                </marked-element>
+            </paper-dialog-scrollable>
+        </paper-dialog>
 
         <section style="width: 100%;background-color: #eeeeee;min-height: 200px">
             <div class="container">
@@ -163,13 +130,14 @@
                     <h1>Download</h1>
                     <p>
                          <span style="line-height: 24px">
-                            Please select your desired version and modules from below. You can read more about each feature by clicking the info icon<iron-icon
-                                 icon="my-icons:info-outline"></iron-icon>. <br> Regardless of your chosen modules you'll get the core module with the minimum amount of functionality to get started.</span>
+                            Please select your desired version and modules from below. You can read more about each feature by clicking the info icon
+                             <iron-icon icon="my-icons:info-outline"></iron-icon>.
+                             <br> Regardless of your chosen modules you'll get the core module with the minimum amount of functionality to get started.
+                         </span>
                     </p>
-                    If you are looking for older versions please check out our <a
-                        href="https://github.com/FACT-Finder-Web-Components">Github repository</a>.
-                    <p>&nbsp;</p>
-                    <paper-button>get started</paper-button>
+
+                    If you are looking for older versions please check out our
+                    <a href="https://github.com/FACT-Finder-Web-Components">Github repository</a>.
                 </div>
             </div>
         </section>
@@ -200,6 +168,7 @@
                 </p>
             </div>
             <div class="row">
+
                 <div class="col-md-6">
                     <h2>Navigation</h2>
                     <p style="padding-bottom: 22px">
@@ -217,6 +186,7 @@
                         </template>
                     </div>
                 </div>
+
                 <div class="col-md-6">
                     <h2>More Features</h2>
                     <p>
@@ -244,10 +214,8 @@
                         cursor: pointer;
                         margin-bottom: 15px;
                     }
-
-
                 </style>
-                <paper-button id="downloadButton" disabled="{{hasFeatureSelected}}" on-tap="_download">download
+                <paper-button id="downloadButton" on-tap="_download">Download
                 </paper-button>
                 <p id="buildingInfo" style="display: none">
                     Version is currently building... Download will start when finished!
@@ -257,11 +225,6 @@
     </template>
 
     <script>
-        /**
-         * Reference this for templating purposes
-         */
-        var importDoc = document.currentScript.ownerDocument;
-
         class DownloadView extends Polymer.Element {
             static get is() {
                 return 'download-view';
@@ -365,7 +328,7 @@
                         type: Object,
                         computed: "_computeApiOptions(selectedVersion, navigationFeatures.*, moreFeatures.*)"
                     },
-                    hasFeatureSelected: {
+                    hasFeatureSelected: {//TODO AP: maybe remove this. Downloads are still valid with no additional features selected.
                         type: Boolean,
                         computed: "_computeHasFeatures(apiOptions.features)"
                     },
@@ -407,20 +370,18 @@
 
             _toggleAll(event) {
                 var buttons = event.currentTarget.nextElementSibling.querySelectorAll("div paper-toggle-button");
-                var active = event.srcElement.active;
                 for (var i = 0; i < buttons.length; i++) {
-                    var button = buttons[i];
-                    button.active = event.detail.value;
+                    buttons[i].active = event.detail.value;
                 }
             }
 
             _openDialog(event) {
-                const template = importDoc.querySelector("template#" + event.model.item.apiName);
-                this.dispatchEvent(new CustomEvent('open-dialog', {
-                    bubbles: true,
-                    composed: true,
-                    detail: {template: template}
-                }));
+                this.model = event.model.item;
+                setTimeout(function () {// a little delayed to fix position after markdown is loaded
+                    this.$.dialog.center();
+                    this.$.dialog.refit();
+                    this.$.dialog.open();
+                }.bind(this), 200);
             }
 
             _selectedVersionChanged(event) {

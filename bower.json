@@ -29,7 +29,8 @@
     "paper-dialog-scrollable": "^2.1.0",
     "paper-tabs": "PolymerElements/paper-tabs#^2.0.0",
     "iron-collapse": "PolymerElements/iron-collapse#^2.0.0",
-    "slate-font-awesome": "slate-font-awesome#4.7.0"
+    "slate-font-awesome": "slate-font-awesome#4.7.0",
+    "paper-toolbar": "PolymerElements/paper-toolbar#^2.0.0"
   },
   "resolutions": {
     "polymer": "^2.0.0"

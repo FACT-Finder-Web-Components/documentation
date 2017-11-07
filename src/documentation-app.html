@@ -12,7 +12,6 @@
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="my-icons.html">
 <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
-<link rel="import" href="../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
 <link rel="import" href="../bower_components/neon-animation/web-animations.html">
 <link rel="import" href="../bower_components/neon-animation/animations/scale-up-animation.html">
 <link rel="import" href="../bower_components/neon-animation/animations/fade-out-animation.html">
@@ -125,15 +124,11 @@
                     width: 100%;
                 }
             }
-        </style>
 
-        <!--TODO (AP): remove this? -->
-        <paper-dialog id="dialog"
-                      entry-animation="scale-up-animation"
-                      exit-animation="fade-out-animation"
-                      with-backdrop>
-            Test Test
-        </paper-dialog>
+            paper-dialog {
+                max-height: none !important;
+            }
+        </style>
 
         <app-location route="{{route}}" url-space-regex="^[[rootPath]]"></app-location>
         <app-route route="{{route}}" pattern="[[rootPath]]:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
@@ -148,7 +143,8 @@
                              alt="FF Logo">
                     </div>
                     <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-                        <paper-tabs selected="[[page]]" noink scrollable fit-container no-slide no-bar attr-for-selected="name">
+                        <paper-tabs selected="[[page]]" noink scrollable fit-container no-slide no-bar
+                                    attr-for-selected="name">
                             <paper-tab name="home">
                                 <a name="home" href="[[rootPath]]home">Home</a>
                             </paper-tab>
@@ -199,19 +195,6 @@
                 return [
                     '_routePageChanged(routeData.page)',
                 ];
-            }
-
-            connectedCallback() {
-                super.connectedCallback();
-                this.addEventListener("open-dialog", function (event) {
-                    this.$.dialog.innerHTML = "";
-                    this.$.dialog.appendChild(document.importNode(event.detail.template.content, true));
-                    this.$.dialog.open();
-                }.bind(this));
-
-                this.addEventListener("close-dialog", function (event) {
-                    this.$.dialog.close();
-                }.bind(this));
             }
 
             _routePageChanged(page) {
