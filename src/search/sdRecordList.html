@@ -4,7 +4,7 @@
 <dom-module id="sd-record-list">
     <template>
         <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
-        <template id="sd-record" is="dom-repeat" items="{{records}}">
+        <template id="sd-record-text" is="dom-repeat" items="{{recordsText}}">
             <!--<a href="{{item.record.deeplink}}"
                target="_blank"
                style="font-weight: bold; display: block;">
@@ -24,7 +24,7 @@
 
         </template>
         <h2>Records2</h2>
-        <template id="sd-record2" is="dom-repeat" items="{{records2}}">
+        <template id="sd-record-api" is="dom-repeat" items="{{recordsApi}}">
             <!--<a href="{{item.record.deeplink}}"
                target="_blank"
                style="font-weight: bold; display: block;">
@@ -59,10 +59,10 @@
 
         static get properties() {
             return {
-                records: {
+                recordsText: {
                     type: Array
                 },
-                records2: {
+                recordsApi: {
                     type: Array
                 }
             }

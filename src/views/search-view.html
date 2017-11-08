@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
         <div class="container theme-showcase" role="main">
             <sd-search-box></sd-search-box>
-            <sd-record-list id="sd-record-list" records="[[records]]" records2="[[records2]]"></sd-record-list>
+            <sd-record-list id="sd-record-list" recordsText="[[recordsText]]" recordsApi="[[recordsApi]]"></sd-record-list>
         </div>
     </template>
 </dom-module>
@@ -30,13 +30,13 @@
 
         static get properties() {
             return {
-                records: {
+                recordsText: {
                     type: Array,
-                    observer: "_recordsChanged"
+                    observer: "_recordsTextChanged"
                 },
-                records2: {
+                recordsApi: {
                   type: Array,
-                  observer: "_records2Changed"
+                  observer: "_recordsApiChanged"
                 }
             }
         }
@@ -49,10 +49,10 @@
             factfinder.communication.globalSearchParameter.version = "7.2";
             this.key = factfinder.communication.ResultDispatcher.subscribe("result", (resultData) => {
 
-                this.records = resultData.records;
+                this.recordsText = resultData.records;
             });
             this.key2 = factfinder.communication.ResultDispatcher.subscribe("customSearch", (resultData) => {
-                this.records2 =  resultData.searchResult.records;
+                this.recordsApi =  resultData.searchResult.records;
             });
         }
 
