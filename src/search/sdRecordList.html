@@ -1,0 +1,79 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html"/>
+<link rel="import" href="../../dist/ff-core.html"/>
+
+<dom-module id="sd-record-list">
+    <template>
+        <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+        <template id="sd-record" is="dom-repeat" items="{{records}}">
+            <!--<a href="{{item.record.deeplink}}"
+               target="_blank"
+               style="font-weight: bold; display: block;">
+                {{item.record.title}}
+            </a>-->
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><a href="{{item.record.deeplink}}" target="_blank">{{item.record.title}}</a></h3>
+                    </div>
+                    <div class="panel-body">
+                        <!--<p>{{item.record.headings}}</p>-->
+                        <p>{{item.record.description}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </template>
+        <h2>Records2</h2>
+        <template id="sd-record2" is="dom-repeat" items="{{records2}}">
+            <!--<a href="{{item.record.deeplink}}"
+               target="_blank"
+               style="font-weight: bold; display: block;">
+                {{item.record.title}}
+            </a>-->
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><a href="{{item.record.deeplink}}" target="_blank">{{item.record.title}}</a></h3>
+                    </div>
+                    <div class="panel-body">
+                        <!--<p>{{item.record.headings}}</p>-->
+                        bla
+                    </div>
+                </div>
+            </div>
+
+        </template>
+    </template>
+</dom-module>
+
+<script>
+    class SdRecordList extends Polymer.Element {
+
+        constructor() {
+            super();
+        }
+
+        static get is() {
+            return "sd-record-list";
+        }
+
+        static get properties() {
+            return {
+                records: {
+                    type: Array
+                },
+                records2: {
+                    type: Array
+                }
+            }
+        }
+
+        // noinspection JSUnusedGlobalSymbols
+        connectedCallback() {
+            super.connectedCallback();
+        }
+    }
+
+    customElements.define(SdRecordList.is, SdRecordList);
+
+</script>

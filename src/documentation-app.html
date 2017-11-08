@@ -25,6 +25,7 @@
 <link rel="lazy-import" href="views/download-view.html">
 <link rel="lazy-import" href="views/home-view.html">
 <link rel="lazy-import" href="views/view-404.html">
+<link rel="lazy-import" href="views/search-view.html">
 
 <dom-module id="documentation-app">
     <template>
@@ -160,6 +161,9 @@
                             <paper-tab>
                                 <a href="https://github.com/FACT-Finder-Web-Components" target="_blank">Github</a>
                             </paper-tab>
+                            <paper-tab name="search">
+                                <a name="search" href="[[rootPath]]search">Search</a>
+                            </paper-tab>
                         </paper-tabs>
                     </iron-selector>
                 </app-toolbar>
@@ -170,6 +174,7 @@
                 <documentation-view name="documentation" route="{{subroute}}"></documentation-view>
                 <download-view name="download" server="http://localhost:8080"></download-view>
                 <contacts-view name="contacts"></contacts-view>
+                <search-view name="search"></search-view>
                 <view-404 name="view404"></view-404>
             </iron-pages>
         </app-header-layout>

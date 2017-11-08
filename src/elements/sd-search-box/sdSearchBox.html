@@ -1,0 +1,48 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html"/>
+<link rel="import" href="../../../dist/ff-core.html"/>
+<link rel="stylesheet" href="../../../bower_components/bootstrap/dist/css/bootstrap.css">
+<script src="sd-search-box.js"></script>
+<dom-module id="sd-search-box">
+    <template>
+        <form>
+            <div class="input-group">
+                <input type="text" id="search-field" class="form-control" placeholder="Search">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" onsubmit="fireSearchEvent">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </template>
+</dom-module>
+<script>
+    class SdSearchBox extends Polymer.Element {
+
+        constructor() {
+            super();
+        }
+
+        static get is() {
+            return "sd-search-box";
+        }
+
+        fireSearchEvent() {
+            factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+                type: "search",
+                query: document.getElementById("search-field").value()
+            });
+        }
+
+        // noinspection JSUnusedGlobalSymbols
+        connectedCallback() {
+            super.connectedCallback();
+            factfinder.communication.globalSearchParameter.url = "http://web-components.fact-finder.de/FACT-Finder-7.2";
+            factfinder.communication.globalSearchParameter.channel = "webc-doku-text";
+            factfinder.communication.globalSearchParameter.version = "7.2";
+        }
+    }
+
+    customElements.define(SdSearchBox.is(), SdSearchBox);
+
+</script>

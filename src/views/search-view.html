@@ -1,0 +1,70 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400' type='text/css'>
+<link rel="stylesheet" href="../../bower_components/components-font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="import" href="../search/sdSearchBox.html"/>
+<link rel="import" href="../search/sdRecordList.html"/>
+<link rel="import" href="../shared-styles.html">
+<link rel="import" href="../../dist/ff-core.html"/>
+
+<dom-module id="search-view">
+    <template>
+        <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <div class="container theme-showcase" role="main">
+            <sd-search-box></sd-search-box>
+            <sd-record-list id="sd-record-list" records="[[records]]" records2="[[records2]]"></sd-record-list>
+        </div>
+    </template>
+</dom-module>
+
+<script>
+    class SearchView extends Polymer.Element {
+
+        constructor() {
+            super();
+        }
+
+        static get is() {
+            return "search-view";
+        }
+
+        static get properties() {
+            return {
+                records: {
+                    type: Array,
+                    observer: "_recordsChanged"
+                },
+                records2: {
+                  type: Array,
+                  observer: "_records2Changed"
+                }
+            }
+        }
+
+        // noinspection JSUnusedGlobalSymbols
+        connectedCallback() {
+            super.connectedCallback();
+            factfinder.communication.globalSearchParameter.url = "http://web-components.fact-finder.de/FACT-Finder-7.2";
+            factfinder.communication.globalSearchParameter.channel = "webc-doku-text";
+            factfinder.communication.globalSearchParameter.version = "7.2";
+            this.key = factfinder.communication.ResultDispatcher.subscribe("result", (resultData) => {
+
+                this.records = resultData.records;
+            });
+            this.key2 = factfinder.communication.ResultDispatcher.subscribe("customSearch", (resultData) => {
+                this.records2 =  resultData.searchResult.records;
+            });
+        }
+
+        disconnectedCallback() {
+            super.disconnectedCallback();
+            factfinder.communication.ResultDispatcher.unsubscribe("result", this.key);
+            factfinder.communication.ResultDispatcher.unsubscribe("customSearch", this.key2);
+            delete this.key;
+
+        }
+    }
+
+    customElements.define(SearchView.is, SearchView);
+
+</script>
