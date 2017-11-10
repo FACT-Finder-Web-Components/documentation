@@ -17,6 +17,7 @@
 <link rel="import" href="../bower_components/neon-animation/animations/fade-out-animation.html">
 <link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="search/sdSearchBox.html">
 
 <link rel="import" href="shared-styles.html">
 
@@ -161,11 +162,9 @@
                             <paper-tab>
                                 <a href="https://github.com/FACT-Finder-Web-Components" target="_blank">Github</a>
                             </paper-tab>
-                            <paper-tab name="search">
-                                <a name="search" href="[[rootPath]]search">Search</a>
-                            </paper-tab>
                         </paper-tabs>
                     </iron-selector>
+                    <sd-search-box></sd-search-box>
                 </app-toolbar>
             </app-header>
 

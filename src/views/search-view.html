@@ -41,6 +41,22 @@
             }
         }
 
+        fireSearchEvent() {
+            console.log("search");
+            factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+                type: "search",
+                query: this.$.searchbox.value //TODO
+            });
+            factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+                type: "search",
+                channel: "webc-doku-api",
+                query: this.$.searchbox.value, //TODO
+                topics: function () {
+                    return ["customSearch", "specialElement"];
+                }
+            });
+        }
+
         // noinspection JSUnusedGlobalSymbols
         connectedCallback() {
             super.connectedCallback();

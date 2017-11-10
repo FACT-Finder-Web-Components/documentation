@@ -3,26 +3,36 @@
 <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400' type='text/css'>
 <link rel="stylesheet" href="../../bower_components/components-font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html"/>
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html"/>
+<link rel="import" href="search-icons.html">
 
 <dom-module id="sd-search-box">
     <template>
-        <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
         <style>
-            :host {
-                display: block;
-                margin: 10px 0;
+            iron-collapse {
+                position: absolute;
+                top: 64px;
+                width: 100%;
+                left: 0;
+                --iron-collapse-transition-duration: 100ms;
+                box-shadow: 0 3px 3px #888888;
+            }
+            #searchbox {
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                width: 100%;
+                height: 45px;
+                color: #393939;
+                text-align: center;
             }
         </style>
-        <!--<form>-->
-            <div class="input-group row">
-                <input type="text" id="searchbox" class="form-control" placeholder="Search" on-keyup="enterSearch" autofocus>
-                <div class="input-group-btn">
-                    <button class="btn btn-default" on-tap="fireSearchEvent">
-                        <i class="glyphicon glyphicon-search"></i> Search
-                    </button>
-                </div>
+        <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <iron-collapse id="collapse">
+            <div class="collapse-content">
+                    <input type="text" id="searchbox" placeholder="Search" on-keyup="handleKeyUp" on-blur="hide">
             </div>
-        <!--</form>-->
+        </iron-collapse>
+        <paper-icon-button icon="search-icons:search" on-tap="toggleSearchBox">Search</paper-icon-button>
     </template>
 </dom-module>
 <script>
@@ -36,26 +46,22 @@
             return "sd-search-box";
         }
 
-        fireSearchEvent() {
-            console.log("search");
-            factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
-                type: "search",
-                query: this.$.searchbox.value
-            });
-            factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
-                type: "search",
-                channel: "webc-doku-api",
-                query: this.$.searchbox.value,
-                topics: function () {
-                    return ["customSearch", "specialElement"];
-                }
-            });
+        toggleSearchBox() {
+            this.$.collapse.toggle();
+            this.$.searchbox.focus();
         }
 
-        enterSearch(event) {
+
+        handleKeyUp(event) {
             if (event.code === 'Enter') {
-                this.fireSearchEvent();
+
+            } else if (event.code === "Escape") {
+                hide();
             }
+        }
+
+        hide() {
+            this.$.collapse.hide();
         }
 
         // noinspection JSUnusedGlobalSymbols
