@@ -10,9 +10,9 @@
 <dom-module id="search-view">
     <template>
         <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
-        <div class="container theme-showcase" role="main">
-            <sd-search-box></sd-search-box>
-            <sd-record-list id="sd-record-list" recordsText="[[recordsText]]" recordsApi="[[recordsApi]]"></sd-record-list>
+        <div class="container theme-showcase" role="main" style="padding-top: 70px;">
+            <sd-record-list id="sd-record-list" records-text="[[recordsText]]"
+                            records-api="[[recordsApi]]"></sd-record-list>
         </div>
     </template>
 </dom-module>
@@ -22,6 +22,9 @@
 
         constructor() {
             super();
+            factfinder.communication.globalSearchParameter.url = "http://web-components.fact-finder.de/FACT-Finder-7.2";
+            factfinder.communication.globalSearchParameter.channel = "webc-doku-text";
+            factfinder.communication.globalSearchParameter.version = "7.2";
         }
 
         static get is() {
@@ -30,27 +33,35 @@
 
         static get properties() {
             return {
+                query: {
+                    type: String,
+                    observer: "_queryChanged"
+                },
                 recordsText: {
                     type: Array,
                     observer: "_recordsTextChanged"
                 },
                 recordsApi: {
-                  type: Array,
-                  observer: "_recordsApiChanged"
+                    type: Array,
+                    observer: "_recordsApiChanged"
                 }
             }
+        }
+
+        _queryChanged() {
+            this.fireSearchEvent();
         }
 
         fireSearchEvent() {
             console.log("search");
             factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
                 type: "search",
-                query: this.$.searchbox.value //TODO
+                query: this.query
             });
             factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
                 type: "search",
                 channel: "webc-doku-api",
-                query: this.$.searchbox.value, //TODO
+                query: this.query,
                 topics: function () {
                     return ["customSearch", "specialElement"];
                 }
@@ -60,15 +71,11 @@
         // noinspection JSUnusedGlobalSymbols
         connectedCallback() {
             super.connectedCallback();
-            factfinder.communication.globalSearchParameter.url = "http://web-components.fact-finder.de/FACT-Finder-7.2";
-            factfinder.communication.globalSearchParameter.channel = "webc-doku-text";
-            factfinder.communication.globalSearchParameter.version = "7.2";
             this.key = factfinder.communication.ResultDispatcher.subscribe("result", (resultData) => {
-
                 this.recordsText = resultData.records;
             });
             this.key2 = factfinder.communication.ResultDispatcher.subscribe("customSearch", (resultData) => {
-                this.recordsApi =  resultData.searchResult.records;
+                this.recordsApi = resultData.searchResult.records;
             });
         }
 

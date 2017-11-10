@@ -18,6 +18,7 @@
                 --iron-collapse-transition-duration: 100ms;
                 box-shadow: 0 3px 3px #888888;
             }
+
             #searchbox {
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                 width: 100%;
@@ -27,12 +28,12 @@
             }
         </style>
         <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
-        <iron-collapse id="collapse">
+        <iron-collapse id="collapse" opened="{{expanded}}" transitioning="{{transitioning}}">
             <div class="collapse-content">
-                    <input type="text" id="searchbox" placeholder="Search" on-keyup="handleKeyUp" on-blur="hide">
+                <input type="text" id="searchbox" placeholder="Search" on-keyup="handleKeyUp" on-blur="hideBox">
             </div>
         </iron-collapse>
-        <paper-icon-button icon="search-icons:search" on-tap="toggleSearchBox">Search</paper-icon-button>
+        <paper-icon-button icon="search-icons:search" on-tap="toggleBox">Search</paper-icon-button>
     </template>
 </dom-module>
 <script>
@@ -46,22 +47,42 @@
             return "sd-search-box";
         }
 
-        toggleSearchBox() {
-            this.$.collapse.toggle();
-            this.$.searchbox.focus();
-        }
-
-
-        handleKeyUp(event) {
-            if (event.code === 'Enter') {
-
-            } else if (event.code === "Escape") {
-                hide();
+        static get properties() {
+            return {
+                query: {
+                    type: String,
+                    notify: true
+                }
             }
         }
 
-        hide() {
-            this.$.collapse.hide();
+        hideBox() {
+            if (!this.transitioning) {
+                this.$.collapse.hide();
+            }
+        }
+
+        toggleBox() {
+            if (this.expanded) {
+                this.hideBox();
+            } else {
+                this.showBox();
+            }
+        }
+
+        showBox() {
+            if (!this.transitioning) {
+                this.$.collapse.show();
+                this.$.searchbox.focus();
+            }
+        }
+
+        handleKeyUp(event) {
+            if (event.code === 'Enter') {
+                this.query = this.$.searchbox.value;
+            } else if (event.code === "Escape") {
+                this.hideBox();
+            }
         }
 
         // noinspection JSUnusedGlobalSymbols
