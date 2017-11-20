@@ -1,11 +1,11 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html"/>
-<link rel="import" href="../../dist/ff-core.html"/>
 <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400' type='text/css'>
 <link rel="stylesheet" href="../../bower_components/components-font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html"/>
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html"/>
 <link rel="import" href="search-icons.html">
+<link rel="import" href="../../dist/ff-core.html"/>
 
 <dom-module id="sd-search-box">
     <template>
@@ -19,7 +19,7 @@
                 box-shadow: 0 3px 3px #888888;
             }
 
-            #searchbox {
+            iron-input, #search-input {
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                 width: 100%;
                 height: 45px;
@@ -27,10 +27,12 @@
                 text-align: center;
             }
         </style>
+
+
         <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
         <iron-collapse id="collapse" opened="{{expanded}}" transitioning="{{transitioning}}">
             <div class="collapse-content">
-                <input type="text" id="searchbox" placeholder="Search" on-keyup="handleKeyUp" on-blur="hideBox">
+                <input type="text" placeholder="Search" on-keyup="handleKeyUp" on-blur="hideBox" id="search-input">
             </div>
         </iron-collapse>
         <paper-icon-button icon="search-icons:search" on-tap="toggleBox">Search</paper-icon-button>
@@ -41,6 +43,9 @@
 
         constructor() {
             super();
+            factfinder.communication.globalSearchParameter.url = "http://web-components.fact-finder.de/FACT-Finder-7.2";
+            factfinder.communication.globalSearchParameter.channel = "webc-doku-text";
+            factfinder.communication.globalSearchParameter.version = "7.2";
         }
 
         static get is() {
@@ -49,6 +54,14 @@
 
         static get properties() {
             return {
+                recordsText: {
+                    type: Array,
+                    notify: true
+                },
+                recordsApi: {
+                    type: Array,
+                    notify: true
+                },
                 query: {
                     type: String,
                     notify: true
@@ -67,27 +80,59 @@
                 this.hideBox();
             } else {
                 this.showBox();
+                this.shadowRoot.querySelector("#search-input").focus();
             }
         }
 
         showBox() {
             if (!this.transitioning) {
                 this.$.collapse.show();
-                this.$.searchbox.focus();
+                this.shadowRoot.querySelector("#search-input")
             }
         }
 
         handleKeyUp(event) {
             if (event.code === 'Enter') {
-                this.query = this.$.searchbox.value;
+                this.query = this.shadowRoot.querySelector("#search-input").value;
+                this.fireSearchEvent();
             } else if (event.code === "Escape") {
                 this.hideBox();
             }
         }
 
-        // noinspection JSUnusedGlobalSymbols
+        fireSearchEvent() {
+            console.log("search");
+            factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+                type: "search",
+                query: this.query
+            });
+            factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+                type: "search",
+                channel: "webc-doku-api",
+                query: this.query,
+                topics: function () {
+                    return ["customSearch", "specialElement"];
+                }
+            });
+        }
+
+
         connectedCallback() {
             super.connectedCallback();
+            this.key = factfinder.communication.ResultDispatcher.subscribe("result", (resultData) => {
+                this.recordsText = resultData.records;
+            });
+            this.key2 = factfinder.communication.ResultDispatcher.subscribe("customSearch", (resultData) => {
+                this.recordsApi = resultData.searchResult.records;
+            });
+        }
+
+        disconnectedCallback() {
+            super.disconnectedCallback();
+            factfinder.communication.ResultDispatcher.unsubscribe("result", this.key);
+            factfinder.communication.ResultDispatcher.unsubscribe("customSearch", this.key2);
+            delete this.key;
+            delete this.key2;
         }
 
     }

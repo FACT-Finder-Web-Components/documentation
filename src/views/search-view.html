@@ -5,14 +5,13 @@
 <link rel="import" href="../search/sdSearchBox.html"/>
 <link rel="import" href="../search/sdRecordList.html"/>
 <link rel="import" href="../shared-styles.html">
-<link rel="import" href="../../dist/ff-core.html"/>
 
 <dom-module id="search-view">
     <template>
         <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
         <div class="container theme-showcase" role="main" style="padding-top: 70px;">
             <sd-record-list id="sd-record-list" records-text="[[recordsText]]"
-                            records-api="[[recordsApi]]"></sd-record-list>
+                            records-api="[[recordsApi]]" query="[[query]]"></sd-record-list>
         </div>
     </template>
 </dom-module>
@@ -20,71 +19,24 @@
 <script>
     class SearchView extends Polymer.Element {
 
-        constructor() {
-            super();
-            factfinder.communication.globalSearchParameter.url = "http://web-components.fact-finder.de/FACT-Finder-7.2";
-            factfinder.communication.globalSearchParameter.channel = "webc-doku-text";
-            factfinder.communication.globalSearchParameter.version = "7.2";
-        }
-
         static get is() {
             return "search-view";
         }
 
         static get properties() {
             return {
-                query: {
-                    type: String,
-                    observer: "_queryChanged"
-                },
                 recordsText: {
                     type: Array,
-                    observer: "_recordsTextChanged"
+                    observer: "_log"
                 },
                 recordsApi: {
                     type: Array,
-                    observer: "_recordsApiChanged"
+                    observer: "_log"
+                },
+                query: {
+                    type: String
                 }
             }
-        }
-
-        _queryChanged() {
-            this.fireSearchEvent();
-        }
-
-        fireSearchEvent() {
-            console.log("search");
-            factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
-                type: "search",
-                query: this.query
-            });
-            factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
-                type: "search",
-                channel: "webc-doku-api",
-                query: this.query,
-                topics: function () {
-                    return ["customSearch", "specialElement"];
-                }
-            });
-        }
-
-        // noinspection JSUnusedGlobalSymbols
-        connectedCallback() {
-            super.connectedCallback();
-            this.key = factfinder.communication.ResultDispatcher.subscribe("result", (resultData) => {
-                this.recordsText = resultData.records;
-            });
-            this.key2 = factfinder.communication.ResultDispatcher.subscribe("customSearch", (resultData) => {
-                this.recordsApi = resultData.searchResult.records;
-            });
-        }
-
-        disconnectedCallback() {
-            super.disconnectedCallback();
-            factfinder.communication.ResultDispatcher.unsubscribe("result", this.key);
-            factfinder.communication.ResultDispatcher.unsubscribe("customSearch", this.key2);
-            delete this.key;
-
         }
     }
 

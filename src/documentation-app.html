@@ -164,7 +164,7 @@
                             </paper-tab>
                         </paper-tabs>
                     </iron-selector>
-                    <sd-search-box query="{{query}}"></sd-search-box>
+                    <sd-search-box records-text="{{recordsText}}" records-api="{{recordsApi}}" query="{{query}}"></sd-search-box>
                 </app-toolbar>
             </app-header>
 
@@ -173,7 +173,7 @@
                 <documentation-view name="documentation" route="{{subroute}}"></documentation-view>
                 <download-view name="download" server="http://localhost:8080"></download-view>
                 <contacts-view name="contacts"></contacts-view>
-                <search-view name="search" query="[[query]]"></search-view>
+                <search-view name="search" records-text="[[recordsText]]" records-api="[[recordsApi]]" query="[[query]]"></search-view>
                 <view-404 name="view404"></view-404>
             </iron-pages>
         </app-header-layout>
@@ -187,9 +187,16 @@
 
             static get properties() {
                 return {
+                    recordsText: {
+                        type: Array
+                    },
+                    recordsApi: {
+                        type: Array
+                    },
                     query: {
                         type: String,
-                        observer: "_selectSearchView"
+                        observer: "_selectSearchView",
+                        notify: true
                     },
                     page: {
                         type: String,
@@ -209,9 +216,10 @@
                 this.page = page || 'home';
             }
 
-            _selectSearchView(query) {
-                if (query) {
-                    this.page = 'search';
+            _selectSearchView(newValue) {
+                if (newValue) {
+                    window.history.pushState({}, null, '/search');
+                    window.dispatchEvent(new CustomEvent('location-changed'));
                 }
             }
 

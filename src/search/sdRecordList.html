@@ -1,43 +1,45 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html"/>
 <link rel="import" href="../../dist/ff-core.html"/>
+<link rel="import" href="../../bower_components/soso-truncated-text/soso-truncated-text.html">
 
 <dom-module id="sd-record-list">
     <template>
         <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+        <div class="row" id="query-info">
+
+        </div>
         <template id="sd-record-text" is="dom-repeat" items="{{recordsText}}">
-            <!--<a href="{{item.record.deeplink}}"
-               target="_blank"
-               style="font-weight: bold; display: block;">
-                {{item.record.title}}
-            </a>-->
             <div class="row">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><a href="{{item.record.deeplink}}" target="_blank">{{item.record.title}}</a></h3>
+                        <h3 class="panel-title"><a href="{{item.record.deeplink}}"
+                                                   target="_blank">{{item.record.title}}</a></h3>
                     </div>
                     <div class="panel-body">
-                        <!--<p>{{item.record.headings}}</p>-->
-                        <p>{{item.record.description}}</p>
+                        <b>Description:</b>
+                        <soso-truncated-text style="height: 40px"
+                                             text="{{item.record.description}}"></soso-truncated-text>
                     </div>
                 </div>
             </div>
 
         </template>
-        <h2>Records2</h2>
+        <hr>
         <template id="sd-record-api" is="dom-repeat" items="{{recordsApi}}">
-            <!--<a href="{{item.record.deeplink}}"
-               target="_blank"
-               style="font-weight: bold; display: block;">
-                {{item.record.title}}
-            </a>-->
             <div class="row">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><a href="{{item.record.deeplink}}" target="_blank">{{item.record.title}}</a></h3>
+                        <h3 class="panel-title">
+                            API-Reference: <a href="{{item.record.deeplink}}" target="_blank">{{item.record.title}}</a>
+                        </h3>
                     </div>
                     <div class="panel-body">
-                        <!--<p>{{item.record.headings}}</p>-->
-                        bla
+                        <b>Methods</b>
+                        <p>{{item.record.methods}}</p>
+                        <b>Mixings</b>
+                        <p>{{item.record.mixins}}</p>
+                        <b>Properties</b>
+                        <p>{{item.record.property}}</p>
                     </div>
                 </div>
             </div>
@@ -64,7 +66,17 @@
                 },
                 recordsApi: {
                     type: Array
+                },
+                query: {
+                    type: String,
+                    observer: "_handleQueryChange"
                 }
+            }
+        }
+
+        _handleQueryChange(query) {
+            if (query !== "") {
+                this.shadowRoot.querySelector("#query-info").innerHTML = "<h4>Search result for: <b>" + query + "</b></h4>";
             }
         }
 
