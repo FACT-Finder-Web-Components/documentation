@@ -65,7 +65,20 @@
                 query: {
                     type: String,
                     notify: true
+                },
+                page: {
+                    type: String,
+                    observer: "_pageChange"
                 }
+            }
+        }
+
+        _pageChange(newValue) {
+            if (newValue && newValue !== "search") {
+                this.shadowRoot.querySelector("#search-input").value = "";
+                this.recordsApi = undefined;
+                this.recordsText = undefined;
+                this.query = undefined;
             }
         }
 

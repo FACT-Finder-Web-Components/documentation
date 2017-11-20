@@ -5,15 +5,19 @@
 <dom-module id="sd-record-list">
     <template>
         <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+        <style>
+            .panel:hover {
+                cursor: pointer;
+            }
+        </style>
         <div class="row" id="query-info">
 
         </div>
         <template id="sd-record-text" is="dom-repeat" items="{{recordsText}}">
             <div class="row">
-                <div class="panel panel-default">
+                <div class="panel panel-default" on-tap="goToDeeplink">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><a href="{{item.record.deeplink}}"
-                                                   target="_blank">{{item.record.title}}</a></h3>
+                        <h3 class="panel-title">{{item.record.title}}</h3>
                     </div>
                     <div class="panel-body">
                         <b>Description:</b>
@@ -27,10 +31,10 @@
         <hr>
         <template id="sd-record-api" is="dom-repeat" items="{{recordsApi}}">
             <div class="row">
-                <div class="panel panel-default">
+                <div class="panel panel-default" on-tap="goToDeeplink">
                     <div class="panel-heading">
                         <h3 class="panel-title">
-                            API-Reference: <a href="{{item.record.deeplink}}" target="_blank">{{item.record.title}}</a>
+                            API-Reference: {{item.record.title}}
                         </h3>
                     </div>
                     <div class="panel-body">
@@ -71,6 +75,12 @@
                     type: String,
                     observer: "_handleQueryChange"
                 }
+            }
+        }
+
+        goToDeeplink(e) {
+            if (e.model.__data.item.record.deeplink !== "") {
+                window.open(e.model.__data.item.record.deeplink, "_blank")
             }
         }
 
