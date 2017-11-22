@@ -1,6 +1,8 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html"/>
 <link rel="import" href="../../dist/ff-core.html"/>
 <link rel="import" href="../../bower_components/soso-truncated-text/soso-truncated-text.html">
+<link rel="import" href="sdRecord.html">
+
 
 <dom-module id="sd-record-list">
     <template>
@@ -26,29 +28,9 @@
                     </div>
                 </div>
             </div>
-
         </template>
         <hr>
-        <template id="sd-record-api" is="dom-repeat" items="{{recordsApi}}">
-            <div class="row">
-                <div class="panel panel-default" on-tap="goToDeeplink">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            API-Reference: {{item.record.title}}
-                        </h3>
-                    </div>
-                    <div class="panel-body">
-                        <b>Methods</b>
-                        <p>{{item.record.methods}}</p>
-                        <b>Mixings</b>
-                        <p>{{item.record.mixins}}</p>
-                        <b>Properties</b>
-                        <p>{{item.record.property}}</p>
-                    </div>
-                </div>
-            </div>
-
-        </template>
+        <sd-record records="{{recordsApi}}"></sd-record>
     </template>
 </dom-module>
 
@@ -61,6 +43,10 @@
 
         static get is() {
             return "sd-record-list";
+        }
+
+        handleLoad(e) {
+            console.log(e);
         }
 
         static get properties() {
@@ -87,6 +73,19 @@
         _handleQueryChange(query) {
             if (query !== "") {
                 this.shadowRoot.querySelector("#query-info").innerHTML = "<h4>Search result for: <b>" + query + "</b></h4>";
+            }
+        }
+
+        labelizeApiReference() {
+            let nodes = this.shadowRoot.querySelectorAll(".labelize");
+            for (let i = 0; i < nodes.length; i++) {
+                let item = nodes.item(i);
+                let text = item.innerHTML;
+                item.innerHTML = "";
+                text.split(" ").forEach(t => {
+                    item.innerHTML += "<span class=\"label label-primary\">" + t + "</span>";
+                });
+                item.classList.remove("labelize");
             }
         }
 
