@@ -98,10 +98,10 @@
                 margin-bottom: 20px;
             }
 
-            img{
-                -webkit-box-shadow: 1px 1px 10px 2px rgba(194,194,194,1);
-                -moz-box-shadow: 1px 1px 10px 2px rgba(194,194,194,1);
-                box-shadow: 1px 1px 10px 2px rgba(194,194,194,1);
+            img {
+                -webkit-box-shadow: 1px 1px 10px 2px rgba(194, 194, 194, 1);
+                -moz-box-shadow: 1px 1px 10px 2px rgba(194, 194, 194, 1);
+                box-shadow: 1px 1px 10px 2px rgba(194, 194, 194, 1);
                 max-width: 100%;
             }
         </style>
@@ -207,6 +207,15 @@
                 </div>
             </div>
 
+            <div class="row" style="display: flex;justify-content: center;margin-top: 35px">
+                <p id="buildingInfo" style="display: none">
+                    Version is currently building... Download will start when finished!
+                </p>
+                <p id="buildError" style="display: none;color:red">
+                    Failed to build Version with this setting!
+                </span>
+            </div>
+
             <div class="row" style="display: flex;justify-content: center;margin-top: 35px;padding-bottom: 35px">
                 <style>
                     paper-button {
@@ -216,12 +225,9 @@
                         margin-bottom: 15px;
                     }
                 </style>
-                <paper-button id="downloadButton" on-tap="_download">Download
-                </paper-button>
-                <p id="buildingInfo" style="display: none">
-                    Version is currently building... Download will start when finished!
-                </p>
+                <paper-button id="downloadButton" on-tap="_download">Download</paper-button>
             </div>
+
         </div>
     </template>
 
@@ -340,6 +346,11 @@
                         type: Boolean,
                         value: false,
                         observer: "_isDownloadingChanged"
+                    },
+                    hasError: {
+                        type: Boolean,
+                        value: false,
+                        observer: "_hasErrorChanged"
                     }
                 }
             }
@@ -349,24 +360,37 @@
                 let headers = new Headers();
                 headers.append("Content-Type", "application/json");
                 headers.append("Content-Length", data.length.toString());
+                this.hasError = false;//reset error lable
+
+                function handleErrors(response) {
+                    if (!response.ok) {
+                        throw Error(response.statusText);
+                    }
+                    return response;
+                }
 
                 fetch(this.server + "/build", {
                     method: "POST",
                     headers: headers,
                     body: data
-                }).then(r => r.json()).then(function (json) {
-                    if (json.finished) {//open download dialog
+                }).then(handleErrors)
+                    .then(r => r.json())
+                    .then(function (json) {
+                        if (json.finished) {//open download dialog
+                            this.isDownloading = false;
+                            window.open(this.server + json.url, "Download");
+                        } else {
+                            this.isDownloading = true;
+                            setTimeout(function () {
+                                this._download();
+                            }.bind(this), 1000);
+                        }
+                    }.bind(this))
+                    .catch(function (error) {
                         this.isDownloading = false;
-                        window.open(this.server + json.url, "Download");
-                    } else {
-                        this.isDownloading = true;
-                        setTimeout(function () {
-                            this._download();
-                        }.bind(this), 1000);
-                    }
-                }.bind(this)).catch(function (error) {
-                    console.error("download.error", error);
-                });
+                        this.hasError = true;//show error warning
+                        console.error("download.error", error);
+                    }.bind(this));
             }
 
             _toggleAll(event) {
@@ -424,6 +448,14 @@
                 } else {
                     this.$.downloadButton.style.opacity = 1000;
                     this.$.buildingInfo.style.display = "none";
+                }
+            }
+
+            _hasErrorChanged(newValue) {
+                if (newValue) {
+                    this.$.buildError.style.display = "inline-block"; //add info for 'building...'
+                } else {
+                    this.$.buildError.style.display = "none"; //add info for 'building...'
                 }
             }
         }
