@@ -5,6 +5,7 @@
 <link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../bower_components/paper-spinner/paper-spinner.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
 <link rel="import" href="../../bower_components/marked-element/marked-element.html">
@@ -150,7 +151,7 @@
                     <paper-listbox slot="dropdown-content" selected="0"
                                    on-selected-item-changed="_selectedVersionChanged">
                         <template is="dom-repeat" items="{{versions}}">
-                            <paper-item data-api-name$="{{item.apiName}}">{{item.label}}</paper-item>
+                            <paper-item data-api-name$="{{item}}">v.{{item}}</paper-item>
                         </template>
                     </paper-listbox>
                 </paper-dropdown-menu>
@@ -207,13 +208,25 @@
                 </div>
             </div>
 
+
             <div class="row" style="display: flex;justify-content: center;margin-top: 35px">
-                <p id="buildingInfo" style="display: none">
-                    Version is currently building... Download will start when finished!
-                </p>
+                <div id="buildingInfo" style="display: none">
+                    <paper-spinner id="spinner" active style="width: 50px;height: 50px;"></paper-spinner>
+                    <p>Configured version is currently building.</p>
+                    <p>Approximated build time: ~30sec</p>
+                    <p>(Download will start automatically when ready)</p>
+                </div>
+                <div id="downloadFinished">
+                    <p>Download is ready :)</p>
+                    <p>
+                        When automatic download not started, download directly at this <a
+                            href="[[lastDownload]]">link</a>.
+                    </p>
+
+                </div>
                 <p id="buildError" style="display: none;color:red">
                     Failed to build Version with this setting!
-                </span>
+                </p>
             </div>
 
             <div class="row" style="display: flex;justify-content: center;margin-top: 35px;padding-bottom: 35px">
@@ -240,17 +253,7 @@
             static get properties() {
                 return {
                     versions: {
-                        type: Array,
-                        value: [{
-                            label: "v.1.2.2",
-                            apiName: "1.2.2"
-                        }, {
-                            label: "v.1.2.1",
-                            apiName: "1.2.1"
-                        }, {
-                            label: "v.1.2.0",
-                            apiName: "1.2.0"
-                        }]
+                        type: Array
                     },
                     selectedVersion: {
                         type: String
@@ -335,10 +338,6 @@
                         type: Object,
                         computed: "_computeApiOptions(selectedVersion, navigationFeatures.*, moreFeatures.*)"
                     },
-                    hasFeatureSelected: {//TODO AP: maybe remove this. Downloads are still valid with no additional features selected.
-                        type: Boolean,
-                        computed: "_computeHasFeatures(apiOptions.features)"
-                    },
                     server: {
                         type: String,
                     },
@@ -351,8 +350,43 @@
                         type: Boolean,
                         value: false,
                         observer: "_hasErrorChanged"
+                    },
+                    lastDownload: {
+                        type: String
                     }
                 }
+            }
+
+            connectedCallback() {
+                super.connectedCallback();
+                this.$.downloadFinished.style.display = "none";
+                setTimeout(() => {
+                    this._fetchVersions();
+                }, 100);
+            }
+
+            /**
+             * Initially load the Versions from the build service.
+             *
+             * @private
+             */
+            _fetchVersions() {
+                function handleErrors(response) {
+                    if (!response.ok) {
+                        throw Error(response.statusText);
+                    }
+                    return response;
+                }
+
+                fetch(this.server + "/versions")
+                    .then(handleErrors)
+                    .then(r => r.json())
+                    .then(json => {
+                        this.versions = json;
+                    })
+                    .catch(error => {
+                        console.warn("Can not fetch versions!", error);
+                    });
             }
 
             _download() {
@@ -375,22 +409,25 @@
                     body: data
                 }).then(handleErrors)
                     .then(r => r.json())
-                    .then(function (json) {
+                    .then(json => {
                         if (json.finished) {//open download dialog
                             this.isDownloading = false;
+                            this.$.downloadFinished.style.display = "inline-block";
+                            this.lastDownload = this.server + json.url;
                             window.open(this.server + json.url, "Download");
                         } else {
                             this.isDownloading = true;
-                            setTimeout(function () {
+                            setTimeout(() => {
                                 this._download();
-                            }.bind(this), 1000);
+                            }, 1000);
                         }
-                    }.bind(this))
-                    .catch(function (error) {
+                    })
+                    .catch(error => {
                         this.isDownloading = false;
+//                        this.$.downloadFinished.style.display = "inline-block";
                         this.hasError = true;//show error warning
                         console.error("download.error", error);
-                    }.bind(this));
+                    });
             }
 
             _toggleAll(event) {
@@ -402,11 +439,11 @@
 
             _openDialog(event) {
                 this.model = event.model.item;
-                setTimeout(function () {// a little delayed to fix position after markdown is loaded
+                setTimeout(() => {// a little delayed to fix position after markdown is loaded
                     this.$.dialog.center();
                     this.$.dialog.refit();
                     this.$.dialog.open();
-                }.bind(this), 200);
+                }, 200);
             }
 
             _selectedVersionChanged(event) {
@@ -426,7 +463,7 @@
                 return {
                     version: selectedVersion,
                     features: (function () {
-                        let result = [];
+                        let result = ["core"];//always add core features
                         navigationFeatures.base.concat(moreFeatures.base).forEach(function (feature) {
                             if (feature.active === true) {
                                 result.push("" + feature.apiName);
@@ -437,15 +474,13 @@
                 };
             }
 
-            _computeHasFeatures(features) {
-                return features.length === 0;
-            }
-
             _isDownloadingChanged(newValue) {
                 if (newValue) {
                     this.$.downloadButton.style.opacity = 0;            //disable download button
                     this.$.buildingInfo.style.display = "inline-block"; //add info for 'building...'
+                    this.$.downloadFinished.style.display = "none";
                 } else {
+                    this.$
                     this.$.downloadButton.style.opacity = 1000;
                     this.$.buildingInfo.style.display = "none";
                 }
