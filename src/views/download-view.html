@@ -120,7 +120,7 @@
             <paper-dialog-scrollable style="margin: 0px">
                 <marked-element id="api_markdown" name="/api" on-syntax-highlight="_addHiglightJs">
                     <div slot="markdown-html">
-                        <script type="text/markdown" src="/markdown/en/info/{{model.apiName}}.md"></script>
+                        <script type="text/markdown" src="{{markdownFilePath}}"></script>
                     </div>
                 </marked-element>
             </paper-dialog-scrollable>
@@ -353,6 +353,13 @@
                     },
                     lastDownload: {
                         type: String
+                    },
+                    model: {
+                        type: Object
+                    },
+                    markdownFilePath: {
+                        type: String,
+                        computed: "_computeMarkdownFilePath(model)"
                     }
                 }
             }
@@ -363,6 +370,14 @@
                 setTimeout(() => {
                     this._fetchVersions();
                 }, 100);
+            }
+
+            _computeMarkdownFilePath(model) {
+                if (model && model.apiName) {
+                    return `/markdown/en/info/${model.apiName}.md`;
+                } else {
+                    return "";
+                }
             }
 
             _handleHttpErrorResponse(response) {
@@ -415,11 +430,11 @@
                             }, 1000);
                         }
                     }).catch(error => {
-                        this.isDownloading = false;
+                    this.isDownloading = false;
 //                        this.$.downloadFinished.style.display = "inline-block";
-                        this.hasError = true;//show error warning
-                        console.error("download.error", error);
-                    });
+                    this.hasError = true;//show error warning
+                    console.error("download.error", error);
+                });
             }
 
             _toggleAll(event) {
