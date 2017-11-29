@@ -1,3 +1,5 @@
+![hero image](http://web-components.fact-finder.de/resources/images/index/hero_image_mac_screen.png "")
+
 ## Checkout the Project
 * Download or clone the demo project on on [Github](https://github.com/FACT-Finder-Web-Components)
 * If you don't want to use bower, download the latest distribution from [web-components.fact-finder.de](http://web-components.fact-finder.de/download) and unzip the content in the demo project root directory
