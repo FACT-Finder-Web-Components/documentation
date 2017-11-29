@@ -378,15 +378,15 @@
                     return response;
                 }
 
-                fetch(this.server + "/versions")
-                    .then(handleErrors)
+                fetch(this.server + "/versions", {
+                    mode: "cors"
+                }).then(handleErrors)
                     .then(r => r.json())
                     .then(json => {
                         this.versions = json;
-                    })
-                    .catch(error => {
-                        console.warn("Can not fetch versions!", error);
-                    });
+                    }).catch(error => {
+                    console.warn("Can not fetch versions!", error);
+                });
             }
 
             _download() {
@@ -394,7 +394,7 @@
                 let headers = new Headers();
                 headers.append("Content-Type", "application/json");
                 headers.append("Content-Length", data.length.toString());
-                this.hasError = false;//reset error lable
+                this.hasError = false;//reset error label
 
                 function handleErrors(response) {
                     if (!response.ok) {
@@ -421,8 +421,7 @@
                                 this._download();
                             }, 1000);
                         }
-                    })
-                    .catch(error => {
+                    }).catch(error => {
                         this.isDownloading = false;
 //                        this.$.downloadFinished.style.display = "inline-block";
                         this.hasError = true;//show error warning
