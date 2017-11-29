@@ -365,22 +365,22 @@
                 }, 100);
             }
 
+            _handleHttpErrorResponse(response) {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+                return response;
+            }
+
             /**
              * Initially load the Versions from the build service.
              *
              * @private
              */
             _fetchVersions() {
-                function handleErrors(response) {
-                    if (!response.ok) {
-                        throw Error(response.statusText);
-                    }
-                    return response;
-                }
-
                 fetch(this.server + "/versions", {
                     mode: "cors"
-                }).then(handleErrors)
+                }).then(this._handleHttpErrorResponse)
                     .then(r => r.json())
                     .then(json => {
                         this.versions = json;
@@ -396,18 +396,11 @@
                 headers.append("Content-Length", data.length.toString());
                 this.hasError = false;//reset error label
 
-                function handleErrors(response) {
-                    if (!response.ok) {
-                        throw Error(response.statusText);
-                    }
-                    return response;
-                }
-
                 fetch(this.server + "/build", {
                     method: "POST",
                     headers: headers,
                     body: data
-                }).then(handleErrors)
+                }).then(this._handleHttpErrorResponse)
                     .then(r => r.json())
                     .then(json => {
                         if (json.finished) {//open download dialog
