@@ -11,10 +11,32 @@
 /* eslint-env node */
 
 module.exports = {
-  staticFileGlobs: [
-    'index.html',
-    'manifest.json',
-    'bower_components/webcomponentsjs/*',
-  ],
-  navigateFallback: 'index.html',
+    staticFileGlobs: [
+        'index.html',
+        'manifest.json',
+        'bower_components/webcomponentsjs/*',
+    ],
+    runtimeCaching: [
+        {
+            urlPattern: /.*\.(png|jpg)/i,
+            handler: 'fastest',
+            options: {
+                cache: {
+                    maxEntries: 1000,
+                    name: 'data-images-cache'
+                }
+            }
+        },
+        {
+            urlPattern: /.*\/markdown.*/,
+            handler: 'fastest',
+            options: {
+                cache: {
+                    maxEntries: 1000,
+                    name: 'markdown-files-cache'
+                }
+            }
+        }
+    ],
+    navigateFallback: 'index.html',
 };
