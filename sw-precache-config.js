@@ -28,7 +28,7 @@ module.exports = {
             }
         },
         {
-            urlPattern: /.*\/markdown.*/,
+            urlPattern: /.*\/markdown\/.*/,
             handler: 'fastest',
             options: {
                 cache: {
