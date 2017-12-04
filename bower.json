@@ -31,7 +31,6 @@
     "iron-collapse": "PolymerElements/iron-collapse#^2.0.0",
     "slate-font-awesome": "slate-font-awesome#4.7.0",
     "paper-toolbar": "PolymerElements/paper-toolbar#^2.0.0",
-    "ff-web-components": "https://github.com/FACT-Finder-Web-Components/ff-web-components.git#1.2.5",
     "soso-truncated-text": "pshihn/soso-truncated-text#^1.0.2",
     "paper-spinner": "PolymerElements/paper-spinner#^2.0.0"
   },

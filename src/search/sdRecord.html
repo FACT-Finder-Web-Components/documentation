@@ -8,7 +8,7 @@
                 cursor: pointer;
             }
         </style>
-        <template is="dom-repeat" items="{{records}}" on-dom-change="labelize">
+        <template is="dom-repeat" items="{{records}}" restamp="true" on-dom-change="labelize">
             <div class="row">
                 <div class="panel panel-default" on-tap="goToDeeplink">
                     <div class="panel-heading">
@@ -56,7 +56,7 @@
                 let text = item.innerHTML;
                 item.innerHTML = "";
                 text.split(" ").forEach(t => {
-                    item.innerHTML += "<span class=\"label label-default\">" + t + "</span>";
+                    item.innerHTML += "<span class=\"label label-primary\">" + t + "</span>";
                 });
                 item.classList.remove("labelize");
             }
