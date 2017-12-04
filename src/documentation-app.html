@@ -164,16 +164,19 @@
                             </paper-tab>
                         </paper-tabs>
                     </iron-selector>
-                    <sd-search-box records-text="{{recordsText}}" records-api="{{recordsApi}}" query="{{query}}" page="[[page]]"></sd-search-box>
+                    <sd-search-box records-text="{{recordsText}}" records-api="{{recordsApi}}" query="{{query}}"
+                                   page="[[page]]"></sd-search-box>
                 </app-toolbar>
             </app-header>
 
             <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="view404" role="main">
                 <home-view name="home" route="{{subroute}}"></home-view>
                 <documentation-view name="documentation" route="{{subroute}}"></documentation-view>
-                <download-view name="download" server="https://web-components.fact-finder.de/webcomponents-build-tool"></download-view>
+                <download-view name="download"
+                               server="https://web-components.fact-finder.de/webcomponents-build-tool"></download-view>
                 <contacts-view name="contacts"></contacts-view>
-                <search-view name="search" records-text="[[recordsText]]" records-api="[[recordsApi]]" query="[[query]]"></search-view>
+                <search-view name="search" records-text="[[recordsText]]" records-api="[[recordsApi]]"
+                             query="[[query]]"></search-view>
                 <view-404 name="view404"></view-404>
             </iron-pages>
         </app-header-layout>
@@ -191,7 +194,8 @@
                         type: Array
                     },
                     recordsApi: {
-                        type: Array
+                        type: Array,
+                        observer: "_logApiChange"
                     },
                     query: {
                         type: String,
@@ -204,6 +208,10 @@
                         observer: '_pageChanged',
                     }
                 };
+            }
+
+            _logApiChange(e) {
+                console.log("Hello from doc app" + e);
             }
 
             static get observers() {

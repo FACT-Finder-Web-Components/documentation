@@ -1,7 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html"/>
-<!--<link rel="import" href="../../dist/ff-core.html"/>-->
+<link rel="import" href="../../dist/ff-core.html"/>
 <link rel="import" href="../../bower_components/soso-truncated-text/soso-truncated-text.html">
-<link rel="import" href="sdRecord.html">
 
 
 <dom-module id="sd-record-list">
@@ -10,6 +9,10 @@
         <style>
             .panel:hover {
                 cursor: pointer;
+            }
+            .deeplink {
+                font-size: 10px;
+                color: green;
             }
         </style>
         <div class="row" id="query-info">
@@ -22,6 +25,7 @@
                         <h3 class="panel-title">{{item.record.title}}</h3>
                     </div>
                     <div class="panel-body">
+                        <p class="deeplink">{{item.record.deeplink}}</p>
                         <b>Description:</b>
                         <soso-truncated-text style="height: 40px"
                                              text="{{item.record.description}}"></soso-truncated-text>
@@ -30,7 +34,34 @@
             </div>
         </template>
         <hr>
-        <sd-record records="{{recordsApi}}"></sd-record>
+        <template is="dom-repeat" items="{{labelApiRecords}}" on-dom-change="labelize">
+            <div class="row">
+                <div class="panel panel-default" on-tap="goToDeeplink">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            API-Reference: {{item.record.title}}
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <p class="deeplink">{{item.record.deeplink}}</p>
+                        <b>Methods</b>
+                        <template is="dom-repeat" items="{{item.record.methods}}">
+                            <span class="label label-primary">{{item}}</span>
+                        </template>
+                        <br>
+                        <b>Mixins</b>
+                        <template is="dom-repeat" items="{{item.record.mixins}}">
+                            <span class="label label-primary">{{item}}</span>
+                        </template>
+                        <br>
+                        <b>Properties</b>
+                        <template is="dom-repeat" items="{{item.record.property}}">
+                            <span class="label label-primary">{{item}}</span>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </template>
     </template>
 </dom-module>
 
@@ -45,10 +76,6 @@
             return "sd-record-list";
         }
 
-        handleLoad(e) {
-            console.log(e);
-        }
-
         static get properties() {
             return {
                 recordsText: {
@@ -56,6 +83,10 @@
                 },
                 recordsApi: {
                     type: Array
+                },
+                labelApiRecords: {
+                    type: Array,
+                    computed: "_mapRecordPropertiesToLists(recordsApi)"
                 },
                 query: {
                     type: String,
@@ -76,17 +107,27 @@
             }
         }
 
-        labelizeApiReference() {
-            let nodes = this.shadowRoot.querySelectorAll(".labelize");
-            for (let i = 0; i < nodes.length; i++) {
-                let item = nodes.item(i);
-                let text = item.innerHTML;
-                item.innerHTML = "";
-                text.split(" ").forEach(t => {
-                    item.innerHTML += "<span class=\"label label-primary\">" + t + "</span>";
+        _mapRecordPropertiesToLists(records) {
+            records.forEach(item => {
+                let properties = [];
+                let mixins = [];
+                let methods = [];
+
+                item.record.property.split(" ").forEach(p => {
+                    properties.push(p);
                 });
-                item.classList.remove("labelize");
-            }
+                item.record.mixins.split(" ").forEach(m => {
+                    mixins.push(m);
+                });
+                item.record.methods.split(" ").forEach(m => {
+                    methods.push(m);
+                });
+
+                item.record.property = properties;
+                item.record.mixins = mixins;
+                item.record.methods = methods;
+            });
+            return records;
         }
 
         // noinspection JSUnusedGlobalSymbols
