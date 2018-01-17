@@ -80,6 +80,8 @@
 
             iframe {
                 width: 100%;
+                border: 0px;
+                height: 800px;
             }
 
             app-drawer-layout:not([narrow]) [drawer-toggle] {
@@ -226,13 +228,11 @@
                                 <img src="../../images/GitHub-Logos/GitHub-Mark-32px.png">
                             </a>
                         </div>
-                        <iframe src="[[demoPath]]" frameborder="0" height="800px"></iframe>
+                        <div id="iframeSlot"></div>
                     </div>
 
                     <!--API-->
-                    <marked-element id="api_markdown"
-                                    name="/api"
-                                    on-syntax-highlight="_addHiglightJs">
+                    <marked-element id="api_markdown" name="/api" on-syntax-highlight="_addHiglightJs">
                         <div slot="markdown-html">
                             <script type="text/markdown" src="{{apiPath}}"></script>
                         </div>
@@ -261,7 +261,7 @@
             static get observers() {
                 return [
                     "changeRouteData(routeData)",
-                    "fileNameChanged(fileName)"
+                    "subRouteChanged(subRoute)"
                 ]
             }
 
@@ -282,42 +282,60 @@
 
             connectedCallback() {
                 super.connectedCallback();
-                this.$.pageSelector.addEventListener("selected-changed", function (event) {
-                    this.fileName = event.detail.value;
-                    this.subRoute = "/";
-                }.bind(this));
+                this.$.pageSelector.addEventListener("selected-changed", (event) => {
+                    window.history.pushState({}, null, '/documentation/' + event.detail.value);
+                    this.subRoute = "/";//clear subRoute to set current tab to 'Documentation'
+                });
                 this.$.api_markdown.addEventListener("xhr-changed", e => this.onApiXhrChanged(e));
 
                 this.init();
                 this.fileName = this.routeData.fileName;
             }
 
+            //backup solution to hide tabs on elements with no demo/api
             onApiXhrChanged(event) {
-                event.detail.value.onload = function (result) {
+                event.detail.value.onload = (result) => {
                     this.showTabs = (result.target.status == 200);
-                }.bind(this);
+                };
+            }
+
+            subRouteChanged(subRoute) {
+                //clear iframeSlot
+                while (this.$.iframeSlot.childElementCount > 0) {
+                    this.$.iframeSlot.removeChild(this.$.iframeSlot.lastChild);
+                }
+
+                if (subRoute === "/demo") {
+                    var frame = document.createElement("iframe");
+                    frame.src = "http://web-components.fact-finder.de/demos/1.2.2/" + this.route.path.replace("/", "");
+                    this.$.iframeSlot.appendChild(frame);
+                }
             }
 
             changeRouteData(data) {
-                this.fileName = data.fileName;
-            }
-
-            fileNameChanged(fileName) {
-                if (this.route.prefix === "/documentation") {//only apply when in dokumentation route
+                var fileName = data.fileName;
+                if (this.route.prefix === "/documentation") {//only apply when in documentation route
                     this.filePath = "markdown/" + this.language + "/" + fileName + ".md";
-                    this.demoPath = "https://web-components.fact-finder.de/demos/1.2.2/" + fileName;
-                    this.apiPath = "markdown/" + this.language + "/api/" + fileName + ".api.md";
-                    this.githubPath = "https://github.com/FACT-Finder-Web-Components/demos/blob/master/" + fileName + "/index.html";
+
+                    if (fileName.startsWith("ff")) {//most ff-* pages have a demo
+                        this.showTabs = true;
+                        this.apiPath = "markdown/" + this.language + "/api/" + fileName + ".api.md";
+                        this.githubPath = "https://github.com/FACT-Finder-Web-Components/demos/blob/master/" + fileName + "/index.html";
+                    } else {
+                        //do not trigger a new load request for api and github path when ist not an ff element,
+                        // instead simpyl not show tabs
+                        this.showTabs = false;
+                    }
 
                     if (this.doku) {
                         this.dokuTitle = this.doku[fileName].title;
                     } else {
                         //set Title delayed, because doku info array is only initialized on connectedCallback
-                        setTimeout(function () {
+                        setTimeout(() => {
                             this.dokuTitle = this.doku[fileName].title;
-                        }.bind(this), 100)
+                        }, 100);
                     }
-                    this.subRoute = "/";
+                    this.subRoute = "/";//always start with subrout "/"
                 }
             }
 
