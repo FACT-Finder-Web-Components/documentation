@@ -1,3 +1,4 @@
+## Overview
 With the `ff-paging` element, you can build a custom paging for your search results. A paging may
 contain a few `ff-paging-set` elements and each `ff-paging-set` element contains a few
 `ff-paging-item` elements.

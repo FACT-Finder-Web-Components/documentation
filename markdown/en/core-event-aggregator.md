@@ -1,7 +1,14 @@
-## factfinder.communication.FFCommunicationEventAggregator
-Use an event based function to query the FACT-Finder APIs. Every event needs to have a  type 
-property to specify how to handle the event.
-*NOTE*: Each property which is not not a function or an object is translated to an http request parameter with a few exceptions:
+The `FFCommunicationEventAggregator` (**factfinder.communication.FFCommunicationEventAggregator**) is used to query 
+the FACT-Finder APIs with an event based approach. You can also hook into the communication pipeline.
+
+## Fire Events       
+To send query's to the FACT-Finder you need to fire event's via the `addFFEvent()` function. 
+Internally the same method is used for all elements which communicate with the Fact-Finder.
+
+### `addFFEvent(event)`
+Each event has a `type` which defines what API on the FACT-Finder is called and which other properties it operates on.
+
+**NOTE**: Each property which is not not a function or an object is translated to an http request parameter with a few exceptions:
 
 *  type 
 *  url 
@@ -12,32 +19,8 @@ property to specify how to handle the event.
 `fail`, `always` and `success` are expected to be a function which is
 executed at the appropriate time. The `type` property tells the EventAggregator how to handle
 the event. The `url` property is reserved for internal usage.
-
-## BeforeDispatchingCallback
-`FFCommunicationEventAggregator.addBeforeDispatchingCallback(fn):string;`
-
-`FFCommunicationEventAggregator.removeBeforeDispatchingCallback(key):boolean;`
-
-Adds or removes a callback which executes before every event i.e. search, suggest, recommendation and so on.
-The callback receives an event object enriched with basic data i.e. `sid` and if available a
-`type` property which corresponds to the event types of `FFCommunicationEventAggregator.addFFEvent(event)`.
-        
-If you want to intercept a search request for example you could do:
-```html
-<script>
-    document.addEventListener("ffReady", function () {
-        factfinder.communication.FFCommunicationEventAggregator.addBeforeDispatchingCallback(function (event) {
-            if (event.type === "search") {
-                event["newConditionalHttpParam"] = "someValue";
-            }
-        });
-    });
-</script>
-<link rel="ímport" href="path/to/ff-web-components.html">
-```
-## Fire Events       
-`FFCommunicationEventAggregator.addFFEvent(event)`
-### List of all event types
+ 
+#### List of all event types
 * [search](documentation/#search) 
 * [navigation](#navigation) 
 * [navigation-search](#navigation-search) 
@@ -115,13 +98,13 @@ If you want to intercept a search request for example you could do:
 ### filter
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator..addFFEvent({
+    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
         type: "filter",
         groupName: <groupName:String>,
         filterName: <filterName:String>
     });
 
-    factfinder.communication.FFCommunicationEventAggregator..addFFEvent({
+    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
         type: "filter",
         groupName: "Gender",
         filterName: "Female"
@@ -354,4 +337,43 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
         // process the result
     });
 </script>
+```
+
+## Hooking into the pipeline
+
+### `addBeforeDispatchingCallback(fn):string;`
+Adds a callback which executes before every event i.e. search, suggest, recommendation and so on is send.
+The callback receives an event object enriched with basic data i.e. `sid` and if available a
+`type` property which corresponds to the event types of `FFCommunicationEventAggregator.addFFEvent(event)`.
+        
+If you want to intercept a search request for example you could do:
+```html
+<script>
+    document.addEventListener("ffReady", function () {
+        factfinder.communication.FFCommunicationEventAggregator.addBeforeDispatchingCallback(function (event) {
+            if (event.type === "search") {
+                event["newConditionalHttpParam"] = "someValue";
+            }
+        });
+    });
+</script>
+<link rel="import" href="path/to/ff-web-components.html">
+```
+
+### `removeBeforeDispatchingCallback(key):boolean;`
+Removes a registered callback again by it's `key`
+```html
+<script>
+    document.addEventListener("ffReady", function () {
+        var key = factfinder.communication.FFCommunicationEventAggregator.addBeforeDispatchingCallback(function (event) {
+            if (event.type === "search") {
+                event["newConditionalHttpParam"] = "someValue";
+            }
+        });
+        
+        //remove the callback 
+        factfinder.communication.FFCommunicationEventAggregator.removeBeforeDispatchingCallback(key);
+    });
+</script>
+<link rel="import" href="path/to/ff-web-components.html">
 ```
