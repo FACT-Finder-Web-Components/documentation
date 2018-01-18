@@ -1,3 +1,4 @@
+## Overview
 The simplest way of using a sortbox, is to simply use the default settings.
 This will display all sort options defined in the FACT-Finder backend as a dropdown.
 ```html

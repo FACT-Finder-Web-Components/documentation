@@ -1,3 +1,4 @@
+## Overview
 The `ff-carousel` is a wrapper element for records, which displays them in a carousel-like manner.
 The ff-carousel organizes the records as slides. A Slide is comparable to a page in a searchResult, but normally
 smaller - 3 to 5 records.

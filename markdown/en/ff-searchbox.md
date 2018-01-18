@@ -15,26 +15,28 @@ For more information, see the [API reference](http://web-components.fact-finder.
 ```
 
 ## Extending the input
-The `ff-searchbox` extends a normal input field with the attribute `is="ff-searchbox"`. Simply add the attribute `is="ff-searchbox"` to a standard `input` element.
+The `ff-searchbox` extends a normal `<input>`. Simply add the attribute `is="ff-searchbox"` to a standard `<input>` element.
 On ENTER a search event is fired with the current value.
 ```html
 <input is="ff-searchbox" />
 ```
 
 ### Placeholder
-Because the `ff-searchbox` is an extension to a normal `input` you can use all the normal attributes on the `input` such as `placeholder`
+Because the `ff-searchbox` is an extension to a normal `<input>` you can use all the normal attributes on the `<input>` such as `placeholder`
 ```html
 <input is="ff-searchbox" placeholder="Search..."/>
 ```
 
 ### On Click
-With the `select-onclick` attribute you can define if the value should be selected when the searchbox gets focus. (default is false)
+With the `select-onclick` attribute you can define if the value should be selected when the searchbox gets the focus. *(default is false)*
 ```html
 <input is="ff-searchbox" select-onclick="true"/>
 ```
 
 ## Adding Suggest
-If you want a Suggest function on your page you can set the `use-suggest` attribute to **true** (default is true). You also need to implement the ``ff-suggest`` Tag on your page. For more information take a look at the [Suggest Example](http://web-components.fact-finder.de/element-data/suggest/suggest-demo.html).
+If you want a Suggest function on your page you can set the `use-suggest` attribute to **true** *(default is true)*. 
+You also need to implement the ``ff-suggest`` Tag on your page. For more information take a look at the 
+[Suggest Example](/documentation/ff-suggest).
 The Suggest will only trigger when at least 2 characters are in the input field.
 ```html
 <input is="ff-searchbox" use-sugest="true"/>

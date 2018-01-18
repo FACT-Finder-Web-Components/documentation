@@ -1,4 +1,4 @@
-All {{data-bindings}} used in FACT-Finder Web Components refer to the underlying JSON response returned by
+All `{{data-bindings}}` used in FACT-Finder Web Components refer to the underlying JSON response returned by
 FACT-Finder.
 
 You can take a look at all available bindings by opening your browsers **Dev Tools** (__Press F12
@@ -31,11 +31,10 @@ Take a look at the following data-binding example to see how to access the data.
 ```
 
 ## Underlying Engine (Mustache)
-All bindings are resolved by the underlying template engine <a
-    href="https://github.com/janl/mustache.js/#mustachejs---logic-less-mustache-templates-with-javascript"
-    target="_blank">mustache.js</a>. For a bit more flexibility you can rely on some of it's functionality.
+All bindings are resolved by the underlying template engine [mustache.js](https://github.com/janl/mustache.js/#mustachejs---logic-less-mustache-templates-with-javascript).
+ For a bit more flexibility you can rely on some of it's functionality.
 
 You could do an **if** by using [this](https://github.com/janl/mustache.js/#false-values-or-empty-lists) syntax. 
 If the data is not formatted correctly, use the 
-[ResultDispatcher]('../result-dispatcher/"onclick="showDocumentationEntry('result-dispatcher', '#resultDispatcher');window.scrollTo(0, 0);return false;" class="result-dispatcher')
+[ResultDispatcher](/documentation/core-result-dispatcher)
  to modify it accordingly.

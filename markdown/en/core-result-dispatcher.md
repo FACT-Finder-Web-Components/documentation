@@ -1,33 +1,40 @@
-You can subscribe to the ResultDispatcher for raw data or get a chance to play around with result
+You can subscribe to the ResultDispatcher for raw data or get a chance to change the result
 before it's dispatched. This is indeed what all data related FACT-Finder Web Components do. They
-subscribe to ResultDispatcher to get notified when new data is available. If you want to trigger
-your own communication events checkout the FFCommunicationEventAggregator.
+subscribe to ResultDispatcher to get notified when new data is available. 
 
-## factfinder.communication.ResultDispatcher
+The ResultDispatcher is in the module: **factfinder.communication.ResultDispatcher**.
 
-### `ResultDispatcher.subscribe(topic, fn, ctx)`
+If you want to trigger your own communication events checkout the documentation for the [FFCommunicationEventAggregator](/documentation/core-event-aggregator).
 
-Get notified when new data is available. If so the function supplied in `fn` is invoked with data according to the topic.
-#### List of topics to subscribe for. 
-This is the current execution order e.g. campaigns are dispatched before the asn is dispatched but its nor 
-recommended to rely on this order. Use addCallback instead.
-    
-* 'result'
-* 'campaigns' - special
-* 'records'
-* 'query'
-* 'suggest'
-* 'bct'
-* 'sort'
-* 'ppp'
-* 'paging'
-* 'pagingItems'
-* 'asn'
-* 'singleWordSearch'
-* 'productDetail'
-* 'productCampaign' -special
-* 'singleWordSearch'
-    
+ 
+
+## API
+Here are all functions you can use with the **ResultDispatcher** 
+
+### `subscribe(topic, fn, ctx)`
+___
+The function supplied in `fn` is invoked with data for the subscribed `topic` when new data is available. The parameter `ctx` is optional
+
+#### All available topic's    
+* `result`
+* `campaigns` - special
+* `records`
+* `query`
+* `suggest`
+* `bct`
+* `sort`
+* `ppp`
+* `paging`
+* `pagingItems`
+* `asn`
+* `singleWordSearch`
+* `productDetail`
+* `productCampaign` -special
+* `singleWordSearch`
+
+This list of **topic's** are dispatched in the current execution order.
+ For example the `campaigns` are dispatched before the `asn` is dispatched, but it's not recommended to rely on this order.
+  Use addCallback instead.
 
 ```html
 <script>
@@ -40,9 +47,9 @@ recommended to rely on this order. Use addCallback instead.
 </script>
 <link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
 ```    
-___
 
-### `ResultDispatcher.unsubscribe(topic, key)`
+### `unsubscribe(topic, key)`
+___
 Unsubscribe during runtime for a specific topic
 ```html
 <script>
@@ -57,10 +64,10 @@ Unsubscribe during runtime for a specific topic
 </script>
 <link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
 ```
-___
 
-### `ResultDispatcher.addCallback(topic, fn, context)`
-__addCallback__ is similar to 'subscribe' but is guaranteed to be executed before 'subscribe'.
+### `addCallback(topic, fn, context)`
+___
+This is similar to `subscribe()` but it is guaranteed to be executed **before** `subscribe()`.
 ```html
 <script>
     //listen for ffReady before html import is loaded or you'll miss the event
@@ -68,16 +75,14 @@ __addCallback__ is similar to 'subscribe' but is guaranteed to be executed befor
         var key = factfinder.communication.ResultDispatcher.addCallback("asn", function (asnData) {
             // poke around with asn data
         });
-
-        //factfinder.communication.ResultDispatcher.removeCallback("asn", key);
     });
 </script>
 <link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
 ```
-___
 
-### `ResultDispatcher.removeCallback(topic, key)`
-Remove a callback.
+### `removeCallback(topic, key)`
+___
+Remove a callback for a topic (ex:`asn`) with the **key** from the registered callback.
 ```html
 <script>
     //listen for ffReady before html import is loaded or you'll miss the event
