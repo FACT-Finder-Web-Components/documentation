@@ -13,7 +13,8 @@
     "src/**/*",
     "images/**/*",
     "markdown/**/*",
-    "bower.json"
+    "bower.json",
+    "index.js"
   ],
   "extraDependencies": [
     "manifest.json",
