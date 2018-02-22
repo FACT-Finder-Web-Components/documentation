@@ -13,6 +13,6 @@
     "test:integration": "polymer build # test that psk builds without error with the CLI"
   },
   "dependencies": {
-    "expressjs": "^1.0.1"
+    "express": "^4.16.2"
   }
 }

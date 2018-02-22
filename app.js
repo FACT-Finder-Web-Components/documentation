@@ -7,6 +7,6 @@ app.get('*', function (req, res) {
     res.sendFile("index.html", {root: "."});
 });
 
-app.listen(80, function () {
-    console.log('Example app listening on port 3000!');
+app.listen(8081, function () {
+    console.log('Listening on port 8081');
 });

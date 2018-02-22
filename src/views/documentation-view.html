@@ -17,7 +17,8 @@
 
 <dom-module id="documentation-view" layout>
     <template>
-        <link rel="stylesheet" href="../../bower_components/highlightjs/styles/github.css">
+        <!--<link rel="stylesheet" href="../../bower_components/highlightjs/styles/github.css">-->
+        <link rel="stylesheet" href="../../bower_components/highlightjs/styles/googlecode.css">
         <style include="shared-styles">
             :host {
                 display: block;
@@ -27,92 +28,9 @@
             }
 
             /*
-            *   Sidebar
-            */
-            app-drawer {
-                --app-drawer-content-container: {
-                    background: #fcfcff;
-                    padding-top: 120px;
-                    padding-bottom: 65px;
-                };
-                margin-bottom: 55px;
-                margin-top: 65px;
-                --app-drawer-width: 272px;
-
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-            }
-
-            .panel-menus {
-                overflow-y: auto;
-                height: 100%;
-            }
-
-            .panel-menus h3 {
-                border-bottom: 1px solid lightgray;
-                padding: 5px 10px;
-                text-align: left;
-            }
-
-            .panel-menus > iron-selector a {
-                display: block;
-                padding: 5px 20px;
-                cursor: pointer;
-                font-size: 15px;
-                margin: 4px 0;
-                color: black;
-            }
-
-            .panel-menus > iron-selector a.iron-selected {
-                border-left: 6px solid rgb(27, 67, 133);
-                color: rgb(27, 67, 133);
-            }
-
-            /*
             *   Dokumentation
             */
-            marked-element {
-                padding: 0 25px 50px 25px;
-            }
 
-            marked-element h1 {
-                font-weight: bold;
-            }
-
-            iframe {
-                width: 100%;
-                border: 0px;
-                height: 800px;
-            }
-
-            app-drawer-layout:not([narrow]) [drawer-toggle] {
-                display: none;
-            }
-
-            app-drawer-layout marked-element table tbody > tr:nth-child(1) > td:nth-child(1),
-            app-drawer-layout marked-element table tbody > tr:nth-child(1) > td:nth-child(3) {
-                max-width: 30%;
-                min-width: 20%;
-            }
-
-            app-drawer-layout marked-element th {
-                background-color: #1b4385;
-                color: white;
-                padding: 15px;
-            }
-
-            app-drawer-layout marked-element td {
-                padding: 15px;
-            }
-
-            app-drawer-layout marked-element table {
-                border: 1px solid #1b4385;
-                width: 100%;
-            }
-
-            app-drawer-layout marked-element table code {
-                display: inline;
-                word-break: break-all;
-            }
 
             app-toolbar {
                 display: inline;
@@ -124,26 +42,6 @@
                 --paper-tabs-selection-bar-color: #23527c;
             }
 
-            #center-content {
-                max-width: 1024px;
-                margin-left: auto;
-                margin-right: auto;
-                background-color: white;
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-            }
-
-            #center-content > h2 {
-                color: #000;
-                text-align: center;
-                padding: 20px 0;
-                margin-top: 0;
-                margin-bottom: 0;
-            }
-
-            img {
-                width: 100%;
-            }
-
             #github-logo-container {
                 text-align: end;
                 padding-right: 20px;
@@ -153,6 +51,10 @@
             #github-logo-container > a > img {
                 width: 32px;
                 height: 32px;
+            }
+
+            img {
+                width: 100%;
             }
         </style>
 
@@ -169,10 +71,10 @@
                                    class="drawer-list"
                                    role="navigation">
 
-                        <h3>Overview</h3>
-                        <template is="dom-repeat" items="{{overview}}">
-                            <a name="{{item.path}}">{{item.title}}</a>
-                        </template>
+                        <!--<h3>Overview</h3>-->
+                        <!--<template is="dom-repeat" items="{{overview}}">-->
+                            <!--<a name="{{item.path}}">{{item.title}}</a>-->
+                        <!--</template>-->
 
                         <h3>Core API</h3>
                         <template is="dom-repeat" items="{{core}}">
@@ -198,7 +100,7 @@
             </app-drawer>
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
 
-            <div id="center-content">
+            <div id="markdown-wrapper">
                 <h2>[[dokuTitle]]</h2>
 
                 <template is="dom-if" if="[[showTabs]]">
@@ -307,7 +209,7 @@
 
                 if (subRoute === "/demo") {
                     var frame = document.createElement("iframe");
-                    frame.src = "http://web-components.fact-finder.de/demos/1.2.2/" + this.route.path.replace("/", "");
+                    frame.src = "https://web-components.fact-finder.de/demos/1.2.2/" + this.route.path.replace("/", "");
                     this.$.iframeSlot.appendChild(frame);
                 }
             }
@@ -478,12 +380,12 @@
 //                }
 
                 //sidebar data
-                this.overview = [];
-                this.overview.push(this.doku["overview-get-started"]);
-                this.overview.push(this.doku["overview-styling-elements"]);
-                this.overview.push(this.doku["overview-communication"]);
-                this.overview.push(this.doku["overview-template-engine"]);
-                this.overview.push(this.doku["overview-utils"]);
+//                this.overview = [];
+//                this.overview.push(this.doku["overview-get-started"]);
+//                this.overview.push(this.doku["overview-styling-elements"]);
+//                this.overview.push(this.doku["overview-communication"]);
+//                this.overview.push(this.doku["overview-template-engine"]);
+//                this.overview.push(this.doku["overview-utils"]);
 
                 this.core = [];
                 this.core.push(this.doku["core-result-dispatcher"]);
