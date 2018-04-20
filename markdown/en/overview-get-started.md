@@ -1,4 +1,4 @@
-![hero image](http://web-components.fact-finder.de/resources/images/index/hero_image_mac_screen.png "")
+![hero image](images/index/hero/hero_image_mac_screen@1024.png)
 
 ## Checkout the Project
 * Download or clone the demo project on on [Github](https://github.com/FACT-Finder-Web-Components)
