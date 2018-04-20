@@ -16,9 +16,11 @@
                 color: green;
             }
         </style>
-        <div class="row" id="query-info">
-
-        </div>
+        <template is="dom-if" if="{{query}}">
+            <div class="row" id="query-info">
+                <h4>Search result for: <b>[[query]]</b></h4>
+            </div>
+        </template>
         <template id="sd-record-text" is="dom-repeat" items="{{recordsText}}">
             <div class="row">
                 <div class="panel panel-default" on-tap="goToDeeplink">
@@ -90,8 +92,7 @@
                     computed: "_mapRecordPropertiesToLists(recordsApi)"
                 },
                 query: {
-                    type: String,
-                    observer: "_handleQueryChange"
+                    type: String"
                 }
             }
         }
@@ -99,12 +100,6 @@
         goToDeeplink(e) {
             if (e.model.__data.item.record.deeplink !== "") {
                 window.open(e.model.__data.item.record.deeplink, "_blank")
-            }
-        }
-
-        _handleQueryChange(query) {
-            if (query !== "") {
-                this.shadowRoot.querySelector("#query-info").innerHTML = "<h4>Search result for: <b>" + query + "</b></h4>";
             }
         }
 
