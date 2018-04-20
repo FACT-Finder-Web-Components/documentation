@@ -10,6 +10,12 @@ ___
 | **infinite-debounce-delay** (Number) (default:32) | Sets the delay for when the next page should be loaded after the bottom is reached. This prevents loading multiple pages at once because it triggers to fast. The number is in milliseconds. |
 | **infinite-scroll-margin** (Number) (default: 0) |  Sets the margin of the page loading trigger element. This value can be positive or negative and is in 'px'. Is only applied when infinite-scroll is `true` |
 | **is-recommendation** (Boolean) | Indicates if this record-list is placed inside a ff-recommendation element. This attribute is set automatically by the ff-recommendation element and used for tracking purposes. |
+| **stamp-always** (Boolean) | ff-record are always reused and in addition if the new record set doesn't differ by oldRecord.id === newRecord.id dom is not updated. Add this attribute to disable this behavior. Using this attribute on ff-record-list will ensure all stamped ff-record will have this attribute added |
+
+###Methods
+| Name | Description |
+| ---- | ----------- |
+| **loadNextPage()** | Load the next page. Automatically used if infinite-scrolling is active |
 
 ### Events
 | Name | Description |
@@ -23,6 +29,9 @@ ___
 | ---- | ----------- |
 | **record-data** (Object) |  The record object returned by FACT-Finder. |
 | **is-recommendation** (Boolean)| Indicates if this record-list is placed inside a ff-recommendation element. This attribute is set automatically by the ff-recommendation element and used for tracking purposes.|
+| **add-cart-click** (Boolean)|  [Tracking Guide](/guides/tracking-guide) |
+| **add-checkout-click** (Boolean)|  [Tracking Guide](/guides/tracking-guide) |
+| **stamp-always** (Boolean) | ff-record are always reused and in addition if the new record set doesn't differ by oldRecord.id === newRecord.id dom is not updated. Add this attribute to disable this behavior. Using this attribute on ff-record-list will ensure all stamped ff-record will have this attribute added |
 
 ### Directives
 | Name | Description |
