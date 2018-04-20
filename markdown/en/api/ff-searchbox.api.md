@@ -28,13 +28,16 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-|**url**&nbsp;(String)(default: empty)| Your FACT-Finder URL.|
-|**version**&nbsp;(String) (default: empty)| Your FACT-Finder version.|
+|**url**&nbsp;(String)(default: empty)| Your FACT-Finder URL. Please note that the url has to contain the FACT-Finder context name like: http://web-components.fact-finder.de/FACT-Finder-7.2/|
+|**version**&nbsp;(String) (default: empty)| Your FACT-Finder version. Only major and minor version like "7.2"|
 |**channel**&nbsp;(String) (default: empty)| Your channel name. Has to be the same as the channel name configured in the FACT-Finder backend.|
-|**search-immediate**&nbsp;(String) **Options**: &nbsp;true, &nbsp;false (default: false)| If this property is set to\"true\", web components will start searching as soon as they are loaded.|
+|**search-immediate**&nbsp;(Boolean) | If this property is present, web components will start searching as soon as they are loaded.|
 |**use-url-parameter**&nbsp;(String) **Options**: &nbsp;true, &nbsp;false (default: true)| If set to true, the http parameter of the current serach are pushed to the browser url.|
 |**use-cache**&nbsp;(String) **Options**: &nbsp;true, &nbsp;false (default: false)| This value determines, if the browser should cache previous search requests or not. Some browsers support this feature and therefore speed up the search for repeated requests.|
-|**default-query**&nbsp; (String) (default: '*') | Determines which search term should is used by default.|
+|**default-query**&nbsp; (String) (default: '*') | Determines which search term should is used by default if no search term provided in as http parameter or in a search event object.|
+|**only-search-params**&nbsp;(Boolean) | If present, parameters like 'channel' and 'sid' are omitted in the url. Can be used in conjunction with 'parameter-whitelist'.|
+|**parameter-whitelist**&nbsp; (String) (default: '') | If url parameters are omitted through other attributes like use-url-parameter="false" or only-search-params you can add specific important parameters manually. Just use a comma separated list like: parameter-whitelist="param1=someValue,myParam=true" |
+|**default-query**&nbsp; (String) (default: '') | As soon as this attribute is set, a Login tracking request is sent to FACT-Finder. |
 |**add-params**&nbsp;(String) (default: empty)| With this property you can deliver standard parameters which will then be attached to the search request. Example: add-params="param1=abcd,param2=xyz"|
 |**add-tracking-params**&nbsp;(String) (default: empty)| With this property you can deliver standard parameters which are attached to every tracking request. Example: add-tracking-params="param1=abcd,param2=xyz"|
 |**keep-filters**&nbsp;(String) **Options**: &nbsp;true, &nbsp;false (default: false)| With this property you can determine, if filters which where set before the search (e.g. via ASN) should be kept or discarded.|
@@ -59,3 +62,18 @@ ___
 |**campaign-url**&nbsp;(String) | Define a custom url for the ProductCampaign Service. Example: `campaign-url="http://www.myproxy.de/services"` Omit the `ProductCampaign.ff` in the url.|
 |**compare-url**&nbsp;(String) | Define a custom url for the Compare Service. Example: `compare-url="http://www.myproxy.de/services"` Omit the `Compare.ff` in the url.|
 |**similar-records-url**&nbsp;(String) | Define a custom url for the SimilarRecords.ff Service. Example: `similar-records-url="http://www.myproxy.de/services"` Omit the `SimilarRecords.ff` in the url.|
+|**get-records-url**&nbsp;(String) | Define a custom url for the records api Service. Example: `get-records-url="http://www.myproxy.de/services"`|
+|**ignore-page**&nbsp;(String) **Options**: &nbsp;false, &nbsp;false (default: false) | If you want to omit the page parameter on pagination requests just set this attribute to true. Normally you want to use this attribute in conjunction with the ff-record-list lazy-load functionality. |
+|**currency-code**&nbsp;(String) | [Currency Guide](/guides/currency-guide) |
+|**currency-country-code**&nbsp;(String) | [Currency Guide](/guides/currency-guide) |
+|**currency-fields**&nbsp;(String) | [Currency Guide](/guides/currency-guide) |
+|**currency-min-digits**&nbsp;(String) | [Currency Guide](/guides/currency-guide) |
+|**currency-max-digits**&nbsp;(String) | [Currency Guide](/guides/currency-guide) |
+|**add-unit-to-filter-elements**&nbsp;(String) | [Currency Guide](/guides/currency-guide) |
+|**disable-single-hit-redirect**&nbsp;(String) **Options**: &nbsp;false, &nbsp;false (default: false) | Disables the automatic redirect to the product detail page if only one record is found |
+|**single-hit-redirect-base-path**&nbsp;(String) | Use this as an absolute base path if deeplinks are relative |
+|**sort-url-parameters-alphabetically**&nbsp;(String) **Options**: &nbsp;false, &nbsp;false (default: false) | sorts all query parameters and its values alphabetically |
+|**async-facets**&nbsp;(Boolean) | If facets are rendered before products you can use this attribute to postpone the facet rendering until products are rendered properly |
+|**use-filter-url**&nbsp;(String) **Options**: &nbsp;false, &nbsp;false (default: false) | Push categoryPath to url path | 
+|**filter-url-prefix**&nbsp;(String) | Prefix use-filter-url e.g. filter-url-prefix="categories" -> shop.com/categories/cat1/cat2?query=...  |
+
