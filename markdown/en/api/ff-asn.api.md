@@ -4,6 +4,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **align**&nbsp;(String) **Options**:&nbsp;vertical,&nbsp;horizontal (default: vertical) | The alignment of the After Search Navigation. |
+| **asn-groups**&nbsp;(Array) | The data for all filter groups/facets. |
 
 ### Events
 | Name | Description |
@@ -21,6 +22,7 @@ ___
 | **group**&nbsp;(Object) | The data for the filter group. |
 | **filter-style**&nbsp;(String) | With the filter-style property it is possible to use the ff-asn-group element as a template for all groups which match the filter style. (TREE, DEFAULT, MULTISELECT, SINGLESELECT) |
 | **lazy-load**&nbsp;(String) **Options**:&nbsp;true,&nbsp;false (default: true) | The lazy-load property defines if the ff-asn-elements for the hidden links container should be rendered when the asn group is dispatched or lazily just when the hiddenLinks container is opened via toggleHiddenLinksContainer() or showHiddenLinksContainer(). This improves performance for the first print and is by default set to true. |
+| **select-box**&nbsp;(String) **Options**:&nbsp;true,&nbsp;false (default: true) | Use this when the hiddenLinks should be a html select element |
 
 ### Mixins
 | Name | Description |
@@ -67,6 +69,7 @@ ___
 | **submit-on-release**&nbsp;(Number) **Options**&nbsp;true,&nbsp;false (default: true) | If this is set to true a filter request is made immediately upon releasing the slider btn. |
 | **absolute-min-value**&nbsp;(Number) | Indicates the minimum lower end e.g. if set to 50, dragging the slider btn to the most left will result in a value of 50. |
 | **absolute-max-value**&nbsp;(Number) | Indicates the maximum upper end e.g. if set to 500, dragging the slider btn to the most right will result in a value of 500. |
+|**unit**&nbsp;(String)| The unit |
 
 
 ### Methods
@@ -85,6 +88,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **submit-on-input**&nbsp;(String) **Options**&nbsp;true,&nbsp;false (default: empty) | If this attribute is set to true the input fields accept values. If set to false you cant focus the input fields. |
+|**unit**&nbsp;(String)| The unit |
 
 ### Mixins
 | Name | Description |
