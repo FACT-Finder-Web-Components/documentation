@@ -21,10 +21,7 @@ ___
 
 ## `ff-searchbutton`
 ___
-### Properties
-| Name | Description |
-| ---- | ----------- |
-|**align**&nbsp;(Boolean) **Options**: &nbsp;vertical, &nbsp;horizontal (default: vertical)| Die Ausrichtung des Search Buttons.|
+
 
 ## `ff-communication`
 ___
