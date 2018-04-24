@@ -1,0 +1,175 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html">
+<link rel="import" href="../../bower_components/marked-element/marked-element.html">
+<link rel="import" href="../shared-styles.html">
+<script src="../../bower_components/highlightjs/highlight.pack.min.js"></script>
+
+<dom-module id="guides-view">
+    <template>
+        <style include="shared-styles">
+            :host {
+                display: block;
+                padding: 0 0 0 10px;
+                font-family: "Open Sans", sans-serif !important;
+                font-size: 14px;
+            }
+
+            img {
+                width: auto;
+                max-width: 100%;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../../bower_components/highlightjs/styles/googlecode.css">
+        <app-route route="{{route}}" pattern="/:guideName" data="{{routeData}}" tail="{{subRoute}}"></app-route>
+        <!--<app-route route="{{subRoute}}" pattern="/:tab" data="{{subRouteData}}"></app-route>-->
+
+        <app-drawer-layout narrow="{{narrow}}">
+            <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
+                <div class="panel-menus">
+                    <!--<h3>Guides</h3>-->
+                    <h3>First Steps</h3>
+                    <iron-selector selected="{{routeData.guideName}}"
+                                   attr-for-selected="name"
+                                   class="drawer-list"
+                                   role="navigation">
+                        <a name="install-dist">1. Install dist</a>
+                        <a name="include-scripts">2. Including Scripts</a>
+                        <a name="configuration">3. Configuration</a>
+                        <a name="your-first-search">4. Your First Search</a>
+                        <!--<a name="shop-integration">5. Shop Integration Hints</a>-->
+                    </iron-selector>
+
+                    <h3>Basics</h3>
+                    <iron-selector selected="{{routeData.guideName}}"
+                                   attr-for-selected="name"
+                                   class="drawer-list"
+                                   role="navigation">
+                        <a name="attribute-basics">Attributes</a>
+                        <a name="styling-elements">Styling</a>
+                        <a name="template-engine">Template Engine</a>
+                        <a name="communication">Communication</a>
+                        <a name="utils">Utils</a>
+                    </iron-selector>
+
+                    <!--<h3>Dataflow</h3>-->
+                    <!--<iron-selector selected="{{routeData.guideName}}"-->
+                                   <!--attr-for-selected="name"-->
+                                   <!--class="drawer-list"-->
+                                   <!--role="navigation">-->
+                        <!--<a name="dataflow-basics">Basics</a>-->
+                        <!--<a name="element-dataflow">An Elements Dataflow</a>-->
+                        <!--<a name="core-api-dataflow">Core-API Dataflow</a>-->
+                        <!--<a name="modify-request-dataflow">Modify Request Dataflow</a>-->
+                        <!--<a name="modify-element-dataflow">Modify Element Dataflow</a>-->
+                    <!--</iron-selector>-->
+
+
+                    <!--<h3>SEO</h3>-->
+                    <!--<iron-selector selected="{{routeData.guideName}}"-->
+                                   <!--attr-for-selected="name"-->
+                                   <!--class="drawer-list"-->
+                                   <!--role="navigation">-->
+                        <!--<a name="seo-crawler-considerations">SEO Crawler Considerations</a>-->
+                        <!--<a name="seo-category-pages">Category Pages</a>-->
+                        <!--<a name="pretty-url">Pretty URL</a>-->
+                    <!--</iron-selector>-->
+
+                    <h3>Additional Features</h3>
+                    <iron-selector selected="{{routeData.guideName}}"
+                                   attr-for-selected="name"
+                                   class="drawer-list"
+                                   role="navigation">
+                        <a name="tracking-guide">Tracking</a>
+                        <a name="currency-guide">Currencies and Number Format</a>
+                        <!--<a name="performance">Performance</a>-->
+                    </iron-selector>
+
+                    <!--<h3>Custom Implementation Examples</h3>-->
+                    <!--<iron-selector selected="{{routeData.guideName}}"-->
+                                   <!--attr-for-selected="name"-->
+                                   <!--class="drawer-list"-->
+                                   <!--role="navigation">-->
+                        <!--<a name="tracking-guide">Selected Facets Group</a>-->
+                        <!--<a name="currency-guide">Record List Grid/List View</a>-->
+                    <!--</iron-selector>-->
+                </div>
+            </app-drawer>
+            <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
+
+            <div id="markdown-wrapper">
+                <br>
+                <marked-element on-syntax-highlight="_addHiglightJs" disable-remote-sanitization name="/">
+                    <div slot="markdown-html">
+                        <script type="text/markdown" src="{{filePath}}"></script>
+                    </div>
+                </marked-element>
+            </div>
+        </app-drawer-layout>
+    </template>
+
+    <script>
+        class GuidesView extends Polymer.Element {
+            static get is() {
+                return 'guides-view';
+            }
+
+            static get properties() {
+                return {
+                    filePath: {
+                        computed: "_computeFilePath(routeData)"
+                    },
+                    language: {
+                        type: String,
+                        value: "en"
+                    }
+                };
+            }
+
+            /**
+             * Used in the markdown for syntax highlighting.
+             */
+            _addHiglightJs(event) {
+                let code = event.detail.code;
+                let language = event.detail.lang;
+                // Check whether the given language is valid for highlight.js.
+                const validLang = !!(language && hljs.getLanguage(language));
+                // Highlight only if the language is valid.
+                const highlighted = validLang ? hljs.highlight(language, code).value : code;
+                // Render the highlighted code with `hljs` class.
+                event.detail.code = `${highlighted}`;
+            }
+
+            static get observers() {
+                return [
+                    "changeRouteData(routeData)"
+                ]
+            }
+
+            _computeFilePath(routeData) {
+                if (this.route.prefix === "/guides") {
+                    var guideName = routeData.guideName;
+                    if (guideName) {
+                        return "markdown/" + this.language + "/guides/" + guideName + ".md";
+                    }
+                }
+            }
+
+            changeRouteData(routeData) {
+//                console.log(routeData)
+            }
+        }
+
+        window.customElements.define(GuidesView.is, GuidesView);
+    </script>
+</dom-module>

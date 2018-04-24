@@ -4,7 +4,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 |**layout**&nbsp;(String) **Options**:&nbsp;list, &nbsp;block (default: block)| Determines how the individual sections are displayed. Either as block or as vertical list.|
-|**suggest-items** |The data from FACT-Finder.|
+|**suggest-items** | The data from FACT-Finder. |
 
 ### Mixins
 | Name | Description |
@@ -25,8 +25,10 @@ ___
 | Name | Description |
 | ---- | ----------- |
 |**type**(String) (default:all)|Determines how the individual sections are displayed. Either as block or as vertical list.|
+|**suggestion** | The data from FACT-Finder for one item |
 
 ### Events
 | Name | Description |
 | ---- | ----------- |
-|**item-clicked**|Is triggered when the ff-suggest-item is clicked on.|
+|**item-clicked**| Is triggered when the ff-suggest-item is clicked on. |
+|**before-search**| Is triggered before a search is executed through this element |

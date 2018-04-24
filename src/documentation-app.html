@@ -17,7 +17,7 @@
 <link rel="import" href="../bower_components/neon-animation/animations/fade-out-animation.html">
 <link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
-<link rel="import" href="search/sdSearchBox.html">
+<link rel="import" href="search/sd-search-box.html">
 
 <link rel="import" href="shared-styles.html">
 
@@ -153,6 +153,9 @@
                             <paper-tab name="documentation">
                                 <a name="documentation" href="[[rootPath]]documentation/overview-get-started" target="">Documentation</a>
                             </paper-tab>
+                            <paper-tab name="guides">
+                                <a name="guides" href="[[rootPath]]guides/install-dist" target="">Guides</a>
+                            </paper-tab>
                             <paper-tab name="download">
                                 <a name="download" href="[[rootPath]]download">Download</a>
                             </paper-tab>
@@ -172,6 +175,7 @@
             <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="view404" role="main">
                 <home-view name="home" route="{{subroute}}"></home-view>
                 <documentation-view name="documentation" route="{{subroute}}"></documentation-view>
+                <guides-view name="guides" route="{{subroute}}"></guides-view>
                 <download-view name="download"
                                server="https://web-components.fact-finder.de/webcomponents-build-tool"></download-view>
                 <contacts-view name="contacts"></contacts-view>
@@ -211,7 +215,7 @@
             }
 
             _logApiChange(e) {
-                console.log("Hello from doc app" + e);
+//                console.log("Hello from doc app" + e);
             }
 
             static get observers() {

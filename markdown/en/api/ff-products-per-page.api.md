@@ -6,6 +6,7 @@ ___
 |**show-selected** (String) **Options**: true, false (default:false)| Determines if the currently selected ff-products-per-page-item-element should also be shown in the list from which it was selected.|
 |**opened** (String) **Options**: true, false (default:false)|  Is automatically set when the dropdown menu is opened. Can be used for styling.|
 |**collapse-onblur** (String) **Options**: true, false (default:false)|Determines if the element is automatically closed when the element loses focus.|
+|**items** (Array) |FACT-Finder Data|
 
 ### Mixins
 | Name | Description |
@@ -15,7 +16,7 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-|**toggle()**|Opens or closes the element depending on the current state.|
+|**toggle(forceHide?)**|Opens or closes the element depending on the current state.|
 |**show()**|Opens the dropdown element.|
 |**hide()**|Closes the dropdown element.|
 

@@ -35,6 +35,7 @@ ___
 |**type** (String) **Options**: currentLink, firstLink, lastLink, nextLink, previousLink (default:empty) | Via this property you can configure and style different pages and navigation elements of the paging. See dokumentation above.|
 |**products-per-page-item** (Object) (default:empty)|  The paging item data from FACT-Finder.|
 |**show-only** (String) **Options**: true, false (default: false)| Determines that the page is only displayed but not clickable.|
+|**show-selected** (Boolean)| |
 
 ### Mixins
 | Name | Description |

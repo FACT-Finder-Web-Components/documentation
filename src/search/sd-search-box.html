@@ -107,6 +107,7 @@
             if (event.code === 'Enter') {
                 this.query = this.shadowRoot.querySelector("#search-input").value;
                 this.fireSearchEvent();
+                this.hideBox();
             } else if (event.code === "Escape") {
                 this.hideBox();
             }

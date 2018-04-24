@@ -1,9 +1,13 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/polymer-bootstrap/polymer-bootstrap-min.html">
+<link rel="import" href="styles/sidebar-styles.html">
+<link rel="import" href="styles/markdown-styles.html">
 
 <!-- shared styles for all views -->
 <dom-module id="shared-styles">
     <template>
+        <style include="sidebar-styles"></style>
+        <style include="markdown-styles"></style>
         <style include="polymer-bootstrap-min">
             [unresolved] {
                 opacity: 0;
@@ -45,7 +49,6 @@
                 text-align: center;
                 margin: 30px auto;
             }
-
         </style>
     </template>
 </dom-module>
