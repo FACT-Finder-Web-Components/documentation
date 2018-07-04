@@ -66,36 +66,49 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
           font-weight: bold;
         }
       </style>
+      <!-- Main content -->
+      <app-header-layout has-scrolling-region="">
 
-      <app-drawer-layout fullbleed="" narrow="{{narrow}}">
-        <!-- Drawer content -->
-        <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]" opened="{{drawerOpened}}">
-          <app-toolbar>Menu</app-toolbar>
-          <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-            <a name="view1" href="[[rootPath]]view1">View One</a>
-            <a name="view2" href="[[rootPath]]view2">View Two</a>
-            <a name="view3" href="[[rootPath]]view3">View Three</a>
-          </iron-selector>
-        </app-drawer>
+        <app-header slot="header" fixed="" effects="waterfall">
+          <app-toolbar>
+            <div main-title="">
+              <img src="https://web-components.fact-finder.de/bower_components/fff-elements/fff-header/logo_fact-finder.png" alt="FF Logo">
+            </div>
+            <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
+            <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+              <paper-tabs selected="[[page]]" noink="" scrollable="" fit-container="" no-slide="" no-bar="" attr-for-selected="name">
+                <paper-tab name="home">
+                  <a name="home" href="[[rootPath]]home">Home</a>
+                </paper-tab>
+                <paper-tab name="documentation">
+                  <a name="documentation" href="[[rootPath]]documentation">Documentation</a>
+                </paper-tab>
+                <paper-tab name="guides">
+                  <a name="guides" href="[[rootPath]]guides">Guides</a>
+                </paper-tab>
+                <paper-tab name="download">
+                  <a name="download" href="[[rootPath]]download">Download</a>
+                </paper-tab>
+                <paper-tab name="contacts">
+                  <a name="contacts" href="[[rootPath]]contacts">Contacts</a>
+                </paper-tab>
+                <paper-tab>
+                  <a href="https://github.com/FACT-Finder-Web-Components" target="_blank">Github</a>
+                </paper-tab>
+              </paper-tabs>
+            </iron-selector>
+          </app-toolbar>
+        </app-header>
 
-        <!-- Main content -->
-        <app-header-layout has-scrolling-region="">
-
-          <app-header slot="header" condenses="" reveals="" effects="waterfall">
-            <app-toolbar>
-              <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
-              <div main-title="">Documentation App</div>
-            </app-toolbar>
-          </app-header>
-
-          <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-            <my-view1 name="view1"></my-view1>
-            <my-view2 name="view2"></my-view2>
-            <my-view3 name="view3"></my-view3>
-            <my-view404 name="view404"></my-view404>
-          </iron-pages>
-        </app-header-layout>
-      </app-drawer-layout>
+        <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
+          <home-view name="home"></home-view>
+          <documentation-view name="documentation"></documentation-view>
+          <guides-view name="guides"></guides-view>
+          <download-view name="download"></download-view>
+          <contacts-view name="contacts"></contacts-view>
+          <view-404 name="view404"></view-404>
+        </iron-pages>
+      </app-header-layout>
     `;
   }
 
