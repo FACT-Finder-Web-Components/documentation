@@ -16,6 +16,7 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
 import './my-icons.js';
 import ReduxMixin from "./util/polymer-redux-mixin";
 import {navigate, updateDrawerState} from "./actions/app";
+import './shared-styles.js';
 
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
@@ -27,43 +28,106 @@ setRootPath(MyAppGlobals.rootPath);
 
 class DocumenationApp extends ReduxMixin(PolymerElement) {
   static get template() {
-    return html`
-      <style>
+    return html`      
+      <style include="shared-styles">
         :host {
-          --app-primary-color: #4285f4;
-          --app-secondary-color: black;
-
+          --app-primary-color: #3c3c3b;;
+          --app-secondary-color: white;
+      
+          --button-active-background-color: #1b4385;
+          --button-hover-background-color: var(--paper-blue-900);
           display: block;
+          font-family: "Open Sans", sans-serif !important;
+          font-size: 14px;
         }
-
+      
+        app-toolbar {
+          padding-left: 0px;
+        }
+      
         app-drawer-layout:not([narrow]) [drawer-toggle] {
           display: none;
         }
-
+      
         app-header {
           color: #fff;
           background-color: var(--app-primary-color);
         }
-
+      
         app-header paper-icon-button {
           --paper-icon-button-ink-color: white;
         }
-
+      
         .drawer-list {
           margin: 0 20px;
+          display: flex;
         }
-
+      
         .drawer-list a {
           display: block;
           padding: 0 16px;
           text-decoration: none;
           color: var(--app-secondary-color);
-          line-height: 40px;
+          font-family: Open Sans, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+          /*font-size: .8125rem;*/
+          /*font-size: 0.9125rem;*/
+          line-height: 64px;
         }
-
-        .drawer-list a.iron-selected {
-          color: black;
-          font-weight: bold;
+      
+        .drawer-list paper-tab.iron-selected {
+          color: white;
+          background-color: var(--button-active-background-color);
+        }
+      
+        div[main-title] {
+          background-image: url(https://web-components.fact-finder.de/bower_components/fff-elements/fff-header/logo_background.png);
+          background-repeat: no-repeat;
+          height: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          padding-left: 40px;
+        }
+      
+        paper-dialog {
+          max-width: 800px;
+        }
+      
+        paper-tabs {
+          display: flex;
+          width: 100%;
+          padding-top: 0;
+          padding-bottom: 0;
+          height: 64px;
+          text-align: center;
+        }
+      
+        paper-tab {
+          user-select: none;
+          font-weight: normal !important;
+        }
+      
+        paper-tab a {
+          font-weight: normal !important;
+        }
+      
+        iron-selector {
+          width: 70%;
+          margin: 0 !important;
+        }
+      
+        @media screen and (max-width: 1180px) {
+          div[main-title] {
+            display: none;
+          }
+      
+          iron-selector {
+            width: 100%;
+          }
+        }
+      
+        paper-dialog {
+          max-height: none !important;
         }
       </style>
       <!-- Main content -->
