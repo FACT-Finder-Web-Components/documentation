@@ -130,8 +130,9 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
           max-height: none !important;
         }
       </style>
+      
       <!-- Main content -->
-      <app-header-layout has-scrolling-region="">
+      <app-header-layout>
 
         <app-header slot="header" fixed="" effects="waterfall">
           <app-toolbar>
@@ -164,7 +165,7 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
           </app-toolbar>
         </app-header>
 
-        <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
+        <iron-pages selected="[[page]]" attr-for-selected="name" fallback-selection="view404" role="main">
           <home-view name="home"></home-view>
           <documentation-view name="documentation"></documentation-view>
           <guides-view name="guides"></guides-view>
