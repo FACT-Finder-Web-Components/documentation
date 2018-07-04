@@ -3,7 +3,7 @@ export const UPDATE_DRAWER_STATE = 'UPDATE_DRAWER_STATE';
 
 export const navigate = (path) => (dispatch) => {
     // Extract the page name from path.
-    const page = path === '/' ? 'view1' : path.slice(1);
+    const page = path === '/' ? 'home' : path.slice(1);
 
     // Any other info you might want to extract from the path (like page type),
     // you can do here
