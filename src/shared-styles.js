@@ -10,37 +10,56 @@
 
 import '@polymer/polymer/polymer-element.js';
 
+import './styles/sidebar-styles.js';
+import './styles/markdown-styles.js';
+
 const $_documentContainer = document.createElement('template');
 $_documentContainer.innerHTML = `<dom-module id="shared-styles">
   <template>
-    <style>
-      .card {
-        margin: 24px;
-        padding: 16px;
-        color: #757575;
-        border-radius: 5px;
-        background-color: #fff;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-      }
+        <style include="sidebar-styles"></style>
+        <style include="markdown-styles"></style>
+        <style>
+            [unresolved] {
+                opacity: 0;
+            }
 
-      .circle {
-        display: inline-block;
-        width: 64px;
-        height: 64px;
-        text-align: center;
-        color: #555;
-        border-radius: 50%;
-        background: #ddd;
-        font-size: 30px;
-        line-height: 64px;
-      }
+            h1 {
+                font-size: 4.5rem;
+                font-weight: 300;
+                line-height: 1.1;
+            }
 
-      h1 {
-        margin: 16px 0;
-        color: #212121;
-        font-size: 22px;
-      }
-    </style>
+            h1, h2, h3 {
+                color: #222;
+                font-family: Open Sans, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+            }
+
+            paper-button {
+                background-color: var(--button-active-background-color);
+                color: white;
+                cursor: pointer;
+                margin-bottom: 15px;
+                transition: background-color 200ms;
+            }
+
+            paper-button[disabled] {
+                background-color: darkgray;
+                color: white;
+            }
+
+            paper-button:hover {
+                background-color: var(--button-hover-background-color);
+            }
+
+            paper-item {
+                cursor: pointer;
+            }
+
+            .row {
+                text-align: center;
+                margin: 30px auto;
+            }
+        </style>
   </template>
 </dom-module>`;
 
