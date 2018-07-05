@@ -9,7 +9,8 @@ const app = (state = {drawerOpened: false}, action) => {
             return {
                 ...state,
                 page: action.page,
-                subpage: action.subpage
+                subpage: action.subpage,
+                tab: action.tab
             };
         case UPDATE_DRAWER_STATE:
             return {

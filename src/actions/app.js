@@ -1,21 +1,25 @@
 export const UPDATE_PAGE = 'UPDATE_PAGE';
 export const UPDATE_DRAWER_STATE = 'UPDATE_DRAWER_STATE';
 
-export const navigate = (path) => (dispatch) => {
+export const navigate = (path, params) => (dispatch) => {
     // Extract the page name from path.
     const paths = path.split('/');
     const page = paths[1] === '' ? 'home' : paths[1];
     const subpage = paths[2];
 
+    const tab = params.indexOf('tab=') !== -1 ? params.split('tab=')[1].split('&')[0] : '';
     // Any other info you might want to extract from the path (like page type),
     // you can do here
-    dispatch(loadPage(page, subpage));
+    dispatch(loadPage(page, subpage, tab));
 
     // Close the drawer - in case the *path* change came from a link in the drawer.
-    dispatch(updateDrawerState(false));
+    const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    if (width <= 640) {
+        dispatch(updateDrawerState(false));
+    }
 };
 
-const loadPage = (page, subpage) => (dispatch) => {
+const loadPage = (page, subpage, tab) => (dispatch) => {
     switch (page) {
         case 'home':
             import('../views/home-view.js');
@@ -37,14 +41,15 @@ const loadPage = (page, subpage) => (dispatch) => {
             import('../views/view-404.js');
     }
 
-    dispatch(updatePage(page, subpage));
+    dispatch(updatePage(page, subpage, tab));
 };
 
-const updatePage = (page, subpage) => {
+const updatePage = (page, subpage, tab) => {
     return {
         type: UPDATE_PAGE,
         page,
-        subpage
+        subpage,
+        tab
     };
 };
 

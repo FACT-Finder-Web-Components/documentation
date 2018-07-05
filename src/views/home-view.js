@@ -11,10 +11,11 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 
 import ReduxMixin from "../util/polymer-redux-mixin";
+import ViewMixin from "../util/view-mixin";
 import '../shared-styles.js';
 import '../styles/font-awesome-wrapper.js';
 
-class HomeView extends ReduxMixin(PolymerElement) {
+class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
     static get template() {
         return html`<style include="font-awesome-wrapper">
     .link-box-container {
@@ -215,7 +216,7 @@ class HomeView extends ReduxMixin(PolymerElement) {
 
     <hr>
     <div class="row" style="text-align: center">
-        <a href="[[rootPath]]documentation">
+        <a href="[[rootPath]]documentation/ff-searchbox">
             <button style="margin: 0 auto">Get Started</button>
         </a>
     </div>
@@ -234,10 +235,12 @@ class HomeView extends ReduxMixin(PolymerElement) {
     }
 
     _scrollTo(id) {
-        if (id && id !== "") {
-            const element = this.$[id];
-            let offset = element.offsetTop - document.documentElement.scrollTop - 64;
-            window.scrollBy({top: offset, left: 0, behavior: 'smooth'});
+        if (this.isActiveView()) {
+            if (id && id !== "") {
+                const element = this.$[id];
+                let offset = element.offsetTop - document.documentElement.scrollTop - 64;
+                window.scrollBy({top: offset, left: 0, behavior: 'smooth'});
+            }
         }
     }
 }

@@ -140,7 +140,6 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
                 <img src="https://web-components.fact-finder.de/bower_components/fff-elements/fff-header/logo_fact-finder.png"
                      alt="FF Logo">
             </div>
-            <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
             <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
                 <paper-tabs selected="[[page]]" noink="" scrollable="" fit-container="" no-slide="" no-bar=""
                             attr-for-selected="name">
@@ -148,7 +147,7 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
                         <a name="home" href="[[rootPath]]home">Home</a>
                     </paper-tab>
                     <paper-tab name="documentation">
-                        <a name="documentation" href="[[rootPath]]documentation">Documentation</a>
+                        <a name="documentation" href="[[rootPath]]documentation/ff-searchbox">Documentation</a>
                     </paper-tab>
                     <paper-tab name="guides">
                         <a name="guides" href="[[rootPath]]guides">Guides</a>
@@ -189,22 +188,13 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
                 type: String,
                 reflectToAttribute: true,
                 statePath: 'app.page'
-            },
-            drawerOpened: {
-                type: Boolean,
-                statePath: 'app.drawerOpened',
-                observer: '_toggleDrawer'
             }
         };
     }
 
     ready() {
-        installRouter((location) => this.dispatch(navigate(window.decodeURIComponent(location.pathname))));
+        installRouter((location) => this.dispatch(navigate(window.decodeURIComponent(location.pathname), location.hash)));
         super.ready();
-    }
-
-    _toggleDrawer(newValue) {
-        this.dispatch(updateDrawerState(newValue));
     }
 
 }
