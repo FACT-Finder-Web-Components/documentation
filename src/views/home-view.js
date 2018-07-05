@@ -8,12 +8,13 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
-import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
+import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 
+import ReduxMixin from "../util/polymer-redux-mixin";
 import '../shared-styles.js';
 import '../styles/font-awesome-wrapper.js';
 
-class HomeView extends PolymerElement {
+class HomeView extends ReduxMixin(PolymerElement) {
     static get template() {
         return html`<style include="font-awesome-wrapper">
     .link-box-container {
@@ -151,7 +152,7 @@ class HomeView extends PolymerElement {
     </div>
 
     <hr>
-    <div class="row" style="text-align: center">
+    <div id="cost" class="row" style="text-align: center">
         <div>
             <h1><b>Integrating FACT-Finder has never been easier</b></h1>
             <p>
@@ -163,7 +164,7 @@ class HomeView extends PolymerElement {
     </div>
 
     <hr>
-    <div id="cost" class="row">
+    <div class="row">
         <img src="../../images/index/integration-gif.gif">
     </div>
 
@@ -214,12 +215,30 @@ class HomeView extends PolymerElement {
 
     <hr>
     <div class="row" style="text-align: center">
-        <a href="/documentation">
+        <a href="[[rootPath]]documentation">
             <button style="margin: 0 auto">Get Started</button>
         </a>
     </div>
 
 </div>`;
+    }
+
+    static get properties() {
+        return {
+            scrollToElement: {
+                type: String,
+                statePath: 'app.subpage',
+                observer: '_scrollTo'
+            }
+        };
+    }
+
+    _scrollTo(id) {
+        if (id && id !== "") {
+            const element = this.$[id];
+            let offset = element.offsetTop - document.documentElement.scrollTop - 64;
+            window.scrollBy({top: offset, left: 0, behavior: 'smooth'});
+        }
     }
 }
 
