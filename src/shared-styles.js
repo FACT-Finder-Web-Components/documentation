@@ -16,10 +16,10 @@ import './styles/bootstrap-wrapper.js';
 
 const $_documentContainer = document.createElement('template');
 $_documentContainer.innerHTML = `<dom-module id="shared-styles">
-  <template>
+    <template>
         <style include="sidebar-styles"></style>
         <style include="markdown-styles"></style>
-        <style include="bootstrap-wrapper">                              
+        <style include="bootstrap-wrapper">
             [unresolved] {
                 opacity: 0;
             }
@@ -61,7 +61,7 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
                 margin: 30px auto;
             }
         </style>
-  </template>
+    </template>
 </dom-module>`;
 
 document.head.appendChild($_documentContainer.content);

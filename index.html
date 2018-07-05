@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="generator" content="Polymer Starter Kit">
-  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <meta charset="utf-8">
+    <meta name="generator" content="Polymer Starter Kit">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-  <title>FACT-Finder Web Components Documentation</title>
-  <meta name="description" content="FACT-Finder Web Components Documentation">
+    <title>FACT-Finder Web Components Documentation</title>
+    <meta name="description" content="FACT-Finder Web Components Documentation">
 
     <!--
       The `<base>` tag below is present to support two advanced deployment options:
@@ -51,31 +51,31 @@
     <meta name="msapplication-tap-highlight" content="no">
 
     <script>
-      /**
-      * [polymer-root-path]
-      *
-      * Leave this line unchanged if you intend to serve your app from the root
-      * path (e.g., with URLs like `my.domain/` and `my.domain/view1`).
-      *
-      * If you intend to serve your app from a non-root path (e.g., with URLs
-      * like `my.domain/my-app/` and `my.domain/my-app/view1`), edit this line
-      * to indicate the path from which you'll be serving, including leading
-      * and trailing slashes (e.g., `/my-app/`).
-      */
-      window.MyAppGlobals = { rootPath: '/' };
+        /**
+         * [polymer-root-path]
+         *
+         * Leave this line unchanged if you intend to serve your app from the root
+         * path (e.g., with URLs like `my.domain/` and `my.domain/view1`).
+         *
+         * If you intend to serve your app from a non-root path (e.g., with URLs
+         * like `my.domain/my-app/` and `my.domain/my-app/view1`), edit this line
+         * to indicate the path from which you'll be serving, including leading
+         * and trailing slashes (e.g., `/my-app/`).
+         */
+        window.MyAppGlobals = {rootPath: '/'};
 
-      // Load and register pre-caching Service Worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('service-worker.js', {
-            scope: MyAppGlobals.rootPath
-          });
-        });
-      }
+        // Load and register pre-caching Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('service-worker.js', {
+                    scope: MyAppGlobals.rootPath
+                });
+            });
+        }
 
-      var process = process || {
-          env: {}
-      };
+        var process = process || {
+            env: {}
+        };
     </script>
 
     <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
@@ -86,35 +86,35 @@
 
     <!-- Add any global styles for body, document, etc. -->
     <style>
-      body {
-        margin: 0;
-        font-family: 'Open Sans', sans-serif;
-        line-height: 1.42857;
-        min-height: 100vh;
-        background-color: #f5f6f6;
-        overflow-y: scroll;
-        font-weight: 300;
-        transition: opacity 800ms;
-      }
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.42857;
+            min-height: 100vh;
+            background-color: #f5f6f6;
+            overflow-y: scroll;
+            font-weight: 300;
+            transition: opacity 800ms;
+        }
 
-      html {
-        font-size: 10px;
-      }
+        html {
+            font-size: 10px;
+        }
 
-      @font-face {
-        font-family: 'FontAwesome';
-        src: url('fonts/fontawesome-webfont.eot?v=4.7.0');
-        src: url('fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
-        font-weight: normal;
-        font-style: normal;
-      }
+        @font-face {
+            font-family: 'FontAwesome';
+            src: url('fonts/fontawesome-webfont.eot?v=4.7.0');
+            src: url('fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
     </style>
-  </head>
-  <body>
-    <documentation-app></documentation-app>
-    <noscript>
-      Please enable JavaScript to view this website.
-    </noscript>
-    <!-- Built with love using Polymer Starter Kit -->
-  </body>
+</head>
+<body>
+<documentation-app></documentation-app>
+<noscript>
+    Please enable JavaScript to view this website.
+</noscript>
+<!-- Built with love using Polymer Starter Kit -->
+</body>
 </html>

@@ -6764,7 +6764,7 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
-</style>
+        </style>
     </template>
 </dom-module>`;
 
