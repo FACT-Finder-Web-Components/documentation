@@ -12,13 +12,14 @@ import '@polymer/polymer/polymer-element.js';
 
 import './styles/sidebar-styles.js';
 import './styles/markdown-styles.js';
+import './styles/bootstrap-wrapper.js';
 
 const $_documentContainer = document.createElement('template');
 $_documentContainer.innerHTML = `<dom-module id="shared-styles">
   <template>
         <style include="sidebar-styles"></style>
         <style include="markdown-styles"></style>
-        <style>
+        <style include="bootstrap-wrapper">                              
             [unresolved] {
                 opacity: 0;
             }
