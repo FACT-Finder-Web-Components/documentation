@@ -170,7 +170,7 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
         <home-view name="home"></home-view>
         <api-view name="api"></api-view>
         <documentation-view name="documentation"></documentation-view>
-        <download-view name="download"></download-view>
+        <download-view name="download" server="https://web-components.fact-finder.de/webcomponents-build-tool"></download-view>
         <contacts-view name="contacts"></contacts-view>
         <view-404 name="view404"></view-404>
     </iron-pages>
