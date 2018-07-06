@@ -150,7 +150,7 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
                         <a name="documentation" href="[[rootPath]]documentation/ff-searchbox">Documentation</a>
                     </paper-tab>
                     <paper-tab name="guides">
-                        <a name="guides" href="[[rootPath]]guides">Guides</a>
+                        <a name="guides" href="[[rootPath]]guides/install-dist">Guides</a>
                     </paper-tab>
                     <paper-tab name="download">
                         <a name="download" href="[[rootPath]]download">Download</a>

@@ -8,28 +8,101 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
+import '@polymer/marked-element/marked-element.js'
+
 import '../shared-styles.js';
+import ViewMixin from "../util/view-mixin";
+import ReduxMixin from "../util/polymer-redux-mixin";
+import guides from "../data/guides";
 
-class GuidesView extends PolymerElement {
-  static get template() {
-    return html`
-      <style include="shared-styles">
-        :host {
-          display: block;
+class GuidesView extends ViewMixin(ReduxMixin(PolymerElement)) {
+    constructor() {
+        super();
+        this.data = guides;
+    }
 
-          padding: 10px;
-        }
-      </style>
+    static get template() {
+        return html`
+<link rel="stylesheet" href="../../node_modules/highlightjs/styles/googlecode.css">
+<style include="shared-styles">
+    :host {
+        display: block;
+        padding: 0 0 0 10px;
+        font-family: "Open Sans", sans-serif !important;
+        font-size: 14px;
+    }
 
-      <div class="card">
-        <div class="circle">3</div>
-        <h1>Guides</h1>
-        <p>Modus commodo minimum eum te, vero utinam assueverit per eu.</p>
-        <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
-      </div>
+    img {
+        width: auto;
+        max-width: 100%;
+    }
+</style>
+
+<app-drawer-layout narrow="{{narrow}}">
+    <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]" opened="{{drawerOpened}}">
+        <div class="panel-menus">
+            <iron-selector selected="[[subpage]]"
+                           attr-for-selected="name"
+                           class="drawer-list"
+                           role="navigation">
+                <h3>First Steps</h3>
+                <template is="dom-repeat" items="{{data.firstSteps}}">
+                    <a name="{{item.path}}" href="[[rootPath]]guides/{{item.path}}">{{item.title}}</a>
+                </template>
+
+                <h3>Basics</h3>
+                <template is="dom-repeat" items="{{data.basics}}">
+                    <a name="{{item.path}}" href="[[rootPath]]guides/{{item.path}}">{{item.title}}</a>
+                </template>
+
+                <h3>Additional Features</h3>
+                <template is="dom-repeat" items="{{data.additionalFeatures}}">
+                    <a name="{{item.path}}" href="[[rootPath]]guides/{{item.path}}">{{item.title}}</a>
+                </template>
+            </iron-selector>
+        </div>
+    </app-drawer>
+    <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
+
+    <div id="markdown-wrapper">
+        <br>
+        <marked-element on-syntax-highlight="_addHiglightJs">
+            <div slot="markdown-html">
+                <script type="text/markdown" src="{{filePath}}"></script>
+            </div>
+        </marked-element>
+    </div>
+</app-drawer-layout>
     `;
-  }
+    }
+
+    static get properties() {
+        return {
+            subpage: {
+                type: String,
+                statePath: 'app.subpage',
+                observer: '_subpageChange'
+            },
+            language: {
+                type: String,
+                value: "en"
+            },
+            drawerOpened: {
+                type: Boolean,
+                statePath: 'app.drawerOpened',
+                observer: '_toggleDrawer'
+            }
+        };
+    }
+
+    _subpageChange(newSubpage) {
+        if (!this.isActiveView()) {
+            return;
+        }
+
+        this.filePath = "markdown/" + this.language + "/guides/" + newSubpage + ".md";
+    }
 }
 
 window.customElements.define('guides-view', GuidesView);
