@@ -12,18 +12,16 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@polymer/marked-element/marked-element.js'
 import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
-import "highlightjs";
 
 import '../shared-styles.js';
-import documentation from "../data/documentation";
+import api from "../data/api";
 import ReduxMixin from "../util/polymer-redux-mixin";
 import ViewMixin from "../util/view-mixin";
-import {updateDrawerState} from "../actions/app";
 
-class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
+class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
     constructor() {
         super();
-        this.data = documentation;
+        this.data = api;
     }
 
     static get template() {
@@ -79,22 +77,22 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
 
                 <h3>Core API</h3>
                 <template is="dom-repeat" items="{{data.core}}">
-                    <a name="{{item.path}}" href="[[rootPath]]documentation/{{item.path}}">{{item.title}}</a>
+                    <a name="{{item.path}}" href="[[rootPath]]api/{{item.path}}">{{item.title}}</a>
                 </template>
 
                 <h3>Basic Elements</h3>
                 <template is="dom-repeat" items="{{data.basics}}">
-                    <a name="{{item.path}}" href="[[rootPath]]documentation/{{item.path}}">{{item.title}}</a>
+                    <a name="{{item.path}}" href="[[rootPath]]api/{{item.path}}">{{item.title}}</a>
                 </template>
 
                 <h3>Navigation</h3>
                 <template is="dom-repeat" items="{{data.navigation}}">
-                    <a name="{{item.path}}" href="[[rootPath]]documentation/{{item.path}}">{{item.title}}</a>
+                    <a name="{{item.path}}" href="[[rootPath]]api/{{item.path}}">{{item.title}}</a>
                 </template>
 
                 <h3>More Features</h3>
                 <template is="dom-repeat" items="{{data.moreFeatures}}">
-                    <a name="{{item.path}}" href="[[rootPath]]documentation/{{item.path}}">{{item.title}}</a>
+                    <a name="{{item.path}}" href="[[rootPath]]api/{{item.path}}">{{item.title}}</a>
                 </template>
             </iron-selector>
         </div>
@@ -177,21 +175,6 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
         });
     }
 
-    /**
-     * Used in the markdown for syntax highlighting.
-     */
-    _addHiglightJs(event) {
-        let code = event.detail.code;
-        let language = event.detail.lang;
-        // Check whether the given language is valid for highlight.js.
-        const validLang = !!(language && hljs.getLanguage(language));
-        // Highlight only if the language is valid.
-        const highlighted = validLang ? hljs.highlight(language, code).value : code;
-        // Render the highlighted code with `hljs` class.
-//                event.detail.code = `<pre><code class="hljs ${language}">${highlighted}</code></pre>`;
-        event.detail.code = `${highlighted}`;
-    }
-
     _subpageChange(newSubpage) {
         if (!this.isActiveView()) {
             return;
@@ -211,7 +194,7 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
             this.showTabs = false;
         }
 
-        if(!this.activeTab) {
+        if (!this.activeTab) {
             this.activeTab = "docs";
         }
     }
@@ -237,10 +220,6 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
             window.location.href = url + "#tab=" + newTab;
         }
     }
-
-    _toggleDrawer(newValue) {
-        this.dispatch(updateDrawerState(newValue));
-    }
 }
 
-window.customElements.define('documentation-view', DocumentationView);
+window.customElements.define('api-view', ApiView);

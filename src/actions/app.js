@@ -24,8 +24,8 @@ const loadPage = (page, subpage, tab) => (dispatch) => {
         case 'home':
             import('../views/home-view.js');
             break;
-        case 'documentation':
-            import('../views/documentation-view.js');
+        case 'api':
+            import('../views/api-view.js');
             break;
         case 'guides':
             import('../views/guides-view.js');

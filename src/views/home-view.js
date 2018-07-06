@@ -216,7 +216,7 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
 
     <hr>
     <div class="row" style="text-align: center">
-        <a href="[[rootPath]]documentation/ff-searchbox">
+        <a href="[[rootPath]]api/ff-searchbox">
             <button style="margin: 0 auto">Get Started</button>
         </a>
     </div>

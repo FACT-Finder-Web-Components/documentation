@@ -1,5 +1,5 @@
-const documentation = {};
-documentation.doku = {
+const api = {};
+api.doku = {
     "overview-get-started": {
         path: "overview-get-started",
         title: "Get started",
@@ -127,38 +127,38 @@ documentation.doku = {
     }
 };
 
-documentation.core = [];
-documentation.core.push(documentation.doku["core-result-dispatcher"]);
-documentation.core.push(documentation.doku["core-event-aggregator"]);
+api.core = [];
+api.core.push(api.doku["core-result-dispatcher"]);
+api.core.push(api.doku["core-event-aggregator"]);
 
-documentation.basics = [];
-documentation.basics.push(documentation.doku["ff-searchbox"]);
-documentation.basics.push(documentation.doku["ff-record-list"]);
-documentation.basics.push(documentation.doku["ff-suggest"]);
+api.basics = [];
+api.basics.push(api.doku["ff-searchbox"]);
+api.basics.push(api.doku["ff-record-list"]);
+api.basics.push(api.doku["ff-suggest"]);
 
-documentation.navigation = [];
-documentation.navigation.push(documentation.doku["ff-breadcrumb-trail"]);
-documentation.navigation.push(documentation.doku["ff-asn"]);
-documentation.navigation.push(documentation.doku["ff-navigation"]);
-documentation.navigation.push(documentation.doku["ff-header-navigation"]);
-documentation.navigation.push(documentation.doku["ff-paging"]);
-documentation.navigation.push(documentation.doku["ff-paging-dropdown"]);
-documentation.navigation.push(documentation.doku["ff-products-per-page"]);
-documentation.navigation.push(documentation.doku["ff-sortbox"]);
+api.navigation = [];
+api.navigation.push(api.doku["ff-breadcrumb-trail"]);
+api.navigation.push(api.doku["ff-asn"]);
+api.navigation.push(api.doku["ff-navigation"]);
+api.navigation.push(api.doku["ff-header-navigation"]);
+api.navigation.push(api.doku["ff-paging"]);
+api.navigation.push(api.doku["ff-paging-dropdown"]);
+api.navigation.push(api.doku["ff-products-per-page"]);
+api.navigation.push(api.doku["ff-sortbox"]);
 
-documentation.moreFeatures = [];
-documentation.moreFeatures.push(documentation.doku["ff-campaign"]);
-documentation.moreFeatures.push(documentation.doku["ff-campaign-pushed-products"]);
-documentation.moreFeatures.push(documentation.doku["ff-campaign-landing-page"]);
-documentation.moreFeatures.push(documentation.doku["ff-campaign-shopping-cart"]);
-documentation.moreFeatures.push(documentation.doku["ff-product-campaign"]);
-documentation.moreFeatures.push(documentation.doku["ff-search-feedback"]);
-documentation.moreFeatures.push(documentation.doku["ff-recommendation"]);
-documentation.moreFeatures.push(documentation.doku["ff-compare"]);
-documentation.moreFeatures.push(documentation.doku["ff-similar-products"]);
-documentation.moreFeatures.push(documentation.doku["ff-single-word-search"]);
-documentation.moreFeatures.push(documentation.doku["ff-carousel"]);
-documentation.moreFeatures.push(documentation.doku["ff-tag-cloud"]);
-documentation.moreFeatures.push(documentation.doku["ff-template"]);
+api.moreFeatures = [];
+api.moreFeatures.push(api.doku["ff-campaign"]);
+api.moreFeatures.push(api.doku["ff-campaign-pushed-products"]);
+api.moreFeatures.push(api.doku["ff-campaign-landing-page"]);
+api.moreFeatures.push(api.doku["ff-campaign-shopping-cart"]);
+api.moreFeatures.push(api.doku["ff-product-campaign"]);
+api.moreFeatures.push(api.doku["ff-search-feedback"]);
+api.moreFeatures.push(api.doku["ff-recommendation"]);
+api.moreFeatures.push(api.doku["ff-compare"]);
+api.moreFeatures.push(api.doku["ff-similar-products"]);
+api.moreFeatures.push(api.doku["ff-single-word-search"]);
+api.moreFeatures.push(api.doku["ff-carousel"]);
+api.moreFeatures.push(api.doku["ff-tag-cloud"]);
+api.moreFeatures.push(api.doku["ff-template"]);
 
-export default documentation;
+export default api;
