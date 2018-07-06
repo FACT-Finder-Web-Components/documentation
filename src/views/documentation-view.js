@@ -16,7 +16,7 @@ import ViewMixin from "../util/view-mixin";
 import ReduxMixin from "../util/polymer-redux-mixin";
 import guides from "../data/guides";
 
-class GuidesView extends ViewMixin(ReduxMixin(PolymerElement)) {
+class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
     constructor() {
         super();
         this.data = guides;
@@ -48,17 +48,17 @@ class GuidesView extends ViewMixin(ReduxMixin(PolymerElement)) {
                            role="navigation">
                 <h3>First Steps</h3>
                 <template is="dom-repeat" items="{{data.firstSteps}}">
-                    <a name="{{item.path}}" href="[[rootPath]]guides/{{item.path}}">{{item.title}}</a>
+                    <a name="{{item.path}}" href="[[rootPath]]documentation/{{item.path}}">{{item.title}}</a>
                 </template>
 
                 <h3>Basics</h3>
                 <template is="dom-repeat" items="{{data.basics}}">
-                    <a name="{{item.path}}" href="[[rootPath]]guides/{{item.path}}">{{item.title}}</a>
+                    <a name="{{item.path}}" href="[[rootPath]]documentation/{{item.path}}">{{item.title}}</a>
                 </template>
 
                 <h3>Additional Features</h3>
                 <template is="dom-repeat" items="{{data.additionalFeatures}}">
-                    <a name="{{item.path}}" href="[[rootPath]]guides/{{item.path}}">{{item.title}}</a>
+                    <a name="{{item.path}}" href="[[rootPath]]documentation/{{item.path}}">{{item.title}}</a>
                 </template>
             </iron-selector>
         </div>
@@ -105,4 +105,4 @@ class GuidesView extends ViewMixin(ReduxMixin(PolymerElement)) {
     }
 }
 
-window.customElements.define('guides-view', GuidesView);
+window.customElements.define('documentation-view', DocumentationView);
