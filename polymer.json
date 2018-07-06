@@ -3,13 +3,15 @@
   "shell": "src/documentation-app.js",
   "sources": [
     "images/**/*",
-    "fonts/*"
+    "fonts/*",
+    "markdown/**/*"
   ],
   "extraDependencies": [
     "manifest.json",
     "node_modules/@webcomponents/webcomponentsjs/*.js",
     "!node_modules/@webcomponents/webcomponentsjs/gulpfile.js",
-    "node_modules/@webcomponents/webcomponentsjs/bundles/*.js"
+    "node_modules/@webcomponents/webcomponentsjs/bundles/*.js",
+    "node_modules/web-animations-js/web-animations-next-lite.min.js"
   ],
   "builds": [
     {
