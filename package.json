@@ -36,6 +36,7 @@
     "@polymer/paper-toolbar": "^3.0.0-pre.21",
     "@polymer/polymer": "^3.0.0",
     "@webcomponents/webcomponentsjs": "^2.0.0",
+    "express": "^4.16.3",
     "highlightjs": "^9.10.0",
     "polymer-redux": "git://github.com/tur-nr/polymer-redux.git#polymer-3",
     "pwa-helpers": "^0.8.2",

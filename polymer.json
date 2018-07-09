@@ -4,7 +4,9 @@
   "sources": [
     "images/**/*",
     "fonts/*",
-    "markdown/**/*"
+    "markdown/**/*",
+    "lib/**/*",
+    "app.js"
   ],
   "extraDependencies": [
     "manifest.json",
