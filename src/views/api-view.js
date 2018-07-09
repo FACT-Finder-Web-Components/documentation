@@ -17,6 +17,7 @@ import '../shared-styles.js';
 import api from "../data/api";
 import ReduxMixin from "../util/polymer-redux-mixin";
 import ViewMixin from "../util/view-mixin";
+import config from "../../config"
 
 class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
     constructor() {
@@ -187,7 +188,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
         if (fileName.startsWith("ff")) {//most ff-* pages have a demo
             this.showTabs = true;
             this.apiPath = "markdown/" + this.language + "/api/" + fileName + ".api.md";
-            this.githubPath = "https://github.com/FACT-Finder-Web-Components/demos/blob/master/" + fileName + "/index.html";
+            this.githubPath = config.githubDemosBasePath + fileName + "/index.html";
         } else {
             //do not trigger a new load request for api and github path when ist not an ff element,
             // instead simpyl not show tabs
@@ -211,7 +212,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
 
         if (newTab === "demo") {
             const frame = document.createElement("iframe");
-            frame.src = "http://web-components.fact-finder.de/demos/1.2.4/" + this.subpage;
+            frame.src = config.demosBasePath + this.subpage;
             this.$.iframeSlot.appendChild(frame);
         }
 

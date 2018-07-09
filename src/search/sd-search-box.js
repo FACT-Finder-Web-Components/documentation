@@ -7,13 +7,14 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
 import '../my-icons.js';
 import factfinder from '../../lib/ff-core.js';
 import '../styles/bootstrap-wrapper';
+import config from "../../config";
 
 class SdSearchBox extends PolymerElement {
     constructor() {
         super();
-        factfinder.communication.globalSearchParameter.url = "https://web-components.fact-finder.de/FACT-Finder-7.2";
-        factfinder.communication.globalSearchParameter.channel = "webc-doku-text";
-        factfinder.communication.globalSearchParameter.version = "7.2";
+        factfinder.communication.globalSearchParameter.url = config.factFinder.url;
+        factfinder.communication.globalSearchParameter.channel = config.factFinder.channel;
+        factfinder.communication.globalSearchParameter.version = config.factFinder.version;
     }
 
     static get template() {

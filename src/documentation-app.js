@@ -19,6 +19,7 @@ import ReduxMixin from "./util/polymer-redux-mixin";
 import {navigate, updateDrawerState} from "./actions/app";
 import './shared-styles.js';
 import './search/sd-search-box.js';
+import config from "../config";
 
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
@@ -172,7 +173,7 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
         <home-view name="home"></home-view>
         <api-view name="api"></api-view>
         <documentation-view name="documentation"></documentation-view>
-        <download-view name="download" server="https://web-components.fact-finder.de/webcomponents-build-tool"></download-view>
+        <download-view name="download" server="[[downloadToolUrl]]"></download-view>
         <contacts-view name="contacts"></contacts-view>
         <search-view name="search" records-text="[[recordsText]]" records-api="[[recordsApi]]" query="[[query]]"></search-view>
         <view-404 name="view404"></view-404>
@@ -211,6 +212,7 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
 
     ready() {
         installRouter((location) => this.dispatch(navigate(window.decodeURIComponent(location.pathname), location.hash)));
+        this.downloadToolUrl = config.downloadToolUrl;
         super.ready();
     }
 
