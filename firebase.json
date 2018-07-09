@@ -1,0 +1,15 @@
+{
+  "hosting": {
+    "public": "build/es6-bundled",
+    "rewrites": [
+      {
+        "source": "/markdown/en/api/**",
+        "destination": "/markdown/en/api/"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
