@@ -18,6 +18,7 @@ import './my-icons.js';
 import ReduxMixin from "./util/polymer-redux-mixin";
 import {navigate, updateDrawerState} from "./actions/app";
 import './shared-styles.js';
+import './search/sd-search-box.js';
 
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
@@ -163,6 +164,7 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
                     </paper-tab>
                 </paper-tabs>
             </iron-selector>
+            <sd-search-box records-text="{{recordsText}}" records-api="{{recordsApi}}" query="{{query}}" page="[[page]]"></sd-search-box>
         </app-toolbar>
     </app-header>
 
@@ -172,24 +174,39 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
         <documentation-view name="documentation"></documentation-view>
         <download-view name="download" server="https://web-components.fact-finder.de/webcomponents-build-tool"></download-view>
         <contacts-view name="contacts"></contacts-view>
+        <search-view name="search" records-text="[[recordsText]]" records-api="[[recordsApi]]" query="[[query]]"></search-view>
         <view-404 name="view404"></view-404>
     </iron-pages>
 </app-header-layout>
     `;
     }
 
-    static get is() {
-        return "documentation-app";
-    }
-
     static get properties() {
         return {
+            recordsText: {
+                type: Array
+            },
+            recordsApi: {
+                type: Array
+            },
+            query: {
+                type: String,
+                observer: "_selectSearchView",
+                notify: true
+            },
             page: {
                 type: String,
                 reflectToAttribute: true,
                 statePath: 'app.page'
             }
         };
+    }
+
+    _selectSearchView(newValue) {
+        if (newValue) {
+            window.history.pushState({}, null, '/search');
+            this.dispatch(navigate(window.decodeURIComponent(location.pathname), location.hash));
+        }
     }
 
     ready() {
@@ -199,4 +216,4 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
 
 }
 
-window.customElements.define(DocumenationApp.is, DocumenationApp);
+window.customElements.define('documentation-app', DocumenationApp);

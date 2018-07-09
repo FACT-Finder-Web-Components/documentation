@@ -36,6 +36,9 @@ const loadPage = (page, subpage, tab) => (dispatch) => {
         case 'contacts':
             import('../views/contacts-view.js');
             break;
+        case 'search':
+            import('../views/search-view.js');
+            break;
         default:
             page = 'view404';
             import('../views/view-404.js');
