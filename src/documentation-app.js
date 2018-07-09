@@ -82,7 +82,7 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
     }
 
     div[main-title] {
-        background-image: url(https://web-components.fact-finder.de/bower_components/fff-elements/fff-header/logo_background.png);
+        background-image: url(/images/logo_background.webp);
         background-repeat: no-repeat;
         height: 100%;
         display: flex;
@@ -139,7 +139,7 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
     <app-header slot="header" fixed="" effects="waterfall">
         <app-toolbar>
             <div main-title="">
-                <img src="https://web-components.fact-finder.de/bower_components/fff-elements/fff-header/logo_fact-finder.png"
+                <img src="/images/logo_fact-finder.png"
                      alt="FF Logo">
             </div>
             <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
