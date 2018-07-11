@@ -1,6 +1,6 @@
 export default {
   githubDemosBasePath: "https://github.com/FACT-Finder-Web-Components/demos/blob/master/",
-  demosBasePath: "http://web-components.fact-finder.de/demos/1.2.4/",
+  demosBasePath: "https://web-components.fact-finder.de/demos/current/",
   factFinder: {
     url: "https://web-components.fact-finder.de/FACT-Finder-7.2",
     channel: "webc-doku-text",
