@@ -23,6 +23,7 @@ ___
 | **filter-style**&nbsp;(String) | With the filter-style property it is possible to use the ff-asn-group element as a template for all groups which match the filter style. (TREE, DEFAULT, MULTISELECT, SINGLESELECT) |
 | **lazy-load**&nbsp;(String) **Options**:&nbsp;true,&nbsp;false (default: true) | The lazy-load property defines if the ff-asn-elements for the hidden links container should be rendered when the asn group is dispatched or lazily just when the hiddenLinks container is opened via toggleHiddenLinksContainer() or showHiddenLinksContainer(). This improves performance for the first print and is by default set to true. |
 | **select-box**&nbsp;(String) **Options**:&nbsp;true,&nbsp;false (default: true) | Use this when the hiddenLinks should be a html select element |
+| **disable-auto-expand**&nbsp;(Boolean) | Prevents group from being automatically expanded when it contains any active filters. |
 
 ### Mixins
 | Name | Description |
@@ -57,6 +58,30 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **clone** | Enables cloning of elements with all properties, behaviors, private fields, staes and HTML templates. |
+
+## `ff-asn-group-slider`
+___
+### Properties
+| Name | Description |
+| ---- | ----------- |
+| **opened**&nbsp;(Boolean) | Determines if the filter group is expanded. If you want to have a group opened by default: `<ff-asn-group-slider opened>` does the trick. |
+| **collapsible**&nbsp;(String) **Options**:&nbsp;true,&nbsp;false (default: true) | Determines, if the filter group is collapsible. |
+| **for-group**&nbsp;(String) | Determines, which filter group the template should be applied to. If all is selected, then the template is applied to all groups if no other template suits the requirements. |
+| **group**&nbsp;(Object) | The data for the filter group. |
+| **disable-auto-expand**&nbsp;(Boolean) | Prevents group from being automatically expanded when it contains any active filters. |
+
+### Mixins
+| Name | Description |
+| ---- | ----------- |
+| **--all-links-container** | Is applied to the container of the ASN group. |
+| **--ff-asn-group-container** | Is applied to the container of the ASN group.|
+
+### Methods
+| Name | Description |
+| ---- | ----------- |
+| **toggle(animated?)** | Toggles the asn-group-slider |
+| **show(animated?)** | Opens the asn-group-slider |
+| **hide(animated?)** | Closes the asn-group-slider |
 
 ## `ff-slider`
 ___
