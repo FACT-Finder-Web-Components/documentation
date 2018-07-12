@@ -68,6 +68,7 @@ ___
 | **collapsible**&nbsp;(String) **Options**:&nbsp;true,&nbsp;false (default: true) | Determines, if the filter group is collapsible. |
 | **for-group**&nbsp;(String) | Determines, which filter group the template should be applied to. If all is selected, then the template is applied to all groups if no other template suits the requirements. |
 | **group**&nbsp;(Object) | The data for the filter group. |
+| **filter-style**&nbsp;(String) | Read only property, always set to "SLIDER" |
 | **disable-auto-expand**&nbsp;(Boolean) | Prevents group from being automatically expanded when it contains any active filters. |
 
 ### Mixins
