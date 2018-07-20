@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        // kinda hacky but express static conf overrides the catch all route which would redirect to https
+        if (location.pathname === "/" && location.protocol !== "https") {
+            location.href = "https://"+location.host;
+        }
+    </script>
+
     <meta charset="utf-8">
     <meta name="generator" content="Polymer Starter Kit">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
