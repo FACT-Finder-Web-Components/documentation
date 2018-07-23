@@ -6,6 +6,7 @@
     "fonts/*",
     "markdown/**/*",
     "lib/**/*",
+    "package.json",
     "app.js"
   ],
   "extraDependencies": [

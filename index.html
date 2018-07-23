@@ -3,7 +3,7 @@
 <head>
     <script>
         // kinda hacky but express static conf overrides the catch all route which would redirect to https
-        if (location.pathname === "/" && location.protocol !== "https") {
+        if (location.pathname === "/" && location.protocol !== "https:") {
             location.href = "https://"+location.host;
         }
     </script>
