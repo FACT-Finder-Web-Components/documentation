@@ -1,0 +1,11 @@
+{
+  "name": "ff-documenation",
+  "version": "1.0.0",
+  "description": "FACT-Finder Web Components Documentation",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "engines": {
+    "node": ">=8.0"
+  }
+}
