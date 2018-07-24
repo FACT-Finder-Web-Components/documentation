@@ -215,7 +215,7 @@ class DownloadView extends PolymerElement {
                 <div id="downloadFinished">
                     <p>Download is ready :)</p>
                     <p>
-                        When automatic download not started, download directly at this <a href="[[lastDownload]]">link</a>.
+                        If the download didn't start automatically, download it <a href="[[lastDownload]]">here</a>.
                     </p>
 
                 </div>
