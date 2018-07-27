@@ -23,6 +23,7 @@ The function supplied in `fn` is invoked with data for the subscribed `topic` wh
 * `suggest`
 * `bct`
 * `sort`
+* `navigation`
 * `ppp`
 * `paging`
 * `pagingItems`
