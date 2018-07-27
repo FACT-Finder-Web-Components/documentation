@@ -64,12 +64,12 @@ ___
 | **similar-records-url**&nbsp;(String) | Define a custom url for the SimilarRecords.ff Service. Example: `similar-records-url="http://www.myproxy.de/services"` Omit the `SimilarRecords.ff` in the url.|
 | **get-records-url**&nbsp;(String) | Define a custom url for the records api Service. Example: `get-records-url="http://www.myproxy.de/services"`|
 | **ignore-page**&nbsp;(String) **Options**: &nbsp;false, &nbsp;false (default: false) | If you want to omit the page parameter on pagination requests just set this attribute to true. Normally you want to use this attribute in conjunction with the ff-record-list lazy-load functionality. |
-| **currency-code**&nbsp;(String) | [Currency Guide](/guides/currency-guide) |
-| **currency-country-code**&nbsp;(String) | [Currency Guide](/guides/currency-guide) |
-| **currency-fields**&nbsp;(String) | [Currency Guide](/guides/currency-guide) |
-| **currency-min-digits**&nbsp;(String) | [Currency Guide](/guides/currency-guide) |
-| **currency-max-digits**&nbsp;(String) | [Currency Guide](/guides/currency-guide) |
-| **add-unit-to-filter-elements**&nbsp;(String) | [Currency Guide](/guides/currency-guide) |
+| **currency-code**&nbsp;(String) | [Currency Guide](/documentation/currency-guide) |
+| **currency-country-code**&nbsp;(String) | [Currency Guide](/documentation/currency-guide) |
+| **currency-fields**&nbsp;(String) | [Currency Guide](/documentation/currency-guide) |
+| **currency-min-digits**&nbsp;(String) | [Currency Guide](/documentation/currency-guide) |
+| **currency-max-digits**&nbsp;(String) | [Currency Guide](/documentation/currency-guide) |
+| **add-unit-to-filter-elements**&nbsp;(String) | [Currency Guide](/documentation/currency-guide) |
 | **disable-single-hit-redirect**&nbsp;(String) **Options**: &nbsp;true, &nbsp;false (default: false) | Disables the automatic redirect to the product detail page if only one record is found |
 | **single-hit-redirect-base-path**&nbsp;(String) | Use this as an absolute base path if deeplinks are relative |
 | **sort-url-parameters-alphabetically**&nbsp;(String) **Options**: &nbsp;true, &nbsp;false (default: false) | sorts all query parameters and its values alphabetically |
