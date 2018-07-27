@@ -41,8 +41,8 @@ This list of **topic's** are dispatched in the current execution order.
 <script>
     //listen for ffReady before html import is loaded or you'll miss the event
     document.addEventListener("ffReady", function () {
-        factfinder.communication.ResultDispatcher.subscribe("result", function (resultData) {
-            // process the result
+        factfinder.communication.ResultDispatcher.subscribe("result", function (resultData, event) {
+            // process the result and or the event
         });
     });
 </script>
@@ -56,8 +56,8 @@ Unsubscribe during runtime for a specific topic
 <script>
     //listen for ffReady before html import is loaded or you'll miss the event
     document.addEventListener("ffReady", function () {
-        var key = factfinder.communication.ResultDispatcher.subscribe("result", function (resultData) {
-            // process the result
+        var key = factfinder.communication.ResultDispatcher.subscribe("result", function (resultData, event) {
+            // process the result and or the event
         });
 
         factfinder.communication.ResultDispatcher.unsubscribe("result", key);
