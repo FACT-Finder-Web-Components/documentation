@@ -24,9 +24,9 @@ The `WebComponentsReady` event is fired if all custom elements are ready to use.
 
 **What does that mean?**
 
-All `Custom Elements` are unknown to the browser until the our Javascript is loaded and each custom element is picked up and upgraded to an real `Custom Element` (Web Component).
+All `Custom Elements` are unknown to the browser until our Javascript is loaded and each custom element is picked up and upgraded to an real `Custom Element` (Web Component).
 
-This means all functions, attributes and behaviors are not working until the an element is upgraded.
+This means all functions, attributes and behaviors are not working until an element is upgraded.
 
 Let's consider the following case:
 ```javascript
