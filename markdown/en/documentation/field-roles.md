@@ -6,11 +6,15 @@ on a proper definition of these roles. A missing definition can result in
 unexpected behaviors that might look like bugs.
 
 Certain fields/columns in FACT-Finder's product database can have special
-meanings. We call these meanings `fieldRoles`. Since every shop might
-have their own _field names_ these names need to be mapped to their
-corresponding _fieldRole_.
+meanings. E.g. a _price_ field. Many of FACT-Finder's features, such as
+Tracking require knowledge of these special meanings. Since every customer
+might use custom _field names_ there needs to be a mapping between the
+_meaning_ of a field and its _field name_.
+We call these meanings `fieldRoles`. During the set-up process of a new
+channel in the FACT-Finder-UI you assign a field to each one of the
+`fieldRoles`.
 
-These are the defined `fieldRoles`:
+These are the `fieldRoles`:
 
 - `brand` – name of manufacturer.
 - `campaignProductNumber` – product number, that are used to reference the
@@ -26,13 +30,21 @@ product in the campaign manager.
 - `masterArticleNumber` – product number of the main product if product
 variants are used
 
-This means in order for FACT-Finder and Web Components to know the
-particular meaning of a field you need to define the _fieldRoles_ whenever
-you request data from any API except the search API.
+**IMPORTANT:** During set-up of a channel in the FACT-Finder-UI you have
+to assign each of the `fieldRoles` listed above to one field/column in
+your product database.
+
+This means in order for FACT-Finder and Web Components to process your
+data properly you also need to provide a mapping of `fieldRoles` to
+`field names` in your front-end before you request data via Web Components
+from any API except the search API.
 
 **In other words:** You might have a field called `prix` that contains the
-product's price in your product database. So you need to map `price` to
-`prix` in order for FACT-Finder to know that this field contains the price.
+product's price in your product database. During set-up you assign the
+role `price` to your field `prix` in the FACT-Finder-UI. Before you can
+query the recommendation API, for example, you have to map `price` to
+`prix` in the `factfinder.communication.fieldRoles` property in your
+front-end.
 
 #### How to define `fieldRoles`
 
@@ -40,7 +52,8 @@ You need to do this when the `ffReady` event is dispatched so
 `ff-communication` knows the correct mapping before your API-Requests are
 sent. `fieldRoles` is a property of `factfinder.communication`.
 
-Here is an **example** of how your product database might look:
+Here is an **example** of how your product database might look after
+the set-up.
 
 
 | id | campaignId | masterId | RRP   | image      | name               |
@@ -64,7 +77,22 @@ document.addEventListener("ffReady", function () {
 ```
 
 **NOTICE:** We omitted some roles in this example but
-_you always have to set all_ `fieldRoles`.
+_you always have to set all_ `fieldRoles` in the back- as well as
+front-end.
+
+
+#### How to look up your `fieldRoles`
+
+As we mentioned above, the search API can be queried without providing
+the `fieldRoles` property. This is because a response from the search API
+contains the `fieldRoles` property as it is defined in FACT-Finder.
+
+You can simply query the search API and look at the response JSON to find
+the `fieldRoles` property. Then you can use that object in your front-end
+assignment fo the `factfinder.communication.fieldRoles` property.
+
+**Example for v7.3:**
+
 
 
 #### Integration Checklist:
