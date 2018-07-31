@@ -39,6 +39,18 @@ data properly you also need to provide a mapping of `fieldRoles` to
 `field names` in your front-end before you request data via Web Components
 from any API except the search API.
 
+More specifically, to use the following elements it is mandatory to define
+the `fieldRoles` property on client-side:
+
+- `<ff-recommendation>`
+- `<ff-similar-products>`
+- `<ff-communication currency-code ...>`
+- `<ff-suggest>`
+- `<ff-checkout-tracking>`
+- `<ff-tag-cloud>`
+- `<ff-campaign-pushed-products>` (Tracking) loaded via
+`<ff-campaign-landing-page>`, `<ff-campaign-products>` or `<ff-campaign-shopping-cart>`
+
 **In other words:** You might have a field called `prix` that contains the
 product's price in your product database. During set-up you assign the
 role `price` to your field `prix` in the FACT-Finder-UI. In order to use the [Currency Attributes](https://web-components.fact-finder.de/documentation/currency-guide) on your product detail page, you have to map `price` to
@@ -49,7 +61,7 @@ front-end.
 the set-up process. It is essential the roles you define in the browser
 match the ones defined in FACT-Finder.
 
-#### How to define `fieldRoles`
+#### How to define `fieldRoles` on the Web Components side
 
 You need to do this when the `ffReady` event is dispatched so
 `ff-communication` knows the correct mapping before your API-Requests are
