@@ -20,7 +20,7 @@ If you are listening to the `ffReady` event it's guaranteed that your callback i
 ```html
 <script>
     document.addEventListener("ffReady", function () {
-        //add eventlistener as describe https://web-components.fact-finder.de/api/core-result-dispatcher
+        //add eventlistener as described in https://web-components.fact-finder.de/api/core-result-dispatcher
     });
 </script>
 <link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
