@@ -38,7 +38,10 @@ guides.allGuides = {
         path: "utils",
         title: "Utils",
     },
-
+    "ready-events": {
+        path: "ready-events",
+        title: "Ready Events",
+    },
     "tracking-guide": {
         path: "tracking-guide",
         title: "Tracking",
@@ -64,6 +67,7 @@ guides.basics.push(guides.allGuides["attribute-basics"]);
 guides.basics.push(guides.allGuides["styling-elements"]);
 guides.basics.push(guides.allGuides["template-engine"]);
 guides.basics.push(guides.allGuides["communication"]);
+guides.basics.push(guides.allGuides["ready-events"]);
 guides.basics.push(guides.allGuides["utils"]);
 
 guides.additionalFeatures = [];
