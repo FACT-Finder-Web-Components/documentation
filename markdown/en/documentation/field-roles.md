@@ -79,16 +79,23 @@ the set-up.
 
 This is how you set the `fieldRoles`:
 
-```Javascript
-document.addEventListener("ffReady", function () {
-            factfinder.communication.fieldRoles = {
-                campaignProductNumber: "campaignId",
-                imageUrl: "image",
-                masterArticleNumber: "masterId",
-                price: "RRP",
-                productName: "name"
-            };
-        });
+**IMPORTANT**
+
+Both EventListeners have to be declared before our scripts are loaded or you could miss the event **and your code is never executed**!
+
+```html
+<script>
+    document.addEventListener("ffReady", function () {
+                    factfinder.communication.fieldRoles = {
+                        campaignProductNumber: "campaignId",
+                        imageUrl: "image",
+                        masterArticleNumber: "masterId",
+                        price: "RRP",
+                        productName: "name"
+                    };
+                });
+</script>
+<link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
 ```
 
 **NOTICE:** We omitted some roles in this example but
