@@ -34,6 +34,10 @@ you request data from any API except the search API.
 product's price in your product database. So you need to map `price` to
 `prix` in order for FACT-Finder to know that this field contains the price.
 
+**NOTICE:** The `fieldRoles` are configured in the FACT-Finder-UI during
+the set-up process. It is essential the roles you define in the browser
+match the ones defined in FACT-Finder.
+
 #### How to define `fieldRoles`
 
 You need to do this when the `ffReady` event is dispatched so
