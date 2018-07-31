@@ -95,7 +95,15 @@ You can simply query the search API and look at the response JSON to find
 the `fieldRoles` property. Then you can use that object in your front-end
 assignment fo the `factfinder.communication.fieldRoles` property.
 
-**Example for v7.3:**
+**Example:**
+
+You can check-out the
+[record-list demo](https://github.com/FACT-Finder-Web-Components/demos/blob/master/ff-record-list/index.html)
+and adjust the `ff-communication`-parameters to match your set-up and
+use the search-box in the demo to submit any search query. In your
+dev-tools' network tab you can look at the JSON-response under
+`searchResult.fieldRoles` to find the `fieldRoles` you will need.
+
 
 #### Integration Checklist:
 1. All `fieldRoles` are defined properly. The value in your definition has
