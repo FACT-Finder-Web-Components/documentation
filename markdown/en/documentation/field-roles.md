@@ -46,6 +46,10 @@ query the recommendation API, for example, you have to map `price` to
 `prix` in the `factfinder.communication.fieldRoles` property in your
 front-end.
 
+**NOTICE:** The `fieldRoles` are configured in the FACT-Finder-UI during
+the set-up process. It is essential the roles you define in the browser
+match the ones defined in FACT-Finder.
+
 #### How to define `fieldRoles`
 
 You need to do this when the `ffReady` event is dispatched so
