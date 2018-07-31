@@ -1,6 +1,6 @@
 ## FieldRoles
 
-**IMPORTANT** This section describes an essential part of the integration
+This section describes an essential part of the integration
 of FACT-Finder using Web Components. FACT-Finder and Web Components _depend_
 on a proper definition of these roles. A missing definition can result in
 unexpected behaviors that might look like bugs.
