@@ -97,8 +97,6 @@ assignment fo the `factfinder.communication.fieldRoles` property.
 
 **Example for v7.3:**
 
-
-
 #### Integration Checklist:
 1. All `fieldRoles` are defined properly. The value in your definition has
 to match the field's name in your product database. This is case sensitive.
