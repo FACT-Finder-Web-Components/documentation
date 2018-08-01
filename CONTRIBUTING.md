@@ -35,6 +35,27 @@ other people can enjoy a better documentation.
 Our documentation is `markdown` based. This means you don't have to be
 able to code to make changes. You can even do it _in your browser_.
 
+##### Which files to edit?
+
+The directory `markdown/en/` contains all files that make up the content
+of the documentation itself. These files get rendered into different
+pages/tabs on the documentation page.
+
+`markdown/en/*.md` - content of the _documentation_ tabs for the pages
+that are listed in the side-bar at https://web-components.fact-finder.de/api/
+
+`markdown/en/api/*.api.md` - same as the above but for the _API_ tabs.
+
+`markdown/en/documentation/*.md`  - content of the pages at
+https://web-components.fact-finder.de/documentation/
+
+To find the filename you look at the URL.
+E.g. `https://web-components.fact-finder.de/documentation/install-dist`
+-> `markdown/en/documentation/install-dist.md`
+
+
+##### Submitting your changes
+
 You will need to:
 - Create a _fork_
 - Make your changes
@@ -45,7 +66,7 @@ clicking the pen icon in the top of a file on github. When you do that
 a fork will be automatically created and when you're done you will be able
 to create a pull request just as easily.
 
-##### Pull Requests
+###### Pull Requests
 
 A Pull request needs to reference the issue it is fixing using the
 syntax: `fixes #issueNumber`. This way the issue will be closed when the
@@ -59,7 +80,8 @@ he is looking for.
 
 E.g. "Fixed some typos"
 
-_Why_ did you make these changes? If your changes aren't obviously useful
-
-
+If your changes are inconsequential to the function of the app itself
+then a short description will suffice. However if you made technical
+changes you should also elaborate on _why_ you made these changes so the
+reviewer understands your rationale.
 
