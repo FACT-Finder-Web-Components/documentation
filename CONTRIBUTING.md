@@ -1,6 +1,6 @@
 ## Ways to contribute
 
-#### 1 - Creating an issue
+## 1 - Creating an issue
 
 We welcome you to [create an issue](https://github.com/FACT-Finder-Web-Components/documentation/issues/new)
 anytime for the following reasons:
@@ -26,7 +26,7 @@ on your machine.
 
 In this case make sure to _use our template_ for reporting possible bugs.
 
-#### 2 - Making changes
+## 2 - Making changes
 
 This is the preferred way of contributing since it reduces bureaucracy
 and is therefore the fastest way of getting the change to go live so
@@ -35,7 +35,7 @@ other people can enjoy a better documentation.
 Our documentation is `markdown` based. This means you don't have to be
 able to code to make changes. You can even do it _in your browser_.
 
-##### Which files to edit?
+#### Which files to edit?
 
 The directory `markdown/en/` contains all files that make up the content
 of the documentation itself. These files get rendered into different
@@ -54,7 +54,7 @@ E.g. `https://web-components.fact-finder.de/documentation/install-dist`
 -> `markdown/en/documentation/install-dist.md`
 
 
-##### Submitting your changes
+#### Submitting your changes
 
 You will need to:
 - Create a _fork_
@@ -66,14 +66,14 @@ clicking the pen icon in the top of a file on github. When you do that
 a fork will be automatically created and when you're done you will be able
 to create a pull request just as easily.
 
-###### Pull Requests
+##### Pull Requests
 
 A Pull request needs to reference the issue it is fixing using the
 syntax: `fixes #issueNumber`. This way the issue will be closed when the
 pull request is merged. If there is no issue describing the situation you
 could either create one or just _describe_ your changes.
 
-###### Describing your changes
+##### Describing your changes
 
 _What_ did you change? Summarise the changes so the reviewer knows what
 he is looking for.
