@@ -34,6 +34,10 @@ guides.allGuides = {
         path: "communication",
         title: "Communication",
     },
+    "field-roles": {
+        path: "field-roles",
+        title: "Field Roles",
+    },
     "utils": {
         path: "utils",
         title: "Utils",
@@ -67,6 +71,7 @@ guides.basics.push(guides.allGuides["attribute-basics"]);
 guides.basics.push(guides.allGuides["styling-elements"]);
 guides.basics.push(guides.allGuides["template-engine"]);
 guides.basics.push(guides.allGuides["communication"]);
+guides.basics.push(guides.allGuides["field-roles"]);
 guides.basics.push(guides.allGuides["ready-events"]);
 guides.basics.push(guides.allGuides["utils"]);
 

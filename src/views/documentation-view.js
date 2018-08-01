@@ -101,7 +101,7 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
             return;
         }
 
-        this.filePath = "markdown/" + this.language + "/guides/" + newSubpage + ".md";
+        this.filePath = "markdown/" + this.language + "/documentation/" + newSubpage + ".md";
     }
 }
 
