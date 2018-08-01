@@ -1,4 +1,4 @@
-## Ways to contribute
+# Ways to contribute
 
 ## 1 - Creating an issue
 
