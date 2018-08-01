@@ -35,26 +35,29 @@ other people can enjoy a better documentation.
 Our documentation is `markdown` based. This means you don't have to be
 able to code to make changes. You can even do it _in your browser_.
 
-#### Which files to edit?
+### Which files to edit?
 
 The directory `markdown/en/` contains all files that make up the content
 of the documentation itself. These files get rendered into different
 pages/tabs on the documentation page.
 
-`markdown/en/*.md` - content of the _documentation_ tabs for the pages
+`markdown/en/*.md`
+ - content of the _documentation_ tabs for the pages
 that are listed in the side-bar at https://web-components.fact-finder.de/api/
 
-`markdown/en/api/*.api.md` - same as the above but for the _API_ tabs.
+`markdown/en/api/*.api.md`
+ - same as the above but for the _API_ tabs.
 
-`markdown/en/documentation/*.md`  - content of the pages at
+`markdown/en/documentation/*.md`
+ - content of the pages at
 https://web-components.fact-finder.de/documentation/
 
-To find the filename you look at the URL.
+
+To find the filename you look at the URL:
 E.g. `https://web-components.fact-finder.de/documentation/install-dist`
 -> `markdown/en/documentation/install-dist.md`
 
-
-#### Submitting your changes
+### Submitting your changes
 
 You will need to:
 - Create a _fork_
@@ -66,14 +69,14 @@ clicking the pen icon in the top of a file on github. When you do that
 a fork will be automatically created and when you're done you will be able
 to create a pull request just as easily.
 
-##### Pull Requests
+#### Pull Requests
 
 A Pull request needs to reference the issue it is fixing using the
 syntax: `fixes #issueNumber`. This way the issue will be closed when the
 pull request is merged. If there is no issue describing the situation you
 could either create one or just _describe_ your changes.
 
-##### Describing your changes
+#### Describing your changes
 
 _What_ did you change? Summarise the changes so the reviewer knows what
 he is looking for.
