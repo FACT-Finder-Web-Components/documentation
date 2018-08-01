@@ -18,9 +18,9 @@ This chapter describes the bare minimum configuration necessary to search and re
 
 [Read Why](https://web-components.fact-finder.de/documentation/ready-events)
 
-We recommend to put the `ff-communication` element right after the `body` tag. This way no one can mess up the order.
+We recommend putting the `ff-communication` element right after the `body` tag. This way no one can mess up the order.
 
-It's advisable to drop a comment in addition.
+It's advisable to add a comment explaining this requirement.
 
 ### Used attributes
 
