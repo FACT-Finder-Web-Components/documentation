@@ -12,7 +12,7 @@ ___
 | **is-recommendation** (Boolean) | Indicates if this record-list is placed inside a ff-recommendation element. This attribute is set automatically by the ff-recommendation element and used for tracking purposes. |
 | **stamp-always** (Boolean) | ff-record are always reused and in addition if the new record set doesn't differ by oldRecord.id === newRecord.id dom is not updated. Add this attribute to disable this behavior. Using this attribute on ff-record-list will ensure all stamped ff-record will have this attribute added |
 
-###Methods
+### Methods
 | Name | Description |
 | ---- | ----------- |
 | **loadNextPage()** | Load the next page. Automatically used if infinite-scrolling is active |

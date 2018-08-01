@@ -26,7 +26,7 @@ on your machine.
 
 In this case make sure to _use our template_ for reporting possible bugs.
 
-#### 2 - Making your own changes
+#### 2 - Making changes
 
 This is the preferred way of contributing since it reduces bureaucracy
 and is therefore the fastest way of getting the change to go live so
@@ -34,4 +34,32 @@ other people can enjoy a better documentation.
 
 Our documentation is `markdown` based. This means you don't have to be
 able to code to make changes. You can even do it _in your browser_.
+
+You will need to:
+- Create a _fork_
+- Make your changes
+- Create a pull request
+
+If your changes are minor you can do all of the above within github by
+clicking the pen icon in the top of a file on github. When you do that
+a fork will be automatically created and when you're done you will be able
+to create a pull request just as easily.
+
+##### Pull Requests
+
+A Pull request needs to reference the issue it is fixing using the
+syntax: `fixes #issueNumber`. This way the issue will be closed when the
+pull request is merged. If there is no issue describing the situation you
+could either create one or just _describe_ your changes.
+
+###### Describing your changes
+
+_What_ did you change? Summarise the changes so the reviewer knows what
+he is looking for.
+
+E.g. "Fixed some typos"
+
+_Why_ did you make these changes? If your changes aren't obviously useful
+
+
 
