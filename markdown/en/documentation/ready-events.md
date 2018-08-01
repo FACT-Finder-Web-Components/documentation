@@ -1,6 +1,10 @@
 ## Ready Events
 There are 2 essential events emmited on the main document.
 
+**IMPORTANT**
+
+Both EventListeners have to be declared before our scripts are loaded or you could miss the event **and your code is never executed**!
+
 ### ffReady
 This event is fired if our core library has loaded and is fully functional.
 
@@ -13,10 +17,13 @@ Sometimes you want or have to change the data before all our elements being noti
 If you are listening to the `ffReady` event it's guaranteed that your callback is invoked before all element callbacks are going to be invoked.
 
 **Example usage**
-```
-document.addEventListener("ffReady", function () {
-        //add eventlistener as describe https://web-components.fact-finder.de/api/core-result-dispatcher
-});
+```html
+<script>
+    document.addEventListener("ffReady", function () {
+        //add eventlistener as described in https://web-components.fact-finder.de/api/core-result-dispatcher
+    });
+</script>
+<link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
 ```
 
 ### WebComponentsReady
@@ -29,15 +36,17 @@ All `Custom Elements` are unknown to the browser until our Javascript is loaded 
 This means all functions, attributes and behaviors are not working until an element is upgraded.
 
 Let's consider the following case:
-```javascript
-//WRONG
-document.addEventListener("ffReady", function () {
-        //the core is ready lets search
-        factfinder.communication.FFCommunicationEventAggregatgor.addFFEvent({
-            type: "search",
-            query: "some query"
-        });
-});
+```html
+<script>
+    //WRONG
+    document.addEventListener("ffReady", function () {
+            //the core is ready lets search
+            factfinder.communication.FFCommunicationEventAggregatgor.addFFEvent({
+                type: "search",
+                query: "some query"
+            });
+    });
+</script>
 ```
 
 **This will actually result in an error.**
@@ -45,15 +54,18 @@ document.addEventListener("ffReady", function () {
 As described above the `ffReady` event indicates the core library is ready but not the elements itself. At the time the search is executed `<ff-communication></ff-communication>` element isn't initialized and therefore no communication information is available.
 
 Instead we want to use the `WebComponentsReady` to have all custom elements upgraded:
-```javascript
-//CORRECT
-document.addEventListener("WebComponentsReady", function () {
-    //the core is ready lets search
-    factfinder.communication.FFCommunicationEventAggregatgor.addFFEvent({
-        type: "search",
-        query: "some query"
+```html
+<script>
+    //CORRECT
+    document.addEventListener("WebComponentsReady", function () {
+        //the core is ready lets search
+        factfinder.communication.FFCommunicationEventAggregatgor.addFFEvent({
+            type: "search",
+            query: "some query"
+        });
     });
-});
+</script>
+<link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
 ```
 
 **NOTE**
