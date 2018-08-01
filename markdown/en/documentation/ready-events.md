@@ -96,7 +96,7 @@ Let me show you a wrong example:
 <ff-communication url="https://some.ff.url" channel="aChannel" version="7.2"></ff-communication>
 ```
 
-The `ff-recommendation` element is responsible for querying the FACT-Finder recommendation API. At the time the element is _upgraded_ and executes the 'ff-communication' hasn't set all it's configuration and therefore the request can't even be sent because no _URL_ and _CHANNEL_ information are available.
+The `ff-recommendation` element is responsible for querying the FACT-Finder recommendation API. At the time the element is _upgraded_ and sends its request, the 'ff-communication' hasn't published all it's configuration and therefore the request can't even be sent because no _URL_ and _CHANNEL_ information are available.
 
 To fix this issue you have to place the `ff-communication` element before the `ff-recommendation` element:
 ```html
@@ -109,6 +109,6 @@ To fix this issue you have to place the `ff-communication` element before the `f
 ```
 
 **NOTE**
-We recommend to put the `ff-communication` element right after the `body` tag. This way no one can mess up the order.
+We recommend putting the `ff-communication` element right after the `body` tag. This way no one can mess up the order.
 
-It's advisable to drop a comment in addition.
+It's advisable to add a comment explaining this requirement.
