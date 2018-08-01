@@ -72,4 +72,43 @@ Instead we want to use the `WebComponentsReady` to have all custom elements upgr
 
 Basically you can set the necessary communication information at `ffReady` time in the js itself. However dispatching of data needs to be postponed until `WebComponentsReady` to ensure all elements are upgraded and listening on data.
 
+### Element Order
+Even without using `ffReady` to trigger a search you stumble across an error message like:
 
+_Required search params are not available: [url(globalSearchParameter): ""], [url(event): "undefined"], [channel: ""], [version:"NaN"]_
+
+If you are sure the message is not related to a custom js snippet it's possibly related to the order of elements.
+
+**IMPORTANT**
+
+**The `<ff-communication></ff-communication>` element has to be the first FF Web Component in DOM order!**
+
+**What does that mean?**
+
+Let me show you a wrong example:
+
+```html
+<!--WRONG-->
+<ff-recommendation record-id="1234">
+    <!-- ff-record-list ....-->
+</ff-recommendation>
+
+<ff-communication url="https://some.ff.url" channel="aChannel" version="7.2"></ff-communication>
+```
+
+The `ff-recommendation` element is responsible for querying the FACT-Finder recommendation API. At the time the element is _upgraded_ and executes the 'ff-communication' hasn't set all it's configuration and therefore the request can't even be sent because no _URL_ and _CHANNEL_ information are available.
+
+To fix this issue you have to place the `ff-communication` element before the `ff-recommendation` element:
+```html
+<!--CORRECT-->
+<ff-communication url="https://some.ff.url" channel="aChannel" version="7.2"></ff-communication>
+
+<ff-recommendation record-id="1234">
+    <!-- ff-record-list ....-->
+</ff-recommendation>
+```
+
+**NOTE**
+We recommend to put the `ff-communication` element right after the `body` tag. This way no one can mess up the order.
+
+It's advisable to drop a comment in addition.
