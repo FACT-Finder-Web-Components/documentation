@@ -12,6 +12,16 @@ This chapter describes the bare minimum configuration necessary to search and re
     </ff-communication>
 ````
 
+**IMPORTANT**
+
+**The `<ff-communication></ff-communication>` element has to be the first FF Web Component in DOM order!**
+
+[Read Why](https://web-components.fact-finder.de/documentation/ready-events)
+
+We recommend to put the `ff-communication` element right after the `body` tag. This way no one can mess up the order.
+
+It's advisable to drop a comment in addition.
+
 ### Used attributes
 
 ---
