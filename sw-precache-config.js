@@ -11,12 +11,15 @@
 module.exports = {
   staticFileGlobs: [
     'src/**/*',
-    'manifest.json'
+    'manifest.json',
+    'markdown'
   ],
   runtimeCaching: [
     {
       urlPattern: /\/@webcomponents\/webcomponentsjs\//,
       handler: 'fastest'
     }
-  ]
+  ],
+    navigateFallback: 'index.html',
+    navigateFallbackWhitelist: [/^.*markdown.*/, /^__.*/, '/getProjectConfig/'],
 };
