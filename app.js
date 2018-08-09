@@ -1,12 +1,12 @@
 'use-strict';
 
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
 app.use(express.static(__dirname));
 
 app.get('*', function (req, res) {
-    var protocol = req.get("X-Forwarded-Proto");
+    const protocol = req.get("X-Forwarded-Proto");
     if (protocol !== "https") {
         res.redirect(301, 'https://' + req.headers.host + req.url);
         return;
