@@ -124,6 +124,10 @@ api.doku = {
         title: "Template",
         path: "ff-template",
         noApi: true
+    },
+    "ff-checkout-tracking": {
+        title: "Checkout Tracking",
+        path: "ff-checkout-tracking",
     }
 };
 
@@ -151,6 +155,7 @@ api.moreFeatures.push(api.doku["ff-campaign"]);
 api.moreFeatures.push(api.doku["ff-campaign-pushed-products"]);
 api.moreFeatures.push(api.doku["ff-campaign-landing-page"]);
 api.moreFeatures.push(api.doku["ff-campaign-shopping-cart"]);
+api.moreFeatures.push(api.doku["ff-checkout-tracking"]);
 api.moreFeatures.push(api.doku["ff-product-campaign"]);
 api.moreFeatures.push(api.doku["ff-search-feedback"]);
 api.moreFeatures.push(api.doku["ff-recommendation"]);
