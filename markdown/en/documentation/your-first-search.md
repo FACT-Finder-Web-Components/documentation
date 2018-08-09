@@ -5,14 +5,14 @@ We recommend to use the [ff-record-list demo](https://github.com/FACT-Finder-Web
 
 This lightweight demo has only `39 lines of html code` (already including boilerplate) and is therefore predestinated to get you up and running while not overwhelming you. 
 
-If you want a **quick overview** about all possible features and features already included in the demo please refer to the [API documentation](http://172.22.3.119:8081/documentation/ff-record-list) of the ff-record-list element.
+If you want a **quick overview** about all possible features and features already included in the demo please refer to the [API documentation](api/ff-record-list) of the ff-record-list element.
 
 The following sections will cover all necessary steps to adjust the demo to fit your setup.
 
 ### Change Configuration
 
 ---
-In case you skipped previous sections please read more about the configuration [here](http://172.22.3.119:8081/guides/configuration).
+In case you skipped previous sections please read more about the configuration [here](documentation/configuration).
 
 What you definitely want to change first is the `url`, `channel` and the `version` attribute. If you dont know the channel name or your FACT-Finder version please refer to the FACT-Finder UI.
 
@@ -37,7 +37,7 @@ The data used to display product information is provided by the csv file you've 
 
 You have to change all `data-bindings` (e.g. `{{record.Title}}` -> `{{record.productNameField}}`) to match the field names provided by your csv file. 
 
-If you want to read more about the `Template Engine` refer to the [Template Engine documentation](http://172.22.3.119:8081/guides/template-engine)
+If you want to read more about the `Template Engine` refer to the [Template Engine documentation](documentation/template-engine)
 
 
 
