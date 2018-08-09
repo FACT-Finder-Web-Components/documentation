@@ -50,13 +50,20 @@ Repeat this process for all configured suggest types.
             <div>
                 <!--ff-suggest-items are always added at the original postion of the template-->
                 <ff-suggest-item type="suggestType">
-                    <span>{{name}}</span>
+                    <span>{{{name}}}</span>
                 </ff-suggest-item>
             </div>
         </div>
     </section>
 </ff-suggest>
 ```
+
+Note the triple curly braces in `<span>{{{name}}}</span>`.
+These are required because `ff-suggest` inserts HTML here.
+The matched string from your search box is wrapped in a `<span class="query">` tag to allow you to highlight the matched text through CSS.
+If you were to use the regular double curly braces and typed for example "back", the result would be `<span class="query">Back</span>packs` instead of "**Back**packs".
+
+See [Template Engine](documentation/template-engine) for more details.
 
 ## Add Keyboard Support
 
