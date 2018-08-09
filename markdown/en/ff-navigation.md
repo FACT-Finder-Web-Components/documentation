@@ -31,7 +31,7 @@ In this `ff-navigation-item` you have access to the element's values. Such as `'
 
 ## Templates
 
-You can also define 3 possible templates, which are used in different situations. To define these set the `'type'` propertie on the `ff-navigation-item`. A `ff-navigation-item` with no type is used as the **default** fallback template and has to be defined.
+You can also define 3 possible templates, which are used in different situations. To define these set the `'type'` property on the `ff-navigation-item`. A `ff-navigation-item` with no type is used as the **default** fallback template and has to be defined.
 
 ### 'header'
 
