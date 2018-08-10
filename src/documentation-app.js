@@ -82,8 +82,7 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
     }
 
     div[main-title] {
-        background-image: url(/images/logo_background.webp);
-        background-repeat: no-repeat;
+        background: url(/images/logo_background.webp) no-repeat;
         height: 100%;
         display: flex;
         justify-content: flex-start;

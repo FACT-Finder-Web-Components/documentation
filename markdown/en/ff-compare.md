@@ -19,7 +19,7 @@ This `ff-record-list` does not listen to the default search result and gets its 
 
 ### max-results
 
-The `max-results` attribute sets how many Records should be dispached to the `ff-record-list`. (defaults to 4).
+The `max-results` attribute sets how many Records should be dispatched to the `ff-record-list`. (defaults to 4).
 
 ```html
 <ff-compare max-results="6">
@@ -33,7 +33,7 @@ The `max-results` attribute sets how many Records should be dispached to the `ff
 
 ### record-id
 
-Set a list of record IDs as the `record-id` attribute to trigger the compare service. Usualy you want
+Set a list of record IDs as the `record-id` attribute to trigger the compare service. Usually you want
 to set the record IDs after a selection of records and the set the IDs via JavaScript. This is also shown in the
 example bellow.
 

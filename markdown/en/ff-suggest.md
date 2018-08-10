@@ -15,7 +15,7 @@ The `ff-suggest` is triggered when at least 2 charakters are in the searchbox.
        hidesuggest-onblur="true"/>
 ```
 
-For more information on the `ff-searchbox`, see [Searchbox Example](http://web-components.fact-finder.de/element-data/searchbox/searchbox-demo.html)
+For more information on the `ff-searchbox`, see [Searchbox Example](api/ff-searchbox#tab=demo)
 
 ## The basics
 
