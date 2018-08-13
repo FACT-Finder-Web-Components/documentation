@@ -2,17 +2,17 @@
 
 ---
 
-The FACT-Finder Web Components build contains 3 files:
+The FACT-Finder Web Components build contains three files:
 1. `elements.build_with_dependencies.html` 
-    * This file contains all HTML peaces needed to provide DOM peaces (if needed) and a reference to `elements.build.js`
+    * This file contains all HTML pieces needed to provide DOM pieces (if needed) and a reference to `elements.build.js`
 2. `elements.build.js`
-    * Contains all the Javascript code to have everything working like expected
+    * Contains all the JavaScript code to make Web Components work
 3. `webcomponents-lite.min.js`
-    * Contains the required polyfill to have web components technology working in older browser which aren't supporting web components natively. This is __always__ required for all versions <= 1.3 
+    * Contains the required polyfill to have Web Components technology working in older browsers which don't support Web Components natively. This is **always** required for all versions <= 1.3 
 
 
-__Boilerplate Code__
-````html
+**Boilerplate Code**
+```html
 <head>
     <meta charset="UTF-8">
     <title>Page Title</title>
@@ -31,22 +31,26 @@ __Boilerplate Code__
     </style>
     <!-- boilerplate end -->
 </head>
-````
+```
 **NOTE**
 
-The `elements.build.js` file doens't need to be referenced directly from withing your `"index.html"` cause it's loaded by the `elements.build_with_dependencies.html`. However it has to be placed in the same directory as `elements.build_with_dependencies.html` is placed!
+The `elements.build.js` file does not need to be referenced directly from within your `index.html` because it is loaded by the `elements.build_with_dependencies.html`. However, it has to be placed in the same directory as `elements.build_with_dependencies.html`!
 
 ## Loading Order
 
 ---
 
-You __NEVER__ want to change the loading or script order. Even the `Polymer.dom` script has to be inlined before loading the `webcomponents-lite.min.js` file. 
+You **NEVER** want to change the loading or script order. Even the `Polymer.dom` script has to be executed before loading the `webcomponents-lite.min.js` file.
 
 ## Prevent Flash Of Unstyled Content (FOUC)
 
 ---
 
-In browsers where web components are not natively supported you might encounter ugly flash of unstyled content on page load. To prevent this we added a remove unresolved attribute behavior to all elements with an visual component (e.g. ff-record-list, ff-asn and so on). Just annotate all elements which are shown immediately on page load with the [unresolved] attribute. In Addition add the following CSS rule on top of the page before the appearance of your custom elements:
+In browsers where web components are not natively supported you might encounter ugly flashing of unstyled content while the page is loading. To prevent this just annotate all elements that have a visual component and are shown immediately on page load with the `unresolved` attribute.
+```html
+<ff-record-list unresolved></ff-record-list>
+```
+Also add the following CSS rule on top of the page before the appearance of your custom elements:
 
 ```html
 <head>
@@ -58,6 +62,4 @@ In browsers where web components are not natively supported you might encounter 
 </head>
 ```
 
-**NOTE**
-
-The `<style>` tag has to be inlined in the main document. If you'll add it to css file it might happen that FOUC appears until your CSS file is loaded properly.
+**Note:** The `<style>` tag must be inlined in the main document. If you add it to a CSS file, it might not be loaded fast enough and FOUC might still occur.
