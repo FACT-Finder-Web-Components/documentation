@@ -1,53 +1,46 @@
 ## Attributes
 
 ---
-Every element can have attributes from a different type.
-These types include `Boolean`, `String`, `Object`, `Array`. There are slight differences between which leads to common mistakes.
+Every element can have attributes of various types. These types are `Boolean`, `String`, `Object`, `Array`. Understanding their differences is important as this is a common source of error.
 
-## Difference Boolean and String
-There is big difference between Boolean and String attributes.
+## Difference between Boolean and String
 
 ### Boolean
 
 ---
-If an attribute is from type `Boolean` it ignores its value. The real attribute value results to `true` if the attribute is present on the element regardless of its value.
 
-````html
-<ff-communication add-unit-to-filter-groups="false"></ff-communication> // true because it's a boolean attribute
-```` 
+For attributes of type `Boolean` only their presence on the HTML element is relevant. Their assigned value is ignored. The presence of a boolean attribute on an element represents the `true` value, and the absence of the attribute represents the `false` value.
 
-The only way to set the this attribute to false is removing it entirely.
-````html
-<ff-communication></ff-communication> // add-unit-to-filter-groups is false because it's not present on the element
-```` 
+```html
+<ff-communication add-unit-to-filter-groups></ff-communication>
+<ff-communication add-unit-to-filter-groups="false"></ff-communication>
+``` 
+
+In both cases `add-unit-to-filter-groups` evaluates to `true` regardless of a value being assigned or not. In order to have it evaluate to `false` simply omit the attribute altogether.
+
+```html
+<ff-communication></ff-communication> <!-- add-unit-to-filter-groups evaluates to false -->
+``` 
 
 ### String
 
 ---
-If an attribute is from type `String` it accepts only values it expects. The value can be case-sensitive depending on implementation. Normally all valid values are documented in the API section of an element. 
-E.g. `<ff-communication use-url-parameter="false">` is correct because its [API documentation](api/ff-searchbox) states: `use-url-parameter (String) Options:  true,  false (default: true)`
+Attributes of type `String` typically have several possible values defined. Only these values will be accepted while others will be ignored. A value can be case-sensitive depending on the implementation.
 
-````html
-// value is false and therefore **no** url parameters are pushed to the history when a search request succeeds.
-<ff-communication use-url-parameter="false">
+```html
+<ff-communication use-url-parameter="false"> <!-- evaluates to false -->
+<ff-communication use-url-parameter="true"> <!-- evaluates to true -->
+``` 
 
-// value is true and therefore url parameters are pushed to the history when a search request succeeds. 
-<ff-communication use-url-parameter="true">  
-```` 
-
-The only way to set the this attribute to false is removing it entirely.
-````html
-<ff-communication></ff-communication> // add-unit-to-filter-groups is false because it's not present on the element
-```` 
+See the API section of an element for an overview of possible values. For example [`ff-searchbox`](api/ff-searchbox#tab=api).
 
 ## Object/Array
-`Object` attributes are somehow different than every other attributes.
-As mentioned in [element basics](documentation/communication) all elements are data driven.
 
-For example the `ff-record-list` has an `records` property of type `Array`. 
-What you now could possibly do is something like this:
+`Object` attributes are somehow different from other attributes. As mentioned in [element basics](documentation/communication) all elements are data driven.
 
-````javascript
+For example the `ff-record-list` has a `records` property of type `Array`. What you now could possibly do is something like this:
+
+```javascript
 document.querySelector("ff-record-list").records = [ {
         id: "record1",
         record: {
@@ -61,6 +54,6 @@ document.querySelector("ff-record-list").records = [ {
             price: 100000.99
         }
     }]
-```` 
+``` 
 
-And the `ff-record-list` element would start to render and do its job.
+This would trigger the `ff-record-list` element to render its contained `ff-record` elements with the specified data.
