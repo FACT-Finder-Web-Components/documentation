@@ -183,15 +183,16 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
 
         const fileName = newSubpage;
 
-        this.filePath = "markdown/" + this.language + "/" + fileName + ".md";
+        this.filePath = `markdown/${this.language}/${fileName}.md`;
         this.dokuTitle = this.data.doku[fileName].title;
+
         if (fileName.startsWith("ff")) {//most ff-* pages have a demo
             this.showTabs = true;
             this.apiPath = "markdown/" + this.language + "/api/" + fileName + ".api.md";
             this.githubPath = config.githubDemosBasePath + fileName + "/index.html";
         } else {
-            //do not trigger a new load request for api and github path when ist not an ff element,
-            // instead simpyl not show tabs
+            // do not trigger a new load request for api and github path when not an ff element,
+            // instead, simply hide tabs
             this.showTabs = false;
         }
 
