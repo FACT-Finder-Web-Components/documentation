@@ -219,7 +219,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
 
         if (newTab) {
             const url = window.location.href.split('#')[0];
-            window.history.replaceState({}, ``, `${url}#tab=${newTab}`);
+            window.location.replace(`${url}#tab=${newTab}`);
         }
     }
 }
