@@ -41,7 +41,8 @@ The only way to set the this attribute to false is removing it entirely.
 ```` 
 
 ## Object/Array
-`Object` attributes are somehow different than every other attributes. As mentioned in (TODO link element basics) all elements are data driven. 
+`Object` attributes are somehow different than every other attributes.
+As mentioned in [element basics](documentation/communication) all elements are data driven.
 
 For example the `ff-record-list` has an `records` property of type `Array`. 
 What you now could possibly do is something like this:

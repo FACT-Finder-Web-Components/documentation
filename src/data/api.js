@@ -124,8 +124,11 @@ const api = {
             title: "Template",
             path: "ff-template",
             noApi: true
+        },
+        "ff-checkout-tracking": {
+            title: "Checkout Tracking",
+            path: "ff-checkout-tracking",
         }
-    }
 };
 
 api.core = [
@@ -155,6 +158,7 @@ api.moreFeatures = [
     api.doku["ff-campaign-pushed-products"],
     api.doku["ff-campaign-landing-page"],
     api.doku["ff-campaign-shopping-cart"],
+    api.doku["ff-checkout-tracking"],
     api.doku["ff-product-campaign"],
     api.doku["ff-search-feedback"],
     api.doku["ff-recommendation"],
