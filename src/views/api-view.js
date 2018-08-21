@@ -184,7 +184,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
         const fileName = newSubpage;
 
         this.filePath = `markdown/${this.language}/${fileName}.md`;
-        this.dokuTitle = this.data.doku[fileName].title;
+        this.dokuTitle = this.data.pages[fileName].title;
 
         if (fileName.startsWith("ff")) {//most ff-* pages have a demo
             this.showTabs = true;
