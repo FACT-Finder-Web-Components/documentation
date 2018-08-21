@@ -107,8 +107,8 @@ const api = {
         },
         "ff-template": {
             path: "ff-template",
-            noApi: true
             title: "Template",
+            noApi: true  // TODO find out what this is for and remove if not needed
         },
         "ff-checkout-tracking": {
             path: "ff-checkout-tracking",

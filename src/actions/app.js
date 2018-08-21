@@ -1,5 +1,9 @@
+import { pageInfoCollection } from "../data/pageMappings";
+
+
 export const UPDATE_PAGE = 'UPDATE_PAGE';
 export const UPDATE_DRAWER_STATE = 'UPDATE_DRAWER_STATE';
+
 
 export const navigate = (path, params) => (dispatch) => {
     // Extract the page name from path.
@@ -20,28 +24,14 @@ export const navigate = (path, params) => (dispatch) => {
 };
 
 const loadPage = (page, subpage, tab) => (dispatch) => {
-    switch (page) {
-        case 'home':
-            import('../views/home-view.js');
-            break;
-        case 'api':
-            import('../views/api-view.js');
-            break;
-        case 'documentation':
-            import('../views/documentation-view.js');
-            break;
-        case 'download':
-            import('../views/download-view.js');
-            break;
-        case 'contacts':
-            import('../views/contacts-view.js');
-            break;
-        case 'search':
-            import('../views/search-view.js');
-            break;
-        default:
-            page = 'view404';
-            import('../views/view-404.js');
+    const pageInfo = pageInfoCollection[page];
+
+    if (pageInfo && (!pageInfo.requiresSubpage || pageInfo.subpages[subpage])) {
+        import(pageInfo.importTarget);
+    }
+    else {
+        page = 'view404';
+        import('../views/view-404.js');
     }
 
     dispatch(updatePage(page, subpage, tab));
