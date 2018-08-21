@@ -20,7 +20,7 @@ class View404 extends PolymerElement {
     }
 </style>
 
-Oops you hit a 404. <a href="[[rootPath]]">Head back to home.</a>
+Oops! You hit a 404. <a href="[[rootPath]]">Head back to home.</a>
     `;
     }
 }
