@@ -1,4 +1,5 @@
 import { pageInfoCollection } from "../data/pageMappings";
+import { getTabFromParams, urlPathToPages } from "../util/url";
 
 
 export const UPDATE_PAGE = 'UPDATE_PAGE';
@@ -6,12 +7,9 @@ export const UPDATE_DRAWER_STATE = 'UPDATE_DRAWER_STATE';
 
 
 export const navigate = (path, params) => (dispatch) => {
-    // Extract the page name from path.
-    const paths = path.split('/');
-    const page = paths[1] === '' ? 'home' : paths[1];
-    const subpage = paths[2];
+    const { page, subpage } = urlPathToPages(path);
+    const tab = getTabFromParams(params);
 
-    const tab = params.indexOf('tab=') !== -1 ? params.split('tab=')[1].split('&')[0] : '';
     // Any other info you might want to extract from the path (like page type),
     // you can do here
     dispatch(loadPage(page, subpage, tab));
