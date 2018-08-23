@@ -34,7 +34,7 @@ class View404 extends PolymerElement {
 
 <h2>Oops! You hit a 404!</h2>
 <div class="imgContainer">
-    <img src="http://search-web-components.fact-finder.de/crap/img/stupidCat.jpg">
+    <img src="/images/404-cat.jpg">
 </div>
     `;
     }
