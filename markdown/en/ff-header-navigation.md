@@ -224,7 +224,7 @@ As shown in the example below, we define 4 `div's`. One for each slot in the "Bi
 
 ### Group slots
 
-You can also set custom content after each group. Just add an element with the groupname as
+You can also set custom content after each group. Just add an element with the group name as
 `slot` attribute, e.g.:
 
 ```html

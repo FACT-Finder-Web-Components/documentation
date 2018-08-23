@@ -100,6 +100,9 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
         if (!this.isActiveView()) {
             return;
         }
+        if (newSubpage === 'get-started') {
+            window.location.replace('/documentation/install-dist');
+        }
 
         this.filePath = "markdown/" + this.language + "/documentation/" + newSubpage + ".md";
     }

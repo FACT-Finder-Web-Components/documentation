@@ -25,7 +25,7 @@ The only way to set the this attribute to false is removing it entirely.
 
 ---
 If an attribute is from type `String` it accepts only values it expects. The value can be case-sensitive depending on implementation. Normally all valid values are documented in the API section of an element. 
-E.g. `<ff-communication use-url-parameter="false">` is correct because its [API documentation](http://172.22.3.119:8081/documentation/ff-searchbox) states: `use-url-parameter (String) Options:  true,  false (default: true)`
+E.g. `<ff-communication use-url-parameter="false">` is correct because its [API documentation](api/ff-searchbox) states: `use-url-parameter (String) Options:  true,  false (default: true)`
 
 ````html
 // value is false and therefore **no** url parameters are pushed to the history when a search request succeeds.
@@ -41,7 +41,8 @@ The only way to set the this attribute to false is removing it entirely.
 ```` 
 
 ## Object/Array
-`Object` attributes are somehow different than every other attributes. As mentioned in (TODO link element basics) all elements are data driven. 
+`Object` attributes are somehow different than every other attributes.
+As mentioned in [element basics](documentation/communication) all elements are data driven.
 
 For example the `ff-record-list` has an `records` property of type `Array`. 
 What you now could possibly do is something like this:

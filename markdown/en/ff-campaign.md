@@ -1,7 +1,7 @@
 ## Adding Feedback campaigns
 You can add `ff-campaign-feedbacktext` anywhere in the document. Just set the `[label]` attribute to an appropriate value. This value has to match a configured label value inside the FACT-Finder backend. The only necessary {{data-binding}} is the {{text}}.
 
-**NOTE**: If you are using **HTML feedacktexts** you need to use the **{{{triple mustache syntax}}}**
+**NOTE**: If you are using **HTML feedbacktexts** you need to use the **{{{triple mustache syntax}}}**
 
 ```html
 <ff-campaign-feedbacktext label="above products">

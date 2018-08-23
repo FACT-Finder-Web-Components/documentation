@@ -4,7 +4,7 @@ subscribe to ResultDispatcher to get notified when new data is available.
 
 The ResultDispatcher is in the module: **factfinder.communication.ResultDispatcher**.
 
-If you want to trigger your own communication events checkout the documentation for the [FFCommunicationEventAggregator](/documentation/core-event-aggregator).
+If you want to trigger your own communication events checkout the documentation for the [FFCommunicationEventAggregator](api/core-event-aggregator#tab=docs).
 
  
 
