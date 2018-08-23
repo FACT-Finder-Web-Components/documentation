@@ -12,15 +12,30 @@ import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
 
 class View404 extends PolymerElement {
     static get template() {
-        return html`<style>
+        return html`
+<style>
     :host {
         display: block;
 
         padding: 10px 20px;
     }
+    h2 {
+        text-align: center;
+    }
+    .imgContainer {
+        text-align: center;
+    }
+    img {
+        width: 100%;
+        max-width: 800px;
+        border-radius: 50%;
+    }
 </style>
 
-Oops you hit a 404. <a href="[[rootPath]]">Head back to home.</a>
+<h2>Oops! You hit a 404!</h2>
+<div class="imgContainer">
+    <img src="/images/404-cat.jpg">
+</div>
     `;
     }
 }
