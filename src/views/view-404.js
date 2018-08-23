@@ -8,7 +8,9 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
-import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js";
+import { urlPathToPages } from "../util/url";
+import { tryGetSubpage } from "../data/pageMappings";
 
 class View404 extends PolymerElement {
     static get template() {
@@ -24,11 +26,17 @@ class View404 extends PolymerElement {
     }
     .imgContainer {
         text-align: center;
+        margin-top: 24px;
+        margin-bottom: 24px;
     }
     img {
         width: 100%;
         max-width: 800px;
         border-radius: 50%;
+    }
+    .suggestionContainer {
+        display: flex;
+        justify-content: center;
     }
 </style>
 
@@ -36,7 +44,32 @@ class View404 extends PolymerElement {
 <div class="imgContainer">
     <img src="/images/404-cat.jpg">
 </div>
+
+
+<template is="dom-if" if="[[suggestionFound]]">
+<div class="suggestionContainer">
+    <div>
+        <p>There is a possible alternative page</p>
+        <h3>[[title]]</h3>
+        <p><a href="[[url]]">[[url]]</a></p>
+    </div>
+</div>
+</template>
     `;
+    }
+
+    ready() {
+        super.ready();
+
+        this.suggestionFound = false;
+
+        const { subpage } = urlPathToPages(window.decodeURIComponent(location.pathname));
+
+        tryGetSubpage(subpage).map(({ page, subpageData }) => {
+            this.title = subpageData.title;
+            this.url = `${location.protocol}//${location.host}/${page}/${subpageData.path}`;
+            this.suggestionFound = true;
+        });
     }
 }
 
