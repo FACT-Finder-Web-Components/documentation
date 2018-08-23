@@ -27,7 +27,7 @@ const loadPage = (page, subpage, tab) => (dispatch) => {
     const pageInfo = pageInfoCollection[page];
 
     if (pageInfo && (!pageInfo.requiresSubpage || pageInfo.subpages[subpage])) {
-        import(pageInfo.importTarget);
+        pageInfo.importTarget();
     }
     else {
         page = 'view404';

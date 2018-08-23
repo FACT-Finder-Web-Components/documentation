@@ -2,19 +2,21 @@ import api from "./api";
 import documentation from "./guides";
 
 
+// import() doesn't accept dynamic values/variables
+// to emulate the behaviour of dynamic importing wrap the import statement with its string literal in a callback
 export const pageInfoCollection = Object.freeze({
-    home: createPageInfo(`../views/home-view.js`),
-    api: createPageInfo(`../views/api-view.js`, api.pages),
-    documentation: createPageInfo(`../views/documentation-view.js`, documentation.pages),
-    download: createPageInfo(`../views/download-view.js`),
-    contacts: createPageInfo(`../views/contacts-view.js`),
-    search: createPageInfo(`../views/search-view.js`),
+    home: createPageInfo(() => import("../views/home-view.js")),
+    api: createPageInfo(() => import("../views/api-view.js"), api.pages),
+    documentation: createPageInfo(() => import("../views/documentation-view.js"), documentation.pages),
+    download: createPageInfo(() => import("../views/download-view.js")),
+    contacts: createPageInfo(() => import("../views/contacts-view.js")),
+    search: createPageInfo(() => import("../views/search-view.js")),
 });
 
 
-function createPageInfo(importTarget, subpages = undefined) {
+function createPageInfo(importTargetCall, subpages = undefined) {
     return Object.freeze({
-        importTarget,
+        importTarget: importTargetCall,
         subpages,
         requiresSubpage: !!subpages
     });
