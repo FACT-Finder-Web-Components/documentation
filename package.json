@@ -6,6 +6,7 @@
   "scripts": {
     "start": "polymer serve",
     "build": "polymer build",
+    "build-es6": "polymer build --preset es6-bundled",
     "lint": "polymer lint",
     "test": "polymer test",
     "test:integration": "polymer build # test that psk builds without error with the CLI"
