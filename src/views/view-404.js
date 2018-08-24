@@ -49,7 +49,8 @@ class View404 extends PolymerElement {
 <template is="dom-if" if="[[hasAlternative]]">
 <div class="suggestionContainer">
     <div>
-        <p>There is a possible alternative page</p>
+        <template is="dom-if" if="[[hasMoved]]"><p>The requested page has moved</p></template>
+        <template is="dom-if" if="[[isSuggestion]]"><p>There is a possible alternative page</p></template>
         <h3>[[title]]</h3>
         <p><a href="[[url]]">[[url]]</a></p>
     </div>
@@ -62,12 +63,16 @@ class View404 extends PolymerElement {
         super.ready();
 
         this.hasAlternative = false;
+        this.hasMoved = false;
         this.isSuggestion = false;
 
         const { page, subpage } = urlPathToPages(window.decodeURIComponent(location.pathname));
 
         tryGetSubpage(page, subpage).map(pageData => {
             this.hasAlternative = true;
+
+            this.isSuggestion = pageData.isSuggestion === true;
+            this.hasMoved = !this.isSuggestion && pageData.hasMoved === true;
 
             this.title = pageData.title;
             this.url = `${location.protocol}//${location.host}/${pageData.page}/${pageData.path}`;

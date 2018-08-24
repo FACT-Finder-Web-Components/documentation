@@ -24,7 +24,7 @@ export const navigate = (path, params) => (dispatch) => {
 const loadPage = (page, subpage, tab) => (dispatch) => {
     const importInfo = pageImportInfoCollection[page];
 
-    if (importInfo && (!importInfo.requiresSubpage || importInfo.subpages[subpage])) {
+    if (importInfo && (!importInfo.requiresSubpage || importInfo.subpages[subpage] && !importInfo.subpages[subpage].hasMoved)) {
         importInfo.importTarget();
     }
     else {

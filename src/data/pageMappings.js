@@ -24,6 +24,9 @@ export function tryGetSubpage(page, subpage) {
         : IsDefinedFunctor(getSubpageSuggestion(subpage));
 }
 
+export function hasMovedModifier(page, newSubpageData) {
+    return createPageInfo(page, newSubpageData, { hasMoved: true });
+}
 
 
 function createPageImportInfo(importTargetCall, subpages = undefined) {
