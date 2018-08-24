@@ -34,3 +34,12 @@ Currently we are building just for es6 browsers. `polymer build --preset es6-bun
 This command serves your app. Replace `build-folder-name` with the folder name of the build you want to serve.
 
     polymer serve build/build-folder-name/
+
+### Notes
+
+To run the application as in the production environment you have to start the actual node server.
+This way you can test server-emitted errors etc. which is not possible running `polymer serve`.
+
+* build the project
+* navigate to the build directory
+* run `node app`

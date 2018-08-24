@@ -5,6 +5,11 @@ const app = express();
 
 app.use(express.static(__dirname));
 
+
+app.get('/documentation/get-started', (req, res) => {
+    res.redirect(301, '/documentation/install-dist');
+});
+
 app.get('*', function (req, res) {
     const protocol = req.get("X-Forwarded-Proto");
     if (protocol !== "https") {
