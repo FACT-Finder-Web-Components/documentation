@@ -40,9 +40,10 @@ class View404 extends PolymerElement {
     }
 </style>
 
-<h2>Oops! You hit a 404!</h2>
+
+<h2>Oops! You hit a [[errorCode]]!</h2>
 <div class="imgContainer">
-    <img src="/images/404-cat.jpg">
+    <img src="/images/[[errorCode]]-cat.jpg">
 </div>
 
 
@@ -65,6 +66,7 @@ class View404 extends PolymerElement {
         this.hasAlternative = false;
         this.hasMoved = false;
         this.isSuggestion = false;
+        this.errorCode = 404;
 
         const { page, subpage } = urlPathToPages(window.decodeURIComponent(location.pathname));
 
@@ -73,6 +75,7 @@ class View404 extends PolymerElement {
 
             this.isSuggestion = pageData.isSuggestion === true;
             this.hasMoved = !this.isSuggestion && pageData.hasMoved === true;
+            if (this.hasMoved) this.errorCode = 301;
 
             this.title = pageData.title;
             this.url = `${location.protocol}//${location.host}/${pageData.page}/${pageData.path}`;
