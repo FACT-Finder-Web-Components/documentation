@@ -1,4 +1,4 @@
-import { pageInfoCollection } from "../data/pageMappings";
+import { pageImportInfoCollection } from "../data/pageMappings";
 import { getTabFromParams, urlPathToPages } from "../util/url";
 
 
@@ -22,10 +22,10 @@ export const navigate = (path, params) => (dispatch) => {
 };
 
 const loadPage = (page, subpage, tab) => (dispatch) => {
-    const pageInfo = pageInfoCollection[page];
+    const importInfo = pageImportInfoCollection[page];
 
-    if (pageInfo && (!pageInfo.requiresSubpage || pageInfo.subpages[subpage])) {
-        pageInfo.importTarget();
+    if (importInfo && (!importInfo.requiresSubpage || importInfo.subpages[subpage])) {
+        importInfo.importTarget();
     }
     else {
         page = 'view404';
