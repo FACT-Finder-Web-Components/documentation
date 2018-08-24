@@ -15,9 +15,15 @@ export const pageImportInfoCollection = Object.freeze({
     search: createPageImportInfo(() => import("../views/search-view.js")),
 });
 
-export function tryGetSubpage(subpage) {
-    return IsDefinedFunctor(getSubpageSuggestion(subpage));
+export function tryGetSubpage(page, subpage) {
+    const ftor = IsDefinedFunctor(pageImportInfoCollection[page])
+        .map(pageInfo => pageInfo.subpages && pageInfo.subpages[subpage]);
+
+    return ftor.valueOf()
+        ? ftor
+        : IsDefinedFunctor(getSubpageSuggestion(subpage));
 }
+
 
 
 function createPageImportInfo(importTargetCall, subpages = undefined) {
@@ -39,8 +45,15 @@ function getSubpageSuggestion(subpage) {
 }
 
 function createSubpageSuggestion(page, subpageData) {
+    return createPageInfo(page, subpageData, { isSuggestion: true });
+}
+
+
+function createPageInfo(page, subpageData, meta) {
     return Object.freeze({
         page,
-        subpageData
+        // page might get overwritten here. this is ok, because subpageData is likely to come from a config file which shall have priority
+        ...subpageData,
+        ...meta
     });
 }
