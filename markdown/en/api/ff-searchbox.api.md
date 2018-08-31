@@ -40,7 +40,7 @@ ___
 | **default-query**&nbsp; (String) (default: '') | As soon as this attribute is set, a Login tracking request is sent to FACT-Finder. |
 | **add-params**&nbsp;(String) (default: empty)| With this property you can deliver standard parameters which will then be attached to the search request. Example: add-params="param1=abcd,param2=xyz"|
 | **add-tracking-params**&nbsp;(String) (default: empty)| With this property you can deliver standard parameters which are attached to every tracking request. Example: add-tracking-params="param1=abcd,param2=xyz"|
-| **keep-filters**&nbsp;(String) **Options**: &nbsp;true, &nbsp;false (default: false)| With this property you can determine, if filters which where set before the search (e.g. via ASN) should be kept or discarded.|
+| **keep-filters**&nbsp;(Boolean) **Options**: &nbsp;true, &nbsp;false (default: false)| With this property you can determine, if filters which where set before the search (e.g. via ASN) should be kept or discarded.|
 | **keep-url-params**&nbsp;(String) (default: empty)| Determines if parameters which are written into the URL should be kept.|
 | **use-asn**&nbsp;(String) **Options**: &nbsp;true, &nbsp;false (default: true)| Determines if the the ASN is returned. Can be set to false to save performance, if the ASN is not required.|
 | **use-found-words**&nbsp;(Boolean) **Options**: &nbsp;true, &nbsp;false (default: false)| For found records, FACT-Finder is capable of returning the words which lead to the find. The determination of these words costs performance. It is therefore deactivated by default. true = words are created, false = words are not created. Default is false.|
