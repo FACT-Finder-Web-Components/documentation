@@ -88,11 +88,13 @@ class SdRecordList extends GestureEventListeners(PolymerElement) {
     }
 
     goToDeeplink(e) {
-        console.log(e);
-        if (e.model.__data.item.record.deeplink !== "") {
-            window.open(window.location.domain + e.model.__data.item.record.deeplink, "_blank")
-        }
+        const deeplink = e.model.__data.item.record.deeplink;
+        if (!deeplink) return;
+
+        const targetLink = deeplink.startsWith("http") ? deeplink : window.location.origin + deeplink;
+        window.open(targetLink, "_blank");
     }
+
 
     _mapRecordPropertiesToLists(records) {
         if (records) {
