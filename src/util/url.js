@@ -3,7 +3,7 @@ export function urlPathToPages(path) {
     return {
         page: paths[1] || `home`,
         subpage: paths[2]
-    }
+    };
 }
 
 export function getTabFromParams(params) {

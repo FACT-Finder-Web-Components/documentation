@@ -38,13 +38,13 @@ function createPageImportInfo(importTargetCall, subpages = undefined) {
 }
 
 function getSubpageSuggestion(subpage) {
-    if (api.pages[subpage])
+    if (api.pages[subpage]) {
         return createSubpageSuggestion(`api`, api.pages[subpage]);
+    }
 
-    if (documentation.pages[subpage])
+    if (documentation.pages[subpage]) {
         return createSubpageSuggestion(`documentation`, documentation.pages[subpage]);
-
-    return undefined;
+    }
 }
 
 function createSubpageSuggestion(page, subpageData) {

@@ -4,5 +4,5 @@ export function IsDefinedFunctor(value) {
         map: value === undefined || value === null
             ? () => IsDefinedFunctor()
             : fn => IsDefinedFunctor(fn(value))
-    })
+    });
 }

@@ -21,10 +21,20 @@ export const navigate = (path, params) => (dispatch) => {
     }
 };
 
+export const updateDrawerState = (opened) => (dispatch, getState) => {
+    if (getState().app.drawerOpened !== opened) {
+        dispatch({
+            type: UPDATE_DRAWER_STATE,
+            opened
+        });
+    }
+};
+
+
 const loadPage = (page, subpage, tab) => (dispatch) => {
     const importInfo = pageImportInfoCollection[page];
 
-    if (importInfo && (!importInfo.requiresSubpage || importInfo.subpages[subpage] && !importInfo.subpages[subpage].hasMoved)) {
+    if (isValidPage(importInfo, subpage)) {
         importInfo.importTarget();
     }
     else {
@@ -44,11 +54,11 @@ const updatePage = (page, subpage, tab) => {
     };
 };
 
-export const updateDrawerState = (opened) => (dispatch, getState) => {
-    if (getState().app.drawerOpened !== opened) {
-        dispatch({
-            type: UPDATE_DRAWER_STATE,
-            opened
-        });
-    }
-};
+
+function isValidPage(pageImportInfo, subpage) {
+    if (!pageImportInfo) return false;
+    if (!pageImportInfo.requiresSubpage) return true;
+    if (!pageImportInfo.subpages[subpage]) return false;
+
+    return !pageImportInfo.subpages[subpage].hasMoved;
+}
