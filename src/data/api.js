@@ -1,3 +1,6 @@
+import { hasMovedModifier } from "./pageMappings";
+import documentation from "./guides";
+
 // api are the pages under the "API" tab
 
 const api = {
@@ -118,26 +121,26 @@ const api = {
 
         // --- obsolete pages ---
 
-        "overview-get-started": {
-            path: "overview-get-started",
-            title: "Get started",
-        },
-        "overview-styling-elements": {
-            path: "overview-styling-elements",
-            title: "Styling Elements",
-        },
-        "overview-communication": {
-            path: "overview-communication",
-            title: "Communication",
-        },
-        "overview-template-engine": {
-            path: "overview-template-engine",
-            title: "Template Engine",
-        },
-        "overview-utils": {
-            path: "overview-utils",
-            title: "Utils",
-        },
+        "overview-get-started": hasMovedModifier(
+            `documentation`,
+            documentation.pages[`install-dist`]
+        ),
+        "overview-styling-elements": hasMovedModifier(
+            `documentation`,
+            documentation.pages[`styling-elements`]
+        ),
+        "overview-communication": hasMovedModifier(
+            `documentation`,
+            documentation.pages[`communication`]
+        ),
+        "overview-template-engine": hasMovedModifier(
+            `documentation`,
+            documentation.pages[`template-engine`]
+        ),
+        "overview-utils": hasMovedModifier(
+            `documentation`,
+            documentation.pages[`utils`]
+        ),
     }
 };
 
