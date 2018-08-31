@@ -108,7 +108,9 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
                 <paper-tabs selected="{{activeTab}}" attr-for-selected="name">
                     <paper-tab name="docs">Documentation</paper-tab>
                     <paper-tab name="demo">Demo</paper-tab>
+                    <template is="dom-if" if="{{api}}">
                     <paper-tab name="api">Api</paper-tab>
+                    </template>
                 </paper-tabs>
             </app-toolbar>
         </template>
@@ -164,8 +166,16 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
                 type: Boolean,
                 statePath: 'app.drawerOpened',
                 observer: '_toggleDrawer'
+            },
+            api:{
+                type: Boolean,
+                computed: 'computeApi(subpage, data)'
             }
         }
+    }
+
+    computeApi(pageName, data) {
+        if(pageName && data) return !data.pages[pageName].noApi;
     }
 
     connectedCallback() {
