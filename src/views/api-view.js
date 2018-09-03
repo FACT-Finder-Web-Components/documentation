@@ -61,6 +61,10 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
         width: 32px;
         height: 32px;
     }
+    
+    paper-tabs paper-tab[disabled]{
+        color: #5d5d5d;
+    }
 
     img {
         width: 100%;
@@ -108,7 +112,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
                 <paper-tabs selected="{{activeTab}}" attr-for-selected="name">
                     <paper-tab name="docs">Documentation</paper-tab>
                     <paper-tab name="demo">Demo</paper-tab>
-                    <paper-tab name="api">Api</paper-tab>
+                    <paper-tab name="api" disabled="[[hasNoApiTab]]">Api</paper-tab>
                 </paper-tabs>
             </app-toolbar>
         </template>
@@ -164,8 +168,16 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
                 type: Boolean,
                 statePath: 'app.drawerOpened',
                 observer: '_toggleDrawer'
+            },
+            hasNoApiTab:{
+                type: Boolean,
+                computed: 'hasNoApi(subpage, data)'
             }
         }
+    }
+
+    hasNoApi(pageName, data) {
+        return pageName && data && data.pages[pageName].noApi;
     }
 
     connectedCallback() {
