@@ -169,13 +169,13 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
             },
             api:{
                 type: Boolean,
-                computed: 'computeApi(subpage, data)'
+                computed: 'hasApiTab(subpage, data)'
             }
         }
     }
 
-    computeApi(pageName, data) {
-        if(pageName && data) return !data.pages[pageName].noApi;
+    hasApiTab(pageName, data) {
+        return pageName && data && !data.pages[pageName].noApi;
     }
 
     connectedCallback() {
