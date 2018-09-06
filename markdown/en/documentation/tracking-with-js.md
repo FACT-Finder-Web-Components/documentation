@@ -1,0 +1,79 @@
+## Tracking with JavaScript
+
+Instead of using the built-in tracking you are also able to use our
+JavaScript-API to send your tracking events.
+
+First of all you will need to instantiate a new tracking object:
+```Javascript
+const track = new factfinder.communication.Tracking12();
+```
+
+The class `Tracking12` contains the relevant tracking methods all of which
+take one object as a parameter. The following paragraphs describe the
+minimum necessary properties that the object needs to contain.
+
+
+### Click
+
+##### Required Information
+
+| name         	| info 	                                                                                            |
+|--------------	|-------------------------------------------------------------------------------------------------- |
+| id           	| product identifier	                                                                            |
+| sid          	| the user’s session identifier	                                                                    |
+| query        	| The search term            	                                                                    |
+| pos          	| The position of the product in the search results.    	                                        |
+| origPos      	| FACT-Finder returns this value in a field (default: `__ORIG_POSITION__`) in the search result.    |
+| page         	| The number of the search result page the product was displayed on                                 |
+| origPageSize 	| The default number of products per search result page                                          	|
+
+### Cart
+
+##### Required Information
+
+| name         	| info 	|
+|--------------	|------	|
+| id           	|      	|
+| sid          	|      	|
+| count        	|      	|
+
+### Checkout
+
+##### Required Information
+
+| name         	| info 	|
+|--------------	|------	|
+| id           	|      	|
+| sid          	|      	|
+| count        	|      	|
+
+### Login
+
+##### Required Information
+
+| name         	| info 	|
+|--------------	|------	|
+| userId        |      	|
+| sid          	|      	|
+
+### Recommendation Click
+
+##### Required Information
+
+| name         	| info 	|
+|--------------	|------	|
+| id           	|      	|
+| sid          	|      	|
+| mainId       	|      	|
+
+### Search Feedback
+
+##### Required Information
+
+| name         	| info 	|
+|--------------	|------	|
+| id           	|      	|
+| sid          	|      	|
+| query       	|      	|
+| positive     	|      	|
+
