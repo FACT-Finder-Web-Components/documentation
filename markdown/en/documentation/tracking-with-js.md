@@ -27,6 +27,23 @@ minimum necessary properties that the object needs to contain.
 | page         	| The number of the search result page the product was displayed on                                 |
 | origPageSize 	| The default number of products per search result page                                          	|
 
+##### Example
+
+```Javascript
+let event = {
+    sid : 'session1',
+    id : '123',
+    query : 'ring',
+    pos : '2',
+    origPos : '5',
+    page : '1',
+    pageSize : '25',
+    origPageSize : '25'
+};
+
+track.click(event);
+```
+
 ### Cart
 
 ##### Required Information
