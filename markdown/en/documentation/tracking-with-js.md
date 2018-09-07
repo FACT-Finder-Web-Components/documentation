@@ -31,49 +31,49 @@ minimum necessary properties that the object needs to contain.
 
 ##### Required Information
 
-| name         	| info 	|
-|--------------	|------	|
-| id           	|      	|
-| sid          	|      	|
-| count        	|      	|
+| name         	| info 	                        |
+|--------------	|------------------------------	|
+| id           	| product identifier            |
+| sid          	| the user’s session identifier	|
+| count        	| Quantity of product        	|
 
 ### Checkout
 
 ##### Required Information
 
-| name         	| info 	|
-|--------------	|------	|
-| id           	|      	|
-| sid          	|      	|
-| count        	|      	|
+| name         	| info 	                        |
+|--------------	|------------------------------	|
+| id           	| product identifier            |
+| sid          	| the user’s session identifier	|
+| count        	| Quantity of product        	|
 
 ### Login
 
 ##### Required Information
 
-| name         	| info 	|
-|--------------	|------	|
-| userId        |      	|
-| sid          	|      	|
+| name         	| info 	                        |
+|--------------	|------------------------------	|
+| userId        | user identifier            	|
+| sid          	| the user’s session identifier	|
 
 ### Recommendation Click
 
 ##### Required Information
 
-| name         	| info 	|
-|--------------	|------	|
-| id           	|      	|
-| sid          	|      	|
-| mainId       	|      	|
+| name         	| info 	                                                            |
+|--------------	|------------------------------------------------------------------	|
+| id           	| product identifier                 	                            |
+| sid          	| the user’s session identifier     	                            |
+| mainId       	| ID of the article for which the clicked article was recommended   |
 
 ### Search Feedback
 
 ##### Required Information
 
-| name         	| info 	|
-|--------------	|------	|
-| id           	|      	|
-| sid          	|      	|
-| query       	|      	|
-| positive     	|      	|
+| name         	| info 	                                            |
+|--------------	|--------------------------------------------------	|
+| id           	| product identifier     	                        |
+| sid          	| the user’s session identifier    	                |
+| query       	| The search term                	                |
+| positive     	| `boolean` Did the customer give positive feedback	|
 
