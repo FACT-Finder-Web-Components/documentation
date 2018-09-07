@@ -12,11 +12,6 @@ The class `Tracking12` contains the relevant tracking methods all of which
 take one object as a parameter. The following paragraphs describe the
 minimum necessary properties that the object needs to contain.
 
-
-### Click
-
-##### Example
-
 ```Javascript
 let event = {
     sid : 'session1',
@@ -32,7 +27,9 @@ let event = {
 track.click(event);
 ```
 
-##### Required Information
+### Click
+
+#### Required Information
 
 | name         	| info 	                                                                                            |
 |--------------	|-------------------------------------------------------------------------------------------------- |
@@ -46,7 +43,7 @@ track.click(event);
 
 ### Cart
 
-##### Required Information
+#### Required Information
 
 | name         	| info 	                        |
 |--------------	|------------------------------	|
@@ -56,7 +53,7 @@ track.click(event);
 
 ### Checkout
 
-##### Required Information
+#### Required Information
 
 | name         	| info 	                        |
 |--------------	|------------------------------	|
@@ -66,7 +63,7 @@ track.click(event);
 
 ### Login
 
-##### Required Information
+#### Required Information
 
 | name         	| info 	                        |
 |--------------	|------------------------------	|
@@ -75,7 +72,7 @@ track.click(event);
 
 ### Recommendation Click
 
-##### Required Information
+#### Required Information
 
 | name         	| info 	                                                            |
 |--------------	|------------------------------------------------------------------	|
@@ -85,7 +82,7 @@ track.click(event);
 
 ### Search Feedback
 
-##### Required Information
+#### Required Information
 
 | name         	| info 	                                            |
 |--------------	|--------------------------------------------------	|
