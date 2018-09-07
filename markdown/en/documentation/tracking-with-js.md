@@ -15,18 +15,6 @@ minimum necessary properties that the object needs to contain.
 
 ### Click
 
-##### Required Information
-
-| name         	| info 	                                                                                            |
-|--------------	|-------------------------------------------------------------------------------------------------- |
-| id           	| product identifier	                                                                            |
-| sid          	| the user’s session identifier	                                                                    |
-| query        	| The search term            	                                                                    |
-| pos          	| The position of the product in the search results.    	                                        |
-| origPos      	| FACT-Finder returns this value in a field (default: `__ORIG_POSITION__`) in the search result.    |
-| page         	| The number of the search result page the product was displayed on                                 |
-| origPageSize 	| The default number of products per search result page                                          	|
-
 ##### Example
 
 ```Javascript
@@ -43,6 +31,18 @@ let event = {
 
 track.click(event);
 ```
+
+##### Required Information
+
+| name         	| info 	                                                                                            |
+|--------------	|-------------------------------------------------------------------------------------------------- |
+| id           	| product identifier	                                                                            |
+| sid          	| the user’s session identifier	                                                                    |
+| query        	| The search term            	                                                                    |
+| pos          	| The position of the product in the search results.    	                                        |
+| origPos      	| FACT-Finder returns this value in a field (default: `__ORIG_POSITION__`) in the search result.    |
+| page         	| The number of the search result page the product was displayed on                                 |
+| origPageSize 	| The default number of products per search result page                                          	|
 
 ### Cart
 
