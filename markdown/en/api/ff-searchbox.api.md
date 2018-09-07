@@ -38,7 +38,7 @@ ___
 | **only-search-params**&nbsp;(Boolean) | If present, parameters like 'channel' and 'sid' are omitted in the url. Can be used in conjunction with 'parameter-whitelist'.|
 | **parameter-whitelist**&nbsp; (String) (default: '') | If the url parameters are omitted through other attributes like use-url-parameter="false" or only-search-params you can add specific important parameters manually. Just use a comma separated list like: parameter-whitelist="param1,myParam" |
 | **default-query**&nbsp; (String) (default: '') | As soon as this attribute is set, a Login tracking request is sent to FACT-Finder. |
-| **add-params**&nbsp;(String) (default: empty)| With this property you can deliver standard parameters which will then be attached to the search request. Example: add-params="param1=abcd,param2=xyz"|
+| **add-params**&nbsp;(String) (default: empty)| _The parameter string has to be URL-encoded._ With this property you can deliver standard parameters which will then be attached to the search request. Example: add-params="param1=abcd,param2=xyz"|
 | **add-tracking-params**&nbsp;(String) (default: empty)| With this property you can deliver standard parameters which are attached to every tracking request. Example: add-tracking-params="param1=abcd,param2=xyz"|
 | **keep-filters**&nbsp;(Boolean) **Options**: &nbsp;true, &nbsp;false (default: false)| With this property you can determine, if filters which where set before the search (e.g. via ASN) should be kept or discarded.|
 | **keep-url-params**&nbsp;(String) (default: empty)| Determines if parameters which are written into the URL should be kept.|
