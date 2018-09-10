@@ -116,9 +116,8 @@ class DownloadView extends PolymerElement {
 
             <paper-dialog-scrollable style="margin: 0px">
                 <marked-element id="api_markdown" name="/api" on-syntax-highlight="_addHiglightJs">
-                    <div slot="markdown-html">
-                        <script type="text/markdown" src="{{markdownFilePath}}"></script>
-                    </div>
+                    <div slot="markdown-html"></div>
+                    <script type="text/markdown" src$="[[markdownFilePath]]"></script>
                 </marked-element>
             </paper-dialog-scrollable>
         </paper-dialog>
