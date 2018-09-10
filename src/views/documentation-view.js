@@ -68,9 +68,8 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
     <div id="markdown-wrapper">
         <br>
         <marked-element on-syntax-highlight="_addHiglightJs">
-            <div slot="markdown-html">
-                <script type="text/markdown" src="{{filePath}}"></script>
-            </div>
+            <div slot="markdown-html"></div>
+            <script type="text/markdown" src$="[[filePath]]"></script>
         </marked-element>
     </div>
 </app-drawer-layout>

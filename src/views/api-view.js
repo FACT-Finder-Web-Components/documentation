@@ -120,9 +120,8 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
 
             <!--Documentation-->
             <marked-element on-syntax-highlight="_addHiglightJs" name="docs">
-                <div slot="markdown-html">
-                    <script type="text/markdown" src="{{filePath}}"></script>
-                </div>
+                <div slot="markdown-html"></div>
+                <script type="text/markdown" src$="[[filePath]]"></script>
             </marked-element>
 
             <!--Demo-->
@@ -138,9 +137,8 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
 
             <!--API-->
             <marked-element id="api_markdown" name="api" on-syntax-highlight="_addHiglightJs">
-                <div slot="markdown-html">
-                    <script type="text/markdown" src="{{apiPath}}"></script>
-                </div>
+                <div slot="markdown-html"></div>
+                <script type="text/markdown" src$="[[apiPath]]"></script>
             </marked-element>
         </iron-pages>
     </div>
