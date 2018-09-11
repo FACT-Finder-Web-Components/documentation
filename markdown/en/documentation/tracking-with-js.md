@@ -13,7 +13,7 @@ take one object as a parameter. The following paragraphs describe the
 minimum necessary properties that the object needs to contain.
 
 ```Javascript
-let event = {
+const event = {
     sid : 'session1',
     id : '123',
     query : 'ring',
