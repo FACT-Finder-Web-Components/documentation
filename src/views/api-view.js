@@ -175,7 +175,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
     }
 
     hasNoApi(pageName, data) {
-        return pageName && data && data.pages[pageName].noApi;
+        return pageName && data && && data.pages && data.pages[pageName] && data.pages[pageName].noApi;
     }
 
     connectedCallback() {
