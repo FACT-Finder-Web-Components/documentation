@@ -52,6 +52,10 @@ const guides = {
             path: "tracking-guide",
             title: "Tracking",
         },
+        "tracking-with-js": {
+            path: "tracking-with-js",
+            title: "Tracking with JS",
+        },
         "tracking-edge-cases": {
             path: "tracking-edge-cases",
             title: "Tracking Edge Cases",
@@ -82,6 +86,7 @@ guides.basics = [
 
 guides.additionalFeatures = [
     guides.pages["tracking-guide"],
+    guides.pages["tracking-with-js"],
     guides.pages["tracking-edge-cases"],
     guides.pages["currency-guide"],
 ];
