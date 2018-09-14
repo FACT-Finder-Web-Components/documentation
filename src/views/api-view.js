@@ -169,7 +169,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
                 statePath: 'app.drawerOpened',
                 observer: '_toggleDrawer'
             },
-            hasNoApiTab:{
+            hasNoApiTab: {
                 type: Boolean,
                 computed: 'hasNoApi(subpage, data)'
             }
@@ -177,7 +177,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
     }
 
     hasNoApi(pageName, data) {
-        return pageName && data && data.pages[pageName].noApi;
+        return pageName && data && data.pages[pageName] && data.pages[pageName].noApi;
     }
 
     connectedCallback() {
