@@ -23,11 +23,11 @@ const track = new factfinder.communication.Tracking12();
 
 **INFO**
 
-For more technical information about this class or to get type completion support in many IDEs take a look 
+For more technical information about this class or to get code completion support in many IDEs take a look
 at our [ff-core.d.ts](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/dist/ff-core.d.ts) at [Github](https://github.com/FACT-Finder-Web-Components).
 
 ### Retrieving necessary information
-Some information is provided by Web Components and or FACT-Finder. 
+Some information is provided by Web Components and/or FACT-Finder.
 
 
 #### sid
@@ -39,18 +39,22 @@ You can retrieve the current FACT-Finder Web Components **sid** by calling this 
 
 
 #### id 
-The **id** parameter has to match the field value of the field configured as `trackingProductNumber ` [field role](https://web-components.fact-finder.de/documentation/field-roles)
+The **id** parameter has to match the field value of the field configured as `trackingProductNumber ` [field role](https://web-components.fact-finder.de/documentation/field-roles).
 
 
 #### masterId
-The **masterId** parameter has to match the field value of the field configured as `masterArticleNumber` [field role](https://web-components.fact-finder.de/documentation/field-roles)
+The **masterId** parameter has to match the field value of the field configured as `masterArticleNumber` [field role](https://web-components.fact-finder.de/documentation/field-roles).
 
 
 #### channel
-The channel parameter can be retrieved by the `<ff-communicatrion>` element like: `var channel =document.querySelector("ff-communication").channel;` or by the 
-following js property `factfinder.communication.globalSearchParameter.channel`.
+The channel parameter is a property of the `<ff-communication>` element.
+You can access it like this:
+```javascript
+const channel = document.querySelector("ff-communication").channel;
+```
+or using the global JS property `factfinder.communication.globalSearchParameter.channel`.
 
-For more explanation please refer to the [FACT-Finder Tracking Documentation](https://doku.fact-finder.de/endoc/latest/fact-finder-integration/tracking-interface-integration)
+For more explanation please refer to the [FACT-Finder Tracking Documentation](https://doku.fact-finder.de/endoc/latest/fact-finder-integration/tracking-interface-integration).
 
 
 ### Tracking Examples
@@ -59,7 +63,7 @@ You can use the tracking object like this:
 ```javascript
 //Example click tracking event
 track.click({
-    query: "bagpack",
+    query: "backpack",
     channel: "bergfreunde-co-uk",
     page: 1,
     sid: "pMHk05ycO0A6SyrlCKqfcGX0lkj0zH",
@@ -98,7 +102,8 @@ track.checkout({
 ```
 
 ### Retrieve product information via Web Components
-If you can't access the necessary field using your shopsystem API you can query FACT-Finder for product information.
+If you can't access the necessary field using your shop-system's API,
+you can query FACT-Finder for product information.
 
 ```html
 <script>
@@ -129,7 +134,7 @@ If you can't access the necessary field using your shopsystem API you can query 
                     });
                     
                 } else {
-                    console.log("no found");
+                    console.log("not found");
                 }
             });
 
