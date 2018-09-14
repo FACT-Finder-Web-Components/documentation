@@ -40,15 +40,76 @@ class SdSearchBox extends PolymerElement {
 
         <iron-collapse id="collapse" opened="{{expanded}}" transitioning="{{transitioning}}">
             <div class="collapse-content">
-                <input type="text" placeholder="Search" on-keyup="handleKeyUp" on-blur="hideBox" id="search-input">
+                <input type="text" placeholder="Search" on-keyup="_handleKeyUp" on-blur="_handleBlur" id="search-input">
             </div>
         </iron-collapse>
-        <paper-icon-button icon="my-icons:search" on-tap="toggleBox">Search</paper-icon-button>
+        <paper-icon-button id="button" icon="my-icons:search" on-tap="_handleButtonClick">Search</paper-icon-button>
 `;
     }
 
-    static get is() {
-        return "sd-search-box";
+    _handleButtonClick() {
+        if (this.expanded) {
+            this.hideBox();
+        } else {
+            this.showBox();
+        }
+    }
+
+    _handleBlur(e) {
+        if (e.relatedTarget !== this.$.button) {
+            this.hideBox();
+        }
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    _handleKeyUp(event) {
+        if (event.code === 'Enter') {
+            this.query = this.shadowRoot.querySelector("#search-input").value;
+            this.fireSearchEvent();
+            this.hideBox();
+        } else if (event.code === "Escape") {
+            this.hideBox();
+        }
+    }
+
+    hideBox() {
+        if (!this.transitioning) {
+            this.$.collapse.hide();
+        }
+    }
+
+
+    showBox() {
+        if (!this.transitioning) {
+            this.$.collapse.show();
+            this.shadowRoot.querySelector("#search-input").focus();
+        }
+    }
+
+    fireSearchEvent() {
+        console.log("search");
+        factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+            type: "search",
+            query: this.query
+        });
+        factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+            type: "search",
+            channel: "webc-doku-api",
+            query: this.query,
+            topics: function () {
+                return ["customSearch", "specialElement"];
+            }
+        });
+    }
+
+    _pageChange(newValue) {
+        if (newValue && newValue !== "search") {
+            this.shadowRoot.querySelector("#search-input").value = "";
+            this.recordsApi = undefined;
+            this.recordsText = undefined;
+            this.query = undefined;
+        }
     }
 
     static get properties() {
@@ -72,63 +133,9 @@ class SdSearchBox extends PolymerElement {
         }
     }
 
-    _pageChange(newValue) {
-        if (newValue && newValue !== "search") {
-            this.shadowRoot.querySelector("#search-input").value = "";
-            this.recordsApi = undefined;
-            this.recordsText = undefined;
-            this.query = undefined;
-        }
+    static get is() {
+        return "sd-search-box";
     }
-
-    hideBox() {
-        if (!this.transitioning) {
-            this.$.collapse.hide();
-        }
-    }
-
-    toggleBox() {
-        if (this.expanded) {
-            this.hideBox();
-        } else {
-            this.showBox();
-            this.shadowRoot.querySelector("#search-input").focus();
-        }
-    }
-
-    showBox() {
-        if (!this.transitioning) {
-            this.$.collapse.show();
-            this.shadowRoot.querySelector("#search-input")
-        }
-    }
-
-    handleKeyUp(event) {
-        if (event.code === 'Enter') {
-            this.query = this.shadowRoot.querySelector("#search-input").value;
-            this.fireSearchEvent();
-            this.hideBox();
-        } else if (event.code === "Escape") {
-            this.hideBox();
-        }
-    }
-
-    fireSearchEvent() {
-        console.log("search");
-        factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
-            type: "search",
-            query: this.query
-        });
-        factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
-            type: "search",
-            channel: "webc-doku-api",
-            query: this.query,
-            topics: function () {
-                return ["customSearch", "specialElement"];
-            }
-        });
-    }
-
 
     connectedCallback() {
         super.connectedCallback();
