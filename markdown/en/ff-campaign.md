@@ -39,7 +39,9 @@ You can use the `[not]` attribute to use the `ff-campaign-advisor-answer` elemen
 ```
 
 ## Adding Redirect campaigns
-You should add the `ff-campaign-redirect` element directly after the body tag to ensure it is executed before any other elements. As soon as a configured Redirect campaign matches the criteria of the last request, this element will redirect to the destination URL of the matching campaign. Internally the element uses `document.location.replace`.
+The `ff-campaign-redirect` element redirects the browser to a destination specified in a redirect campaign. If the latest request to FACT-Finder triggered a redirect campaign, all further processing of the response will be suspended and the redirect will happen immediately.
+
+To ensure it is executed before any other elements, `ff-campaign-redirect` should be placed directly after the opening `<body>` tag.
 
 ```html
 <!DOCTYPE html>
@@ -48,8 +50,20 @@ You should add the `ff-campaign-redirect` element directly after the body tag to
         ...
     </head>
     <body>
-        <ff-campaign-redirect></ff-campaign-redirect>
+        <ff-campaign-redirect relative-to-origin></ff-campaign-redirect>
         ...
     </body>
 </html>
 ```
+
+Internally the element uses `document.location.replace`.
+
+There is one optional attribute available: `relative-to-origin`. It takes no value. If it is present on the element, relative destination URLs without a leading slash (e.g. `relative/page`) will be set relative to the origin of the current page. Absolute URLs and URLs with a leading `/` are unaffected by the attribute.
+
+Assuming the URL of the current page is `https://www.your.shop/section/sub-section`:
+
+| campaign destination       | w/ relative-to-origin               | w/o relative-to-origin                      |
+|----------------------------|-------------------------------------|---------------------------------------------|
+| relative/page              | https://www.your.shop/relative/page | https://www.your.shop/section/relative/page |
+| /relative/page             | https://www.your.shop/relative/page | https://www.your.shop/relative/page         |
+| https://www.fact-finder.de | https://www.fact-finder.de          | https://www.fact-finder.de                  |
