@@ -11,11 +11,30 @@ class SdRecordList extends GestureEventListeners(PolymerElement) {
         <style include="bootstrap-wrapper">
             .panel:hover {
                 cursor: pointer;
+                 -webkit-box-shadow: 0 0 5px 1px rgb(0,69,135);
+                -moz-box-shadow: 0 0 5px 1px rgb(0,69,135);
+                box-shadow: 0 0 5px 1px rgb(0,69,135);
+            }
+            
+            .panel {
+                box-shadow: none;
+                transition: box-shadow 400ms ease;
+                -webkit-transition: box-shadow 400ms ease;
+                -moz-transition: box-shadow 400ms ease;
+                -o-transition: box-shadow 400ms ease;
+            }
+            
+            .mb {
+                margin-bottom: 2px;
             }
 
             .deeplink {
                 font-size: 10px;
-                color: green;
+                color: rgb(0,69,135);
+            }
+            
+           span.label {
+                font-family: monospace;
             }
         </style>
         <template is="dom-if" if="{{query}}">
@@ -47,24 +66,30 @@ class SdRecordList extends GestureEventListeners(PolymerElement) {
                         </h3>
                     </div>
                     <div class="panel-body">
+                    
                         <p class="deeplink">{{item.record.deeplink}}</p>
-                        <b>Methods</b>
-                        <template is="dom-repeat" items="{{item.record.methods}}">
-                            <span class="label label-primary">{{item}}</span>
-                        </template>
-                        <br>
-                        <b>Mixins</b>
-                        <template is="dom-repeat" items="{{item.record.mixins}}">
-                            <span class="label label-primary">{{item}}</span>
-                        </template>
-                        <br>
-                        <b>Properties</b>
-                        <template is="dom-repeat" items="{{item.record.property}}">
-                            <span class="label label-primary">{{item}}</span>
-                        </template>
+                        <div class="mb"><b>Methods</b>
+                            <template is="dom-repeat" items="{{item.record.methods}}">
+                                <span class="label label-primary">{{item}}</span>
+                            </template>
+                        </div>
+                        
+                        <div class="mb"><b>Mixins</b>
+                            <template is="dom-repeat" items="{{item.record.mixins}}">
+                                <span class="label label-primary">{{item}}</span>
+                            </template>
+                        </div>
+                        
+                        <div class="mb">
+                            <b>Properties</b>
+                            <template is="dom-repeat" items="{{item.record.property}}">
+                                <span class="label label-primary">{{item}}</span>
+                            </template>
+                        </div>
+                        
+                        </div>
                     </div>
                 </div>
-            </div>
         </template>
 `;
     }
