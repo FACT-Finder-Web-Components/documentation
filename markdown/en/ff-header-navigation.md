@@ -59,11 +59,11 @@ trigger the loading or you want to reload. In that case, set the `fetch-initial`
 
 For this element, the structure of the elements inside the navigation is fixed. You define the appearance of the
 navigation only based on CSS. For this purpose, you can use some predefined 'mixins'. They are
-'hooks' into the standard css of the elements, which are located in the shadow-dom.
+'hooks' into the standard CSS of the elements, which are located in the shadow-dom.
 The innermost `<a>` tag can be styled via regular CSS.
 
 ```html
-<!-- mix-ins only work when the style tag has a is="custom-style" attribute-->
+<!-- mix-ins only work when the style tag has an is="custom-style" attribute-->
 <style is="custom-style">
     body {
         font-size: 14px;
@@ -203,7 +203,7 @@ The innermost `<a>` tag can be styled via regular CSS.
 
 ## Dynamic content
 
-In some cases you may want custom content, like a Ad Banner or group specific header image, to be displayed inside a
+In some cases you may want custom content, like an Ad Banner or group specific header image, to be displayed inside a
 container of a specific group. That's why we have added the ability to define custom content around the groups and a
 dynamic slot after each group.
 
@@ -269,7 +269,7 @@ based and if you really want to, you can also modify that behavior with mixins:
 * `--container-center`
 
 container-top,container-middle and container-bottom are in ` flex-direction: row` inside the --container.
-container-left,container-center and container-right ar in ` flex-direction: column` inside the --container-middle.
+container-left,container-center and container-right are in ` flex-direction: column` inside the --container-middle.
 
 ## Manipulating href of navigation elements
 
