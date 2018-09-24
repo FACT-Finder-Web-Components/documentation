@@ -60,6 +60,7 @@ trigger the loading or you want to reload. In that case, set the `fetch-initial`
 For this element, the structure of the elements inside the navigation is fixed. You define the appearance of the
 navigation only based on CSS. For this purpose, you can use some predefined 'mixins'. They are
 'hooks' into the standard css of the elements, which are located in the shadow-dom.
+The innermost `<a>` tag can be styled via regular CSS.
 
 ```html
 <!-- mix-ins only work when the style tag has a is="custom-style" attribute-->
@@ -102,7 +103,6 @@ navigation only based on CSS. For this purpose, you can use some predefined 'mix
         *   A 'nav-item' is a layer 1 item.
         */
         --nav-item: {
-            padding-top: 10px;
             text-align: center;
             vertical-align: middle;
         };
@@ -180,6 +180,20 @@ navigation only based on CSS. For this purpose, you can use some predefined 'mix
         width: 1000px;
         box-shadow: rgba(0, 0, 0, 0.55) 0 1px 4px;
         margin-bottom: 10px;
+    }
+</style>
+<style>
+    ff-nav-element div.ff-nav-element {
+        height: 100%;
+    }
+    ff-nav-element a {
+        color: #000;
+        font-weight: bold;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
     }
 </style>
 <div id="navigation-container">
