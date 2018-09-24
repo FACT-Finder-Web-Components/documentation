@@ -270,3 +270,29 @@ based and if you really want to, you can also modify that behavior with mixins:
 
 container-top,container-middle and container-bottom are in ` flex-direction: row` inside the --container.
 container-left,container-center and container-right ar in ` flex-direction: column` inside the --container-middle.
+
+## Manipulating href of navigation elements
+
+The URL a navigation element points to is configured in FACT-Finder. You have, however, the opportunity to change these URLs client-side. This could be useful if you want to open a new page with a full page reload. By default `ff-header-navigation` changes pages in-place like a single page application.
+
+To access navigation data you have to subscribe to the `ResultDispatcher`'s `navigation` event.
+```javascript
+document.addEventListener(`ffReady`, () => {
+    factfinder.communication.ResultDispatcher.subscribe(`navigation`, (navData, e) => {
+        // set href's of all elements on clusterLevel 0
+        navData[0].forEach(navEl => navEl.__TARGET_URL__.setUrl(`/targetUrl`));
+    });
+});
+```
+The event handler receives an `Array` of all navigation elements as its first parameter (here: `navData`). These elements are grouped by their `clusterLevel`. That means `navData` is an array with the length of the amount of `clusterLevel`s defined in FACT-Finder. Each element contains another `Array` with all navigation elements on the `clusterLevel` equal to the index in the array.
+```javascript
+navData === [
+    [{ clusterLevel: 0, ... }, ...],
+    [{ clusterLevel: 1, ... }, ...],
+    [{ clusterLevel: 2, ... }, ...],
+    ...
+]
+```
+You can set the desired URL via `navEl.__TARGET_URL__.setUrl()` as shown in the snippet above.
+
+To allow traversal between `clusterLevel`s, each navigation element contains a `__SUB_ELEMENTS__` property which is an array of all direct children within the navigation tree.
