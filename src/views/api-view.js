@@ -206,12 +206,9 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
             this.showTabs = false;
         }
 
-        if (!this.activeTab) {
-            this.activeTab = "docs";
-        }
     }
 
-    _tabChange(newTab) {
+    _tabChange(newTab, oldTab) {
         if (!this.isActiveView()) {
             return;
         }
@@ -230,6 +227,8 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
         if (newTab) {
             const url = window.location.href.split('#')[0];
             window.location.replace(`${url}#tab=${newTab}`);
+        } else { //default tab
+            this.activeTab = "docs";
         }
     }
 }
