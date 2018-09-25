@@ -29,7 +29,7 @@ setPassiveTouchGestures(true);
 // in `index.html`.
 setRootPath(MyAppGlobals.rootPath);
 
-class DocumenationApp extends ReduxMixin(PolymerElement) {
+class DocumentationApp extends ReduxMixin(PolymerElement) {
     static get template() {
         return html`<style include="shared-styles">
     :host {
@@ -181,6 +181,10 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
     `;
     }
 
+    static get is() {
+        return 'documentation-app';
+    }
+
     static get properties() {
         return {
             recordsText: {
@@ -217,4 +221,4 @@ class DocumenationApp extends ReduxMixin(PolymerElement) {
 
 }
 
-window.customElements.define('documentation-app', DocumenationApp);
+window.customElements.define(DocumentationApp.is, DocumentationApp);
