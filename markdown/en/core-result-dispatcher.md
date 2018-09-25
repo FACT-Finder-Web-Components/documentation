@@ -30,6 +30,7 @@ The function supplied in `fn` is invoked with data for the subscribed `topic` wh
 * `asn`
 * `singleWordSearch`
 * `productDetail`
+* `similarProducts`
 * `productCampaign` -special
 * `singleWordSearch`
 
