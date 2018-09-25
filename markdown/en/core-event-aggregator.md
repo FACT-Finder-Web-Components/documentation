@@ -21,24 +21,24 @@ executed at the appropriate time. The `type` property tells the EventAggregator 
 the event. The `url` property is reserved for internal usage.
  
 #### List of all event types
-* [search](documentation/#search) 
-* [navigation](#navigation) 
-* [navigation-search](#navigation-search) 
-* [filter](#filter)
-* [bct (breadcrumb trail)](#bct)
-* [suggest](#suggest)
-* [sort](#sort)
-* [ppp (products per page)](#ppp)
-* [paging (pagination)](#paging)
-* [recommendation](#recommendation)
-* [productCampaign](#productCampaign) 
-* [shoppingCartCampaign](#shoppingCartCampaign)
-* [productDetail](#productDetail)
-* [similarProducts](#similarProducts)
-* [advisor](#advisor)
-* [pageCampaigns](#pageCampaigns)
-* [compare](#compare)
-* [tagCloud](#tagCloud)
+* [search](search)
+* [navigation](navigation)
+* navigation-search
+* [filter](filter)
+* [bct (breadcrumb trail)](breadcrumb-trail)
+* [suggest](suggest)
+* [sort](sort)
+* [ppp (products per page)](products-per-page)
+* [paging (pagination)](paging)
+* [recommendation](recommendation)
+* [productCampaign](productcampaign)
+* [shoppingCartCampaign](shoppingcartcampaign)
+* productDetail
+* [similarProducts](similarproducts)
+* [advisor](advisor)
+* [pageCampaigns](pagecampaigns)
+* [compare](compare)
+* [tagCloud](tagcloud)
 
 ## Examples
 ### search
