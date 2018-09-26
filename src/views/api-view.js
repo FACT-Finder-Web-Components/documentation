@@ -205,7 +205,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
             // instead, simply hide tabs
             this.showTabs = false;
         }
-
+        window.scrollTo(0, 0);
     }
 
     _tabChange(newTab, oldTab) {
