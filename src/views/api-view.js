@@ -119,7 +119,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
         <iron-pages selected="[[activeTab]]" attr-for-selected="name">
 
             <!--Documentation-->
-            <marked-element on-syntax-highlight="_addHiglightJs" name="docs">
+            <marked-element id="docs_markdown" on-syntax-highlight="_addHiglightJs" name="docs">
                 <div slot="markdown-html"></div>
                 <script type="text/markdown" src$="[[filePath]]"></script>
             </marked-element>
@@ -183,6 +183,35 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
         this.$.api_markdown.addEventListener("marked-request-error", e => {
             e.preventDefault();
             this.$.api_markdown.markdown = "## API documentation for this component is not yet available."
+        });
+        if (this.subpage === "core-event-aggregator") {
+            this._addScrollNavigation();
+        }
+    }
+
+    /*
+    * the #tabs=docs url fragment makes it impossible to use #anchors in url for linking within a page
+    * we use element.scrollIntoView() instead, but that requires the link in markdown to match the id the rendered
+    * target element is given.
+    *
+    * spaces become dashes (-) and uppercase is converted to lowercase in markdown rendering.
+    * ### breadcrumb trail -> <h3 id="breadcrumb-trail"> | ### productCampaign -> <h3 id="productcampaign">
+    *
+    * */
+    _addScrollNavigation() {
+        const markdown = this.$.docs_markdown;
+        markdown.addEventListener("marked-render-complete", () => {
+            const anchors = Array.from(markdown.getElementsByTagName('a'));
+            anchors.forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const elementId = anchor.href.split('/').pop();
+                    const element = markdown.querySelector(`#${elementId}`);
+                    if (element && element.scrollIntoView) {
+                        element.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+                    }
+                });
+            });
         });
     }
 
