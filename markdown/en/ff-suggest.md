@@ -6,7 +6,7 @@ With the `suggest-onfocus` attribute, you can define if the suggest opens when t
 
 With the `hidesuggest-onblur` attribute, you can define if the suggest will be closed when the `ff-searchbox` loses focus. Values are true/false (default is true).
 
-The `ff-suggest` is triggered when at least 2 charakters are in the searchbox.
+The `ff-suggest` is triggered when at least 2 characters are in the searchbox.
 
 ```html
 <input is="ff-searchbox"
@@ -34,11 +34,15 @@ The `ff-suggest` element respects only section child elements. The section eleme
 
 ## Adding a Suggest container
 
-You need to annotate an element with the `data-container="suggestType"` attribute for each suggest type configured in the FACT-Finder backend.
+You need to annotate an element with the `data-container="suggestType"`
+attribute for each suggest type configured in the FACT-Finder backend.
 
-If no suggestions are found for this type the `ff-suggest` element hides the annotated container.
+The `ff-suggest` element hides the annotated container if no suggestions
+are found for this type.
 
-In addition you need to add an `ff-suggest-item` element inside the container. All received suggestions for this type are inserted at this position and will be an exact copy of this element.
+In addition you need to add an `ff-suggest-item` element inside the
+container. All received suggestions for this type are inserted at this
+position and will be an exact copy of this element.
 
 Repeat this process for all configured suggest types.
 
@@ -60,14 +64,18 @@ Repeat this process for all configured suggest types.
 
 Note the triple curly braces in `<span>{{{name}}}</span>`.
 These are required because `ff-suggest` inserts HTML here.
-The matched string from your search box is wrapped in a `<span class="query">` tag to allow you to highlight the matched text through CSS.
-If you were to use the regular double curly braces and typed for example "back", the result would be `<span class="query">Back</span>packs` instead of "**Back**packs".
+The matched string from your search box is wrapped in a
+`<span class="query">` tag to allow you to highlight the matched text
+through CSS. If you were to use the regular double curly braces and type
+for example "back", the result would be
+`<span class="query">Back</span>packs` instead of "**Back**packs".
 
 See [Template Engine](documentation/template-engine) for more details.
 
 ## Add Keyboard Support
 
-Keyboard arrow key support is enabled by default. You just need to specify the layout for the highlighted item.
+Keyboard arrow key support is enabled by default. You just need to specify
+the layout for the highlighted item.
 
 ```html
 <style>
@@ -79,11 +87,14 @@ Keyboard arrow key support is enabled by default. You just need to specify the l
 
 ## Changing the layout (block/list)
 
-With the "layout" attribute you can define a basic layout of the suggest items.
+With the "layout" attribute you can define a basic layout of the suggest
+items.
 
-Setting the **block** value results in a layout, where all section child elements are displayed horizontally.
+Setting the **block** value results in a layout, where all section child
+elements are displayed horizontally.
 
-Setting the **list** (default) value results in a layout where all section child elements are displayed vertically.
+Setting the **list** (default) value results in a layout where all
+section child elements are displayed vertically.
 
 ```html
 <ff-suggest layout="block">
@@ -100,7 +111,8 @@ Setting the **list** (default) value results in a layout where all section child
 
 ## Overriding default click action
 
-To override the action that happens on click/tap, you can use the "suggest-item-clicked" event.
+To override the action that happens on click/tap, you can use the
+"suggest-item-clicked" event.
 
 See the following example:
 
@@ -116,9 +128,9 @@ See the following example:
         //reference to data
         var suggestionData = e.detail.suggestion;
 
-        //check if the ffSuggestItem matches the desired type you want to override the action for
+        //check if the ffSuggestItem matches the desired type for which you want to override the action
         if (suggestionData.type === "productName") {
-            //configure in the FACT-Finder backen which fields should be returned in teh attributes property!
+            //configure in the FACT-Finder backend which fields should be returned in the attributes property!
             var articleNr = ffSuggestItem.attributes["articleNr"];
             window.open("http://www.your-shop.example/"+articleNr, "_blank");
 
@@ -131,7 +143,8 @@ See the following example:
 
 ## Capture record on suggest `productName` click and redirect to detail page
 
-Listen for the `suggest-product-record` event and capture the record of the clicked suggest item.
+Listen for the `suggest-product-record` event and capture the record of
+the clicked suggest item.
 
 Take a look at the following example:
 
