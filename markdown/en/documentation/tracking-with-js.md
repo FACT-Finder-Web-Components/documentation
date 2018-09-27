@@ -129,8 +129,7 @@ you can query FACT-Finder for product information.
                         id: id,
                         price: 95.95,
                         masterId: masterId,
-                        count: 99,
-                        event: "cart"
+                        count: 99
                     });
                     
                 } else {
