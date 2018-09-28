@@ -76,8 +76,8 @@ const api = {
             path: "ff-campaign-shopping-cart",
             title: "Shopping Cart Campaign",
         },
-        "ff-product-campaign": {
-            path: "ff-product-campaign",
+        "ff-campaign-product": {
+            path: "ff-campaign-product",
             title: "Product Campaign",
         },
         "ff-search-feedback": {
@@ -172,7 +172,7 @@ api.moreFeatures = [
     api.pages["ff-campaign-landing-page"],
     api.pages["ff-campaign-shopping-cart"],
     api.pages["ff-checkout-tracking"],
-    api.pages["ff-product-campaign"],
+    api.pages["ff-campaign-product"],
     api.pages["ff-search-feedback"],
     api.pages["ff-recommendation"],
     api.pages["ff-compare"],
