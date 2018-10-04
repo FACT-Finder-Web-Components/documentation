@@ -14,7 +14,7 @@ If you do so, the ASN will look pretty much like nothing. So let's style it.
 Adding a bare `ff-asn-group` does not change the styles but it lets us control how different kinds of `ff-asn-groups` should look.
 
 ## Styling filter groups by [filter-style]
-If you set the ``[filter-style]` attribute properly the `ff-asn-group` acts as default template for all groups, which match that filter style.
+If you set the `[filter-style]` attribute properly the `ff-asn-group` acts as default template for all groups, which match that filter style.
 ```html
 <ff-asn>
     <!-- Acts as a template for all TREE configured filter groups-->
@@ -28,9 +28,9 @@ If you set the ``[filter-style]` attribute properly the `ff-asn-group` acts as d
 ## Using native select box
 
 In version 1.2.7 we introduced native select-box support for `ff-asn-group`.
-Additionally `<option>` element does supports data binding when using
-`<ff-asn-group select-box="true">`. You can now supply your own template
-by annotating it with the data-template attribute.
+Additionally the `<option>` element supports data binding when using
+`<ff-asn-group select-box="true">`. You can supply your own template
+by annotating it with the `data-template` attribute.
 
 ```html
 <ff-asn-group for-group="xxx" select-box="true">
@@ -42,7 +42,7 @@ by annotating it with the data-template attribute.
         <select data-container="hiddenLinks">
             <option>more ...</option>
             <!--
-                 This template is optional, if you dont supply an template it defaults to:
+                 This template is optional, if you dont supply one it defaults to:
                  <option>{{element.name}} {{group.unit}} ({{element.recordCount}})</option>
             -->
             <option data-template>My Template {{element.name}} {{group.unit}}</option>
