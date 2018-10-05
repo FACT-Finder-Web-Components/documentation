@@ -15,8 +15,8 @@ Adding a bare `ff-asn-group` does not change the styles but it lets us
 control how different kinds of `ff-asn-groups` should look.
 
 ## Styling filter groups by [filter-style]
-If you set the `[filter-style]` attribute properly the `ff-asn-group`
-acts as the default template for all groups, that match this `[filter-style]`.
+If you set the `[filter-style]` attribute properly, the `ff-asn-group`
+acts as the default template for all groups that match this `[filter-style]`.
 ```html
 <ff-asn>
     <!-- Acts as a template for all TREE configured filter groups-->
@@ -44,7 +44,7 @@ by annotating it with the `data-template` attribute.
         <select data-container="hiddenLinks">
             <option>more ...</option>
             <!--
-                 This template is optional. If you dont supply one it defaults to:
+                 This template is optional. If you don't supply one, it defaults to:
                  <option>{{element.name}} {{group.unit}} ({{element.recordCount}})</option>
             -->
             <option data-template>My Template {{element.name}} {{group.unit}}</option>
@@ -54,8 +54,8 @@ by annotating it with the `data-template` attribute.
 ```
 
 ## Styling slider groups
-The only exception is the ´ff-asn-group-slider´. To style slider groups
-you need to use the ff-asn-group-slider element.
+The only exception is the `ff-asn-group-slider`. To style slider groups
+you need to use the `ff-asn-group-slider` element.
 
 ```html
 <ff-asn-group-slider></ff-asn-group-slider>
@@ -99,8 +99,8 @@ See documentation: [ff-slider-control](http://web-components.fact-finder.de/docu
 </ff-asn-group-slider>
 ```
 
-## Styling filter groups by [for-group]
-If you set the `[filter-style]` attribute properly the `ff-asn-group`
+## Styling filter groups by [filter-style]
+If you set the `[filter-style]` attribute properly, the `ff-asn-group`
 acts as default template for all groups which match that filter style.
 ```html
 <ff-asn>
@@ -110,7 +110,7 @@ acts as default template for all groups which match that filter style.
 ```
 
 ## Changing the group caption
-If you want to change the group caption you can annotate an HTML element
+If you want to change the group caption, you can annotate an HTML element
 with the `[data-container="groupCaption"]` attribute. By doing so you can
 change the style and appearance.
 ```html
@@ -124,12 +124,12 @@ change the style and appearance.
  `ff-asn-group`. No other elements are altered in any way.
 
 ## Adding a Filter Element Template
-By annotating two different html elements with the `[data-selected]` and
+By annotating two different HTML elements with the `[data-selected]` and
 the `[data-unselected]` attribute you are telling the `ff-asn-group-element`
 which HTML template to use if the filter is selected or not.
 
 The position of the `ff-asn-group-element` inside the `ff-asn-group` does
-not matter. The element is removed from the dom and saved for later usage.
+not matter. The element is removed from the DOM and saved for later usage.
 
 ```html
 <ff-asn-group>
@@ -147,8 +147,8 @@ not matter. The element is removed from the dom and saved for later usage.
 ```
 The `{{data-binding}}` for the `ff-asn-group-element` allows accessing
 both scopes - the `{{element}}` scope and the `{{group}}` scope. This is
- especially important if you want to display the unit which is configured
-  on the server side.
+especially important if you want to display the unit which is configured
+on the server side.
 
 ## Adding filter elements
 A common After Search Navigation group consists of two basic parts. The
@@ -185,20 +185,20 @@ By annotating an HTML element with the `[data-container="hiddenLinks"]`
 attribute, we are telling the group element that this is the HTML container
 for the detailedLinks. To allow more flexibility regarding HTML usage and
 styling you need to tell the group where exactly to place the filter elements.
-You can do so by annotating an HTML element with the [data-content="detailedLinks"]
+You can do so by annotating an HTML element with the `[data-content="detailedLinks"]`
 attribute.
 
-If you are using both, the `[data-container="detailedLinks"]` and
+If you are using both the `[data-container="detailedLinks"]` and
 `[data-container="hiddenLinks"]`, you can add the collapse functionality
 yourself. Just add the `[data-container="showMore"]` and
 `[data-container="showLess"]`.
 
 **NOTE**: You can change the animation duration by changing the CSS
-transition-duration property. Cause the elements themselves are
+`transition-duration` property. Because the elements themselves are
 transitioned we recommend adding padding and margin not the container
 elements themselves.
 
-## Remove all filter
+## Remove all filters
 Sometimes you want to reset the filter and go back to the original search
 result. For this case we have an extra element which you can place
 anywhere. This element will trigger a new search request with the current
@@ -214,7 +214,7 @@ visible when some filters are set, or always. Default is `false`
 The `remove-params` property defines whether the 'reset request' should
 only contain a search with the current search query or if the reset
 request should keep the current parameters like `products-per-page` and
-`sort` and only remove the parameters which starts with `filter*`.
+`sort` and only remove those parameters that start with `filter*`.
 
 ```html
 <ff-asn-remove-all-filter remove-params show-always>
