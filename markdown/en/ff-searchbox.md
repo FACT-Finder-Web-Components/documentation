@@ -1,5 +1,8 @@
 ## Setup the communication
-First, add the `ff-communication` tag to every page that uses the **FACT-Finder Webcomponents** . With this element you define the location of your FACT-Finder Server in the `url` attribute and which `channel` you want to use in the channel attribute.
+First, add the `ff-communication` tag to every page that uses
+**FACT-Finder Webcomponents**. This element is, in part, used to define
+the location of your FACT-Finder Server using the `url` attribute and
+the `channel` you want to use using the `channel` attribute.
 
 The `ff-communication` Tag has more attributes for example the `default-query` attribute to define a Searchterm whis is always used on pageload. When using the `search-immediate` attribute, which requires no parameter, the first search query is fired once the page has finished loading.
 
