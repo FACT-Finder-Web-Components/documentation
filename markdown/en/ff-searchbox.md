@@ -3,7 +3,7 @@ First, add the `ff-communication` tag to every page that uses the **FACT-Finder 
 
 The `ff-communication` Tag has more attributes for example the `default-query` attribute to define a Searchterm whis is always used on pageload. When using the `search-immediate` attribute, which requires no parameter, the first search query is fired once the page has finished loading.
 
-For more information, see the [API reference](http://web-components.fact-finder.de/documentation/ff-searchbox#communication-api) on the bottom of this page.
+For more information, see the [API reference](/api/ff-searchbox#tab=api) on the bottom of this page.
 
 ```html
 <ff-communication url="http://web-components.fact-finder.de/FACT-Finder7.1-Demoshop"
@@ -36,7 +36,7 @@ With the `select-onclick` attribute you can define if the value should be select
 ## Adding Suggest
 If you want a Suggest function on your page you can set the `use-suggest` attribute to **true** *(default is true)*. 
 You also need to implement the ``ff-suggest`` Tag on your page. For more information take a look at the 
-[Suggest Example](/documentation/ff-suggest).
+[Suggest Example](/api/ff-suggest).
 The Suggest will only trigger when at least 2 characters are in the input field.
 ```html
 <input is="ff-searchbox" use-sugest="true"/>

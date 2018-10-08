@@ -15,7 +15,7 @@ The `ff-suggest` is triggered when at least 2 characters are in the searchbox.
        hidesuggest-onblur="true"/>
 ```
 
-For more information on the `ff-searchbox`, see [Searchbox Example](api/ff-searchbox#tab=demo)
+For more information on the `ff-searchbox`, see [Searchbox Example](api/ff-searchbox#tab=doc)
 
 ## The basics
 
