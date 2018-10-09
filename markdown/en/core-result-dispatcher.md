@@ -15,7 +15,8 @@ Here are all functions you can use with the **ResultDispatcher**
 
 ### `subscribe(topic, fn, ctx)`
 ___
-The function supplied in `fn` is invoked with data for the subscribed `topic` when new data is available. The parameter `ctx` is optional
+The function supplied in `fn` is invoked with data for the subscribed
+`topic` when new data is available. The parameter `ctx` is optional
 
 #### All available topic's    
 * `result`
@@ -36,7 +37,7 @@ The function supplied in `fn` is invoked with data for the subscribed `topic` wh
 * `productCampaign` - special
 
 These **topics** are dispatched in the current execution order.
-For example the `campaigns` are dispatched before the `asn`, but it's
+For example the `campaigns` are dispatched before the `asn`, but it is
 **not** recommended to rely on this order.
 
 Use `addCallback` instead.
@@ -88,7 +89,8 @@ This is similar to `subscribe()` but it is guaranteed to be executed
 
 ### `removeCallback(topic, key)`
 ___
-Remove a callback for a topic (ex:`asn`) with the **key** from the registered callback.
+Remove a callback for a topic (ex:`asn`) with the **key** from the
+registered callback.
 ```html
 <script>
     // listen for ffReady before html import is loaded or you'll miss the event
