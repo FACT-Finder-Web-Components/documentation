@@ -1,12 +1,17 @@
-## ff-searchbox properties for Suggest
+## `ff-searchbox` properties for Suggest
 
-The searchbox has 2 attributes which affect the `ff-suggest`:
+The search box has 2 attributes which affect the `ff-suggest`:
 
-With the `suggest-onfocus` attribute, you can define if the suggest opens when the `ff-searchbox` gains focus. Values are true/false (default is false).
+With the `suggest-onfocus` attribute, you can define if the suggest opens
+when the `ff-searchbox` gains focus. Values are boolean (default is
+`false`).
 
-With the `hidesuggest-onblur` attribute, you can define if the suggest will be closed when the `ff-searchbox` loses focus. Values are true/false (default is true).
+With the `hidesuggest-onblur` attribute, you can define if the suggest
+will be closed when the `ff-searchbox` loses focus. Values are boolean
+(default is `true`).
 
-The `ff-suggest` is triggered when at least 2 characters are in the searchbox.
+The `ff-suggest` is triggered when at least 2 characters are in the
+search box.
 
 ```html
 <input is="ff-searchbox"
@@ -15,11 +20,13 @@ The `ff-suggest` is triggered when at least 2 characters are in the searchbox.
        hidesuggest-onblur="true"/>
 ```
 
-For more information on the `ff-searchbox`, see [Searchbox Example](api/ff-searchbox#tab=doc)
+For more information on `ff-searchbox`, see
+[Searchbox Example](api/ff-searchbox#tab=doc)
 
 ## The basics
 
-The `ff-suggest` element respects only section child elements. The section elements are used for the built-in list/block layout.
+The `ff-suggest` element respects only `section` child elements.
+The `section` elements are used for the built-in list/block layout.
 
 ```html
 <ff-suggest>
@@ -32,7 +39,7 @@ The `ff-suggest` element respects only section child elements. The section eleme
 </ff-suggest>
 ```
 
-## Adding a Suggest container
+## Adding a suggest container
 
 You need to annotate an element with the `data-container="suggestType"`
 attribute for each suggest type configured in the FACT-Finder backend.
@@ -40,11 +47,11 @@ attribute for each suggest type configured in the FACT-Finder backend.
 The `ff-suggest` element hides the annotated container if no suggestions
 are found for this type.
 
-In addition you need to add an `ff-suggest-item` element inside the
-container. All received suggestions for this type are inserted at this
-position and will be an exact copy of this element.
+In addition you need to add a `ff-suggest-item` element inside the
+container. All received suggestions of this `"suggestType"` are inserted
+at this position and will be an exact copy of this element.
 
-Repeat this process for all configured suggest types.
+Repeat this process for all configured `"suggestTypes"`.
 
 ```html 
 <ff-suggest>
@@ -62,20 +69,23 @@ Repeat this process for all configured suggest types.
 </ff-suggest>
 ```
 
-Note the triple curly braces in `<span>{{{name}}}</span>`.
-These are required because `ff-suggest` inserts HTML here.
-The matched string from your search box is wrapped in a
-`<span class="query">` tag to allow you to highlight the matched text
-through CSS. If you were to use the regular double curly braces and type
-for example "back", the result would be
-`<span class="query">Back</span>packs` instead of "**Back**packs".
+**Note** the triple curly braces in `<span>{{{name}}}</span>`, which
+enable the rendering of HTML code inserted via Polymer's data binding.
+`ff-suggest` inserts HTML here and the matched string from your search
+box is wrapped in a `<span class="query">` tag to allow you to highlight
+the matched text through CSS. If you used the regular double curly
+braces and typed "back" in the search box, the HTML source code would be
+shown as a plain text: `<span class="query">Back</span>packs`
+rather than the rendered: "**Back**packs".
 
 See [Template Engine](documentation/template-engine) for more details.
 
 ## Add Keyboard Support
 
-Keyboard arrow key support is enabled by default. You just need to specify
-the layout for the highlighted item.
+Keyboard arrow key support is enabled by default. When a
+`ff-suggest-item` is selected using the arrow keys, the class
+`ff-highlight-suggest-item` is added to its class list. So you simply
+need to add CSS rules to highlight the selected item.
 
 ```html
 <style>
