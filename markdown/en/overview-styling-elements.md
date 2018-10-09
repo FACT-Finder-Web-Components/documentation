@@ -49,7 +49,7 @@ To overwrite the default styles the following code can be used:
 It is important, that the style element possesses the property &quot;is&quot; with the value &quot;custom-style&quot;.
 
 ## Prevent FOUC (Flash Of Unstyled Content)
-In browsers where web components are not natively supported you might encounter ugly flash of unstyled content on page load. 
+In browsers where Web Components are not natively supported you might encounter ugly flash of unstyled content on page load. 
 To prevent this we added a __remove unresolved attribute behavior__ to all elements with an visual component (e.g. ff-record-list, ff-asn and so on).
 Just annotate all elements which are shown immediately on page load with the __\[unresolved\]__  attribute. 
 In Addition add the following CSS rule on top of the page before the appearance of your  custom elements:
