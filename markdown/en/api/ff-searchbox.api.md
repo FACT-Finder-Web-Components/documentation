@@ -33,7 +33,7 @@ ___
 | **channel**&nbsp;(String) (default: empty)| Your channel name. Has to be the same as the channel name configured in the FACT-Finder backend.|
 | **search-immediate**&nbsp;(Boolean) | If this property is present, web components will start searching as soon as they are loaded.|
 | **use-url-parameter**&nbsp;(String) **Options**: &nbsp;true, &nbsp;false (default: true)| If set to true, the http parameter of the current search are pushed to the browser url.|
-| **use-cache**&nbsp;(String) **Options**: &nbsp;true, &nbsp;false (default: false)| This value determines, if the browser should cache previous search requests or not. Some browsers support this feature and therefore speed up the search for repeated requests.|
+| **use-cache**&nbsp;(Boolean) **Options**: &nbsp;true, &nbsp;false (default: false)| This value determines, if the browser should cache previous search requests or not. Some browsers support this feature and therefore speed up the search for repeated requests.|
 | **default-query**&nbsp; (String) (default: '*') | Determines which search term should is used by default if no search term provided in as http parameter or in a search event object.|
 | **only-search-params**&nbsp;(Boolean) | If present, parameters like 'channel' and 'sid' are omitted in the url. Can be used in conjunction with 'parameter-whitelist'.|
 | **parameter-whitelist**&nbsp; (String) (default: '') | If the url parameters are omitted through other attributes like use-url-parameter="false" or only-search-params you can add specific important parameters manually. Just use a comma separated list like: parameter-whitelist="param1,myParam" |
