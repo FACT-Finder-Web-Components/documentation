@@ -32,7 +32,6 @@ The function supplied in `fn` is invoked with data for the subscribed `topic` wh
 * `productDetail`
 * `similarProducts`
 * `productCampaign` -special
-* `singleWordSearch`
 
 This list of **topic's** are dispatched in the current execution order.
  For example the `campaigns` are dispatched before the `asn` is dispatched, but it's not recommended to rely on this order.
