@@ -97,13 +97,13 @@ need to add CSS rules to highlight the selected item.
 
 ## Changing the layout (block/list)
 
-With the "layout" attribute you can define a basic layout of the suggest
-items.
+Using the "layout" attribute you can define a basic layout for the
+`ff-suggest-items`.
 
-Setting the **block** value results in a layout, where all section child
-elements are displayed horizontally.
+Setting the **block** value results in a layout,in which all section
+child elements are displayed horizontally.
 
-Setting the **list** (default) value results in a layout where all
+Setting the **list** (default) value results in a layout, in which all
 section child elements are displayed vertically.
 
 ```html
@@ -122,7 +122,7 @@ section child elements are displayed vertically.
 ## Overriding default click action
 
 To override the action that happens on click/tap, you can use the
-"suggest-item-clicked" event.
+event `"suggest-item-clicked"`.
 
 See the following example:
 
@@ -133,30 +133,37 @@ See the following example:
 
 <script>
     document.querySelector("ff-suggest").addEventListener("suggest-item-clicked", function (e) {
-        //reference to the html element
+        // reference to the html element
         var ffSuggestItem = e.detail.element;
-        //reference to data
+        // reference to data
         var suggestionData = e.detail.suggestion;
 
-        //check if the ffSuggestItem matches the desired type for which you want to override the action
+        // check if the ffSuggestItem matches the desired type for which you want to override the action
         if (suggestionData.type === "productName") {
-            //configure in the FACT-Finder backend which fields should be returned in the attributes property!
+            // configure in the FACT-Finder backend which fields should be returned in the attributes property!
             var articleNr = ffSuggestItem.attributes["articleNr"];
             window.open("http://www.your-shop.example/"+articleNr, "_blank");
 
-            //tell the suggest-item to skip its default action;
+            // tell the suggest-item to skip its default action;
             ffSuggestItem.ffPreventDefault = true;
         }
     });
 </script>
 ```
 
-## Capture record on suggest `productName` click and redirect to detail page
+## On-Click display of product detail page with Records API enabled
 
-Listen for the `suggest-product-record` event and capture the record of
-the clicked suggest item.
+If FACT-Finder's Records API is enabled, our Web Components will fetch
+the corresponding record of a `ff-suggest-item`, when it is clicked.
 
-Take a look at the following example:
+`ff-suggest` fires the event `suggest-product-record` when the API
+returns the record. This event contains the clicked item's record.
+
+Provided the product detail page uses `ff-record` to display
+the product information, you can display the product's information by
+assigning the event's `event.detail.record` to `ff-record`'s
+`recordData` property as shown in the following example.
+
 
 ```html
 <ff-suggest>
@@ -166,9 +173,6 @@ Take a look at the following example:
 <script>
     document.querySelector("ff-suggest").addEventListener("suggest-product-record", function (event) {
         var record = event.detail.record;
-
-        // Implied that the product detail page uses the `ff-record` element to display the product information's,
-        // we set the recordData attribute to the record obtained after the suggest "productName" click
         document.querySelector("detailPage ff-record").recordData = record;
     });
 </script>
