@@ -9,8 +9,8 @@ This guide covers the integration of all necessary events.
 The Click-Tracking for products, recommendations and campaigns is integrated in the same way.
 
 The `ff-record-list` element detects automatically if the product which are displayed belong to campaigns, recommendations or the search result. So their is no need to distinguish between recommendation click, campaign click or common product click.
-<br>
-<br>
+
+
 #### Tracking with `data-redirect`
 The `[data-redirect]` attribute redirects the user on click to the product detail page. While without using the `[data-redirect]` attribute the browser may reloads the page to fast for the tracking request to succeed we added the tracking behavior to this directive.
 ````html
