@@ -111,7 +111,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
             <app-toolbar class="medium-tall">
                 <paper-tabs selected="{{activeTab}}" attr-for-selected="name">
                     <paper-tab name="docs">Documentation</paper-tab>
-                    <paper-tab name="demo">Demo</paper-tab>
+                    <paper-tab name="demo" disabled="[[hasNoDemoTab]]">Demo</paper-tab>
                     <paper-tab name="api" disabled="[[hasNoApiTab]]">Api</paper-tab>
                 </paper-tabs>
             </app-toolbar>
@@ -170,12 +170,20 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
             hasNoApiTab: {
                 type: Boolean,
                 computed: 'hasNoApi(subpage, data)'
+            },
+            hasNoDemoTab: {
+                type: Boolean,
+                computed: 'hasNoDemo(subpage, data)'
             }
         }
     }
 
     hasNoApi(pageName, data) {
         return pageName && data && data.pages && data.pages[pageName] && data.pages[pageName].noApi;
+    }
+
+    hasNoDemo(pageName, data) {
+        return pageName && data && data.pages && data.pages[pageName] && data.pages[pageName].noDemo;
     }
 
     connectedCallback() {
