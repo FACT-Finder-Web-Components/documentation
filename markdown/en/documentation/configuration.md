@@ -18,7 +18,7 @@ Specify the FACT-Finder version. E.g. `7.2` or  `7.3`.
 ---
 
 #### **channel** 
-Specify the channel name which is used for the search. You can check which channels are available at the FACT-Finder UI.
+Specify the name of the channel which is used for the search. You can find the available channels in the FACT-Finder UI.
 
 ---
 
@@ -45,11 +45,11 @@ We recommend placing the `ff-communication` element immediately after the `body`
 ```
 
 #### **search-immediate**
-The `search-immediate` attribute ensures, that a search is automatically triggered as soon as `ff-communication` was successfully attached to the DOM. The triggered search request uses the current URL parameters. If no parameters are present, it uses `*` as query (search for all products) in conjunction with the other settings. 
+The `search-immediate` attribute ensures, that a search is automatically triggered as soon as `ff-communication` was successfully attached to the DOM. The triggered search request uses the current URL parameters in conjunction with the settings provided by `ff-communication`-attributes. If no search query is provided through the url or an attribute `*` will be used as default (search for all products). 
 
 **NOTE**
 
-You don't want the `search-immediate` attribute to be present on your landing (home) page because this would trigger a search every time a user enters your shop. Usually you want to use it only on category pages and the search result page.
+You don't want the `search-immediate` attribute to be present on your landing (home) page because this would trigger a search every time a user enters your shop. Usually you only want to use it on category pages and the search result page.
 
 
 ## JavaScript Approach
@@ -70,6 +70,7 @@ document.addEventListener("ffReady", () => { // "ffReady"-event ensures global f
 ``` 
 
 **NOTE**
-To prevent our custom elements from missing a factfinder response, before they where loaded, dispatching of results to subscribers is cached and deferred until all custom elements have loaded. When all custom elements have loaded, `ff-communication` calls `factfinder.communication.ResultDispatcher.startDispatching()`. If `ff-communication` is not used, `factfinder.communication.ResultDispatcher.startDispatching()` has to be called manually in JavaScript.
+
+To prevent our custom elements from missing a factfinder response, before they are loaded, dispatching of results to subscribers is cached and deferred until all custom elements are ready to receive the response. As soon as custom elements have finished loading `ff-communication` calls `factfinder.communication.ResultDispatcher.startDispatching()`. If `ff-communication` is not used, `factfinder.communication.ResultDispatcher.startDispatching()` has to be called manually in JavaScript.
 
 Also we discourage the direct use of custom JavaScript configuration and strongly recommend to configure everything through our custom elements, you might take a closer look at [ff-core.d.ts](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/dist/ff-core.d.ts). Everything which can be configured through our documented custom elements can also be configured directly in JavaScript. 
