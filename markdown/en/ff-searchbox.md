@@ -14,8 +14,6 @@ finished loading.
 
 The following code-example shows the aforementioned configuration.
 
-For more information, see the [API reference](/api/ff-searchbox#tab=api).
-
 ```html
 <ff-communication url="http://web-components.fact-finder.de/FACT-Finder7.1-Demoshop"
                   version="7.1"
@@ -24,6 +22,7 @@ For more information, see the [API reference](/api/ff-searchbox#tab=api).
                   search-immediate>
 </ff-communication>
 ```
+For more information, see the [API reference](/api/ff-searchbox#tab=api).
 
 ## Extending the input
 The `ff-searchbox` extends a normal `<input>`. Simply add the attribute
