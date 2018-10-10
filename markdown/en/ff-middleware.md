@@ -94,7 +94,7 @@ Assuming there is a multi-attribute field called `MultiFilter` and its value was
 
 _Note that mustache allows spaces in names as seen in_ `Recommended use`.
 
-Registration of `MultiAttributeParsing` using Web Components is done as follows.
+Registration of `MultiAttributeParsing` using either Web Components or JavaScript is done as follows.
 
 Web Components:
 ```html
