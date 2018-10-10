@@ -116,6 +116,7 @@ const api = {
         "ff-checkout-tracking": {
             path: "ff-checkout-tracking",
             title: "Checkout Tracking",
+            noDemo: true
         },
 
 
