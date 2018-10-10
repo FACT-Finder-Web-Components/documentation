@@ -45,7 +45,7 @@ We recommend placing the `ff-communication` element immediately after the `body`
 ```
 
 #### **search-immediate**
-The `search-immediate` attribute ensures, that a search is automatically triggered as soon as `ff-communication` was successfully attached to the dom. The triggered search request uses the current URL parameters. If no parameters are present, it uses `*` as query (search for all products) in conjunction with the other settings. 
+The `search-immediate` attribute ensures, that a search is automatically triggered as soon as `ff-communication` was successfully attached to the DOM. The triggered search request uses the current URL parameters. If no parameters are present, it uses `*` as query (search for all products) in conjunction with the other settings. 
 
 **NOTE**
 
