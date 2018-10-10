@@ -57,7 +57,7 @@ only trigger when at least 2 characters are in the input field.
 ```
 
 ### On Focus
-With the property `suggest-onfocus` is set to **true**, the suggest will
+With the property `suggest-onfocus` set to **true**, the suggest will
 open when the user clicks into the input or the input gets focus.
 ```html
 <input is="ff-searchbox" suggest-onfocus="true" />
