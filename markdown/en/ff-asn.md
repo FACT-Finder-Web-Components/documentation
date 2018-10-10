@@ -71,7 +71,9 @@ instead of detailedLinks and hiddenLinks the slider group accepts a
 The `ff-slider-control` can have two `input` elements annotated with
 the `[data-control="1/2"]` attribute. The input elements automatically
 react on user input (enter key pressed) and start to filter. You can
-change the behavior of the controls by using the appropriate attributes.
+change the behavior of the controls by using the appropriate attributes
+as described in `ff-slider-control-section`'s
+[API documentation](api/ff-asn#tab=api)
 
 ```html
 <!--style slider groups-->
