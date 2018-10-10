@@ -67,7 +67,7 @@ In this format you cannot use individual values immediately. You need to parse t
 }
 ```
 
-To render the parsed data format you need the mustache syntax for non-empty lists. See their [documentation](https://github.com/janl/mustache.js#non-empty-lists) for further details.
+To render the parsed data format you need the mustache syntax for non-empty lists. See the [mustache.js documentation](https://github.com/janl/mustache.js#non-empty-lists) for further details.
 
 Assuming there is a multi-attribute field called `MultiFilter` and its value was replaced by the parsed object, usage could look like this:
 
