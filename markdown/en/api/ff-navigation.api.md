@@ -31,7 +31,7 @@ ___
 | **element**&nbsp;(Object) | The data Element, which defines a category in the Navigation Tree. |
 | **direction**&nbsp;(String) **Options**:&nbsp;"left",&nbsp;"right",&nbsp;"down" (default: "right") | Defines, in which direction the sub-elements should be expanded. |
 | **cluster-level**&nbsp;(Number) (default: 0) | This is set internally and reflects as an attribute to give the user a possibility to style this element based on its cluster level. Also this is used to select the elements into the right shadow-DOM container. Do not modify this yourself. |
-| **type**&nbsp;(String) **Options**:&nbsp;"default",&nbsp;"header",&nbsp;"parent",&nbsp;"level" (default: 'default') | This defines which template is used for the element. |
-| **has-subelements**&nbsp;(Boolean) | This is set internally and reflects out. It indicates that this element has at least one sub-element. |
-| **flyout**&nbsp;(Boolean) | When true the sub-elements will extended outside of the parent element according to the direction. When false, the sub-elements will be extended inside of the parent element. This is used in mobile mode. |
-| **selected**&nbsp;(Boolean) | This attribute is set in the mobile mode when a element is selected. This can be used to style the selected element. |
+| **type**&nbsp;(String) **Options**:&nbsp;"default",&nbsp;"header",&nbsp;"parent",&nbsp;"level" (default: "default") | This defines which template is used for the element. |
+| **has-subelements**&nbsp;(Boolean) (default: false) | This is set internally and reflects as an HTML attribute. Indicates whether this element has at least one sub-element. |
+| **flyout**&nbsp;(String) (default: "true") | If `"true"` the sub-elements will expand outside of the parent element according to the `direction`. If `"false"`, the sub-elements will be expanded inside of the parent element. This is used in mobile mode. |
+| **selected**&nbsp;(Boolean) (default: false) | This attribute is set in the mobile mode when an element is selected. This can be used to style the selected element. |
