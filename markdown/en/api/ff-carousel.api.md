@@ -7,7 +7,7 @@ ___
 | **auto**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | If `true` the slides will automatically flip to the next slide after a `delay` |
 | **delay**(Number) (default:2000) | This delay in milliseconds will be used when the `auto` property is set to `true`. |
 | **per-slide** (Number) (default:3) | Number of records visible per slide. |
-| **show-bullets**(String) **Options**:"true",&nbsp;"false" (default:"false") | Displays as many bullets under the ff-carousel as it has pages to switch between pages. |
+| **show-bullets**(String) **Options**:"true",&nbsp;"false" (default:"false") | Display as many bullets under the `ff-carousel` as there are pages to switch between. |
 
 ### Mixins
 | Name | Description |
