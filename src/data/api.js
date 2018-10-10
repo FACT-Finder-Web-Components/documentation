@@ -121,6 +121,7 @@ const api = {
         "ff-middleware": {
             path: "ff-middleware",
             title: "Middleware",
+            noDemo: true
         },
 
 
