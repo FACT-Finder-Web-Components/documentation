@@ -2,13 +2,13 @@
 
 The search box has 2 attributes which affect the `ff-suggest`:
 
-With the `suggest-onfocus` attribute, you can define if the suggest opens
-when the `ff-searchbox` gains focus. Values are boolean (default is
-`false`).
+With the `suggest-onfocus` attribute, you can define if the suggest
+opens when the `ff-searchbox` gains focus. Values are boolean as String
+(default is `"false"`).
 
 With the `hidesuggest-onblur` attribute, you can define if the suggest
 will be closed when the `ff-searchbox` loses focus. Values are boolean
-(default is `true`).
+as String (default is `"true"`).
 
 The `ff-suggest` is triggered when at least 2 characters are in the
 search box.
@@ -70,7 +70,7 @@ Repeat this process for all configured `"suggestTypes"`.
 ```
 
 **Note** the triple curly braces in `<span>{{{name}}}</span>`, which
-enable the rendering of HTML code inserted via Polymer's data binding.
+enable the rendering of HTML code in our template engine.
 `ff-suggest` inserts HTML here and the matched string from your search
 box is wrapped in a `<span class="query">` tag to allow you to highlight
 the matched text through CSS. If you used the regular double curly
@@ -100,7 +100,7 @@ need to add CSS rules to highlight the selected item.
 Using the "layout" attribute you can define a basic layout for the
 `ff-suggest-items`.
 
-Setting the **block** value results in a layout,in which all section
+Setting the **block** value results in a layout, in which all section
 child elements are displayed horizontally.
 
 Setting the **list** (default) value results in a layout, in which all
