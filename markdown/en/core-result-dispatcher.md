@@ -38,9 +38,7 @@ The function supplied in `fn` is invoked with data for the subscribed
 
 These **topics** are dispatched in the current execution order.
 For example the `campaigns` are dispatched before the `asn`, but it is
-**not** recommended to rely on this order.
-
-Use `addCallback` instead.
+**not** recommended to rely on this order. Use `addCallback` instead.
 
 ```html
 <script>
