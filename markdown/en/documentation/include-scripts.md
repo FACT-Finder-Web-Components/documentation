@@ -46,7 +46,7 @@ You **NEVER** want to change the loading or script order. Even the `Polymer.dom`
 
 ---
 
-In browsers where web components are not natively supported you might encounter ugly flashing of unstyled content while the page is loading. To prevent this just annotate all elements that have a visual component and are shown immediately on page load with the `unresolved` attribute.
+In browsers where Web Components are not natively supported you might encounter ugly flashing of unstyled content while the page is loading. To prevent this just annotate all elements that have a visual component and are shown immediately on page load with the `unresolved` attribute.
 ```html
 <ff-record-list unresolved></ff-record-list>
 ```

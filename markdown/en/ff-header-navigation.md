@@ -43,7 +43,7 @@ The `hide-empty-groups` hides all 'group' (layer 2) elements which has no 'links
 ### fetch-initial
 
 With the `fetch-initial` you can decide when the navigation data should be
-loaded. Usually, the data is loaded as soon as the element is attached to the dom. But maybe you want to manually
+loaded. Usually, the data is loaded as soon as the element is attached to the DOM. But maybe you want to manually
 trigger the loading or you want to reload. In that case, set the `fetch-initial` to
 'false' and use the `fetch()` method.
 

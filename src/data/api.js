@@ -118,6 +118,11 @@ const api = {
             title: "Checkout Tracking",
             noDemo: true
         },
+        "ff-middleware": {
+            path: "ff-middleware",
+            title: "Middleware",
+            noDemo: true
+        },
 
 
         // --- obsolete pages ---
@@ -182,6 +187,7 @@ api.moreFeatures = [
     api.pages["ff-carousel"],
     api.pages["ff-tag-cloud"],
     api.pages["ff-template"],
+    api.pages["ff-middleware"],
 ];
 
 export default api;
