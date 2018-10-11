@@ -36,11 +36,6 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
         font-size: 14px;
     }
 
-    /*
-    *   Dokumentation
-    */
-
-
     app-toolbar {
         display: inline;
         padding: 0;

@@ -29,8 +29,8 @@ ___
 ### Directives
 | Name | Description |
 | ---- | ----------- |
-|**data-positive**| Sets the rating to positive if the annotated HTMLElement is tabbed.|
-|**data-negative**| Sets the rating to negative if the annotated HTMLElement is tabbed.|
-|**data-message**| Sets the rating text to the value of the annotated HTMLElement's value property.|
-|**data-send**| Submits the feedback to FACT-Finder if the annotated HTMLElement is tabbed.|
-|**data-toggle**| Toggles the opened property of the element if the annotated HTMLElement is tabbed.|
+| **data-positive** | Sets the rating to positive if the annotated HTMLElement is tabbed. |
+| **data-negative** | Sets the rating to negative if the annotated HTMLElement is tabbed. |
+| **data-message** | Sets the rating text to the value of the annotated HTMLElement's value property. |
+| **data-send** | Submits the feedback to FACT-Finder if the annotated HTMLElement is tabbed. |
+| **data-toggle** | Toggles the opened property of the element if the annotated HTMLElement is tabbed. |
