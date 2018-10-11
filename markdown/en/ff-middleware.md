@@ -1,6 +1,6 @@
 ## Middleware
 
-Starting from version `1.2.12` FACT-Finder Web Components support the concept of middleware. You can register and configure pre-defined modules to manipulate the data being exchanged between Web Components and FACT-Finder.
+Starting from version `1.2.13` FACT-Finder Web Components support the concept of middleware. You can register and configure pre-defined modules to manipulate the data being exchanged between Web Components and FACT-Finder.
 Middleware modules can be registered through custom elements or directly through JavaScript.
 
 ## Custom Elements Approach
