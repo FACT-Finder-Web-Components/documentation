@@ -64,6 +64,10 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
     img {
         width: 100%;
     }
+    
+    .panel-menus {
+        padding-bottom: 2em;
+    }
 </style>
 
 <app-drawer-layout narrow="{{narrow}}">
