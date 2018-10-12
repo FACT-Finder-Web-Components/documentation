@@ -362,24 +362,11 @@ class DownloadView extends PolymerElement {
     }
 
     compareVersions(a, b) {
-        return this.compareParsedVersions(this.parseVersion(a), this.parseVersion(b));
-    }
-
-    compareParsedVersions(a, b) {
-        if (a.length === 0 && b.length === 0) {
-            return 0;
-        }
-        if (a.length === 0 || +a[0] < +b[0]) {
-            return 1;
-        }
-        if (b.length === 0 || +a[0] > +b[0]) {
-            return -1;
-        }
-        return this.compareParsedVersions(a.slice(1), b.slice(1));
+        return this.parseVersion(a) < this.parseVersion(b) ? 1 : -1;
     }
 
     parseVersion(version) {
-        return version.replace(/\D+/gm, '.').match(/[^\\.]+/g);
+        return version.replace(/\D+/gm, '.').match(/[^.]+/g).map(e => e.padStart(3, '0')).join('');
     }
 
     _computeMarkdownFilePath(model) {
