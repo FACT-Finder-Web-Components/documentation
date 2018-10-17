@@ -3,7 +3,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **items** (Array) (default:empty) | The data from FACT-Finder. |
+| **items** (Array) (default: empty) | The data from FACT-Finder. |
 | **opened** (Boolean) *Options* true, false (default: false) | Determines, if the sort box is opened. |
 | **show-selected** (String) *Options* "true", "false" (default: "false") | Determines, if the currently selected sorting is also shown inside the sort box. |
 | **show-selected-first** (String) *Options* "true", "false" (default: "false") | Determines, if the currently selected show-selected element is displayed on top of the list or at its actual position. |
@@ -12,7 +12,7 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **toggle(forceHide?: boolean)** | Opens or closes the element based on its current state. |
+| **toggle(forceHide?: Boolean)** | Opens or closes the element based on its current state. |
 | **show()** | Opens the drop down element. |
 | **hide()** | Closes the drop down element. |
 
@@ -31,7 +31,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **sort-item** (Object) (default:empty)|The data from FACT-Finder. |
+| **sort-item** (Object) (default: empty) | The data from FACT-Finder. |
 
 ### Events
 | Name | Description |
