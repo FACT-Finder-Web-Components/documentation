@@ -134,8 +134,8 @@ class DownloadView extends PolymerElement {
                          </span>
                     </p>
 
-                    If you are looking for the latest version please check out our
-                    <a href="https://github.com/FACT-Finder-Web-Components">Github repository</a>.
+                    <!--If you are looking for the latest version please check out our
+                    <a href="https://github.com/FACT-Finder-Web-Components">Github repository</a>.-->
                 </div>
             </div>
         </section>
