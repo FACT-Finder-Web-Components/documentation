@@ -7,7 +7,7 @@ ___
 | **flyout**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | Defines if the sub-elements should fly out or should expand inside the parent. |
 | **mobile**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | If true, the navigation element will be visible. |
 | **fetch-initial**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | If true, the navigation data will be requested on the first attachment to the DOM. |
-| **first-fetch**&nbsp;(Number) (default: 2) | Defines up to which start level the navigation data for the initial loading should be requested. **Note**: Navigation data may be up to 1MB and can take his time to load. The first impression for the user when he needs to wait for the initial page load may be not so pleasant. |
+| **first-fetch**&nbsp;(Number) (default: 2) | Defines up to which start level the navigation data for the initial loading should be requested. **Note**: Navigation data may be up to 1MB and can take its time to load. The first impression for the user when he needs to wait for the initial page load may be not so pleasant. |
 | **fetch-size**&nbsp;(Number) (default: 1) | Defines how many level of the following navigation data should be loaded in subsequent requests. Fewer level -> more requests and inversely more level -> more data per request. |
 | **max-fetch**&nbsp;(Number) (default: 10) | Defines up to which level of the navigation hierarchy the data should be loaded. |
 | **fetch-time**&nbsp;(Number) (default: 100) | Defines the time between navigation requests in milliseconds. |
