@@ -8,7 +8,7 @@ Internally the same method is used for all elements which communicate with the F
 ### `addFFEvent(event)`
 Each event has a `type` which defines what API on the FACT-Finder is called and which other properties it operates on.
 
-**NOTE**: Each property which is not not a function or an object is translated to an http request parameter with a few exceptions:
+**NOTE**: Each property which is not a function or an object is translated to an http request parameter with a few exceptions:
 
 *  type 
 *  url 

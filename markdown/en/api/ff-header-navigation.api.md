@@ -13,7 +13,7 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **fetch()** | Fetch the navigation data. |
+| **fetch()** | Triggers a new fetch of the navigation data. |
 
 ### Events
 | Name | Description |
