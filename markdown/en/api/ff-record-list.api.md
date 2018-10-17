@@ -8,7 +8,7 @@ ___
 | **is-recommendation** (Boolean) | Indicates if this record-list is placed inside a ff-recommendation element. This attribute is set automatically by the ff-recommendation element and used for tracking purposes. |
 | **infinite-scrolling** (Boolean) | When present, the record list will load the next page when the bottom of the record list comes in view. |
 | **infinite-debounce-delay** (Number) (default: 32) | Sets the delay for when the next page should be loaded after the bottom is reached. This prevents loading multiple pages at once because it triggers to fast. The number is in milliseconds. |
-| **infinite-scroll-margin** (Number) (default: 0) |  Sets the margin of the page loading trigger element. This value can be positive or negative and is in 'px'. Is only applied when infinite-scroll is `true`. |
+| **infinite-scroll-margin** (Number) (default: 0) |  Sets the margin of the page loading trigger element. This value can be positive or negative and is in 'px'. Is only applied when `infinite-scrolling` is `true`. |
 | **stamp-always** (Boolean) | `ff-record`s are always reused and, in addition, if the new record set doesn't differ (determined using `oldRecord.id === newRecord.id`) the DOM is not updated. Add this attribute to disable this behavior. Using this attribute on `ff-record-list` will ensure all stamped `ff-record`s will have this attribute added. |
 
 ### Methods
