@@ -17,8 +17,8 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **opened**&nbsp;(Boolean) | Determines if the filter group is expanded. If you want to have a group opened by default: `<ff-asn-group opened>` does the trick. |
-| **collapsible**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | Determines, if the filter group is collapsible. |
-| **for-group**&nbsp;(String) | Determines, which filter group the template should be applied to. If `all` is selected, then the template is applied to all groups if no other template suits the requirements. |
+| **collapsible**&nbsp;(String)&nbsp;**Options**:&nbsp;"true",&nbsp;"false"&nbsp;(default: "true") | Determines, if the filter group is collapsible. |
+| **for-group**&nbsp;(String)&nbsp;(default: "true")| Determines, which filter group the template should be applied to. If set to `"all"`, the template is applied to all groups if no other template matches the requirements. |
 | **group**&nbsp;(Object) | The data for the filter group. |
 | **filter-style**&nbsp;(String) | With the filter-style property it is possible to use the ff-asn-group element as a template for all groups which match the filter style. (TREE, DEFAULT, MULTISELECT, SINGLESELECT) |
 | **lazy-load**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | The lazy-load property defines if the ff-asn-elements for the hidden links container should be rendered when the asn group is dispatched or lazily just when the hiddenLinks container is opened via toggleHiddenLinksContainer() or showHiddenLinksContainer(). This improves performance for the first print and is by default set to true. |
@@ -50,9 +50,9 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **selected**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: empty) | The alignment of the After Search Navigation. |
-| **element**&nbsp;(Object) (default: empty) | The filter data. |
-| **group**&nbsp;(Object) (default: empty) | The filter group data. |
+| **selected**&nbsp;(String)&nbsp;**Options**:&nbsp;"true",&nbsp;"false" (default: empty) | The alignment of the After Search Navigation. |
+| **element**&nbsp;(Object)&nbsp;(default: empty) | The filter data. |
+| **group**&nbsp;(Object)&nbsp;(default: empty) | The filter group data. |
 
 ### Methods
 | Name | Description |
@@ -65,8 +65,8 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **opened**&nbsp;(Boolean) | Determines if the filter group is expanded. If you want to have a group opened by default: `<ff-asn-group-slider opened>` does the trick. |
-| **collapsible**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | Determines, if the filter group is collapsible. |
-| **for-group**&nbsp;(String) | Determines, which filter group the template should be applied to. If `all` is selected, then the template is applied to all groups if no other template suits the requirements. |
+| **collapsible**&nbsp;(String)&nbsp;**Options**:&nbsp;"true",&nbsp;"false" (default: "true") | Determines, if the filter group is collapsible. |
+| **for-group**&nbsp;(String)&nbsp;(default: "all") | Determines, which filter group the template should be applied to. If set to `"all"`, the template is applied to all groups if no other template matches the requirements. |
 | **group**&nbsp;(Object) | The data for the filter group. |
 | **filter-style**&nbsp;(String) | Read only property, always set to "SLIDER" |
 | **disable-auto-expand**&nbsp;(Boolean) | Prevents group from being automatically expanded when it contains any active filters. |
