@@ -17,7 +17,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **state** (String) (default: "all") | This property sets the condition under which the `ff-paging-set` element will become _active_. This is achieved by setting the the numbers behind `currentPage` - for the currently selected page - and `pageCount` - for the amount of pages - through any calculation to the desired value. The condition is then based on this value(e.g. `currentPage > 3 &&pageCount-currentPage >= 3`). |
+| **state** (String) (default: "all") | This property sets the condition under which the `ff-paging-set` element will become _active_. This is achieved by setting the numbers behind `currentPage` - for the currently selected page - and `pageCount` - for the amount of pages - through any calculation to the desired value. The condition is then based on this value (e.g. `currentPage > 3 && pageCount - currentPage >= 3`). |
 | **is-active** (Boolean) **Options**: true, false (default: true) | Determines if the paging set is currently active. |
 | **paging** (Object) (default:empty) | The data from FACT-Finder. |
 
