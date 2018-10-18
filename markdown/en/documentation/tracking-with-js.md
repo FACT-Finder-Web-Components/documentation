@@ -74,8 +74,7 @@ track.click({
     pageSize: 24,
     simi: 96.9,
     masterId: "4985b3dfbe3912ae2d729070fd660",
-    title: "Skylotec - 32.0 Bag - Backpack climbing harness combination",
-    event: "click"
+    title: "Skylotec - 32.0 Bag - Backpack climbing harness combination"
 });
 ```
 
@@ -86,18 +85,18 @@ track.cart({
     id: "010-0242-0318",
     price: 95.95,
     masterId: "9478a3507589b60ff7a6234a901298ec",
-    count: 5,
-    event: "cart"
+    count: 5
 });
+```
 
+```javascript
 track.checkout({
     channel: "bergfreunde-co-uk",
     sid: "VqneWatI3sYNaCMmeNqRPGxcUTQag2",
     id: "010-0242-0318",
     price: 95.95,
     masterId: "9478a3507589b60ff7a6234a901298ec",
-    count: 99,
-    event: "cart"
+    count: 99
 });
 ```
 
