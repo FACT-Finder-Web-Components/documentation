@@ -1,24 +1,26 @@
 ## Overview
-The simplest way of using a sortbox, is to simply use the default settings.
-This will display all sort options defined in the FACT-Finder backend as a dropdown.
+You can choose from two different kinds of sortboxes. The `ff-sortbox-select` is a native HTML `select` element. 
+The `ff-sortbox` is a custom-built dropdown element. Both can be used with or without customization.
+
+## Native HTML select
+The code below will display a native HTML `select`. The template specified through the `data-template` attribute is 
+optional. It will default to `<option>{{description}}</option>` if not present.
+
 ```html
-<ff-sortbox></ff-sortbox>
+<ff-sortbox-select>
+    <option data-template>Sort by: {{description}}</option>
+</ff-sortbox-select>
 ```
 
-If you want the dropdown of the sortbox to collapse when you click outside of it, add the attribute
-` collapse-onblur="true"` to it.
-```html
-<ff-sortbox collapse-onblur="true"></ff-sortbox>
-```
+## Custom-built dropdown
+Simply adding `<ff-sortbox></ff-sortbox>` to your page will add a custom-built HTML dropdown containing all criteria
+defined in the FACT-Finder backend. With the `key` attribute you can define different templates for these options.
 
-## Custom templates
-With the `key` property on a `ff-sortbox-item`, you can define different
-templates for the sortbox keys.
+Use `"default.template"` as the key to define a default template for all options.
 
-Use "default.template" as the key to define a template for all keys.
-You can also define a special template for a specific key, for example <b>Price.asc</b>.
+You can also define a special template for a specific option, for example `"Price.asc"`. The key is assembled from
+the sort option name and the sort direction (asc/desc).
 
-The key is assembled from the sort option name and the sort direction (asc/desc).
 Inside the `ff-sortbox-item`, you can access the sort option name with `{{description}}`.
 ```html
 <ff-sortbox collapse-onblur="true">
@@ -44,7 +46,7 @@ Inside the `ff-sortbox-item`, you can access the sort option name with `{{descri
 </ff-sortbox>
 ```
 
-## Show-selected/show-selected-first
+### Show-selected/show-selected-first
 With the `show-selected="true"` property, the selected sort option is part of the
 available options in the dropdown list (default is false).
 
