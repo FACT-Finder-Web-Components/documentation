@@ -1,4 +1,4 @@
-import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import {PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@polymer/paper-toggle-button/paper-toggle-button.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 import '@polymer/paper-dropdown-menu/paper-dropdown-menu.js';
@@ -13,7 +13,7 @@ import '@polymer/marked-element/marked-element.js';
 import '../shared-styles.js';
 import '../my-icons.js';
 import '@polymer/iron-icon/iron-icon.js';
-import { html } from '@polymer/polymer/lib/utils/html-tag.js';
+import {html} from '@polymer/polymer/lib/utils/html-tag.js';
 
 class DownloadView extends PolymerElement {
     static get template() {
@@ -134,8 +134,8 @@ class DownloadView extends PolymerElement {
                          </span>
                     </p>
 
-                    If you are looking for older versions please check out our
-                    <a href="https://github.com/FACT-Finder-Web-Components">Github repository</a>.
+                    <!--If you are looking for the latest version please check out our
+                    <a href="https://github.com/FACT-Finder-Web-Components">Github repository</a>.-->
                 </div>
             </div>
         </section>
@@ -145,7 +145,7 @@ class DownloadView extends PolymerElement {
                 <span style="margin-right: 10px;vertical-align: middle"><b>Version:</b></span>
                 <paper-dropdown-menu>
                     <paper-listbox slot="dropdown-content" selected="0" on-selected-item-changed="_selectedVersionChanged">
-                        <template is="dom-repeat" items="{{versions}}">
+                        <template is="dom-repeat" items="{{versions}}" sort="compareVersions" >
                             <paper-item data-api-name\$="{{item}}">v.{{item}}</paper-item>
                         </template>
                     </paper-listbox>
@@ -359,6 +359,14 @@ class DownloadView extends PolymerElement {
         setTimeout(() => {
             this._fetchVersions();
         }, 100);
+    }
+
+    compareVersions(a, b) {
+        return this.parseVersion(a) < this.parseVersion(b) ? 1 : -1;
+    }
+
+    parseVersion(version) {
+        return version.replace(/\D+/gm, '.').match(/[^.]+/g).map(e => e.padStart(3, '0')).join('');
     }
 
     _computeMarkdownFilePath(model) {

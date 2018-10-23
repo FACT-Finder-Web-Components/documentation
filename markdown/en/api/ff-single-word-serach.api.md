@@ -3,7 +3,7 @@ ___
 ### Events
 | Name | Description |
 | ---- | ----------- |
-|**dom-updated**| Fired every time the element is re rendered. |
+| **dom-updated** | Fired every time the element is re rendered. |
 
 ## `ff-single-word-search-record`
 ___
@@ -15,4 +15,4 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-|**clone()**| Allows the cloning of elements including all attributes, behaviors, private fields, states and HTML templates. |
+| **clone** | Return a deep copy of the contained elements including all properties, behaviors, private fields, states and HTML templates. |
