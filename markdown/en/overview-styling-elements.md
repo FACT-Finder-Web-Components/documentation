@@ -48,11 +48,13 @@ To overwrite the default styles the following code can be used:
 
 It is important, that the style element possesses the property &quot;is&quot; with the value &quot;custom-style&quot;.
 
-## Prevent FOUC (Flash Of Unstyled Content)
-In browsers where Web Components are not natively supported you might encounter ugly flash of unstyled content on page load. 
-To prevent this we added a __remove unresolved attribute behavior__ to all elements with an visual component (e.g. ff-record-list, ff-asn and so on).
-Just annotate all elements which are shown immediately on page load with the __\[unresolved\]__  attribute. 
-In Addition add the following CSS rule on top of the page before the appearance of your  custom elements:
+## Prevent Flash Of Unstyled Content (FOUC)
+In browsers that do not yet natively support Web Components you might encounter unappealing flashes of unstyled content 
+on page load. To prevent this we added a __remove unresolved attribute behavior__ to all elements with an visual 
+component (e.g. ff-record-list, ff-asn and so on). Just annotate all Web Components that are shown on page load with the
+`[unresolved]` attribute. Furthermore, add the following CSS rule at the beginning of the page before the Web 
+Components.
+
 ```html
 <style>
     [unresolved] {
@@ -61,7 +63,8 @@ In Addition add the following CSS rule on top of the page before the appearance 
 </style>
 ```
 
-Full example would look like: 
+Full example:
+ 
 ```html
 <style>
     [unresolved] {
@@ -74,7 +77,8 @@ Full example would look like:
 </ff-record-list>
 ```
 
-**NOTE:** This behavior was released with version 1.0.8 and is therefore not supported in 1.0.0!
+**NOTE:** This behavior was released in version 1.0.8 and is therefore not supported in 1.0.0!
 
 
-To check if you are already using version 1.0.8 type: `factfinder.communication.version` in your browser console -> undefined means you are not using 1.0.8
+To check if you are already using version 1.0.8 type: `factfinder.communication.version` in your browser console 
+-> undefined means you are not using 1.0.8.
