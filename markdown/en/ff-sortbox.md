@@ -1,11 +1,10 @@
 ## Overview
-The sortbox lets a user sort products by the criteria defined in the FACT-Finder backend. We provide two different
-kinds of sortboxes you can choose from. The `ff-sortbox-select` is a native HTML `select` element.
-The `ff-sortbox` is a custom build dropdown element. Both can be used out of the box or customized to your special needs.
+You can choose from two different kinds of sortboxes. The `ff-sortbox-select` is a native HTML `select` element. 
+The `ff-sortbox` is a custom-built dropdown element. Both can be used with or without customization.
 
 ## Native HTML select
-The code below will display a native HTML `select`. The template specified through the `data-template` attribute is optional.
-It will default to `<option>{{description}}</option>` if not present.
+The code below will display a native HTML `select`. The template specified through the `data-template` attribute is 
+optional. It will default to `<option>{{description}}</option>` if not present.
 
 ```html
 <ff-sortbox-select>
@@ -13,11 +12,11 @@ It will default to `<option>{{description}}</option>` if not present.
 </ff-sortbox-select>
 ```
 
-## Custom build dropdown
-Simple adding `<ff-sortbox></ff-sortbox>` to your page will add a custom build HTML dropdown containing all criteria
-defined in the FACT-Finder backend. With the `key` attribute you can define different templates for the options.
+## Custom-built dropdown
+Simply adding `<ff-sortbox></ff-sortbox>` to your page will add a custom-built HTML dropdown containing all criteria
+defined in the FACT-Finder backend. With the `key` attribute you can define different templates for these options.
 
-Use `"default.template"` as the key to define a template for all options.
+Use `"default.template"` as the key to define a default template for all options.
 
 You can also define a special template for a specific option, for example `"Price.asc"`. The key is assembled from
 the sort option name and the sort direction (asc/desc).

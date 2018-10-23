@@ -1,9 +1,9 @@
 ## Overview
-Products per page lets the user set how many products per page he wants to look at. The available options are
-predefined in the FACT-Finder backend. We provide three different kinds of element you can choose from.
+This element lets the user set the number of products shown per page. The available options are
+predefined in the FACT-Finder backend. We provide three different kinds of elements you can choose from.
 The `ff-products-per-page-select` is a native HTML `select` element. The `ff-products-per-page` is a
-custom build dropdown element. `ff-products-per-page-list` shows all options as list next to each other.
-All three can be used out of the box or customized to your special needs.
+custom-built dropdown element. And `ff-products-per-page-list` shows all options in a horizontal list next to each other.
+All three elements can be used with or without additional customization.
 
 ## Native HTML select
 The code below will display a native HTML `select`. The template specified through the `data-template` attribute is optional.
@@ -15,7 +15,7 @@ It will default to `<option>{{value}}</option>` if not present.
 </ff-products-per-page-select>
 ```
 
-## Custom build dropdown
+## Custom-built dropdown
 Adding `<ff-products-per-page-dropdown></ff-products-per-page-dropdown>` to your page works right out of the box.
 
 You can style the items of the dropdown with the `ff-products-per-page-item` inside a dropdown element.
@@ -32,7 +32,7 @@ The `show-selected="true"` property on a dropdown adds the selected option to th
 ```
 
 ### Collapse-onblur
-With the `collapse-onblur="true"` attribute set, the dropdown collapses when you click somewhere else (default is "false").
+With the `collapse-onblur="true"` attribute set, the dropdown collapses when it loses focus. The default value is "false".
 
 ```html
 <ff-products-per-page-dropdown collapse-onblur="true"></ff-products-per-page-dropdown>
