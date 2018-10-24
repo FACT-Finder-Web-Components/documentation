@@ -1,12 +1,14 @@
-### Which components do support image binding
+### Which components support image binding
 The following components support image binding: `ff-suggest-item`, `ff-asn-group-element`
 
-### Understanding the image binding
-Per default `src="{{image}}"` will be added to all children of an image binding element, which have a `data-image` attribute.
-**Note** that we take care for you, that the `src` attribute is not added before the data binding is available.
- Specifying `src="{{image}}"` directly in the template could lead to invalid requests.
+ ### Understanding image binding
+By default `src="{{image}}"` will be added to all children of an image binding element, that have a `data-image` 
+attribute. 
+
+**Note** that the `src` attribute will only be added once data binding is available.
+Using `src="{{image}}"` directly in the template could lead to invalid requests.
  
-For example the following suggest would show the image, which is defined for the suggested product in your FACT-Finder:
+For example, this `ff-suggest` would show the suggested product's image:
 ```html
 <ff-suggest>
     <section class="productsContainer">
@@ -17,10 +19,10 @@ For example the following suggest would show the image, which is defined for the
 </ff-suggest>
 ``` 
 
-You can overwrite the default binding through providing a value for the `data-image` attribute. For example: 
+You can overwrite the default binding by providing a value for the `data-image` attribute.
 ```html
 <img width="100" height="100" data-image="http://your-custom-image-server/{{attributes.articleNr}}" />
 ```
 
-See the [API tab](/api/ImageBindingBehavior#tab=api) for further supported attributes on image binding elements.
+Check out the [API tab](/api/ImageBindingBehavior#tab=api) for further supported attributes on image binding elements.
 

@@ -49,7 +49,7 @@ are found for this type.
 
 In addition you need to add a `ff-suggest-item` element inside the
 container. All received suggestions of this `"suggestType"` are inserted
-at this position and will be an exact copy of this element. `ff-suggest-item` does support [image binding](api/ImageBindingBehavior#tab=docs).
+at this position and will be an exact copy of this element. `ff-suggest-item` supports [image binding](api/ImageBindingBehavior#tab=docs).
 
 Repeat this process for all configured `"suggestTypes"`.
 

@@ -149,7 +149,7 @@ not matter. The element is removed from the DOM and saved for later usage.
 The `{{data-binding}}` for the `ff-asn-group-element` allows accessing
 both scopes - the `{{element}}` scope and the `{{group}}` scope. This is
 especially important if you want to display the unit which is configured
-on the server side. In addition `ff-asn-group-element` does support [image binding](api/ImageBindingBehavior#tab=docs).
+on the server side. In addition, `ff-asn-group-element` does support [image binding](api/ImageBindingBehavior#tab=docs).
 
 ## Adding filter elements
 A common After Search Navigation group consists of two basic parts. The
