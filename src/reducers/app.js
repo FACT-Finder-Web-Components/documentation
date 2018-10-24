@@ -10,7 +10,7 @@ const app = (state = {drawerOpened: false}, action) => {
                 ...state,
                 page: action.page,
                 subpage: action.subpage,
-                tab: action.tab
+                tab: action.tab || "docs"
             };
         case UPDATE_DRAWER_STATE:
             return {
