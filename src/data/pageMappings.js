@@ -1,6 +1,7 @@
 import api from "./api";
 import documentation from "./guides";
 
+import { createPageInfo } from "./pageHelper";
 import { IsDefinedFunctor } from "../util/functors";
 
 
@@ -24,11 +25,6 @@ export function tryGetSubpage(page, subpage) {
         : IsDefinedFunctor(getSubpageSuggestion(subpage));
 }
 
-export function hasMovedModifier(page, newSubpageData) {
-    return createPageInfo(page, newSubpageData, { hasMoved: true });
-}
-
-
 function createPageImportInfo(importTargetCall, subpages = undefined) {
     return Object.freeze({
         importTarget: importTargetCall,
@@ -49,14 +45,4 @@ function getSubpageSuggestion(subpage) {
 
 function createSubpageSuggestion(page, subpageData) {
     return createPageInfo(page, subpageData, { isSuggestion: true });
-}
-
-
-function createPageInfo(page, subpageData, meta) {
-    return Object.freeze({
-        page,
-        // page might get overwritten here. this is ok, because subpageData is likely to come from a config file which shall have priority
-        ...subpageData,
-        ...meta
-    });
 }
