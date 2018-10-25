@@ -232,7 +232,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
         this.filePath = `markdown/${this.language}/${fileName}.md`;
         this.dokuTitle = this.data.pages[fileName].title;
 
-        if (fileName.startsWith("ff")) {//most ff-* pages have a demo
+        if (fileName.startsWith("ff") || fileName.endsWith("Behavior")) {
             this.showTabs = true;
             this.apiPath = "markdown/" + this.language + "/api/" + fileName + ".api.md";
             this.githubPath = config.githubDemosBasePath + fileName + "/index.html";

@@ -122,6 +122,11 @@ const api = {
             title: "Middleware",
             noDemo: true
         },
+        "ImageBindingBehavior": {
+            path: "ImageBindingBehavior",
+            title: "Image binding",
+            noDemo: true
+        },
 
 
         // --- obsolete pages ---
@@ -187,6 +192,7 @@ api.moreFeatures = [
     api.pages["ff-tag-cloud"],
     api.pages["ff-template"],
     api.pages["ff-middleware"],
+    api.pages["ImageBindingBehavior"],
 ];
 
 export default api;

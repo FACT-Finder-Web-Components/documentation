@@ -49,7 +49,7 @@ are found for this type.
 
 In addition you need to add a `ff-suggest-item` element inside the
 container. All received suggestions of this `"suggestType"` are inserted
-at this position and will be an exact copy of this element.
+at this position and will be an exact copy of this element. `ff-suggest-item` supports [image binding](api/ImageBindingBehavior#tab=docs).
 
 Repeat this process for all configured `"suggestTypes"`.
 
@@ -61,7 +61,8 @@ Repeat this process for all configured `"suggestTypes"`.
             <div>
                 <!--ff-suggest-items are always added at the original postion of the template-->
                 <ff-suggest-item type="suggestType">
-                    <span>{{{name}}}</span>
+                    <div>{{{name}}}</div>
+                    <img width="100" height="100" data-image />
                 </ff-suggest-item>
             </div>
         </div>
