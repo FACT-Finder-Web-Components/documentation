@@ -1,8 +1,7 @@
-import { hasMovedModifier } from "./pageMappings";
 import documentation from "./guides";
+import { hasMovedModifier } from "./pageHelper";
 
 // api are the pages under the "API" tab
-
 const api = {
     pages: {
         "core-result-dispatcher": {
