@@ -9,6 +9,7 @@ const app = (state = {drawerOpened: false}, action) => {
             return {
                 ...state,
                 page: action.page,
+                version: action.version,
                 subpage: action.subpage,
                 tab: action.tab
             };
