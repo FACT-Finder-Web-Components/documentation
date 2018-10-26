@@ -9,17 +9,22 @@
  */
 
 import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
+import '@polymer/paper-listbox/paper-listbox.js';
+import '@polymer/paper-item/paper-item.js';
+import '@polymer/paper-dropdown-menu/paper-dropdown-menu.js';
 import '@polymer/marked-element/marked-element.js'
 
 import '../shared-styles.js';
 import ViewMixin from "../util/view-mixin";
 import ReduxMixin from "../util/polymer-redux-mixin";
 import guides from "../data/guides";
+import config from "../../config";
 
 class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
     constructor() {
         super();
         this.data = guides;
+        this.allVersions = config.versions;
     }
 
     static get template() {
@@ -37,28 +42,49 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
         width: auto;
         max-width: 100%;
     }
+        
+    .version-selector {
+        padding-left: 20px;    
+    }
+        
+    .version-selector paper-dropdown-menu {
+        width: 60px;
+        margin-left: 20px;
+    }
 </style>
 
 <app-drawer-layout narrow="{{narrow}}">
     <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]" opened="{{drawerOpened}}">
         <div class="panel-menus">
+            <div class="version-selector">
+                <span><b>Version</b></span>
+                <paper-dropdown-menu>
+                    <paper-listbox selected="{{version}}" slot="dropdown-content" attr-for-selected="version">
+                        <template is="dom-repeat" items="[[allVersions]]">
+                            <paper-item version="[[item.version]]">
+                                <a style="text-decoration: none; color: black;" href="[[rootPath]]documentation/[[item.version]]/[[subpage]]">{{item.displayName}}</a>
+                            </paper-item>
+                        </template>
+                    </paper-listbox>
+                </paper-dropdown-menu>
+            </div>
             <iron-selector selected="[[subpage]]"
                            attr-for-selected="name"
                            class="drawer-list"
                            role="navigation">
                 <h3>First Steps</h3>
-                <template is="dom-repeat" items="{{data.firstSteps}}">
-                    <a name="{{item.path}}" href="[[rootPath]]documentation/{{item.path}}">{{item.title}}</a>
+                <template is="dom-repeat" items="{{firstSteps}}">
+                    <a name="{{item.path}}" href="[[rootPath]]documentation/[[version]]/{{item.path}}">{{item.title}}</a>
                 </template>
 
                 <h3>Basics</h3>
-                <template is="dom-repeat" items="{{data.basics}}">
-                    <a name="{{item.path}}" href="[[rootPath]]documentation/{{item.path}}">{{item.title}}</a>
+                <template is="dom-repeat" items="{{basics}}">
+                    <a name="{{item.path}}" href="[[rootPath]]documentation/[[version]]/{{item.path}}">{{item.title}}</a>
                 </template>
 
                 <h3>Additional Features</h3>
-                <template is="dom-repeat" items="{{data.additionalFeatures}}">
-                    <a name="{{item.path}}" href="[[rootPath]]documentation/{{item.path}}">{{item.title}}</a>
+                <template is="dom-repeat" items="{{additionalFeatures}}">
+                    <a name="{{item.path}}" href="[[rootPath]]documentation/[[version]]/{{item.path}}">{{item.title}}</a>
                 </template>
             </iron-selector>
         </div>
@@ -81,7 +107,12 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
             subpage: {
                 type: String,
                 statePath: 'app.subpage',
-                observer: '_subpageChange'
+                observer: '_pathChanged'
+            },
+            version: {
+                type: String,
+                statePath: 'app.version',
+                observer: '_pathChanged'
             },
             language: {
                 type: String,
@@ -95,12 +126,16 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
         };
     }
 
-    _subpageChange(newSubpage) {
+    _pathChanged(newSubpage) {
         if (!this.isActiveView()) {
             return;
         }
 
-        this.filePath = "markdown/" + this.language + "/documentation/" + newSubpage + ".md";
+        this.firstSteps = this.data.firstSteps[this.version];
+        this.basics = this.data.basics[this.version];
+        this.additionalFeatures = this.data.additionalFeatures[this.version];
+
+        this.filePath = `markdown/${this.language}/${this.version}/documentation/${this.subpage}.md`;
     }
 }
 

@@ -10,6 +10,9 @@
 
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@polymer/marked-element/marked-element.js'
+import '@polymer/paper-listbox/paper-listbox.js';
+import '@polymer/paper-item/paper-item.js';
+import '@polymer/paper-dropdown-menu/paper-dropdown-menu.js';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
 
@@ -23,6 +26,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
     constructor() {
         super();
         this.data = api;
+        this.allVersions = config.versions;
     }
 
     static get template() {
@@ -69,11 +73,35 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
     img {
         width: 100%;
     }
+    
+    .version-selector {
+        padding-left: 20px;    
+    }
+    
+    .version-selector paper-dropdown-menu {
+        width: 60px;
+        margin-left: 20px;
+    }
+    
 </style>
 
 <app-drawer-layout narrow="{{narrow}}">
     <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]" opened="{{drawerOpened}}">
         <div class="panel-menus">
+            <div class="version-selector">
+                <span><b>Version</b></span>
+                <paper-dropdown-menu>
+                    <paper-listbox selected="{{version}}" slot="dropdown-content" attr-for-selected="version">
+                        <template is="dom-repeat" items="[[allVersions]]">
+                            <paper-item version="[[item.version]]">
+                                <a style="text-decoration: none; color: black;" href="[[rootPath]]api/[[item.version]]/[[subpage]]#tab=[[activeTab]]">
+                                    {{item.displayName}}
+                                </a>
+                            </paper-item>
+                        </template>
+                    </paper-listbox>
+                </paper-dropdown-menu>
+            </div>
             <iron-selector id="pageSelector"
                            selected="[[subpage]]"
                            attr-for-selected="name"
@@ -81,23 +109,23 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
                            role="navigation">
 
                 <h3>Core API</h3>
-                <template is="dom-repeat" items="{{data.core}}">
-                    <a name="{{item.path}}" href="[[rootPath]]api/{{item.path}}">{{item.title}}</a>
+                <template is="dom-repeat" items="{{core}}">
+                    <a name="{{item.path}}" href="[[rootPath]]api/[[version]]/{{item.path}}">{{item.title}}</a>
                 </template>
 
                 <h3>Basic Elements</h3>
-                <template is="dom-repeat" items="{{data.basics}}">
-                    <a name="{{item.path}}" href="[[rootPath]]api/{{item.path}}">{{item.title}}</a>
+                <template is="dom-repeat" items="{{basics}}">
+                    <a name="{{item.path}}" href="[[rootPath]]api/[[version]]/{{item.path}}">{{item.title}}</a>
                 </template>
 
                 <h3>Navigation</h3>
-                <template is="dom-repeat" items="{{data.navigation}}">
-                    <a name="{{item.path}}" href="[[rootPath]]api/{{item.path}}">{{item.title}}</a>
+                <template is="dom-repeat" items="{{navigation}}">
+                    <a name="{{item.path}}" href="[[rootPath]]api/[[version]]/{{item.path}}">{{item.title}}</a>
                 </template>
 
                 <h3>More Features</h3>
-                <template is="dom-repeat" items="{{data.moreFeatures}}">
-                    <a name="{{item.path}}" href="[[rootPath]]api/{{item.path}}">{{item.title}}</a>
+                <template is="dom-repeat" items="{{moreFeatures}}">
+                    <a name="{{item.path}}" href="[[rootPath]]api/[[version]]/{{item.path}}">{{item.title}}</a>
                 </template>
             </iron-selector>
         </div>
@@ -151,7 +179,12 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
             subpage: {
                 type: String,
                 statePath: 'app.subpage',
-                observer: '_subpageChange'
+                observer: '_pathChanged'
+            },
+            version: {
+                type: String,
+                statePath: 'app.version',
+                observer: '_pathChanged'
             },
             activeTab: {
                 type: String,
@@ -169,21 +202,21 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
             },
             hasNoApiTab: {
                 type: Boolean,
-                computed: 'hasNoApi(subpage, data)'
+                computed: 'hasNoApi(version, subpage, data)'
             },
             hasNoDemoTab: {
                 type: Boolean,
-                computed: 'hasNoDemo(subpage, data)'
+                computed: 'hasNoDemo(version, subpage, data)'
             }
         }
     }
 
-    hasNoApi(pageName, data) {
-        return pageName && data && data.pages && data.pages[pageName] && data.pages[pageName].noApi;
+    hasNoApi(version, pageName, data) {
+        return pageName && data && data.pages && data.pages[version] && data.pages[version][pageName] && data.pages[version][pageName].noApi;
     }
 
-    hasNoDemo(pageName, data) {
-        return pageName && data && data.pages && data.pages[pageName] && data.pages[pageName].noDemo;
+    hasNoDemo(version, pageName, data) {
+        return pageName && data && data.pages && data.pages[version] && data.pages[version][pageName] && data.pages[version][pageName].noDemo;
     }
 
     connectedCallback() {
@@ -223,25 +256,32 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
         });
     }
 
-    _subpageChange(newSubpage) {
+    _pathChanged() {
         if (!this.isActiveView()) {
             return;
         }
 
-        const fileName = newSubpage;
+        const fileName = this.subpage;
 
-        this.filePath = `markdown/${this.language}/${fileName}.md`;
-        this.dokuTitle = this.data.pages[fileName].title;
+        this.filePath = `markdown/${this.language}/${this.version}/${fileName}.md`;
+        this.dokuTitle = this.data.pages[this.version][fileName].title;
 
         if (fileName.startsWith("ff")) {//most ff-* pages have a demo
             this.showTabs = true;
-            this.apiPath = "markdown/" + this.language + "/api/" + fileName + ".api.md";
+            this.apiPath = `markdown/${this.language}/${this.version}/api/${fileName}.api.md`;
             this.githubPath = config.githubDemosBasePath + fileName + "/index.html";
+            //this.githubPath = `${config.githubDemosBasePath}${version}/${fileName}/index.html;
         } else {
             // do not trigger a new load request for api and github path when not an ff element,
             // instead, simply hide tabs
             this.showTabs = false;
         }
+
+        this.core = this.data.core[this.version];
+        this.basics = this.data.basics[this.version];
+        this.navigation = this.data.navigation[this.version];
+        this.moreFeatures = this.data.moreFeatures[this.version];
+
         window.scrollTo(0, 0);
     }
 
