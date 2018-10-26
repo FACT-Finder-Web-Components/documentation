@@ -15,8 +15,9 @@ export const pageImportInfoCollection = Object.freeze({
     search: createPageImportInfo(() => import("../views/search-view.js")),
 });
 
-export function tryGetSubpage(page, subpage) {
-    const ftor = IsDefinedFunctor(pageImportInfoCollection[page])
+export function tryGetSubpage(version, page, subpage) {
+    const ftor = IsDefinedFunctor(pageImportInfoCollection[version])
+        .map(pages => pages[page])
         .map(pageInfo => pageInfo.subpages && pageInfo.subpages[subpage]);
 
     return ftor.valueOf()
@@ -37,13 +38,13 @@ function createPageImportInfo(importTargetCall, subpages = undefined) {
     });
 }
 
-function getSubpageSuggestion(subpage) {
-    if (api.pages[subpage]) {
-        return createSubpageSuggestion(`api`, api.pages[subpage]);
+function getSubpageSuggestion(version, subpage) {
+    if (api.pages[version] && api.pages[version][subpage]) {
+        return createSubpageSuggestion(`api`, api.pages[version][subpage]);
     }
 
-    if (documentation.pages[subpage]) {
-        return createSubpageSuggestion(`documentation`, documentation.pages[subpage]);
+    if (documentation.pages[version] && documentation.pages[version][subpage]) {
+        return createSubpageSuggestion(`documentation`, documentation.pages[version][subpage]);
     }
 }
 
