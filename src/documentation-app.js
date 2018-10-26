@@ -148,10 +148,10 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
                         <a name="home" href="[[rootPath]]home">Home</a>
                     </paper-tab>
                     <paper-tab name="api">
-                        <a name="api" href="[[rootPath]]api/ff-searchbox">API</a>
+                        <a name="api" href="[[rootPath]]api/[[latestVersion]]/ff-searchbox">API</a>
                     </paper-tab>
                     <paper-tab name="documentation">
-                        <a name="documentation" href="[[rootPath]]documentation/install-dist">Documentation</a>
+                        <a name="documentation" href="[[rootPath]]documentation/[[latestVersion]]/install-dist">Documentation</a>
                     </paper-tab>
                     <paper-tab name="download">
                         <a name="download" href="[[rootPath]]download">Download</a>
@@ -214,9 +214,10 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
     }
 
     ready() {
+        super.ready();
         installRouter((location) => this.dispatch(navigate(window.decodeURIComponent(location.pathname), location.hash)));
         this.downloadToolUrl = config.downloadToolUrl;
-        super.ready();
+        this.latestVersion = config.versions[0].version;
     }
 
 }
