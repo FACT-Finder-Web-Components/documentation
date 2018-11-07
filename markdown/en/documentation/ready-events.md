@@ -27,7 +27,7 @@ If you are listening to the `ffReady` event it's guaranteed that your callback i
 ```
 
 ### WebComponentsReady
-The `WebComponentsReady` event is fired if all custom elements are ready to use.
+The `WebComponentsReady` event is fired if all FACT-Finder Web Components are ready to use.
 
 **What does that mean?**
 

@@ -5,7 +5,7 @@ This chapter describes the minimal configuration necessary to search and retriev
 
 ### A minimal configuration consists of the following settings:
 
-#### **url**
+#### **URL**
 Specify the FACT-Finder endpoint. Please note the context name `/FACT-Finder-7.2`. It is not sufficient to provide the top-level domain like `http://web-components.fact-finder.de/` which will result in an error.
 
 **Note:** Make sure you are using the same protocol (http://, https://) for the `url` setting and webapp. Using `url="http://web-components.fact-finder.de/FACT-Finder-7.2"` on a page hosted via **HTTPS** will result in an error.
@@ -45,7 +45,7 @@ We recommend placing the `ff-communication` element immediately after the `body`
 ```
 
 #### **search-immediate**
-The `search-immediate` attribute ensures, that a search is automatically triggered as soon as `ff-communication` was successfully attached to the DOM. The triggered search request uses the current URL parameters in conjunction with the settings provided by `ff-communication`-attributes. If no search query is provided through the url or an attribute `*` will be used as default (search for all products). 
+The `search-immediate` attribute ensures, that a search is automatically triggered as soon as `ff-communication` was successfully attached to the DOM. The triggered search request uses the current URL parameters in conjunction with the settings provided by `ff-communication`-attributes. If no search query is provided through the URL or an attribute `*` will be used as default (search for all products). 
 
 **NOTE**
 

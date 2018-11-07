@@ -4,7 +4,7 @@ FACT-Finder.
 You can take a look at all available bindings by opening your browsers **Dev Tools** (__Press F12
 Key__) and navigating to the **Network** tab. Filtering by **XHR** makes things easier.
  
-Now invoke the search, two xhr requests will appear. The second one is the one we are looking for. Click the request url,
+Now invoke the search, two xhr requests will appear. The second one is the one we are looking for. Click the request URL,
  a second window on the right will appear. Navigate to the **Preview** tab to see the data as a JSON tree.
  
 ![dev_tools_json7.PNG](../../images/templateEngine/dev_tools_json7.PNG "slots")

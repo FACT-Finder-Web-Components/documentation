@@ -5,7 +5,7 @@ The possible values a record can have are defined in the FF-backend and are the 
 
 ## Adding the image
 To display the image you can use the `[data-image]` attribute. Just add as attribute value the `{{data-binding}}` according to
-your data feed. In the example above the image url field is named ImageName.
+your data feed. In the example above the image URL field is named ImageName.
 In Addition you can add an error image which is displayed if the data-image can't be loaded.
 Add the error image by annotating the img tag with the `[data-image-onerror="urlToErrorImage"]`.
 

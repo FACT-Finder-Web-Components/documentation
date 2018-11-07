@@ -28,7 +28,7 @@ ___
 ### Properties
 | Name | Description |
 |----|-----------|
-| **url**&nbsp;(String) &nbsp;(default: empty) | Your FACT-Finder URL. Please note that the url has to contain the FACT-Finder context name like: http://web-components.fact-finder.de/FACT-Finder-7.2/ |
+| **url**&nbsp;(String) &nbsp;(default: empty) | Your FACT-Finder URL. Please note that the URL has to contain the FACT-Finder context name like: http://web-components.fact-finder.de/FACT-Finder-7.2/ |
 | **version**&nbsp;(String)&nbsp;(default: empty) | Your FACT-Finder version. Only major and minor version like "7.2" |
 | **channel**&nbsp;(String)&nbsp;(default: empty) | Your channel name. Has to be the same as the channel name configured in the FACT-Finder backend. |
 | **search-immediate**&nbsp;(Boolean) | If this property is present, Web Components will start searching as soon as they are loaded. |
@@ -50,19 +50,19 @@ ___
 | **use-personalization**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | Allows activating/deactivating of request personalization. true = the search result is personalized if the personalization module is active and all other requirements are met; false = the search result is not personalized. |
 | **use-semantic-enhancer**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | Allows activating/deactivating of the semantic enrichment of requests. true = the search result is semantically enriched if the enhanced module is activated and all other requirements are met, false = the search result is not semantically enriched. |
 | **use-aso**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | Allows activating/deactivating of automated search optimization. true = the search result is automatically optimized. false = the search result is not optimized. |
-| **use-browser-history**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true")| If set to true, the search history is pushed to the browser history, even without using url parameter. |
+| **use-browser-history**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true")| If set to true, the search history is pushed to the browser history, even without using URL parameter. |
 | **sid**&nbsp;(String) **any** | If set, the value provided in this property is used in every request as FACT-Finder session id parameter (sid). |
 | **use-seo**&nbsp;(String)**Options**: &nbsp;"true", &nbsp;"false" (default: "false") |If set to true, Web Components will use the FACT-Finder SEO API. Set this only to true if the module is active in FACT-Finder. |
 | **seo-prefix**&nbsp;(String)&nbsp;(default: "") | The seo-prefix is used to show a piece of path between your domain the actual seo-path. E.g. domain.com/prefix/seoPath |
-| **search-url**&nbsp;(String) | Define a custom url for the Search Service. Example: `search-url="http://www.myproxy.de/services"` Omit the `Search.ff` in the url. |
-| **suggest-url**&nbsp;(String) | Define a custom url for the Suggest Service. Example: `suggest-url="http://www.myproxy.de/services"` Omit the `Suggest.ff` in the url. |
-| **recommendation-url**&nbsp;(String) | Define a custom url for the Recommender Service. Example: `recommendation-url="http://www.myproxy.de/services"` Omit the `Recommender.ff` in the url. |
-| **tag-cloud-url**&nbsp;(String) | Define a custom url for the TagCloud Service. Example: `tag-cloud-url="http://www.myproxy.de/services"` Omit the `TagCloud.ff` in the url. |
-| **tracking-url**&nbsp;(String) | Define a custom url for the Tracking Service. Example: `tracking-url="http://www.myproxy.de/services"` Omit the `Tracking.ff` in the url. |
-| **campaign-url**&nbsp;(String) | Define a custom url for the ProductCampaign Service. Example: `campaign-url="http://www.myproxy.de/services"` Omit the `ProductCampaign.ff` in the url. |
-| **compare-url**&nbsp;(String) | Define a custom url for the Compare Service. Example: `compare-url="http://www.myproxy.de/services"` Omit the `Compare.ff` in the url. |
-| **similar-records-url**&nbsp;(String) | Define a custom url for the SimilarRecords.ff Service. Example: `similar-records-url="http://www.myproxy.de/services"` Omit the `SimilarRecords.ff` in the url. |
-| **get-records-url**&nbsp;(String) | Define a custom url for the records api Service. Example: `get-records-url="http://www.myproxy.de/services"` |
+| **search-url**&nbsp;(String) | Define a custom URL for the Search Service. Example: `search-url="http://www.myproxy.de/services"` Omit the `Search.ff` in the url. |
+| **suggest-url**&nbsp;(String) | Define a custom URL for the Suggest Service. Example: `suggest-url="http://www.myproxy.de/services"` Omit the `Suggest.ff` in the URL. |
+| **recommendation-url**&nbsp;(String) | Define a custom URL for the Recommender Service. Example: `recommendation-url="http://www.myproxy.de/services"` Omit the `Recommender.ff` in the URL. |
+| **tag-cloud-url**&nbsp;(String) | Define a custom URL for the TagCloud Service. Example: `tag-cloud-url="http://www.myproxy.de/services"` Omit the `TagCloud.ff` in the URL. |
+| **tracking-url**&nbsp;(String) | Define a custom URL for the Tracking Service. Example: `tracking-url="http://www.myproxy.de/services"` Omit the `Tracking.ff` in the URL. |
+| **campaign-url**&nbsp;(String) | Define a custom URL for the ProductCampaign Service. Example: `campaign-url="http://www.myproxy.de/services"` Omit the `ProductCampaign.ff` in the URL. |
+| **compare-url**&nbsp;(String) | Define a custom URL for the Compare Service. Example: `compare-url="http://www.myproxy.de/services"` Omit the `Compare.ff` in the URL. |
+| **similar-records-url**&nbsp;(String) | Define a custom URL for the SimilarRecords.ff Service. Example: `similar-records-url="http://www.myproxy.de/services"` Omit the `SimilarRecords.ff` in the URL. |
+| **get-records-url**&nbsp;(String) | Define a custom URL for the records api Service. Example: `get-records-url="http://www.myproxy.de/services"` |
 | **ignore-page**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | If you want to omit the page parameter on pagination requests just set this attribute to true. Normally you want to use this attribute in conjunction with the `ff-record-list` `lazy-load` functionality. |
 | **currency-code**&nbsp;(String) | [Currency Guide](/documentation/currency-guide) |
 | **currency-country-code**&nbsp;(String) | [Currency Guide](/documentation/currency-guide) |

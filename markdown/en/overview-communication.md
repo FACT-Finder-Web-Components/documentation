@@ -29,7 +29,7 @@ The following image illustrates the 5 steps to enrich search response with lates
        
 #### 1. Ajax Request
 When the user interacts with the search result page a Ajax Request is made at certain points. This Ajax Requests needs 
-now to be made to the shop system now. Change the url settings in `ff-communication` element.
+now to be made to the shop system now. Change the URL settings in `ff-communication` element.
 
 ```html
 <ff-communication url="http://your.factfinder.com/FACT-Finder">
@@ -51,7 +51,7 @@ The URL will always follow this pattern:
     `[protocol]://[domain + port]/[APP-Name]/[API-Name].ff?[HTTP-Params]`
     
 So basically all you need to do is strip everything before the API-Name away and replace it by the
-    original FACT-Finder URL. Taking the URLs from Step 1. one the url changes would like:
+    original FACT-Finder URL. Taking the URLs from Step 1. one the URL changes would like:
 
     `http://your.shop-endpoint.com/FACT-Finder-Endpoint/Search.ff?query=shoe&channel=shoeshop_en`
     `http://your.factfinder.com/FACT-Finder/Search.ff?query=shoe&channel=shoeshop_en`
