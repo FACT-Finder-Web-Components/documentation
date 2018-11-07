@@ -15,7 +15,7 @@ and iterate over each `ff-record` to apply the mouse over effect.
 <script>
     // Hover initializing. Will be called after the elements have been loaded.
     function applyHover() {
-        // add an eventlistener to the ff-record-list event which is called everytime the html content was updated
+        // add an eventlistener to the ff-record-list event which is called everytime the HTML content was updated
         document.querySelector("ff-record-list").addEventListener("dom-updated", function (event) {
             // get the record list from the source attribute of the event callback.
             var ffRecordListElement = event.srcElement;

@@ -48,7 +48,7 @@ You can also set a more complex model and access the data in it with the mustach
 ```
 
 ## Raw HTML
-If you have raw HTML in the data, e.g. configured in the FF-Backend as result for a campaign or campaign feedback, then you can let the renderer insert the raw html with 3 x { instead of 2 times.
+If you have raw HTML in the data, e.g. configured in the FF-Backend as result for a campaign or campaign feedback, then you can let the renderer insert the raw HTML with 3 x { instead of 2 times.
 
 ```html
 <script>

@@ -5,7 +5,7 @@ Because the [/deep/ and ::shadow](https://blog.polymer-project.org/announcements
 style rules are deprecated, [custom properties and mixins](https://www.polymer-project.org/1.0/docs/devguide/styling.html)
 have been introduced in order to pass on styles across the borders of Shadow DOM.
 
-You can find all mixins and custom properties in the documentation or the html files of the individual elements.
+You can find all mixins and custom properties in the documentation or the HTML files of the individual elements.
 
 Example for the internal HTML structure of the ff-paging-item:
 ```html

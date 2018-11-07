@@ -19,7 +19,7 @@ Add the error image by annotating the img tag with the `[data-image-onerror="url
 ```
 
 ## Redirecting to product page
-To redirect to your product you should always rely on the [data-redirect] attribute. You can specify the target with the [data-redirect-target] attribute with all html compliant target values `(_blank|_self|_parent|_top|framename)`
+To redirect to your product you should always rely on the [data-redirect] attribute. You can specify the target with the [data-redirect-target] attribute with all HTML compliant target values `(_blank|_self|_parent|_top|framename)`
 **NOTE**: The `[data-redirect]` attribute combines the **redirect** and the **tracking** request.
 
 ```html

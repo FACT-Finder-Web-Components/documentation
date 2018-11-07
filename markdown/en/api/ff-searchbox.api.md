@@ -62,7 +62,7 @@ ___
 | **campaign-url**&nbsp;(String) | Define a custom URL for the ProductCampaign Service. Example: `campaign-url="http://www.myproxy.de/services"` Omit the `ProductCampaign.ff` in the URL. |
 | **compare-url**&nbsp;(String) | Define a custom URL for the Compare Service. Example: `compare-url="http://www.myproxy.de/services"` Omit the `Compare.ff` in the URL. |
 | **similar-records-url**&nbsp;(String) | Define a custom URL for the SimilarRecords.ff Service. Example: `similar-records-url="http://www.myproxy.de/services"` Omit the `SimilarRecords.ff` in the URL. |
-| **get-records-url**&nbsp;(String) | Define a custom URL for the records api Service. Example: `get-records-url="http://www.myproxy.de/services"` |
+| **get-records-url**&nbsp;(String) | Define a custom URL for the records API Service. Example: `get-records-url="http://www.myproxy.de/services"` |
 | **ignore-page**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | If you want to omit the page parameter on pagination requests just set this attribute to true. Normally you want to use this attribute in conjunction with the `ff-record-list` `lazy-load` functionality. |
 | **currency-code**&nbsp;(String) | [Currency Guide](/documentation/currency-guide) |
 | **currency-country-code**&nbsp;(String) | [Currency Guide](/documentation/currency-guide) |

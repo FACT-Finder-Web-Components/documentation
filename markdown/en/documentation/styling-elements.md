@@ -3,7 +3,7 @@
 ---
 Web Components can be styled via CSS like regular HTML. Some elements have an internal HTML structure. Because of the style encapsulation of shadow DOM those elements can no longer be reached as usual. Because the [/deep/ and ::shadow](https://blog.polymer-project.org/announcements/2015/12/01/deprecating-deep/) style rules are deprecated, [custom properties and mixins](https://www.polymer-project.org/1.0/docs/devguide/styling.html) have been introduced in order to pass on styles across the borders of shadow DOM.
 
-You can find all mixins and custom properties in the documentation or the html files of the individual elements.
+You can find all mixins and custom properties in the documentation or the HTML files of the individual elements.
 
 Example for the internal HTML structure of the [`ff-paging-item`](api/ff-paging#tab=docs):
 ```html

@@ -133,7 +133,7 @@ See the following example:
 
 <script>
     document.querySelector("ff-suggest").addEventListener("suggest-item-clicked", function (e) {
-        // reference to the html element
+        // reference to the HTML element
         var ffSuggestItem = e.detail.element;
         // reference to data
         var suggestionData = e.detail.suggestion;
