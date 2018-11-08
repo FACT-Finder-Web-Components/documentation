@@ -66,6 +66,6 @@ document.addEventListener("ffReady", function () {
 **NOTE:** You have to replace the right hand side (e.g. BrandFieldName)
 with your own values. If you can't find a way to retrieve the `fieldRoles`
 via the FACT-Finder UI, you can trigger a search on a page that uses
-Web Components and your FACT-Finder instance. Afterwards open the
+FACT-Finder Web Components and your FACT-Finder instance. Afterwards open the
 Browser Dev Tools, navigate to the Console Tab and enter:
 `factfinder.communication.fieldRoles`

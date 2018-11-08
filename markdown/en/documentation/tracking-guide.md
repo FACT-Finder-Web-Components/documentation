@@ -120,4 +120,4 @@ document.addEventListener("ffReady", function () {
             };
         });
 ```
-**NOTE:** You have the replace the right hand side (like `BrandFieldName`) with your own values. If can't find a way to retrieve the field roles via the FACT-Finder UI, you can open a Web Components search page, trigger a search with your own FACT-Finder and afterwards open the Browser Dev Tools, navigate to the `console`  tab and type: `factfinder.communication.fieldRoles` -> Hit enter
+**NOTE:** You have the replace the right hand side (like `BrandFieldName`) with your own values. If can't find a way to retrieve the field roles via the FACT-Finder UI, you can open a FACT-Finder Web Components search page, trigger a search with your own FACT-Finder and afterwards open the Browser Dev Tools, navigate to the `console`  tab and type: `factfinder.communication.fieldRoles` -> Hit enter

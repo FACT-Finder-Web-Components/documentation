@@ -22,7 +22,7 @@ Specify the name of the channel which is used for the search. You can find the a
 
 ---
 
-## Web Components Approach
+## FACT-Finder Web Components Approach
 ```html
 <body>
     <ff-communication url="http://web-components.fact-finder.de/FACT-Finder-7.2"
@@ -40,8 +40,8 @@ Specify the name of the channel which is used for the search. You can find the a
 
 We recommend placing the `ff-communication` element immediately after the `body` tag to reduce the risk of accidental reordering. Furthermore we advise to add a comment explaining this requirement. For example:
 ```html
-<!-- The ff-communication element sets up the FF Web Components and must not be moved!
-     All other FF Web Components must be placed hereafter. -->
+<!-- The ff-communication element sets up the FF FACT-Finder Web Components and must not be moved!
+     All other FF FACT-Finder Web Components must be placed hereafter. -->
 ```
 
 #### **search-immediate**

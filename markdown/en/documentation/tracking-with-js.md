@@ -27,7 +27,7 @@ For more technical information about this class or to get code completion suppor
 at our [ff-core.d.ts](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/dist/ff-core.d.ts) at [Github](https://github.com/FACT-Finder-Web-Components).
 
 ### Retrieving necessary information
-Some information is provided by Web Components and/or FACT-Finder.
+Some information is provided by FACT-Finder Web Components and/or FACT-Finder.
 
 
 #### sid
@@ -100,7 +100,7 @@ track.checkout({
 });
 ```
 
-### Retrieve product information via Web Components
+### Retrieve product information via FACT-Finder Web Components
 If you can't access the necessary field using your shop-system's API,
 you can query FACT-Finder for product information.
 

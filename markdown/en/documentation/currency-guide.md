@@ -1,7 +1,7 @@
 ## Currencies and Number Format
 
 ---
-This guide covers everything to add `Currency Symbols` and `Number Formatting` like `£49.99 or 49,99 €` across all Web Components and related parts.
+This guide covers everything to add `Currency Symbols` and `Number Formatting` like `£49.99 or 49,99 €` across all FACT-Finder Web Components and related parts.
 
 ### (TLDR;)Complete Example Configuration
 
@@ -46,7 +46,7 @@ This configurations adds the currency and all the number formatting to every pri
 ### Under the hood
 
 ---
-Web Components are using the [`Number.toLocaleString()`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function to format all price strings. If you want to format prices not covered by our attributes you can always use this function like:
+FACT-Finder Web Components are using the [`Number.toLocaleString()`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function to format all price strings. If you want to format prices not covered by our attributes you can always use this function like:
 ````javascript
 var currencyCode = factfinder.communication.globalCommunicationParameter.currencyCode;
 var currencyCountryCode = factfinder.communication.globalCommunicationParameter.currencyCountryCode;
@@ -85,7 +85,7 @@ Most of the time `de-DE` and `en-GB` are covering everything needed.
 
 ---
 #### **currency-fields (String)**
-If you are importing multiple price fields like discount prices or something similar it's not sufficient to specify only the `currency-country-code` and the `currency-code`. In order to format additional price fields you have to tell Web Components which fields should be processed. You can do that by setting the `currency-fields` attribute accordingly.  
+If you are importing multiple price fields like discount prices or something similar it's not sufficient to specify only the `currency-country-code` and the `currency-code`. In order to format additional price fields you have to tell FACT-Finder Web Components which fields should be processed. You can do that by setting the `currency-fields` attribute accordingly.  
 
 **Example Usage**
 `<ff-communication currency-fields="discountPrice">`

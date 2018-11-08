@@ -153,7 +153,7 @@ See the following example:
 
 ## On-Click display of product detail page with Records API enabled
 
-If FACT-Finder's Records API is enabled, our Web Components will fetch
+If FACT-Finder's Records API is enabled, our FACT-Finder Web Components will fetch
 the corresponding record of a `ff-suggest-item`, when it is clicked.
 
 `ff-suggest` fires the event `suggest-product-record` when the API

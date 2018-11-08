@@ -1,5 +1,5 @@
 ## Style Encapsulated HTML
-Web Components can be styled via CSS like regular HTML. Some elements have an internal HTML structure.
+FACT-Finder Web Components can be styled via CSS like regular HTML. Some elements have an internal HTML structure.
 Because of the style encapsulation of Shadow DOM those elements can no longer be reached as usual.
 Because the [/deep/ and ::shadow](https://blog.polymer-project.org/announcements/2015/12/01/deprecating-deep/) 
 style rules are deprecated, [custom properties and mixins](https://www.polymer-project.org/1.0/docs/devguide/styling.html)
@@ -49,9 +49,9 @@ To overwrite the default styles the following code can be used:
 It is important, that the style element possesses the property &quot;is&quot; with the value &quot;custom-style&quot;.
 
 ## Prevent Flash Of Unstyled Content (FOUC)
-In browsers that do not yet natively support Web Components you might encounter unappealing flashes of unstyled content 
+In browsers that do not yet natively support FACT-Finder Web Components you might encounter unappealing flashes of unstyled content 
 on page load. To prevent this we added a __remove unresolved attribute behavior__ to all elements with an visual 
-component (e.g. ff-record-list, ff-asn and so on). Just annotate all Web Components that are shown on page load with the
+component (e.g. ff-record-list, ff-asn and so on). Just annotate all FACT-Finder Web Components that are shown on page load with the
 `[unresolved]` attribute. Furthermore, add the following CSS rule at the beginning of the page before the Web 
 Components.
 

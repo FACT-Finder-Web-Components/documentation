@@ -1,11 +1,11 @@
 ## Middleware
 
-Starting from version `1.2.13` FACT-Finder Web Components support the concept of middleware. You can register and configure pre-defined modules to manipulate the data being exchanged between Web Components and FACT-Finder.
-Middleware modules can be registered through Web Components themselves or directly through JavaScript.
+Starting from version `1.2.13` FACT-Finder Web Components support the concept of middleware. You can register and configure pre-defined modules to manipulate the data being exchanged between FACT-Finder Web Components and FACT-Finder.
+Middleware modules can be registered through FACT-Finder Web Components themselves or directly through JavaScript.
 
-## Web Components Approach
+## FACT-Finder Web Components Approach
 
-To register middleware modules using Web Components place the `ff-middleware` element directly inside the `ff-communication` element. It is a container for all modules that shall be configured.
+To register middleware modules using FACT-Finder Web Components place the `ff-middleware` element directly inside the `ff-communication` element. It is a container for all modules that shall be configured.
 
 ```html
 <ff-communication url="..."
@@ -27,11 +27,11 @@ window.addEventListener("ffReady", () => {
 });
 ```
 
-Inside the `factfinder.middleware` namespace you have the option to choose for which part of data exchange you want to register a middleware module. In this example it is `response`. That means after a request to FACT-Finder returns, but before it is emitted by the [ResultDispatcher](api/core-result-dispatcher#tab=docs) to its listeners (including the Web Components on the page), the specified module is applied to the response manipulating it in the way configured.
+Inside the `factfinder.middleware` namespace you have the option to choose for which part of data exchange you want to register a middleware module. In this example it is `response`. That means after a request to FACT-Finder returns, but before it is emitted by the [ResultDispatcher](api/core-result-dispatcher#tab=docs) to its listeners (including the FACT-Finder Web Components on the page), the specified module is applied to the response manipulating it in the way configured.
 
 ## Available Modules
 
-All modules can be registered through Web Components or through JavaScript. When using Web Components, as with `ff-middleware` and `ff-communication`, modules must be placed immediately inside the `ff-middelware` element or an error will occur. Again, this is to ensure correct registration with the application.
+All modules can be registered through FACT-Finder Web Components or through JavaScript. When using FACT-Finder Web Components, as with `ff-middleware` and `ff-communication`, modules must be placed immediately inside the `ff-middelware` element or an error will occur. Again, this is to ensure correct registration with the application.
 
 There is currently one module available. More modules are expected to be added in future releases.
 
@@ -94,9 +94,9 @@ Assuming there is a multi-attribute field called `MultiFilter` and its value was
 
 _Note that mustache allows spaces in names as seen in_ `Recommended use`.
 
-Registration of `MultiAttributeParsing` using either Web Components or JavaScript is done as follows.
+Registration of `MultiAttributeParsing` using either FACT-Finder Web Components or JavaScript is done as follows.
 
-Web Components:
+FACT-Finder Web Components:
 ```html
 <ff-communication>
     <ff-middleware>

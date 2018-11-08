@@ -31,7 +31,7 @@ ___
 | **url**&nbsp;(String) &nbsp;(default: empty) | Your FACT-Finder URL. Please note that the URL has to contain the FACT-Finder context name like: http://web-components.fact-finder.de/FACT-Finder-7.2/ |
 | **version**&nbsp;(String)&nbsp;(default: empty) | Your FACT-Finder version. Only major and minor version like "7.2" |
 | **channel**&nbsp;(String)&nbsp;(default: empty) | Your channel name. Has to be the same as the channel name configured in the FACT-Finder backend. |
-| **search-immediate**&nbsp;(Boolean) | If this property is present, Web Components will start searching as soon as they are loaded. |
+| **search-immediate**&nbsp;(Boolean) | If this property is present, FACT-Finder Web Components will start searching as soon as they are loaded. |
 | **use-url-parameter**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | If set to true, URL parameters are used instead of HTTP parameters. |
 | **use-cache**&nbsp;(Boolean) **Options**: &nbsp;true, &nbsp;false (default: false)| This value determines, if the browser should cache previous search requests or not. Some browsers support this feature and therefore speed up the search for repeated requests. |
 | **default-query**&nbsp; (String) (default: '*') | Determines which search term should is used by default if no search term provided in as http parameter or in a search event object. |
@@ -52,7 +52,7 @@ ___
 | **use-aso**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | Allows activating/deactivating of automated search optimization. true = the search result is automatically optimized. false = the search result is not optimized. |
 | **use-browser-history**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true")| If set to true, the search history is pushed to the browser history, even without using URL parameter. |
 | **sid**&nbsp;(String) **any** | If set, the value provided in this property is used in every request as FACT-Finder session id parameter (sid). |
-| **use-seo**&nbsp;(String)**Options**: &nbsp;"true", &nbsp;"false" (default: "false") |If set to true, Web Components will use the FACT-Finder SEO API. Set this only to true if the module is active in FACT-Finder. |
+| **use-seo**&nbsp;(String)**Options**: &nbsp;"true", &nbsp;"false" (default: "false") |If set to true, FACT-Finder Web Components will use the FACT-Finder SEO API. Set this only to true if the module is active in FACT-Finder. |
 | **seo-prefix**&nbsp;(String)&nbsp;(default: "") | The seo-prefix is used to show a piece of path between your domain the actual seo-path. E.g. domain.com/prefix/seoPath |
 | **search-url**&nbsp;(String) | Define a custom URL for the Search Service. Example: `search-url="http://www.myproxy.de/services"` Omit the `Search.ff` in the url. |
 | **suggest-url**&nbsp;(String) | Define a custom URL for the Suggest Service. Example: `suggest-url="http://www.myproxy.de/services"` Omit the `Suggest.ff` in the URL. |
