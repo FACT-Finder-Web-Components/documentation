@@ -50,7 +50,7 @@ In browsers where Web Components are not natively supported you might encounter 
 ```html
 <ff-record-list unresolved></ff-record-list>
 ```
-Also add the following CSS rule on top of the page before the appearance of your custom elements:
+Also add the following CSS rule on top of the page before the appearance of FACT-Finder Web Components:
 
 ```html
 <head>
