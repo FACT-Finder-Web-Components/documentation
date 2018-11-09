@@ -27,11 +27,11 @@ If you are listening to the `ffReady` event it's guaranteed that your callback i
 ```
 
 ### WebComponentsReady
-The `WebComponentsReady` event is fired if all custom elements are ready to use.
+The `WebComponentsReady` event is fired if all FACT-Finder Web Components are ready to use.
 
 **What does that mean?**
 
-All `Custom Elements` are unknown to the browser until our Javascript is loaded and each custom element is picked up and upgraded to an real `Custom Element` (Web Component).
+All FACT-Finder Web Components are unknown to the browser until the JavaScript is loaded and each Web Component is registered and upgraded.
 
 This means all functions, attributes and behaviors are not working until an element is upgraded.
 
@@ -53,7 +53,7 @@ Let's consider the following case:
 
 As described above the `ffReady` event indicates the core library is ready but not the elements itself. At the time the search is executed `<ff-communication></ff-communication>` element isn't initialized and therefore no communication information is available.
 
-Instead we want to use the `WebComponentsReady` to have all custom elements upgraded:
+Instead we want to use the `WebComponentsReady` to wait until all FACT-Finder Web Components are upgraded:
 ```html
 <script>
     //CORRECT

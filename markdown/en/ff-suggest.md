@@ -134,7 +134,7 @@ See the following example:
 
 <script>
     document.querySelector("ff-suggest").addEventListener("suggest-item-clicked", function (e) {
-        // reference to the html element
+        // reference to the HTML element
         var ffSuggestItem = e.detail.element;
         // reference to data
         var suggestionData = e.detail.suggestion;
@@ -154,7 +154,7 @@ See the following example:
 
 ## On-Click display of product detail page with Records API enabled
 
-If FACT-Finder's Records API is enabled, our Web Components will fetch
+If FACT-Finder's Records API is enabled, FACT-Finder Web Components will fetch
 the corresponding record of a `ff-suggest-item`, when it is clicked.
 
 `ff-suggest` fires the event `suggest-product-record` when the API

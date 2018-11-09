@@ -1,7 +1,7 @@
 ## Installation
 
 ---
-Depending on whether you are using the [Node.js](https://nodejs.org/) you have the following to two ways of installing Web Components.
+Depending on whether you are using [Node.js](https://nodejs.org/), you have the following two ways of installing FACT-Finder Web Components.
 
 ### Using Node.js/Bower
 
@@ -9,7 +9,7 @@ Depending on whether you are using the [Node.js](https://nodejs.org/) you have t
 1. Install **Node.js** [(Download)](https://nodejs.org/en/download/)
 2. Install **Bower** -> `npm install bower -g`
 3. Create a **bower.json** file -> `bower init`
-4. Add Web Components as a dependency to the **bower.json** so it looks somewhat like this:
+4. Add FACT-Finder Web Components as a dependency to the **bower.json** so it looks somewhat like this:
     ```json
     {
       "name": "your-project",

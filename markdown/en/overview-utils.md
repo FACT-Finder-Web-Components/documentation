@@ -16,7 +16,7 @@ Check it out on [GitHub](https://github.com/FACT-Finder-Web-Components/java-prox
 
 With this library you can easily hook into a Servlet based java proxy and prepare a request for the
 FACT-Finder instance.
-The Web Components work with a special CORS handler for security and authentication. Therefore you
+The FACT-Finder Web Components work with a special CORS handler for security and authentication. Therefore you
 need to route the HTTP OPTIONS request from the shop to FACT-Finder.
 The proxy-utils allows you with just a few lines of code to handle that usecase.
 ```java
@@ -28,7 +28,7 @@ public void init() throws ServletException {
     settings = new FACTFinderSettings();
     settings.setAccount("admin");
     settings.setPassword("myPassowrd");
-    // url to your FACTFinder instance for example:
+    // URL to your FACT-Finder instance for example:
     settings.setUrl("http://my-factfinder-isntacne.de/FACT-Finder-7.2");
     utils = new ProxyUtils(settings);
     super.init();
@@ -44,7 +44,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 ```
 
 Initialize the <code>FACTFinderSettings</code> with your FACT-Finder account and password and the
-url of your FACT-Finder setup. All the necessary authentication information will be injected into the
+URL of your FACT-Finder setup. All the necessary authentication information will be injected into the
 request.
 
 If you know what you are doing, you can also build a request from scratch.

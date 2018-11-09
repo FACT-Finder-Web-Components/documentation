@@ -1,9 +1,9 @@
 ## FieldRoles
 
 This section describes an essential part of the integration
-of FACT-Finder using Web Components. FACT-Finder and Web Components _depend_
-on a proper definition of these roles. A missing definition can result in
-unexpected behaviors that might look like bugs.
+of FACT-Finder using FACT-Finder Web Components. FACT-Finder and FACT-Finder
+FACT-Finder Web Components _depend_ on a proper definition of these roles. A missing
+ definition can result in unexpected behaviors that might look like bugs.
 
 Certain fields/columns in FACT-Finder's product database can have special
 meanings. E.g. a _price_ field. Many of FACT-Finder's features, such as
@@ -34,9 +34,9 @@ variants are used
 to assign each of the `fieldRoles` listed above to one field/column in
 your product database.
 
-This means in order for FACT-Finder and Web Components to process your
+This means in order for FACT-Finder and FACT-Finder Web Components to process your
 data properly you also need to provide a mapping of `fieldRoles` to
-`field names` in your front-end before you request data via Web Components
+`field names` in your front-end before you request data via FACT-Finder Web Components
 from any API except the search API.
 
 More specifically, to use the following elements it is mandatory to define
@@ -61,7 +61,7 @@ front-end.
 the set-up process. It is essential the roles you define in the browser
 match the ones defined in FACT-Finder.
 
-#### How to define `fieldRoles` on the Web Components side
+#### How to define `fieldRoles` on the FACT-Finder Web Components side
 
 You need to do this when the `ffReady` event is dispatched so
 `ff-communication` knows the correct mapping before your API-Requests are

@@ -5,7 +5,7 @@ The possible values a record can have are defined in the FF-backend and are the 
 
 ## Adding the image
 To display the image you can use the `[data-image]` attribute. Just add as attribute value the `{{data-binding}}` according to
-your data feed. In the example above the image url field is named ImageName.
+your data feed. In the example above the image URL field is named ImageName.
 In Addition you can add an error image which is displayed if the data-image can't be loaded.
 Add the error image by annotating the img tag with the `[data-image-onerror="urlToErrorImage"]`.
 
@@ -19,7 +19,7 @@ Add the error image by annotating the img tag with the `[data-image-onerror="url
 ```
 
 ## Redirecting to product page
-To redirect to your product you should always rely on the [data-redirect] attribute. You can specify the target with the [data-redirect-target] attribute with all html compliant target values `(_blank|_self|_parent|_top|framename)`
+To redirect to your product you should always rely on the [data-redirect] attribute. You can specify the target with the [data-redirect-target] attribute with all HTML compliant target values `(_blank|_self|_parent|_top|framename)`
 **NOTE**: The `[data-redirect]` attribute combines the **redirect** and the **tracking** request.
 
 ```html

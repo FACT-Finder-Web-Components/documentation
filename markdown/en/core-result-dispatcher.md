@@ -42,7 +42,7 @@ For example the `campaigns` are dispatched before the `asn`, but it is
 
 ```html
 <script>
-    // listen for ffReady before html import is loaded or you'll miss the event
+    // listen for ffReady before HTML import is loaded or you'll miss the event
     document.addEventListener("ffReady", function () {
         factfinder.communication.ResultDispatcher.subscribe("result", function (resultData, event) {
             // process the result and or the event
@@ -57,7 +57,7 @@ ___
 Unsubscribe during runtime from a specific topic
 ```html
 <script>
-    //listen for ffReady before html import is loaded or you'll miss the event
+    //listen for ffReady before HTML import is loaded or you'll miss the event
     document.addEventListener("ffReady", function () {
         var key = factfinder.communication.ResultDispatcher.subscribe("result", function (resultData, event) {
             // process the result and or the event
@@ -75,7 +75,7 @@ This is similar to `subscribe()` but it is guaranteed to be executed
 **before** `subscribe()`.
 ```html
 <script>
-    // listen for ffReady before html import is loaded or you'll miss the event
+    // listen for ffReady before HTML import is loaded or you'll miss the event
     document.addEventListener("ffReady", function () {
         var key = factfinder.communication.ResultDispatcher.addCallback("asn", function (asnData) {
             // poke around in the asn data
@@ -91,7 +91,7 @@ Remove a callback for a topic (ex:`asn`) with the **key** from the
 registered callback.
 ```html
 <script>
-    // listen for ffReady before html import is loaded or you'll miss the event
+    // listen for ffReady before HTML import is loaded or you'll miss the event
     document.addEventListener("ffReady", function () {
         var key = factfinder.communication.ResultDispatcher.addCallback("asn", function (asnData) {
             // poke around with asn data

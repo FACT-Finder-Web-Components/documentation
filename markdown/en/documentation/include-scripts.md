@@ -6,9 +6,9 @@ The FACT-Finder Web Components build contains three files:
 1. `elements.build_with_dependencies.html` 
     * This file contains all HTML pieces needed to provide DOM pieces (if needed) and a reference to `elements.build.js`
 2. `elements.build.js`
-    * Contains all the JavaScript code to make Web Components work
+    * Contains all the JavaScript code to make FACT-Finder Web Components work
 3. `webcomponents-lite.min.js`
-    * Contains the required polyfill to have Web Components technology working in older browsers which don't support Web Components natively. This is **always** required for all versions <= 1.3 
+    * Contains the required polyfill to have FACT-Finder Web Components technology working in older browsers which don't support the Web Components spec natively. This is **always** required for all versions <= 1.3 
 
 
 **Boilerplate Code**
@@ -50,7 +50,7 @@ In browsers where Web Components are not natively supported you might encounter 
 ```html
 <ff-record-list unresolved></ff-record-list>
 ```
-Also add the following CSS rule on top of the page before the appearance of your custom elements:
+Also add the following CSS rule on top of the page before the appearance of FACT-Finder Web Components:
 
 ```html
 <head>
