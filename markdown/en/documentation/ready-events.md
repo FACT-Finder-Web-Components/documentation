@@ -31,7 +31,7 @@ The `WebComponentsReady` event is fired if all FACT-Finder Web Components are re
 
 **What does that mean?**
 
-All FACT-Finder Web Components are unknown to the browser until our Javascript is loaded and each Web Component is registered and upgraded.
+All FACT-Finder Web Components are unknown to the browser until the JavaScript is loaded and each Web Component is registered and upgraded.
 
 This means all functions, attributes and behaviors are not working until an element is upgraded.
 

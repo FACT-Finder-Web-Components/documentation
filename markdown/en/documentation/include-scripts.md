@@ -8,7 +8,7 @@ The FACT-Finder Web Components build contains three files:
 2. `elements.build.js`
     * Contains all the JavaScript code to make FACT-Finder Web Components work
 3. `webcomponents-lite.min.js`
-    * Contains the required polyfill to have FACT-Finder Web Components technology working in older browsers which don't support FACT-Finder Web Components natively. This is **always** required for all versions <= 1.3 
+    * Contains the required polyfill to have FACT-Finder Web Components technology working in older browsers which don't support the Web Components spec natively. This is **always** required for all versions <= 1.3 
 
 
 **Boilerplate Code**
@@ -46,7 +46,7 @@ You **NEVER** want to change the loading or script order. Even the `Polymer.dom`
 
 ---
 
-In browsers where FACT-Finder Web Components are not natively supported you might encounter ugly flashing of unstyled content while the page is loading. To prevent this just annotate all elements that have a visual component and are shown immediately on page load with the `unresolved` attribute.
+In browsers where Web Components are not natively supported you might encounter ugly flashing of unstyled content while the page is loading. To prevent this just annotate all elements that have a visual component and are shown immediately on page load with the `unresolved` attribute.
 ```html
 <ff-record-list unresolved></ff-record-list>
 ```

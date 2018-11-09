@@ -1,7 +1,7 @@
 ## Installation
 
 ---
-Depending on whether you are using the [Node.js](https://nodejs.org/) you have the following to two ways of installing FACT-Finder Web Components.
+Depending on whether you are using [Node.js](https://nodejs.org/), you have the following two ways of installing FACT-Finder Web Components.
 
 ### Using Node.js/Bower
 

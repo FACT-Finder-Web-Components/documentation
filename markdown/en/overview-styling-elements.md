@@ -49,7 +49,7 @@ To overwrite the default styles the following code can be used:
 It is important, that the style element possesses the property &quot;is&quot; with the value &quot;custom-style&quot;.
 
 ## Prevent Flash Of Unstyled Content (FOUC)
-In browsers that do not yet natively support FACT-Finder Web Components you might encounter unappealing flashes of unstyled content 
+In browsers that do not yet natively support Web Components you might encounter unappealing flashes of unstyled content 
 on page load. To prevent this we added a __remove unresolved attribute behavior__ to all elements with an visual 
 component (e.g. ff-record-list, ff-asn and so on). Just annotate all FACT-Finder Web Components that are shown on page load with the
 `[unresolved]` attribute. Furthermore, add the following CSS rule at the beginning of the page before the Web 

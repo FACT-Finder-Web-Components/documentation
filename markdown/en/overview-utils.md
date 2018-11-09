@@ -28,7 +28,7 @@ public void init() throws ServletException {
     settings = new FACTFinderSettings();
     settings.setAccount("admin");
     settings.setPassword("myPassowrd");
-    // URL to your FACTFinder instance for example:
+    // URL to your FACT-Finder instance for example:
     settings.setUrl("http://my-factfinder-isntacne.de/FACT-Finder-7.2");
     utils = new ProxyUtils(settings);
     super.init();

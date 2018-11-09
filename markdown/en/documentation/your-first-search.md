@@ -1,7 +1,7 @@
 ## Your First Search
 
 ---
-We recommend using the [ff-record-list demo](https://github.com/FACT-Finder-Web-Components/demos/blob/master/ff-record-list/index.html) as a starting point. It is lightweight and therefore ideal to get familiar with the FF FACT-Finder web Components.
+We recommend using the [ff-record-list demo](https://github.com/FACT-Finder-Web-Components/demos/blob/master/ff-record-list/index.html) as a starting point. It is lightweight and therefore ideal to get familiar with FACT-Finder web Components.
 
 If you want a **quick overview** about all possible features, please refer to [`ff-record-list`](api/ff-record-list#tab=docs) in the API documentation.
 
@@ -33,7 +33,7 @@ The data used to display product information is provided by the CSV file you spe
 
 **This product data is returned in a one-to-one manner.** This means that a field named `Price` in the CSV file will also appear as `Price` (case sensitive) in the `searchResult.records[index].record` property of the HTTP response's JSON.
 
-The same `record` object is also available in several FF FACT-Finder Web Components. You can insert its values into your custom HTML using the double curly braces syntax `{{record.Title}}`. Here is an example using the [`ff-record`](api/ff-record-list#tab=docs) element:
+The same `record` object is also available in several FACT-Finder Web Components. You can insert its values into your custom HTML using the double curly braces syntax `{{record.Title}}`. Here is an example using the [`ff-record`](api/ff-record-list#tab=docs) element:
 
 ```html
 <ff-record>
