@@ -1,7 +1,7 @@
 ## Your First Search
 
 ---
-We recommend using the [ff-record-list demo](https://github.com/FACT-Finder-Web-Components/demos/blob/master/ff-record-list/index.html) as a starting point. It is lightweight and therefore ideal to get familiar with FACT-Finder web Components.
+We recommend using the [ff-record-list demo](https://github.com/FACT-Finder-Web-Components/demos/blob/master/ff-record-list/index.html) as a starting point. It is lightweight and therefore ideal to get familiar with FACT-Finder Web Components.
 
 If you want a **quick overview** about all possible features, please refer to [`ff-record-list`](api/ff-record-list#tab=docs) in the API documentation.
 
