@@ -12,7 +12,7 @@ The `ff-record-list` element detects automatically if the displayed products bel
 
 
 #### Tracking with `data-redirect`
-The `[data-redirect]` attribute redirects the user on click to the product detail page. While without using the `[data-redirect]` attribute the browser may reload the page too fast for the tracking request to succeed, we added the tracking behavior to this directive.
+The `[data-redirect]` attribute redirects the user on click to the product detail page. We added the tracking behavior to this directive as page reloads may be too fast for tracking requests to succeed when not using the `[data-redirect]` attribute.
 ````html
 <ff-record-list>
     <ff-record>
