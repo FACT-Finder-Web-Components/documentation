@@ -1,0 +1,5 @@
+You can achieve a sustainable increase in your shop's sales by using the techniques of cross-selling and up-selling. But how do you discover the typical buying patterns exhibited by your customers? The FACT-Finder Recommendation Engine knows which other items are frequently bought in addition to a particular product. A person buying an MP3 player might also be interested in a charger or a case for it; a person buying an evening dress might also be interested in a matching necklace or handbag.
+
+In order to determine this information, FACT-Finder analyses the purchases made in the shop and discovers which products and categories are related. You can then actively recommend these to other buyers interested in the same or similar items. The benefit to you is the ability to sell more products per purchase.
+
+![recommendation.png](../../../images/elements/examples/recommendation.png)
