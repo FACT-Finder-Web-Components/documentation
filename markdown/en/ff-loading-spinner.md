@@ -5,8 +5,6 @@ triggered by common events fired by FACT-Finder Web Components. It uses
 inexpensive CSS-Animations and does not trigger `layout` or `paint` 
 operations in Blink and Gecko-based browsers.
 
-**Note:** The element is only available in FACT-Finder Web Components v3.0.0+
-
 ## Usage 
 
 Assuming you have integrated `ff-communication` and `ff-searchbox` you simply
