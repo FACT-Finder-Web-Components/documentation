@@ -117,6 +117,11 @@ const api = {
             title: "Checkout Tracking",
             noDemo: true
         },
+        "ff-loading-spinner": {
+            path: "ff-loading-spinner",
+            title: "Loading Spinner",
+            noDemo: true
+        },
         "ff-middleware": {
             path: "ff-middleware",
             title: "Middleware",
