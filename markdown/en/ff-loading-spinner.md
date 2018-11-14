@@ -5,6 +5,19 @@ triggered by common events fired by FACT-Finder Web Components. It uses
 inexpensive CSS-Animations and does not trigger `layout` or `paint` 
 operations in Blink and Gecko-based browsers.
 
+The element gets activated by the following events:
+- search
+- filter
+- clearFilter
+- sort
+- advisor
+
+It is deactivated when the action is completed.
+
+**Example:** When a search request is sent via the `ff-searchbox` the spinner
+is activated. As soon as FACT-Finder's response is received, the spinner is 
+deactivated.
+
 ## Usage 
 
 Assuming you have integrated `ff-communication` and `ff-searchbox` you simply
