@@ -192,6 +192,7 @@ api.moreFeatures = [
     api.pages["ff-recommendation"],
     api.pages["ff-compare"],
     api.pages["ff-similar-products"],
+    api.pages["ff-loading-spinner"],
     api.pages["ff-single-word-search"],
     api.pages["ff-carousel"],
     api.pages["ff-tag-cloud"],
