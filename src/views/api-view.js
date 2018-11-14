@@ -18,6 +18,7 @@ import api from "../data/api";
 import ReduxMixin from "../util/polymer-redux-mixin";
 import ViewMixin from "../util/view-mixin";
 import config from "../../config"
+import '../shared/version-dropdown'
 
 class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
     constructor() {
@@ -73,6 +74,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
 <app-drawer-layout narrow="{{narrow}}">
     <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]" opened="{{drawerOpened}}">
         <div class="panel-menus">
+            <version-dropdown></version-dropdown>
             <iron-selector id="pageSelector"
                            selected="[[subpage]]"
                            attr-for-selected="name"

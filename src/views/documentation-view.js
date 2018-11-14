@@ -15,6 +15,7 @@ import '../shared-styles.js';
 import ViewMixin from "../util/view-mixin";
 import ReduxMixin from "../util/polymer-redux-mixin";
 import guides from "../data/guides";
+import '../shared/version-dropdown'
 
 class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
     constructor() {
@@ -42,6 +43,7 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
 <app-drawer-layout narrow="{{narrow}}">
     <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]" opened="{{drawerOpened}}">
         <div class="panel-menus">
+            <version-dropdown></version-dropdown>
             <iron-selector selected="[[subpage]]"
                            attr-for-selected="name"
                            class="drawer-list"
