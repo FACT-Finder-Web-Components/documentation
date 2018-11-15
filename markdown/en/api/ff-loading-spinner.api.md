@@ -9,5 +9,5 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **show** | Activates/Shows the element. This is equal to setting the `is-active` attribute. |
-| **hide** | Deactivates/Hides the element. This is equal to unsetting the `is-active` attribute. |
+| **show** | Activates/Shows the element. Calling this is equal to setting the `is-active` attribute. |
+| **hide** | Deactivates/Hides the element. Calling this is equal to removing the `is-active` attribute. |

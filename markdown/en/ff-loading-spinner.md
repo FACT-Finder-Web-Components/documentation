@@ -1,8 +1,8 @@
 ## Overview
 
-`ff-loading-spinner` is a leightweight spinning loading indicator that is 
+`ff-loading-spinner` is a lightweight spinning loading indicator that is 
 triggered by common events fired by FACT-Finder Web Components. It uses 
-inexpensive CSS-Animations and does not trigger `layout` or `paint` 
+inexpensive CSS animations and does not trigger `layout` or `paint` 
 operations in Blink and Gecko-based browsers.
 
 The element gets activated by the following events:
@@ -14,7 +14,7 @@ The element gets activated by the following events:
 
 It is deactivated when the action is completed.
 
-**Example:** When a search request is sent via the `ff-searchbox` the spinner
+**Example:** When a search request is sent via the `ff-searchbox`, the spinner
 is activated. As soon as FACT-Finder's response is received, the spinner is 
 deactivated.
 
@@ -27,11 +27,11 @@ need to place the `ff-loading-spinner` element in your HTML.
 <ff-loading-spinner></ff-loading-spinner>
 ```
 As soon as a request is sent to FACT-Finder, `ff-loading-spinner` will
-be displayed. When the response is received the element will be hidden again.
+be displayed. When the response is received, the element will be hidden again.
 
 #### Changing color
 
-You can also change the element's  color by passing a CSS color value.
+You can also change the element's color by passing a CSS color value.
 
 ```html
 <!-- using HEX -->
@@ -42,7 +42,7 @@ You can also change the element's  color by passing a CSS color value.
 <ff-loading-spinner stroke-color="hsl(120, 100%, 75%)"></ff-loading-spinner>
 ```
 
-#### Controlling element manually
+#### Manually controlling the element
 
 You can de-/activate the element using the `is-active` attribute.
 This attribute is a boolean and doesn't require a value. Its presence 
