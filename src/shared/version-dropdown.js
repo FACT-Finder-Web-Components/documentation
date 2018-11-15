@@ -16,18 +16,32 @@ class VersionDropdown extends ReduxMixin(PolymerElement) {
     }
 
     .version-selector paper-dropdown-menu {
-        width: 100px;
+        width: 110px;
         margin-left: 20px;
+    }
+    
+    .version-link {
+        text-decoration: none; 
+        color: black;
+        margin: -15px;
+        padding: 15px;
+        width: 100%; 
+        height: 100%
+    }
+    
+    .version-label {
+        font-weight: bold;
+        position: relative;   
+        top: 5px;
     }
 </style>
 <div class="version-selector">
-    <span><b>Version</b></span>
+    <span class="version-label">Version</span>
     <paper-dropdown-menu>
         <paper-listbox selected="{{version}}" slot="dropdown-content" attr-for-selected="version">
             <template is="dom-repeat" items="[[allVersions]]">
                 <paper-item version="[[item.name]]">
-                    <a style="text-decoration: none; color: black; width: 100%; height: 100%"
-                       href="[[rootPath]][[page]]/[[item.name]]/[[subpage]]">
+                    <a class="version-link" href="[[_versionUrl(page, item.name, subpage, tab)]]">
                         {{item.displayName}}
                     </a>
                 </paper-item>
@@ -51,6 +65,10 @@ class VersionDropdown extends ReduxMixin(PolymerElement) {
             subpage: {
                 type: String,
                 statePath: `app.subpage`
+            },
+            tab: {
+                type: String,
+                statePath: `app.tab`
             }
         };
     }
@@ -58,6 +76,11 @@ class VersionDropdown extends ReduxMixin(PolymerElement) {
     constructor() {
         super();
         this.allVersions = config.versions;
+    }
+
+    _versionUrl(page, version, subpage, tab) {
+        const tabParam = page === `api` ? `#tab=${tab}` : ``;
+        return `${this.rootPath}${page}/${version}/${subpage}${tabParam}`;
     }
 }
 
