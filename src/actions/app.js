@@ -1,5 +1,6 @@
-import { pageImportInfoCollection } from "../data/pageMappings";
-import { getTabFromParams, urlPathToPages } from "../util/url";
+import { pageImportInfoCollection } from '../data/pageMappings';
+import { getTabFromParams, urlPathToPages } from '../util/url';
+import config from '../../config';
 
 
 export const UPDATE_PAGE = 'UPDATE_PAGE';
@@ -10,9 +11,14 @@ export const navigate = (path, params) => (dispatch) => {
     const { page, version, subpage } = urlPathToPages(path);
     const tab = getTabFromParams(params);
 
-    // Any other info you might want to extract from the path (like page type),
-    // you can do here
-    dispatch(loadPage(page, version, subpage, tab));
+    const subpageRequired = page === `api` || page === `documentation`;
+    if (subpageRequired && !subpage) { // URL without version part
+        const latestVersion = config.versions[0].name;
+        window.history.replaceState({}, ``, [page, latestVersion, version].join(`/`));
+        dispatch(loadPage(page, latestVersion, version, tab));
+    } else {
+        dispatch(loadPage(page, version, subpage, tab));
+    }
 
     // Close the drawer - in case the *path* change came from a link in the drawer.
     const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
