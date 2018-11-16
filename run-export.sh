@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCS=markdown/en
+DOCS=markdown/3.0/en
 API=${DOCS}/api
 OF=export
 
