@@ -16,14 +16,14 @@ export const pageImportInfoCollection = Object.freeze({
     search: createPageImportInfo(() => import("../views/search-view.js")),
 });
 
-export function tryGetSubpage(version, page, subpage) {
+export function tryGetSubpage(page, version, subpage) {
     const ftor = IsDefinedFunctor(pageImportInfoCollection[version])
         .map(version => version.pages[page])
         .map(pageInfo => pageInfo.subpages && pageInfo.subpages[subpage]);
 
     return ftor.valueOf()
         ? ftor
-        : IsDefinedFunctor(getSubpageSuggestion(subpage));
+        : IsDefinedFunctor(getSubpageSuggestion(version, subpage));
 }
 
 function createPageImportInfo(importTargetCall, versionedSubpages = undefined) {
