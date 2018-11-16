@@ -37,7 +37,7 @@ class VersionDropdown extends ReduxMixin(PolymerElement) {
 </style>
 <div class="version-selector">
     <span class="version-label">Version</span>
-    <paper-dropdown-menu>
+    <paper-dropdown-menu no-animations>
         <paper-listbox selected="{{version}}" slot="dropdown-content" attr-for-selected="version">
             <template is="dom-repeat" items="[[allVersions]]">
                 <paper-item version="[[item.name]]">
