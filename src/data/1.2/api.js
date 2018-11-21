@@ -1,5 +1,5 @@
-import documentation from "./guides";
-import { hasMovedModifier } from "../pageHelper";
+import documentation from './guides';
+import { hasMovedModifier } from '../pageHelper';
 
 // api are the pages under the "API" tab
 const api = {
