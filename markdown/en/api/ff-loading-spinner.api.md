@@ -3,8 +3,9 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **is-active**&nbsp;(Boolean) | If set, the element is displayed and animated. Otherwise the element is hidden. |
+| **is-active**&nbsp;(Boolean) (Default: `false`) | If set, the element is displayed and animated. Otherwise the element is hidden. |
 | **stroke-color**&nbsp;(String) | Takes a CSS color value and applies it to the spinning stroke. |
+| **manual**&nbsp;(Boolean) (Default: `false`) | If set, the element won't subscribe to any default events and subsequently has to be de-/activated manually | 
 
 ### Methods
 | Name | Description |
