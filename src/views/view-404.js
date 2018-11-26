@@ -68,9 +68,9 @@ class View404 extends PolymerElement {
         this.isSuggestion = false;
         this.errorCode = 404;
 
-        const { page, subpage } = urlPathToPages(window.decodeURIComponent(location.pathname));
+        const { page, version, subpage } = urlPathToPages(window.decodeURIComponent(location.pathname));
 
-        tryGetSubpage(page, subpage).map(pageData => {
+        tryGetSubpage(page, version, subpage).map(pageData => {
             this.hasAlternative = true;
 
             this.isSuggestion = pageData.isSuggestion === true;
@@ -78,7 +78,7 @@ class View404 extends PolymerElement {
             if (this.hasMoved) this.errorCode = 301;
 
             this.title = pageData.title;
-            this.url = `${location.protocol}//${location.host}/${pageData.page}/${pageData.path}`;
+            this.url = `${location.protocol}//${location.host}/${pageData.page}/${version}/${pageData.path}`;
         });
     }
 }

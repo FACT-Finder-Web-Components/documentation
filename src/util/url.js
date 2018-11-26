@@ -1,8 +1,9 @@
 export function urlPathToPages(path) {
-    const paths = path.split('/');
+    const [, page, version, subpage] = path.split(`/`);
     return {
-        page: paths[1] || `home`,
-        subpage: paths[2]
+        page: page || `home`,
+        version,
+        subpage
     };
 }
 

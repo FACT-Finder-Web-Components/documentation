@@ -6,5 +6,6 @@ export default {
     channel: "webc-doku-text",
     version: "7.2"
   },
-  downloadToolUrl: "https://search-web-components.fact-finder.de/webcomponents-build-tool"
+  downloadToolUrl: "https://search-web-components.fact-finder.de/webcomponents-build-tool",
+  versions: [{name: "3.0", displayName: "3.0 (latest)"}, {name: "1.2", displayName: "1.2"}]
 }
