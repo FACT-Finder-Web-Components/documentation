@@ -14,6 +14,7 @@ import ReduxMixin from "../util/polymer-redux-mixin";
 import ViewMixin from "../util/view-mixin";
 import '../shared-styles.js';
 import '../styles/font-awesome-wrapper.js';
+import config from '../../config';
 
 class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
     static get template() {
@@ -216,7 +217,7 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
 
     <hr>
     <div class="row" style="text-align: center">
-        <a href="[[rootPath]]api/ff-searchbox">
+        <a href="[[rootPath]]api/[[latestVersion]]/ff-searchbox">
             <button style="margin: 0 auto">Get Started</button>
         </a>
     </div>
@@ -232,6 +233,11 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
                 observer: '_scrollTo'
             }
         };
+    }
+
+    ready() {
+        super.ready();
+        this.latestVersion = config.versions[0].name;
     }
 
     _scrollTo(id) {

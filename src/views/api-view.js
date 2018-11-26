@@ -18,6 +18,7 @@ import api from "../data/api";
 import ReduxMixin from "../util/polymer-redux-mixin";
 import ViewMixin from "../util/view-mixin";
 import config from "../../config"
+import '../shared/version-dropdown'
 
 class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
     constructor() {
@@ -73,6 +74,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
 <app-drawer-layout narrow="{{narrow}}">
     <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]" opened="{{drawerOpened}}">
         <div class="panel-menus">
+            <version-dropdown></version-dropdown>
             <iron-selector id="pageSelector"
                            selected="[[subpage]]"
                            attr-for-selected="name"
@@ -80,23 +82,23 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
                            role="navigation">
 
                 <h3>Core API</h3>
-                <template is="dom-repeat" items="{{data.core}}">
-                    <a name="{{item.path}}" href="[[rootPath]]api/{{item.path}}">{{item.title}}</a>
+                <template is="dom-repeat" items="{{core}}">
+                    <a name="{{item.path}}" href="[[rootPath]]api/[[version]]/{{item.path}}">{{item.title}}</a>
                 </template>
 
                 <h3>Basic Elements</h3>
-                <template is="dom-repeat" items="{{data.basics}}">
-                    <a name="{{item.path}}" href="[[rootPath]]api/{{item.path}}">{{item.title}}</a>
+                <template is="dom-repeat" items="{{basics}}">
+                    <a name="{{item.path}}" href="[[rootPath]]api/[[version]]/{{item.path}}">{{item.title}}</a>
                 </template>
 
                 <h3>Navigation</h3>
-                <template is="dom-repeat" items="{{data.navigation}}">
-                    <a name="{{item.path}}" href="[[rootPath]]api/{{item.path}}">{{item.title}}</a>
+                <template is="dom-repeat" items="{{navigation}}">
+                    <a name="{{item.path}}" href="[[rootPath]]api/[[version]]/{{item.path}}">{{item.title}}</a>
                 </template>
 
                 <h3>More Features</h3>
-                <template is="dom-repeat" items="{{data.moreFeatures}}">
-                    <a name="{{item.path}}" href="[[rootPath]]api/{{item.path}}">{{item.title}}</a>
+                <template is="dom-repeat" items="{{moreFeatures}}">
+                    <a name="{{item.path}}" href="[[rootPath]]api/[[version]]/{{item.path}}">{{item.title}}</a>
                 </template>
             </iron-selector>
         </div>
@@ -150,7 +152,12 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
             subpage: {
                 type: String,
                 statePath: 'app.subpage',
-                observer: '_subpageChange'
+                observer: '_pathChanged'
+            },
+            version: {
+                type: String,
+                statePath: 'app.version',
+                observer: '_pathChanged'
             },
             activeTab: {
                 type: String,
@@ -168,21 +175,21 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
             },
             hasNoApiTab: {
                 type: Boolean,
-                computed: 'hasNoApi(subpage, data)'
+                computed: 'hasNoApi(version, subpage, data)'
             },
             hasNoDemoTab: {
                 type: Boolean,
-                computed: 'hasNoDemo(subpage, data)'
+                computed: 'hasNoDemo(version, subpage, data)'
             }
         }
     }
 
-    hasNoApi(pageName, data) {
-        return pageName && data && data.pages && data.pages[pageName] && data.pages[pageName].noApi;
+    hasNoApi(version, pageName, data) {
+        return pageName && data && data[version] && data[version].pages[pageName] && data[version].pages[pageName].noApi;
     }
 
-    hasNoDemo(pageName, data) {
-        return pageName && data && data.pages && data.pages[pageName] && data.pages[pageName].noDemo;
+    hasNoDemo(version, pageName, data) {
+        return pageName && data && data[version] && data[version].pages[pageName] && data[version].pages[pageName].noDemo;
     }
 
     connectedCallback() {
@@ -222,25 +229,31 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
         });
     }
 
-    _subpageChange(newSubpage) {
+    _pathChanged(newSubpage) {
         if (!this.isActiveView()) {
             return;
         }
 
-        const fileName = newSubpage;
+        const fileName = this.subpage;
 
-        this.filePath = `markdown/${this.language}/${fileName}.md`;
-        this.dokuTitle = this.data.pages[fileName].title;
+        this.filePath = `markdown/${this.version}/${this.language}/${fileName}.md`;
+        this.dokuTitle = this.data[this.version].pages[fileName].title;
 
         if (fileName.startsWith("ff") || fileName.endsWith("Behavior")) {
             this.showTabs = true;
-            this.apiPath = "markdown/" + this.language + "/api/" + fileName + ".api.md";
+            this.apiPath = `markdown/${this.version}/${this.language}/api/${fileName}.api.md`;
             this.githubPath = config.githubDemosBasePath + fileName + "/index.html";
         } else {
             // do not trigger a new load request for api and github path when not an ff element,
             // instead, simply hide tabs
             this.showTabs = false;
         }
+
+        this.core = this.data[this.version].core;
+        this.basics = this.data[this.version].basics;
+        this.navigation = this.data[this.version].navigation;
+        this.moreFeatures = this.data[this.version].moreFeatures;
+
         window.scrollTo(0, 0);
     }
 
