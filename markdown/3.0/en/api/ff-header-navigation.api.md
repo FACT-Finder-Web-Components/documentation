@@ -15,6 +15,11 @@ ___
 | ---- | ----------- |
 | **fetch()** | Triggers a new fetch of the navigation data. |
 
+### Mixins
+| Name | Description |
+| ---- | ----------- |
+| **--nav-element-a** | Is applied to the anchor element inside each of the navigation's elements. |
+
 ### Events
 | Name | Description |
 | ---- | ----------- |
