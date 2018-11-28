@@ -40,7 +40,72 @@ the event. The `url` property is reserved for internal usage.
 * [compare](compare)
 * [tagCloud](tagcloud)
 
+## Hooking into the pipeline
+
+### `addBeforeDispatchingCallback(fn):string;`
+Adds a callback which executes before every event i.e. search, suggest, recommendation and so on is send.
+The callback receives an event object enriched with basic data i.e. `sid` and if available a
+`type` property which corresponds to the event types of `FFCommunicationEventAggregator.addFFEvent(event)`.
+        
+If you want to intercept a search request for example you could do:
+```html
+<script>
+    document.addEventListener("ffReady", function () {
+        factfinder.communication.FFCommunicationEventAggregator.addBeforeDispatchingCallback(function (event) {
+            if (event.type === "search") {
+                event["newConditionalHttpParam"] = "someValue";
+            }
+        });
+    });
+</script>
+<link rel="import" href="path/to/ff-web-components.html">
+```
+
+### `removeBeforeDispatchingCallback(key):boolean;`
+Removes a registered callback again by it's `key`
+```html
+<script>
+    document.addEventListener("ffReady", function () {
+        var key = factfinder.communication.FFCommunicationEventAggregator.addBeforeDispatchingCallback(function (event) {
+            if (event.type === "search") {
+                event["newConditionalHttpParam"] = "someValue";
+            }
+        });
+        
+        //remove the callback 
+        factfinder.communication.FFCommunicationEventAggregator.removeBeforeDispatchingCallback(key);
+    });
+</script>
+<link rel="import" href="path/to/ff-web-components.html">
+```
+
 ## Examples
+
+### Custom Topic's
+You can also fire a event which will then only dispatch to a list of custom set Topic's.
+Therefore add a function which returns an array of topics to the event in the `topics` property.
+
+Now you can register/subscribe a callback to the ResultDispatcher with that topic and get the result for that event type.
+```html
+<script>
+    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+        type: "search",
+        //other "search" Type settings
+        topics:function(){
+            return ["myCustomSearch","mySpecialElement"];
+        }
+    });
+
+    var key = factfinder.communication.ResultDispatcher.subscribe("myCustomSearch", function (resultData) {
+        // process the result
+    });
+
+    var key2 = factfinder.communication.ResultDispatcher.addCallback("mySpecialElement", function (resultData) {
+        // process the result
+    });
+</script>
+```
+
 ### search
 ```html
 <script>
@@ -314,66 +379,5 @@ the event. The `url` property is reserved for internal usage.
 </script>
 ```
 
-### Custom Topic's
-You can also fire a event which will then only dispatch to a list of custom set Topic's.
-Therefore add a function which returns an array of topics to the event in the `topics` property.
 
-Now you can register/subscribe a callback to the ResultDispatcher with that topic and get the result for that event type.
-```html
-<script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
-        type: "search",
-        //other "search" Type settings
-        topics:function(){
-            return ["myCustomSearch","mySpecialElement"];
-        }
-    });
 
-    var key = factfinder.communication.ResultDispatcher.subscribe("myCustomSearch", function (resultData) {
-        // process the result
-    });
-
-    var key2 = factfinder.communication.ResultDispatcher.addCallback("mySpecialElement", function (resultData) {
-        // process the result
-    });
-</script>
-```
-
-## Hooking into the pipeline
-
-### `addBeforeDispatchingCallback(fn):string;`
-Adds a callback which executes before every event i.e. search, suggest, recommendation and so on is send.
-The callback receives an event object enriched with basic data i.e. `sid` and if available a
-`type` property which corresponds to the event types of `FFCommunicationEventAggregator.addFFEvent(event)`.
-        
-If you want to intercept a search request for example you could do:
-```html
-<script>
-    document.addEventListener("ffReady", function () {
-        factfinder.communication.FFCommunicationEventAggregator.addBeforeDispatchingCallback(function (event) {
-            if (event.type === "search") {
-                event["newConditionalHttpParam"] = "someValue";
-            }
-        });
-    });
-</script>
-<link rel="import" href="path/to/ff-web-components.html">
-```
-
-### `removeBeforeDispatchingCallback(key):boolean;`
-Removes a registered callback again by it's `key`
-```html
-<script>
-    document.addEventListener("ffReady", function () {
-        var key = factfinder.communication.FFCommunicationEventAggregator.addBeforeDispatchingCallback(function (event) {
-            if (event.type === "search") {
-                event["newConditionalHttpParam"] = "someValue";
-            }
-        });
-        
-        //remove the callback 
-        factfinder.communication.FFCommunicationEventAggregator.removeBeforeDispatchingCallback(key);
-    });
-</script>
-<link rel="import" href="path/to/ff-web-components.html">
-```
