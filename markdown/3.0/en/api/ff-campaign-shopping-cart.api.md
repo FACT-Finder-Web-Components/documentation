@@ -3,4 +3,4 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **record-id**&nbsp;(String) (default: empty) | The value of the FACT-Finder field which you configured with the role **Product number (campaign)** |
+| **record-id**&nbsp;(String) (default: empty) | Comma-separated list of values of the FACT-Finder field that has the role **Product number (campaign)** |
