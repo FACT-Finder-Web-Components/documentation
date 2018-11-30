@@ -13,54 +13,100 @@ optional. It will default to `<option>{{description}}</option>` if not present.
 ```
 
 ## Custom-built dropdown
-Simply adding `<ff-sortbox></ff-sortbox>` to your page will add a custom-built HTML dropdown containing all criteria
-defined in the FACT-Finder backend. With the `key` attribute you can define different templates for these options.
+Adding `<ff-sortbox></ff-sortbox>` to your page will add a custom-built HTML dropdown containing all criteria defined in the FACT-Finder back-end.  
+Optionally, you can specify your own templates by adding `ff-sortbox-item` elements with their `key` attribute set to the relevant value. If you don't specify any templates, rendered `ff-sortbox-item`s will contain their plain text description as provided by FACT-Finder.
 
-Use `"default.template"` as the key to define a default template for all options.
+Available keys are as follows:
 
-You can also define a special template for a specific option, for example `"Price.asc"`. The key is assembled from
-the sort option name and the sort direction (asc/desc).
+| Key | Description |
+| --- | --- |
+| default.template | This is the fallback template for all options that have no other template defined. |
+| ff.relevance | FACT-Finder always returns an option to sort by relevance. |
+| _{key from FACT-Finder response}_.asc | An option as specified in FACT-Finder in ascending order. (e.g. `Price.asc`, `Title.asc`) |
+| _{key from FACT-Finder response}_.desc | An option as specified in FACT-Finder in descending order. |
 
-Inside the `ff-sortbox-item`, you can access the sort option name with `{{description}}`.
+Inside the `ff-sortbox-item` you can access the sort option name with `{{description}}`.
+
 ```html
-<ff-sortbox collapse-onblur="true">
+<ff-sortbox>
     <!--
-    key "default.template" is a pseudo key used to specify a default template for all sortbox items
+    "default.template" is a pseudo key used to specify a default template for all sortbox items
     -->
-    <ff-sortbox-item key="default.template">
-        <span style="font-size: 15px">Default Style: {{description}}</span>
+    <ff-sortbox-item key="default.template" class="customCssClass">
+        <span>Default Style: {{description}}</span>
     </ff-sortbox-item>
 
+    <!-- override relevance layout -->
+    <ff-sortbox-item key="ff.relevance">Relevance</ff-sortbox-item>
+
     <!--
-    this key is related to data returned by FACT-Finder its always FIELDNAME.ORDER
-    except for relevance its "null.desc"
+    other keys are related to data returned by FACT-Finder. their format is always FIELDNAME.ORDER
     -->
     <ff-sortbox-item key="Price.asc">
         <span style="font-size: 18px">Overridden for: {{description}}</span>
     </ff-sortbox-item>
 
-    <!--override relevance layout -->
-    <ff-sortbox-item key="null.desc">
-        Relevance
+    <ff-sortbox-item key="Rating.desc">
+        <span><em>Overridden for: {{description}}</em></span>
     </ff-sortbox-item>
 </ff-sortbox>
 ```
 
-### Show-selected/show-selected-first
-With the `show-selected="true"` property, the selected sort option is part of the
-available options in the dropdown list (default is false).
+### show-selected / show-selected-first
 
-And with the `show-selected-first="true"` property, the selected item is the first in the dropdown.
+By default, the selected sort option will disappear from the dropdown list and appear in the static container of the element. Setting the `show-selected="true"` attribute the selected option remains part of the available options in the dropdown list.
 
-To realize a sortbox as shown above, you need to hide the "selected" item and add a custom clickhandler on the sortbox to toggle the dropdown.
-    
-Example shown below:
+When `show-selected` is set to `true`, you can additionally set `show-selected-first="true"` to make the selected option appear as the first item in the dropdown.  
+Without `show-selected="true"` the setting of `show-selected-first` has no effect.
+
+### collapse-onblur
+
+To make the dropdown disappear when the element loses focus set the `collapse-onblur` attribute to `true`. Default is `false`.
+```html
+<ff-sortbox collapse-onblur="true"></ff-sortbox>
+```
+
+### Rendered HTML
+
+When setup like in the example above, the rendered HTML could look like this.
+
+```html
+<ff-sortbox collapse-onblur="false" show-selected="true" show-selected-first="false" tabindex="1" opened>
+
+    <div class="ff-sort-selected-container">
+        <ff-sortbox-item key="Rating.desc" class="selected">
+            <span><em>Overridden for: Rating descending</em></span></ff-sortbox-item>
+    </div>
+
+    <div class="ff-sort-dropdown-container">
+        <ff-sortbox-item key="ff.relevance">Relevance</ff-sortbox-item>
+
+        <ff-sortbox-item key="Price.asc">
+            <span style="font-size: 18px">Overridden for: Price ascending</span></ff-sortbox-item>
+
+        <ff-sortbox-item key="Price.desc" class="customCssClass">
+            <span>Default Style: Price descending</span></ff-sortbox-item>
+
+        <ff-sortbox-item key="Rating.asc" class="customCssClass">
+            <span>Default Style: Rating ascending</span></ff-sortbox-item>
+
+        <ff-sortbox-item key="Rating.desc" class="showSelected">
+            <span><em>Overridden for: Rating descending</em></span></ff-sortbox-item>
+    </div>
+
+</ff-sortbox>
+```
+
+### Example
+
+To implement a sortbox with fixed content in its static box you need to hide the "selected" item and attach a custom click handler to the sortbox to toggle the dropdown.
+
 ```html
 <div style="display: inline-block">
-    <div class="sortBoxCaption" onclick="toggleSortbox('#sortbox3');">
+    <div class="sortBoxCaption" onclick="toggleSortbox('#sortbox1');">
         Sort items..
     </div>
-    <ff-sortbox show-selected="true" show-selected-first="true" id="sortbox3"></ff-sortbox>
+    <ff-sortbox id="sortbox1" show-selected="true" show-selected-first="true"></ff-sortbox>
 </div>
 
 <!-- custom click handler-->
@@ -70,7 +116,7 @@ Example shown below:
     }
 </script>
 
-<!-- A way to display the sortbox as a clickable Button -->
+<!-- a way to display the sortbox as a clickable button -->
 <style>
     .sortBoxCaption {
         margin: 0;
@@ -81,20 +127,20 @@ Example shown below:
         font-weight: bold;
     }
 
-    #sortbox3 {
+    #sortbox1 {
         border: none;
         display: block;
         margin-top: -1px;
         margin-left: 1px;
     }
 
-    /*hide the currently selected sortbox item*/
-    #sortbox3 ff-sortbox-item.selected {
-        display: none !important;
+    #sortbox1 ff-sortbox-item.showSelected {
+        background-color: lightgray;
     }
 
-    #sortbox3 ff-sortbox-item.showSelected {
-        background-color: lightgray;
+    /* hide the container of the currently selected sortbox item */
+    #sortbox1 .ff-sort-selected-container {
+        display: none !important;
     }
 </style>
 ```
