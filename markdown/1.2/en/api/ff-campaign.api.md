@@ -9,7 +9,7 @@ ___
 ### Events
 | Name | Description |
 | ---- | ----------- |
-|**dom-updated**| This event is triggered when the element has received new data and the template for the element and all sub elements was punched out. |
+|**dom-updated**| This event is triggered when the element has received new data and the template for this element and all sub elements have been punched out. |
 
 ## `ff-campaign-advisor-answer`
 ___
@@ -21,7 +21,7 @@ ___
 ### Events
 | Name | Description |
 | ---- | ----------- |
-| **dom-updated** | This event is triggered when the element has received new data and the template for the element and all sub elements was punched out. |
+| **dom-updated** | This event is triggered when the element has received new data and the template for this element and all sub elements have been punched out. |
 
 ## `ff-campaign-advisor-question`
 ___
@@ -42,4 +42,4 @@ ___
 ### Events
 | Name | Description |
 | ---- | ----------- |
-| **dom-updated** | This event is triggered when the element has received new data and the template for the element and all sub elements was punched out. |
+| **dom-updated** | This event is triggered when the element has received new data and the template for this element and all sub elements have been punched out. |

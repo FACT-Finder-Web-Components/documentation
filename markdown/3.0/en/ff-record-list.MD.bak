@@ -182,7 +182,7 @@ Indicates if this record-list is placed inside a ff-recommendation element. This
 
 #### Events
 ##### dom-updated
-This event is triggered when the element has received new data and the template for the element and all sub elements was punched out.
+This event is triggered when the element has received new data and the template for this element and all sub elements have been punched out.
 
 ### ff-record
 #### Properties

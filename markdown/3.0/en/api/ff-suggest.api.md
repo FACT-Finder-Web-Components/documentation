@@ -17,7 +17,7 @@ ___
 | ---- | ----------- |
 | **suggest-item-clicked** | Is triggered when the `ff-suggest-item` is clicked on. |
 | **suggest-product-record** | Is fired if a click on a `ff-suggest-item` of type `"productName"` occurred. The event detail contains the whole record of the clicked product, you can use this information to display a product detail page. **Important:** Only available in with a FACT-Finder version 7.3 and above using the new REST API. |
-| **dom-updated** | This event is triggered when the element has received new data and the template for the element and all sub elements have been punched out. |
+| **dom-updated** | This event is triggered when the element has received new data and the template for this element and all sub elements have been punched out. |
 
 ## `ff-suggest-item`
 ___
