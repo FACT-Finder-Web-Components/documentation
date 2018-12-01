@@ -3,11 +3,11 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **items** (Array) (default: empty) | The data from FACT-Finder. |
-| **opened** (Boolean) *Options* true, false (default: false) | Determines, if the sort box is opened. |
-| **show-selected** (String) *Options* "true", "false" (default: "false") | Determines, if the currently selected sorting is also shown inside the sort box. |
-| **show-selected-first** (String) *Options* "true", "false" (default: "false") | Determines, if the currently selected show-selected element is displayed on top of the list or at its actual position. |
-| **collapse-onblur** (String) *Options* "true", "false" (default: "false") | Determines, if the element is automatically closed when it loses focus. |
+| **items** (Array) (default: empty) | The data from FACT-Finder. Can only be set through JavaScript.|
+| **opened** (Boolean) *Options* true, false (default: false) | Determines if the sort box is opened. |
+| **show-selected** (String) *Options* "true", "false" (default: "false") | Determines if the currently selected sort option is also shown inside the dropdown. |
+| **show-selected-first** (String) *Options* "true", "false" (default: "false") | Determines if the currently selected sort option is displayed at the top of the dropdown list or at its actual position. To take effect `show-selected` must be set to `true`. |
+| **collapse-onblur** (String) *Options* "true", "false" (default: "false") | Determines if the element's dropdown is automatically closed when it loses focus. |
 
 ### Methods
 | Name | Description |
@@ -16,15 +16,10 @@ ___
 | **show()** | Opens the drop down element. |
 | **hide()** | Closes the drop down element. |
 
-### Mixins
-| Name | Description |
-| ---- | ----------- |
-| **--sort-item-container** |  Applied to the container of the `ff-sortbox-item` element. |
-
 ### Events
 | Name | Description |
 | ---- | ----------- |
-| **dom-updated** | This event is triggered when the element has received new data and the template for the element and all sub elements was punched out. |
+| **dom-updated** | This event is triggered when the element has received new data and the template for this element and all sub elements have been punched out. |
 
 ## `ff-sortbox-item`
 ___
@@ -36,4 +31,4 @@ ___
 ### Events
 | Name | Description |
 | ---- | ----------- |
-| **dom-updated** | This event is triggered when the element has received new data and the template for the element and all sub elements was punched out. |
+| **dom-updated** | This event is triggered when the element has received new data and the template for this element and all sub elements have been punched out. |
