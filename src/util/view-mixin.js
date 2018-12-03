@@ -3,7 +3,7 @@ import {updateDrawerState} from "../actions/app";
 
 let Mixin = (superclass) => class extends superclass {
     isActiveView() {
-        return this.classList.contains("iron-selected");
+        return this.classList.contains(`iron-selected`);
     }
 
     /**

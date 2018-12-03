@@ -147,35 +147,35 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
         return {
             subpage: {
                 type: String,
-                statePath: 'app.subpage',
-                observer: '_pathChanged'
+                statePath: `app.subpage`,
+                observer: `_pathChanged`
             },
             version: {
                 type: String,
-                statePath: 'app.version',
-                observer: '_pathChanged'
+                statePath: `app.version`,
+                observer: `_pathChanged`
             },
             activeTab: {
                 type: String,
-                statePath: 'app.tab',
-                observer: '_tabChange'
+                statePath: `app.tab`,
+                observer: `_tabChange`
             },
             language: {
                 type: String,
-                value: "en"
+                value: `en`
             },
             drawerOpened: {
                 type: Boolean,
-                statePath: 'app.drawerOpened',
-                observer: '_toggleDrawer'
+                statePath: `app.drawerOpened`,
+                observer: `_toggleDrawer`
             },
             hasNoApiTab: {
                 type: Boolean,
-                computed: 'hasNoApi(version, subpage, data)'
+                computed: `hasNoApi(version, subpage, data)`
             },
             hasNoDemoTab: {
                 type: Boolean,
-                computed: 'hasNoDemo(version, subpage, data)'
+                computed: `hasNoDemo(version, subpage, data)`
             }
         }
     }
@@ -190,11 +190,11 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
 
     connectedCallback() {
         super.connectedCallback();
-        this.$.api_markdown.addEventListener("marked-request-error", e => {
+        this.$.api_markdown.addEventListener(`marked-request-error`, e => {
             e.preventDefault();
-            this.$.api_markdown.markdown = "## API documentation for this component is not yet available."
+            this.$.api_markdown.markdown = `## API documentation for this component is not yet available.`
         });
-        if (this.subpage === "core-event-aggregator") {
+        if (this.subpage === `core-event-aggregator`) {
             this._addScrollNavigation();
         }
     }
@@ -210,15 +210,15 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
     * */
     _addScrollNavigation() {
         const markdown = this.$.docs_markdown;
-        markdown.addEventListener("marked-render-complete", () => {
-            const anchors = Array.from(markdown.getElementsByTagName('a'));
+        markdown.addEventListener(`marked-render-complete`, () => {
+            const anchors = Array.from(markdown.getElementsByTagName(`a`));
             anchors.forEach(anchor => {
-                anchor.addEventListener('click', (e) => {
+                anchor.addEventListener(`click`, (e) => {
                     e.preventDefault();
-                    const elementId = anchor.href.split('/').pop();
+                    const elementId = anchor.href.split(`/`).pop();
                     const element = markdown.querySelector(`#${elementId}`);
                     if (element && element.scrollIntoView) {
-                        element.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+                        element.scrollIntoView({behavior: `smooth`, block: `center`, inline: `center`});
                     }
                 });
             });
@@ -235,7 +235,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
         this.filePath = `markdown/${this.version}/${this.language}/${fileName}.md`;
         this.dokuTitle = this.data[this.version].pages[fileName].title;
 
-        if (fileName.startsWith("ff") || fileName.endsWith("Behavior")) {
+        if (fileName.startsWith(`ff`) || fileName.endsWith(`Behavior`)) {
             this.showTabs = true;
             this.apiPath = `markdown/${this.version}/${this.language}/api/${fileName}.api.md`;
             this.githubPath = `${config.githubDemosBasePath}/${this.version}/${fileName}/index.html`;
@@ -259,15 +259,15 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
             return;
         }
 
-        if (newTab === "demo") {
+        if (newTab === `demo`) {
             setDemoFrameSrc(this.$.iframeSlot, this.version, this.subpage);
         }
 
         if (newTab) {
-            const url = window.location.href.split('#')[0];
+            const url = window.location.href.split(`#`)[0];
             window.location.replace(`${url}#tab=${newTab}`);
         } else { //default tab
-            this.activeTab = "docs";
+            this.activeTab = `docs`;
         }
     }
 }

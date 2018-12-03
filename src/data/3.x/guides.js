@@ -1,22 +1,22 @@
-// guides are the pages under the "Documentation" tab
+// guides are the pages under the Documentation" tab
 
 const guides = {
     pages: {
         "install-dist": {
-            path: "install-dist",
-            title: "1. Installation",
+            path: `install-dist`,
+            title: `1. Installation`,
         },
         "include-scripts": {
-            path: "include-scripts",
-            title: "2. Including Scripts",
+            path: `include-scripts`,
+            title: `2. Including Scripts`,
         },
         "configuration": {
-            path: "configuration",
-            title: "3. Configuration",
+            path: `configuration`,
+            title: `3. Configuration`,
         },
         "your-first-search": {
-            path: "your-first-search",
-            title: "4. Your First Search",
+            path: `your-first-search`,
+            title: `4. Your First Search`,
         },
         "upgrade-guide": {
             path: "upgrade-guide",
@@ -24,71 +24,71 @@ const guides = {
         },
 
         "attribute-basics": {
-            path: "attribute-basics",
-            title: "Attributes",
+            path: `attribute-basics`,
+            title: `Attributes`,
         },
         "template-engine": {
-            path: "template-engine",
-            title: "Template Engine",
+            path: `template-engine`,
+            title: `Template Engine`,
         },
         "communication": {
-            path: "communication",
-            title: "Communication",
+            path: `communication`,
+            title: `Communication`,
         },
         "field-roles": {
-            path: "field-roles",
-            title: "Field Roles",
+            path: `field-roles`,
+            title: `Field Roles`,
         },
         "ready-events": {
-            path: "ready-events",
-            title: "Ready Events",
+            path: `ready-events`,
+            title: `Ready Events`,
         },
         "utils": {
-            path: "utils",
-            title: "Utils",
+            path: `utils`,
+            title: `Utils`,
         },
 
         "tracking-guide": {
-            path: "tracking-guide",
-            title: "Tracking",
+            path: `tracking-guide`,
+            title: `Tracking`,
         },
         "tracking-with-js": {
-            path: "tracking-with-js",
-            title: "Tracking with JS",
+            path: `tracking-with-js`,
+            title: `Tracking with JS`,
         },
         "tracking-edge-cases": {
-            path: "tracking-edge-cases",
-            title: "Tracking Edge Cases",
+            path: `tracking-edge-cases`,
+            title: `Tracking Edge Cases`,
         },
         "currency-guide": {
-            path: "currency-guide",
-            title: "Currency Guide",
+            path: `currency-guide`,
+            title: `Currency Guide`,
         },
     }
 };
 
 guides.firstSteps = [
-    guides.pages["install-dist"],
-    guides.pages["include-scripts"],
-    guides.pages["configuration"],
-    guides.pages["your-first-search"],
-    guides.pages["upgrade-guide"],
+    guides.pages[`install-dist`],
+    guides.pages[`include-scripts`],
+    guides.pages[`configuration`],
+    guides.pages[`your-first-search`],
+    guides.pages[`upgrade-guide`],
 ];
 
 guides.basics = [
-    guides.pages["attribute-basics"],
-    guides.pages["template-engine"],
-    guides.pages["communication"],
-    guides.pages["field-roles"],
-    guides.pages["ready-events"],
-    guides.pages["utils"],
+    guides.pages[`attribute-basics`],
+    guides.pages[`template-engine`],
+    guides.pages[`communication`],
+    guides.pages[`field-roles`],
+    guides.pages[`ready-events`],
+    guides.pages[`utils`],
 ];
 
 guides.additionalFeatures = [
-    guides.pages["tracking-guide"],
-    guides.pages["tracking-with-js"],
-    guides.pages["tracking-edge-cases"],
-    guides.pages["currency-guide"],
+    guides.pages[`tracking-guide`],
+    guides.pages[`tracking-with-js`],
+    guides.pages[`tracking-edge-cases`],
+    guides.pages[`currency-guide`],
 ];
 
 export default guides;

@@ -104,7 +104,7 @@ class SdRecordList extends GestureEventListeners(PolymerElement) {
             },
             labelApiRecords: {
                 type: Array,
-                computed: "_mapRecordPropertiesToLists(recordsApi)"
+                computed: `_mapRecordPropertiesToLists(recordsApi)`
             },
             query: {
                 type: String
@@ -116,8 +116,8 @@ class SdRecordList extends GestureEventListeners(PolymerElement) {
         const deeplink = e.model.__data.item.record.deeplink;
         if (!deeplink) return;
 
-        const targetLink = deeplink.startsWith("http") ? deeplink : window.location.origin + deeplink;
-        window.open(targetLink, "_blank");
+        const targetLink = deeplink.startsWith(`http`) ? deeplink : window.location.origin + deeplink;
+        window.open(targetLink, `_blank`);
     }
 
 
@@ -128,13 +128,13 @@ class SdRecordList extends GestureEventListeners(PolymerElement) {
                 let mixins = [];
                 let methods = [];
 
-                item.record.property.split(" ").forEach(p => {
+                item.record.property.split(` `).forEach(p => {
                     properties.push(p);
                 });
-                item.record.mixins.split(" ").forEach(m => {
+                item.record.mixins.split(` `).forEach(m => {
                     mixins.push(m);
                 });
-                item.record.methods.split(" ").forEach(m => {
+                item.record.methods.split(` `).forEach(m => {
                     methods.push(m);
                 });
 
@@ -147,4 +147,4 @@ class SdRecordList extends GestureEventListeners(PolymerElement) {
     }
 }
 
-window.customElements.define('sd-record-list', SdRecordList);
+window.customElements.define(`sd-record-list`, SdRecordList);

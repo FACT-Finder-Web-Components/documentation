@@ -3,8 +3,8 @@ import { getTabFromParams, urlPathToPages } from '../util/url';
 import config from '../../config';
 
 
-export const UPDATE_PAGE = 'UPDATE_PAGE';
-export const UPDATE_DRAWER_STATE = 'UPDATE_DRAWER_STATE';
+export const UPDATE_PAGE = `UPDATE_PAGE`;
+export const UPDATE_DRAWER_STATE = `UPDATE_DRAWER_STATE`;
 
 
 export const navigate = (path, params) => (dispatch) => {
@@ -44,8 +44,8 @@ const loadPage = (page, version, subpage, tab) => (dispatch) => {
         importInfo.importTarget();
     }
     else {
-        page = 'view404';
-        import('../views/view-404.js');
+        page = `view404`;
+        import(`../views/view-404.js`);
     }
 
     dispatch(updatePage(page, version, subpage, tab));
