@@ -33,8 +33,3 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **products-per-page-item** (Object) (default: empty) | The required data object from FACT-Finder. |
-
-### Methods
-| Name | Description |
-| ---- | ----------- |
-| **clone** | Return a deep copy of the contained elements including all properties, behaviors, private fields, states and HTML templates. |
