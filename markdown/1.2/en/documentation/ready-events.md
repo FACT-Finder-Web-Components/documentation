@@ -70,7 +70,15 @@ Instead we want to use the `WebComponentsReady` to wait until all FACT-Finder We
 
 **NOTE**
 
-Basically you can set the necessary communication information at `ffReady` time in the js itself. However dispatching of data needs to be postponed until `WebComponentsReady` to ensure all elements are upgraded and listening on data.
+Basically you can set the necessary communication information at `ffReady` time in the js itself and fire events to factfinder earlier.
+
+    **Caution**
+        Version <= 1.2.11:
+        This will lead to lost updates in the case the response of FACT-Finder arrives before all components have upgraded.
+        
+        Version >= 1.2.12:
+        The dispatching of FACT-Finder responses to all subscribers are cached and postponed until all components have upgraded. So there will be no lost updates anymore. Be aware that currently through `factfinder.communication.ResultDispatcher.addCallback` added _callbacks_ are invoked as soon as the FACT-Finder response arrives. In the case any of the callbacks have sideeffects other than manipulating the response, this might lead to unexpectd behaviour.
+
 
 ### Element Order
 Even without using `ffReady` to trigger a search you stumble across an error message like:
