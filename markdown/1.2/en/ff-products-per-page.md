@@ -19,7 +19,7 @@ It will default to `<option>{{value}}</option>` if not present.
 Adding `<ff-products-per-page-dropdown></ff-products-per-page-dropdown>` to your page works right out of the box.
 
 You can style the items of the dropdown with the `ff-products-per-page-item` inside a dropdown element.
-You can access the value for the item with the "moustache" syntax `{{value}}`.
+You can access the value for the item with the _mustache.js_ syntax `{{value}}`.
 
 The `show-selected="true"` property on a dropdown adds the selected option to the dropdown options.
 
