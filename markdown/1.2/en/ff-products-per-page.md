@@ -26,7 +26,7 @@ The `show-selected="true"` property on a dropdown adds the selected option to th
 ```html
 <ff-products-per-page-dropdown show-selected="true">
     <ff-products-per-page-item>
-        <div style="color: blue; font-weight: bold">{{value}}&nbsp;Produkte</div>
+        <div style="color: blue; font-weight: bold">{{value}}&nbsp;Products</div>
     </ff-products-per-page-item>
 </ff-products-per-page-dropdown>
 ```
