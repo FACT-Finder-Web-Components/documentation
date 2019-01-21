@@ -26,7 +26,7 @@ When setup like in the example above, the rendered HTML could look like this.
 ```
 
 ## Custom-built dropdown
-The `ff-products-per-page-dropdown` is a custom-build dropdown. If no `ff-products-per-page-item` is provided as template it will default to `<ff-products-per-page-item>{{value}}</ff-products-per-page-item>`.
+The `ff-products-per-page-dropdown` is a custom-built dropdown. If no `ff-products-per-page-item` is provided as template, it will default to `<ff-products-per-page-item>{{value}}</ff-products-per-page-item>`.
 
 ```html
 <ff-products-per-page-dropdown>
@@ -50,8 +50,8 @@ When setup like in the example above, the rendered HTML could look like this.
 </div>
 ```
 
-## Products-per-page as List
-You can also display a products per page handle like a list with the `ff-products-per-page-list`. If no `ff-products-per-page-item` is provided as template it will default to `<ff-products-per-page-item>{{value}}</ff-products-per-page-item>`.
+## Products-per-page as list
+You can also display a products per page handle like a list with the `ff-products-per-page-list`. If no `ff-products-per-page-item` is provided as template, it will default to `<ff-products-per-page-item>{{value}}</ff-products-per-page-item>`.
 
 ```html
 <ff-products-per-page-list>
