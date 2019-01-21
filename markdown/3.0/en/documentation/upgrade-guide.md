@@ -95,3 +95,73 @@ If we have missed something, we would be happy if you [contact](contacts) us.
           window.addEventListener('DOMContentLoaded', resolve);
         }
         ```
+
+### Removal of CSS mixins
+
+CSS mixins have been removed. You can now directly apply CSS rules.
+
+#### ff-header-navigation
+```
+--wrapper  // previous CSS-mixin
+ff-header-navigation .ffw-header-nav  // now recommended CSS-selector
+
+--header
+ff-header-navigation .ffw-header
+
+--header-hover
+ff-header-navigation .ffw-header:hover
+
+--nav-item-seperator
+ff-header-navigation .ffw-nav-item-separator
+
+--container
+ff-header-navigation .ffw-body
+
+--container-top
+ff-header-navigation .ffw-body-top
+
+--container-middle
+ff-header-navigation .ffw-body-middle
+
+--container-left
+ff-header-navigation .ffw-body-left
+
+--container-center
+ff-header-navigation .ffw-body-center
+
+--container-right
+ff-header-navigation .ffw-body-right
+
+--container-bottom
+ff-header-navigation .ffw-body-bottom
+
+--nav-group
+ff-header-navigation .ffw-nav-group
+
+--nav-group-hover
+ff-header-navigation .ffw-nav-group:hover
+
+--nav-group-caption
+ff-nav-element.ffw-nav-group-caption
+
+--nav-group-caption-hover
+ff-nav-element.ffw-nav-group-caption:hover
+
+--nav-link
+ff-nav-element.ffw-nav-link
+
+--nav-link-hover
+ff-nav-element.ffw-nav-link:hover
+
+--nav-item
+ff-nav-element.ffw-nav-item
+
+--nav-item-hover
+ff-nav-element.ffw-nav-item:hover
+```
+
+#### ff-nav-element
+```
+--nav-element-a
+ff-nav-element a
+```
