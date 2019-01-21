@@ -28,8 +28,6 @@ When setup like in the example above, the rendered HTML could look like this.
 ## Custom-built dropdown
 The `ff-products-per-page-dropdown` is a custom-build dropdown. If no `ff-products-per-page-item` is provided as template it will default to `<ff-products-per-page-item>{{value}}</ff-products-per-page-item>`.
 
-The `show-selected="true"` property on a dropdown adds the selected option to the dropdown options.
-
 ```html
 <ff-products-per-page-dropdown>
     <ff-products-per-page-item>
@@ -50,13 +48,6 @@ When setup like in the example above, the rendered HTML could look like this.
         <div style="color: blue; font-weight: bold">Show 24 products per page</div>
     </ff-products-per-page-item>
 </div>
-```
-
-### Collapse-onblur
-With the `collapse-onblur="true"` attribute set, the dropdown collapses when it loses focus. The default value is "false".
-
-```html
-<ff-products-per-page-dropdown collapse-onblur="true"></ff-products-per-page-dropdown>
 ```
 
 ## Products-per-page as List
