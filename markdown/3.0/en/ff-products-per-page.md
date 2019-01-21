@@ -19,10 +19,12 @@ It will default to `<option>{{value}}</option>` if not present.
 When setup like in the example above, the rendered HTML could look like this.
 
 ```html
-<select>
-    <option>Show 12 products per page</option>
-    <option>Show 24 products per page</option>
-</select>
+<ff-products-per-page-select>
+    <select>
+        <option>Show 12 products per page</option>
+        <option>Show 24 products per page</option>
+    </select>
+</ff-products-per-page-select>
 ```
 
 ## Custom-built dropdown
@@ -40,14 +42,16 @@ The `ff-products-per-page-dropdown` is a custom-built dropdown. If no `ff-produc
 When setup like in the example above, the rendered HTML could look like this.
 
 ```html
-<ff-products-per-page-item class="selected">
-    <div style="color: blue; font-weight: bold">Show 12 products per page</div>
-</ff-products-per-page-item>
-<div class="ff-ppp-dropdown-container ff-ppp-dropdown-closed">
-    <ff-products-per-page-item>
-        <div style="color: blue; font-weight: bold">Show 24 products per page</div>
+<ff-products-per-page-dropdown>
+    <ff-products-per-page-item class="selected">
+        <div style="color: blue; font-weight: bold">Show 12 products per page</div>
     </ff-products-per-page-item>
-</div>
+    <div class="ff-ppp-dropdown-container ff-ppp-dropdown-closed">
+        <ff-products-per-page-item>
+            <div style="color: blue; font-weight: bold">Show 24 products per page</div>
+        </ff-products-per-page-item>
+    </div>
+</ff-products-per-page-dropdown>
 ```
 
 ## Products-per-page as list
