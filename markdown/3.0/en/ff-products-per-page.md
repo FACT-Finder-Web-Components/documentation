@@ -26,10 +26,7 @@ When setup like in the example above, the rendered HTML could look like this.
 ```
 
 ## Custom-built dropdown
-Adding `<ff-products-per-page-dropdown></ff-products-per-page-dropdown>` to your page works right out of the box.
-
-You can style the items of the dropdown with the `ff-products-per-page-item` inside a dropdown element.
-You can access the value for the item with the _mustache.js_ syntax `{{value}}`.
+The `ff-products-per-page-dropdown` is a custom-build dropdown. If no `ff-products-per-page-item` is provided as template it will default to `<ff-products-per-page-item>{{value}}</ff-products-per-page-item>`.
 
 The `show-selected="true"` property on a dropdown adds the selected option to the dropdown options.
 
@@ -63,7 +60,7 @@ With the `collapse-onblur="true"` attribute set, the dropdown collapses when it 
 ```
 
 ## Products-per-page as List
-You can also display a Products per Page handle like a list with the `ff-products-per-page-list`.
+You can also display a products per page handle like a list with the `ff-products-per-page-list`. If no `ff-products-per-page-item` is provided as template it will default to `<ff-products-per-page-item>{{value}}</ff-products-per-page-item>`.
 
 ```html
 <ff-products-per-page-list>
