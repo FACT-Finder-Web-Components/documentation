@@ -9,7 +9,7 @@ need to add the following to your page:
 
 This will setup a three-layer navigation.
 
-* The first layer is always visible and consists of the categories in the FACT-Finder navigation data
+* The first layer constitutes the always visible navigation bar and consists of the categories in the FACT-Finder navigation data
 * The second and third layers are shown when you hover over a first layer element
 * Layer 2 are 'groups'
 * Layer 3 are the 'links' inside a 'group'
