@@ -11,10 +11,10 @@ which can be taken care of quickly and easily:
 
 ### 2 major changes
 - Aligning with the current trend FACT-Finder Web Components are now shipped as ES6 Module instead of HTML Imports.
-Hence you have to load `bundle.js` instead of the HTML import as followed:
+Hence you have to load `bundle.js` instead of the HTML import as follows:
    
 ```html
-   <!-- Beofore -->
+   <!-- Before -->
    <script>
        var Polymer = Polymer || {};
        Polymer.dom = 'shady';
@@ -43,7 +43,7 @@ is not possible anymore. Hence you have to nest an `input` into `ff-searchbox` a
 as followed:
 
 ```html
-    <!-- Beofore -->
+    <!-- Before -->
     <ff-searchbox ...></ff-searchbox>
     <ff-searchbutton ...></ff-searchbutton>
            
@@ -62,8 +62,8 @@ If you had used css to style your search input and button don't forget to adjust
 
 
 ### Minor API changes to take care of
-Beside the two major changes the following list contains all breaking changing.
-If we have missed something, we would be happy, if you [contact](contacts) us.
+Beside the two major changes the following list contains all breaking changes.
+If we have missed something, we would be happy if you [contact](contacts) us.
 
 - `ff-asn-group`
     - use `<div slot="groupCaption" ...>` instead of `<div data-container="groupCaption" ...>`
@@ -79,11 +79,11 @@ If we have missed something, we would be happy, if you [contact](contacts) us.
     - removed `getCurrentSlide` method, use `currentSlide` property directly instead
     - removed `getMaxSlides` method, use `maxSlides` property directly instead
 - [Polymer 3](https://www.polymer-project.org/3.0/docs/devguide/feature-overview) related breaking changes:
-    - Polymer shady DOM was removed, because it is not necessary anymore. In cases you used something like
+    - Polymer shady DOM was removed, because it is not necessary anymore. In case you used something like
     `Polymer.dom(HTMLElement).innerHTML = ...` you now have to use the native DOM API directly like
     `HTMLElement.innerHTML = ...`
     - Polymer 1 did remove `unresolved` attribute of `body`-tag automatically. Polymer 3 does not.
-    If you depend on the old behaviour you can retain it with the following code:
+    If you depend on the old behaviour, you can retain it with the following code:
         ```js
         function resolve() {
           document.body.removeAttribute('unresolved');
