@@ -121,17 +121,7 @@ For this element, the structure of the elements inside the navigation is fixed. 
             <div class="ffw-nav-item-separator"></div>
 
             <ff-nav-element class="ffw-nav-item">
-                <a href="...">Climbing</a></ff-nav-element>
-
-            <div class="ffw-nav-item-separator"></div>
-
-            <ff-nav-element class="ffw-nav-item">
                 <a href="...">Bike</a></ff-nav-element>
-
-            <div class="ffw-nav-item-separator"></div>
-
-            <ff-nav-element class="ffw-nav-item">
-                <a href="...">Winter equipment</a></ff-nav-element>
 
             <div class="ffw-nav-item-separator"></div>
         </div>
@@ -155,13 +145,9 @@ For this element, the structure of the elements inside the navigation is fixed. 
                             <a href="...">Bike parts</a></ff-nav-element>
 
                         <ff-nav-element class="ffw-nav-link">
-                            <a href="...">Tires &amp; tubes</a></ff-nav-element>
-                        <ff-nav-element class="ffw-nav-link">
                             <a href="...">Bike pedals</a></ff-nav-element>
                         <ff-nav-element class="ffw-nav-link">
                             <a href="...">Bike brakes</a></ff-nav-element>
-                        <ff-nav-element class="ffw-nav-link">
-                            <a href="...">Bike frames</a></ff-nav-element>
 
                         <div slot="Bike parts">  <!-- custom element in group slot -->
                             <a href="http://www.myshop.de">More bike parts...</a>
@@ -174,10 +160,6 @@ For this element, the structure of the elements inside the navigation is fixed. 
 
                         <ff-nav-element class="ffw-nav-link">
                             <a href="...">Bike lights</a></ff-nav-element>
-                        <ff-nav-element class="ffw-nav-link">
-                            <a href="...">Computers &amp; navigation</a></ff-nav-element>
-                        <ff-nav-element class="ffw-nav-link">
-                            <a href="...">Bottles &amp; holders</a></ff-nav-element>
                         <ff-nav-element class="ffw-nav-link">
                             <a href="...">Bike locks</a></ff-nav-element>
                     </div>
