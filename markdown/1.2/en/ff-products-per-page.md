@@ -11,36 +11,64 @@ It will default to `<option>{{value}}</option>` if not present.
 
 ```html
 <ff-products-per-page-select>
-    <option data-template>Show {{value}} Products</option>
+    <option data-template>Show {{value}} products per page</option>
+</ff-products-per-page-select>
+```
+
+### Rendered HTML
+When setup like in the example above, the rendered HTML could look like this.
+
+```html
+<ff-products-per-page-select>
+    <select>
+        <option>Show 12 products per page</option>
+        <option>Show 24 products per page</option>
+    </select>
 </ff-products-per-page-select>
 ```
 
 ## Custom-built dropdown
-Adding `<ff-products-per-page-dropdown></ff-products-per-page-dropdown>` to your page works right out of the box.
-
-You can style the items of the dropdown with the `ff-products-per-page-item` inside a dropdown element.
-You can access the value for the item with the _mustache.js_ syntax `{{value}}`.
-
-The `show-selected="true"` property on a dropdown adds the selected option to the dropdown options.
+The `ff-products-per-page-dropdown` is a custom-built dropdown. If no `ff-products-per-page-item` is provided as template, it will default to `<ff-products-per-page-item>{{value}}</ff-products-per-page-item>`.
 
 ```html
-<ff-products-per-page-dropdown show-selected="true">
+<ff-products-per-page-dropdown>
     <ff-products-per-page-item>
-        <div style="color: blue; font-weight: bold">{{value}}&nbsp;Products</div>
+        <div style="color: blue; font-weight: bold">Show 12 products per page</div>
     </ff-products-per-page-item>
 </ff-products-per-page-dropdown>
 ```
 
-### Collapse-onblur
-With the `collapse-onblur="true"` attribute set, the dropdown collapses when it loses focus. The default value is "false".
+### Rendered HTML
+When setup like in the example above, the rendered HTML could look like this.
 
 ```html
-<ff-products-per-page-dropdown collapse-onblur="true"></ff-products-per-page-dropdown>
+<ff-products-per-page-dropdown>
+    <ff-products-per-page-item class="selected">
+        <div style="color: blue; font-weight: bold">Show 12 products per page</div>
+    </ff-products-per-page-item>
+    <div class="ff-ppp-dropdown-container ff-ppp-dropdown-closed">
+        <ff-products-per-page-item>
+            <div style="color: blue; font-weight: bold">Show 24 products per page</div>
+        </ff-products-per-page-item>
+    </div>
+</ff-products-per-page-dropdown>
 ```
 
-## Products-per-page as List
-You can also display a Products per Page handle like a list with the `ff-products-per-page-list`.
+## Products-per-page as list
+You can also display a products per page handle like a list with the `ff-products-per-page-list`. If no `ff-products-per-page-item` is provided as template, it will default to `<ff-products-per-page-item>{{value}}</ff-products-per-page-item>`.
 
 ```html
-<ff-products-per-page-list></ff-products-per-page-list>
+<ff-products-per-page-list>
+    <ff-products-per-page-item>{{value}}</ff-products-per-page-item>
+</ff-products-per-page-list>
+```
+
+### Rendered HTML
+When setup like in the example above, the rendered HTML could look like this.
+
+```html
+<ff-products-per-page-list>
+    <ff-products-per-page-item class="selected">12</ff-products-per-page-item>
+    <ff-products-per-page-item>24</ff-products-per-page-item>
+</ff-products-per-page-list>
 ```
