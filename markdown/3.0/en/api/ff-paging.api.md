@@ -24,8 +24,8 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **hide** | Hides the paging set.|
-| **show** | Shows the paging set.|
+| **hideSelf** | Hides the paging set.|
+| **showSelf** | Shows the paging set.|
 
 ## `ff-paging-item`
 ___
@@ -33,12 +33,6 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **type** (String)&nbsp;**Options**:&nbsp;"currentLink", "firstLink", "lastLink", "nextLink", "previousLink", "pageLink" (default: "pageLink") | Using this property you can configure and style different pages and navigation elements of the paging. See documentation above. |
-| **products-per-page-item**&nbsp;(Object)&nbsp;(default: empty) |  The paging item data from FACT-Finder. |
+| **paging-item**&nbsp;(Object)&nbsp;(default: empty) |  The paging item data from FACT-Finder. |
 | **show-only**&nbsp;(String)&nbsp;**Options**: "true", "false" (default: empty) | Determines if pages should only be displayed but not be clickable. |
-| **show-selected** (Boolean) | |
-
-### Mixins
-| Name | Description |
-| ---- | ----------- |
-| **--paging-item-cursor-mixin** | Is used for the container of the paging item. |
 
