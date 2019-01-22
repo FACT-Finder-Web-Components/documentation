@@ -8,11 +8,6 @@ ___
 | **collapse-onblur** (String) **Options**: "true", "false" (default: "false") | Determines if the element is automatically closed when the element loses focus. |
 | **items** (Array) | FACT-Finder Data |
 
-### Mixins
-| Name | Description |
-| ---- | ----------- |
-| **--dropdown-item-container** | Is applied to the container of the products-per-page element within the 'dropdown' view. |
-
 ### Methods
 | Name | Description |
 | ---- | ----------- |
@@ -38,8 +33,3 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **products-per-page-item** (Object) (default: empty) | The required data object from FACT-Finder. |
-
-### Methods
-| Name | Description |
-| ---- | ----------- |
-| **clone** | Return a deep copy of the contained elements including all properties, behaviors, private fields, states and HTML templates. |

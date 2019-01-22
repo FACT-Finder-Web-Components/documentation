@@ -41,7 +41,7 @@ Add a normal `ff-suggest`. We trigger Suggest with custom code in the next step.
 
     <section id="productContainer" class="productsContainer">
         <div data-container="productName">
-            <p class="containerCaption">Vorgeschlagene Produkte</p>
+            <p class="containerCaption">Suggested products</p>
             <div>
                 <ff-suggest-item type="productName" onclick="changeSearchTerm(this)">
                     <img data-image>
