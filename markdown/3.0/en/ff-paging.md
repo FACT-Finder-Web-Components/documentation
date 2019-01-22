@@ -18,7 +18,7 @@ You can access the value of a paging item with the ** {{caption}}**  syntax.
 
 When the attribute `show-only` is set to ** true**  the paging does not react on clicks.
 ```html
-<ff-paging shwo-only="true">
+<ff-paging show-only="true">
     //...
 </ff-paging>
 ```
@@ -27,9 +27,8 @@ When the attribute `show-only` is set to ** true**  the paging does not react on
 
 Define different `ff-paging-set` elements based on which page you are on right now.
 
-With the `state` attribute you can evaluate a boolean expression. When the expression is true, the
-`ff-paging-set` is visible. It is important to define the "state", so that each expression
-distinctly defines 1 possible paging set.
+The `state` attribute is evaluated as a boolean expression. When its value is `true`, the
+`ff-paging-set` is visible.
 
 The possible variables to build the expressions are ** currentPage** , ** pageCount**  and numeric
 values.
@@ -78,6 +77,25 @@ paging itself.
 
 Side Note: Between the `ff-paging-items` you can add some placeholders like '...'. They
 will always be visible.
+
+### Rendered HTML
+
+The template you provide in `ff-paging-item` tag will be rendered inside a wrapping `div`:
+
+```html
+<!--currently selected item-->
+<ff-paging-item type="currentLink" class="selected" show-only="false">
+	<div class="ffw-page-item-container ffw-cursor">1</div>
+</ff-paging-item>
+
+<!--regular visible and clickable item-->
+<ff-paging-item type="currentLink +1" class="" show-only="false">
+	<div class="ffw-page-item-container ffw-cursor">2</div>
+</ff-paging-item>
+```
+
+## Example implementation
+
 ```html
 <ff-paging id="paging3" class="paging3">
     <ff-paging-set id="p3set1" state="currentPage <= 3">
