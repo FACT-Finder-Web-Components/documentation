@@ -3,7 +3,7 @@ With the `ff-paging` element, you can build a custom paging for your search resu
 contain a few `ff-paging-set` elements and each `ff-paging-set` element contains a few
 `ff-paging-item` elements.
 
-You can access the value of a paging item with the ** {{caption}}**  syntax.
+You can access the value of a paging item with the **{{caption}}**  syntax.
 ```html
 <ff-paging id="paging2">
     <ff-paging-item type="currentLink -2">{{caption}}</ff-paging-item>
@@ -16,7 +16,7 @@ You can access the value of a paging item with the ** {{caption}}**  syntax.
 
 ### show-only
 
-When the attribute `show-only` is set to ** true**  the paging does not react on clicks.
+When the attribute `show-only` is set to `true`  the paging does not react on clicks.
 ```html
 <ff-paging show-only="true">
     //...
@@ -30,7 +30,7 @@ Define different `ff-paging-set` elements based on which page you are on right n
 The `state` attribute is evaluated as a boolean expression. When its value is `true`, the
 `ff-paging-set` is visible.
 
-The possible variables to build the expressions are ** currentPage** , ** pageCount**  and numeric
+The possible variables to build the expressions are `currentPage` , `pageCount`  and numeric
 values.
 ```html
 <ff-paging >
