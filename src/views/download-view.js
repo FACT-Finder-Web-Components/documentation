@@ -294,10 +294,11 @@ class DownloadView extends PolymerElement {
                     apiName: "campaigns",
                     active: false
                 }, {
-                    label: "Carousel",
-                    apiName: "carousel",
-                    active: false
-                }, {
+                // TODO removed for 3.0 release -- might get reintroduced afterwards
+                //     label: "Carousel",
+                //     apiName: "carousel",
+                //     active: false
+                // }, {
                     label: "Compare",
                     apiName: "compare",
                     active: false

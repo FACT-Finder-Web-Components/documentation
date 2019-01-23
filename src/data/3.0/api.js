@@ -99,10 +99,11 @@ const api = {
             path: "ff-single-word-search",
             title: "Single Word Search",
         },
-        "ff-carousel": {
-            path: "ff-carousel",
-            title: "Carousel",
-        },
+        // TODO removed for 3.0 release -- might get reintroduced afterwards
+        // "ff-carousel": {
+        //     path: "ff-carousel",
+        //     title: "Carousel",
+        // },
         "ff-tag-cloud": {
             path: "ff-tag-cloud",
             title: "Tag Cloud",
@@ -188,7 +189,8 @@ api.moreFeatures = [
     api.pages["ff-compare"],
     api.pages["ff-similar-products"],
     api.pages["ff-single-word-search"],
-    api.pages["ff-carousel"],
+    // TODO removed for 3.0 release -- might get reintroduced afterwards
+    // api.pages["ff-carousel"],
     api.pages["ff-tag-cloud"],
     api.pages["ff-template"],
     api.pages["ff-middleware"],
