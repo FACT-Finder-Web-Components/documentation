@@ -8,7 +8,7 @@ ___
 | **select-onclick**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Determines if the contents of the search box should be selected if the inside of the box is clicked. |
 | **use-suggest**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | Determines if a request should be sent to the suggest interface as soon as a user starts typing in a search term. |
 | **suggest-delay** &nbsp;(Number) (default: 0) | Triggers a suggest request only after the delay expired and no more input is set. When the input field changes in the delay time frame the delay will be reset. |
-
+| **value**&nbsp;(String) (default: empty) | Gets or sets the value of related HTML `<input>` element. This property cannot be set on `<ff-searchbox>` element and should only be used in custom JavaScript code. Setting value triggers `input` event on `<input>` element. Therefore suggestions are shown (if enabled). |
 ### Events
 | Name | Description |
 | ---- | ----------- |
@@ -17,11 +17,15 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **search** | Initializes a search.|
+| **search()** | Initializes a search.|
+| **resetInput(selector = 'input')** | Sets the `input` reference to the nested HTML element pointed by selector. |
 
 ## `ff-searchbutton`
 ___
-
+### Methods
+| Name | Description |
+| ---- | ----------- |
+| **resetButton(selector = 'button')** | Sets the `button` reference to the nested HTML element pointed by selector. |
 
 ## `ff-communication`
 ___
