@@ -73,12 +73,12 @@ When setup like in the example above, the rendered HTML could look like this.
 ```html
 <ff-sortbox collapse-onblur="false" show-selected="true" show-selected-first="false" tabindex="1" opened>
 
-    <div class="ff-sort-selected-container">
-        <ff-sortbox-item key="Rating.desc" class="selected">
+    <div class="ffw-selected-container">
+        <ff-sortbox-item key="Rating.desc" class="ffw-selected">
             <span><em>Overridden for: Rating descending</em></span></ff-sortbox-item>
     </div>
 
-    <div class="ff-sort-dropdown-container">
+    <div class="ffw-dropdown-container">
         <ff-sortbox-item key="ff.relevance">Relevance</ff-sortbox-item>
 
         <ff-sortbox-item key="Price.asc">
@@ -90,7 +90,7 @@ When setup like in the example above, the rendered HTML could look like this.
         <ff-sortbox-item key="Rating.asc" class="customCssClass">
             <span>Default Style: Rating ascending</span></ff-sortbox-item>
 
-        <ff-sortbox-item key="Rating.desc" class="showSelected">
+        <ff-sortbox-item key="Rating.desc" class="ffw-showSelected">
             <span><em>Overridden for: Rating descending</em></span></ff-sortbox-item>
     </div>
 
@@ -134,12 +134,12 @@ To implement a sortbox with fixed content in its static box you need to hide the
         margin-left: 1px;
     }
 
-    #sortbox1 ff-sortbox-item.showSelected {
+    #sortbox1 ff-sortbox-item.ffw-showSelected {
         background-color: lightgray;
     }
 
     /* hide the container of the currently selected sortbox item */
-    #sortbox1 .ff-sort-selected-container {
+    #sortbox1 .ffw-selected-container {
         display: none !important;
     }
 </style>
