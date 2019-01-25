@@ -1,8 +1,5 @@
 ## Upgrade from version 1.2.x to 3.0.0
-We strongly recommend to upgrade your system to use the latest version of FACT-Finder Web Components.
-While we maintain older versions, new features are likely to be implemented only in newer versions.
-In addition the newer versions stick to newer technology decreasing your loading time and improving internal speed.
-We promise to make each upgrade progress as ease as possible.
+We strongly recommend to upgrade your system to use the latest version of FACT-Finder Web Components. While we will do critical bug fixes for older versions, new features are likely to be implemented only in newer versions. In addition the newer versions stick to newer technology decreasing your loading time and improving internal speed. We promise to make each upgrade progress as ease as possible.
 
 In general you can keep track of our progress, changes and new features in the [release notes](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/CHANGELOG.md).
 
@@ -56,9 +53,7 @@ as followed:
     </ff-searchbutton>
 ```
 Note that native `input` properties like `placeholder` stay within the `input` tag, while enhancements like 
-`suggest-onfocus` move into `ff-searchbox`.
-
-If you had used css to style your search input and button don't forget to adjust your selectors accordingly.
+`suggest-onfocus` move into `ff-searchbox`. If you had used css to style your search input and button don't forget to adjust your selectors accordingly.
 
 
 ### Minor API changes to take care of
