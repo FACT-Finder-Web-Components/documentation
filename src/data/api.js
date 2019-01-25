@@ -75,6 +75,10 @@ const api = {
             path: "ff-campaign-shopping-cart",
             title: "Shopping Cart Campaign",
         },
+        "ff-product-teaser-campaign-processor": {
+            path: "ff-product-teaser-campaign-processor",
+            title: "Product Teaser Campaign",
+        },
         "ff-campaign-product": {
             path: "ff-campaign-product",
             title: "Product Campaign",
@@ -179,6 +183,7 @@ api.navigation = [
 api.moreFeatures = [
     api.pages["ff-campaign"],
     api.pages["ff-campaign-pushed-products"],
+    api.pages["ff-product-teaser-campaign-processor"],
     api.pages["ff-campaign-landing-page"],
     api.pages["ff-campaign-shopping-cart"],
     api.pages["ff-checkout-tracking"],
