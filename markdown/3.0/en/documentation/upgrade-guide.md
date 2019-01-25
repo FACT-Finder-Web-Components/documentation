@@ -3,12 +3,10 @@ We strongly recommend to upgrade your system to use the latest version of FACT-F
 
 In general you can keep track of our progress, changes and new features in the [release notes](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/CHANGELOG.md).
 
-There are only two major changes and some minor API changes to take care of when upgrading from version 1.2.x to version 3.0.0,
-which can be taken care of quickly and easily:
+There are only two major changes and some minor API changes to take care of when upgrading from version 1.2.x to version 3.0.0. In addition css mixins have been removed. You can use normal css selector instead. Further more `ffw-` is introduced as name prefix for FACT-Finder Web Components custom class names.
 
 ### 2 major changes
-- Aligning with the current trend FACT-Finder Web Components are now shipped as ES6 Module instead of HTML Imports.
-Hence you have to load `bundle.js` instead of the HTML import as follows:
+- Aligning with the current trend FACT-Finder Web Components are now shipped as ES6 Module instead of HTML Imports. Hence you have to load `bundle.js` instead of the HTML import as follows:
    
 ```html
    <!-- Before -->
@@ -157,4 +155,27 @@ ff-nav-element.ffw-nav-item:hover
 ```
 --nav-element-a
 ff-nav-element a
+```
+
+#### ff-products-per-page-dropdown
+```
+`--dropdown-item-container`
+.ffw-ppp-dropdown-container
+```
+
+### Rename of class names
+
+#### ff-products-per-page-dropdown
+```
+ff-ppp-drowdown-closed // old class name
+ffw-ppp-dropdown-closed // new classname
+
+ff-ppp-dropdown-container
+ffw-ppp-dropdown-container
+```
+
+#### ff-products-per-page-item
+```
+selected
+ffw-selected
 ```
