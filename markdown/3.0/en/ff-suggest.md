@@ -21,7 +21,7 @@ search box.
 ```
 
 For more information on `ff-searchbox`, see
-[Searchbox Example](api/ff-searchbox#tab=doc)
+[Searchbox Example](api/ff-searchbox#tab=docs)
 
 ## The basics
 
