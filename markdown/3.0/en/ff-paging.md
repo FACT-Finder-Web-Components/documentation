@@ -84,7 +84,7 @@ The template you provide in `ff-paging-item` tag will be rendered inside a wrapp
 
 ```html
 <!--currently selected item-->
-<ff-paging-item type="currentLink" class="selected" show-only="false">
+<ff-paging-item type="currentLink" class="ffw-selected" show-only="false">
 	<div class="ffw-page-item-container ffw-cursor">1</div>
 </ff-paging-item>
 

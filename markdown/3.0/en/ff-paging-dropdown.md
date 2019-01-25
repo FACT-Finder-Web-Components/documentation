@@ -39,11 +39,11 @@ When setup like in the example above, the rendered HTML could look like this.
 
 ```html
 <ff-paging-dropdown show-selected="" tabindex="999" class="">
-    <ff-paging-item class="selected" type="pageLink">
+    <ff-paging-item class="ffw-selected" type="pageLink">
         <div class="ffw-page-item-container ffw-cursor">1</div>
     </ff-paging-item>
-    <div class="ff-paging-dropdown-container ff-paging-dropdown-closed">
-        <ff-paging-item class="selected" type="pageLink">
+    <div class="ffw-paging-dropdown-container ffw-paging-dropdown-closed">
+        <ff-paging-item class="ffw-selected" type="pageLink">
             <div class="ffw-page-item-container ffw-cursor">1</div>
         </ff-paging-item>
         <ff-paging-item class="" type="pageLink">
