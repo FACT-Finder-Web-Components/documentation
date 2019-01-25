@@ -70,9 +70,7 @@ If we have missed something, we would be happy if you [contact](contacts) us.
 - `ff-slider`
     - use `<div slot="slider1" id="slider1" ...></div>` instead of `<div data-slider="1" ...></div>`
     - use `<div slot="slider2" id="slider2" ...></div>` instead of `<div data-slider="2" ...></div>`
-- `ff-carousel`
-    - removed `getCurrentSlide` method, use `currentSlide` property directly instead
-    - removed `getMaxSlides` method, use `maxSlides` property directly instead
+- `ff-carousel` is removed from this library
 - [Polymer 3](https://www.polymer-project.org/3.0/docs/devguide/feature-overview) related breaking changes:
     - Polymer shady DOM was removed, because it is not necessary anymore. In case you used something like
     `Polymer.dom(HTMLElement).innerHTML = ...` you now have to use the native DOM API directly like
