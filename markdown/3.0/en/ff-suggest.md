@@ -14,10 +14,9 @@ The `ff-suggest` is triggered when at least 2 characters are in the
 search box.
 
 ```html
-<input is="ff-searchbox"
-       placeholder="Search..."
-       suggest-onfocus="false"
-       hidesuggest-onblur="true"/>
+<ff-searchbox suggest-onfocus="false" hidesuggest-onblur="true">
+    <input placeholder="Search..." />
+</ff-searchbox>
 ```
 
 For more information on `ff-searchbox`, see
@@ -53,7 +52,7 @@ at this position and will be an exact copy of this element. `ff-suggest-item` su
 
 Repeat this process for all configured `"suggestTypes"`.
 
-```html 
+```html
 <ff-suggest>
     <section>
         <div data-container="suggestType">
@@ -81,6 +80,49 @@ rather than the rendered: "**Back**packs".
 
 See [Template Engine](documentation/template-engine) for more details.
 
+### Rendered HTML
+
+Container templates provided inside `<ff-suggest>` tag will be rendered inside
+several additional wrapping `<div>` HTML elements.
+
+For example, the following HTML provided by the user:
+
+```html
+<ff-suggest layout="block">
+    <section>
+        <!--container template-->
+    </section>
+    <section>
+        <!--container template-->
+    </section>
+    <section>
+        <!--container template-->
+    </section>
+</ff-suggest>
+```
+
+will be rendered as:
+
+```html
+<ff-suggest layout="block">
+    <div style="position:relative;width:100%">
+        <div class="ffw-suggestContainerWrapper">
+            <div class="ffw-suggestContainer ffw-blockLayout">
+                <section>
+                    <!--container template-->
+                </section>
+                <section>
+                    <!--container template-->
+                </section>
+                <section>
+                    <!--container template-->
+                </section>
+            </div>
+        </div>
+    </div>
+</ff-suggest>
+```
+
 ## Add Keyboard Support
 
 Keyboard arrow key support is enabled by default. When a
@@ -101,10 +143,10 @@ need to add CSS rules to highlight the selected item.
 Using the "layout" attribute you can define a basic layout for the
 `ff-suggest-items`.
 
-Setting the **block** value results in a layout, in which all section
+Setting the `block` value results in a layout, in which all section
 child elements are displayed horizontally.
 
-Setting the **list** (default) value results in a layout, in which all
+Setting the `list` (default) value results in a layout, in which all
 section child elements are displayed vertically.
 
 ```html
@@ -127,9 +169,9 @@ event `"suggest-item-clicked"`.
 
 See the following example:
 
-```html 
+```html
 <ff-suggest>
-    //content...
+    <!--content-->
 </ff-suggest>
 
 <script>
@@ -168,7 +210,7 @@ assigning the event's `event.detail.record` to `ff-record`'s
 
 ```html
 <ff-suggest>
-    //content...
+    <!--content-->
 </ff-suggest>
 
 <script>
