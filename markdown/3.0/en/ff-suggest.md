@@ -90,18 +90,19 @@ For example, the following HTML provided by the user:
 ```html
 <ff-suggest layout="block">
     <section>
-        <!--container template-->
-    </section>
-    <section>
-        <!--container template-->
-    </section>
-    <section>
-        <!--container template-->
+        <div data-container="suggestType">
+            <span>Suggestions for suggestType</span>
+            <div>
+                <ff-suggest-item type="suggestType">
+                    <span>{{{name}}}</span>
+                </ff-suggest-item>
+            </div>
+        </div>
     </section>
 </ff-suggest>
 ```
 
-will be rendered as:
+for 2 suggestions of ```suggestType``` will be rendered as:
 
 ```html
 <ff-suggest layout="block">
@@ -109,13 +110,17 @@ will be rendered as:
         <div class="ffw-suggestContainerWrapper">
             <div class="ffw-suggestContainer ffw-blockLayout">
                 <section>
-                    <!--container template-->
-                </section>
-                <section>
-                    <!--container template-->
-                </section>
-                <section>
-                    <!--container template-->
+                    <div data-container="suggestType">
+                        <span>Suggestions for suggestType</span>
+                        <div>
+                            <ff-suggest-item type="suggestType">
+                                <span>Suggestion 1</span>
+                            </ff-suggest-item>
+                            <ff-suggest-item type="suggestType">
+                                <span>Suggestion 2</span>
+                            </ff-suggest-item>
+                        </div>
+                    </div>
                 </section>
             </div>
         </div>
@@ -127,12 +132,12 @@ will be rendered as:
 
 Keyboard arrow key support is enabled by default. When a
 `ff-suggest-item` is selected using the arrow keys, the class
-`ff-highlight-suggest-item` is added to its class list. So you simply
+`ffw-highlight-suggest-item` is added to its class list. So you simply
 need to add CSS rules to highlight the selected item.
 
 ```html
 <style>
-    ff-suggest-item.ff-highlight-suggest-item {
+    ff-suggest-item.ffw-highlight-suggest-item {
         background-color: lightgray;
     }
 </style>
