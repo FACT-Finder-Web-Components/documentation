@@ -26,8 +26,8 @@ For more information, see the [API reference](/api/ff-searchbox#tab=api).
 
 ## Wrapping input element with ff-searchbox
 The `ff-searchbox` wraps a regular HTML `<input>` element. Simply place
-`<input>` between `<ff-searchbox>` tags. On ENTER a search query is fired
-with the current input value.
+`<input>` between `<ff-searchbox>` tags. On ENTER a search query to FACT-Finder
+is fired with the current input value.
 ```html
 <ff-searchbox>
     <input />
@@ -45,7 +45,7 @@ you can use all the standard attributes of `<input>` such as `placeholder`.
 
 ### Select input value on click
 With the `select-onclick` attribute you can define whether the value
-should be selected when the search box gets focus. *(default is false)*
+should be selected when the search box gets focus. *(default is `"false"`)*
 ```html
 <ff-searchbox select-onclick="true">
     <input />
@@ -55,7 +55,7 @@ should be selected when the search box gets focus. *(default is false)*
 
 ## Adding Suggest
 If you want a suggest functionality on your page you can set the
-`use-suggest` attribute to `true` *(default is `true`)*. You also need
+`use-suggest` attribute to `"true"` *(default is `"true"`)*. You also need
 to implement the `ff-suggest` tag on your page. For more information
 take a look at the [Suggest Example](/api/ff-suggest). The suggest will
 only trigger when at least 2 characters are typed in the input field.
@@ -66,7 +66,7 @@ only trigger when at least 2 characters are typed in the input field.
 ```
 
 ### On Focus
-With the property `suggest-onfocus` set to `true`, the suggest will
+With the property `suggest-onfocus` set to `"true"`, the suggest will
 open when the user clicks into the input or the input gets focus.
 ```html
 <ff-searchbox suggest-onfocus="true">
@@ -76,7 +76,7 @@ open when the user clicks into the input or the input gets focus.
 
 ### Hiding Suggest
 Usually, you want the suggest to disappear once the user clicks
-somewhere else. With the attribute `hidesuggest-onblur` set to `false`
+somewhere else. With the attribute `hidesuggest-onblur` set to `"false"`
 the suggest will only disappear when less than 2 characters are in the
 input or when the ESC Key is pressed.
 ```html
