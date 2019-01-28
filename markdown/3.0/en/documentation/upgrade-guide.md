@@ -3,10 +3,10 @@ We strongly recommend upgrading your system to use the latest version of FACT-Fi
 
 In general you can keep track of our progress, changes and new features in the [release notes](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/CHANGELOG.md).
 
-There are only two major changes and some minor API changes to take care of when upgrading from version 1.2.x to version 3.0.0. In addition css mixins have been removed. You can use normal css selector instead. Further more `ffw-` is introduced as name prefix for FACT-Finder Web Components custom class names.
+There are only two major changes and some minor API changes to take care of when upgrading from version 1.2.x to version 3.0.0. In addition, CSS mixins have been removed. You can use normal CSS selector instead. Further more `ffw-` is introduced as the prefix for FACT-Finder Web Components custom class names.
 
 ### 2 major changes
-- Aligning with the current trend FACT-Finder Web Components are now shipped as ES6 Module instead of HTML Imports. Hence you have to load `bundle.js` instead of the HTML import as follows:
+- Aligning with the current trend FACT-Finder Web Components are now shipped as ES6 Module instead of HTML Imports. Which is why you have to load `bundle.js` instead of the previous HTML import.
    
 ```html
    <!-- Before -->
@@ -34,7 +34,7 @@ There are only two major changes and some minor API changes to take care of when
 ```
 
 - With [Polymer 3](https://www.polymer-project.org/3.0/docs/devguide/feature-overview) extending built-in HTML elements
-is not possible anymore. Hence you have to nest an `input` into `ff-searchbox` and a `button` into `ff-searchbutton`
+is not possible anymore. Instead you will have to put an `input` into `ff-searchbox` and a `button` into `ff-searchbutton`
 as followed:
 
 ```html
@@ -51,12 +51,12 @@ as followed:
     </ff-searchbutton>
 ```
 Note that native `input` properties like `placeholder` stay within the `input` tag, while enhancements like 
-`suggest-onfocus` move into `ff-searchbox`. If you had used css to style your search input and button don't forget to adjust your selectors accordingly.
+`suggest-onfocus` move into `ff-searchbox`. If you're using CSS to style your search input and button don't forget to adjust your selectors accordingly.
 
 
 ### Minor API changes to take care of
-Beside the two major changes the following list contains all breaking changes.
-If we have missed something, we would be happy if you [contact](contacts) us.
+The following list contains all remaining breaking changes.
+If we have missed something, we would be happy if you [contacted](contacts) us.
 
 - `ff-asn-group`
     - use `<div slot="groupCaption" ...>` instead of `<div data-container="groupCaption" ...>`
