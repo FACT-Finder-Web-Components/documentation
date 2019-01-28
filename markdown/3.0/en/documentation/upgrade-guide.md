@@ -1,5 +1,5 @@
 ## Upgrade from version 1.2.x to 3.0.0
-We strongly recommend to upgrade your system to use the latest version of FACT-Finder Web Components. While we will do critical bug fixes for older versions, new features are likely to be implemented only in newer versions. In addition the newer versions stick to newer technology decreasing your loading time and improving internal speed. We promise to make each upgrade progress as ease as possible.
+We strongly recommend upgrading your system to use the latest version of FACT-Finder Web Components. While we will do critical bug fixes for older versions, new features will likely only be implemented in newer versions. In addition, the newer versions utilize newer technology, decreasing your loading time and improving internal speed. We promise to make each upgrade go as smoothly as possible.
 
 In general you can keep track of our progress, changes and new features in the [release notes](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/CHANGELOG.md).
 
