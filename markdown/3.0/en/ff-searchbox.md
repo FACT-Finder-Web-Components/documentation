@@ -35,7 +35,7 @@ is fired with the current input value.
 ```
 
 ### Placeholder
-Because the `ff-searchbox` does not limit features o HTML it wraps, 
+Because the `ff-searchbox` does not limit features of HTML it wraps, 
 you can use all the standard attributes of `<input>` such as `placeholder`.
 ```html
 <ff-searchbox>
