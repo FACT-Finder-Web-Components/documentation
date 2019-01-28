@@ -74,10 +74,10 @@ Basically you can set the necessary communication information at `ffReady` time 
 
     **Caution**
         Version <= 1.2.11:
-        This will lead to lost updates in the case the response of FACT-Finder arrives before all components have upgraded.
+        This will lead to lost updates in cases where FACT-Finder's response arrives before all components have been upgraded.
         
         Version >= 1.2.12:
-        The dispatching of FACT-Finder responses to all subscribers are cached and postponed until all components have upgraded. So there will be no lost updates anymore. Be aware that currently through `factfinder.communication.ResultDispatcher.addCallback` added _callbacks_ are invoked as soon as the FACT-Finder response arrives. In the case any of the callbacks have sideeffects other than manipulating the response, this might lead to unexpectd behaviour.
+        The dispatching of FACT-Finder responses to all subscribers is cached and postponed until all components have been upgraded. So there will be no lost updates anymore. Be aware that currently added _callbacks_ are invoked through `factfinder.communication.ResultDispatcher.addCallback` as soon as the FACT-Finder response arrives. In case any of the callbacks have side-effects other than manipulating the response, this might lead to unexpected behavior.
 
 
 ### Element Order
