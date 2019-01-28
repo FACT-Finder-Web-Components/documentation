@@ -14,6 +14,18 @@ class VersionDropdown extends ReduxMixin(PolymerElement) {
     .version-selector {
         padding-left: 20px;
     }
+    
+    .version-selector .isNotLatestVersion {
+        border: 4px solid red;
+        padding: 0 0.5em;   
+        background-color: palevioletred;
+    }
+    
+    .version-selector .isNotLatestVersion a {
+        color: darkred;
+        border-bottom: 2px solid darkred;
+        text-decoration: none; 
+    }
 
     .version-selector paper-dropdown-menu {
         width: 110px;
@@ -48,6 +60,14 @@ class VersionDropdown extends ReduxMixin(PolymerElement) {
             </template>
         </paper-listbox>
     </paper-dropdown-menu>
+    
+    <template is="dom-if" if="[[isNotLatestVersion]]">
+        <div class="isNotLatestVersion">
+            <h4>You are viewing an old version. We recommend to always use the latest version, which is currently
+                <a href="[[_versionUrl(page, latestVersion, subpage, tab)]]">[[latestVersion]]</a>.
+            </h4>    
+        </div>
+    </template>
 </div>
         `;
     }
@@ -60,7 +80,8 @@ class VersionDropdown extends ReduxMixin(PolymerElement) {
             },
             version: {
                 type: String,
-                statePath: `app.version`
+                statePath: `app.version`,
+                observer: `_versionChanged`
             },
             subpage: {
                 type: String,
@@ -76,11 +97,16 @@ class VersionDropdown extends ReduxMixin(PolymerElement) {
     constructor() {
         super();
         this.allVersions = config.versions;
+        this.latestVersion = config.versions[0].name;
     }
 
     _versionUrl(page, version, subpage, tab) {
         const tabParam = page === `api` ? `#tab=${tab}` : ``;
         return `${this.rootPath}${page}/${version}/${subpage}${tabParam}`;
+    }
+
+    _versionChanged() {
+        this.isNotLatestVersion = this.version !== this.latestVersion;
     }
 }
 
