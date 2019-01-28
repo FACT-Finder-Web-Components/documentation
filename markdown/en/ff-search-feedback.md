@@ -6,14 +6,14 @@ With the `ff-search-feedback` you can offer customers the option to rate the sea
 * **content**
     * Use it to place the necessary elements to rate the search.
         
-The content slot <b>must</b> include two HTMLElements whose purpose is to give the search quality a positive or
+The content slot must include two HTMLElements whose purpose is to give the search quality a positive or
 negative rating. Any HTMLElement is possible, all you need to do is to add the attribute `[data-positive]` and `[data-negative]`
 to the corresponding elements. The `ff-search-feedback` element will then listen for tab events on those HTMLElements and changes its internal state. Please note:
 
 The default value of the rating is positive. So it will be positive if the user doesn't select any of the tabs.
 
-A rating can also contain a user's feedback text. For this you need to include <b>any</b> HTMLElement which has a
-<b>value</b> property. You need to add the attribute `[data-message]` on that HTMLElement.
+A rating can also contain a user's feedback text. For this you need to include **any** HTMLElement which has a
+**value** property. You need to add the attribute `[data-message]` on that HTMLElement.
 
 To send the feedback to FACT-Finder you need to include another HTMLElement with the attribute
 `[data-send]` which triggers the request on tab.
