@@ -1,6 +1,6 @@
 ## Overview
 
-Starting with FACT-Finder version 7.3 _feedback text campaigns_ can be configured as _teaser_. For enabling this behaviour in FACT-Finder Web Components you only have to include the `ff-product-teaser-campaign-processor` middleware into your `ff-communication` element as followed:
+Starting with FACT-Finder version 7.3 _feedback text campaigns_ can be configured as _teaser_. For enabling this behavior in FACT-Finder Web Components you only have to include the `ff-product-teaser-campaign-processor` middleware into your `ff-communication` element as follows:
 
 ```html
 <ff-communication>
