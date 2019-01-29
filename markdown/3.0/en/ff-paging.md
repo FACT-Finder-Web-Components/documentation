@@ -1,9 +1,14 @@
 ## Overview
+Paging for `ff-record-list` can be included through the `ff-paging-dropdown` or the `ff-paging` element.
+
+
+## ff-paging
+
 With the `ff-paging` element, you can build a custom paging for your search results. A paging may
 contain a few `ff-paging-set` elements and each `ff-paging-set` element contains a few
 `ff-paging-item` elements.
 
-You can access the value of a paging item with the **{{caption}}**  syntax.
+You can access the value of a paging item with the `{{caption}}`  syntax.
 ```html
 <ff-paging id="paging2">
     <ff-paging-item type="currentLink -2">{{caption}}</ff-paging-item>
@@ -14,16 +19,7 @@ You can access the value of a paging item with the **{{caption}}**  syntax.
 </ff-paging>
 ```
 
-### show-only
-
-When the attribute `show-only` is set to `true`  the paging does not react on clicks.
-```html
-<ff-paging show-only="true">
-    //...
-</ff-paging>
-```
-
-## paging-set
+### paging-set
 
 Define different `ff-paging-set` elements based on which page you are on right now.
 
@@ -48,7 +44,7 @@ values.
 </ff-paging>
 ```
 
-## paging-item
+### paging-item
 
 You can style the different `ff-paging-item` elements and define which links you want to
 display in a given paging-set.
@@ -94,7 +90,7 @@ The template you provide in `ff-paging-item` tag will be rendered inside a wrapp
 </ff-paging-item>
 ```
 
-## Example implementation
+### Example implementation
 
 ```html
 <ff-paging id="paging3" class="paging3">
@@ -138,4 +134,43 @@ The template you provide in `ff-paging-item` tag will be rendered inside a wrapp
         <ff-paging-item type="nextLink">{{caption}}</ff-paging-item>
     </ff-paging-set>
 </ff-paging>
+```
+
+
+## ff-paging-dropdown
+The `ff-paging-dropdown` element creates a custom-built dropdown.
+
+**Note:** If you want to configure the number of possible pages shown in the dropdown, refer to your
+FACT-Finder-UI backend -> Basic Settings -> Result listing -> Paging (Number of Links)
+
+### ff-paging-item
+In difference to a `ff-paging` element the `ff-paging-dropdown` accepts only one `ff-paging-item` as a template for all generated pages. You can access the value of a paging item with the `{{caption}}` syntax.
+
+```html
+<ff-paging-dropdown show-selected>
+    <ff-paging-item>{{caption}}</ff-paging-item>
+</ff-paging-dropdown>
+```
+
+### Rendered HTML
+
+When setup like in the example above, the rendered HTML could look like this.
+
+```html
+<ff-paging-dropdown show-selected="" tabindex="999" class="">
+    <ff-paging-item class="ffw-selected" type="pageLink">
+        <div class="ffw-page-item-container ffw-cursor">1</div>
+    </ff-paging-item>
+    <div class="ffw-paging-dropdown-container ffw-paging-dropdown-closed">
+        <ff-paging-item class="ffw-selected" type="pageLink">
+            <div class="ffw-page-item-container ffw-cursor">1</div>
+        </ff-paging-item>
+        <ff-paging-item class="" type="pageLink">
+            <div class="ffw-page-item-container ffw-cursor">2</div>
+        </ff-paging-item>
+        <ff-paging-item class="" type="pageLink">
+            <div class="ffw-page-item-container ffw-cursor">3</div>
+        </ff-paging-item>
+    </div>
+</ff-paging-dropdown>
 ```
