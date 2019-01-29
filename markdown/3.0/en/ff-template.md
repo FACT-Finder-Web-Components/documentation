@@ -95,8 +95,12 @@ Configure the connection to the FF-Search backend and a default query.
                   search-immediate>
 </ff-communication>
 <p>Access the values in from the Searchresult</p>
-<input is="ff-searchbox">
-<button is="ff-searchbutton">Search</button>
+<ff-searchbox>
+    <input />
+</ff-searchbox>
+<ff-searchbutton>
+    <button>Search</button>
+</ff-searchbutton>
 
 <ff-template id="demoTemplate4" scope="result">
     <h2>Search Result:</h2>
