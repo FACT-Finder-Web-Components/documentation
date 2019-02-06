@@ -5,14 +5,14 @@ To get a simple `ff-navigation` started, you only need to use the following code
 ```html
 <ff-navigation >
     <ff-navigation-item>
-        <div slot="name">{{name}}</div>
+        <div data-content="item">{{name}}</div>
     </ff-navigation-item>
 </ff-navigation>
 ```
 
-You need to have at least one `ff-navigation-item` defined. The `ff-navigation-item` is used as a template for all the elements of the Navigation. We use the term 'elements' to describe a single navigation category in a tree-like structure.
+You need to define least one `ff-navigation-item`. The `ff-navigation-item` is used as a template for all the elements of the Navigation. We use the term 'elements' to describe a single navigation category in a tree-like structure.
 
-In this `ff-navigation-item` you have access to the element's values. Such as `'name'` and `'recordCount'`. We define a `div` for the slot 'content' in which you define how each element of the navigation should be displayed. You can add a css class on this element:
+In scope of `ff-navigation-item` you have access to the navigation element's values, such as `name` and `recordCount`. We define a `div` for the item template in which you define how each element of the navigation should be displayed. You can add a css class on this element:
 
 ```html
 <style>
@@ -24,18 +24,20 @@ In this `ff-navigation-item` you have access to the element's values. Such as `'
 </style>
 <ff-navigation>
     <ff-navigation-item>
-        <div slot="name" class="my-item">{{name}}</div>
+        <div data-content="item" class="my-item">{{name}}</div>
     </ff-navigation-item>
 </ff-navigation>
 ```
 
+**NOTICE:** `data-content` attribute is mandatory and its value should be set to `"item"`. If omitted, menu will not render correctly.
+
 ## Templates
 
-You can also define 3 possible templates, which are used in different situations. To define these set the `'type'` property on the `ff-navigation-item`. A `ff-navigation-item` with no type is used as the **default** fallback template and has to be defined.
+You can also define 3 possible templates, which are used in different situations. To define these set the `type` property on the `ff-navigation-item`. A `ff-navigation-item` with no type is used as the **default** fallback template and has to be defined.
 
 ### 'header'
 
-The **header** template is used in your first level of the navigation. This allows you to style the Header differently than all following elements. You can define different Layouts inside the navigation element. For example, if you want to display the `'recordCounts'` inside a normal element, but not in the header:
+The **header** template is used in your first level of the navigation. This allows you to style the Header differently than all following elements. You can define different Layouts inside the navigation element. For example, if you want to display the `'recordCount'` inside a normal element, but not in the header:
 
 ```html
 <style>
@@ -53,11 +55,11 @@ The **header** template is used in your first level of the navigation. This allo
 </style>
 <ff-navigation>
     <ff-navigation-item>
-        <div slot="name" class="my-item">{{name}} ({{recordCount}})</div>
+        <div data-content="item" class="my-item">{{name}} ({{recordCount}})</div>
     </ff-navigation-item>
 
     <ff-navigation-item type="header">
-        <div slot="name" class="my-header">{{name}}</div>
+        <div data-content="item" class="my-header">{{name}}</div>
     </ff-navigation-item>
 </ff-navigation>
 ```
@@ -80,7 +82,7 @@ Each `ff-navigation-item` has a `'cluster-level'` attribute, which indicates in 
 </style>
 <ff-navigation>
     <ff-navigation-item>
-        <div slot="name" class="my-item">{{name}}</div>
+        <div data-content="item" class="my-item">{{name}}</div>
     </ff-navigation-item>
 </ff-navigation>
 ```
@@ -103,11 +105,11 @@ The **parent** template is used for each element, which has one or more sub-elem
 </style>
 <ff-navigation>
     <ff-navigation-item>
-        <div slot="name" class="my-item">{{name}}</div>
+        <div data-content="item" class="my-item">{{name}}</div>
     </ff-navigation-item>
 
     <ff-navigation-item type="parent">
-        <div slot="name" class="my-item my-parent-item">
+        <div data-content="item" class="my-item my-parent-item">
             {{name}}
             <img src="arrow-right.png">
         </div>
@@ -135,7 +137,7 @@ A second indicator that an element has sub-elements is the `'has-subelements'` a
 </style>
 <ff-navigation>
     <ff-navigation-item>
-        <div slot="name" class="my-item">{{name}}</div>
+        <div data-content="item" class="my-item">{{name}}</div>
     </ff-navigation-item>
 </ff-navigation>
 ```
@@ -164,15 +166,15 @@ The **layer** template is used for a specific layer. More than one **layer** tem
 </style>
 <ff-navigation>
     <ff-navigation-item>
-        <div slot="name" class="my-item">{{name}} ({{recordCount}})</div>
+        <div data-content="item" class="my-item">{{name}} ({{recordCount}})</div>
     </ff-navigation-item>
 
     <ff-navigation-item type="layer1">
-        <div slot="name" class="my-layer1"> {{name}}</div>
+        <div data-content="item" class="my-layer1"> {{name}}</div>
     </ff-navigation-item>
 
     <ff-navigation-item type="layer2">
-        <div slot="name" class="my-layer2">{{name}}</div>
+        <div data-content="item" class="my-layer2">{{name}}</div>
     </ff-navigation-item>
 </ff-navigation>
 ```
@@ -193,16 +195,16 @@ In the **horizontal** layout, the 'level 0' or 'header' elements extend down. Al
 </style>
 <ff-navigation layout="vertical">
     <ff-navigation-item>
-        <div slot="name">{{name}}</div>
+        <div data-content="item">{{name}}</div>
     </ff-navigation-item>
 </ff-navigation>
 ```
 
 ## Responsiveness
 
-To make the `ff-navigation` responsive, you need to add more slots.
+To make the `ff-navigation` responsive, you need to add one more element.
 
-First you need to add a **menu** element to the `ff-navigation`. Only this element will be shown when the attribute 'mobile' of the `ff-navigation` is set to true. This element will internally get a click handler to display the first level of the navigation.
+First you need to add a **menu** (`data-content="menu"` attribute is required) element to the `ff-navigation`. Only this element will be shown when the attribute 'mobile' of the `ff-navigation` is set to true. This element will internally get a click handler to display the first level of the navigation.
 
 You also need a logic outside of the element, to define when it will switch to the 'mobile' mode. This can be achieved with a little JavaScript and an window resize handler.
 
@@ -236,11 +238,11 @@ You also need a logic outside of the element, to define when it will switch to t
 </script>
 
 <ff-navigation layout="horizontal">
-    <div slot="menu"> Navigation</div>
+    <div data-content="menu">Navigation</div>
 
 
     <ff-navigation-item>
-        <div slot="content" class="my-item">
+        <div data-content="item" class="my-item">
             <img data-search class="search-icon" src="search-icon.png">
             {{name}}
         </div>
