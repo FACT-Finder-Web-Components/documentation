@@ -10,7 +10,7 @@ To get a simple `ff-navigation` started, you only need to use the following code
 </ff-navigation>
 ```
 
-You need to define least one `ff-navigation-item`. The `ff-navigation-item` is used as a template for all the elements of the Navigation. We use the term 'elements' to describe a single navigation category in a tree-like structure.
+You need to define at least one `ff-navigation-item`. The `ff-navigation-item` is used as a template for all the elements of the Navigation. We use the term 'elements' to describe a single navigation category in a tree-like structure.
 
 In scope of `ff-navigation-item` you have access to the navigation element's values, such as `name` and `recordCount`. We define a `div` for the item template in which you define how each element of the navigation should be displayed. You can add a css class on this element:
 
@@ -37,7 +37,7 @@ You can also define 3 possible templates, which are used in different situations
 
 ### 'header'
 
-The **header** template is used in your first level of the navigation. This allows you to style the Header differently than all following elements. You can define different Layouts inside the navigation element. For example, if you want to display the `'recordCount'` inside a normal element, but not in the header:
+The **header** template is used in your first level of the navigation. This allows you to style the Header differently than all following elements. You can define different Layouts inside the navigation element. For example, if you want to display the `recordCount` inside a normal element, but not in the header:
 
 ```html
 <style>
@@ -204,7 +204,7 @@ In the **horizontal** layout, the 'level 0' or 'header' elements extend down. Al
 
 To make the `ff-navigation` responsive, you need to add one more element.
 
-First you need to add a **menu** (`data-content="menu"` attribute is required) element to the `ff-navigation`. Only this element will be shown when the attribute 'mobile' of the `ff-navigation` is set to true. This element will internally get a click handler to display the first level of the navigation.
+First you need to add a **menu** HTML element with `data-content="menu"` attribute to the `ff-navigation`. Only this element will be shown when the attribute 'mobile' of the `ff-navigation` is set to true. This element will internally get a click handler to display the first level of the navigation.
 
 You also need a logic outside of the element, to define when it will switch to the 'mobile' mode. This can be achieved with a little JavaScript and an window resize handler.
 
@@ -239,7 +239,6 @@ You also need a logic outside of the element, to define when it will switch to t
 
 <ff-navigation layout="horizontal">
     <div data-content="menu">Navigation</div>
-
 
     <ff-navigation-item>
         <div data-content="item" class="my-item">
