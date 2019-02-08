@@ -1,5 +1,5 @@
 ## Prepare input tag
-You can also mix the <b>ff-webcomponents</b> with normal HTML tags, but you need to implement part
+You can also mix the **ff-webcomponents** with normal HTML tags, but you need to implement part
 of the functionality yourself.
 
 In this example, we use a simple HTML `input` tag and add custom `oninput` and `onblur` functions.
@@ -64,12 +64,12 @@ Add a normal `ff-suggest`. We trigger Suggest with custom code in the next step.
 
 ## Trigger the Suggest
 The `oninput` attribute on the `input` tag executes the `raiseSuggestEvent()` function.
-In this function, we take the input value and set it as <b>currentFFSearchBoxValue</b> in the
+In this function, we take the input value and set it as `currentFFSearchBoxValue` in the
 `factfinder.communication.globalElementValues` module.
 
 Next we fire a FFEvent to the `factfinder.communication.FFCommunicationEventAggregator`.
 
-The event of the <b>suggest</b> type and as query we take the input value from the `input`  tag.
+The type of the event has to be `"suggest"` and as query we take the input value from the `input`  tag.
 ```js
 // Calls the FACT-Finder suggest event.
 function raiseSuggestEvent(e) {
