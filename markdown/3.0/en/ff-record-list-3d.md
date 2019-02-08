@@ -84,7 +84,7 @@ Add the `mouseover` and `mouseout` effects to the record with the css selector v
 ## Preparing a record list
 
 To let the css selector find the right container, we need to set the `id` attribute on them. This is
-done with the <b>{{id}}</b> syntax. Where each `div` container gets the id from its record.
+done with the `{{id}}` syntax. Where each `div` container gets the id from its record.
 
 ```html
 <ff-record-list>
