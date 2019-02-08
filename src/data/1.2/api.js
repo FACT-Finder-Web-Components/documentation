@@ -78,6 +78,7 @@ const api = {
         "ff-product-teaser-campaign-processor": {
             path: "ff-product-teaser-campaign-processor",
             title: "Product Teaser Campaign",
+            noApi: true,
         },
         "ff-campaign-product": {
             path: "ff-campaign-product",
