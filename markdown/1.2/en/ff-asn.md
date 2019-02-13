@@ -88,7 +88,7 @@ as described in `ff-slider-control-section`'s
         <input
                 data-control='2' style="position: absolute; width: 60px;right: 15px;">
 
-        <ff-slider step-size="1" current-min-value="0" style="width: 150px;">
+        <ff-slider step-size="1" style="width: 150px;">
             <div data-slider="1" class="sliderBtn"></div>
             <div data-slider="2" class="sliderBtn"></div>
             <!-- Version < 1.2.2

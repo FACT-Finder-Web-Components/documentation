@@ -63,7 +63,7 @@ With the `subscribe` attribute you can define if the `ff-recommendation` should 
 
 ### use-perso
 
-With the `use-perso` attribute you can define if the recommendations should use the personalisation feature.(defaults to false)
+With the `use-perso` attribute you can define if the recommendations should use the personalisation feature. It defaults to `false`.
 
 This will overwrite the settings from `ff-communication` for this `ff-recommendation`
 

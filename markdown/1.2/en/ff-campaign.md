@@ -14,7 +14,7 @@ You can add `ff-campaign-feedbacktext` anywhere in the document. Just set the `[
 ## Adding Advisor campaigns
 To integrate Advisor campaigns properly, you need to use the `ff-campaign-advisor`, `ff-campaign-advisor-question` and `ff-campaign-advisor-answer` elements.
 
-The `ff-campaign-advisor-question` is copied for each answer configured in FACT-Finder. It is inserted at its current position on element load. 
+The `ff-campaign-advisor-question` is copied for each question configured in FACT-Finder. It is inserted at its current position on element load. 
 Annotate any HTML-Element inside the question with the `[data-question]` attribute to use it for data binding purposes.
 
 The `ff-campaign-advisor-answer` is copied for each answer which is configured in FACT-Finder. It is inserted at its current position on element load. In the following example the answers are always inserted at firstChild position
