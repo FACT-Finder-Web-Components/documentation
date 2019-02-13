@@ -18,6 +18,10 @@ const guides = {
             path: "your-first-search",
             title: "4. Your First Search",
         },
+        "upgrade-guide": {
+            path: "upgrade-guide",
+            title: "5. Upgrade Guide 1.2.x to 3.0.0",
+        },
 
         "attribute-basics": {
             path: "attribute-basics",
@@ -72,6 +76,7 @@ guides.firstSteps = [
     guides.pages["include-scripts"],
     guides.pages["configuration"],
     guides.pages["your-first-search"],
+    guides.pages["upgrade-guide"],
 ];
 
 guides.basics = [

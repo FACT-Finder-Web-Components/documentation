@@ -126,16 +126,14 @@ class DownloadView extends PolymerElement {
             <div class="container">
                 <div class="row" style="text-align: left">
                     <h1>Download</h1>
-                    <p>
-                         <span style="line-height: 24px">
-                            Please select your desired version and modules from below. You can read more about each feature by clicking the info icon
-                             <iron-icon icon="my-icons:info-outline"></iron-icon>.
-                             <br> Regardless of your chosen modules you'll get the core module with the minimum amount of functionality to get started.
-                         </span>
+                    <p style="line-height: 24px">
+                        Please select your desired version and modules from below. You can read more about each module by clicking the info icon
+                        <iron-icon icon="my-icons:info-outline"></iron-icon> next to it. You can read about the changes and new features of a version in the 
+                        <a href="https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/CHANGELOG.md">official changelog</a>.
                     </p>
-
-                    <!--If you are looking for the latest version please check out our
-                    <a href="https://github.com/FACT-Finder-Web-Components">Github repository</a>.-->
+                    <p style="line-height: 24px">
+                        Regardless of your chosen modules you'll get the core module with the minimum amount of functionality to get started.
+                    </p>
                 </div>
             </div>
         </section>

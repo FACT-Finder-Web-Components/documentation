@@ -2,14 +2,7 @@
 
 ---
 
-The FACT-Finder Web Components build contains three files:
-1. `elements.build_with_dependencies.html` 
-    * This file contains all HTML pieces needed to provide DOM pieces (if needed) and a reference to `elements.build.js`
-2. `elements.build.js`
-    * Contains all the JavaScript code to make FACT-Finder Web Components work
-3. `webcomponents-lite.min.js`
-    * Contains the required polyfill to have FACT-Finder Web Components technology working in older browsers which don't support the Web Components spec natively. This is **always** required for all versions <= 1.3 
-
+The following section shows a boilerplate for including FACT-Finder Web Components in your website. `custom-elements-es5-adapter.js` and `webcomponents-loader.js` will load the required Polyfills minimized to the needs of the calling browser. 
 
 **Boilerplate Code**
 ```html
@@ -17,30 +10,15 @@ The FACT-Finder Web Components build contains three files:
     <meta charset="UTF-8">
     <title>Page Title</title>
 
-    <!-- Never change the order of the boilerplate -->
-    <script>
-        var Polymer = Polymer || {};
-        Polymer.dom = 'shady';
-    </script>
-    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-    <link rel="import" href="../bower_components/ff-web-components/dist/elements.build_with_dependencies.html">
-    <style>
-        [unresolved] {
-            opacity: 0;
-        }        
-    </style>
-    <!-- boilerplate end -->
+    <!-- Do not change the order of the scripts -->
+    <script src="../dist/vendor/custom-elements-es5-adapter.js"></script>
+    <script src="../dist/vendor/webcomponents-loader.js"></script>
+    <script defer src="../dist/bundle.js"></script>
+    
+    <!-- You are free to customize those styles to your needs -->
+    <link rel="stylesheet" type="text/css" href="default-styles.css" />
 </head>
 ```
-**NOTE**
-
-The `elements.build.js` file does not need to be referenced directly from within your `index.html` because it is loaded by the `elements.build_with_dependencies.html`. However, it has to be placed in the same directory as `elements.build_with_dependencies.html`!
-
-## Loading Order
-
----
-
-You **NEVER** want to change the loading or script order. Even the `Polymer.dom` script has to be executed before loading the `webcomponents-lite.min.js` file.
 
 ## Prevent Flash Of Unstyled Content (FOUC)
 
