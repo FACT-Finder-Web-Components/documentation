@@ -106,43 +106,43 @@ you can query FACT-Finder for product information.
 
 ```html
 <script>
-        var Polymer = Polymer || {};
-        Polymer.dom = 'shady';
-        
-        document.addEventListener("WebComponentsReady", function () {
-            var trackingHelper = factfinder.communication.Util.trackingHelper;
-            var track = new factfinder.communication.Tracking12();
+    var Polymer = Polymer || {};
+    Polymer.dom = 'shady';
+    
+    document.addEventListener("WebComponentsReady", function () {
+        var trackingHelper = factfinder.communication.Util.trackingHelper;
+        var track = new factfinder.communication.Tracking12();
 
-            factfinder.communication.ResultDispatcher.subscribe("productDetail", function (product) {
-                if (product) {
-                    // Retrieve field values based on field roles
-                    var masterId = trackingHelper.getMasterArticleNumber(product);
-                    var id = trackingHelper.getTrackingProductId(product);
-                    var channel = factfinder.communication.globalSearchParameter.channel;
-                    var sid = factfinder.common.localStorage.getItem("ff_sid");
-                    
-                    //track some information e.g. a checkout
-                    track.checkout({
-                        channel: channel
-                        sid: sid,
-                        id: id,
-                        price: 95.95,
-                        masterId: masterId,
-                        count: 99
-                    });
-                    
-                } else {
-                    console.log("not found");
-                }
-            });
+        factfinder.communication.ResultDispatcher.subscribe("productDetail", function (product) {
+            if (product) {
+                // Retrieve field values based on field roles
+                var masterId = trackingHelper.getMasterArticleNumber(product);
+                var id = trackingHelper.getTrackingProductId(product);
+                var channel = factfinder.communication.globalSearchParameter.channel;
+                var sid = factfinder.common.localStorage.getItem("ff_sid");
+                
+                //track some information e.g. a checkout
+                track.checkout({
+                    channel: channel
+                    sid: sid,
+                    id: id,
+                    price: 95.95,
+                    masterId: masterId,
+                    count: 99
+                });
+                
+            } else {
+                console.log("not found");
+            }
+        });
 
-            factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
-                                                                                   type: "productDetail",
-                                                                                   id: "a333c0c6f62671727535b2542e168"
-                                                                               });
-        })
-    </script>
-    <script src="my-field-roles.js"></script>
-    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-    <link rel="import" href="../bower_components/ff-web-components/dist/elements.build_with_dependencies.html">
+        factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+            type: "productDetail",
+            id: "a333c0c6f62671727535b2542e168",
+        });
+    })
+</script>
+<script src="my-field-roles.js"></script>
+<script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="../bower_components/ff-web-components/dist/elements.build_with_dependencies.html">
 ```
