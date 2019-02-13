@@ -106,9 +106,6 @@ you can query FACT-Finder for product information.
 
 ```html
 <script>
-    var Polymer = Polymer || {};
-    Polymer.dom = 'shady';
-    
     document.addEventListener("WebComponentsReady", function () {
         var trackingHelper = factfinder.communication.Util.trackingHelper;
         var track = new factfinder.communication.Tracking12();
