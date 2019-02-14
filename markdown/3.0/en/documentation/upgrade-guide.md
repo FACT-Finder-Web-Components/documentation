@@ -3,6 +3,8 @@ We strongly recommend upgrading your system to use the latest version of FACT-Fi
 
 In general you can keep track of our progress, changes and new features in the [release notes](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/CHANGELOG.md).
 
+The main difference of _1.2.x_ and _3.0.0_ is, that we have internal moved from [Polymer 1](https://polymer-library.polymer-project.org/1.0/docs/devguide/feature-overview) to [Polymer 3](https://polymer-library.polymer-project.org/3.0/docs/about_30) and are half way through to migrating to [LitElement](https://lit-element.polymer-project.org/).
+
 There are only two major changes and some minor API changes to take care of when upgrading from version 1.2.x to version 3.0.0. In addition, CSS mixins have been removed. You can use normal CSS selector instead. Further more `ffw-` is introduced as the prefix for FACT-Finder Web Components custom class names.
 
 ### 2 major changes
