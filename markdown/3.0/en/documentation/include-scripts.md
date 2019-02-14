@@ -8,15 +8,14 @@ The following section shows a boilerplate for including FACT-Finder Web Componen
 ```html
 <head>
     <meta charset="UTF-8">
-    <title>Page Title</title>
 
-    <!-- Do not change the order of the scripts -->
+    <!-- You are free to customize those styles to your needs -->
+    <link rel="stylesheet" type="text/css" href="../dist/default-styles.css" />
+
+    <!-- Do not change the order of the scripts, to ensure all required polyfills are loaded before our script -->
     <script src="../dist/vendor/custom-elements-es5-adapter.js"></script>
     <script src="../dist/vendor/webcomponents-loader.js"></script>
     <script defer src="../dist/bundle.js"></script>
-    
-    <!-- You are free to customize those styles to your needs -->
-    <link rel="stylesheet" type="text/css" href="default-styles.css" />
 </head>
 ```
 
