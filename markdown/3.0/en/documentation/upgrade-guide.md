@@ -9,28 +9,34 @@ There are only two major changes and some minor API changes to take care of when
 - Aligning with the current trend FACT-Finder Web Components are now shipped as plain JavaScript instead of HTML Imports. Which is why you have to load `bundle.js` instead of the previous HTML import.
    
 ```html
-   <!-- Before -->
-   <script>
-       var Polymer = Polymer || {};
-       Polymer.dom = 'shady';
-   </script>
-   <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-   <link rel="import" href="../bower_components/ff-web-components/dist/elements.build_with_dependencies.html">
-   <style>
-       [unresolved] {
-           opacity: 0;
-       }        
-   </style>
-     
-   <!-- In version 3 -->
-   <script src="../node_modules/ff-web-components/dist/vendor/custom-elements-es5-adapter.js"></script>
-   <script src="../node_modules/ff-web-components/dist/vendor/webcomponents-loader.js"></script>
-   <script defer src="../node_modules/ff-web-components/dist/bundle.js"></script>
- <style>
-     [unresolved] {
-         opacity: 0;
-     }        
- </style>
+    <!-- Before -->
+    
+    <script>
+        var Polymer = Polymer || {};
+        Polymer.dom = 'shady';
+    </script>
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../bower_components/ff-web-components/dist/elements.build_with_dependencies.html">
+    <style>
+        [unresolved] {
+            opacity: 0;
+        }        
+    </style>
+      
+    <!-- In version 3 -->
+    
+    <!-- You are free to customize those styles to your needs -->
+    <link rel="stylesheet" type="text/css" href="../dist/default-styles.css" />
+
+    <!-- Do not change the order of the scripts, to ensure all required polyfills are loaded before our script -->
+    <script src="../dist/vendor/custom-elements-es5-adapter.js"></script>
+    <script src="../dist/vendor/webcomponents-loader.js"></script>
+    <script defer src="../dist/bundle.js"></script>
+    <style>
+        [unresolved] {
+            opacity: 0;
+        }        
+    </style>
 ```
 
 - With [Polymer 3](https://www.polymer-project.org/3.0/docs/devguide/feature-overview) extending built-in HTML elements
