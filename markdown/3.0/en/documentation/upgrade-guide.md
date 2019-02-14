@@ -66,16 +66,28 @@ The following list contains all remaining breaking changes.
 If we have missed something, we would be happy if you [contacted](contacts) us.
 
 - `ff-asn-group`
+    - attribute `laszy-load` is replaced by `lazy-load`
     - use `<div slot="groupCaption" ...>` instead of `<div data-container="groupCaption" ...>`
 - `ff-asn-group-element`
     - use `<div slot="selected" ...>` instead of `<div data-selected ...>`
     - use `<div slot="unselected" ...>` instead of `<div data-unselected ...>`
 - `ff-asn-group-slider`
     - use `<div slot="groupCaption" ...>` instead of `<div data-container="groupCaption" ...>`
+- `ff-carousel` is removed from this library
+- `ff-navigation`
+    - use `data-content="menu"` instead of `slot="menu"`
+- `ff-navigation-item`
+    - use `data-content="item"` instead of `slot="content"`
+- `ff-paging-item`
+    - `productsPerPageItem` property was renamed to `pagingItem`
+- `ff-paging-set`
+    - removed `hide()` and `show()` functions, use `hideSelf()` and `showSelf()` instead
 - `ff-slider`
     - use `<div slot="slider1" id="slider1" ...></div>` instead of `<div data-slider="1" ...></div>`
     - use `<div slot="slider2" id="slider2" ...></div>` instead of `<div data-slider="2" ...></div>`
-- `ff-carousel` is removed from this library
+- `ff-sortbox`
+    - `key` for _Relevance_ changed from `key="null.desc"` to `key="ff.relevance"`
+    - introduced new container `<div class="ffw-selected-container">`. This container is always visible and contains the selected `ff-sortbox-item` 
 - [Polymer 3](https://www.polymer-project.org/3.0/docs/devguide/feature-overview) related breaking changes:
     - Polymer shady DOM was removed, because it is not necessary anymore. In case you used something like
     `Polymer.dom(HTMLElement).innerHTML = ...` you now have to use the native DOM API directly like
@@ -164,10 +176,28 @@ ff-nav-element.ffw-nav-item:hover
 ff-nav-element a
 ```
 
+#### ff-navigation-item
+```
+--container-mixin
+ff-navigation-item .ffw-item-container
+```
+
+#### ff-paging-item
+```
+--paging-item-cursor-mixin
+ff-paging-item .ffw-cursor
+```
+
 #### ff-products-per-page-dropdown
 ```
 `--dropdown-item-container`
 .ffw-ppp-dropdown-container
+```
+
+#### ff-sortbox
+```
+`--sort-item-container`
+.ffw-dropdown-container
 ```
 
 ### Rename of class names
@@ -185,6 +215,15 @@ ffw-ppp-dropdown-container
 ```
 selected
 ffw-selected
+```
+
+### ff-sortbox-item
+```
+selected
+ffw-selected
+
+showSelected
+ffw-showSelected
 ```
 
 ### Worth mentioning
