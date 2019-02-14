@@ -39,8 +39,7 @@ There are only two major changes and some minor API changes to take care of when
     </style>
 ```
 
-- With [Polymer 3](https://www.polymer-project.org/3.0/docs/devguide/feature-overview) extending built-in HTML elements
-is not possible anymore. Instead you will have to put an `input` into `ff-searchbox` and a `button` into `ff-searchbutton`
+- `ff-searchbox` and `ff-searchbutton` don't extend native built-in HTML `input` and `button` anymore. Hence you have to put an `input` into `ff-searchbox` and a `button` into `ff-searchbutton`
 as followed:
 
 ```html
