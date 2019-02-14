@@ -6,7 +6,7 @@ In general you can keep track of our progress, changes and new features in the [
 There are only two major changes and some minor API changes to take care of when upgrading from version 1.2.x to version 3.0.0. In addition, CSS mixins have been removed. You can use normal CSS selector instead. Further more `ffw-` is introduced as the prefix for FACT-Finder Web Components custom class names.
 
 ### 2 major changes
-- Aligning with the current trend FACT-Finder Web Components are now shipped as ES6 Module instead of HTML Imports. Which is why you have to load `bundle.js` instead of the previous HTML import.
+- Aligning with the current trend FACT-Finder Web Components are now shipped as plain JavaScript instead of HTML Imports. Which is why you have to load `bundle.js` instead of the previous HTML import.
    
 ```html
    <!-- Before -->
