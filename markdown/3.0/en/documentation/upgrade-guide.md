@@ -186,3 +186,8 @@ ffw-ppp-dropdown-container
 selected
 ffw-selected
 ```
+
+### Worth mentioning
+We have replaced all Polymer `tap` events through regular `click` events as [Polymer recommended](https://polymer-library.polymer-project.org/3.0/docs/devguide/gesture-events). Affected components are:
+
+`ff-asn-group`, `ff-asn-group-element`, `ff-asn-remove-all-filter`, `ff-breadcrumb-trail-item`, `ff-campaign-advisor-answer`, `ff-nav-element`, `ff-navigation-item`, `ff-paging-dropdown`, `ff-paging-item`, `ff-products-per-page-dropdown`, `ff-products-per-page-item`, `ff-search-feedback`, `ff-single-word-search-record`, `ff-sortbox-item`, `ff-tag-cloud`
