@@ -27,10 +27,6 @@ const guides = {
             path: "attribute-basics",
             title: "Attributes",
         },
-        "styling-elements": {
-            path: "styling-elements",
-            title: "Styling",
-        },
         "template-engine": {
             path: "template-engine",
             title: "Template Engine",
@@ -81,7 +77,6 @@ guides.firstSteps = [
 
 guides.basics = [
     guides.pages["attribute-basics"],
-    guides.pages["styling-elements"],
     guides.pages["template-engine"],
     guides.pages["communication"],
     guides.pages["field-roles"],

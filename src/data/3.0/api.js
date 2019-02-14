@@ -141,10 +141,6 @@ const api = {
             `documentation`,
             documentation.pages[`install-dist`]
         ),
-        "overview-styling-elements": hasMovedModifier(
-            `documentation`,
-            documentation.pages[`styling-elements`]
-        ),
         "overview-communication": hasMovedModifier(
             `documentation`,
             documentation.pages[`communication`]
