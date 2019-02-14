@@ -49,7 +49,7 @@ as followed:
     <ff-searchbox ...></ff-searchbox>
     <ff-searchbutton ...></ff-searchbutton>
            
-    <!-- In version 3. -->
+    <!-- In version 3 -->
     <ff-searchbox ...>
         <input .../>
     </ff-searchbox>
