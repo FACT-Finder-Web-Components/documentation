@@ -26,9 +26,6 @@ There are only two major changes and some minor API changes to take care of when
     </style>
       
     <!-- In version 3 -->
-    
-    <!-- You are free to customize those styles to your needs -->
-    <link rel="stylesheet" type="text/css" href="../dist/default-styles.css" />
 
     <!-- Do not change the order of the scripts, to ensure all required polyfills are loaded before our script -->
     <script src="../dist/vendor/custom-elements-es5-adapter.js"></script>
