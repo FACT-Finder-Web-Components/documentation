@@ -110,10 +110,34 @@ If we have missed something, we would be happy if you [contacted](contacts) us.
 
 CSS mixins have been removed. You can now directly apply CSS rules.
 
+#### ff-asn-asn-group-slider
+```
+--ff-asn-group-container // previous CSS-mixin
+ff-asn-group-slider .ffw-container // now equalent CSS-selector
+
+--all-links-container
+ff-asn-group-slider .ffw-wrapper
+```
+
+### ff-slider
+```
+--slider-wrapper
+ff-slider .ffw-sliderWrapper
+
+--slidebar-mixin
+ff-slider .ffw-sliderBar
+```
+
+#### ff-slider-control
+```
+--ff-slider-section
+ff-slider-control .ffw-sliderSection
+```
+
 #### ff-header-navigation
 ```
---wrapper  // previous CSS-mixin
-ff-header-navigation .ffw-header-nav  // now recommended CSS-selector
+--wrapper 
+ff-header-navigation .ffw-header-nav
 
 --header
 ff-header-navigation .ffw-header
