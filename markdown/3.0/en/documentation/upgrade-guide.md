@@ -62,7 +62,7 @@ Note that native `input` properties like `placeholder` stay within the `input` t
 
 
 ### Minor API changes to take care of
-The following list contains all remaining breaking changes.
+The following list contains all remaining breaking changes. In cases of HTML changes don't forget to update your css selectors.
 If we have missed something, we would be happy if you [contacted](contacts) us.
 
 - `ff-asn-group`
