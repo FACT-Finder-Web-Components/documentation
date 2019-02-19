@@ -19,9 +19,7 @@ Add FACT-Finder Web Components as a dependency to the **bower.json** or **packag
 ### Manual Installation
 
 ---
-1. Download the asset of your required version from [Github Release Page](https://github.com/FACT-Finder-Web-Components/ff-web-components/releases)
+1. Download the _Source code_ file of your required version from the [Github Release Page](https://github.com/FACT-Finder-Web-Components/ff-web-components/releases)
 2. Unzip the file
-3. We have included a zip file called `dist.zip`. This file is actually a zipped directory of the **Using Node.js/Bower** approach. Unzip the `dist.zip` file
-    
-    **Note**: In version previous to 3.0.0 this file was named `bower_components`
-4. Copy the `dist` directory or its contents to your project
+3. In the `ff-web-components-3.x.x` directory locate the `dist` folder
+4. Copy the `dist` folder or its contents to your project
