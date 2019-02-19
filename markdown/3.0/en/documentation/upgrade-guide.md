@@ -114,6 +114,15 @@ ff-asn-group .ffw-asn-group-container // now equivalent CSS-selector
 ff-asn-group .ffw-wrapper
 ```
 
+#### ff-asn-group-element
+```
+--unselected-container
+ff-asn-group-element .ffw-asn-selected
+
+--selected-container
+ff-asn-group-element .ffw-asn-unselected
+```
+
 #### ff-asn-group-slider
 ```
 --ff-asn-group-container
@@ -210,6 +219,21 @@ ff-nav-element a
 ff-navigation-item .ffw-item-container
 ```
 
+#### ff-onfocus-suggest
+```
+--suggest-container
+ff-onfocus-suggest .ffw-suggestContainer
+
+--suggest-container-wrapper
+ff-onfocus-suggest .ffw-suggestContainerWrapper
+```
+
+#### ff-paging-dropdown
+```
+--dropdown-item-container
+ff-paging-dropdown .ffw-paging-dropdown-container
+```
+
 #### ff-paging-item
 ```
 --paging-item-cursor-mixin
@@ -252,6 +276,15 @@ ffw-selected
 
 showSelected
 ffw-showSelected
+```
+
+#### ff-suggest
+```
+--suggest-container
+ff-suggest .ffw-suggestContainer
+
+--suggest-container-wrapper
+ff-suggest .ffw-suggestContainerWrapper
 ```
 
 ### Worth mentioning
