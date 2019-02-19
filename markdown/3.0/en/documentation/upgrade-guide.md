@@ -252,6 +252,16 @@ ff-paging-item .ffw-cursor
 .ffw-dropdown-container
 ```
 
+#### ff-suggest
+```
+--suggest-container
+ff-suggest .ffw-suggestContainer
+
+--suggest-container-wrapper
+ff-suggest .ffw-suggestContainerWrapper
+```
+
+
 ### Renaming of class names
 
 #### ff-products-per-page-dropdown
@@ -280,11 +290,7 @@ ffw-showSelected
 
 #### ff-suggest
 ```
---suggest-container
-ff-suggest .ffw-suggestContainer
 
---suggest-container-wrapper
-ff-suggest .ffw-suggestContainerWrapper
 ```
 
 ### Worth mentioning
