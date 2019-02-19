@@ -264,10 +264,106 @@ ff-suggest .ffw-suggestContainerWrapper
 
 ### Renaming of class names
 
+#### ff-asn-group
+```
+ff-asn-group-container // old class name
+ffw-asn-group-container // new classname
+```
+
+#### ff-asn-group-slider
+```
+container
+ffw-container
+
+ff-asn-group-container // targeted the same element as .container
+ffw-container
+```
+
+#### ff-compare
+```
+ff-compare-equal
+ffw-compare-equal
+
+ff-compare-diff
+ffw-compare-diff
+```
+
+#### ff-header-navigation
+```
+nav-item-seperator
+ffw-nav-item-seperator
+
+nav-group
+ffw-nav-group
+
+nav-group-caption
+ffw-nav-group-caption
+
+nav-link
+ffw-nav-link
+```
+
+#### ff-nav-element
+```
+nav-item
+ffw-nav-item
+```
+
+#### ff-navigation
+```
+navigation-label
+ffw-navigation-label
+```
+
+#### ff-navigation-item
+```
+item-caption
+ffw-item-caption
+
+item-container
+ffw-item-container
+
+container-hidden
+ffw-container-hidden
+
+ff-navigation-link
+ffw-navigation-link
+```
+
+#### ff-onfocus-suggest
+```
+hideffSuggestContainerWrapper
+ffw-suggestContainerWrapperHidden
+
+blockLayout
+ffw-blockLayout
+```
+
+#### ff-paging-dropdown
+```
+ff-paging-dropdown-container
+ffw-paging-dropdown-container
+
+ff-paging-dropdown-closed
+ffw-paging-dropdown-closed
+```
+
+#### ff-paging-item
+```
+cursor
+ffw-cursor
+
+selected
+ffw-selected
+
+disabled
+ffw-disabled
+```
+
 #### ff-products-per-page-dropdown
 ```
-ff-ppp-drowdown-closed // old class name
-ffw-ppp-dropdown-closed // new classname
+ff-ppp-drowdown-closed 
+ffw-ppp-dropdown-closed
 
 ff-ppp-dropdown-container
 ffw-ppp-dropdown-container
@@ -279,7 +375,43 @@ selected
 ffw-selected
 ```
 
+#### ff-search-feedback
+```
+transformZero
+ffw-transformZero
+
+transformX
+ffw-transformX
+```
+
 ### ff-sortbox-item
+```
+selected
+ffw-selected
+
+showSelected
+ffw-showSelected
+```
+
+#### ff-slider
+```
+ff_slidebar
+ffw-sliderBar
+
+sliderWrapper
+ffw-sliderWrapper
+```
+
+#### ff-sortbox
+```
+ff-sort-dropdown-container
+ffw-dropdown-container
+
+ff-sort-closed
+ffw-closed
+```
+
+#### ff-sortbox-item
 ```
 selected
 ffw-selected
@@ -290,7 +422,29 @@ ffw-showSelected
 
 #### ff-suggest
 ```
+hideffSuggestContainerWrapper
+ffw-hideSuggestContainerWrapper
 
+listLayout
+ffw-listLayout
+
+blockLayout
+ffw-blockLayout
+```
+
+#### ff-suggest-item
+```
+ff-highlight-suggest-item
+ffw-highlight-suggest-item
+
+query
+ffw-query
+```
+
+#### ff-tag-cloud
+```
+tagCloudLink
+ffw-tagCloudLink
 ```
 
 ### Worth mentioning
