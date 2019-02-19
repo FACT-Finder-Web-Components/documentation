@@ -105,10 +105,19 @@ If we missed anything, please get it touch with us.
 
 CSS mixins have been removed. You can now directly apply CSS rules. Make sure your style rules take precedence over the bundled [default-styles.css](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/release/3.0/dist/default-styles.css) which uses the selectors below.
 
+#### ff-asn-group
+```html
+--ff-asn-group-container // previous CSS-mixin
+ff-asn-group .ffw-asn-group-container // now equivalent CSS-selector
+
+--all-links-container
+ff-asn-group .ffw-wrapper
+```
+
 #### ff-asn-group-slider
 ```
---ff-asn-group-container // previous CSS-mixin
-ff-asn-group-slider .ffw-container // now equivalent CSS-selector
+--ff-asn-group-container
+ff-asn-group-slider .ffw-container
 
 --all-links-container
 ff-asn-group-slider .ffw-wrapper
