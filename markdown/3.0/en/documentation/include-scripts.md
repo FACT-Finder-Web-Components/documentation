@@ -4,12 +4,12 @@
 
 The following section shows a boilerplate for including FACT-Finder Web Components in your website. `custom-elements-es5-adapter.js` and `webcomponents-loader.js` will load the required Polyfills minimized to the needs of the calling browser. 
 
-Note that the [default-styles.css](todo-link-to-github-after-release) within our dist folder is already bundled into `bundle.js` and hence is not necessary to extra load it into your page. It is there only for reference.
+Note that the [default-styles.css](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/release/3.0/dist/default-styles.css) within our dist folder is already bundled into `bundle.js` and hence is not required to be referenced on your page. It is only for reference.
 
 **Boilerplate Code**
 ```html
 <head>
-    <!-- Do not change the order of the scripts, to ensure all required polyfills are loaded before our script -->
+    <!-- Do not change the order of the scripts to ensure all required polyfills are loaded before our script -->
     <script src="../dist/vendor/custom-elements-es5-adapter.js"></script>
     <script src="../dist/vendor/webcomponents-loader.js"></script>
     <script defer src="../dist/bundle.js"></script>
@@ -20,11 +20,11 @@ Note that the [default-styles.css](todo-link-to-github-after-release) within our
 
 ---
 
-In browsers where Web Components are not natively supported you might encounter ugly flashing of unstyled content while the page is loading. To prevent this just annotate all elements that have a visual component and are shown immediately on page load with the `unresolved` attribute.
+In browsers where Web Components are not natively supported you might encounter ugly flashing of unstyled content while the page is loading. To prevent this just annotate all elements that have a visual component and are shown immediately on page-load with the `unresolved` attribute.
 ```html
 <ff-record-list unresolved></ff-record-list>
 ```
-Also add the following CSS rule on top of the page before the appearance of FACT-Finder Web Components:
+Also add the following CSS rule to the top of the page before the appearance of FACT-Finder Web Components:
 
 ```html
 <head>
