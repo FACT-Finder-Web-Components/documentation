@@ -20,7 +20,7 @@ Note that the [default-styles.css](https://github.com/FACT-Finder-Web-Components
 
 ---
 
-In browsers where Web Components are not natively supported you might encounter ugly flashing of unstyled content while the page is loading. To prevent this just annotate all elements that have a visual component and are shown immediately on page-load with the `unresolved` attribute.
+Depending on the browser's page loading time you might encounter ugly flashes of unstyled content and incomplete HTML template pieces. To prevent this simply annotate all elements that have a visual component and are shown immediately after page load with the `unresolved` attribute.
 ```html
 <ff-record-list unresolved></ff-record-list>
 ```
