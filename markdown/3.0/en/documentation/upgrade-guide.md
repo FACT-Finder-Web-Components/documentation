@@ -1,14 +1,14 @@
 ## Upgrade from version 1.2.x to 3.0.0
 We strongly recommend upgrading your system to use the latest version of FACT-Finder Web Components. While we will do critical bug fixes for older versions, new features will likely only be implemented in newer versions. In addition, the newer versions utilize newer technology, decreasing your loading time and improving internal speed. We promise to make each upgrade go as smoothly as possible.
 
-In general you can keep track of our progress, changes and new features in the [release notes](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/CHANGELOG.md).
+In general you can keep track of our progress, changes and new features in the [changelog](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/release/3.0/CHANGELOG.md) of the _3.0_ branch or on the [release page](https://github.com/FACT-Finder-Web-Components/ff-web-components/releases).
 
-The main difference of _1.2.x_ and _3.0.0_ is, that we have internal moved from [Polymer 1](https://polymer-library.polymer-project.org/1.0/docs/devguide/feature-overview) to [Polymer 3](https://polymer-library.polymer-project.org/3.0/docs/about_30) and are half way through to migrating to [LitElement](https://lit-element.polymer-project.org/).
+The main difference between _1.2.x_ and _3.0.0_ is that we internally moved from [Polymer 1](https://polymer-library.polymer-project.org/1.0/docs/devguide/feature-overview) to [Polymer 3](https://polymer-library.polymer-project.org/3.0/docs/about_30) and are half way done migrating to [LitElement](https://lit-element.polymer-project.org/).
 
-There are only two major changes and some minor API changes to take care of when upgrading from version 1.2.x to version 3.0.0. In addition, CSS mixins have been removed. You can use normal CSS selector instead. Further more `ffw-` is introduced as the prefix for FACT-Finder Web Components custom class names.
+There are only two major changes and some minor API changes to take care of when upgrading from version _1.2.x_ to version _3.0.0_. In addition, CSS mixins have been removed. You can use regular CSS selectors instead. Furthermore, `ffw-` is introduced as the prefix for FACT-Finder Web Components custom class names.
 
 ### 2 major changes
-- Aligning with the current trend FACT-Finder Web Components are now shipped as plain JavaScript instead of HTML Imports. Which is why you have to load `bundle.js` instead of the previous HTML import.
+- As [HTML-Imports](https://w3c.github.io/webcomponents/spec/imports/) didn't become part of the HTML and DOM specs, unlike the rest of the Web Components spec, FACT-Finder Web Components now ship as plain JavaScript instead of HTML. Which is why you have to load `bundle.js` instead of the previous HTML-Imports.
    
 ```html
     <!-- Before -->
@@ -38,8 +38,7 @@ There are only two major changes and some minor API changes to take care of when
     </style>
 ```
 
-- `ff-searchbox` and `ff-searchbutton` don't extend native built-in HTML `input` and `button` anymore. Hence you have to put an `input` into `ff-searchbox` and a `button` into `ff-searchbutton`
-as followed:
+- `ff-searchbox` and `ff-searchbutton` don't extend native built-in HTML `input` and `button` anymore. Hence you have to put an `input` into `ff-searchbox` and a `button` into `ff-searchbutton` as follows:
 
 ```html
     <!-- Before -->
@@ -54,43 +53,42 @@ as followed:
         <button ...></button>
     </ff-searchbutton>
 ```
-Note that native `input` properties like `placeholder` stay within the `input` tag, while enhancements like 
-`suggest-onfocus` move into `ff-searchbox`. If you're using CSS to style your search input and button don't forget to adjust your selectors accordingly.
+Note that native `input` properties like `placeholder` stay within the `input` tag, while enhancements like for instance the `suggest-onfocus` attribute are placed onto `ff-searchbox`. If you are using CSS to style your search input and button, don't forget to adjust your selectors accordingly.
 
 
 ### Minor API changes to take care of
-The following list contains all remaining breaking changes. In cases of HTML changes don't forget to update your css selectors.
-If we have missed something, we would be happy if you [contacted](contacts) us.
+The following list contains all remaining breaking changes. In cases of HTML changes don't forget to update your CSS selectors.
+If we missed anything, please get it touch with us.
 
 - `ff-asn-group`
-    - attribute `laszy-load` is replaced by `lazy-load`
+    - deprecated attribute `laszy-load` was replaced by `lazy-load`
     - use `<div slot="groupCaption" ...>` instead of `<div data-container="groupCaption" ...>`
+    - `ff-asn-group-element`s no longer replace `<div data-content="detailedLinks">`, but instead get nested inside now
+    - `ff-asn-group-element`s no longer replace `<div data-content="hiddenLinks">`, but instead get nested inside now
 - `ff-asn-group-element`
     - use `<div slot="selected" ...>` instead of `<div data-selected ...>`
     - use `<div slot="unselected" ...>` instead of `<div data-unselected ...>`
 - `ff-asn-group-slider`
     - use `<div slot="groupCaption" ...>` instead of `<div data-container="groupCaption" ...>`
-- `ff-carousel` is removed from this library
-- `ff-navigation`
-    - use `data-content="menu"` instead of `slot="menu"`
-- `ff-navigation-item`
-    - use `data-content="item"` instead of `slot="content"`
+- `ff-slider`
+    - use `<div slot="slider1" id="slider1" ...></div>` instead of `<div data-slider="1" ...></div>`
+    - use `<div slot="slider2" id="slider2" ...></div>` instead of `<div data-slider="2" ...></div>`
+- `ff-products-per-page-item`
+    - removed `clone` method
+- `ff-sortbox`
+    - `key` for _Relevance_ changed from `key="null.desc"` to `key="ff.relevance"`
+    - introduced new container `<div class="ffw-selected-container">`. This container is always visible and contains the selected `ff-sortbox-item`
 - `ff-paging-item`
     - `productsPerPageItem` property was renamed to `pagingItem`
 - `ff-paging-set`
     - removed `hide()` and `show()` functions, use `hideSelf()` and `showSelf()` instead
-- `ff-slider`
-    - use `<div slot="slider1" id="slider1" ...></div>` instead of `<div data-slider="1" ...></div>`
-    - use `<div slot="slider2" id="slider2" ...></div>` instead of `<div data-slider="2" ...></div>`
-- `ff-sortbox`
-    - `key` for _Relevance_ changed from `key="null.desc"` to `key="ff.relevance"`
-    - introduced new container `<div class="ffw-selected-container">`. This container is always visible and contains the selected `ff-sortbox-item` 
+- `ff-carousel` was removed from this library
 - [Polymer 3](https://www.polymer-project.org/3.0/docs/devguide/feature-overview) related breaking changes:
-    - Polymer shady DOM was removed, because it is not necessary anymore. In case you used something like
+    - Polymer shady DOM was removed because it is not necessary anymore. In case you used something like
     `Polymer.dom(HTMLElement).innerHTML = ...` you now have to use the native DOM API directly like
     `HTMLElement.innerHTML = ...`
     - Polymer 1 did remove `unresolved` attribute of `body`-tag automatically. Polymer 3 does not.
-    If you depend on the old behaviour, you can retain it with the following code:
+    If you depend on the old behaviour, you can implement it with the following code:
         ```js
         function resolve() {
           document.body.removeAttribute('unresolved');
@@ -105,18 +103,18 @@ If we have missed something, we would be happy if you [contacted](contacts) us.
 
 ### Removal of CSS mixins
 
-CSS mixins have been removed. You can now directly apply CSS rules.
+CSS mixins have been removed. You can now directly apply CSS rules. Make sure your style rules take precedence over the bundled [default-styles.css](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/release/3.0/dist/default-styles.css) which uses the selectors below.
 
-#### ff-asn-asn-group-slider
+#### ff-asn-group-slider
 ```
 --ff-asn-group-container // previous CSS-mixin
-ff-asn-group-slider .ffw-container // now equalent CSS-selector
+ff-asn-group-slider .ffw-container // now equivalent CSS-selector
 
 --all-links-container
 ff-asn-group-slider .ffw-wrapper
 ```
 
-### ff-slider
+#### ff-slider
 ```
 --slider-wrapper
 ff-slider .ffw-sliderWrapper
@@ -221,7 +219,7 @@ ff-paging-item .ffw-cursor
 .ffw-dropdown-container
 ```
 
-### Rename of class names
+### Renaming of class names
 
 #### ff-products-per-page-dropdown
 ```
@@ -248,6 +246,6 @@ ffw-showSelected
 ```
 
 ### Worth mentioning
-We have replaced all Polymer `tap` events through regular `click` events as [Polymer recommended](https://polymer-library.polymer-project.org/3.0/docs/devguide/gesture-events). Affected components are:
+We have replaced all Polymer `tap` events with regular `click` events as [Polymer recommended](https://polymer-library.polymer-project.org/3.0/docs/devguide/gesture-events). Affected components are:
 
 `ff-asn-group`, `ff-asn-group-element`, `ff-asn-remove-all-filter`, `ff-breadcrumb-trail-item`, `ff-campaign-advisor-answer`, `ff-nav-element`, `ff-navigation-item`, `ff-paging-dropdown`, `ff-paging-item`, `ff-products-per-page-dropdown`, `ff-products-per-page-item`, `ff-search-feedback`, `ff-single-word-search-record`, `ff-sortbox-item`, `ff-tag-cloud`
