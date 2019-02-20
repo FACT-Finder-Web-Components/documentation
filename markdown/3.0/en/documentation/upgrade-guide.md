@@ -248,7 +248,7 @@ ff-products-per-page-dropdown .ffw-ppp-dropdown-container
 
 #### ff-sortbox
 ```
-`--sort-item-container`
+--sort-item-container
 ff-sortbox .ffw-dropdown-container
 ```
 
