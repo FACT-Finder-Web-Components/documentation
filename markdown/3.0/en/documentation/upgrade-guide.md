@@ -249,7 +249,7 @@ ff-products-per-page-dropdown .ffw-ppp-dropdown-container
 #### ff-sortbox
 ```
 `--sort-item-container`
-.ffw-dropdown-container
+ff-sortbox .ffw-dropdown-container
 ```
 
 #### ff-suggest
