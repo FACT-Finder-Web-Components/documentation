@@ -243,7 +243,7 @@ ff-paging-item .ffw-cursor
 #### ff-products-per-page-dropdown
 ```
 `--dropdown-item-container`
-.ffw-ppp-dropdown-container
+ff-products-per-page-dropdown .ffw-ppp-dropdown-container
 ```
 
 #### ff-sortbox
