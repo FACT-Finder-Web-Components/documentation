@@ -242,7 +242,7 @@ ff-paging-item .ffw-cursor
 
 #### ff-products-per-page-dropdown
 ```
-`--dropdown-item-container`
+--dropdown-item-container
 ff-products-per-page-dropdown .ffw-ppp-dropdown-container
 ```
 
