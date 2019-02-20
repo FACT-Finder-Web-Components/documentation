@@ -18,19 +18,12 @@ ___
 | ---- | ----------- |
 | **opened**&nbsp;(Boolean) | Determines if the filter group is expanded. If you want to have a group opened by default: `<ff-asn-group opened>` does the trick. |
 | **collapsible**&nbsp;(String)&nbsp;**Options**:&nbsp;"true",&nbsp;"false"&nbsp;(default: "true") | Determines, if the filter group is collapsible. |
-| **for-group**&nbsp;(String)&nbsp;(default: "true")| Determines, which filter group the template should be applied to. If set to `"all"`, the template is applied to all groups if no other template matches the requirements. |
+| **for-group**&nbsp;(String)&nbsp;(default: "all")| Determines, which filter group the template should be applied to. If set to `"all"`, the template is applied to all groups if no other template matches the requirements. |
 | **group**&nbsp;(Object) | The data for the filter group. |
 | **filter-style**&nbsp;(String) | With the filter-style property it is possible to use the ff-asn-group element as a template for all groups which match the filter style. (TREE, DEFAULT, MULTISELECT, SINGLESELECT) |
 | **lazy-load**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | The lazy-load property defines if the ff-asn-elements for the hidden links container should be rendered when the asn group is dispatched or lazily just when the hiddenLinks container is opened via toggleHiddenLinksContainer() or showHiddenLinksContainer(). This improves performance for the first print and is by default set to true. |
 | **select-box**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | Use this when the hiddenLinks should be an HTML select element |
 | **disable-auto-expand**&nbsp;(Boolean) | Prevents group from being automatically expanded when it contains any active filters. |
-
-### Mixins
-| Name | Description |
-| ---- | ----------- |
-| **--asn-all-links-container** | Is applied to the container of the ASN group. |
-| **--ff-asn-group-container** | Is applied to the container of the ASN group.|
-| **--asn-group-caption** | Is applied to the header of the ASN group. |
 
 ### Methods
 | Name | Description |
@@ -50,14 +43,14 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **selected**&nbsp;(String)&nbsp;**Options**:&nbsp;"true",&nbsp;"false" (default: empty) | The alignment of the After Search Navigation. |
+| **selected**&nbsp;(String)&nbsp;**Options**:&nbsp;"true",&nbsp;"false" (default: "false") | The alignment of the After Search Navigation. |
 | **element**&nbsp;(Object)&nbsp;(default: empty) | The filter data. |
 | **group**&nbsp;(Object)&nbsp;(default: empty) | The filter group data. |
 
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **clone** | Return a deep copy of the contained elements including all properties, behaviors, private fields, states and HTML templates. |
+| **clone(group, element)** | Returns a copy of the group element with the specified group and element to provide the new context. |
 
 ## `ff-asn-group-slider`
 ___
@@ -70,12 +63,6 @@ ___
 | **group**&nbsp;(Object) | The data for the filter group. |
 | **filter-style**&nbsp;(String) | Read only property, always set to "SLIDER" |
 | **disable-auto-expand**&nbsp;(Boolean) | Prevents group from being automatically expanded when it contains any active filters. |
-
-### Mixins
-| Name | Description |
-| ---- | ----------- |
-| **--all-links-container** | Is applied to the container of the ASN group. |
-| **--ff-asn-group-container** | Is applied to the container of the ASN group.|
 
 ### Methods
 | Name | Description |
@@ -97,27 +84,15 @@ ___
 | **absolute-max-value**&nbsp;(Number) | Indicates the maximum upper end e.g. if set to 500, dragging the slider btn to the most right will result in a value of 500. |
 |**unit**&nbsp;(String)| The unit of measurement. E.g. € |
 
-
 ### Methods
 | Name | Description |
 | ---- | ----------- |
 | **submit** | Send the filter request with the current values. |
-
-### Mixins
-| Name | Description |
-| ---- | ----------- |
-| **--slidebar-mixin** | Used to style the path the slider buttons will follow. |
-| **--slider-wrapper** | Used to style the corresponding elements with the class `sliderWrapper` |
 
 ## `ff-slider-control`
 ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **submit-on-input**&nbsp;(String) **Options**&nbsp;"true",&nbsp;"false" (default: "false") | If this attribute is set to true the input fields accept values. If set to false you cant focus the input fields. |
+| **submit-on-input**&nbsp;(String) **Options**&nbsp;"true",&nbsp;"false" (default: "false") | If this attribute is set to true, the input fields accept values. If set to false, you cannot focus the input fields. |
 | **unit**&nbsp;(String) | The unit of measurement. E.g. € |
-
-### Mixins
-| Name | Description |
-| ---- | ----------- |
-| **--ff-slider-section** | Used to style the corresponding element with the id `ffSliderSection`. |
