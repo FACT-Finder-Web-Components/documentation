@@ -12,11 +12,11 @@ Doing so will cause the ASN to use default HTML templates for all filters. You c
     <ff-asn-group></ff-asn-group>
 </ff-asn>
 ```
-To customize filter groups you add `ff-asn-group` elements. However, adding an empty `ff-asn-group` as in the example above has no effect. You will likely want to specify your own HTML template.
+To customize filter groups you add `ff-asn-group` elements. However, adding an empty `ff-asn-group` as in the example above has no effect. You will likely want to specify your own HTML template as shown in the following sections.
 
 
 ## Changing the group caption
-If you want to change the group caption, you can annotate an HTML element with the `[slot="groupCaption"]` attribute. By doing so you can change the style and appearance. You can access the group's name through `{{group.name}}`. Here is an example of how a custom group caption could be implemented:
+If you want to change the group caption, you can annotate an HTML element with the `[slot="groupCaption"]` attribute. You can access the group's name through `{{group.name}}`. Here is an example of how a custom group caption could be implemented:
 ```html
 <ff-asn-group>
     <div slot="groupCaption" class="groupCaption">
@@ -40,7 +40,7 @@ You can define the structure of your custom filter group through certain predefi
         </div>
     </div>
     <div data-container="showMore">
-        <!-- The "showMore" container will only be rendered if there are "hiddenLinks" in the FACT-finder response.
+        <!-- The "showMore" container will only be rendered if there are "hiddenLinks" in the FACT-Finder response.
              It disappears after being clicked and reappears after "showLess" was clicked. -->
         <span class="text">Show More</span>
     </div>
@@ -60,7 +60,7 @@ You can define the structure of your custom filter group through certain predefi
 ```
 
 **NOTE**: You can change the animation duration by changing the CSS
-`transition-duration` property.
+`transition-duration` property of `ff-asn-group .ffw-wrapper`.
 
 
 ## Adding a filter element template
@@ -143,7 +143,7 @@ Slider groups a handled in a different way. To style them you need to use the `f
 <ff-asn-group-slider></ff-asn-group-slider>
 ```
 
-A slider can have a `[slot="groupCaption"]` attribute but instead of detailedLinks and hiddenLinks the slider group accepts a `ff-slider-control` and/or an `ff-slider` element.
+A slider can have a `[slot="groupCaption"]` attribute but instead of detailedLinks and hiddenLinks the slider group accepts an `ff-slider-control` and/or an `ff-slider` element.
 
 The `ff-slider-control` can have two `input` elements annotated with the `[data-control="1/2"]` attribute. The input elements automatically react to user input (enter key pressed) and start to filter. You can change the behavior of the controls by using the appropriate attributes as described in `ff-slider-control-section`'s [API documentation](api/ff-asn#tab=api)
 
