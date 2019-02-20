@@ -14,8 +14,9 @@ import '../shared-styles.js';
 import '../my-icons.js';
 import '@polymer/iron-icon/iron-icon.js';
 import {html} from '@polymer/polymer/lib/utils/html-tag.js';
+import ReduxMixin from "../util/polymer-redux-mixin";
 
-class DownloadView extends PolymerElement {
+class DownloadView extends ReduxMixin(PolymerElement) {
     static get template() {
         return html`
         <style include="shared-styles">
@@ -348,6 +349,10 @@ class DownloadView extends PolymerElement {
             markdownFilePath: {
                 type: String,
                 computed: "_computeMarkdownFilePath(model)"
+            },
+            versionOfDocumentation: {
+                type: String,
+                statePath: `app.version`,
             }
         }
     }
@@ -370,7 +375,7 @@ class DownloadView extends PolymerElement {
 
     _computeMarkdownFilePath(model) {
         if (model && model.apiName) {
-            return `/markdown/en/info/${model.apiName}.md`;
+            return `/markdown/${this.versionOfDocumentation}/en/info/${model.apiName}.md`;
         } else {
             return "";
         }
