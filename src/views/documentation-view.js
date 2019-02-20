@@ -42,8 +42,8 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
 
 <app-drawer-layout narrow="{{narrow}}">
     <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]" opened="{{drawerOpened}}">
+        <version-dropdown></version-dropdown>
         <div class="panel-menus">
-            <version-dropdown></version-dropdown>
             <iron-selector selected="[[subpage]]"
                            attr-for-selected="name"
                            class="drawer-list"
