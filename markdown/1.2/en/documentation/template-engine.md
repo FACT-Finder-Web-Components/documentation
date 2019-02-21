@@ -10,7 +10,7 @@ Key__) and navigating to the **Network** tab. Filtering by **XHR** makes things 
 Now invoke the search, two xhr requests will appear. The second one is the one we are looking for. Click the request URL,
  a second window on the right will appear. Navigate to the **Preview** tab to see the data as a JSON tree.
  
-![dev_tools_json7.PNG](../../images/templateEngine/dev_tools_json7.PNG "slots")
+![dev_tools_json7.PNG](/images/templateEngine/dev_tools_json7.PNG "slots")
 
 Every element with an visual component is bound to one or more of these objects. For example the ff-record
 element is bound to an item in the records array.
@@ -23,7 +23,7 @@ FACT-Finder. In this specific example product data is stored in an record object
 this object are imported during the data feed process. You can configure which fields are returned in the
 FACT-Finder backend.
 
-![record_json.PNG](../../images/templateEngine/record_json.PNG "slots")
+![record_json.PNG](/images/templateEngine/record_json.PNG "slots")
 
 Take a look at the following data-binding example to see how to access the data.
 ```html

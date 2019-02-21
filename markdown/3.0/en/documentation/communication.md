@@ -10,7 +10,7 @@ action is executed. FACT-Finder Web Components are basically data driven. They e
 which is capable of understanding the FACT-Finder API invocations and to retrieve the data like
 FACT-Finder would retrieve it. See the following image:
 
-![Folie3.PNG](../../images/kommunikation/Folie3.PNG)
+![Folie3.PNG](/images/kommunikation/Folie3.PNG)
 
 ## Change the Communication Flow
 
@@ -23,7 +23,7 @@ You can configure FACT-Finder Web Components to communicate with your shop backe
 on `<ff-communication>` element.
     
 Please see the following image for an rough overview of communication:
-![Folie1.PNG](../../images/kommunikation/Folie1.PNG)
+![Folie1.PNG](/images/kommunikation/Folie1.PNG)
 
 ### Detailed Overview of Communication
 
@@ -32,7 +32,7 @@ The following image illustrates the 5 steps to enrich search response with lates
  Steps marked in __orange__ are meant to be performed by the shop.
  Steps in __blue__ are meant to be performed automatically by FACT-Finder Web Components.
 
-![Folie2.PNG](../../images/kommunikation/Folie2.PNG) 
+![Folie2.PNG](/images/kommunikation/Folie2.PNG) 
        
 #### 1. Ajax Request
 

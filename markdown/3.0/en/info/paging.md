@@ -4,11 +4,11 @@ Pagination is one of the most basic features for a online shop.
  
 ## Page selection example 
 You can use this as a full page selection widget with flexible configuration options.  
-![paging.png](../../../images/elements/examples/paging.png)
+![paging.png](/images/elements/examples/paging.png)
 
-![paging-2.png](../../../images/elements/examples/paging-2.png)
+![paging-2.png](/images/elements/examples/paging-2.png)
 
 ## Page navigation example
 You can just use the 'next' and 'previous' functionality of the paging for a simple information widget.
 
-![paging-small.png](../../../images/elements/examples/paging-small.png)
+![paging-small.png](/images/elements/examples/paging-small.png)

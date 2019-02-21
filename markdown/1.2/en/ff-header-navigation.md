@@ -210,7 +210,7 @@ dynamic slot after each group.
 ### Container slots
 
 We have a basic "top-bottom-left-right" layout around the container for the actual groups.
-![navigation-slots.png](../../images/doku/navigation-slots.png "slots")
+![navigation-slots.png](/images/doku/navigation-slots.png "slots")
 
 You can now define HTML elements, which should be only visible when a first level is hovered over. Add an element
 with the `slot` attribute and set the value of the attribute with the following pattern:
@@ -252,7 +252,7 @@ You can also set custom content after each group. Just add an element with the g
 ```
 
 This will add the content under the group items of the 'Outdoor jackets' group.
-![navigation-group-slot.png](../../images/doku/navigation-group-slot.png "navigation group slot")
+![navigation-group-slot.png](/images/doku/navigation-group-slot.png "navigation group slot")
 
 ### mixins
 

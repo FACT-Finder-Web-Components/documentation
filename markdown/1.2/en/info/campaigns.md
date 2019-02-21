@@ -2,7 +2,7 @@
 The Campaign Manager module allows you to target the management of search results in order to improve the customer lead process or deliberately highlight products. Campaigns are activated according to specific criteria and are then returned accordingly in the search results.
  Campaign Manager supports the following options:
  
-![campaign.png](../../../images/elements/examples/campaigns.png)
+![campaign.png](/images/elements/examples/campaigns.png)
 
 ## Redirection
  The campaign returns a URL to which the request should be redirected when the campaign triggers1. This is particularly useful if you already have individual landing pages for specific categories or areas. Another area that is frequently handled using redirection campaigns comprises service-related searches, such as searches for terms and conditions or the site publisher information.

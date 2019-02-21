@@ -60,7 +60,7 @@ In some cases you may want custom content, like an Ad Banner or a group specific
 ### Container slots
 
 There are four container slots: `top`, `bottom`, `left` and `right`. These surround the actual groups.
-![navigation-slots.png](../../images/doku/navigation-slots.png "slots")
+![navigation-slots.png](/images/doku/navigation-slots.png "slots")
 
 You can now define HTML elements which shall only be visible when a specific first level item is hovered over. Add an element with the `slot` attribute and set the value of the attribute with the following pattern:
 
@@ -101,7 +101,7 @@ You can also insert custom content after each group. Just add an element with th
 ```
 
 This will add the content under the group items of the 'Outdoor jackets' group.
-![navigation-group-slot.png](../../images/doku/navigation-group-slot.png "navigation group slot")
+![navigation-group-slot.png](/images/doku/navigation-group-slot.png "navigation group slot")
 
 
 ## Rendered HTML
