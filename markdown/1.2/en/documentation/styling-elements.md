@@ -5,7 +5,7 @@ FACT-Finder Web Components can be styled via CSS like regular HTML. Some element
 
 You can find all mixins and custom properties in the documentation or the HTML files of the individual elements.
 
-Example for the internal HTML structure of the [`ff-paging-item`](api/ff-paging#tab=docs):
+Example for the internal HTML structure of the [`ff-paging-item`](/api/1.2/ff-paging#tab=docs):
 ```html
 <dom-module id="ff-paging-item">
     <style>
@@ -30,7 +30,7 @@ Example for the internal HTML structure of the [`ff-paging-item`](api/ff-paging#
 </dom-module>
 ```
 
-In order to style the `<div>` inside this element the [`---paging-item-cursor-mixin`](ff-paging#tab=api) was introduced. To overwrite the default styles the following code can be used:
+In order to style the `<div>` inside this element the [`---paging-item-cursor-mixin`](/api/1.2/ff-paging#tab=api) was introduced. To overwrite the default styles the following code can be used:
 ```html
 <style is="custom-style">
     ff-paging-item {

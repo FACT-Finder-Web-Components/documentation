@@ -36,7 +36,7 @@ Specify the name of the channel which is used for the search. You can find the a
 
 **The** `ff-communication` **element must be the first FF Web Component in DOM order!**
 
-[Read Why](documentation/ready-events)
+[Read Why](/documentation/1.2/ready-events)
 
 We recommend placing the `ff-communication` element immediately after the `body` tag to reduce the risk of accidental reordering. Furthermore we advise to add a comment explaining this requirement. For example:
 ```html
