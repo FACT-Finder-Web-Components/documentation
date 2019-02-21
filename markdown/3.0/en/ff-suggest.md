@@ -20,7 +20,7 @@ search box.
 ```
 
 For more information on `ff-searchbox`, see
-[Searchbox Example](api/ff-searchbox#tab=docs)
+[Searchbox Example](/api/3.0/ff-searchbox#tab=docs)
 
 ## The basics
 
@@ -48,7 +48,7 @@ are found for this type.
 
 In addition you need to add a `ff-suggest-item` element inside the
 container. All received suggestions of this `"suggestType"` are inserted
-at this position and will be an exact copy of this element. `ff-suggest-item` supports [image binding](api/ImageBindingBehavior#tab=docs).
+at this position and will be an exact copy of this element. `ff-suggest-item` supports [image binding](/api/3.0/ImageBindingBehavior#tab=docs).
 
 Repeat this process for all configured `"suggestTypes"`.
 
@@ -78,7 +78,7 @@ braces and typed "back" in the search box, the HTML source code would be
 shown as a plain text: `<span class="query">Back</span>packs`
 rather than the rendered: "**Back**packs".
 
-See [Template Engine](documentation/template-engine) for more details.
+See [Template Engine](/documentation/3.0/template-engine) for more details.
 
 ### Rendered HTML
 

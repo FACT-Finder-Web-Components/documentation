@@ -84,7 +84,7 @@ The `ff-asn-group-element` provides two **slots** to distinguish between selecte
 ```
 The position of the `ff-asn-group-element` inside the `ff-asn-group` does not matter. After initialization the element is removed from the DOM and saved for later usage.
 
-The `{{data-binding}}` for the `ff-asn-group-element` allows accessing both scopes - the `{{element}}` scope and the `{{group}}` scope. This is especially important if you want to display the unit which is configured on the server side. In addition, `ff-asn-group-element` does support [image binding](api/ImageBindingBehavior#tab=docs).
+The `{{data-binding}}` for the `ff-asn-group-element` allows accessing both scopes - the `{{element}}` scope and the `{{group}}` scope. This is especially important if you want to display the unit which is configured on the server side. In addition, `ff-asn-group-element` does support [image binding](/api/3.0/ImageBindingBehavior#tab=docs).
 
 
 ## Restricting filter group templates to filter-style
@@ -145,7 +145,7 @@ Slider groups a handled in a different way. To style them you need to use the `f
 
 A slider can have a `[slot="groupCaption"]` attribute but instead of detailedLinks and hiddenLinks the slider group accepts an `ff-slider-control` and/or an `ff-slider` element.
 
-The `ff-slider-control` can have two `input` elements annotated with the `[data-control="1/2"]` attribute. The input elements automatically react to user input (enter key pressed) and start to filter. You can change the behavior of the controls by using the appropriate attributes as described in `ff-slider-control-section`'s [API documentation](api/ff-asn#tab=api)
+The `ff-slider-control` can have two `input` elements annotated with the `[data-control="1/2"]` attribute. The input elements automatically react to user input (enter key pressed) and start to filter. You can change the behavior of the controls by using the appropriate attributes as described in `ff-slider-control-section`'s [API documentation](/api/3.0/ff-asn#tab=api)
 
 ```html
 <ff-asn-group-slider>
