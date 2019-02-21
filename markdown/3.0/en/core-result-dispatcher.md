@@ -8,7 +8,7 @@ The ResultDispatcher is in the module:
 
 If you want to trigger your own communication events checkout the
 documentation for
-[`FFCommunicationEventAggregator`](api/core-event-aggregator#tab=docs).
+[`FFCommunicationEventAggregator`](/api/3.0/core-event-aggregator#tab=docs).
 
 ## API
 Here are all functions you can use with the **ResultDispatcher** 

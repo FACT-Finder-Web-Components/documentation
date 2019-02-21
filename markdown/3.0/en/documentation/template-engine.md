@@ -43,5 +43,5 @@ All bindings are resolved by the underlying template engine [mustache.js](https:
 
 You could do an **if** by using [this](https://github.com/janl/mustache.js/#false-values-or-empty-lists) syntax. 
 If the data is not formatted correctly, use the 
-[ResultDispatcher](/api/core-result-dispatcher)
+[ResultDispatcher](/api/3.0/core-result-dispatcher)
  to modify it accordingly.

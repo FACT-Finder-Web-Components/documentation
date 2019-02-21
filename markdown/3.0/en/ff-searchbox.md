@@ -22,7 +22,7 @@ The following code-example shows the aforementioned configuration.
                   search-immediate>
 </ff-communication>
 ```
-For more information, see the [API reference](/api/ff-searchbox#tab=api).
+For more information, see the [API reference](/api/3.0/ff-searchbox#tab=api).
 
 ## Wrapping input element with ff-searchbox
 The `ff-searchbox` wraps a regular HTML `<input>` element. Simply place
@@ -57,7 +57,7 @@ should be selected when the search box gets focus. *(default is `"false"`)*
 If you want a suggest functionality on your page you can set the
 `use-suggest` attribute to `"true"` *(default is `"true"`)*. You also need
 to implement the `ff-suggest` tag on your page. For more information
-take a look at the [Suggest Example](/api/ff-suggest). The suggest will
+take a look at the [Suggest Example](/api/3.0/ff-suggest). The suggest will
 only trigger when at least 2 characters are typed in the input field.
 ```html
 <ff-searchbox use-suggest="true">
