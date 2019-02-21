@@ -6,4 +6,4 @@ Additional information can be displayed for users as well as the search suggesti
 
 The hits are normally taken from the search log files, which is why they may differ from the actual number of hits. Another disadvantage is that not all entries have hits, only those which have been searched for in the past. If the exact number of hits needs to be determined, this must be activated in the Management Interface. Note that doing this also impacts the performance of the Suggest import process significantly.
 
-![suggest.png](../../../images/elements/examples/suggest-2.png)
+![suggest.png](/images/elements/examples/suggest-2.png)
