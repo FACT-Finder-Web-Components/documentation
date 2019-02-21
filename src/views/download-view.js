@@ -406,8 +406,8 @@ class DownloadView extends ReduxMixin(PolymerElement) {
     }
 
     _download() {
-        let data = JSON.stringify(this.apiOptions);
-        let headers = new Headers();
+        const data = JSON.stringify(this.apiOptions);
+        const headers = new Headers();
         headers.append("Content-Type", "application/json");
         headers.append("Content-Length", data.length.toString());
         this.hasError = false;//reset error label
