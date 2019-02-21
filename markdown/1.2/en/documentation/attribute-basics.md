@@ -32,11 +32,11 @@ Attributes of type `String` typically have several possible values defined. Only
 <ff-communication use-url-parameter="true"> <!-- evaluates to true -->
 ``` 
 
-See the API section of an element for an overview of possible values. For example [`ff-searchbox`](api/ff-searchbox#tab=api).
+See the API section of an element for an overview of possible values. For example [`ff-searchbox`](/api/1.2/ff-searchbox#tab=api).
 
 ## Object/Array
 
-`Object` attributes are somehow different from other attributes. As mentioned in [element basics](documentation/communication) all elements are data driven.
+`Object` attributes are somehow different from other attributes. As mentioned in [element basics](/documentation/1.2/communication) all elements are data driven.
 
 For example the `ff-record-list` has a `records` property of type `Array`. What you now could possibly do is something like this:
 

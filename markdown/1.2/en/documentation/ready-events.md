@@ -10,7 +10,7 @@ This event is fired if our core library has loaded and is fully functional.
 
 **What does that mean?**
 
-All our elements are utilizing the same Core functions described in our [ff-core.d.ts](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/dist/ff-core.d.ts) file or in our [Core API](https://web-components.fact-finder.de/api/core-result-dispatcher) documentation.
+All our elements are utilizing the same Core functions described in our [ff-core.d.ts](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/dist/ff-core.d.ts) file or in our [Core API](/api/1.2/core-result-dispatcher) documentation.
 
 Sometimes you want or have to change the data before all our elements being notified. This is where `ffReady` callback kicks in.
 
