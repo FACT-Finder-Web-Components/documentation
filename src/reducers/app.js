@@ -2,14 +2,20 @@ import {
     UPDATE_PAGE,
     UPDATE_DRAWER_STATE
 } from '../actions/app.js';
+import config from "../../config";
 
-const app = (state = {drawerOpened: false}, action) => {
+const initialState = {
+    drawerOpened: false,
+    version: config.versions[0].name,
+};
+
+const app = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_PAGE:
             return {
                 ...state,
                 page: action.page,
-                version: action.version,
+                version: isValidVersion(action.version) ? action.version : state.version,
                 subpage: action.subpage,
                 tab: action.tab || "docs"
             };
@@ -24,3 +30,8 @@ const app = (state = {drawerOpened: false}, action) => {
 };
 
 export default app;
+
+const versionNames = config.versions.map(v => v.name);
+function isValidVersion(version) {
+    return versionNames.some(n => n === version);
+}
