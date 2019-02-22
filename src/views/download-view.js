@@ -130,7 +130,7 @@ class DownloadView extends ReduxMixin(PolymerElement) {
                     <p style="line-height: 24px">
                         Please select your desired version and modules from below. You can read more about each module by clicking the info icon
                         <iron-icon icon="my-icons:info-outline"></iron-icon> next to it. You can read about the changes and new features of a version in the 
-                        <a href="https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/CHANGELOG.md">official changelog</a>.
+                        <a href="https://github.com/FACT-Finder-Web-Components/ff-web-components/releases" target="_blank">official changelog</a>.
                     </p>
                     <p style="line-height: 24px">
                         Regardless of your chosen modules you'll get the core module with the minimum amount of functionality to get started.
