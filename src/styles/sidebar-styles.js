@@ -12,21 +12,33 @@ $_documentContainer.innerHTML = `<dom-module id="sidebar-styles">
             *   Sidebar
             */
             app-drawer {
-                --app-drawer-content-container: {
-                    background: #fcfcff;
-                    padding-top: 120px;
-                    padding-bottom: 65px;
-                };
-                margin-bottom: 55px;
-                margin-top: 65px;
+                top: 0;
+                bottom: 0;
                 --app-drawer-width: 272px;
+                --app-drawer-content-container: {
+                    position: fixed;
+                    
+                    display: flex;
+                    align-items: stretch;
+                    flex-direction: column;
+                    
+                    padding: 0;
+                    background: #fcfcff;
+                    width: 272px !important;
+                }
 
                 box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
             }
 
+            version-dropdown {
+                display: block;
+                margin-top: 65px;
+            }
+
             .panel-menus {
+                flex-grow: 1;
                 overflow-y: auto;
-                height: 100%;
+                padding-bottom: 2em;
             }
 
             .panel-menus h3 {
