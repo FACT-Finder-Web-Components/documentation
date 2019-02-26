@@ -71,8 +71,8 @@ If we missed anything, please get it touch with us.
 - `ff-asn-group-slider`
     - use `<div slot="groupCaption" ...>` instead of `<div data-container="groupCaption" ...>`
 - `ff-slider`
-    - use `<div slot="slider1" id="slider1" ...></div>` instead of `<div data-slider="1" ...></div>`
-    - use `<div slot="slider2" id="slider2" ...></div>` instead of `<div data-slider="2" ...></div>`
+    - use `<div slot="slider1" ...></div>` instead of `<div data-slider="1" ...></div>`
+    - use `<div slot="slider2" ...></div>` instead of `<div data-slider="2" ...></div>`
 - `ff-products-per-page-item`
     - removed `clone` method
 - `ff-sortbox`
