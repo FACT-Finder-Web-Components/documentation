@@ -91,6 +91,6 @@ with `<ff-searchbutton>` tag it becomes a special button which connects
 to the search box and sends a search request to FACT-Finder.
 ```html
 <ff-searchbutton>
-    <button>>Search</button>
+    <button>Search</button>
 </ff-searchbutton>
 ```
