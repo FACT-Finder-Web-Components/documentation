@@ -116,9 +116,11 @@ By setting the `[for-group]` attribute you can apply a template to a single grou
 
 
 ## Using native select box
-If you require a native `select` element for the **hiddenLinks** instead of the "show more/show less" implementation, you have the opportunity to define your template accordingly. Add the `select-box="true"` attribute to the `ff-asn-group` and add a `select` element with the attribute `data-container="hiddenLinks"`.
+If you require a native `select` element for the **hiddenLinks** instead of the "show more/show less" implementation, you can add the `select-box="true"` attribute to the `ff-asn-group` and add a `select` element with the attribute `data-container="hiddenLinks"`.
 
-You may optionally supply a template for the `option` elements. It supports data binding as usual. Make sure to mark it with the `data-template` attribute.
+Note that you should also supply an `option` element that acts as a placeholder. This element typically reads "_More..._" and is initially shown before the `select` dropdown was opened for the first time.
+
+You may optionally define a template for the regular `option` elements. It supports data binding as usual. Make sure to mark it with the `data-template` attribute.
 
 ```html
 <ff-asn-group for-group="YourGroupName" select-box="true">
@@ -127,9 +129,11 @@ You may optionally supply a template for the `option` elements. It supports data
         </div>
 
         <select data-container="hiddenLinks">
-            <option>more ...</option>
+            <!-- The placeholder element. If none is provided, it will default to this: -->
+            <option disabled hidden selected>More...</option>
+
             <!-- This template is optional. If you don't supply one, it defaults to:
-                 <option>{{element.name}} {{group.unit}} ({{element.recordCount}})</option> -->
+                 <option data-template>{{element.name}} {{group.unit}} ({{element.recordCount}})</option> -->
             <option data-template>My Template {{element.name}} {{group.unit}}</option>
         </select>
 </ff-asn-group>
