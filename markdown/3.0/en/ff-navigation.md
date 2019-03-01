@@ -5,7 +5,7 @@ To get a simple `ff-navigation` started, you only need to use the following code
 ```html
 <ff-navigation >
     <ff-navigation-item>
-        <div slot="item">{{name}}</div>
+        <div>{{name}}</div>
     </ff-navigation-item>
 </ff-navigation>
 ```
@@ -24,12 +24,10 @@ In scope of `ff-navigation-item` you have access to the navigation element's val
 </style>
 <ff-navigation>
     <ff-navigation-item>
-        <div slot="item" class="my-item">{{name}}</div>
+        <div class="my-item">{{name}}</div>
     </ff-navigation-item>
 </ff-navigation>
 ```
-
-**NOTICE:** `slot` attribute is mandatory and its value should be set to `"item"`. If omitted, menu will not render correctly.
 
 ## Templates
 
@@ -55,11 +53,11 @@ The **header** template is used in your first level of the navigation. This allo
 </style>
 <ff-navigation>
     <ff-navigation-item>
-        <div slot="item" class="my-item">{{name}} ({{recordCount}})</div>
+        <div class="my-item">{{name}} ({{recordCount}})</div>
     </ff-navigation-item>
 
     <ff-navigation-item type="header">
-        <div slot="item" class="my-header">{{name}}</div>
+        <div class="my-header">{{name}}</div>
     </ff-navigation-item>
 </ff-navigation>
 ```
@@ -82,7 +80,7 @@ Each `ff-navigation-item` has a `'cluster-level'` attribute, which indicates in 
 </style>
 <ff-navigation>
     <ff-navigation-item>
-        <div slot="item" class="my-item">{{name}}</div>
+        <div class="my-item">{{name}}</div>
     </ff-navigation-item>
 </ff-navigation>
 ```
@@ -105,13 +103,13 @@ The **parent** template is used for each element, which has one or more sub-elem
 </style>
 <ff-navigation>
     <ff-navigation-item>
-        <div slot="item" class="my-item">{{name}}</div>
+        <div class="my-item">{{name}}</div>
     </ff-navigation-item>
 
     <ff-navigation-item type="parent">
-        <div slot="item" class="my-item my-parent-item">
+        <div class="my-item my-parent-item">
             {{name}}
-            <img src="arrow-right.png">
+            <img src="arrow-right.png" />
         </div>
     </ff-navigation-item>
 </ff-navigation>
@@ -137,7 +135,7 @@ A second indicator that an element has sub-elements is the `'has-subelements'` a
 </style>
 <ff-navigation>
     <ff-navigation-item>
-        <div slot="item" class="my-item">{{name}}</div>
+        <div class="my-item">{{name}}</div>
     </ff-navigation-item>
 </ff-navigation>
 ```
@@ -166,15 +164,15 @@ The **layer** template is used for a specific layer. More than one **layer** tem
 </style>
 <ff-navigation>
     <ff-navigation-item>
-        <div slot="item" class="my-item">{{name}} ({{recordCount}})</div>
+        <div class="my-item">{{name}} ({{recordCount}})</div>
     </ff-navigation-item>
 
     <ff-navigation-item type="layer1">
-        <div slot="item" class="my-layer1"> {{name}}</div>
+        <div class="my-layer1">{{name}}</div>
     </ff-navigation-item>
 
     <ff-navigation-item type="layer2">
-        <div slot="item" class="my-layer2">{{name}}</div>
+        <div class="my-layer2">{{name}}</div>
     </ff-navigation-item>
 </ff-navigation>
 ```
@@ -195,7 +193,7 @@ In the **horizontal** layout, the 'level 0' or 'header' elements extend down. Al
 </style>
 <ff-navigation layout="vertical">
     <ff-navigation-item>
-        <div slot="item">{{name}}</div>
+        <div>{{name}}</div>
     </ff-navigation-item>
 </ff-navigation>
 ```
@@ -241,8 +239,8 @@ You also need a logic outside of the element, to define when it will switch to t
     <div slot="menu">Navigation</div>
 
     <ff-navigation-item>
-        <div slot="item" class="my-item">
-            <img data-search class="search-icon" src="search-icon.png">
+        <div class="my-item">
+            <img data-search class="search-icon" src="search-icon.png" />
             {{name}}
         </div>
     </ff-navigation-item>
