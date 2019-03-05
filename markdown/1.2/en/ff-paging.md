@@ -18,7 +18,7 @@ You can access the value of a paging item with the ** {{caption}}**  syntax.
 
 When the attribute `show-only` is set to ** true**  the paging does not react on clicks.
 ```html
-<ff-paging shwo-only="true">
+<ff-paging show-only="true">
     //...
 </ff-paging>
 ```
