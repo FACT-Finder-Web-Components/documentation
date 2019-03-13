@@ -125,3 +125,25 @@ window.addEventListener("ffReady", () => {
 ```
 
 See the [API tab](/api/3.0/ff-middleware#tab=api) for more details on configuration options.
+
+#### ProductTeaserCampaignProcessor
+
+Applying this module will insert all _teaser feedback text campaigns_ into `searchResult.records` at the configured positions. Hence, for each _teaser feedback text campaign_, a rendered `ff-record-list` will contain an `ff-record` element with an `is-teaser` attribute and its inner HTML set to the text specified in FACT-Finder.
+
+Configuration with FACT-Finder Web Components:
+```html
+<ff-communication>
+    <ff-middleware>
+        <ff-product-teaser-campaign-processor></ff-product-teaser-campaign-processor>
+    </ff-middleware>
+</ff-communication>
+```
+
+JavaScript:
+```javascript
+window.addEventListener("ffReady", () => {
+    factfinder.middleware.response.use(
+        factfinder.middleware.response.ProductTeaserCampaignProcessor()
+    );
+);
+```

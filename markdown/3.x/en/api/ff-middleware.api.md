@@ -12,3 +12,8 @@ ___
 | **keep-original-in-property**&nbsp;(String) (_optional_)| The name of the property you want to store the unparsed value in. This may be particularly useful when you overwrite the original property but still require the original value. |
 | **entry-separator**&nbsp;(String) (_optional_, default: "&#0448;")| The character configured in FACT-Finder delimiting key-value pairs.  |
 | **key-value-separator**&nbsp;(String) (_optional_, default: "=")| The character configured in FACT-Finder to separate keys from values. |
+
+## `ff-product-teaser-campaign-processor`
+---
+### Properties
+None.
