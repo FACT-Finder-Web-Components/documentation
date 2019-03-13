@@ -128,7 +128,7 @@ See the [API tab](/api/1.2/ff-middleware#tab=api) for more details on configurat
 
 #### ProductTeaserCampaignProcessor
 
-Starting with FACT-Finder version 7.3 and FACT-Finder Web Components version 1.2.16 _feedback text campaigns_ can be configured as _teaser_.
+Starting with FACT-Finder version 7.3.5-42 and FACT-Finder Web Components version 1.2.16 _feedback text campaigns_ can be configured as _teaser_.
 
 Applying this module will insert all _teaser feedback text campaigns_ into `searchResult.records` at the configured positions. Hence, for each _teaser feedback text campaign_, a rendered `ff-record-list` will contain an `ff-record` element with an `is-teaser` attribute and its inner HTML set to the text specified in FACT-Finder.
 
