@@ -141,7 +141,7 @@ You may optionally define a template for the regular `option` elements. It suppo
 
 
 ## Styling slider groups
-Slider groups a handled in a different way. To style them you need to use the `ff-asn-group-slider` element.
+Slider groups are handled in a different way. To style them you need to use the `ff-asn-group-slider` element.
 
 ```html
 <ff-asn-group-slider></ff-asn-group-slider>
