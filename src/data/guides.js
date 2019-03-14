@@ -1,9 +1,9 @@
-import guides30 from './3.0/guides'
-import guides12 from './1.2/guides'
+import guides30 from './3.x/guides'
+import guides12 from './1.x/guides'
 
 const api = {
-    '3.0': {...guides30},
-    '1.2': {...guides12}
+    '3.x': {...guides30},
+    '1.x': {...guides12}
 };
 
 export default api;
