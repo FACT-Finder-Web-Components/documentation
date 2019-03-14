@@ -4,7 +4,7 @@ Adding a Pushed Products campaign is as simple as adding the products to your se
 ```html
 <ff-campaign-pushed-products>
     <span id="productCampaignCaption">Product Campaign</span>
-    <ff-record-list>
+    <ff-record-list subscribe="false">
         <!-- in this demo a click on the product sets the recommendation product-->
         <ff-record>
             <img data-image="{{record.ImageName}}">
@@ -26,7 +26,7 @@ To make your `ff-campaign-pushed-products` react to product detail campaigns jus
 ```html
 <ff-campaign-pushed-products is-product-campaign>
     <span id="productCampaignCaption">Product Campaign</span>
-    <ff-record-list>
+    <ff-record-list subscribe="false">
         <!-- in this demo a click on the product sets the recommendation product-->
         <ff-record>
             <img data-image="{{record.ImageName}}">
