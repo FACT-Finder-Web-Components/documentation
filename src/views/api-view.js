@@ -239,6 +239,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
             this.showTabs = true;
             this.apiPath = `markdown/${this.version}/${this.language}/api/${fileName}.api.md`;
             this.githubPath = `${config.githubDemosBasePath}/${this.version}/${fileName}/index.html`;
+            if (this.activeTab === `demo`) setDemoFrameSrc(this.$.iframeSlot, this.version, this.subpage);
         } else {
             // do not trigger a new load request for api and github path when not an ff element,
             // instead, simply hide tabs
@@ -258,15 +259,8 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
             return;
         }
 
-        //clear iframeSlot
-        while (this.$.iframeSlot.childElementCount > 0) {
-            this.$.iframeSlot.removeChild(this.$.iframeSlot.lastChild);
-        }
-
         if (newTab === "demo") {
-            const frame = document.createElement("iframe");
-            frame.src = `${config.demosBasePath}/${this.version}/${this.subpage}`;
-            this.$.iframeSlot.appendChild(frame);
+            setDemoFrameSrc(this.$.iframeSlot, this.version, this.subpage);
         }
 
         if (newTab) {
@@ -279,3 +273,13 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
 }
 
 window.customElements.define('api-view', ApiView);
+
+function setDemoFrameSrc(target, version, subpage) {
+    while (target.childElementCount > 0) { //clear iframeSlot
+        target.removeChild(target.lastChild);
+    }
+
+    const frame = document.createElement("iframe");
+    frame.src = `${config.demosBasePath}/${version}/${subpage}`;
+    target.appendChild(frame);
+}
