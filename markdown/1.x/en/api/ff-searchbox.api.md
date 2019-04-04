@@ -64,12 +64,12 @@ ___
 | **similar-records-url**&nbsp;(String) | Define a custom URL for the SimilarRecords.ff Service. Example: `similar-records-url="http://www.myproxy.de/services"` Omit the `SimilarRecords.ff` in the URL. |
 | **get-records-url**&nbsp;(String) | Define a custom URL for the records API Service. Example: `get-records-url="http://www.myproxy.de/services"` |
 | **ignore-page**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | If you want to omit the page parameter on pagination requests just set this attribute to true. Normally you want to use this attribute in conjunction with the `ff-record-list` `lazy-load` functionality. |
-| **currency-code**&nbsp;(String) | [Currency Guide](/documentation/1.2/currency-guide) |
-| **currency-country-code**&nbsp;(String) | [Currency Guide](/documentation/1.2/currency-guide) |
-| **currency-fields**&nbsp;(String) | [Currency Guide](/documentation/1.2/currency-guide) |
-| **currency-min-digits**&nbsp;(String) | [Currency Guide](/documentation/1.2/currency-guide) |
-| **currency-max-digits**&nbsp;(String) | [Currency Guide](/documentation/1.2/currency-guide) |
-| **add-unit-to-filter-elements**&nbsp;(Boolean) `true` if present, else `false` | [Currency Guide](/documentation/1.2/currency-guide) |
+| **currency-code**&nbsp;(String) | [Currency Guide](/documentation/1.x/currency-guide) |
+| **currency-country-code**&nbsp;(String) | [Currency Guide](/documentation/1.x/currency-guide) |
+| **currency-fields**&nbsp;(String) | [Currency Guide](/documentation/1.x/currency-guide) |
+| **currency-min-digits**&nbsp;(String) | [Currency Guide](/documentation/1.x/currency-guide) |
+| **currency-max-digits**&nbsp;(String) | [Currency Guide](/documentation/1.x/currency-guide) |
+| **add-unit-to-filter-elements**&nbsp;(Boolean) `true` if present, else `false` | [Currency Guide](/documentation/1.x/currency-guide) |
 | **disable-single-hit-redirect**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Disables the automatic redirect to the product detail page if only one record is found |
 | **single-hit-redirect-base-path**&nbsp;(String) | Use this as an absolute base path if deeplinks are relative |
 | **sort-url-parameters-alphabetically**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Sorts all query parameters and their values alphabetically. _This can be used for SEO._ |

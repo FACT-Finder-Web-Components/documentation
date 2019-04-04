@@ -3,7 +3,7 @@ With the `ff-recommendation` you can display a set of records, which are present
 on his or her search history and his or her last purchased products or product views. The recommendation service learns
 the shopping behavior for each user and creates a list record which can be displayed to him or her.
 
-**IMPORTANT** [fieldRoles](/documentation/1.2/field-roles) have to be [defined](/documentation/1.2/field-roles)
+**IMPORTANT** [fieldRoles](/documentation/1.x/field-roles) have to be defined
 first in order for `ff-recommendation` to work.
 
 Inside the `ff-recommendation` tag you should define a `ff-record-list` to display and style the recommended products.

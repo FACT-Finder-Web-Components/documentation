@@ -27,7 +27,7 @@ window.addEventListener("ffReady", () => {
 });
 ```
 
-Inside the `factfinder.middleware` namespace you have the option to choose for which part of data exchange you want to register a middleware module. In this example it is `response`. That means after a request to FACT-Finder returns, but before it is emitted by the [ResultDispatcher](/api/1.2/core-result-dispatcher#tab=docs) to its listeners (including the FACT-Finder Web Components on the page), the specified module is applied to the response manipulating it in the way configured.
+Inside the `factfinder.middleware` namespace you have the option to choose for which part of data exchange you want to register a middleware module. In this example it is `response`. That means after a request to FACT-Finder returns, but before it is emitted by the [ResultDispatcher](/api/1.x/core-result-dispatcher#tab=docs) to its listeners (including the FACT-Finder Web Components on the page), the specified module is applied to the response manipulating it in the way configured.
 
 ## Available Modules
 
@@ -124,7 +124,7 @@ window.addEventListener("ffReady", () => {
 );
 ```
 
-See the [API tab](/api/1.2/ff-middleware#tab=api) for more details on configuration options.
+See the [API tab](/api/1.x/ff-middleware#tab=api) for more details on configuration options.
 
 #### ProductTeaserCampaignProcessor
 

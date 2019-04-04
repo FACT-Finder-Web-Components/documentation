@@ -73,7 +73,7 @@ the `[data-control="1/2"]` attribute. The input elements automatically
 react on user input (enter key pressed) and start to filter. You can
 change the behavior of the controls by using the appropriate attributes
 as described in `ff-slider-control-section`'s
-[API documentation](/api/1.2/ff-asn#tab=api)
+[API documentation](/api/1.x/ff-asn#tab=api)
 
 ```html
 <!--style slider groups-->

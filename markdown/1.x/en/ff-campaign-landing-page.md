@@ -5,4 +5,4 @@ With the `ff-campaign-landing-page` you can display product campaigns on a custo
 <ff-campaign-landing-page page-id="home"></ff-campaign-landing-page>
 ```
 
-The element triggers the campaign but doesn't display anything. Depending on the configured campaign, you need to add a `ff-campaign-feedbacktext` to display the feedback text and/or a `ff-campaign-pushed-products` to display pushed products. For more information, see: [Campaign](http://web-components.fact-finder.de/documentation/ff-campaign) and [Pushed Products](/documentation/1.2/ff-campaign-pushed-products).
+The element triggers the campaign but doesn't display anything. Depending on the configured campaign, you need to add a `ff-campaign-feedbacktext` to display the feedback text and/or a `ff-campaign-pushed-products` to display pushed products. For more information, see: [Campaign](/api/1.x/ff-campaign) and [Pushed Products](/api/1.x/ff-campaign-pushed-products).
