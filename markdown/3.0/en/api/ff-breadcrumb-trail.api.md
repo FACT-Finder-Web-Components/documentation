@@ -3,7 +3,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **bread-crumb-trail-items**&nbsp;(Object) (default:empty) | The breadcrumb data from FACT-Finder. |
+| **bread-crumb-trail-items**&nbsp;(Array) (default:empty) | The breadcrumb data from FACT-Finder. |
 
 ### Events
 | Name | Description |
@@ -21,4 +21,4 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **clone** | Return a deep copy of the contained elements including all properties, behaviors, private fields, states and HTML templates. |
+| **clone** (deprecated - to be removed) | Return a deep copy of the contained elements including all properties, behaviors, private fields, states and HTML templates. |
