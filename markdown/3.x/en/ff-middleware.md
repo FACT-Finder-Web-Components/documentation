@@ -124,7 +124,7 @@ window.addEventListener("ffReady", () => {
 );
 ```
 
-See the [API tab](/api/3.0/ff-middleware#tab=api) for more details on configuration options.
+See the [API tab](/api/3.x/ff-middleware#tab=api) for more details on configuration options.
 
 #### ProductTeaserCampaignProcessor
 

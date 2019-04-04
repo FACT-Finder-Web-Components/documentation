@@ -24,5 +24,5 @@ You can overwrite the default binding by providing a value for the `data-image` 
 <img width="100" height="100" data-image="http://your-custom-image-server/{{attributes.articleNr}}" />
 ```
 
-Check out the [API tab](/api/3.0/ImageBindingBehavior#tab=api) for further supported attributes on image binding elements.
+Check out the [API tab](/api/3.x/ImageBindingBehavior#tab=api) for further supported attributes on image binding elements.
 

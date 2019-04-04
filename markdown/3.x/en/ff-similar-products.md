@@ -1,7 +1,7 @@
 ## Overview
 With the `ff-similar-products` element, you can display a record-list of products which are similar to another product.
 
-**IMPORTANT** [fieldRoles](/documentation/3.0/field-roles) have to be [defined](/documentation/3.0/field-roles)
+**IMPORTANT** [fieldRoles](/documentation/3.x/field-roles) have to be [defined](/documentation/3.0/field-roles)
 first in order for `ff-recommendation` to work.
 
 In this element, you should use a `ff-record-list` to let the `ff-similar-products` inject the records returned from the similar-products service.

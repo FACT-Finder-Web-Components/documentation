@@ -4,7 +4,7 @@
 
 The following section shows a boilerplate for including FACT-Finder Web Components in your website. `custom-elements-es5-adapter.js` and `webcomponents-loader.js` will load the required Polyfills minimized to the needs of the calling browser. 
 
-Note that the [default-styles.css](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/release/3.0/dist/default-styles.css) within our dist folder is already bundled into `bundle.js` and hence is not required to be referenced on your page. It is only for reference.
+Note that the [default-styles.css](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/release/3.x/dist/default-styles.css) within our dist folder is already bundled into `bundle.js` and hence is not required to be referenced on your page. It is only for reference.
 
 **Boilerplate Code**
 ```html

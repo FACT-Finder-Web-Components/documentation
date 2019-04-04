@@ -36,8 +36,8 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **label**&nbsp;(String) (default: "") | Binds the element to a campaign label defined in the FACT-Finder backend. |
-| **is-product-campaign**&nbsp;(Boolean) | If this attribute is present, regardless of its value, the `ff-campaign-feedbacktext` is only considered for product campaigns retrieved by [ff-campaign-product](/documentation/3.0/ff-campaign-product) |
-| **is-shopping-cart-campaign**&nbsp;(Boolean) | If this attribute is present, regardless of its value, the `ff-campaign-feedbacktext` is only considered for shopping cart campaigns retrieved by [ff-campaign-shopping-cart](/documentation/3.0/ff-campaign-shopping-cart) |
+| **is-product-campaign**&nbsp;(Boolean) | If this attribute is present, regardless of its value, the `ff-campaign-feedbacktext` is only considered for product campaigns retrieved by [ff-campaign-product](/documentation/3.x/ff-campaign-product) |
+| **is-shopping-cart-campaign**&nbsp;(Boolean) | If this attribute is present, regardless of its value, the `ff-campaign-feedbacktext` is only considered for shopping cart campaigns retrieved by [ff-campaign-shopping-cart](/documentation/3.x/ff-campaign-shopping-cart) |
 
 ### Events
 | Name | Description |
