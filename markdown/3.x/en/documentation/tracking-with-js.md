@@ -39,11 +39,11 @@ You can retrieve the current FACT-Finder Web Components **sid** by calling this 
 
 
 #### id 
-The **id** parameter has to match the field value of the field configured as `trackingProductNumber ` [field role](/documentation/3.0/field-roles).
+The **id** parameter has to match the field value of the field configured as `trackingProductNumber ` [field role](/documentation/3.x/field-roles).
 
 
 #### masterId
-The **masterId** parameter has to match the field value of the field configured as `masterArticleNumber` [field role](/documentation/3.0/field-roles).
+The **masterId** parameter has to match the field value of the field configured as `masterArticleNumber` [field role](/documentation/3.x/field-roles).
 
 
 #### channel

@@ -1,5 +1,5 @@
 ## Adding a Pushed Products campaign
-Adding a Pushed Products campaign is as simple as adding the products to your search result page. Just add a valid `ff-record-list` to the `ff-campaign-pushed-products` element. For more information on how to customize the product visualization please refer to the [ff-record-list](/documentation/3.0/ff-record-list).
+Adding a Pushed Products campaign is as simple as adding the products to your search result page. Just add a valid `ff-record-list` to the `ff-campaign-pushed-products` element. For more information on how to customize the product visualization please refer to the [ff-record-list](/documentation/3.x/ff-record-list).
 
 ```html
 <ff-campaign-pushed-products>

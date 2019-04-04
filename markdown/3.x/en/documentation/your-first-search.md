@@ -3,14 +3,14 @@
 ---
 We recommend using the [ff-record-list demo](https://github.com/FACT-Finder-Web-Components/demos/blob/master/ff-record-list/index.html) as a starting point. It is lightweight and therefore ideal to get familiar with FACT-Finder Web Components.
 
-If you want a **quick overview** about all possible features, please refer to [`ff-record-list`](/api/3.0/ff-record-list#tab=docs) in the API documentation.
+If you want a **quick overview** about all possible features, please refer to [`ff-record-list`](/api/3.x/ff-record-list#tab=docs) in the API documentation.
 
 The following sections cover all necessary steps to adjust the demo to fit your setup.
 
 ### Change Configuration
 
 ---
-In case you skipped previous sections please read more about the configuration [here](/documentation/3.0/configuration).
+In case you skipped previous sections please read more about the configuration [here](/documentation/3.x/configuration).
 
 First of all you want to change the `url`, `channel` and the `version` attributes. If you don't know the channel name or your FACT-Finder version, please refer to your FACT-Finder UI.
 
@@ -33,7 +33,7 @@ The data used to display product information is provided by the CSV file you spe
 
 **This product data is returned in a one-to-one manner.** This means that a field named `Price` in the CSV file will also appear as `Price` (case sensitive) in the `searchResult.records[index].record` property of the HTTP response's JSON.
 
-The same `record` object is also available in several FACT-Finder Web Components. You can insert its values into your custom HTML using the double curly braces syntax `{{record.Title}}`. Here is an example using the [`ff-record`](/api/3.0/ff-record-list#tab=docs) element:
+The same `record` object is also available in several FACT-Finder Web Components. You can insert its values into your custom HTML using the double curly braces syntax `{{record.Title}}`. Here is an example using the [`ff-record`](/api/3.x/ff-record-list#tab=docs) element:
 
 ```html
 <ff-record>
@@ -43,4 +43,4 @@ The same `record` object is also available in several FACT-Finder Web Components
 </ff-record>
 ```
 
-See the [Template Engine documentation](/documentation/3.0/template-engine) for more details on this topic.
+See the [Template Engine documentation](/documentation/3.x/template-engine) for more details on this topic.

@@ -1,7 +1,7 @@
 ## Upgrade from version 1.2.x to 3.0.0
 We strongly recommend upgrading your system to use the latest version of FACT-Finder Web Components. While we will do critical bug fixes for older versions, new features will likely only be implemented in newer versions. In addition, the newer versions utilize newer technology, decreasing your loading time and improving internal speed. We promise to make each upgrade go as smoothly as possible.
 
-In general you can keep track of our progress, changes and new features in the [changelog](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/release/3.0/CHANGELOG.md) of the _3.0_ branch or on the [release page](https://github.com/FACT-Finder-Web-Components/ff-web-components/releases).
+In general you can keep track of our progress, changes and new features in the [changelog](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/release/3.x/CHANGELOG.md) of the _3.x_ branch or on the [release page](https://github.com/FACT-Finder-Web-Components/ff-web-components/releases).
 
 The main difference between _1.2.x_ and _3.0.0_ is that we internally moved from [Polymer 1](https://polymer-library.polymer-project.org/1.0/docs/devguide/feature-overview) to [Polymer 3](https://polymer-library.polymer-project.org/3.0/docs/about_30) and are half way done migrating to [LitElement](https://lit-element.polymer-project.org/).
 
@@ -103,7 +103,7 @@ If we missed anything, please get it touch with us.
 
 ### Removal of CSS mixins
 
-CSS mixins have been removed. You can now directly apply CSS rules. Make sure your style rules take precedence over the bundled [default-styles.css](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/release/3.0/dist/default-styles.css) which uses the selectors below.
+CSS mixins have been removed. You can now directly apply CSS rules. Make sure your style rules take precedence over the bundled [default-styles.css](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/release/3.x/dist/default-styles.css) which uses the selectors below.
 
 #### ff-asn-group
 ```html
