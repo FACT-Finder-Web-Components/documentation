@@ -9,4 +9,4 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **getSimilarProducts()** | Calls up the product recommendations again. |
+| **getSimilarProducts()** | Calls up the similar products again. |
