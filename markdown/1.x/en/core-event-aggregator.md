@@ -1,12 +1,10 @@
-The `FFCommunicationEventAggregator` (**factfinder.communication.FFCommunicationEventAggregator**) is used to query 
-the FACT-Finder APIs with an event based approach. You can also hook into the communication pipeline.
+The **FFCommunicationEventAggregator** (`factfinder.communication.FFCommunicationEventAggregator`) is used to query the FACT-Finder APIs with an event based approach. You can also hook into the communication pipeline.
 
 ## Fire Events       
-To send query's to the FACT-Finder you need to fire event's via the `addFFEvent()` function. 
-Internally the same method is used for all elements which communicate with the Fact-Finder.
+To send queries to FACT-Finder, you need to fire events via the `addFFEvent()` function. Internally, the same method is used for all elements which communicate with FACT-Finder.
 
 ### `addFFEvent(event)`
-Each event has a `type` which defines what API on the FACT-Finder is called and which other properties it operates on.
+Each event has a `type` which defines what API on FACT-Finder is called and which other properties it operates on.
 
 **NOTE**: Each property which is not a function or an object is translated to an http request parameter with a few exceptions:
 
@@ -43,11 +41,11 @@ the event. The `url` property is reserved for internal usage.
 ## Hooking into the pipeline
 
 ### `addBeforeDispatchingCallback(fn):string;`
-Adds a callback which executes before every event i.e. search, suggest, recommendation and so on is send.
-The callback receives an event object enriched with basic data i.e. `sid` and if available a
+Adds a callback which executes before every event i.e. `search`, `suggest`, `recommendation` and so on are sent.
+The callback receives an event object enriched with basic data i.e. `sid` and, if available, a
 `type` property which corresponds to the event types of `FFCommunicationEventAggregator.addFFEvent(event)`.
         
-If you want to intercept a search request for example you could do:
+If you want to intercept a search request for example, you could do:
 ```html
 <script>
     document.addEventListener("ffReady", function () {
@@ -62,7 +60,7 @@ If you want to intercept a search request for example you could do:
 ```
 
 ### `removeBeforeDispatchingCallback(key):boolean;`
-Removes a registered callback again by it's `key`
+Removes a registered callback identified by its `key`
 ```html
 <script>
     document.addEventListener("ffReady", function () {
@@ -81,18 +79,18 @@ Removes a registered callback again by it's `key`
 
 ## Examples
 
-### Custom Topic's
-You can also fire a event which will then only dispatch to a list of custom set Topic's.
-Therefore add a function which returns an array of topics to the event in the `topics` property.
+### Custom Topics
+You can also fire an event which will then only dispatch to a list of custom defined topics.
+To do so add a function which returns an array of topics to the event in the `topics` property.
 
 Now you can register/subscribe a callback to the ResultDispatcher with that topic and get the result for that event type.
 ```html
 <script>
     factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
         type: "search",
-        //other "search" Type settings
-        topics:function(){
-            return ["myCustomSearch","mySpecialElement"];
+        //other "search" type settings
+        topics: function() {
+            return ["myCustomSearch", "mySpecialElement"];
         }
     });
 
@@ -131,9 +129,9 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
         firstFetch: <firstFetch:Number>,
         //This defines how many pages per fetch after the first one should be retrieved.(min/default is 1)
         fetchSize: <fetchSize:Number>,
-        //This defines up to witch page the pages should be fetched.(max/default is 10)
+        //This defines up to which page the pages should be fetched.(max/default is 10)
         maxFetch: <maxFetch:Number>,
-        //This defines the delay in microseconds between each fetch. (default is 0, this means right after the data is received the next fetch call will be executed)
+        //This defines the delay in milliseconds between each fetch. (default is 0, this means right after the data is received the next fetch call will be executed)
         fetchTime: <fetchTime:Number>
     });
 
@@ -216,7 +214,7 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
     });
 
     //NOTE the corresponding supplied value has to match your FACT-Finder configuration.
-    // If you want to change the available values/options change the options in the FACT-Finder UI.
+    // If you want to change the available values/options, change the options in the FACT-Finder UI.
     factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
         type: "sort",
         value: "Title A-Z"
@@ -233,7 +231,7 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
     });
 
     //NOTE the corresponding supplied value has to match your FACT-Finder configuration.
-    // If you want to change the available values/options change the options in the FACT-Finder UI.
+    // If you want to change the available values/options, change the options in the FACT-Finder UI.
     factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
         type: "ppp",
         value: 36
@@ -326,7 +324,7 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 <script>
     factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
         type: "search",
-        query: "trosuers"
+        query: "trousers"
     });
 </script>
 ```
