@@ -6,19 +6,19 @@ The `ff-sortbox` is a custom-built dropdown element. Both can be used with or wi
 The `ff-sortbox-select` displays a native HTML `select` element.
 
 Minimal setup:
-```
+```html
 <ff-sortbox-select></ff-sortbox-select>
 ```
 
 Specifying only the `option` element:
-```
+```html
 <ff-sortbox-select>
   <option>{{description}}</option>
 </ff-sortbox-select>
 ```
 
 Specifying the `select` and the `option` elements:
-```
+```html
 <ff-sortbox-select>
     <select class="example-class">
         <option>Sort by: {{description}}</option>
