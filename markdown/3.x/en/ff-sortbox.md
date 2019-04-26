@@ -3,14 +3,31 @@ You can choose from two different kinds of sortboxes. The `ff-sortbox-select` is
 The `ff-sortbox` is a custom-built dropdown element. Both can be used with or without customization.
 
 ## Native HTML select
-The code below will display a native HTML `select`. The template specified through the `data-template` attribute is 
-optional. It will default to `<option>{{description}}</option>` if not present.
+The code below will display a native HTML `select`. The `select`-element as well as the `option`-element are optional. It will default to `<select><option>{{description}}</option></select>` if not present.
 
 ```html
 <ff-sortbox-select>
-    <option data-template>Sort by: {{description}}</option>
+    <select class="example-class">
+        <option>Sort by: {{description}}</option>
+    </select>
 </ff-sortbox-select>
 ```
+
+### Rendered HTML
+
+When setup like in the example above, the rendered HTML could look like this.
+
+```html
+<ff-sortbox-select>
+    <select class="example-class">
+        <option>Sort by: Title A-Z</option>
+        <option>Sort by: Title Z-A</option>
+        <option>Sort by: Relevance</option>
+    </select>
+</ff-sortbox-select>
+```
+
+
 
 ## Custom-built dropdown
 Adding `<ff-sortbox></ff-sortbox>` to your page will add a custom-built HTML dropdown containing all criteria defined in the FACT-Finder back-end.  
