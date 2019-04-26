@@ -13,7 +13,7 @@ Minimal setup:
 Specifying only the `option` element:
 ```html
 <ff-sortbox-select>
-  <option>{{description}}</option>
+    <option>{{description}}</option>
 </ff-sortbox-select>
 ```
 
