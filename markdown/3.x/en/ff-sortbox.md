@@ -3,9 +3,22 @@ You can choose from two different kinds of sortboxes. The `ff-sortbox-select` is
 The `ff-sortbox` is a custom-built dropdown element. Both can be used with or without customization.
 
 ## Native HTML select
-The code below will display a native HTML `select`. The `select`-element as well as the `option`-element are optional. It will default to `<select><option>{{description}}</option></select>` if not present.
+The `ff-sortbox-select` displays a native HTML `select` element.
 
-```html
+Minimal setup:
+```
+<ff-sortbox-select></ff-sortbox-select>
+```
+
+Specifying only the `option` element:
+```
+<ff-sortbox-select>
+  <option>{{description}}</option>
+</ff-sortbox-select>
+```
+
+Specifying the `select` and the `option` elements:
+```
 <ff-sortbox-select>
     <select class="example-class">
         <option>Sort by: {{description}}</option>
@@ -15,7 +28,7 @@ The code below will display a native HTML `select`. The `select`-element as well
 
 ### Rendered HTML
 
-When setup like in the example above, the rendered HTML could look like this.
+When setup like in the last example above, the rendered HTML could look like this.
 
 ```html
 <ff-sortbox-select>
