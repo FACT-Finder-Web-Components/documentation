@@ -1,4 +1,4 @@
-The **FFCommunicationEventAggregator** (`factfinder.communication.FFCommunicationEventAggregator`) is used to query the FACT-Finder APIs with an event based approach. You can also hook into the communication pipeline.
+The **FFCommunicationEventAggregator** (`factfinder.communication.FFCommunicationEventAggregator`) is used to query the FACT-Finder API with an event based approach. You can also hook into the communication pipeline.
 
 ## Fire Events       
 To send queries to FACT-Finder, you need to fire events via the `addFFEvent()` function. Internally, the same method is used for all elements which communicate with FACT-Finder.
@@ -41,8 +41,8 @@ the event. The `url` property is reserved for internal usage.
 ## Hooking into the pipeline
 
 ### `addBeforeDispatchingCallback(fn):string;`
-Adds a callback which executes before every event i.e. `search`, `suggest`, `recommendation` and so on are sent.
-The callback receives an event object enriched with basic data i.e. `sid` and, if available, a
+Adds a callback which executes before each event (e.g. `search`, `suggest`, `recommendation`, etc.) is sent.
+The callback receives an event object enriched with basic data (e.g. `sid`) and, if available, a
 `type` property which corresponds to the event types of `FFCommunicationEventAggregator.addFFEvent(event)`.
         
 If you want to intercept a search request for example, you could do:
@@ -70,7 +70,7 @@ Removes a registered callback identified by its `key`
             }
         });
         
-        //remove the callback 
+        // remove the callback
         factfinder.communication.FFCommunicationEventAggregator.removeBeforeDispatchingCallback(key);
     });
 </script>
@@ -88,7 +88,7 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 <script>
     factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
         type: "search",
-        //other "search" type settings
+        // other "search" type settings
         topics: function() {
             return ["myCustomSearch", "mySpecialElement"];
         }
@@ -125,13 +125,13 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 <script>
     factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
         type: "navigation",
-        //This defines how many pages with the first fetch to the service should be retrieved.(default is 2)
+        // This defines how many pages with the first fetch to the service should be retrieved.(default is 2)
         firstFetch: <firstFetch:Number>,
-        //This defines how many pages per fetch after the first one should be retrieved.(min/default is 1)
+        // This defines how many pages per fetch after the first one should be retrieved.(min/default is 1)
         fetchSize: <fetchSize:Number>,
-        //This defines up to which page the pages should be fetched.(max/default is 10)
+        // This defines up to which page the pages should be fetched.(max/default is 10)
         maxFetch: <maxFetch:Number>,
-        //This defines the delay in milliseconds between each fetch. (default is 0, this means right after the data is received the next fetch call will be executed)
+        // This defines the delay in milliseconds between each fetch. (default is 0, this means right after the data is received the next fetch call will be executed)
         fetchTime: <fetchTime:Number>
     });
 
@@ -213,7 +213,7 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
         value: <sortItem.description>
     });
 
-    //NOTE the corresponding supplied value has to match your FACT-Finder configuration.
+    // NOTE the corresponding supplied value has to match your FACT-Finder configuration.
     // If you want to change the available values/options, change the options in the FACT-Finder UI.
     factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
         type: "sort",
@@ -230,7 +230,7 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
                 value: < productsPerPageItem.value >
     });
 
-    //NOTE the corresponding supplied value has to match your FACT-Finder configuration.
+    // NOTE the corresponding supplied value has to match your FACT-Finder configuration.
     // If you want to change the available values/options, change the options in the FACT-Finder UI.
     factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
         type: "ppp",
