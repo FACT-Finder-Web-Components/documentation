@@ -12,14 +12,14 @@ Every element can have attributes of various types. These types are `Boolean`, `
 For attributes of type `Boolean` only their presence on the HTML element is relevant. Their assigned value is ignored. The presence of a boolean attribute on an element represents the `true` value, and the absence of the attribute represents the `false` value.
 
 ```html
-<ff-communication add-unit-to-filter-groups></ff-communication>
-<ff-communication add-unit-to-filter-groups="false"></ff-communication>
+<ff-communication use-cache></ff-communication>
+<ff-communication use-cache="false"></ff-communication>
 ``` 
 
-In both cases `add-unit-to-filter-groups` evaluates to `true` regardless of a value being assigned or not. In order to have it evaluate to `false` simply omit the attribute altogether.
+In both cases `use-cache` evaluates to `true` regardless of a value being assigned or not. In order to have it evaluate to `false` simply omit the attribute altogether.
 
 ```html
-<ff-communication></ff-communication> <!-- add-unit-to-filter-groups evaluates to false -->
+<ff-communication></ff-communication> <!-- use-cache evaluates to false -->
 ``` 
 
 ### String
