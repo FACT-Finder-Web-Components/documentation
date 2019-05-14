@@ -91,15 +91,15 @@ If you are importing multiple price fields like discount prices or something sim
 `<ff-communication currency-fields="discountPrice">`
 
 ---
-#### **currency-min-digits (String)**
-Specify the minimum number of digits. Defaults to `2`.
+#### **currency-min-digits (String) (default: 2)**
+Specify the minimum number of digits.
 
 **Example Usage**
 `<ff-communication currency-min-digits="1">`
 
 ---
-#### **currency-max-digits (String)**
-Specify the maximum number of digits for all prices. Defaults to `2`.
+#### **currency-max-digits (String) (default: 2)**
+Specify the maximum number of digits for all prices.
 
 **Example Usage**
 `<ff-communication currency-max-digits="4">`
