@@ -11,16 +11,14 @@ This configurations adds the currency and all the number formatting to every pri
 #### German Number Format
 ````html
 <ff-communication currency-code="EUR"
-                  currency-country-code="de-DE"
-                  add-unit-to-filter-groups>
+                  currency-country-code="de-DE">
 </ff-communication>
 ```` 
 
 #### English Number Format
 ````html
 <ff-communication currency-code="GBP"
-                  currency-country-code="en-GB"
-                  add-unit-to-filter-groups>
+                  currency-country-code="en-GB">
 </ff-communication>
 ````
 
@@ -28,8 +26,7 @@ This configurations adds the currency and all the number formatting to every pri
 ````html
 <ff-communication currency-code="EUR"
                   currency-country-code="de-DE"
-                  currency-fields="discountPriceFieldName"
-                  add-unit-to-filter-groups>
+                  currency-fields="discountPriceFieldName">
 </ff-communication>
 ````
 
@@ -38,8 +35,7 @@ This configurations adds the currency and all the number formatting to every pri
 <ff-communication currency-code="EUR"
                   currency-country-code="de-DE"
                   currency-max-digits="5"
-                  currency-min-digits="1"
-                  add-unit-to-filter-groups>
+                  currency-min-digits="1">
 </ff-communication>
 ````
 
@@ -105,10 +101,8 @@ Specify the maximum number of digits for all prices.
 `<ff-communication currency-max-digits="4">`
 
 ---
-#### **add-unit-to-filter-groups (Boolean)**
-If present, the unit formatting takes place for all filter groups and it's filters. Note that this is a `Boolean` attribute and is therefore ignoring its value. Read more about [attributes](todo) 
-
-**Example Usage**
-`<ff-communication add-unit-to-filter-groups>`
+#### **add-unit-to-filter-groups (Boolean) (deprecated since 1.3.1)**
+~~If present, the unit formatting takes place for all filter groups and its filters.~~
+Since 1.2.2 the formatting takes places for all filter groups and its filters internally for every response. Setting the attribute was a noop or could lead to false encoding in case of the currency value differs on client and FACT-Finder site. Since 1.3.1 this attribute is always a noop.
 
 ---   
