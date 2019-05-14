@@ -7,5 +7,5 @@ export default {
     version: "7.2"
   },
   downloadToolUrl: "https://search-web-components.fact-finder.de/webcomponents-build-tool",
-  versions: [{name: "3.x", displayName: "3.x (latest)"}, {name: "1.x", displayName: "1.2"}]
+  versions: [{name: "3.x", displayName: "3.x (latest)"}, {name: "1.x", displayName: "1.x"}]
 }
