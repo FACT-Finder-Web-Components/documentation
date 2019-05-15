@@ -12,7 +12,7 @@ class VersionDropdown extends ReduxMixin(PolymerElement) {
         return html`
 <style>
     .version-selector {
-        padding-left: 20px;
+        padding: 0 1em 1em 1em;
     }
     
     .version-selector .isNotLatestVersion {
@@ -28,7 +28,7 @@ class VersionDropdown extends ReduxMixin(PolymerElement) {
     }
 
     .version-selector paper-dropdown-menu {
-        width: 110px;
+        width: 130px;
         margin-left: 20px;
     }
     
@@ -42,9 +42,11 @@ class VersionDropdown extends ReduxMixin(PolymerElement) {
     }
     
     .version-label {
+        display: inline-block;
+        padding-left: 20px;
+        top: 5px;
         font-weight: bold;
         position: relative;   
-        top: 5px;
     }
 </style>
 <div class="version-selector">
