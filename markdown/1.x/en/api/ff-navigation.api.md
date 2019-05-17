@@ -15,7 +15,7 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **fetch()** | Triggers a new fetching of the navigation data.|
+| **fetch()** | Triggers a new fetching of the navigation data. Navigation is updated only if it has not been initialized yet. Otherwise calling `fetch()` has no effect.|
 | **updateLayout()** | Rearranges the `layout` according to the layout property. This will recalculate the `direction` properties of all child elements.|
 
 ### Events
