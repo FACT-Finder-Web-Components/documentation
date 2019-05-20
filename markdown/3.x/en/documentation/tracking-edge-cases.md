@@ -3,7 +3,6 @@
 ### Discount Prices
 If your shop offers discount prices you need to change the returned data in order to track the discount price instead of the normal price.
 
-<br>
 #### The Problem
 FACT-Finder is using `Field Roles` to identify the field which should be used for specific actions.
 
@@ -29,7 +28,6 @@ FACT-Finder Web components are resolving fields when they prepare a tracking req
 
 So in case of a discount price field, they would look up the wrong field because discountPrice != price. 
 
-<br>
 #### Using discount prices for tracking requests
 Let's consider the following scenario:
 
