@@ -15,6 +15,8 @@ Now invoke the search, two xhr requests will appear. The second one is the one w
 Every element with an visual component is bound to one or more of these objects. For example the ff-record
 element is bound to an item in the records array.
 
+**Note** the content of those data bindings gets escaped. If you do not want that, e.g. when your data contains HTML which should be displayed, you can use triple braces like `{{{data-binding}}}`. **Be aware** that any JavaScript included in your `data-binding` will be executed if put in triple braces.
+
 ### Data Binding Example
 
 ---
