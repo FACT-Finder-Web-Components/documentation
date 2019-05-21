@@ -100,9 +100,4 @@ Specify the maximum number of digits for all prices.
 **Example Usage**
 `<ff-communication currency-max-digits="4">`
 
----
-#### **add-unit-to-filter-groups (Boolean) (deprecated since 3.2.1)**
-~~If present, the unit formatting takes place for all filter groups and its filters.~~
-The formatting takes already places for all filter groups and its filters internally for every response. Setting the attribute was a noop or could lead to false encoding in case of the currency value differs on client and FACT-Finder site. Since 3.2.1 this attribute is always a noop.
-
 ---   
