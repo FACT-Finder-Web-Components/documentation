@@ -103,6 +103,6 @@ Specify the maximum number of digits for all prices.
 ---
 #### **add-unit-to-filter-groups (Boolean) (deprecated since 1.3.1)**
 ~~If present, the unit formatting takes place for all filter groups and its filters.~~
-Since 1.2.2 the formatting takes places for all filter groups and its filters internally for every response. Setting the attribute had no effect or could lead to false encoding in case of the currency value differs on client and FACT-Finder site. Since 1.3.1 this attribute has always no effect.
+Since 1.2.2, for every response, the formatting is applied internally to all filter groups and their filters. Hence this attribute had no effect anymore or could lead to incorrect duplicative encoding. Since 1.3.1 this attribute has always no effect.
 
 ---   
