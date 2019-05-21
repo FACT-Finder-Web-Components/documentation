@@ -92,7 +92,7 @@ If you are importing multiple price fields like discount prices or something sim
 
 ---
 #### **currency-min-digits (String) (default: 2)**
-Specify the minimum number of digits. Defaults to `2`.
+Specify the minimum number of digits.
 
 **Example Usage**
 `<ff-communication currency-min-digits="1">`
