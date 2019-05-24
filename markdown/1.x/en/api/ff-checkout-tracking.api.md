@@ -6,6 +6,11 @@ ___
 | **disable-auto-tracking**&nbsp;(Boolean) (default: false) | Controls whether the element sends a tracking request upon its rendering. |
 | **records**&nbsp;(Array) | The records returned from FACT-Finder. |
 
+### Methods
+| Name | Description |
+| ---- | ----------- |
+| **trackCheckoutItems** | Dispatches a tracking checkout event for each of its `ff-checkout-tracking-item` children. |
+
 ## `ff-checkout-tracking-item`
 ___
 ### Properties
