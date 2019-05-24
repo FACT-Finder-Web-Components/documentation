@@ -10,9 +10,9 @@ Each product needs its own `ff-checkout-tracking-item` with its respective
 If you omit `count` it defaults to 1.
 ```HTML
 <ff-checkout-tracking>
-   <ff-checkout-tracking-item record-id="10321926" count="5"></ff-checkout-tracking-item>
-   <ff-checkout-tracking-item record-id="10321938" count="3"></ff-checkout-tracking-item>
-   <ff-checkout-tracking-item record-id="10321943" count="1"></ff-checkout-tracking-item>
+    <ff-checkout-tracking-item record-id="10321926" count="5"></ff-checkout-tracking-item>
+    <ff-checkout-tracking-item record-id="10321938" count="3" price="9.99"></ff-checkout-tracking-item>
+    <ff-checkout-tracking-item record-id="10321943" count="1"></ff-checkout-tracking-item>
 </ff-checkout-tracking>
 ```
 The tracking requests are sent immediately after the element has been parsed
@@ -21,7 +21,7 @@ this behavior by setting the property `disable-auto-tracking` like so:
 
 ```HTML
 <ff-checkout-tracking disable-auto-tracking>
-   ...
+    ...
 </ff-checkout-tracking>
 ```
 This enables you to manipulate the children, namely the
@@ -47,20 +47,20 @@ search request) like so:
 
 ```Javascript
 document.addEventListener("ffReady", function () {
-            factfinder.communication.fieldRoles = {
-                brand: "BrandFieldName",
-                campaignProductNumber: "SomeIDField",
-                deeplink: "DeeplinkField",
-                description: "DescriptionField",
-                displayProductNumber: "SomeIDField",
-                ean: "TheEanField",
-                imageUrl: "ImageUrlField",
-                masterArticleNumber: "MasterArticleNumberField",
-                price: "PriceField",
-                productName: "NameField",
-                trackingProductNumber: "SomeIdField"
-            };
-        });
+    factfinder.communication.fieldRoles = {
+        brand: "BrandFieldName",
+        campaignProductNumber: "SomeIDField",
+        deeplink: "DeeplinkField",
+        description: "DescriptionField",
+        displayProductNumber: "SomeIDField",
+        ean: "TheEanField",
+        imageUrl: "ImageUrlField",
+        masterArticleNumber: "MasterArticleNumberField",
+        price: "PriceField",
+        productName: "NameField",
+        trackingProductNumber: "SomeIdField"
+    };
+});
 ```
 
 **NOTE:** You have to replace the right hand side (e.g. BrandFieldName)
