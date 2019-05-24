@@ -19,3 +19,4 @@ ___
 | ---- | ----------- |
 | **record-id**&nbsp;(String) (default: empty) | The item's ID used for tracking in FACT-Finder. |
 | **count**&nbsp;(String) (default: "1") | Number of pieces of this item that were bought. |
+| **price**&nbsp;(String) | Price of the bought item. If omitted it will be inferred from the clicked item and the configured [fieldRoles](/documentation/3.x/field-roles)|
