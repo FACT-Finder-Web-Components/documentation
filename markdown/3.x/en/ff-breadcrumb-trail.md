@@ -1,8 +1,8 @@
 ## Bare BCT
 
-By using a bare element, we tell the BCT to default everything. This means that the separator,
- which is displayed between the `ff-breadcrumb-trail-items`, defaults to `<span data-separator> > </span>` and the `ff-breadcrumb-trail-item` 
- innerHTML defaults to the {{text}} data binding.
+By using a bare element, we tell the BCT to default everything. This means that the separator, 
+which is displayed between the `ff-breadcrumb-trail-items`, defaults to `>` and the `ff-breadcrumb-trail-item` 
+innerHTML defaults to the {{text}} data binding.
 
 ```html
 <ff-breadcrumb-trail></ff-breadcrumb-trail>
