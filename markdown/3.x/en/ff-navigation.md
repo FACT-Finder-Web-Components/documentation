@@ -257,3 +257,65 @@ Usually, on desktop devices you can click on an element which you hover, that ha
 To have be able to navigate to that 'parent' element, we need to add a seperate click handler. This is done with the 'data-search' property.
 
 The Element with the 'data-search' property will only be visible on elements which has sub-elements, and when the `ff-navigation` has the attribute 'mobile' set to true. A 'click' on that elements navigates the user to that category.
+
+## Custom navigation data
+
+To use custom navigation data instead of data retrieved from FACT-Finder, set `subscribe="false"` and assign an array of navigation items
+
+to `navigationData` property.
+
+```html
+
+<script>
+    
+    const navigationCustomData = [
+        {
+            "associatedFieldName": "CategoryROOT",
+            "clusterLevel": 0,
+            "name": "Outdoor clothing",
+            "searchParams": "/FACT-Finder-7.2/Search.ff?filterCategoryROOT=Outdoor+clothing&channel=bergfreunde-co-uk&followSearch=9825&navigation=true&format=JSON",
+            "__SUB_ELEMENTS__": [
+                {
+                    "associatedFieldName": "CategoryROOT/Outdoor clothing",
+                    "clusterLevel": 1,
+                    "name": "Outdoor jackets",
+                    "searchParams": "/FACT-Finder-7.2/Search.ff?filterCategoryROOT=Outdoor+clothing&filterCategoryROOT%2FOutdoor+clothing=Outdoor+jackets&channel=bergfreunde-co-uk&followSearch=9825&navigation=true&format=JSON",
+                    "__SUB_ELEMENTS__": [
+                        {
+                            "associatedFieldName": "CategoryROOT/Outdoor clothing/Outdoor jackets",
+                            "clusterLevel": 2,
+                            "name": "Fleece jackets",
+                            "searchParams": "/FACT-Finder-7.2/Search.ff?filterCategoryROOT%2FOutdoor+clothing=Outdoor+jackets&filterCategoryROOT=Outdoor+clothing&filterCategoryROOT%2FOutdoor+clothing%2FOutdoor+jackets=Fleece+jackets&channel=bergfreunde-co-uk&followSearch=9825&navigation=true&format=JSON",
+                            "__SUB_ELEMENTS__": []
+                        },
+                        {
+                            "associatedFieldName": "CategoryROOT/Outdoor clothing/Outdoor jackets",
+                            "clusterLevel": 2,
+                            "name": "Rain jackets",
+                            "searchParams": "/FACT-Finder-7.2/Search.ff?filterCategoryROOT%2FOutdoor+clothing=Outdoor+jackets&filterCategoryROOT=Outdoor+clothing&filterCategoryROOT%2FOutdoor+clothing%2FOutdoor+jackets=Rain+jackets&channel=bergfreunde-co-uk&followSearch=9825&navigation=true&format=JSON",
+                            "__SUB_ELEMENTS__": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ];
+    
+    document.addEventListener("WebComponentsReady", function (evt) {
+        const navigation = document.querySelector("ff-navigation");
+        navigation.navigationData = navigationCustomData;
+    });
+</script>
+
+<ff-navigation layout="horizontal" subscribe="false">
+    <div slot="menu">Navigation</div>
+
+    <ff-navigation-item>
+        <div class="my-item">
+            <img data-search class="search-icon" src="search-icon.png" />
+            {{name}}
+        </div>
+    </ff-navigation-item>
+
+</ff-navigation>
+```
