@@ -1,4 +1,4 @@
-// guides are the pages under the Documentation" tab
+// guides are the pages under the "Documentation" tab
 
 const guides = {
     pages: {
@@ -19,8 +19,8 @@ const guides = {
             title: `4. Your First Search`,
         },
         "upgrade-guide": {
-            path: "upgrade-guide",
-            title: "5. Upgrade Guide 1.2.x to 3.0.0",
+            path: `upgrade-guide`,
+            title: `5. Upgrade Guide 1.2.x to 3.0.0`,
         },
 
         "attribute-basics": {
