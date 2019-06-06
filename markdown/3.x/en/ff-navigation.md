@@ -260,9 +260,7 @@ The Element with the 'data-search' property will only be visible on elements whi
 
 ## Custom navigation data
 
-To use custom navigation data instead of data retrieved from FACT-Finder, set `subscribe="false"` and assign an array of navigation items
-
-to the `navigationData` property.
+To use custom navigation data instead of data retrieved from FACT-Finder, set `subscribe="false"` and assign an array of navigation items to the `navigationData` property.
 
 ```html
 
