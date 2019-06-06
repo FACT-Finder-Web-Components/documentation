@@ -12,7 +12,7 @@ ___
 | **max-fetch**&nbsp;(Number) (default: 10) | Defines up to which level of the navigation hierarchy the data should be loaded. |
 | **fetch-time**&nbsp;(Number) (default: 100) | Defines the time between navigation requests in milliseconds. |
 | **subscribe**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | Defines if component should automatically subscribe to `navigation` event and use navigation data retrieved from FACT-Finder. |
-| **navigationData**&nbsp;(Array) | The data elements used to render navigation. Each element in the array represents a header menu item with all its sub-items for all cluster levels defined by `max-fetch` property. If `navigationData` is set by user, it can contain sub-elements of any level, regardless of `max-fetch` value. |
+| **navigationData**&nbsp;(Array) | The data elements used to render the navigation. Each element in the array represents a header menu item with all its sub-items for all cluster levels defined by the `max-fetch` property (see above). If `navigationData` is set by the user, it may contain sub-elements of any level, regardless of `max-fetch`'s value. |
 
 ### Methods
 | Name | Description |
