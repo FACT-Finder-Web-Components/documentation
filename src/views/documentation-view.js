@@ -82,22 +82,22 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
         return {
             subpage: {
                 type: String,
-                statePath: 'app.subpage',
-                observer: '_pathChanged'
+                statePath: `app.subpage`,
+                observer: `_pathChanged`
             },
             version: {
                 type: String,
-                statePath: 'app.version',
-                observer: '_pathChanged'
+                statePath: `app.version`,
+                observer: `_pathChanged`
             },
             language: {
                 type: String,
-                value: "en"
+                value: `en`
             },
             drawerOpened: {
                 type: Boolean,
-                statePath: 'app.drawerOpened',
-                observer: '_toggleDrawer'
+                statePath: `app.drawerOpened`,
+                observer: `_toggleDrawer`
             }
         };
     }
@@ -115,4 +115,4 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
     }
 }
 
-window.customElements.define('documentation-view', DocumentationView);
+window.customElements.define(`documentation-view`, DocumentationView);

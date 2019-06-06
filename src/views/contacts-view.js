@@ -146,15 +146,15 @@ class ContactsView extends PolymerElement {
             var matchUK = location.hostname.match(/\.co.uk/);
 
             if (matchCOM || matchUK) {
-                var uk = this.shadowRoot.querySelector("#uk");
-                uk.style = "";
+                var uk = this.shadowRoot.querySelector(`#uk`);
+                uk.style = ``;
             } else {
-                var de = this.shadowRoot.querySelector("#de");
-                de.style = "";
+                var de = this.shadowRoot.querySelector(`#de`);
+                de.style = ``;
             }
         } catch (e) {
-            var de = this.shadowRoot.querySelector("#de");
-            de.style = "";
+            var de = this.shadowRoot.querySelector(`#de`);
+            de.style = ``;
         }
     }
 }

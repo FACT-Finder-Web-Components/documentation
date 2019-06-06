@@ -229,8 +229,8 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
         return {
             scrollToElement: {
                 type: String,
-                statePath: 'app.subpage',
-                observer: '_scrollTo'
+                statePath: `app.subpage`,
+                observer: `_scrollTo`
             }
         };
     }
@@ -242,13 +242,13 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
 
     _scrollTo(id) {
         if (this.isActiveView()) {
-            if (id && id !== "") {
+            if (id && id !== ``) {
                 const element = this.$[id];
                 let offset = element.offsetTop - document.documentElement.scrollTop - 64;
-                window.scrollBy({top: offset, left: 0, behavior: 'smooth'});
+                window.scrollBy({top: offset, left: 0, behavior: `smooth`});
             }
         }
     }
 }
 
-window.customElements.define('home-view', HomeView);
+window.customElements.define(`home-view`, HomeView);

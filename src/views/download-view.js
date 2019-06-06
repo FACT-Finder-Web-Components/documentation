@@ -257,83 +257,83 @@ class DownloadView extends ReduxMixin(PolymerElement) {
             navigationFeatures: {
                 type: Array,
                 value: [{
-                    label: "After Search Navigation (Facets)",
-                    apiName: "asn",
+                    label: `After Search Navigation (Facets)`,
+                    apiName: `asn`,
                     active: false
                 }, {
-                    label: "Navigation",
-                    apiName: "navigation",
+                    label: `Navigation`,
+                    apiName: `navigation`,
                     active: false
                 }, {
-                    label: "Header Navigation",
-                    apiName: "headerNavigation",
+                    label: `Header Navigation`,
+                    apiName: `headerNavigation`,
                     active: false
                 }, {
-                    label: "Pagination",
-                    apiName: "paging",
+                    label: `Pagination`,
+                    apiName: `paging`,
                     active: false
                 }, {
-                    label: "Sorting",
-                    apiName: "sort",
+                    label: `Sorting`,
+                    apiName: `sort`,
                     active: false
                 }, {
-                    label: "Products Per Page Dropdown",
-                    apiName: "productsPerPageDropdown",
+                    label: `Products Per Page Dropdown`,
+                    apiName: `productsPerPageDropdown`,
                     active: false
                 }, {
-                    label: "Products Per Page List",
-                    apiName: "productsPerPageList",
+                    label: `Products Per Page List`,
+                    apiName: `productsPerPageList`,
                     active: false
                 }]
             },
             moreFeatures: {
                 type: Array,
                 value: [{
-                    label: "Suggest",
-                    apiName: "suggest",
+                    label: `Suggest`,
+                    apiName: `suggest`,
                     active: false
                 }, {
-                    label: "Onfocus Suggest",
-                    apiName: "focusSuggest",
+                    label: `Onfocus Suggest`,
+                    apiName: `focusSuggest`,
                     active: false
                 }, {
-                    label: "Campaigns",
-                    apiName: "campaigns",
+                    label: `Campaigns`,
+                    apiName: `campaigns`,
                     active: false
                 }, {
                 // TODO removed for 3.0 release -- might get reintroduced afterwards
-                //     label: "Carousel",
-                //     apiName: "carousel",
+                //     label: `Carousel`,
+                //     apiName: `carousel`,
                 //     active: false
                 // }, {
-                    label: "Compare",
-                    apiName: "compare",
+                    label: `Compare`,
+                    apiName: `compare`,
                     active: false
                 }, {
-                    label: "Recommendations",
-                    apiName: "recommendation",
+                    label: `Recommendations`,
+                    apiName: `recommendation`,
                     active: false
                 }, {
-                    label: "Similar Products",
-                    apiName: "similarProducts",
+                    label: `Similar Products`,
+                    apiName: `similarProducts`,
                     active: false
                 }, {
-                    label: "Single Word Search",
-                    apiName: "singleWordSearch",
+                    label: `Single Word Search`,
+                    apiName: `singleWordSearch`,
                     active: false
                 }, {
-                    label: "Tag Cloud",
-                    apiName: "tagCloud",
+                    label: `Tag Cloud`,
+                    apiName: `tagCloud`,
                     active: false
                 }, {
-                    label: "Search Feedback",
-                    apiName: "searchFeedback",
+                    label: `Search Feedback`,
+                    apiName: `searchFeedback`,
                     active: false
                 }]
             },
             apiOptions: {
                 type: Object,
-                computed: "_computeApiOptions(selectedVersion, navigationFeatures.*, moreFeatures.*)"
+                computed: `_computeApiOptions(selectedVersion, navigationFeatures.*, moreFeatures.*)`
             },
             server: {
                 type: String,
@@ -341,12 +341,12 @@ class DownloadView extends ReduxMixin(PolymerElement) {
             isDownloading: {
                 type: Boolean,
                 value: false,
-                observer: "_isDownloadingChanged"
+                observer: `_isDownloadingChanged`
             },
             hasError: {
                 type: Boolean,
                 value: false,
-                observer: "_hasErrorChanged"
+                observer: `_hasErrorChanged`
             },
             lastDownload: {
                 type: String
@@ -356,7 +356,7 @@ class DownloadView extends ReduxMixin(PolymerElement) {
             },
             markdownFilePath: {
                 type: String,
-                computed: "_computeMarkdownFilePath(model)"
+                computed: `_computeMarkdownFilePath(model)`
             },
             isSelectedVersion3XX: {
                 type: Boolean,
@@ -374,7 +374,7 @@ class DownloadView extends ReduxMixin(PolymerElement) {
         this.isSelectedVersion3XX = true;
         this.downloadAllNavigation = true;
         this.downloadAllMoreFeatures = true;
-        this.$.downloadFinished.style.display = "none";
+        this.$.downloadFinished.style.display = `none`;
         setTimeout(() => {
             this._fetchVersions();
         }, 100);
@@ -392,7 +392,7 @@ class DownloadView extends ReduxMixin(PolymerElement) {
         if (model && model.apiName) {
             return `/markdown/${this.versionOfDocumentation}/en/info/${model.apiName}.md`;
         } else {
-            return "";
+            return ``;
         }
     }
 
@@ -409,14 +409,14 @@ class DownloadView extends ReduxMixin(PolymerElement) {
      * @private
      */
     _fetchVersions() {
-        fetch(this.server + "/versions", {
-            mode: "cors"
+        fetch(this.server + `/versions`, {
+            mode: `cors`
         }).then(this._handleHttpErrorResponse)
             .then(r => r.json())
             .then(json => {
                 this.versions = json;
             }).catch(error => {
-            console.warn("Can not fetch versions!", error);
+            console.warn(`Cannot fetch versions!`, error);
         });
     }
 
@@ -429,12 +429,12 @@ class DownloadView extends ReduxMixin(PolymerElement) {
 
         const data = JSON.stringify(this.apiOptions);
         const headers = new Headers();
-        headers.append("Content-Type", "application/json");
-        headers.append("Content-Length", data.length.toString());
+        headers.append(`Content-Type`, `application/json`);
+        headers.append(`Content-Length`, data.length.toString());
         this.hasError = false;//reset error label
 
-        fetch(this.server + "/build", {
-            method: "POST",
+        fetch(this.server + `/build`, {
+            method: `POST`,
             headers: headers,
             body: data
         }).then(this._handleHttpErrorResponse)
@@ -442,7 +442,7 @@ class DownloadView extends ReduxMixin(PolymerElement) {
             .then(json => {
                 if (json.finished) {//open download dialog
                     this.isDownloading = false;
-                    this.$.downloadFinished.style.display = "inline-block";
+                    this.$.downloadFinished.style.display = `inline-block`;
                     this.lastDownload = this.server + json.url;
                     window.open(this.server + json.url, `Download`);
                 } else {
@@ -455,12 +455,12 @@ class DownloadView extends ReduxMixin(PolymerElement) {
             this.isDownloading = false;
 //                        this.$.downloadFinished.style.display = "inline-block";
             this.hasError = true;//show error warning
-            console.error("download.error", error);
+            console.error(`download.error`, error);
         });
     }
 
     _toggleAll(event) {
-        var buttons = event.currentTarget.nextElementSibling.querySelectorAll("div paper-toggle-button");
+        var buttons = event.currentTarget.nextElementSibling.querySelectorAll(`div paper-toggle-button`);
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].active = event.detail.value;
         }
@@ -477,7 +477,7 @@ class DownloadView extends ReduxMixin(PolymerElement) {
 
     _selectedVersionChanged(event) {
         if (event.detail.value) {
-            this.selectedVersion = event.detail.value.getAttribute("data-api-name");
+            this.selectedVersion = event.detail.value.getAttribute(`data-api-name`);
             this.isSelectedVersion3XX = this.selectedVersion[0] === `3`;
         }
     }
@@ -493,10 +493,10 @@ class DownloadView extends ReduxMixin(PolymerElement) {
         return {
             version: selectedVersion,
             features: (function () {
-                let result = ["core"];//always add core features
+                let result = [`core`];//always add core features
                 navigationFeatures.base.concat(moreFeatures.base).forEach(function (feature) {
                     if (feature.active === true) {
-                        result.push("" + feature.apiName);
+                        result.push(`` + feature.apiName);
                     }
                 });
                 return result;
@@ -507,11 +507,11 @@ class DownloadView extends ReduxMixin(PolymerElement) {
     _isDownloadingChanged(newValue) {
         if (newValue) {
             this.$.downloadButton.style.opacity = 0;            //disable download button
-            this.$.buildingInfo.style.display = "inline-block"; //add info for 'building...'
-            this.$.downloadFinished.style.display = "none";
+            this.$.buildingInfo.style.display = `inline-block`; //add info for 'building...'
+            this.$.downloadFinished.style.display = `none`;
         } else {
             this.$.downloadButton.style.opacity = 1000;
-            this.$.buildingInfo.style.display = "none";
+            this.$.buildingInfo.style.display = `none`;
         }
     }
 
@@ -526,9 +526,9 @@ class DownloadView extends ReduxMixin(PolymerElement) {
 
     _hasErrorChanged(newValue) {
         if (newValue) {
-            this.$.buildError.style.display = "inline-block"; //add info for 'building...'
+            this.$.buildError.style.display = `inline-block`; //add info for 'building...'
         } else {
-            this.$.buildError.style.display = "none"; //add info for 'building...'
+            this.$.buildError.style.display = `none`; //add info for 'building...'
         }
     }
 }

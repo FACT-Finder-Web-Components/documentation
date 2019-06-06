@@ -64,11 +64,11 @@ class SdSearchBox extends PolymerElement {
     }
 
     _handleKeyUp(event) {
-        if (event.code === 'Enter') {
-            this.query = this.shadowRoot.querySelector("#search-input").value;
+        if (event.code === `Enter`) {
+            this.query = this.shadowRoot.querySelector(`#search-input`).value;
             this.fireSearchEvent();
             this.hideBox();
-        } else if (event.code === "Escape") {
+        } else if (event.code === `Escape`) {
             this.hideBox();
         }
     }
@@ -83,29 +83,29 @@ class SdSearchBox extends PolymerElement {
     showBox() {
         if (!this.transitioning) {
             this.$.collapse.show();
-            this.shadowRoot.querySelector("#search-input").focus();
+            this.shadowRoot.querySelector(`#search-input`).focus();
         }
     }
 
     fireSearchEvent() {
-        console.log("search");
+        console.log(`search`);
         factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
-            type: "search",
+            type: `search`,
             query: this.query
         });
         factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
-            type: "search",
-            channel: "webc-doku-api",
+            type: `search`,
+            channel: `webc-doku-api`,
             query: this.query,
             topics: function () {
-                return ["customSearch", "specialElement"];
+                return [`customSearch`, `specialElement`];
             }
         });
     }
 
     _pageChange(newValue) {
-        if (newValue && newValue !== "search") {
-            this.shadowRoot.querySelector("#search-input").value = "";
+        if (newValue && newValue !== `search`) {
+            this.shadowRoot.querySelector(`#search-input`).value = ``;
             this.recordsApi = undefined;
             this.recordsText = undefined;
             this.query = undefined;
@@ -128,32 +128,32 @@ class SdSearchBox extends PolymerElement {
             },
             page: {
                 type: String,
-                observer: "_pageChange"
+                observer: `_pageChange`
             }
         }
     }
 
     static get is() {
-        return "sd-search-box";
+        return `sd-search-box`;
     }
 
     connectedCallback() {
         super.connectedCallback();
-        this.key = factfinder.communication.ResultDispatcher.subscribe("result", (resultData) => {
+        this.key = factfinder.communication.ResultDispatcher.subscribe(`result`, (resultData) => {
             this.recordsText = resultData.records;
         });
-        this.key2 = factfinder.communication.ResultDispatcher.subscribe("customSearch", (resultData) => {
+        this.key2 = factfinder.communication.ResultDispatcher.subscribe(`customSearch`, (resultData) => {
             this.recordsApi = resultData.searchResult.records;
         });
     }
 
     disconnectedCallback() {
         super.disconnectedCallback();
-        factfinder.communication.ResultDispatcher.unsubscribe("result", this.key);
-        factfinder.communication.ResultDispatcher.unsubscribe("customSearch", this.key2);
+        factfinder.communication.ResultDispatcher.unsubscribe(`result`, this.key);
+        factfinder.communication.ResultDispatcher.unsubscribe(`customSearch`, this.key2);
         delete this.key;
         delete this.key2;
     }
 }
 
-window.customElements.define('sd-search-box', SdSearchBox);
+window.customElements.define(`sd-search-box`, SdSearchBox);

@@ -16,7 +16,7 @@ class SearchView extends PolymerElement {
     }
 
     static get is() {
-        return "search-view";
+        return `search-view`;
     }
 
     static get properties() {
@@ -26,7 +26,7 @@ class SearchView extends PolymerElement {
             },
             recordsApi: {
                 type: Array,
-                observer: "_logApiChange"
+                observer: `_logApiChange`
             },
             query: {
                 type: String
@@ -35,4 +35,4 @@ class SearchView extends PolymerElement {
     }
 }
 
-window.customElements.define('search-view', SearchView);
+window.customElements.define(`search-view`, SearchView);

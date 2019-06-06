@@ -17,7 +17,7 @@ const app = (state = initialState, action) => {
                 page: action.page,
                 version: isValidVersion(action.version) ? action.version : state.version,
                 subpage: action.subpage,
-                tab: action.tab || "docs"
+                tab: action.tab || `docs`
             };
         case UPDATE_DRAWER_STATE:
             return {

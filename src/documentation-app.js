@@ -182,7 +182,7 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
     }
 
     static get is() {
-        return 'documentation-app';
+        return `documentation-app`;
     }
 
     static get properties() {
@@ -195,24 +195,24 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
             },
             query: {
                 type: String,
-                observer: "_selectSearchView",
+                observer: `_selectSearchView`,
                 notify: true
             },
             page: {
                 type: String,
                 reflectToAttribute: true,
-                statePath: 'app.page'
+                statePath: `app.page`
             },
             version: {
                 type: String,
-                statePath: 'app.version',
+                statePath: `app.version`,
             },
         };
     }
 
     _selectSearchView(newValue) {
         if (newValue) {
-            window.history.pushState({}, null, '/search');
+            window.history.pushState({}, null, `/search`);
             this.dispatch(navigate(window.decodeURIComponent(location.pathname), location.hash));
         }
     }

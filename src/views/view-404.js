@@ -83,4 +83,4 @@ class View404 extends PolymerElement {
     }
 }
 
-window.customElements.define('view-404', View404);
+window.customElements.define(`view-404`, View404);
