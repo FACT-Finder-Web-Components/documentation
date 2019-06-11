@@ -14,6 +14,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **before-search** | Is triggered by a search and sends the current search event object. This way the object can be edited prior to the search, e.g. in order to send additional URL parameters. |
+| **before-suggest** | Is triggered by a suggest and sends the current suggest event object. This way the object can be edited prior to the suggest, e.g. in order to send additional URL parameters. |
 
 ### Methods
 | Name | Description |
