@@ -147,9 +147,11 @@ Slider groups are handled in a different way. To style them you need to use the 
 <ff-asn-group-slider></ff-asn-group-slider>
 ```
 
-A slider can have a `[slot="groupCaption"]` attribute but instead of detailedLinks and hiddenLinks the slider group accepts an `ff-slider-control` and/or an `ff-slider` element.
+A slider can have a `[slot="groupCaption"]` attribute and a `[data-container="removeFilter"]` element but instead of `detailedLinks` and `hiddenLinks` the slider group accepts an `ff-slider-control`.
 
-The `ff-slider-control` can have two `input` elements annotated with the `[data-control="1/2"]` attribute. The input elements automatically react to user input (enter key pressed) and start to filter. You can change the behavior of the controls by using the appropriate attributes as described in `ff-slider-control-section`'s [API documentation](/api/3.x/ff-asn#tab=api)
+If no templates are provided for the `ff-slider-control` the templates default to the example below. If you want to customize the templates you must provide an `ff-slider` and an `input` element with attribute `data-control='1'` as well one with `data-control='2'`. 
+
+The input elements automatically react to user input (enter key pressed) and start to filter. You can change the behavior of the controls by using the appropriate attributes as described in `ff-slider-control-section`'s [API documentation](/api/3.x/ff-asn#tab=api)
 
 ```html
 <ff-asn-group-slider>
@@ -158,17 +160,19 @@ The `ff-slider-control` can have two `input` elements annotated with the `[data-
     </div>
 
     <ff-slider-control submit-on-input="true">
-        <ff-slider step-size="1" submit-on-release="true">
-            <div slot="slider1" class="sliderBtn"></div>
-            <div slot="slider2" class="sliderBtn"></div>
-        </ff-slider>
-
-        <div slot="sliderControls">
-            <input data-control="1" style="width: 60px;">
-            <input data-control="2" style="width: 60px;">
-        </div>
-
-        <div data-container="removeFilter">Reset Filter</div>
+       <div>
+           <ff-slider step-size="1" submit-on-release="true">
+               <div slot="slider1"></div>
+               <div slot="slider2"></div>
+           </ff-slider>
+           <div slot="sliderControls" style="display: flex; justify-content: space-around; align-items: center">
+               <input data-control="1" style="width: 60px;">
+               <span style="width: 20px; height: 2px; background-color: black; display: inline-block"></span>
+               <input data-control="2" style="width: 60px;">
+            </div>
+       </div>
+       
+       <div data-container="removeFilter">Reset Filter</div>
     </ff-slider-control>
 </ff-asn-group-slider>
 ```
