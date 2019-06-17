@@ -151,7 +151,7 @@ A slider can have a `[slot="groupCaption"]` attribute and a `[data-container="re
 
 If no templates are provided for the `ff-slider-control`, the templates default to the example below. If you want to customize the templates, you must provide an `ff-slider` and an `input` element with attribute `data-control='1'` as well as one with `data-control='2'`. 
 
-The input elements automatically react to user input (enter key pressed) and start to filter. You can change the behavior of the controls by using the appropriate attributes as described in `ff-slider-control-section`'s [API documentation](/api/3.x/ff-asn#tab=api)
+The input elements automatically react to user input ('Enter' key pressed) and start filtering. You can change the behavior of the controls by using the appropriate attributes as described in `ff-slider-control` section's [API documentation](/api/3.x/ff-asn#tab=api)
 
 ```html
 <ff-asn-group-slider>
