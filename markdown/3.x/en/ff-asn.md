@@ -147,7 +147,7 @@ Slider groups are handled in a different way. To style them you need to use the 
 <ff-asn-group-slider></ff-asn-group-slider>
 ```
 
-A slider can have a `[slot="groupCaption"]` attribute and a `[data-container="removeFilter"]` element but instead of `detailedLinks` and `hiddenLinks` the slider group accepts an `ff-slider-control`.
+A slider can have a `[slot="groupCaption"]` attribute, a `[data-container="removeFilter"]` element and an `ff-slider-control` element.
 
 If no templates are provided for the `ff-slider-control`, the templates default to the example below. If you want to customize the templates, you must provide an `ff-slider` and an `input` element with attribute `data-control='1'` as well as one with `data-control='2'`. 
 
