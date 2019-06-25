@@ -165,7 +165,7 @@ The input elements automatically react to user input ('Enter' key pressed) and s
                <div slot="slider1"></div>
                <div slot="slider2"></div>
            </ff-slider>
-           <div slot="sliderControls" style="display: flex; justify-content: space-around; align-items: center">
+           <div style="display: flex; justify-content: space-around; align-items: center">
                <input data-control="1" style="width: 60px;">
                <span style="width: 20px; height: 2px; background-color: black; display: inline-block"></span>
                <input data-control="2" style="width: 60px;">
@@ -225,7 +225,7 @@ The following is a listing of possible HTML that is rendered by `ff-asn`. Notice
                                 </div>
                             </div>
                         </ff-slider>
-                        <div slot="sliderControls" style="display: flex;justify-content: space-around;align-items: center">
+                        <div style="display: flex;justify-content: space-around;align-items: center">
                             <input data-control="1" style="width: 60px;">
                             <span style=" width: 20px; height: 2px; background-color: black;display: inline-block"></span>
                             <input data-control="2" style="width: 60px;">
