@@ -1,7 +1,8 @@
 ## Tracking
 
 ---
-This guide covers the integration of all necessary events.
+This guide covers the Web Components part of the tracking integration. 
+For a comprehensive tracking overview please additionally refer to the official [FACT-Finder Tracking Documentation](https://doku.fact-finder.de/endoc/latest/fact-finder-integration/tracking-interface-integration).
 
 ### Click Tracking
 
