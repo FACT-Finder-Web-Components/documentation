@@ -4,6 +4,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **bread-crumb-trail-items**&nbsp;(Object) (default:empty) | The breadcrumb data from FACT-Finder. |
+| **show-asterisk-query**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Determines if `ff-breadcrumb-trail-item` of type `search` is displayed for a single asterisk query ("*"). |
 
 ### Events
 | Name | Description |
