@@ -400,6 +400,9 @@ ffw-transformZero
 
 transformX
 ffw-transformX
+
+noTransition
+ffw-noTransition
 ```
 
 ### ff-sortbox-item
@@ -465,7 +468,33 @@ tagCloudLink
 ffw-tagCloudLink
 ```
 
+
+### Replacement of identifiers
+
+#### ff-record-list
+```
+infiniteBorder // old identifier name
+ffw-infinite-scrolling-border // new classname
+```
+
+#### ff-search-feedback
+```
+caption
+ffw-caption
+
+content
+ffw-content
+```
+
+#### ff-tag-cloud
+```
+tagCloudContainer
+ffw-tagCloudContainer
+```
+
+
 ### Worth mentioning
 We have replaced all Polymer `tap` events with regular `click` events as [Polymer recommended](https://polymer-library.polymer-project.org/3.0/docs/devguide/gesture-events). Affected components are:
 
 `ff-asn-group`, `ff-asn-group-element`, `ff-asn-remove-all-filter`, `ff-breadcrumb-trail-item`, `ff-campaign-advisor-answer`, `ff-nav-element`, `ff-navigation-item`, `ff-paging-dropdown`, `ff-paging-item`, `ff-products-per-page-dropdown`, `ff-products-per-page-item`, `ff-search-feedback`, `ff-single-word-search-record`, `ff-sortbox-item`, `ff-tag-cloud`
+
