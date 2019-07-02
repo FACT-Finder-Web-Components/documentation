@@ -246,6 +246,15 @@ ff-paging-item .ffw-cursor
 ff-products-per-page-dropdown .ffw-ppp-dropdown-container
 ```
 
+#### ff-search-feedback
+```
+--caption-mixin
+ff-search-feedback .ffw-caption
+
+--content-mixin
+ff-search-feedback .ffw-content
+```
+
 #### ff-sortbox
 ```
 --sort-item-container
@@ -259,6 +268,15 @@ ff-suggest .ffw-suggestContainer
 
 --suggest-container-wrapper
 ff-suggest .ffw-suggestContainerWrapper
+```
+
+#### ff-tag-cloud
+```
+--tag-cloud-container
+ff-tag-cloud .ffw-tagCloudContainer
+
+--tag-cloud-link
+ff-tag-cloud .ffw-tagCloudLink
 ```
 
 
