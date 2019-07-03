@@ -65,7 +65,7 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
         display: flex;
     }
 
-    .drawer-list a {
+    .drawer-list a, #impressumLink {
         display: block;
         padding: 0 16px;
         text-decoration: none;
@@ -164,6 +164,8 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
                     </paper-tab>
                 </paper-tabs>
             </iron-selector>
+            
+            <a id="impressumLink" style="font-size: 12px" href="https://www.fact-finder.de/impressum.html">Impressum</a>
             <sd-search-box records-text="{{recordsText}}" records-api="{{recordsApi}}" query="{{query}}" page="[[page]]"></sd-search-box>
         </app-toolbar>
     </app-header>
