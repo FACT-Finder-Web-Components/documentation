@@ -4,9 +4,9 @@ The `ff-checkout-tracking` element sends out a checkout tracking request
 for each `ff-checkout-tracking-item` in its DOM. These elements are supposed
 to be generated on server side after the checkout is completed.
 Each product needs its own `ff-checkout-tracking-item` with its respective
-`record-id`. Optional you can also provide a `count` and a `price` attribute.
+`record-id`. Optionally you can also provide a `count` and a `price` attribute.
 
-The `count` attribute specifies how many items of it were bought. It defaults to 1.
+The `count` attribute specifies how many items of the product were bought. It defaults to 1.
 
 The `price` attribute specifies the price of the bought item. If this attribute is not present, it will be inferred from the clicked item and the configured [fieldRoles](/documentation/3.x/field-roles).
 
