@@ -20,7 +20,7 @@ const guides = {
         },
         "upgrade-guide": {
             path: `upgrade-guide`,
-            title: `5. Upgrade Guide 1.2.x to 3.0.0`,
+            title: `5. Upgrade Guide 1.2.x to 3.x`,
         },
 
         "attribute-basics": {
