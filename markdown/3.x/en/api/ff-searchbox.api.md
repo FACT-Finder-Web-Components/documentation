@@ -9,7 +9,7 @@ ___
 | **use-suggest**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | Determines if a request should be sent to the suggest interface as soon as a user starts typing in a search term. |
 | **suggest-delay** &nbsp;(Number) (default: 0) | Triggers a suggest request only after the delay expired and no more input is set. When the input field changes in the delay time frame the delay will be reset. |
 | **value**&nbsp;(String) (default: empty) | Gets or sets the value of related HTML `<input>` element. This property cannot be set as an attribute on `<ff-searchbox>` element. Setting value with JavaScript code triggers `input` event on `<input>` element. Therefore suggestions are shown if they are enabled. |
-| **show-asterisk-query**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Determines if single asterisk query ("*") should be displayed in component's input field. Does not affect value typed in the field by the user. |
+| **show-asterisk-query**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Determines if a single asterisk query ("*") should be displayed in the component's input field. Does not affect value typed in the field by the user. |
 ### Events
 | Name | Description |
 | ---- | ----------- |
