@@ -469,29 +469,6 @@ ffw-tagCloudLink
 ```
 
 
-### Replacement of identifiers
-
-#### ff-record-list
-```
-infiniteBorder // old identifier name
-ffw-infinite-scrolling-border // new classname
-```
-
-#### ff-search-feedback
-```
-caption
-ffw-caption
-
-content
-ffw-content
-```
-
-#### ff-tag-cloud
-```
-tagCloudContainer
-ffw-tagCloudContainer
-```
-
 
 ### Worth mentioning
 We have replaced all Polymer `tap` events with regular `click` events as [Polymer recommended](https://polymer-library.polymer-project.org/3.0/docs/devguide/gesture-events). Affected components are:
