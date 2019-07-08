@@ -11,7 +11,7 @@ export const navigate = (path, params) => (dispatch) => {
     const { page, version, subpage } = urlPathToPages(path);
     const tab = getTabFromParams(params);
 
-    const subpageRequired = page === `api` || page === `documentation`;
+    const subpageRequired = page === `api` || page === `documentation` || page === `faq`;
     if (subpageRequired && !subpage) { // URL without version part
         const latestVersion = config.versions[0].name;
         window.history.replaceState({}, ``, [page, latestVersion, version].join(`/`));
