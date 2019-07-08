@@ -8,7 +8,7 @@ Each product needs its own `ff-checkout-tracking-item` with its respective
 
 The `count` attribute specifies how many items of the product were bought. It defaults to 1.
 
-The `price` attribute specifies the price of the bought item. If this attribute is not present, it will be inferred from the clicked item and the configured [fieldRoles](/documentation/3.x/field-roles).
+The `price` attribute specifies the price of the bought item. If this attribute is not present, it will be inferred from the clicked item and the configured [fieldRoles](/documentation/1.x/field-roles).
 
 ```HTML
 <ff-checkout-tracking>
