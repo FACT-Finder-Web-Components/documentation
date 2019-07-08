@@ -7,4 +7,4 @@
 
 #### Solution:
 
-Add missing `defer` attribute on bundle.js like described [here](https://web-components.fact-finder.de/documentation/3.x/include-scripts): `<script defer src="../dist/bundle.js"></script>`
+Add missing `defer` attribute on bundle.js like described [here](/documentation/3.x/include-scripts): `<script defer src="../dist/bundle.js"></script>`
