@@ -12,8 +12,8 @@ export const pageImportInfoCollection = Object.freeze({
     home: createPageImportInfo(() => import("../views/home-view.js")),
     api: createPageImportInfo(() => import("../views/api-view.js"), api),
     documentation: createPageImportInfo(() => import("../views/documentation-view.js"), documentation),
-    download: createPageImportInfo(() => import("../views/download-view.js")),
     faq: createPageImportInfo(() => import("../views/faq-view.js"), faq),
+    download: createPageImportInfo(() => import("../views/download-view.js")),
     contacts: createPageImportInfo(() => import("../views/contacts-view.js")),
     search: createPageImportInfo(() => import("../views/search-view.js")),
 });
