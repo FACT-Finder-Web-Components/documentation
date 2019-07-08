@@ -153,11 +153,11 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
                     <paper-tab name="documentation">
                         <a name="documentation" href="[[rootPath]]documentation/[[version]]/install-dist">Documentation</a>
                     </paper-tab>
-                    <paper-tab name="download">
-                        <a name="download" href="[[rootPath]]download">Download</a>
-                    </paper-tab>
                     <paper-tab name="faq">
                         <a name="faq" href="[[rootPath]]faq/[[version]]/general">FAQ</a>
+                    </paper-tab>
+                    <paper-tab name="download">
+                        <a name="download" href="[[rootPath]]download">Download</a>
                     </paper-tab>
                     <paper-tab name="contacts">
                         <a name="contacts" href="[[rootPath]]contacts">Contacts</a>
@@ -175,8 +175,8 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
         <home-view name="home"></home-view>
         <api-view name="api"></api-view>
         <documentation-view name="documentation"></documentation-view>
+        <faq-view name="faq"></faq-view>        
         <download-view name="download" server="[[downloadToolUrl]]"></download-view>
-        <faq-view name="faq"></faq-view>
         <contacts-view name="contacts"></contacts-view>
         <search-view name="search" records-text="[[recordsText]]" records-api="[[recordsApi]]" query="[[query]]"></search-view>
         <view-404 name="view404"></view-404>
