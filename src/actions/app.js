@@ -45,7 +45,7 @@ const loadPage = (page, version, subpage, tab) => (dispatch) => {
     }
     else {
         page = `view404`;
-        import(`../views/view-404.js`);
+        import('../views/view-404.js');
     }
 
     dispatch(updatePage(page, version, subpage, tab));
