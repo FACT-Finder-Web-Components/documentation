@@ -14,14 +14,9 @@ import '@polymer/marked-element/marked-element.js'
 import '../shared-styles.js';
 import ViewMixin from '../util/view-mixin';
 import ReduxMixin from '../util/polymer-redux-mixin';
-import faq from '../data/faq';
 import '../shared/version-dropdown'
 
 class FaqView extends ViewMixin(ReduxMixin(PolymerElement)) {
-    constructor() {
-        super();
-        this.data = faq;
-    }
 
     static get template() {
         return html`
@@ -43,24 +38,12 @@ class FaqView extends ViewMixin(ReduxMixin(PolymerElement)) {
 <app-drawer-layout narrow="{{narrow}}">
     <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]" opened="{{drawerOpened}}">
         <version-dropdown></version-dropdown>
-        <div class="panel-menus">
-            <iron-selector selected="[[subpage]]"
-                           attr-for-selected="name"
-                           class="drawer-list"
-                           role="navigation">
-                <h3>Categories</h3>
-                <template is="dom-repeat" items="{{categories}}">
-                    <a name="{{item.path}}" href="[[rootPath]]faq/[[version]]/{{item.path}}">{{item.title}}</a>
-                </template>
-            </iron-selector>
-        </div>
     </app-drawer>
     <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
 
     <div id="markdown-wrapper">
         <br>
         <marked-element on-syntax-highlight="_addHiglightJs">
-            <div slot="markdown-html"></div>
             <script type="text/markdown" src$="[[filePath]]"></script>
         </marked-element>
     </div>
@@ -92,15 +75,13 @@ class FaqView extends ViewMixin(ReduxMixin(PolymerElement)) {
         };
     }
 
-    _pathChanged(newSubpage) {
+    _pathChanged() {
 
         if (!this.isActiveView()) {
             return;
         }
 
-        this.categories = this.data[this.version].categories;
-
-        this.filePath = `markdown/${this.version}/${this.language}/faq/${this.subpage}.md`;
+        this.filePath = `markdown/${this.version}/${this.language}/faq.md`;
     }
 }
 

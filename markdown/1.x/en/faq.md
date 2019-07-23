@@ -1,0 +1,1 @@
+#### There are no FAQ entries for version 1.x yet.

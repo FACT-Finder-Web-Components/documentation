@@ -1,6 +1,5 @@
 import api from "./api";
 import documentation from "./guides";
-import faq from "./faq";
 
 import { createPageInfo } from "./pageHelper";
 import { IsDefinedFunctor } from "../util/functors";
@@ -12,7 +11,7 @@ export const pageImportInfoCollection = Object.freeze({
     home: createPageImportInfo(() => import("../views/home-view.js")),
     api: createPageImportInfo(() => import("../views/api-view.js"), api),
     documentation: createPageImportInfo(() => import("../views/documentation-view.js"), documentation),
-    faq: createPageImportInfo(() => import("../views/faq-view.js"), faq),
+    faq: createPageImportInfo(() => import("../views/faq-view.js")),
     download: createPageImportInfo(() => import("../views/download-view.js")),
     contacts: createPageImportInfo(() => import("../views/contacts-view.js")),
     search: createPageImportInfo(() => import("../views/search-view.js")),
@@ -43,10 +42,6 @@ function getSubpageSuggestion(version, subpage) {
 
     if (documentation[version].pages[subpage]) {
         return createSubpageSuggestion(`documentation`, documentation[version].pages[subpage]);
-    }
-
-    if (faq[version].pages[subpage]) {
-        return createSubpageSuggestion(`faq`, faq[version].pages[subpage]);
     }
 }
 
