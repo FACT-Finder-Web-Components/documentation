@@ -123,16 +123,6 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
      src="../../images/index/hero/hero_image_web_components@2600.png" alt="Banner Image">
 
 <div class="container">
-    <div class="row">
-        <div class="row-item">
-            <h1><b>Up to 98% faster integration</b></h1>
-            <p style="text-align: center">
-                With the new FACT-Finder Web Components
-            </p>
-        </div>
-    </div>
-
-    <hr>
     <div class="link-box-container">
         <a class="link-box" href="[[rootPath]]home/cost">
             <i class="fa fa-eur fa-4x fa-fw pull-left"></i>
@@ -168,21 +158,6 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
     <hr>
     <div class="row">
         <img src="../../images/index/integration-gif.gif">
-    </div>
-
-    <hr>
-    <div id="fast" class="row">
-        <div class="row-item">
-            <img src="../../images/index/time_saving_r.gif">
-        </div>
-        <div class="row-item">
-            <h1><b>Front-end changes in a flash</b></h1>
-            <p>
-                Whether you’re including new store features, customising existing ones or setting up A / B
-                tests: all can now be done in record speed. It has never been so easy to quickly respond to
-                new demands and trends.
-            </p>
-        </div>
     </div>
 
     <hr>
