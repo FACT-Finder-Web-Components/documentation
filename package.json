@@ -5,6 +5,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "polymer serve",
+    "serve-https": "polymer serve --open --protocol h2",
     "build": "polymer build",
     "build-es6": "polymer build --preset es6-bundled",
     "lint": "polymer lint",
