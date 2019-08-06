@@ -123,8 +123,8 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
      src="../../images/index/hero/hero_image_web_components@2600.png" alt="Banner Image">
 
 <div class="container">
-    <hr>
-    <div class="link-box-container">
+
+    <div class="row link-box-container">
         <a class="link-box" href="[[rootPath]]home/cost">
             <i class="fa fa-eur fa-4x fa-fw pull-left"></i>
             <p>Less project costs</p>
