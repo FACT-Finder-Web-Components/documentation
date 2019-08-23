@@ -21,12 +21,4 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **getTagCloud()**| Manually obtains the tag cloud entries from FACT-Finder. Useful when `disable-auto` is set to true and one wants to display the entries on a certain action. |
-
-### Mixins
-| Name | Description |
-| ---- | ----------- |
-| **--tag-cloud-container**| Mixin applied to the tag cloud wrapper container. Default: `display: flex;justify-content: space-around;flex-wrap: wrap;` |
-| **--tag-cloud-link**| Mixin applied to the tag cloud link. Default: `padding: 2px;` |
-
-
+| **getTagCloud()**| Manually obtains the tag cloud entries from FACT-Finder. Useful when `disable-auto` is set and one wants to display the entries on a certain action. |
