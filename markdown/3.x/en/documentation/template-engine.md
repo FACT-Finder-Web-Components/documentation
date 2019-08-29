@@ -41,9 +41,17 @@ Take a look at the following data-binding example to see how to access the data.
 
 ---
 All bindings are resolved by the underlying template engine [mustache.js](https://github.com/janl/mustache.js/#mustachejs---logic-less-mustache-templates-with-javascript).
- For a bit more flexibility you can rely on some of it's functionality.
+ For a bit more flexibility you can rely on some of its functionalities.
 
 You could do an **if** by using [this](https://github.com/janl/mustache.js/#false-values-or-empty-lists) syntax. 
 If the data is not formatted correctly, use the 
 [ResultDispatcher](/api/3.x/core-result-dispatcher)
  to modify it accordingly.
+ 
+You can also change mustache.js default delimiters via `ff-communication`'s `mustache-delimiters` attribute in the case where double curly braces are already in use by your framework. For example, setting it to `[[,]]` will allow you to bind the data as follows:
+```html
+<ff-template>
+    <div>Regular binding: [[foo]]</div>
+    <div>HTML binding: [[{htmlFoo}]]</div>
+</ff-template>
+```

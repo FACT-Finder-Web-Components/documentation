@@ -82,3 +82,4 @@ ___
 | **async-facets**&nbsp;(Boolean) | If facets are rendered before products, you can use this attribute to postpone the facet rendering until products are rendered properly. |
 | **use-filter-url**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Push `categoryPath` to URL path |
 | **filter-url-prefix**&nbsp;(String) (default: "") | Prefix `use-filter-url` e.g. `filter-url-prefix="categories"` -> `www.myshop.com/categories/cat1/cat2?query=...`  |
+| **mustache-delimiters**&nbsp;(String) (default: "{{,}}") | Delimiters used by mustache.js [template engine](/documentation/3.x/template-engine), separated by a comma |
