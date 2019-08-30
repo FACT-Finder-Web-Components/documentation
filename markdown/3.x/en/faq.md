@@ -4,7 +4,7 @@
 #### Question:
 I want to use FACT-Finder Web Components with Angular, but data binding used in the components conflicts with Angular's `{{ }}` binding. Can you fix it?
 #### Answer:
-This issue is being worked on and the fix will be released soon - see relevant [discussion on Github](https://github.com/FACT-Finder-Web-Components/ff-web-components/issues/19). Please, observe [changelog](https://github.com/FACT-Finder-Web-Components/ff-web-components/releases) of future releases.
+Default binding delimiters can be changed via `ff-communication`'s `mustache-delimiters` attribute. For more information please check the `Underlying Engine (Mustache)` section of the [Template Engine documentation](/documentation/3.x/template-engine).
 
 ## Errors
 ---
