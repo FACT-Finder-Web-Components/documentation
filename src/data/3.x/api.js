@@ -34,6 +34,10 @@ const api = {
             path: `ff-asn`,
             title: `Facets (ASN)`,
         },
+        "ff-filter-cloud": {
+            path: `ff-filter-cloud`,
+            title: `Filter Cloud`
+        },
         "ff-navigation": {
             path: `ff-navigation`,
             title: `Navigation`,
@@ -170,6 +174,7 @@ api.basics = [
 api.navigation = [
     api.pages[`ff-breadcrumb-trail`],
     api.pages[`ff-asn`],
+    api.pages[`ff-filter-cloud`],
     api.pages[`ff-navigation`],
     api.pages[`ff-header-navigation`],
     api.pages[`ff-paging`],
