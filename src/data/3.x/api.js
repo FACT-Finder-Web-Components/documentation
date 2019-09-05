@@ -36,7 +36,8 @@ const api = {
         },
         "ff-filter-cloud": {
             path: `ff-filter-cloud`,
-            title: `Filter Cloud`
+            title: `Filter Cloud`,
+            noDemo: true
         },
         "ff-navigation": {
             path: `ff-navigation`,
