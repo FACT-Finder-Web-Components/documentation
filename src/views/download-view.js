@@ -164,7 +164,7 @@ class DownloadView extends ReduxMixin(PolymerElement) {
                 </p>
             </div>
             
-            <template is="dom-if" if="[[isSelectedVersion3XX]]">
+            <template>
                 <div class="row">
                     <p style="padding: 22px; border: 4px solid grey; background-color: lightsteelblue">
                         At the moment, only a full download is supported for <b>v.{{selectedVersion}}</b>. Please contact us if you must use a reduced bundle.
@@ -178,14 +178,14 @@ class DownloadView extends ReduxMixin(PolymerElement) {
                     <p style="padding-bottom: 22px">
                         This are the common features a shop mostly needs.
                     </p>
-                    <paper-toggle-button disabled="{{isSelectedVersion3XX}}" checked="{{downloadAllNavigation}}" on-active-changed="_toggleAll" class="toggle-button-all">
+                    <paper-toggle-button disabled="true" checked="true" on-active-changed="_toggleAll" class="toggle-button-all">
                         All
                     </paper-toggle-button>
                     <div>
                         <template is="dom-repeat" items="{{navigationFeatures}}" mutable-data="">
                             <div class="buttonContainer">
                                 <iron-icon icon="my-icons:info-outline" on-tap="_openDialog"></iron-icon>
-                                <paper-toggle-button disabled="{{isSelectedVersion3XX}}" checked="{{item.active}}" active="{{item.active}}">{{item.label}}</paper-toggle-button>
+                                <paper-toggle-button disabled="true" checked="true" active="true">{{item.label}}</paper-toggle-button>
                             </div>
                         </template>
                     </div>
@@ -196,14 +196,14 @@ class DownloadView extends ReduxMixin(PolymerElement) {
                     <p>
                         These are some more advanced features which you may only need in special cases.
                     </p>
-                    <paper-toggle-button disabled="{{isSelectedVersion3XX}}" checked="{{downloadAllMoreFeatures}}" on-active-changed="_toggleAll" class="toggle-button-all">
+                    <paper-toggle-button disabled="true" checked="true" on-active-changed="_toggleAll" class="toggle-button-all">
                         All
                     </paper-toggle-button>
                     <div>
                         <template is="dom-repeat" items="{{moreFeatures}}" mutable-data="">
                             <div class="buttonContainer">
                                 <iron-icon icon="my-icons:info-outline" on-tap="_openDialog"></iron-icon>
-                                <paper-toggle-button disabled="{{isSelectedVersion3XX}}" checked="{{item.active}}" active="{{item.active}}">{{item.label}}</paper-toggle-button>
+                                <paper-toggle-button disabled="true" checked="true" active="true">{{item.label}}</paper-toggle-button>
                             </div>
                         </template>
                     </div>
@@ -331,10 +331,6 @@ class DownloadView extends ReduxMixin(PolymerElement) {
                     active: false
                 }]
             },
-            apiOptions: {
-                type: Object,
-                computed: `_computeApiOptions(selectedVersion, navigationFeatures.*, moreFeatures.*)`
-            },
             server: {
                 type: String,
             },
@@ -358,10 +354,6 @@ class DownloadView extends ReduxMixin(PolymerElement) {
                 type: String,
                 computed: `_computeMarkdownFilePath(model)`
             },
-            isSelectedVersion3XX: {
-                type: Boolean,
-                observer: `_isSelectedVersion3XXChanged`
-            },
             versionOfDocumentation: {
                 type: String,
                 statePath: `app.version`,
@@ -371,9 +363,6 @@ class DownloadView extends ReduxMixin(PolymerElement) {
 
     connectedCallback() {
         super.connectedCallback();
-        this.isSelectedVersion3XX = true;
-        this.downloadAllNavigation = true;
-        this.downloadAllMoreFeatures = true;
         this.$.downloadFinished.style.display = `none`;
         setTimeout(() => {
             this._fetchVersions();
@@ -421,42 +410,8 @@ class DownloadView extends ReduxMixin(PolymerElement) {
     }
 
     _download() {
-        if (this.selectedVersion[0] === `3`) {
-            const downloadUrl = `https://github.com/FACT-Finder-Web-Components/ff-web-components/archive/${this.selectedVersion}.zip`;
-            window.open(downloadUrl, `Download`);
-            return;
-        }
-
-        const data = JSON.stringify(this.apiOptions);
-        const headers = new Headers();
-        headers.append(`Content-Type`, `application/json`);
-        headers.append(`Content-Length`, data.length.toString());
-        this.hasError = false;//reset error label
-
-        fetch(this.server + `/build`, {
-            method: `POST`,
-            headers: headers,
-            body: data
-        }).then(this._handleHttpErrorResponse)
-            .then(r => r.json())
-            .then(json => {
-                if (json.finished) {//open download dialog
-                    this.isDownloading = false;
-                    this.$.downloadFinished.style.display = `inline-block`;
-                    this.lastDownload = this.server + json.url;
-                    window.open(this.server + json.url, `Download`);
-                } else {
-                    this.isDownloading = true;
-                    setTimeout(() => {
-                        this._download();
-                    }, 1000);
-                }
-            }).catch(error => {
-            this.isDownloading = false;
-//                        this.$.downloadFinished.style.display = "inline-block";
-            this.hasError = true;//show error warning
-            console.error(`download.error`, error);
-        });
+        const downloadUrl = `https://github.com/FACT-Finder-Web-Components/ff-web-components/archive/${this.selectedVersion}.zip`;
+        window.open(downloadUrl, `Download`);
     }
 
     _toggleAll(event) {
@@ -478,7 +433,6 @@ class DownloadView extends ReduxMixin(PolymerElement) {
     _selectedVersionChanged(event) {
         if (event.detail.value) {
             this.selectedVersion = event.detail.value.getAttribute(`data-api-name`);
-            this.isSelectedVersion3XX = this.selectedVersion[0] === `3`;
         }
     }
 
@@ -487,21 +441,6 @@ class DownloadView extends ReduxMixin(PolymerElement) {
             return item.active;
         });
         return !(result.length === arr.length || result.length === 0);
-    }
-
-    _computeApiOptions(selectedVersion, navigationFeatures, moreFeatures) {
-        return {
-            version: selectedVersion,
-            features: (function () {
-                let result = [`core`];//always add core features
-                navigationFeatures.base.concat(moreFeatures.base).forEach(function (feature) {
-                    if (feature.active === true) {
-                        result.push(`` + feature.apiName);
-                    }
-                });
-                return result;
-            })()
-        };
     }
 
     _isDownloadingChanged(newValue) {
@@ -515,15 +454,6 @@ class DownloadView extends ReduxMixin(PolymerElement) {
         }
     }
 
-    _isSelectedVersion3XXChanged(newValue) {
-        if (newValue) {
-            this.downloadAllNavigation = true;
-            this.downloadAllMoreFeatures = true;
-            this.moreFeatures = activateItems(this.moreFeatures);
-            this.navigationFeatures = activateItems(this.navigationFeatures);
-        }
-    }
-
     _hasErrorChanged(newValue) {
         if (newValue) {
             this.$.buildError.style.display = `inline-block`; //add info for 'building...'
@@ -534,11 +464,3 @@ class DownloadView extends ReduxMixin(PolymerElement) {
 }
 
 window.customElements.define('download-view', DownloadView);
-
-
-function activateItems(items) {
-    return items.map(item => {
-        item.active = true;
-        return item;
-    });
-}
