@@ -174,7 +174,7 @@ class DownloadView extends ReduxMixin(PolymerElement) {
                 <div class="col-md-6">
                     <h2>Navigation</h2>
                     <p style="padding-bottom: 22px">
-                        This are the common features a shop mostly needs.
+                        These are the common features a shop mostly needs.
                     </p>
                     <paper-toggle-button disabled="true" checked="true" on-active-changed="_toggleAll" class="toggle-button-all">
                         All

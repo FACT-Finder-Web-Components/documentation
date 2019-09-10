@@ -20,7 +20,7 @@ element is bound to an item in the records array.
 ### Data Binding Example
 
 ---
-By expanding the records array and one of it's items we can take a look at the fields returned by
+By expanding the records array and one of its items we can take a look at the fields returned by
 FACT-Finder. In this specific example product data is stored in an record object. All fields returned in
 this object are imported during the data feed process. You can configure which fields are returned in the
 FACT-Finder backend.

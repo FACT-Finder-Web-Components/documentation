@@ -18,7 +18,7 @@ ___
 The function supplied in `fn` is invoked with data for the subscribed
 `topic` when new data is available. The parameter `ctx` is optional
 
-#### All available topic's    
+#### All available topics
 * `result`
 * `campaigns` - special
 * `records`

@@ -82,7 +82,7 @@ In case a user is not logged in just leave it empty. **Never use a FakeId or som
 ---
 The `ff-checkout-tracking` element will send a checkout tracking request for each `ff-checkout-tracking-item` in its DOM. This element is meant to be generated on the server side after the checkout happened. For each product bought, you have to add an own `ff-checkout-tracking-item` with the according record-id and count. E.g. in the example below, five items of product _10321926_ were bought. 
 
-The tracking requests will be sent immediately after the element is parsed or, if you generate it in JavaScript code, when it's appended to the DOM. 
+The tracking requests will be sent immediately after the element is parsed or, if you generate it in JavaScript code, when it is appended to the DOM.
 ```html
 <ff-checkout-tracking>
    <ff-checkout-tracking-item record-id="10321926" count="5"></ff-checkout-tracking-item>

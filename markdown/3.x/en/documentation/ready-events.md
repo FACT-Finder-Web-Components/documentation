@@ -14,7 +14,7 @@ All our elements are utilizing the same Core functions described in our [ff-core
 
 Sometimes you want or have to change the data before all our elements being notified. This is where `ffReady` callback kicks in.
 
-If you are listening to the `ffReady` event it's guaranteed that your callback is invoked before all element callbacks are going to be invoked.
+If you are listening to the `ffReady` event, it is guaranteed that your callback is invoked before all element callbacks are going to be invoked.
 
 **Example usage**
 ```html
@@ -85,7 +85,7 @@ Even without using `ffReady` to trigger a search you stumble across an error mes
 
 _Required search params are not available: [url(globalSearchParameter): ""], [url(event): "undefined"], [channel: ""], [version:"NaN"]_
 
-If you are sure the message is not related to a custom js snippet it's possibly related to the order of elements.
+If you are sure the message is not related to a custom js snippet, it is possibly related to the order of elements.
 
 **IMPORTANT**
 
@@ -104,7 +104,7 @@ Let me show you a wrong example:
 <ff-communication url="https://some.ff.url" channel="aChannel" version="7.2"></ff-communication>
 ```
 
-The `ff-recommendation` element is responsible for querying the FACT-Finder recommendation API. At the time the element is _upgraded_ and sends its request, the 'ff-communication' hasn't published all it's configuration and therefore the request can't even be sent because no _URL_ and _CHANNEL_ information are available.
+The `ff-recommendation` element is responsible for querying the FACT-Finder recommendation API. At the time the element is _upgraded_ and sends its request, the 'ff-communication' hasn't published all its configuration and therefore the request can't even be sent because no _URL_ and _CHANNEL_ information are available.
 
 To fix this issue you have to place the `ff-communication` element before the `ff-recommendation` element:
 ```html
@@ -119,4 +119,4 @@ To fix this issue you have to place the `ff-communication` element before the `f
 **NOTE**
 We recommend putting the `ff-communication` element right after the `body` tag. This way no one can mess up the order.
 
-It's advisable to add a comment explaining this requirement.
+It is advisable to add a comment explaining this requirement.
