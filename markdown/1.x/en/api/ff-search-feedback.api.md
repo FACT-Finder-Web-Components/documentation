@@ -15,7 +15,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **hide()** | Hides the element and sets the opened property to "false". Useful in cases you want to hide the element on detail page click. |
-| **show()** | Shows the element with it's former state. Useful in cases you hide the element on detail page click and want to show it again after navigating back on a SPA. |
+| **show()** | Shows the element with its former state. Useful in cases you hide the element on detail page click and want to show it again after navigating back on a SPA. |
 | **reset()** | Resets positive back to "true" and sets the value of the HTMLElement data-message to an empty string. Useful in cases where "resetOnToggle" or "resetOnSend" is not used. |
 
 ### Events

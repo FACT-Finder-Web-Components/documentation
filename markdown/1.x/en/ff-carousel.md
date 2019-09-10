@@ -104,7 +104,7 @@ It stops on the last slide. If 'infinite' is `true`, it will turn over to the fi
 
 ### show-bullets
 The 'Bullets' are a container which allows for a direct selection of a slide, much like a paging. It is represented as
-dots and can be styled with mix-in's. As default it is turned of.
+dots and can be styled with mix-ins. By default it is turned off.
 
 ```html
 <ff-record-list>

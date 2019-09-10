@@ -81,7 +81,7 @@ Most of the time `de-DE` and `en-GB` are covering everything needed.
 
 ---
 #### **currency-fields (String)**
-If you are importing multiple price fields like discount prices or something similar it's not sufficient to specify only the `currency-country-code` and the `currency-code`. In order to format additional price fields you have to tell FACT-Finder Web Components which fields should be processed. You can do that by setting the `currency-fields` attribute accordingly.  
+If you are importing multiple price fields like discount prices or something similar, it is not sufficient to specify only the `currency-country-code` and the `currency-code`. In order to format additional price fields you have to tell FACT-Finder Web Components which fields should be processed. You can do that by setting the `currency-fields` attribute accordingly.  
 
 **Example Usage**
 `<ff-communication currency-fields="discountPrice">`

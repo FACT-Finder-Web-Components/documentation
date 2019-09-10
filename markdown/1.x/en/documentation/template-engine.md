@@ -20,7 +20,7 @@ element is bound to an item in the records array.
 ### Data Binding Example
 
 ---
-By expanding the records array and one of it's items we can take a look at the fields returned by
+By expanding the records array and one of its items we can take a look at the fields returned by
 FACT-Finder. In this specific example product data is stored in an record object. All fields returned in
 this object are imported during the data feed process. You can configure which fields are returned in the
 FACT-Finder backend.
@@ -41,7 +41,7 @@ Take a look at the following data-binding example to see how to access the data.
 
 ---
 All bindings are resolved by the underlying template engine [mustache.js](https://github.com/janl/mustache.js/#mustachejs---logic-less-mustache-templates-with-javascript).
- For a bit more flexibility you can rely on some of it's functionality.
+ For a bit more flexibility you can rely on some of its functionality.
 
 You could do an **if** by using [this](https://github.com/janl/mustache.js/#false-values-or-empty-lists) syntax. 
 If the data is not formatted correctly, use the 

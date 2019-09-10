@@ -217,7 +217,7 @@ with the `slot` attribute and set the value of the attribute with the following 
 
 `container-[direction]-[group name]`
 
-As shown in the example below, we define 4 `div's`. One for each slot in the "Bike" Group.
+As shown in the example below, we define 4 `div`s. One for each slot in the "Bike" Group.
 
 ```html
 <style>
