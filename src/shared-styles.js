@@ -15,14 +15,14 @@ import './styles/markdown-styles.js';
 import './styles/bootstrap-wrapper.js';
 
 const $_documentContainer = document.createElement(`template`);
-$_documentContainer.innerHTML = 
+$_documentContainer.innerHTML =
 `<dom-module id="shared-styles">
     <template>
         <style include="sidebar-styles"></style>
         <style include="markdown-styles"></style>
         <style include="bootstrap-wrapper">
             [unresolved] {
-                opacity: 0;
+                visibility: hidden;
             }
 
             h1 {

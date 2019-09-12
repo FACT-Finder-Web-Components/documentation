@@ -183,7 +183,7 @@ The following is a listing of possible HTML that is rendered by `ff-asn`. Notice
 
 ```html
 <ff-asn align="vertical">
-    <ff-asn-group for-group="Color" opened filter-style="DEFAULT" style="opacity: 1;">
+    <ff-asn-group for-group="Color" opened filter-style="DEFAULT">
         <div data-container="groupCaption">
             <div slot="groupCaption" class="groupCaption">Color</div>
         </div>
@@ -207,7 +207,7 @@ The following is a listing of possible HTML that is rendered by `ff-asn`. Notice
         </div>
     </ff-asn-group>
 
-    <ff-asn-group-slider opened filter-style="SLIDER" for-group="Price" style="opacity: 1;">
+    <ff-asn-group-slider opened filter-style="SLIDER" for-group="Price">
         <div data-container="groupCaption" class="cursor">
             <div slot="groupCaption" class="groupCaption">Price</div>
         </div>
@@ -215,7 +215,7 @@ The following is a listing of possible HTML that is rendered by `ff-asn`. Notice
             <div class="ffw-wrapper">
                 <ff-slider-control submit-on-input="true" style="opacity: 1;">
                     <div class="ffw-sliderSection">
-                        <ff-slider step-size="1" submit-on-release="true" style="opacity: 1;">
+                        <ff-slider step-size="1" submit-on-release="true">
                             <div style="position:relative;width:100%;height:100%" class="ffw-sliderBar">
                                 <div class="ffw-slider1 ffw-sliderWrapper" style="position: absolute !important; left: 0; top: 0;" id="slider1-1">
                                     <div slot="slider1" class="sliderBtn cursorPointer"></div>
@@ -237,7 +237,7 @@ The following is a listing of possible HTML that is rendered by `ff-asn`. Notice
         </div>
     </ff-asn-group-slider>
 
-    <ff-asn-group for-group="Manufacturer" opened filter-style="MULTISELECT" style="opacity: 1;">
+    <ff-asn-group for-group="Manufacturer" opened filter-style="MULTISELECT">
         <div data-container="groupCaption">
             <div slot="groupCaption" class="groupCaption">Manufacturer</div>
         </div>

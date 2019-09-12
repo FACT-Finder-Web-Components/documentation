@@ -30,7 +30,7 @@ Also add the following CSS rule to the top of the page before the appearance of 
 <head>
     <style>
         [unresolved] {
-            opacity: 0;
+            visibility: hidden;
         }
     </style>
 </head>

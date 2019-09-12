@@ -21,7 +21,7 @@ There are only two major changes and some minor API changes to take care of when
     <link rel="import" href="../bower_components/ff-web-components/dist/elements.build_with_dependencies.html">
     <style>
         [unresolved] {
-            opacity: 0;
+            visibility: hidden;
         }        
     </style>
       
@@ -33,7 +33,7 @@ There are only two major changes and some minor API changes to take care of when
     <script defer src="../dist/bundle.js"></script>
     <style>
         [unresolved] {
-            opacity: 0;
+            visibility: hidden;
         }        
     </style>
 ```

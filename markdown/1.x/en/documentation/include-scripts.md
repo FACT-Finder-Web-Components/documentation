@@ -26,7 +26,7 @@ The FACT-Finder Web Components build contains three files:
     <link rel="import" href="../bower_components/ff-web-components/dist/elements.build_with_dependencies.html">
     <style>
         [unresolved] {
-            opacity: 0;
+            visibility: hidden;
         }        
     </style>
     <!-- boilerplate end -->
@@ -56,7 +56,7 @@ Also add the following CSS rule on top of the page before the appearance of FACT
 <head>
     <style>
         [unresolved] {
-            opacity: 0;
+            visibility: hidden;
         }
     </style>
 </head>

@@ -58,7 +58,7 @@ The full example would look like this:
 ```html
 <style>
     [unresolved] {
-        opacity: 0;
+        visibility: hidden;
     }
 </style>
 
