@@ -506,11 +506,11 @@ class DownloadView extends ReduxMixin(PolymerElement) {
 
     _isDownloadingChanged(newValue) {
         if (newValue) {
-            this.$.downloadButton.style.opacity = 0;            //disable download button
+            this.$.downloadButton.style.visibility = `hidden`;  //disable download button
             this.$.buildingInfo.style.display = `inline-block`; //add info for 'building...'
             this.$.downloadFinished.style.display = `none`;
         } else {
-            this.$.downloadButton.style.opacity = 1000;
+            this.$.downloadButton.style.visibility = `visible`;
             this.$.buildingInfo.style.display = `none`;
         }
     }
