@@ -164,13 +164,11 @@ class DownloadView extends ReduxMixin(PolymerElement) {
                 </p>
             </div>
             
-            <template>
-                <div class="row">
-                    <p style="padding: 22px; border: 4px solid grey; background-color: lightsteelblue">
-                        At the moment, only a full download is supported for <b>v.{{selectedVersion}}</b>. Please contact us if you must use a reduced bundle.
-                    </p>
-                </div>
-            </template>
+            <div class="row">
+                <p style="padding: 22px; border: 4px solid grey; background-color: lightsteelblue">
+                    At the moment, only a full download is supported for <b>v.{{selectedVersion}}</b>. Please contact us if you must use a reduced bundle.
+                </p>
+            </div>
             
             <div class="row">
                 <div class="col-md-6">
