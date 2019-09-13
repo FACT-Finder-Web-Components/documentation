@@ -11,6 +11,7 @@ Basic usage:
 ```
 **NOTE:**
 Changing `word-count` when `disable-auto` is not set will trigger a tag cloud request to FACT-Finder followed by a DOM update. The default action on a click of a tag cloud child element will trigger a FACT-Finder search for that word. You can prevent this behavior by setting the `ffPreventDefault` on the `entry-clicked` event.
+`word-count` is the only property which triggers request to FACT-Finder when its value is changed.
 
 **Example snippet: Prevent default click event and redirect to different page:**
 
