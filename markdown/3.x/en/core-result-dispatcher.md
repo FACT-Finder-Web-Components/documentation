@@ -35,6 +35,7 @@ The function supplied in `fn` is invoked with data for the subscribed
 * `productDetail`
 * `similarProducts`
 * `productCampaign` - special
+* `tagCloud`
 
 These **topics** are dispatched in the current execution order.
 For example the `campaigns` are dispatched before the `asn`, but it is
