@@ -19,3 +19,15 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **dom-updated** | This event is triggered when the element has received new data and the template for this element and all sub elements have been punched out.|
+
+## `ff-paging-select`
+___
+### Properties
+| Name | Description |
+| ---- | ----------- |
+| **pagingData**&nbsp;(Object) (default:undefined) | The paging data from FACT-Finder. Can only be set through JavaScript. |
+
+### Events
+| Name | Description |
+| ---- | ----------- |
+| **dom-updated** | This event is triggered when the element has received new data and the template for this element and all sub elements have been punched out.|
