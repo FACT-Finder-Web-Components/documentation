@@ -197,7 +197,7 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
     <hr>
     <div id="browser" class="row">
         <div class="row-item">
-            <img src="../../images/index/kompatibel_1.gif">
+            <img src="../../images/index/compatibility.png">
         </div>
         <div class="row-item">
             <h1><b>Compatible with all major browsers</b></h1>
