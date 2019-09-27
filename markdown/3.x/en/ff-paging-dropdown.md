@@ -55,3 +55,61 @@ When setup like in the example above, the rendered HTML could look like this.
     </div>
 </ff-paging-dropdown>
 ```
+
+## ff-paging-select
+
+If you wish to use a native HTML `select` to render paging dropdown, you can use `ff-paging-select` element.
+
+It can work without providing any custom templates, however you can define your own `select` and/or `option`.
+
+The most basic setup:
+```html
+<ff-paging-select></ff-paging-select>
+```
+
+Will act like:
+```html
+<ff-paging-select>
+    <select>
+        <option>{{caption}}</option>
+    </select>
+</ff-paging-select>
+```
+
+You may customize only the `select` element:
+```html
+<ff-paging-select>
+    <select class="user-class"></select>
+</ff-paging-select>
+```
+
+Or just the `option`:
+```html
+<ff-paging-select>
+    <option>Page {{caption}}</option>
+</ff-paging-select>
+```
+
+Or both of them:
+```html
+<ff-paging-select>
+    <select class="user-class">
+        <option>Page {{caption}}</option>
+    </select>
+</ff-paging-select>
+```
+
+### Rendered HTML
+
+Assuming FACT-Finder is set to display 5 links, the latest example will produce the following HTML:
+```html
+<ff-paging-select>
+    <select class="user-class">
+        <option>Page 1</option>
+        <option>Page 2</option>
+        <option>Page 3</option>
+        <option>Page 4</option>
+        <option>Page 5</option>
+    </select>
+</ff-paging-select>
+```
