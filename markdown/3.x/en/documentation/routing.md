@@ -35,6 +35,10 @@ function isSearchPage() {
 }
 ```
 
+#### NOTE
+
+Please do not use `search-immediate` on non-search pages or you will be immediately redirected to the search page.
+
 ### Redirect to the product details page
 
 Due to tracking purposes, the redirect should happen through the `data-redirect` attribute inside the ff-record component. For the concrete example see the `Redirecting to product page` section of the [Record List documentation](/api/3.x/ff-record-list).
