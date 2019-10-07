@@ -15,6 +15,13 @@ This causes text to be rendered as-is.
 To make the highlighting markup be interpreted as HTML use triple curly braces `{{{ }}}`.  
 See [Adding a suggest container](/api/3.x/ff-suggest) in the `ff-suggest` documentation or the [Template Engine documentation](/documentation/3.x/template-engine).
 
+#### Question:
+Our polyfills seem to be clashing with the WebComponents polyfills.
+#### Answer:
+One option is to use a polyfill that is compatible with the WebComponents polyfill.
+For detailed information on which features the WebComponents polyfill implements, refer to the official [GitHub repository](https://github.com/webcomponents/polyfills).  
+If this doesn't seem to solve the issue, please [contact us](/contacts) for a custom solution.
+
 
 ## Errors
 ---
