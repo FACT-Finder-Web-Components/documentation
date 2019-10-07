@@ -6,6 +6,16 @@ I want to use FACT-Finder Web Components with Angular, but data binding used in 
 #### Answer:
 Default binding delimiters can be changed via `ff-communication`'s `mustache-delimiters` attribute. For more information please check the `Underlying Engine (Mustache)` section of the [Template Engine documentation](/documentation/3.x/template-engine).
 
+#### Question:
+Hit highlighting in `ff-suggest` or `ff-asn-group` displays as raw HTML.
+How do I make it render correctly?
+#### Answer:
+The most common reason for this behaviour is that double curly braces `{{ }}` are used in the custom template.
+This causes text to be rendered as-is.
+To make the highlighting markup be interpreted as HTML use triple curly braces `{{{ }}}`.  
+See [Adding a suggest container](/api/3.x/ff-suggest) in the `ff-suggest` documentation or the [Template Engine documentation](/documentation/3.x/template-engine).
+
+
 ## Errors
 ---
 
