@@ -39,6 +39,17 @@ function isSearchPage() {
 
 Please do not use `search-immediate` on non-search pages or you will be immediately redirected to the search page.
 
+#### `before-search` event
+
+`before-search` event is emitted by `ff-searchbox` whenever `ff-searchbox` issues a request. In its listener, you have the opportunity to respond to only selected search requests, as ASN, paging, sorting etc. will not trigger this event.
+
+For example, if you wish to redirect only searches that are triggered by entering a new query in the searchbox, you could use the following code:
+```javascript
+ffSearchBoxElem.addEventListener("before-search", event => {
+    window.location.href = SEARCH_URL + "?query=" + event.detail.query;
+});
+```
+
 ### Redirect to the product details page
 
 Due to tracking purposes, the redirect should happen through the `data-redirect` attribute inside the ff-record component. For the concrete example see the `Redirecting to product page` section of the [Record List documentation](/api/3.x/ff-record-list).
