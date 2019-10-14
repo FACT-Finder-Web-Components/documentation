@@ -1,5 +1,5 @@
 ## General
----
+
 #### Question:
 I want to use FACT-Finder Web Components with Angular, but data binding used in the components conflicts with Angular's `{{ }}` binding. Can you fix it?
 #### Answer:
@@ -7,9 +7,9 @@ Default binding delimiters can be changed via `ff-communication`'s `mustache-del
 
 ---
 #### Question:
-SEO Crawlers are indexing https://shop.com/{{data.binding}} urls which results in a 404.
+SEO Crawlers are indexing https://shop.com/{{data.binding}} URLs which results in a 404.
 #### Answer:
-Please use our data-* attributes for images and redirect.
+Please use our `data-*` attributes for images and redirecting.
 
 **For anchors use:**
 ```html
@@ -18,14 +18,14 @@ Please use our data-* attributes for images and redirect.
         <div>
             <a data-redirect="{{record.Deeplink}}"
                data-redirect-target="_blank"
-               data-anchor="https://www.myshop.de{{record.Deeplink}}" >
+               data-anchor="https://www.myshop.de{{record.Deeplink}}">
                 Shop
             </a>
 ```
 
 **Note**
 
-For a valid tracking it is necessary to use the `data-redirect` attribute if you dont use the `data-redirect` attribute the browser may redirect before the tracking request succeeds.
+For successful tracking it is necessary to use the `data-redirect` attribute. If you don't use the `data-redirect` attribute, the browser may redirect before the tracking request succeeds.
 
 **For images use:**
 ```html
@@ -38,7 +38,7 @@ For a valid tracking it is necessary to use the `data-redirect` attribute if you
 
 #### Answer:
 `<div data-container="showMore">` is probably located inside the `<div data-container="detailedLinks">` container. 
-Currently we have a html structure limitation which forces us to place the `<div data-container="showMore">` container outside. 
+Currently, we have a HTML structure limitation which forces us to place the `<div data-container="showMore">` container outside.
 
 **Correct**
 ```html
@@ -77,7 +77,6 @@ If this doesn't seem to solve the issue, please [contact us](/contacts) for a cu
 
 
 ## Errors
----
 
 #### Error: 
 
@@ -85,5 +84,3 @@ If this doesn't seem to solve the issue, please [contact us](/contacts) for a cu
 
 #### Solution:
 Add missing `defer` attribute on bundle.js like described [here](/documentation/3.x/include-scripts): `<script defer src="../dist/bundle.js"></script>`
-
----
