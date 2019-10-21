@@ -1,11 +1,14 @@
 ## Using the Filter Cloud
-You can use the Filter Cloud by adding one line to your HTML code.
+You can use the Filter Cloud by adding one line to your HTML code. Doing so will cause the Filter Cloud to use a default HTML template,
+that is `<span data-template="filter">{{element.name}}</span>`, for all filters. Filter Cloud is meant to be used together with ASN,
+so it will work only when `ff-asn` is present on the page.
+
+## Specifying templates
+### Setup
+Leaving the element completely empty makes it possible to omit the otherwise required `data-template="filter"` template. A default template will be applied.
 ```html
 <ff-filter-cloud></ff-filter-cloud>
 ```
-Doing so will cause the Filter Cloud to use default HTML template, that is `<span data-template="filter">{{element.name}}</span>`, for all filters. Filter Cloud is meant to be used together with ASN, so it will work only when `ff-asn` is present on the page.
-
-
 ### Rendered HTML
 When setup like in the example above, the rendered HTML could look like this:
 ```html
@@ -17,14 +20,13 @@ When setup like in the example above, the rendered HTML could look like this:
 </ff-filter-cloud>
 ```
 
-## Adding a filter template
-To customize filter element appearance, you can add an HTML element annotated with `[data-template-filter]`. You can access the filter group's name through `{{group.name}}`:
+### Setup
+To customize filter element appearance, you can add an HTML element annotated with `[data-template=filter]`. You can access the filter group's name through `{{group.name}}`:
 ```html
 <ff-filter-cloud>
     <span data-template="filter">{{group.name}}: {{element.name}}</span>
 </ff-filter-cloud>
 ```
-
 ### Rendered HTML
 When setup like in the example above, the rendered HTML could look like this:
 ```html
@@ -36,7 +38,8 @@ When setup like in the example above, the rendered HTML could look like this:
 </ff-filter-cloud>
 ```
 
-Custom filter template can be used with some additional custom HTML:
+### Setup
+A custom filter template can be used with some additional custom HTML.
 ```html
 <ff-filter-cloud>
     <h4>The Filter Cloud</h4>
@@ -52,7 +55,6 @@ Custom filter template can be used with some additional custom HTML:
   </div>
 </ff-filter-cloud>
 ```
-
 ### Rendered HTML
 When setup like in the example above, the rendered HTML could look like this:
 ```html
@@ -77,23 +79,68 @@ When setup like in the example above, the rendered HTML could look like this:
 </ff-filter-cloud>
 ```
 
-**NOTE** If no element annotated with `[data-template-filter]` is specified, a console warning will be displayed and any existing HTML will be replaced with default template. This also applies to default `ff-filter-could` setup.
+**NOTE** If no element annotated with `[data-template=filter]` is specified, a console error will be displayed and the component will not render itself.
+The only exception where it may be omitted is when `ff-filter-cloud` is left completely empty. The default template will then be used
+
+### Setup
+The following is an error - `ff-filter-cloud` has no way of determining where to render its filter-item elements.
+```html
+<ff-filter-cloud>
+    <span>Custom HTML</span>
+</ff-filter-cloud>
+```
+
+## Blacklist
+If you want to exclude specific filter groups from the filter cloud, you can use the `blacklist` attribute. You may specify 
+as many groups as you need, separated by commas. The values must correspond to the group name or associatedFieldName property returned by FACT-Finder.
+
+### Setup
+This example will blacklist all filters applied by the `Price` and `Size` groups.
+```html
+<ff-filter-cloud blacklist="Price,Size">
+    <div>
+         <span data-template="filter">{{group.name}}: {{element.name}}</span>
+    </div>
+</ff-filter-cloud>
+```
+
+## Whitelist
+If you want to exclusively specify each filter group, you can use the `whitelist` attribute. Like in blacklist, you may specify 
+as many groups as you need, separated by commas. The values must correspond to the group name or associatedFieldName property returned by FACT-Finder.
+
+### Setup
+This example will whitelist only filters applied by the `Gender` and `Category` groups.
+```html
+<ff-filter-cloud whitelist="Gender,Category">
+    <div>
+         <span data-template="filter">{{group.name}}: {{element.name}}</span>
+    </div>
+</ff-filter-cloud>
+```
 
 ## Filter click
-There is only one delegated `click` listener for the filter elements and if is attached to the `ff-filter-cloud` itself. Click events on filter items bubble up to `ff-filter-cloud` 
-and are processed there. By default, clicking on the filter removes it. Users can attach their own `click` and set `e.stopPropagation()` to prevent default behavior. 
+There is only one delegated `click` listener for the filter elements and it is attached to `ff-filter-cloud` itself. Click events on filter items bubble up to `ff-filter-cloud` 
+and are processed there. By default, clicking on a filter item removes it. Users can attach their own `click` listener and call `event.stopPropagation()` to prevent default behavior. 
 See the example below that shows how to create a filter element with clickable 'x' button:
 ```html
+<style>
+    .btn-deselect {
+        cursor: pointer
+    }
+    .filter {
+        cursor:default;
+    }
+</style>
 <script>
-    function userOnClick(event, context) {
-        if (event.target === context) {
+    function userOnClick(event) {
+        if (!event.target.classList.contains('btn-deselect')) {
             event.stopPropagation();
         }
     }
 </script>
 <ff-filter-cloud unresolved>
-    <div data-template="filter" style="cursor: default" onclick="userOnClick(e, this)">
-        <span style="cursor: default" onclick="userOnClick(e, this)">{{element.name}}</span> <span style="cursor: pointer">×</span>
+    <div data-template="filter" class="filter" onclick="userOnClick(e)">
+        <span>{{element.name}}</span> <span class="btn-deselect">×</span>
     </div>
 </ff-filter-cloud>
 ```
