@@ -75,6 +75,7 @@ One option is to use a polyfill that is compatible with the WebComponents polyfi
  For detailed information on which features the WebComponents polyfill implements, refer to the official [GitHub repository](https://github.com/webcomponents/polyfills).  
 If this doesn't seem to solve the issue, please contact us for a custom solution.
 
+---
 
 ## Errors
 
