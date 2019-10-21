@@ -13,7 +13,6 @@ export const pageImportInfoCollection = Object.freeze({
     documentation: createPageImportInfo(() => import("../views/documentation-view.js"), documentation),
     faq: createPageImportInfo(() => import("../views/faq-view.js")),
     download: createPageImportInfo(() => import("../views/download-view.js")),
-    contacts: createPageImportInfo(() => import("../views/contacts-view.js")),
     search: createPageImportInfo(() => import("../views/search-view.js")),
 });
 

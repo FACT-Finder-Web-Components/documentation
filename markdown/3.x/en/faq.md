@@ -73,7 +73,7 @@ One option is to use a polyfill that is compatible with the WebComponents polyfi
  A polyfill clash may not always be obvious at first.
  Errors that could hint at such a clash may involve `Symbol.iterator` or `Promise`.
  For detailed information on which features the WebComponents polyfill implements, refer to the official [GitHub repository](https://github.com/webcomponents/polyfills).  
-If this doesn't seem to solve the issue, please [contact us](/contacts) for a custom solution.
+If this doesn't seem to solve the issue, please contact us for a custom solution.
 
 
 ## Errors
