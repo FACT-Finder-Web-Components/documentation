@@ -120,7 +120,7 @@ This example will whitelist only filters applied by the `Gender` and `Category` 
 
 ## Filter click
 There is only one delegated `click` listener for the filter elements and it is attached to `ff-filter-cloud` itself. Click events on filter items bubble up to `ff-filter-cloud` 
-and are processed there. By default, clicking on a filter item removes it. Users can attach their own `click` listener and call `event.stopPropagation()` to prevent default behavior. 
+and are processed there. By default, clicking on a filter item removes it. You can attach your own `click` listener and call `event.stopPropagation()` to prevent default behavior. 
 See the example below that shows how to create a filter element with clickable 'x' button:
 ```html
 <style>
