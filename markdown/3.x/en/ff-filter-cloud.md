@@ -128,7 +128,7 @@ See the example below that shows how to create a filter element with clickable '
         cursor: pointer
     }
     .filter {
-        cursor:default;
+        cursor: default;
     }
 </style>
 <script>
