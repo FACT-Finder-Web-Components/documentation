@@ -80,7 +80,7 @@ When setup like in the example above, the rendered HTML could look like this:
 ```
 
 **NOTE** If no element annotated with `[data-template=filter]` is specified, a console error will be displayed and the component will not render itself.
-The only exception where it may be omitted is when `ff-filter-cloud` is left completely empty. The default template will then be used
+The only exception where `[data-template=filter]` may be omitted is when `ff-filter-cloud` is left completely empty. The default template will then be used.
 
 ### Setup
 The following is an error - `ff-filter-cloud` has no way of determining where to render its filter-item elements.
