@@ -125,7 +125,7 @@ See the example below that shows how to create a filter element with clickable '
 ```html
 <style>
     .btn-deselect {
-        cursor: pointer
+        cursor: pointer;
     }
     .filter {
         cursor: default;
