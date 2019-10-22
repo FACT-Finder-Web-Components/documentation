@@ -1,13 +1,16 @@
-## Using the Filter Cloud
-You can use the Filter Cloud by adding one line to your HTML code. Doing so will cause the Filter Cloud to use a default HTML template,
-that is `<span data-template="filter">{{element.name}}</span>`, for all filters. Filter Cloud is meant to be used together with ASN,
-so it will work only when `ff-asn` is present on the page.
+## Overview
+The `ff-filter-cloud` displays all filters that are currently selected through `ff-asn`. As the component is meant to be used together with ASN, it will work only when `ff-asn` is present on the page.
 
 ## Specifying templates
+
 ### Setup
-Leaving the element completely empty makes it possible to omit the otherwise required `data-template="filter"` template. A default template will be applied.
+You can use the Filter Cloud by adding one line to your HTML code:
 ```html
 <ff-filter-cloud></ff-filter-cloud>
+```
+Leaving the element completely empty makes it possible to omit the otherwise required `data-template="filter"` template. A default template will be applied for all filters:
+```html
+<span data-template="filter">{{element.name}}</span>
 ```
 ### Rendered HTML
 When setup like in the example above, the rendered HTML could look like this:
