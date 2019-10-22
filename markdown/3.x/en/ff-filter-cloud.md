@@ -1,10 +1,10 @@
 ## Overview
-The `ff-filter-cloud` displays all filters that are currently selected through `ff-asn`. As the component is meant to be used together with ASN, it will work only when `ff-asn` is present on the page.
+Filter Cloud displays all filters that are currently selected through `ff-asn`. As the component is meant to be used together with ASN, it will work only when `ff-asn` is present on the page.
 
 ## Specifying templates
 
 ### Setup
-You can use the Filter Cloud by adding one line to your HTML code:
+You can use `ff-filter-cloud` by adding one line to your HTML code:
 ```html
 <ff-filter-cloud></ff-filter-cloud>
 ```
