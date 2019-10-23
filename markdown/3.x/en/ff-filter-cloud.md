@@ -142,7 +142,7 @@ See the example below that shows how to create a filter element with clickable '
     }
 </script>
 <ff-filter-cloud unresolved>
-    <div data-template="filter" class="filter" onclick="userOnClick(e)">
+    <div data-template="filter" class="filter" onclick="userOnClick(event)">
         <span>{{element.name}}</span> <span class="btn-deselect">×</span>
     </div>
 </ff-filter-cloud>
