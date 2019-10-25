@@ -48,7 +48,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
     }
 
     #github-logo-container {
-        text-align: end;
+        text-align: right;
         padding-right: 20px;
         padding-bottom: 20px;
     }
