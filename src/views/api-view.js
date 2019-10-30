@@ -230,6 +230,10 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
             return;
         }
 
+        if (this.subpage === `core-event-aggregator`) {
+            this._addScrollNavigation();
+        }
+
         const fileName = this.subpage;
 
         this.filePath = `markdown/${this.version}/${this.language}/${fileName}.md`;
