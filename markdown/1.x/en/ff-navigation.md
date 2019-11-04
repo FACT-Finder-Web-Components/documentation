@@ -226,7 +226,7 @@ You also need a logic outside of the element, to define when it will switch to t
 
 <script>
     window.addEventListener("resize", function (evt) {
-        var navigation = document.querySelector("ff-flyout-navigation");
+        const navigation = document.querySelector("ff-flyout-navigation");
         if (window.innerWidth < 600) {
             navigation.setAttribute("mobile", "true");
         } else {

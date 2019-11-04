@@ -64,7 +64,7 @@ Removes a registered callback identified by its `key`
 ```html
 <script>
     document.addEventListener("ffReady", function () {
-        var key = factfinder.communication.FFCommunicationEventAggregator.addBeforeDispatchingCallback(function (event) {
+        const key = factfinder.communication.FFCommunicationEventAggregator.addBeforeDispatchingCallback(function (event) {
             if (event.type === "search") {
                 event["newConditionalHttpParam"] = "someValue";
             }
@@ -94,11 +94,11 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
         }
     });
 
-    var key = factfinder.communication.ResultDispatcher.subscribe("myCustomSearch", function (resultData) {
+    const key = factfinder.communication.ResultDispatcher.subscribe("myCustomSearch", function (resultData) {
         // process the result
     });
 
-    var key2 = factfinder.communication.ResultDispatcher.addCallback("mySpecialElement", function (resultData) {
+    const key2 = factfinder.communication.ResultDispatcher.addCallback("mySpecialElement", function (resultData) {
         // process the result
     });
 </script>

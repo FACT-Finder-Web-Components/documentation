@@ -60,7 +60,7 @@ Unsubscribe during runtime from a specific topic
 <script>
     //listen for ffReady before HTML import is loaded or you'll miss the event
     document.addEventListener("ffReady", function () {
-        var key = factfinder.communication.ResultDispatcher.subscribe("result", function (resultData, event) {
+        const key = factfinder.communication.ResultDispatcher.subscribe("result", function (resultData, event) {
             // process the result and or the event
         });
 
@@ -78,7 +78,7 @@ This is similar to `subscribe()` but it is guaranteed to be executed
 <script>
     // listen for ffReady before HTML import is loaded or you'll miss the event
     document.addEventListener("ffReady", function () {
-        var key = factfinder.communication.ResultDispatcher.addCallback("asn", function (asnData) {
+        const key = factfinder.communication.ResultDispatcher.addCallback("asn", function (asnData) {
             // poke around in the asn data
         });
     });
@@ -94,7 +94,7 @@ registered callback.
 <script>
     // listen for ffReady before HTML import is loaded or you'll miss the event
     document.addEventListener("ffReady", function () {
-        var key = factfinder.communication.ResultDispatcher.addCallback("asn", function (asnData) {
+        const key = factfinder.communication.ResultDispatcher.addCallback("asn", function (asnData) {
             // poke around with asn data
         });
 

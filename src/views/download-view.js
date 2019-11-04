@@ -413,8 +413,8 @@ class DownloadView extends ReduxMixin(PolymerElement) {
     }
 
     _toggleAll(event) {
-        var buttons = event.currentTarget.nextElementSibling.querySelectorAll(`div paper-toggle-button`);
-        for (var i = 0; i < buttons.length; i++) {
+        const buttons = event.currentTarget.nextElementSibling.querySelectorAll(`div paper-toggle-button`);
+        for (let i = 0; i < buttons.length; i++) {
             buttons[i].active = event.detail.value;
         }
     }
@@ -435,7 +435,7 @@ class DownloadView extends ReduxMixin(PolymerElement) {
     }
 
     _hasDifference(arr) {
-        var result = arr.filter(function (item) {
+        const result = arr.filter(function (item) {
             return item.active;
         });
         return !(result.length === arr.length || result.length === 0);

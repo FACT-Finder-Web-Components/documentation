@@ -50,7 +50,7 @@ trigger the loading or you want to reload. In that case, set the `fetch-initial`
 ```html
 <ff-header-navigation fetch-initial="false"></ff-header-navigation>
 <script>
-    var nav = document.querySelector('ff-header-navigation');
+    const nav = document.querySelector('ff-header-navigation');
     Polymer.dom(nav).fetch();
 </script>
 ```

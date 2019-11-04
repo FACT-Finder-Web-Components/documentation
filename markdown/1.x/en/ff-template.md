@@ -5,7 +5,7 @@ Set a **data** object for a template to store your data. With the "**{{}}**" mus
 ```html
 <script>
     function setTemplate1() {
-        var template1 = document.querySelector("#demoTemplate1");
+        const template1 = document.querySelector("#demoTemplate1");
         template1.data = {test: "This is my Test Data"};
     }
 </script>
@@ -22,7 +22,7 @@ You can also set a more complex model and access the data in it with the mustach
 ```html
 <script>
     function setTemplate2() {
-        var tmp = document.querySelector("#demoTemplate2");
+        const tmp = document.querySelector("#demoTemplate2");
         tmp.data = {
             product: {
                 name:"Super awsome Product",
@@ -53,7 +53,7 @@ If you have raw HTML in the data, e.g. configured in the FF-Backend as result fo
 ```html
 <script>
     function setTemplate3() {
-        var tmp = document.querySelector("#demoTemplate3");
+        const tmp = document.querySelector("#demoTemplate3");
         tmp.data = {
             product: {
                 name:"Super awsome Product",

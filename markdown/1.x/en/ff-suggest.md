@@ -173,7 +173,7 @@ assigning the event's `event.detail.record` to `ff-record`'s
 
 <script>
     document.querySelector("ff-suggest").addEventListener("suggest-product-record", function (event) {
-        var record = event.detail.record;
+        const record = event.detail.record;
         document.querySelector("detailPage ff-record").recordData = record;
     });
 </script>

@@ -73,7 +73,7 @@ The type of the event has to be `"suggest"` and as query we take the input value
 ```js
 // Calls the FACT-Finder suggest event.
 function raiseSuggestEvent(e) {
-    var inputValue = e.value;
+    const inputValue = e.value;
     if (inputValue && inputValue.length >= 2) {
         // this value is set to indicate if the current input value belongs to the received suggest response
         // e.g. suggest request takes 100ms while the user is deleting all chars in the input field
@@ -106,7 +106,7 @@ In this function we take the suggestion id to set the current search term for th
 ```js
 // Changes the term within the search box to the selected suggest item.
 function changeSearchTerm(e) {
-    var searchInput = e.suggestion.attributes.id;
+    const searchInput = e.suggestion.attributes.id;
     document.querySelector("input").value = searchInput;
 }
 

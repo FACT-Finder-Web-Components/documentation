@@ -44,8 +44,8 @@ This configurations adds the currency and all the number formatting to every pri
 ---
 FACT-Finder Web Components are using the [`Number.toLocaleString()`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function to format all price strings. If you want to format prices not covered by our attributes you can always use this function like:
 ````javascript
-var currencyCode = factfinder.communication.globalCommunicationParameter.currencyCode;
-var currencyCountryCode = factfinder.communication.globalCommunicationParameter.currencyCountryCode;
+const currencyCode = factfinder.communication.globalCommunicationParameter.currencyCode;
+const currencyCountryCode = factfinder.communication.globalCommunicationParameter.currencyCountryCode;
 
 parseFloat(priceStr).toLocaleString(currencyCountryCode, {
                         style: 'currency',
