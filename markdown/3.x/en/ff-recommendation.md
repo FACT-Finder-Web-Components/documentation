@@ -44,7 +44,7 @@ Set the record ID to load records that are recommended for that one product. Or 
 
 ```html
 <script>
-    var recommendationElement = document.querySelector("ff-recommendation");
+    const recommendationElement = document.querySelector("ff-recommendation");
     //This triggers the recommendation service request
     recommendationElement.recordId = "123456789";//Get a record id from a searchresult.
 </script>

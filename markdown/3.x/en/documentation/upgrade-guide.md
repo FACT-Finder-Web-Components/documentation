@@ -14,8 +14,8 @@ There are only two major changes and some minor API changes to take care of when
     <!-- Before -->
     
     <script>
-        var Polymer = Polymer || {};
-        Polymer.dom = 'shady';
+        window.Polymer = window.Polymer || {};
+        window.Polymer.dom = 'shady';
     </script>
     <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
     <link rel="import" href="../bower_components/ff-web-components/dist/elements.build_with_dependencies.html">

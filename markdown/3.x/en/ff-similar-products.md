@@ -31,7 +31,7 @@ In this element, you should use a `ff-record-list` to let the `ff-similar-produc
 Set this to trigger a call to the similar-products service for that specific record.
 ```html
 <script>
-    var similarProductsElement = document.querySelector("ff-similar-products");
+    const similarProductsElement = document.querySelector("ff-similar-products");
     //Triggers thesimilarProducts service
     similarProductsElement.recordId = "123456789";
 </script>

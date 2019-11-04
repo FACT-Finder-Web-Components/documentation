@@ -86,11 +86,11 @@ trigger the compare service.
 <script>
     //alternativ via JavaScript
     function compare(){
-        var myRecordIds = [1001,1002,1003];
-        var compareElement = document.querySelector("ff-compare");
+        const myRecordIds = [1001,1002,1003];
+        const compareElement = document.querySelector("ff-compare");
 
         //dose NOT triggere the compare service
-        compareElement.recordIds =myRecordIds;
+        compareElement.recordIds = myRecordIds;
 
         //triggeres the compare service
         compareElement.compareRecords(myRecordIds);

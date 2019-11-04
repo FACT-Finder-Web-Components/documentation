@@ -78,7 +78,7 @@
                     scope: MyAppGlobals.rootPath
                 }).then(function (registration) {
                     registration.onupdatefound = function () {
-                        var installingWorker = registration.installing;
+                        const installingWorker = registration.installing;
                         installingWorker.onstatechange = function () {
                             switch (installingWorker.state) {
                                 case 'installed':
@@ -99,7 +99,7 @@
             });
         }
 
-        var process = process || {
+        window.process = window.process || {
             env: {}
         };
     </script>

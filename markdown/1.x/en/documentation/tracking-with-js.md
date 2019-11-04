@@ -106,20 +106,20 @@ you can query FACT-Finder for product information.
 
 ```html
 <script>
-    var Polymer = Polymer || {};
-    Polymer.dom = 'shady';
+    window.Polymer = window.Polymer || {};
+    window.Polymer.dom = 'shady';
     
     document.addEventListener("WebComponentsReady", function () {
-        var trackingHelper = factfinder.communication.Util.trackingHelper;
-        var track = new factfinder.communication.Tracking12();
+        const trackingHelper = factfinder.communication.Util.trackingHelper;
+        const track = new factfinder.communication.Tracking12();
 
         factfinder.communication.ResultDispatcher.subscribe("productDetail", function (product) {
             if (product) {
                 // Retrieve field values based on field roles
-                var masterId = trackingHelper.getMasterArticleNumber(product);
-                var id = trackingHelper.getTrackingProductId(product);
-                var channel = factfinder.communication.globalSearchParameter.channel;
-                var sid = factfinder.common.localStorage.getItem("ff_sid");
+                const masterId = trackingHelper.getMasterArticleNumber(product);
+                const id = trackingHelper.getTrackingProductId(product);
+                const channel = factfinder.communication.globalSearchParameter.channel;
+                const sid = factfinder.common.localStorage.getItem("ff_sid");
                 
                 //track some information e.g. a checkout
                 track.checkout({

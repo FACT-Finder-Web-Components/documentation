@@ -8,7 +8,7 @@ In order to redirect all search events triggered on the homepage or other non-se
 ```javascript
 document.addEventListener("ffReady", function () {
     factfinder.communication.FFCommunicationEventAggregator.addBeforeDispatchingCallback(function (event) {
-        var isSearchEvent = event.type === "search" || event.type === "navigation-search";
+        const isSearchEvent = event.type === "search" || event.type === "navigation-search";
         if (isSearchEvent && !isSearchPage()) {
             delete event.type; // prevents the request from being sent before redirecting
 
@@ -19,7 +19,7 @@ document.addEventListener("ffReady", function () {
                 }
             });
 
-            var params = factfinder.common.dictToParameterString(event);
+            const params = factfinder.common.dictToParameterString(event);
             window.location.href = SEARCH_URL + params;
         }
     });

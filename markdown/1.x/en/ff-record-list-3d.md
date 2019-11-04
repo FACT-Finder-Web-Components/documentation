@@ -18,12 +18,12 @@ and iterate over each `ff-record` to apply the mouse over effect.
         // add an eventlistener to the ff-record-list event which is called everytime the HTML content was updated
         document.querySelector("ff-record-list").addEventListener("dom-updated", function (event) {
             // get the record list from the source attribute of the event callback.
-            var ffRecordListElement = event.srcElement;
+            const ffRecordListElement = event.srcElement;
             // get the record data from the record list.
-            var records = ffRecordListElement.querySelectorAll("ff-record");
+            const records = ffRecordListElement.querySelectorAll("ff-record");
             // iterating through all current visible records.
-            for (var i = 0; i < records.length; i++) {
-                var record = records[i];
+            for (let i = 0; i < records.length; i++) {
+                const record = records[i];
                 applyEffect(record);
             }
         });
@@ -39,13 +39,13 @@ Add the `mouseover` and `mouseout` effects to the record with the css selector v
 <script>
     function applyEffect(record) {
         if (record.style.display !== "none") {
-            var id = record.children[0].id;
+            const id = record.children[0].id;
 
             // getting the rating and information element and hiding it.
             $(this).find('#' + id + '_rating').hide();
             $(this).find('#' + id + '_info').hide();
 
-            var recordContainer = $("#" + id);
+            const recordContainer = $("#" + id);
 
             recordContainer.hover3d({
                 selector: '#' + id + "_record",

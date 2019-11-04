@@ -182,14 +182,14 @@ See the following example:
 <script>
     document.querySelector("ff-suggest").addEventListener("suggest-item-clicked", function (e) {
         // reference to the HTML element
-        var ffSuggestItem = e.detail.element;
+        const ffSuggestItem = e.detail.element;
         // reference to data
-        var suggestionData = e.detail.suggestion;
+        const suggestionData = e.detail.suggestion;
 
         // check if the ffSuggestItem matches the desired type for which you want to override the action
         if (suggestionData.type === "productName") {
             // configure in the FACT-Finder backend which fields should be returned in the attributes property!
-            var articleNr = ffSuggestItem.attributes["articleNr"];
+            const articleNr = ffSuggestItem.attributes["articleNr"];
             window.open("http://www.your-shop.example/"+articleNr, "_blank");
 
             // tell the suggest-item to skip its default action;
@@ -220,7 +220,7 @@ assigning the event's `event.detail.record` to `ff-record`'s
 
 <script>
     document.querySelector("ff-suggest").addEventListener("suggest-product-record", function (event) {
-        var record = event.detail.record;
+        const record = event.detail.record;
         document.querySelector("detailPage ff-record").recordData = record;
     });
 </script>
