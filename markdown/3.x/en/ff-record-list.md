@@ -141,3 +141,5 @@ We recommend using higher values for `[infinite-debounce-delay]` and `infinite-s
     </ff-record>
 </ff-record-list>
 ```
+
+The maximum number of pages that are loaded can be restricted with the `[infinite-max-pages]` attribute.
