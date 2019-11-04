@@ -1,5 +1,5 @@
 ## Motivation
-You might want a little bit more controll of the dataflow for different reasons:
+You might want more control over the dataflow for various reasons:
 
 * own proxy
 * analyzing and metrics
@@ -7,9 +7,9 @@ You might want a little bit more controll of the dataflow for different reasons:
 * request/response modification.
 
 For that purpose we build this library to support you when you roll your own proxy or want to route
-the traffic through your current Java based soulution.
+the traffic through your current Java based solution.
 
-We have split this functions into 2 librarys:
+We have split this function into two libraries:
 
 ### java-proxy-utils
 Check it out on [GitHub](https://github.com/FACT-Finder-Web-Components/java-proxy-utils)
