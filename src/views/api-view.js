@@ -194,9 +194,8 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
             e.preventDefault();
             this.$.api_markdown.markdown = `## API documentation for this component is not yet available.`
         });
-        if (this.subpage === `core-event-aggregator`) {
-            this._addScrollNavigation();
-        }
+
+        this._addScrollNavigation();
     }
 
     /*
@@ -211,7 +210,9 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
     _addScrollNavigation() {
         const markdown = this.$.docs_markdown;
         markdown.addEventListener(`marked-render-complete`, () => {
-            const anchors = Array.from(markdown.getElementsByTagName(`a`));
+            const anchors = Array.from(markdown.getElementsByTagName(`a`))
+                .filter((a) => !a.attributes.href.value.startsWith('/'));
+
             anchors.forEach(anchor => {
                 anchor.addEventListener(`click`, (e) => {
                     e.preventDefault();
@@ -228,10 +229,6 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
     _pathChanged(newSubpage) {
         if (!this.isActiveView()) {
             return;
-        }
-
-        if (this.subpage === `core-event-aggregator`) {
-            this._addScrollNavigation();
         }
 
         const fileName = this.subpage;
