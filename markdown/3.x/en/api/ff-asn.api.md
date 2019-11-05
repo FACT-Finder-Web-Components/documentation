@@ -5,6 +5,7 @@ ___
 | ---- | ----------- |
 | **align**&nbsp;(String) **Options**:&nbsp;"vertical",&nbsp;"horizontal" (default: "vertical") | The alignment of the After Search Navigation. |
 | **asn-groups**&nbsp;(Array) | The data for all filter groups/facets. |
+| **searchable-from**&nbsp;(Number) (default: Infinity) | The minimum number of filters in a group to render search field. The value refers to the sum of **detailed and hidden links**. |
 
 ### Events
 | Name | Description |
@@ -24,6 +25,7 @@ ___
 | **lazy-load**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | The lazy-load property defines if the ff-asn-elements for the hidden links container should be rendered when the asn group is dispatched or lazily just when the hiddenLinks container is opened via toggleHiddenLinksContainer() or showHiddenLinksContainer(). This improves performance for the first print and is by default set to true. |
 | **select-box**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | Use this when the hiddenLinks should be an HTML select element |
 | **disable-auto-expand**&nbsp;(Boolean) | Prevents group from being automatically expanded when it contains any active filters. |
+| **not-searchable**&nbsp;(Boolean) (default: false) | Prevents group from being searchable even if it satisfies `searchable-from` condition.  |
 
 ### Methods
 | Name | Description |
