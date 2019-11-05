@@ -302,3 +302,54 @@ The default value is `false`.
     Reset Filters
 </ff-asn-remove-all-filter>
 ```
+
+## Searchable ASN groups
+
+When the number of available filters in the ASN group is large, you may want to render a search field inside the group to allow the user to narrow down displayed filters.
+
+To enable this feature you have to set the minimum number of filters required to render the search field in a given group. This is done by setting the `searchable-from` attribute on the `ff-asn` element.
+If you wish to exclude some groups from being searchable regardless of the number of filters, you can set the `non-searchable` attribute on such an `ff-asn-group` element.
+
+### Search field template
+
+The default search field template is
+```html
+<div slot="filterSearch"><input></div>
+    ```
+However it can be changed by providing own content for `filterSearch` slot in `ff-asn-group` template. 
+This template has to contain exactly one `input` element.
+
+### Example
+
+#### Setup
+```html
+<ff-asn searchable-from="31">
+    <ff-asn-group for-group="Manufacturer">
+        <div slot="filterSearch" class="customGroup1"><input></div>
+    </ff-asn-group>
+    <ff-asn-group for-group="Usage" not-searchable>
+        <div slot="filterSearch" class="customGroup2"><input></div>
+    </ff-asn-group>
+</ff-asn>
+```
+
+#### Rendered HTML
+```html
+<ff-asn searchable-from="31">
+    <ff-asn-group for-group="Manufacturer">
+        <div class="ffw-asn-group-container">
+            <div class="ffw-wrapper">
+                <div slot="filterSearch" class="customGroup1"><input></div>
+                [redacted]
+            </div>
+        </div>
+    </ff-asn-group>
+    <ff-asn-group for-group="Usage" not-searchable>
+        <div class="ffw-asn-group-container">
+            <div class="ffw-wrapper">
+                <!-- no [slot="filterSearch"] container due to [not-searchable] attribute -->
+                [redacted]
+            </div>
+        </div>
+    </ff-asn-group>
+```
