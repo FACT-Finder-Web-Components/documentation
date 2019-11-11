@@ -62,7 +62,7 @@ document.addEventListener("ffReady", () => { // "ffReady"-event ensures global f
     factfinder.communication.globalSearchParameter.channel = "bergfreunde-co-uk";
     
     /* after this minimal configuration, a search can be triggered manual e.g. through */
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
          type: "search",
          query: "*"
     });
