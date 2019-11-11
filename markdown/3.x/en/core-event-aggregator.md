@@ -1,4 +1,4 @@
-The **FFCommunicationEventAggregator** (`factfinder.communication.FFCommunicationEventAggregator`) is used to query the FACT-Finder API with an event based approach. You can also hook into the communication pipeline.
+The **EventAggregator** (`factfinder.communication.EventAggregator`) is used to query the FACT-Finder API with an event based approach. You can also hook into the communication pipeline.
 
 ## Fire Events       
 To send queries to FACT-Finder, you need to fire events via the `addFFEvent()` function. Internally, the same method is used for all elements which communicate with FACT-Finder.
@@ -43,13 +43,13 @@ the event. The `url` property is reserved for internal usage.
 ### `addBeforeDispatchingCallback(fn):string;`
 Adds a callback which executes before each event (e.g. `search`, `suggest`, `recommendation`, etc.) is sent.
 The callback receives an event object enriched with basic data (e.g. `sid`) and, if available, a
-`type` property which corresponds to the event types of `FFCommunicationEventAggregator.addFFEvent(event)`.
+`type` property which corresponds to the event types of `EventAggregator.addFFEvent(event)`.
         
 If you want to intercept a search request for example, you could do:
 ```html
 <script>
     document.addEventListener("ffReady", function () {
-        factfinder.communication.FFCommunicationEventAggregator.addBeforeDispatchingCallback(function (event) {
+        factfinder.communication.EventAggregator.addBeforeDispatchingCallback(function (event) {
             if (event.type === "search") {
                 event["newConditionalHttpParam"] = "someValue";
             }
@@ -64,14 +64,14 @@ Removes a registered callback identified by its `key`
 ```html
 <script>
     document.addEventListener("ffReady", function () {
-        const key = factfinder.communication.FFCommunicationEventAggregator.addBeforeDispatchingCallback(function (event) {
+        const key = factfinder.communication.EventAggregator.addBeforeDispatchingCallback(function (event) {
             if (event.type === "search") {
                 event["newConditionalHttpParam"] = "someValue";
             }
         });
         
         // remove the callback
-        factfinder.communication.FFCommunicationEventAggregator.removeBeforeDispatchingCallback(key);
+        factfinder.communication.EventAggregator.removeBeforeDispatchingCallback(key);
     });
 </script>
 <link rel="import" href="path/to/ff-web-components.html">
@@ -86,7 +86,7 @@ To do so add a function which returns an array of topics to the event in the `to
 Now you can register/subscribe a callback to the ResultDispatcher with that topic and get the result for that event type.
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "search",
         // other "search" type settings
         topics: function() {
@@ -107,13 +107,13 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### search
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "search",
         query: <query:String>
     });
 
 
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
          type: "search",
          query: "trousers"
     });
@@ -123,7 +123,7 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### navigation
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "navigation",
         // This defines how many pages with the first fetch to the service should be retrieved.(default is 2)
         firstFetch: <firstFetch:Number>,
@@ -148,7 +148,7 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
      *  Call 4: retrieve page 8
      *
      */
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "navigation",
         firstFetch: 3,
         fetchSize: 2,
@@ -161,13 +161,13 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### filter
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "filter",
         groupName: <groupName:String>,
         filterName: <filterName:String>
     });
 
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "filter",
         groupName: "Gender",
         filterName: "Female"
@@ -178,12 +178,12 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### breadcrumb trail
 ```html
 <script>
-    scope.communication.FFCommunicationEventAggregator.addFFEvent({
+    scope.communication.EventAggregator.addFFEvent({
         type: "bct",
         value: <bctItem.value:String>
     });
 
-    scope.communication.FFCommunicationEventAggregator.addFFEvent({
+    scope.communication.EventAggregator.addFFEvent({
         type: "bct",
         value: "arcteryx"
     });
@@ -193,12 +193,12 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### suggest
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "suggest",
         query: <currentInput:String>
     });
 
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "suggest",
         query: "tro"
     });
@@ -208,14 +208,14 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### sort
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "sort",
         value: <sortItem.description>
     });
 
     // NOTE the corresponding supplied value has to match your FACT-Finder configuration.
     // If you want to change the available values/options, change the options in the FACT-Finder UI.
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "sort",
         value: "Title A-Z"
     });
@@ -225,14 +225,14 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### products per page
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
                 type: "ppp",
                 value: < productsPerPageItem.value >
     });
 
     // NOTE the corresponding supplied value has to match your FACT-Finder configuration.
     // If you want to change the available values/options, change the options in the FACT-Finder UI.
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "ppp",
         value: 36
     });
@@ -242,12 +242,12 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### paging
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "paging",
         number: <productsPerPageItem.number>
     });
 
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "paging",
         number: 3
     });
@@ -257,13 +257,13 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### recommendation
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "recommendation:" + <randomString:String>,
         id: <recordIds:String>
         maxResults: <maxResults:Number>
     });
 
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "recommendation:" + "xy21dfQ",
         id: "123456",
         maxResults: 5
@@ -275,12 +275,12 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### productCampaign
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "productCampaign",
         productNumber: <recordId:String>
     });
 
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
          type: "productCampaign",
          productNumber: "1234"
     });
@@ -290,12 +290,12 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### shoppingCartCampaign
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "shoppingCartCampaign",
         productNumber: <recordId:String>
     });
 
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "shoppingCartCampaign",
         productNumber: "1234"
     });
@@ -305,13 +305,13 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### similarProducts
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "similarProducts",
         id: <recordId:String>,
         maxResults: <maxResults:Number>
     });
 
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "similarProducts",
         id: "1234",
         maxResults: 5
@@ -322,7 +322,7 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### advisor
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "search",
         query: "trousers"
     });
@@ -332,12 +332,12 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### pageCampaigns
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "pageCampaigns",
         pageId: <pageId:String>
     });
 
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "pageCampaigns",
         pageId: "home_landing_page"
     });
@@ -347,13 +347,13 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### compare
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "compare:" + <randomString:String>,
         ids: <recordIds:String>,
         maxResults: <maxResults:Number>
     });
 
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "compare:" + "aqjn5Xf1",
         ids: "123,456,789",
         maxResults: 4
@@ -364,13 +364,13 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
 ### tagCloud
 ```html
 <script>
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "tagCloud",
         wordCount: <wordCount:Number>
     });
 
 
-    factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+    factfinder.communication.EventAggregator.addFFEvent({
         type: "tagCloud",
         wordCount: 15
     });

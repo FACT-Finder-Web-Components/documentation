@@ -67,7 +67,7 @@ The `oninput` attribute on the `input` tag executes the `raiseSuggestEvent()` fu
 In this function, we take the input value and set it as `currentFFSearchBoxValue` in the
 `factfinder.communication.globalElementValues` module.
 
-Next we fire a FFEvent to the `factfinder.communication.FFCommunicationEventAggregator`.
+Next we fire a FFEvent to the `factfinder.communication.EventAggregator`.
 
 The type of the event has to be `"suggest"` and as query we take the input value from the `input`  tag.
 ```js
@@ -81,7 +81,7 @@ function raiseSuggestEvent(e) {
         // The suggest needs to know if this data belong to the current input value (which is currently
         // empty string and therefore does not)
         factfinder.communication.globalElementValues.currentFFSearchBoxValue = inputValue;
-        factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+        factfinder.communication.EventAggregator.addFFEvent({
             type: "suggest",
             query: inputValue
         });

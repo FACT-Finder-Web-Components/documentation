@@ -89,11 +89,11 @@ class SdSearchBox extends PolymerElement {
 
     fireSearchEvent() {
         console.log(`search`);
-        factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+        factfinder.communication.EventAggregator.addFFEvent({
             type: `search`,
             query: this.query
         });
-        factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+        factfinder.communication.EventAggregator.addFFEvent({
             type: `search`,
             channel: `webc-doku-api`,
             query: this.query,

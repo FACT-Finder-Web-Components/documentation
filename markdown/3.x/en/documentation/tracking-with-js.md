@@ -133,7 +133,7 @@ you can query FACT-Finder for product information.
             }
         });
 
-        factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
+        factfinder.communication.EventAggregator.addFFEvent({
             type: "productDetail",
             id: "a333c0c6f62671727535b2542e168",
         });
