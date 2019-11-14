@@ -15,16 +15,52 @@ All our elements are utilizing the same Core functions described in our [ff-core
 Sometimes you want or have to change the data before all our elements being notified. This is where `ffReady` callback kicks in.
 
 If you are listening to the `ffReady` event, it is guaranteed that your callback is invoked before all element callbacks are going to be invoked.
+In this case, an `event` object will have three additional parameters passed.
+* factfinder - related to global `factfinder` object
+* eventAggregator - related to `factfinder.communication.EventAggregator`
+* resultDispatcher - related to `factfinder.communication.ResultDispatcher`
+
+**NOTE:**
+ Variable `factfinder` is also always available from the global scope.
 
 **Example usage**
 ```html
 <script>
-    document.addEventListener("ffReady", function () {
+    document.addEventListener("ffReady", function (event) {
+        const factfinder       = event.factfinder;
+        const eventAggregator  = event.eventAggregator;
+        const resultDispatcher = event.resultDispatcher;
         //add eventlistener as described in https://web-components.fact-finder.de/api/core-result-dispatcher
     });
 </script>
 <link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
 ```
+
+If You run Your code in browsers which natively supports ES6 or use js code transpilers You can use destructuring to simplify the syntax
+```html
+<script>
+    document.addEventListener("ffReady", function ({factfinder, eventAggregator, resultDispatcher}) {
+        //add eventlistener as described in https://web-components.fact-finder.de/api/core-result-dispatcher
+    });
+</script>
+<link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
+```
+You can even destructure nested object to select only these properties You need in Your event handler
+```html
+<script>
+    document.addEventListener("ffReady", function ({factfinder: {communication: {EventAggregator: {addFFEvent}}}}) {
+        addFFEvent({
+            type: "search",
+            query: "some query"
+        });
+        //add eventlistener as described in https://web-components.fact-finder.de/api/core-result-dispatcher
+    });
+</script>
+<link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
+```
+**NOTE:**
+Internet Explorer does not support destructuring assignment. Do not use it unless Your code is transpiled before deployment
+You can find more information in documentation [`Destructuring assignment`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Operators/Destrukturierende_Zuweisung) 
 
 ### WebComponentsReady
 The `WebComponentsReady` event is fired if all FACT-Finder Web Components are ready to use.
@@ -39,9 +75,10 @@ Let's consider the following case:
 ```html
 <script>
     //WRONG
-    document.addEventListener("ffReady", function () {
+    document.addEventListener("ffReady", function (event) {
+        const eventAggregator  = event.eventAggregator;
             //the core is ready lets search
-            factfinder.communication.FFCommunicationEventAggregatgor.addFFEvent({
+            eventAggregator.addFFEvent({
                 type: "search",
                 query: "some query"
             });

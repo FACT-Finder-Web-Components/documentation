@@ -22,7 +22,8 @@ Be sure to make `ff-middleware` an immediate child node of `ff-communication` li
 In order to configure middleware using JavaScript you attach an event handler to the `ffReady` event. Modules are registered by calling `use()` of the desired middleware namespace.
 
 ```javascript
-window.addEventListener("ffReady", () => {
+window.addEventListener("ffReady", (event) => {
+    const factfinder = event.factfinder;
     factfinder.middleware.response.use(module);
 });
 ```
@@ -113,7 +114,8 @@ FACT-Finder Web Components:
 
 JavaScript:
 ```javascript
-window.addEventListener("ffReady", () => {
+window.addEventListener("ffReady", (event) => {
+    const factfinder = event.factfinder;
     factfinder.middleware.response.use(factfinder.middleware.response.MultiAttributeParsing({
         srcProperty: "MultiFilter",
         storeInProperty: "MultiFilter",
@@ -141,7 +143,8 @@ Configuration with FACT-Finder Web Components:
 
 JavaScript:
 ```javascript
-window.addEventListener("ffReady", () => {
+window.addEventListener("ffReady", (event) => {
+    const factfinder = event.factfinder;
     factfinder.middleware.response.use(
         factfinder.middleware.response.ProductTeaserCampaignProcessor()
     );

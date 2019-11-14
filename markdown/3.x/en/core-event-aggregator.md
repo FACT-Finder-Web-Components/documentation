@@ -48,8 +48,9 @@ The callback receives an event object enriched with basic data (e.g. `sid`) and,
 If you want to intercept a search request for example, you could do:
 ```html
 <script>
-    document.addEventListener("ffReady", function () {
-        factfinder.communication.EventAggregator.addBeforeDispatchingCallback(function (event) {
+    document.addEventListener("ffReady", function (event) {
+        const eventAggregator = event.eventAggregator;
+        eventAggregator.addBeforeDispatchingCallback(function (event) {
             if (event.type === "search") {
                 event["newConditionalHttpParam"] = "someValue";
             }
@@ -63,8 +64,9 @@ If you want to intercept a search request for example, you could do:
 Removes a registered callback identified by its `key`
 ```html
 <script>
-    document.addEventListener("ffReady", function () {
-        const key = factfinder.communication.EventAggregator.addBeforeDispatchingCallback(function (event) {
+    document.addEventListener("ffReady", function (event) {
+        const eventAggregator = event.eventAggregator;
+        const key = eventAggregator.addBeforeDispatchingCallback(function (event) {
             if (event.type === "search") {
                 event["newConditionalHttpParam"] = "someValue";
             }

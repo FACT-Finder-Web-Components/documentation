@@ -6,9 +6,11 @@ This guide covers the recommended approach to handle redirects between different
 
 In order to redirect all search events triggered on the homepage or other non-search pages to the product listing page the following script should be placed above the Web-Components import tag:
 ```javascript
-document.addEventListener("ffReady", function () {
-    factfinder.communication.EventAggregator.addBeforeDispatchingCallback(function (event) {
-        const isSearchEvent = event.type === "search" || event.type === "navigation-search";
+document.addEventListener("ffReady", function (event) {
+    const factfinder      = event.factfinder;
+    const eventAggregator = event.eventAggregator;
+    eventAggregator.addBeforeDispatchingCallback(function (event) {
+        var isSearchEvent = event.type === "search" || event.type === "navigation-search";
         if (isSearchEvent && !isSearchPage()) {
             delete event.type; // prevents the request from being sent before redirecting
 

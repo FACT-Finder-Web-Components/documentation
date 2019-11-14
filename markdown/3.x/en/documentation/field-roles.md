@@ -85,15 +85,16 @@ Both EventListeners have to be declared before our scripts are loaded or you cou
 
 ```html
 <script>
-    document.addEventListener("ffReady", function () {
-                    factfinder.communication.fieldRoles = {
-                        campaignProductNumber: "campaignId",
-                        imageUrl: "image",
-                        masterArticleNumber: "masterId",
-                        price: "RRP",
-                        productName: "name"
-                    };
-                });
+    document.addEventListener("ffReady", function (event) {
+        const factfinder = event.factfinder;
+        factfinder.communication.fieldRoles = {
+            campaignProductNumber: "campaignId",
+            imageUrl: "image",
+            masterArticleNumber: "masterId",
+            price: "RRP",
+            productName: "name"
+        };
+    });
 </script>
 <link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
 ```
