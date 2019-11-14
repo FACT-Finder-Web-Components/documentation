@@ -15,9 +15,9 @@ finished loading.
 The following code-example shows the aforementioned configuration.
 
 ```html
-<ff-communication url="http://web-components.fact-finder.de/FACT-Finder7.1-Demoshop"
-                  version="7.1"
-                  default-query="bagpack"
+<ff-communication url="http://web-components.fact-finder.de/FACT-Finder7.3-Demoshop"
+                  version="7.3"
+                  default-query="backpack"
                   channel="bergfreunde-co-uk"
                   search-immediate>
 </ff-communication>
