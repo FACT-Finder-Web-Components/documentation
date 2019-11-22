@@ -20,7 +20,7 @@ The function supplied in `fn` is invoked with data for the subscribed
 
 #### All available topics
 * `result`
-* `campaigns` - special
+* `campaign` - special
 * `records`
 * `query`
 * `suggest`
