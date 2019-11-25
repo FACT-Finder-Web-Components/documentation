@@ -56,7 +56,7 @@ You don't want the `search-immediate` attribute to be present on your landing (h
 While `ff-communication` provides a declarative way to configure the communication, it is also possible to do so directly via JavaScript as followed:
 
 ```js
-document.addEventListener("ffReady", function () { // "ffReady"-event ensures global factfinder object to exist
+document.addEventListener("ffReady", function () { // "ffReady" event ensures global factfinder object to exists
     factfinder.communication.globalSearchParameter.url = "http://web-components.fact-finder.de/FACT-Finder-7.2";
     factfinder.communication.globalSearchParameter.version = "7.2";
     factfinder.communication.globalSearchParameter.channel = "bergfreunde-co-uk";
@@ -73,4 +73,4 @@ document.addEventListener("ffReady", function () { // "ffReady"-event ensures gl
 
 To prevent FACT-Finder Web Components from missing a factfinder response, before they are loaded, dispatching of results to subscribers is cached and deferred until all components are ready to receive the response. As soon as FACT-Finder Web Components have finished loading `ff-communication` calls `factfinder.communication.ResultDispatcher.startDispatching()`. If `ff-communication` is not used, `factfinder.communication.ResultDispatcher.startDispatching()` has to be called manually in JavaScript.
 
-Also we discourage the direct use of custom JavaScript configuration and strongly recommend to configure everything through FACT-Finder Web Components, you might take a closer look at [ff-core.d.ts](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/dist/ff-core.d.ts). Every configuration can also be done using JavaScript.
+Although entire configuration can be done using JavaScript, we discourage direct use of custom JavaScript to do that and strongly recommend to configure everything through FACT-Finder Web Components. You might take a closer look at [ff-core.d.ts](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/dist/ff-core.d.ts).
