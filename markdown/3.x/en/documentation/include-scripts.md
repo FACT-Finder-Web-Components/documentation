@@ -24,16 +24,19 @@ Depending on the browser's page loading time you might encounter ugly flashes of
 ```html
 <ff-record-list unresolved></ff-record-list>
 ```
-Also add the following CSS rule to the top of the page before the appearance of FACT-Finder Web Components:
+Also add suitable CSS rule to the top of the page before the appearance of FACT-Finder Web Components.
+
+The following piece of CSS hides element marked as unresolved (as well as its descendants) in the document:
 
 ```html
 <head>
     <style>
         [unresolved] {
-            visibility: hidden;
+            display: none;
         }
     </style>
 </head>
 ```
 
-**Note:** The `<style>` tag must be inlined in the main document. If you add it to a CSS file, it might not be loaded fast enough and FOUC might still occur.
+**NOTE:** There are several ways to hide HTML element, like setting its `opacity` or `visibility` style. Unlike `display: none`, elements with `opacity: 0` or `visibility: hidden` will occupy their place in the document, but will not be visible. You can apply any style you need to `unresolved` elements. Please, see the official CSS specification for the details.
+The `<style>` tag must be inlined in the main document. If you add it to a CSS file, it might not be loaded fast enough and FOUC might still occur. `unresolved` attribute is removed when the component is fully initialized and connected to the document.
