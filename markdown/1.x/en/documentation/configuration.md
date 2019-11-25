@@ -56,7 +56,7 @@ You don't want the `search-immediate` attribute to be present on your landing (h
 While `ff-communication` provides a declarative way to configure the communication, it is also possible to do so directly via JavaScript as followed:
 
 ```js
-document.addEventListener("ffReady", () => { // "ffReady"-event ensures global factfinder object to exist
+document.addEventListener("ffReady", function () { // "ffReady"-event ensures global factfinder object to exist
     factfinder.communication.globalSearchParameter.url = "http://web-components.fact-finder.de/FACT-Finder-7.2";
     factfinder.communication.globalSearchParameter.version = "7.2";
     factfinder.communication.globalSearchParameter.channel = "bergfreunde-co-uk";

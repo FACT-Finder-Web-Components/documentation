@@ -47,7 +47,7 @@ For example the `campaigns` are dispatched before the `asn`, but it is
     document.addEventListener("ffReady", function (event) {
         const resultDispatcher = event.resultDispatcher;
         resultDispatcher.subscribe("result", function (resultData, event) {
-            // process the result and or the event
+            // process the result and/or the event
         });
     });
 </script>
@@ -62,8 +62,8 @@ Unsubscribe during runtime from a specific topic
     //listen for ffReady before HTML import is loaded or you'll miss the event
     document.addEventListener("ffReady", function (event) {
         const resultDispatcher = event.resultDispatcher;
-        const key              = resultDispatcher.subscribe("result", function (resultData, event) {
-            // process the result and or the event
+        const key = resultDispatcher.subscribe("result", function (resultData, event) {
+            // process the result and/or the event
         });
 
         resultDispatcher.unsubscribe("result", key);
@@ -82,7 +82,7 @@ This is similar to `subscribe()` but it is guaranteed to be executed
     document.addEventListener("ffReady", function (event) {
         const resultDispatcher = event.resultDispatcher;
         const key = resultDispatcher.addCallback("asn", function (asnData) {
-            // poke around in the asn data
+            // process ASN data
         });
     });
 </script>
@@ -99,7 +99,7 @@ registered callback.
     document.addEventListener("ffReady", function (event) {
         const resultDispatcher = event.resultDispatcher;
         const key = resultDispatcher.addCallback("asn", function (asnData) {
-            // poke around with asn data
+            // process ASN data
         });
 
         factfinder.communication.ResultDispatcher.removeCallback("asn", key);

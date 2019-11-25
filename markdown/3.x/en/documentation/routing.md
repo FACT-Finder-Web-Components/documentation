@@ -7,10 +7,10 @@ This guide covers the recommended approach to handle redirects between different
 In order to redirect all search events triggered on the homepage or other non-search pages to the product listing page the following script should be placed above the Web-Components import tag:
 ```javascript
 document.addEventListener("ffReady", function (event) {
-    const factfinder      = event.factfinder;
+    const factfinder = event.factfinder;
     const eventAggregator = event.eventAggregator;
     eventAggregator.addBeforeDispatchingCallback(function (event) {
-        var isSearchEvent = event.type === "search" || event.type === "navigation-search";
+        const isSearchEvent = event.type === "search" || event.type === "navigation-search";
         if (isSearchEvent && !isSearchPage()) {
             delete event.type; // prevents the request from being sent before redirecting
 
@@ -47,7 +47,7 @@ Please do not use `search-immediate` on non-search pages or you will be immediat
 
 For example, if you wish to redirect only searches that are triggered by entering a new query in the searchbox, you could use the following code:
 ```javascript
-ffSearchBoxElem.addEventListener("before-search", event => {
+ffSearchBoxElem.addEventListener("before-search", function (event) {
     window.location.href = SEARCH_URL + "?query=" + event.detail.query;
 });
 ```
