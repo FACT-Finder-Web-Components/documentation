@@ -57,7 +57,7 @@ parseFloat(priceStr).toLocaleString(currencyCountryCode, {
 
 
 ### Browser Support
-Please take a look at [browser compatibility table](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString). If you encounter some platforms where prices aren't formatted at all or in a wrong way please use a [polyfill](https://github.com/willsp/polyfill-Number.toLocaleString-with-Locales) to enable currency formatting.  
+Please take a look at [browser compatibility table](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString). If you encounter some platforms where prices aren't formatted at all or in a wrong way please use a [polyfill](https://github.com/willsp/polyfill-Number.toLocaleString-with-Locales) to enable currency formatting.  
 
 We made good experience with this one [(Link)](https://github.com/willsp/polyfill-Number.toLocaleString-with-Locales) in terms of size an reliability.
 

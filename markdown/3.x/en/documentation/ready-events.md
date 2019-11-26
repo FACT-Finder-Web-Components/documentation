@@ -60,7 +60,7 @@ You can even destructure nested object to select only these properties You need 
 ```
 **NOTE:**
 Internet Explorer does not support destructuring assignment. Do not use it unless Your code is transpiled before deployment
-You can find more information in documentation [`Destructuring assignment`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Operators/Destrukturierende_Zuweisung) 
+You can find more information in documentation [`Destructuring assignment`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) 
 
 ### WebComponentsReady
 The `WebComponentsReady` event is fired if all FACT-Finder Web Components are ready to use.
