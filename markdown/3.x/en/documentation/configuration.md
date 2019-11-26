@@ -56,7 +56,7 @@ You don't want the `search-immediate` attribute to be present on your landing (h
 While `ff-communication` provides a declarative way to configure the communication, it is also possible to do so directly via JavaScript as followed:
 
 ```js
-document.addEventListener("ffReady", function (event) { // "ffReady" event ensures global factfinder object to exists
+document.addEventListener("ffReady", function (event) { // "ffReady" event ensures global factfinder object exists
     const factfinder = event.factfinder;
     const eventAggregator = event.eventAggregator;
 
