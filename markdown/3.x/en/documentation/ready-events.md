@@ -27,6 +27,10 @@ In this case, an `event` object will have three additional parameters passed.
 ```html
 <script>
     document.addEventListener("ffReady", function (event) {
+        // event.factfinder       === factfinder
+        // event.eventAggregator  === factfinder.communication.EventAggregator
+        // event.resultDispatcher === factfinder.communication.ResultDispatcher
+
         const factfinder       = event.factfinder;
         const eventAggregator  = event.eventAggregator;
         const resultDispatcher = event.resultDispatcher;
@@ -36,7 +40,7 @@ In this case, an `event` object will have three additional parameters passed.
 <link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
 ```
 
-If You run Your code in browsers which natively supports ES6 or use js code transpilers You can use destructuring to simplify the syntax
+If you run your code in browsers which natively support ES6 or use JS code transpilers, you can use destructuring to simplify the syntax.
 ```html
 <script>
     document.addEventListener("ffReady", function ({factfinder, eventAggregator, resultDispatcher}) {
@@ -45,7 +49,7 @@ If You run Your code in browsers which natively supports ES6 or use js code tran
 </script>
 <link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
 ```
-You can even destructure nested object to select only these properties You need in Your event handler
+You can even destructure nested objects  to select only those  properties you need in your event handler
 ```html
 <script>
     document.addEventListener("ffReady", function ({factfinder: {communication: {EventAggregator: {addFFEvent}}}}) {
