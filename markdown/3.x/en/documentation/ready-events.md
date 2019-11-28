@@ -37,7 +37,7 @@ In this case, an `event` object will have three additional parameters passed.
         //add eventlistener as described in https://web-components.fact-finder.de/api/core-result-dispatcher
     });
 </script>
-<link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
+<script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
 
 If you run your code in browsers which natively support ES6 or use JS code transpilers, you can use destructuring to simplify the syntax.
@@ -47,9 +47,9 @@ If you run your code in browsers which natively support ES6 or use JS code trans
         //add eventlistener as described in https://web-components.fact-finder.de/api/core-result-dispatcher
     });
 </script>
-<link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
+<script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
-You can even destructure nested objects  to select only those  properties you need in your event handler
+You can even destructure nested objects to select only those properties you need in your event handler.
 ```html
 <script>
     document.addEventListener("ffReady", function ({factfinder: {communication: {EventAggregator: {addFFEvent}}}}) {
@@ -60,11 +60,11 @@ You can even destructure nested objects  to select only those  properties you ne
         //add eventlistener as described in https://web-components.fact-finder.de/api/core-result-dispatcher
     });
 </script>
-<link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
+<script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
 **NOTE:**
-Internet Explorer does not support destructuring assignment. Do not use it unless Your code is transpiled before deployment
-You can find more information in documentation [`Destructuring assignment`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) 
+Internet Explorer does not support destructuring assignment. Do not use it unless your code is transpiled before deployment.
+You can find more information in the documentation: [Destructuring assignment](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
 
 ### WebComponentsReady
 The `WebComponentsReady` event is fired if all FACT-Finder Web Components are ready to use.
@@ -106,7 +106,7 @@ Instead we want to use the `WebComponentsReady` to wait until all FACT-Finder We
         });
     });
 </script>
-<link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
+<script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
 
 **NOTE**
