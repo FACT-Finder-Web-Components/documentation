@@ -16,9 +16,9 @@ Sometimes you want or have to change the data before all our elements being noti
 
 If you are listening to the `ffReady` event, it is guaranteed that your callback is invoked before all element callbacks are going to be invoked.
 In this case, an `event` object will have three additional parameters passed.
-* factfinder - related to global `factfinder` object
-* eventAggregator - related to `factfinder.communication.EventAggregator`
-* resultDispatcher - related to `factfinder.communication.ResultDispatcher`
+* factfinder - reference to global `factfinder` object
+* eventAggregator - reference to `factfinder.communication.EventAggregator`
+* resultDispatcher - reference to `factfinder.communication.ResultDispatcher`
 
 **NOTE:**
  Variable `factfinder` is also always available from the global scope.
