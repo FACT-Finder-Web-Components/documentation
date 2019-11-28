@@ -24,7 +24,7 @@ Depending on the browser's page loading time you might encounter ugly flashes of
 ```html
 <ff-record-list unresolved></ff-record-list>
 ```
-Also add suitable CSS rule to the top of the page before the appearance of FACT-Finder Web Components.
+Also add suitable CSS rules to the top of the page before FACT-Finder Web Components are referenced.
 
 The following CSS snippet hides elements marked as unresolved (as well as their descendants) in the document:
 
