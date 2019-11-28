@@ -3,7 +3,24 @@
 #### Question:
 I want to use FACT-Finder Web Components with Angular, but data binding used in the components conflicts with Angular's `{{ }}` binding. Can you fix it?
 #### Answer:
-Default binding delimiters can be changed via `ff-communication`'s `mustache-delimiters` attribute. For more information please check the `Underlying Engine (Mustache)` section of the [Template Engine documentation](/documentation/3.x/template-engine).
+You can add Angular's `ngNonBindable` attribute to the parent element to prevent Angular from parsing double curly braces. If you have to keep both Angular and FACT-Finder WebComponents bindings within the same element, you can use: 
+```html
+<ff-record> 
+    {{Angular Binding}}
+    <ng-container ngNonBindable>
+        {{FF Binding}}
+    </ng-container>
+</ff-record>
+```
+The `<ng-container>` tag will not be rendered in the DOM.
+
+Alternatively, you can change the default FACT-Finder Web Components binding delimiters via `ff-communication`'s `mustache-delimiters` attribute. For more information please check the `Underlying Engine (Mustache)` section of the [Template Engine documentation](/documentation/3.x/template-engine). Please note that binding HTML still requires an additional pair of curly brackets, what will cause an Angular error. You can utilize `ngNonBindable` to handle this issue as well:
+```html
+<ng-container ngNonBindable>
+    {{{FF HTML Binding}}}
+</ng-container>
+```
+In this case, please use triple curly braces, no matter the custom delimiters you chose.
 
 ---
 #### Question:
