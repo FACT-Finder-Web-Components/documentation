@@ -26,7 +26,7 @@ Depending on the browser's page loading time you might encounter ugly flashes of
 ```
 Also add suitable CSS rule to the top of the page before the appearance of FACT-Finder Web Components.
 
-The following piece of CSS hides element marked as unresolved (as well as its descendants) in the document:
+The following CSS snippet hides element marked as unresolved (as well as its descendants) in the document:
 
 ```html
 <head>
