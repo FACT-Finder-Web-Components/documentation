@@ -38,5 +38,5 @@ The following CSS snippet hides elements marked as unresolved (as well as their 
 </head>
 ```
 
-**NOTE:** There are several ways to hide HTML element, like setting its `opacity` or `visibility` CSS property. Unlike `display: none`, elements with `opacity: 0` or `visibility: hidden` will occupy their place in the document, but will not be visible. You can apply any style you need to `unresolved` elements. Please, see the official CSS specification for the details.
+**NOTE:** There are several ways to hide an HTML element, like setting its `opacity` or `visibility` CSS property. Unlike `display: none`, elements with `opacity: 0` or `visibility: hidden` will occupy their place in the document, but will not be visible. You can apply any style you need to `unresolved` elements. Please, see the official CSS specification for the details.
 The `<style>` tag must be inlined in the main document. If you add it to a CSS file, it might not be loaded fast enough and FOUC might still occur. `unresolved` attribute is removed when the component is fully initialized and connected to the document.
