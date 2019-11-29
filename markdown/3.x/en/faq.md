@@ -1,6 +1,12 @@
 ## General
 
 #### Question:
+Which version is the documentation referring to?
+#### Answer:
+Latest.
+
+---
+#### Question:
 I want to use FACT-Finder Web Components with Angular, but data binding used in the components conflicts with Angular's `{{ }}` binding. Can you fix it?
 #### Answer:
 You can add Angular's `ngNonBindable` attribute to the parent element to prevent Angular from parsing double curly braces. If you have to keep both Angular and FACT-Finder WebComponents bindings within the same element, you can use: 
