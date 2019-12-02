@@ -44,9 +44,10 @@ For example the `campaigns` are dispatched before the `asn`, but it is
 ```html
 <script>
     // listen for ffReady before HTML import is loaded or you'll miss the event
-    document.addEventListener("ffReady", function () {
-        factfinder.communication.ResultDispatcher.subscribe("result", function (resultData, event) {
-            // process the result and or the event
+    document.addEventListener("ffReady", function (event) {
+        const resultDispatcher = event.resultDispatcher;
+        resultDispatcher.subscribe("result", function (resultData, event) {
+            // process the result and/or the event
         });
     });
 </script>
@@ -59,12 +60,13 @@ Unsubscribe during runtime from a specific topic
 ```html
 <script>
     //listen for ffReady before HTML import is loaded or you'll miss the event
-    document.addEventListener("ffReady", function () {
-        const key = factfinder.communication.ResultDispatcher.subscribe("result", function (resultData, event) {
-            // process the result and or the event
+    document.addEventListener("ffReady", function (event) {
+        const resultDispatcher = event.resultDispatcher;
+        const key = resultDispatcher.subscribe("result", function (resultData, event) {
+            // process the result and/or the event
         });
 
-        factfinder.communication.ResultDispatcher.unsubscribe("result", key);
+        resultDispatcher.unsubscribe("result", key);
     });
 </script>
 <link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
@@ -77,9 +79,10 @@ This is similar to `subscribe()` but it is guaranteed to be executed
 ```html
 <script>
     // listen for ffReady before HTML import is loaded or you'll miss the event
-    document.addEventListener("ffReady", function () {
-        const key = factfinder.communication.ResultDispatcher.addCallback("asn", function (asnData) {
-            // poke around in the asn data
+    document.addEventListener("ffReady", function (event) {
+        const resultDispatcher = event.resultDispatcher;
+        const key = resultDispatcher.addCallback("asn", function (asnData) {
+            // process ASN data
         });
     });
 </script>
@@ -93,9 +96,10 @@ registered callback.
 ```html
 <script>
     // listen for ffReady before HTML import is loaded or you'll miss the event
-    document.addEventListener("ffReady", function () {
-        const key = factfinder.communication.ResultDispatcher.addCallback("asn", function (asnData) {
-            // poke around with asn data
+    document.addEventListener("ffReady", function (event) {
+        const resultDispatcher = event.resultDispatcher;
+        const key = resultDispatcher.addCallback("asn", function (asnData) {
+            // process ASN data
         });
 
         factfinder.communication.ResultDispatcher.removeCallback("asn", key);

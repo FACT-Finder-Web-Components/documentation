@@ -33,9 +33,11 @@ Let's consider the following scenario:
 
 Your product data contains 2 price fields `price` and `discountPrice`. The `discountPrice` field contains `null` if no discount price is available. The field role looks like `"price": "price"`
 So basically what we have to do is writing the discount price into the price field for a proper tracking. In order to keep our `<ff-record-list>` templates simple for mental sanity we are going to introduce a new field for displaying the price. Let's call this field `origPrice` (or displayPrice).
-```javascript
-    document.addEventListener("ffReady", function () {
-        factfinder.communication.ResultDispatcher.subscribe("records", function (records) {
+```html
+<script>
+    document.addEventListener("ffReady", function (event) {
+        const resultDispatcher = event.resultDispatcher;
+        resultDispatcher.subscribe("records", function (records) {
             records.forEach(function (product) {
                 product.record.origPrice = product.record.price;
                 if (product.record.discountPrice !== null) {
@@ -44,6 +46,7 @@ So basically what we have to do is writing the discount price into the price fie
             });                           
         });
     });
+</script>
 ```
 
 The Template could look like:

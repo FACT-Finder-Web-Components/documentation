@@ -42,7 +42,7 @@ This configurations adds the currency and all the number formatting to every pri
 ### Under the hood
 
 ---
-FACT-Finder Web Components are using the [`Number.toLocaleString()`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function to format all price strings. If you want to format prices not covered by our attributes you can always use this function like:
+FACT-Finder Web Components are using the [`Number.toLocaleString()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function to format all price strings. If you want to format prices not covered by our attributes you can always use this function like:
 ````javascript
 const currencyCode = factfinder.communication.globalCommunicationParameter.currencyCode;
 const currencyCountryCode = factfinder.communication.globalCommunicationParameter.currencyCountryCode;

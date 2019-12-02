@@ -187,10 +187,11 @@ The URL a navigation element points to is configured in FACT-Finder. You have, h
 
 To access navigation data you have to subscribe to the `ResultDispatcher`'s `navigation` event.
 ```javascript
-document.addEventListener(`ffReady`, () => {
-    factfinder.communication.ResultDispatcher.subscribe(`navigation`, (navData, e) => {
+document.addEventListener(`ffReady`, function (event) {
+    const resultDispatcher = event.resultDispatcher;
+    resultDispatcher.subscribe(`navigation`, function (navData, e) {
         // set href's of all elements on clusterLevel 0
-        navData[0].forEach(navEl => navEl.__TARGET_URL__.setUrl(`/targetUrl`));
+        navData[0].forEach(function(navEl) { navEl.__TARGET_URL__.setUrl(`/targetUrl`)});
     });
 });
 ```

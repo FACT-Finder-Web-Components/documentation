@@ -104,8 +104,10 @@ If you do so, you can poke around with the child elements and invoke the `checko
 **NOTE:** the `<ff-checkout-tracking>` element relies on the FACT-Finder Record API. If this API is not supported by your FACT-Finder version, it won't work.
 
 To have the new element resolve the correct field for tracking on your detail page, you have to set the `fieldRoles` property manually (normally, the `fieldRoles` property is set by receiving a search response from a search request) like: 
-```
-document.addEventListener("ffReady", function () {
+```html
+<script>
+document.addEventListener("ffReady", function (event) {
+    const factfinder = event.factfinder;
     factfinder.communication.fieldRoles = {
         brand: "BrandFieldName",
         campaignProductNumber: "SomeIDField",
@@ -120,5 +122,6 @@ document.addEventListener("ffReady", function () {
         trackingProductNumber: "SomeIdField"
     };
 });
+</script>
 ```
 **NOTE:** You have to replace the right hand side (like `BrandFieldName`) with your own values. If you can't find a way to retrieve the field roles via the FACT-Finder UI, you can open a FACT-Finder Web Components search page, trigger a search with your own FACT-Finder and afterwards open the Browser Dev Tools, navigate to the `console`  tab and type: `factfinder.communication.fieldRoles` -> Hit enter

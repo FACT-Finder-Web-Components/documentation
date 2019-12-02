@@ -47,8 +47,10 @@ detail page, you have to set the `fieldRoles` property manually (normally
 the fieldRoles property is set by receiving a search response from a
 search request) like so:
 
-```Javascript
-document.addEventListener("ffReady", function () {
+```html
+<script>
+document.addEventListener("ffReady", function (event) {
+    const factfinder = event.factfinder;
     factfinder.communication.fieldRoles = {
         brand: "BrandFieldName",
         campaignProductNumber: "SomeIDField",
@@ -63,6 +65,7 @@ document.addEventListener("ffReady", function () {
         trackingProductNumber: "SomeIdField"
     };
 });
+</script>
 ```
 
 **NOTE:** You have to replace the right hand side (e.g. BrandFieldName)
