@@ -287,18 +287,22 @@ The following is a listing of possible HTML that is rendered by `ff-asn`. Notice
 ## Remove all filters
 Sometimes you may want to reset all filters at once and go back to the original search result. For this case there is an dedicated element which you can place anywhere on your page. This element will trigger a new search request with the current search query.
 
-The `ff-asn-remove-all-filter` element has two properties:
+The `ff-asn-remove-all-filter` element has the following properties:
 
 ### show-always
-With the `show-always` property you can define if the element is only visible when at least one filter is set, or always.  
+With the `show-always` property you can define if the element is only visible when at least one removable filter is set, or always.  
 The default value is `false`.
 
 ### remove-params
 The `remove-params` property defines whether the resetting request should only contain a search with the current search query or if it should keep the current parameters like `products-per-page` and `sort` and only remove those parameters that were applied by the ASN (recognizable by the `filter*` prefix).  
 The default value is `false`.
 
+### keep-category-path
+Setting the `keep-category-path` property preserves the category filters.
+The default value is `false`.
+
 ```html
-<ff-asn-remove-all-filter remove-params show-always>
+<ff-asn-remove-all-filter remove-params show-always keep-category-path>
     Reset Filters
 </ff-asn-remove-all-filter>
 ```
