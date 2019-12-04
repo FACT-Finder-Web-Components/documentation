@@ -98,3 +98,12 @@ ___
 | ---- | ----------- |
 | **submit-on-input**&nbsp;(String) **Options**&nbsp;"true",&nbsp;"false" (default: "false") | If this attribute is set to true, the input fields accept values. If set to false, you cannot focus the input fields. |
 | **unit**&nbsp;(String) | The unit of measurement. E.g. € |
+
+## `ff-asn-remove-all-filter`
+___
+### Properties
+| Name | Description |
+| ---- | ----------- |
+| **show-always**&nbsp;(Boolean) |  Defines if the element is only visible when at least one removable filter is set, or always. |
+| **remove-params**&nbsp;(Boolean) | Defines whether the resetting request should only contain a search with the current search query or if it should keep the current parameters like `products-per-page` and `sort` and only remove those parameters that were applied by the ASN (recognizable by the `filter*` prefix). |
+| **keep-category-path**&nbsp;(Boolean) | Setting this property preserves the category filters. |
