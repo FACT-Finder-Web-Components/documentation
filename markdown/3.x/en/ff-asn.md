@@ -294,7 +294,7 @@ With the `show-always` property you can define if the element is only visible wh
 The default value is `false`.
 
 ### remove-params
-The `remove-params` property defines whether the resetting request should only contain a search with the current search query or if it should keep the current parameters like `products-per-page` and `sort` and only remove those parameters that were applied by the ASN (recognizable by the `filter*` prefix).  
+Setting this attribute removes all parameters (except the search query) from the resetting request. When not set, only parameters that were applied by the ASN (recognizable by the `filter*` prefix) are removed. Other parameters like `products-per-page`, `sort` and custom parameters will be unaffected. 
 The default value is `false`.
 
 ### keep-category-path
