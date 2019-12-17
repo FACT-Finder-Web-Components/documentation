@@ -128,6 +128,9 @@ Note: When you manually load a page, e.g. from an URL with the 3rd page set in i
 
 We recommend using higher values for `[infinite-debounce-delay]` and `infinite-scroll-margin` like:
 
+**Note:**
+Please do not use `infinite-scroll` in `ff-record-list` inside components like `ff-recommendation` or `ff-pushed-products`. This attribute is not designed to work with them and using it may cause unwanted side effect
+
 ```html
 <ff-record-list infinite-scrolling
                 infinite-debounce-delay="300"
