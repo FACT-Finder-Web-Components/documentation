@@ -38,11 +38,11 @@ ___
 | **version**&nbsp;(String)&nbsp;(default: empty) | Your FACT-Finder version. Only major and minor version like "7.2" |
 | **channel**&nbsp;(String)&nbsp;(default: empty) | Your channel name. Has to be the same as the channel name configured in the FACT-Finder backend. |
 | **search-immediate**&nbsp;(Boolean) | If this property is present, FACT-Finder Web Components will start searching as soon as they are loaded. |
-| **use-url-parameter**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | If set to true, URL parameters are used instead of HTTP parameters. |
+| **use-url-parameter**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | If set to false, FACT-Finder parameters are not pushed to the URL unless explicitly whitelisted. Note that this attribute has no effect when `only-search-params` is set. |
 | **use-cache**&nbsp;(Boolean) **Options**: &nbsp;true, &nbsp;false (default: false)| This value determines, if the browser should cache previous search requests or not. Some browsers support this feature and therefore speed up the search for repeated requests. |
 | **default-query**&nbsp; (String) (default: '*') | Determines which search term should is used by default if no search term provided in as http parameter or in a search event object. |
-| **only-search-params**&nbsp;(Boolean) | If present, URL parameters like 'channel' and 'sid' are omitted in the URL. This can be used in conjunction with `parameter-whitelist`. |
-| **parameter-whitelist**&nbsp; (String) (default: "query,filter") | If any URL parameters are omitted through other attributes like `use-url-parameter="false"` or `only-search-params` you can add specific important parameters manually. Just use a comma separated list like: `parameter-whitelist="param1,myParam"` |
+| **only-search-params**&nbsp;(Boolean) | If set, only current search related parameters are pushed to the URL, i.e. `query`, `filter`, `sort`, `page` and `productsPerPage`. This can be used in conjunction with `parameter-whitelist`. Note that setting this attribute overrides the behaviour of `use-url-parameter`. |
+| **parameter-whitelist**&nbsp; (String) (default: '') | Comma separated values; if set, only specified parameters are pushed to the URL. E.g. `parameter-whitelist="query,page"`. |
 | **default-query**&nbsp; (String) (default: '') | As soon as this attribute is set, a Login tracking request is sent to FACT-Finder. |
 | **add-params**&nbsp;(String)&nbsp;(default: empty) | _The parameter string has to be URL-encoded._ With this property you can deliver standard parameters which will then be attached to the search request. Example: `add-params="param1=abcd,param2=xyz"` |
 | **add-tracking-params**&nbsp;(String)&nbsp;(default: empty) | With this property you can deliver standard parameters, which are attached to every tracking request. Example: `add-tracking-params="param1=abcd,param2=xyz"` |
