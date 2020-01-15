@@ -79,7 +79,6 @@ ___
 | **disable-single-hit-redirect**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Disables the automatic redirect to the product detail page if only one record is found |
 | **single-hit-redirect-base-path**&nbsp;(String) | Use this as an absolute base path if deeplinks are relative |
 | **sort-url-parameters-alphabetically**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Sorts all query parameters and their values alphabetically. _This can be used for SEO._ |
-| **async-facets**&nbsp;(Boolean) | If facets are rendered before products, you can use this attribute to postpone the facet rendering until products are rendered properly. |
 | **use-filter-url**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Push `categoryPath` to URL path |
 | **filter-url-prefix**&nbsp;(String) (default: "") | Prefix `use-filter-url` e.g. `filter-url-prefix="categories"` -> `www.myshop.com/categories/cat1/cat2?query=...`  |
 | **mustache-delimiters**&nbsp;(String) (default: "{{,}}") | Delimiters used by mustache.js [template engine](/documentation/3.x/template-engine), separated by a comma |
