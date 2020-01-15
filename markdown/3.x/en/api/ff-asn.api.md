@@ -22,7 +22,6 @@ ___
 | **for-group**&nbsp;(String)&nbsp;(default: "all")| Determines, which filter group the template should be applied to. If set to `"all"`, the template is applied to all groups if no other template matches the requirements. |
 | **group**&nbsp;(Object) | The data for the filter group. |
 | **filter-style**&nbsp;(String) | With the filter-style property it is possible to use the ff-asn-group element as a template for all groups which match the filter style. (TREE, DEFAULT, MULTISELECT, SINGLESELECT) |
-| **lazy-load**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | The lazy-load property defines if the ff-asn-elements for the hidden links container should be rendered when the asn group is dispatched or lazily just when the hiddenLinks container is opened via toggleHiddenLinksContainer() or showHiddenLinksContainer(). This improves performance for the first print and is by default set to true. |
 | **select-box**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | Use this when the hiddenLinks should be an HTML select element |
 | **disable-auto-expand**&nbsp;(Boolean) | Prevents group from being automatically expanded when it contains any active filters. |
 | **not-searchable**&nbsp;(Boolean) (default: false) | Prevents group from being searchable even if it satisfies `searchable-from` condition.  |
