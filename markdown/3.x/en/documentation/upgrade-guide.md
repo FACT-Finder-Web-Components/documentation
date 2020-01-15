@@ -61,7 +61,7 @@ The following list contains all remaining breaking changes. In cases of HTML cha
 If we missed anything, please get it touch with us.
 
 - `ff-asn-group`
-    - deprecated attribute `laszy-load` was replaced by `lazy-load`
+    - deprecated attribute `laszy-load` was removed
     - use `<div slot="groupCaption" ...>` instead of `<div data-container="groupCaption" ...>`
     - `ff-asn-group-element`s no longer replace `<div data-content="detailedLinks">`, but instead get nested inside now
     - `ff-asn-group-element`s no longer replace `<div data-content="hiddenLinks">`, but instead get nested inside now
