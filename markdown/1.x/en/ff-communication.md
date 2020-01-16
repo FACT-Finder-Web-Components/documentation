@@ -22,4 +22,8 @@ The following code-example shows the aforementioned configuration.
                   search-immediate>
 </ff-communication>
 ```
+
+`url`, `channel` and `version` are mandatory parameters and should be explicitly set to make the the components work
+correctly.
+
 For more information, see the [API reference](/api/1.x/ff-communication#tab=api).
