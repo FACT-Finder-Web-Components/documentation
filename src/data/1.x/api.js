@@ -13,6 +13,12 @@ const api = {
             title: `EventAggregator`,
         },
 
+        "ff-communication": {
+            path: `ff-communication`,
+            title: `Communication`,
+            noDemo: true
+        },
+
         "ff-searchbox": {
             path: `ff-searchbox`,
             title: `Searchbox`,
@@ -165,6 +171,7 @@ api.core = [
 ];
 
 api.basics = [
+    api.pages[`ff-communication`],
     api.pages[`ff-searchbox`],
     api.pages[`ff-record-list`],
     api.pages[`ff-suggest`],
