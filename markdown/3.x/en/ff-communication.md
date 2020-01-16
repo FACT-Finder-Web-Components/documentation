@@ -22,4 +22,9 @@ The following code-example shows the aforementioned configuration.
                   search-immediate>
 </ff-communication>
 ```
+`url`, `channel` and `version` are mandatory parameters and should be explicitly set to make the the components work
+correctly.
+
+**NOTE**: Although `version` defaults to `7.2` when not set, it is recommended to set it as default value may change with feature releases.
+
 For more information, see the [API reference](/api/3.x/ff-communication#tab=api).
