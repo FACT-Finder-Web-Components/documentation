@@ -148,7 +148,7 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
                         <a name="home" href="[[rootPath]]home">Home</a>
                     </paper-tab>
                     <paper-tab name="api">
-                        <a name="api" href="[[rootPath]]api/[[version]]/ff-searchbox">API</a>
+                        <a name="api" href="[[rootPath]]api/[[version]]/ff-communication">API</a>
                     </paper-tab>
                     <paper-tab name="documentation">
                         <a name="documentation" href="[[rootPath]]documentation/[[version]]/install-dist">Documentation</a>
