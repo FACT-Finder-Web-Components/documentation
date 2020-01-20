@@ -117,7 +117,7 @@ assignment fo the `factfinder.communication.fieldRoles` property.
 **Example:**
 
 You can check-out the
-[record-list demo](https://github.com/FACT-Finder-Web-Components/demos/blob/master/ff-record-list/index.html)
+[record-list demo](https://github.com/FACT-Finder-Web-Components/demos/blob/release/3.x/ff-record-list/index.html)
 and adjust the `ff-communication`-parameters to match your set-up and
 use the search-box in the demo to submit any search query. In your
 dev-tools' network tab you can look at the JSON-response under
