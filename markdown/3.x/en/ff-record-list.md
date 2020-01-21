@@ -141,5 +141,7 @@ We recommend using higher values for `[infinite-debounce-delay]` and `infinite-s
     </ff-record>
 </ff-record-list>
 ```
+**Note:**
+Please do not use `infinite-scrolling` when the `ff-record-list` is inside a component like `ff-recommendation` or `ff-pushed-products`. The attribute is not designed to work in this context and using it may cause unwanted side effects.
 
 The maximum number of pages that are loaded can be restricted with the `[infinite-max-pages]` attribute.
