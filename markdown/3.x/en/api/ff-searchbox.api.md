@@ -13,7 +13,7 @@ ___
 ### Events
 | Name | Description |
 | ---- | ----------- |
-| **before-search** | Is triggered by a search and sends the current search event object. This way the object can be edited prior to the search, e.g. in order to send additional URL parameters. |
+| **before-search** | Is triggered by a search and sends the current search event object. This way the object can be edited prior to the search, e.g. in order to send additional URL parameters. This event bubbles up the DOM tree. |
 | **before-suggest** | Is triggered by a suggest and sends the current suggest event object. This way the object can be edited prior to the suggest, e.g. in order to send additional URL parameters. |
 
 ### Methods
@@ -28,3 +28,8 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **resetButton(selector = 'button')** | Sets the `button` reference to the nested HTML element pointed by selector. |
+
+### Events
+| Name | Description |
+| ---- | ----------- |
+| **before-search** | Is emitted when the button is pressed and bubbles up the DOM tree. Its `detail` property contains the actual search event that is used to trigger the FACT-Finder API call. |
