@@ -30,6 +30,8 @@ You can use the `[name]` attribute to use the `ff-campaign-advisor-answer` eleme
 
 You can use the `[not]` attribute to use the `ff-campaign-advisor-answer` element NOT as a template for a campaign with that name.
 
+**Note** In order Advisor campaigns to work correctly, `ff-communication` parameters `use-browser-history` and `use-url-parameter` can't be set to false
+
 ```html
 <ff-campaign-advisor name="Advisor Schuhe">
     <ff-campaign-advisor-question>
