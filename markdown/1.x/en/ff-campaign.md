@@ -21,7 +21,7 @@ The only necessary data binding is `{{text}}`.
 ## Adding Advisor campaigns
 To integrate Advisor campaigns properly, you need to use the `ff-campaign-advisor`, `ff-campaign-advisor-question` and `ff-campaign-advisor-answer` elements.
 
-The `ff-campaign-advisor-question` is copied for each question configured in FACT-Finder. It is inserted at its current position on element load. 
+The `ff-campaign-advisor-question` is copied for each question configured in FACT-Finder. It is inserted at its current position on element load.
 Annotate any HTML-Element inside the question with the `[data-question]` attribute to use it for data binding purposes.
 
 The `ff-campaign-advisor-answer` is copied for each answer which is configured in FACT-Finder. It is inserted at its current position on element load. In the following example the answers are always inserted at firstChild position
@@ -30,7 +30,7 @@ You can use the `[name]` attribute to use the `ff-campaign-advisor-answer` eleme
 
 You can use the `[not]` attribute to use the `ff-campaign-advisor-answer` element NOT as a template for a campaign with that name.
 
-**Note** In order Advisor campaigns to work correctly, `ff-communication` parameters `use-browser-history` and `use-url-parameter` can't be set to false
+**NOTE**: In order for advisor campaigns to work correctly, `ff-communication` parameters `use-browser-history` and `use-url-parameter` can't be set to false.
 
 ```html
 <ff-campaign-advisor name="Advisor Schuhe">
