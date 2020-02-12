@@ -13,6 +13,9 @@ Each event has a `type` which defines what API on FACT-Finder is called and whic
 *  fail 
 *  always 
 *  success 
+*  cancel
+*  searchImmediate
+
 
 `fail`, `always` and `success` are expected to be a function which is
 executed at the appropriate time. The `type` property tells the EventAggregator how to handle
