@@ -10,7 +10,7 @@ ___
 ### Events
 | Name | Description |
 | ---- | ----------- |
-| **dom-updated** |  This event is triggered when the element has received new data and the template for this element and all sub elements have been punched out. |
+| **dom-updated** | This event is triggered when the element has received new data and the template for this element and all sub elements have been punched out. |
 
 ## `ff-asn-group`
 ___
@@ -80,7 +80,7 @@ ___
 | **step-size**&nbsp;(Number) | Determines step size used when the slider is dragged. |
 | **selected-min-value**&nbsp;(Number)| The currently selected minimum value. Cannot be less than `absolute-min-value`. |
 | **selected-max-value**&nbsp;(Number)| The currently selected maximum value. Cannot be more than `absolute-max-value`. |
-| **submit-on-release**&nbsp;(Boolean) **Options**&nbsp;true,&nbsp;false (default: true) | If this is set to true, a filter request is made immediately upon releasing the slider button. |
+| **submit-on-release**&nbsp;(Boolean) **Options**:&nbsp;true,&nbsp;false (default: true) | If this is set to true, a filter request is made immediately upon releasing the slider button. |
 | **absolute-min-value**&nbsp;(Number) | Indicates the minimum lower end e.g. if set to 50, dragging the slider button to the most left will result in a value of 50. |
 | **absolute-max-value**&nbsp;(Number) | Indicates the maximum upper end e.g. if set to 500, dragging the slider button to the most right will result in a value of 500. |
 |**unit**&nbsp;(String)| The unit of measurement. E.g. € |
@@ -95,7 +95,8 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **submit-on-input**&nbsp;(String) **Options**&nbsp;"true",&nbsp;"false" (default: "false") | If this attribute is set to true, the input fields accept values. If set to false, you cannot focus the input fields. |
+| **disable-input-fields**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | If this attribute is set to false, the input fields accept values. If set to true, you cannot focus the input fields. |
+| **submit-on-input**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | If this is set to true, a filter request is made immediately upon key stroke instead of waiting for an ENTER key press. |
 | **unit**&nbsp;(String) | The unit of measurement. E.g. € |
 
 ## `ff-asn-remove-all-filter`
