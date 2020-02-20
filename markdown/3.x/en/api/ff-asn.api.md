@@ -96,7 +96,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **disable-input-fields**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | If this attribute is set to false, the input fields accept values. If set to true, you cannot focus the input fields. |
-| **submit-on-input**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | If this is set to true, a filter request is made immediately upon key stroke instead of waiting for the ENTER key press. |
+| **submit-on-input**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | If this is set to true, a filter request is made immediately upon key stroke instead of waiting for an ENTER key press. |
 | **unit**&nbsp;(String) | The unit of measurement. E.g. € |
 
 ## `ff-asn-remove-all-filter`
