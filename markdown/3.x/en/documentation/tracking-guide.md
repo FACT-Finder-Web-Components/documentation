@@ -99,10 +99,10 @@ If you want to prevent the auto requests, you can disable them with the Boolean 
    <ff-checkout-tracking-item record-id="10321943" count="1"></ff-checkout-tracking-item>
 </ff-checkout-tracking>
 ```
-If you want to send tracking request to the different channel, use `channel` attribute
+If you want to send the tracking request to a channel different from the one configured in ff-communication, use the `channel` attribute.
 ```html
 <ff-checkout-tracking disable-auto-tracking>
-   <ff-checkout-tracking-item record-id="10321926" count="5" channel="new-channel-name"></ff-checkout-tracking-item>
+   <ff-checkout-tracking-item record-id="10321926" count="5" channel="[NEW_CHANNEL]"></ff-checkout-tracking-item>
 </ff-checkout-tracking>
 ```
 If you do so, you can search for the child elements and invoke the `checkoutTrackingElement.trackCheckoutItems()` function manually.
