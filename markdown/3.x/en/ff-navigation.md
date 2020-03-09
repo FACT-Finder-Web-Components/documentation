@@ -261,6 +261,8 @@ The Element with the 'data-search' property will only be visible on elements whi
 ## Custom navigation data
 
 To use custom navigation data instead of data retrieved from FACT-Finder, set `subscribe="false"` and assign an array of navigation items to the `navigationData` property.
+To inspect the structure of such data you can subscribe to the default topic through `ResultDispatcher.subscribe` and read its argument. For more details on how to subscribe to topics, please visit the
+[Result Dispatcher](/api/3.x/core-result-dispatcher) documentation page.
 
 ```html
 

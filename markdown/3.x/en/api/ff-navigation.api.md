@@ -11,9 +11,9 @@ ___
 | **fetch-size**&nbsp;(Number) (default: 1) | Defines how many level of the following navigation data should be loaded in subsequent requests. Fewer level -> more requests and inversely more level -> more data per request. |
 | **max-fetch**&nbsp;(Number) (default: 10) | Defines up to which level of the navigation hierarchy the data should be loaded. |
 | **fetch-time**&nbsp;(Number) (default: 100) | Defines the time between navigation requests in milliseconds. |
-| **subscribe**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | Defines if component should automatically subscribe to `navigation` event and use navigation data retrieved from FACT-Finder. |
+| **subscribe**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | Defines if the component should automatically subscribe to `navigation` event and use navigation data retrieved from FACT-Finder. |
 | **navigationData**&nbsp;(Array) | The data elements used to render the navigation. Each element in the array represents a header menu item with all its sub-items for all cluster levels defined by the `max-fetch` property (see above). If `navigationData` is set by the user, it may contain sub-elements of any level, regardless of `max-fetch`'s value. |
-
+| **topic**&nbsp;(String) | Defines if the component should subscribe to a custom topic instead of the default one. Please note that in this case you need to manually dispatch navigation data. For more information regarding the data's structure, please refer to **Custom navigation data** in the [ff-navigation documentation](/api/3.x/ff-navigation#tab=docs). |
 ### Methods
 | Name | Description |
 | ---- | ----------- |
