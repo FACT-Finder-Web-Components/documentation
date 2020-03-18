@@ -104,7 +104,7 @@ If you do so, you can search for the child elements by invoking the `checkoutTra
 If you want to send the tracking request to a channel different from the one configured in `ff-communication`, use the `channel` attribute.
 ```html
 <ff-checkout-tracking disable-auto-tracking>
-   <ff-checkout-tracking-item record-id="10321926" count="5" channel="[NEW_CHANNEL]"></ff-checkout-tracking-item>
+   <ff-checkout-tracking-item record-id="10321926" count="5" channel="NEW_CHANNEL"></ff-checkout-tracking-item>
 </ff-checkout-tracking>
 ```
 
