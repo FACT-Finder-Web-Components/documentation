@@ -10,9 +10,12 @@ The `count` attribute specifies how many items of the product were bought. It de
 
 The `price` attribute specifies the price of the bought item. If this attribute is not present, it will be inferred from the clicked item and the configured [fieldRoles](/documentation/3.x/field-roles).
 
+The `channel` attribute specifies the channel, tracking request should be send to. If this attribute is not present, default value configured in `ff-communication` will be used.
+
+
 ```HTML
 <ff-checkout-tracking>
-    <ff-checkout-tracking-item record-id="10321926" count="5"></ff-checkout-tracking-item>
+    <ff-checkout-tracking-item record-id="10321926" count="5" channel="NEW_CHANNEL"></ff-checkout-tracking-item>
     <ff-checkout-tracking-item record-id="10321938" count="3" price="9.99"></ff-checkout-tracking-item>
     <ff-checkout-tracking-item record-id="10321943" count="1"></ff-checkout-tracking-item>
 </ff-checkout-tracking>
