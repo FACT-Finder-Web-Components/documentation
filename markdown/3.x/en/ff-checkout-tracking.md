@@ -10,7 +10,7 @@ The `count` attribute specifies how many items of the product were bought. It de
 
 The `price` attribute specifies the price of the bought item. If this attribute is not present, it will be inferred from the clicked item and the configured [fieldRoles](/documentation/3.x/field-roles).
 
-The `channel` attribute specifies the channel, tracking request should be send to. If this attribute is not present, default value configured in `ff-communication` will be used.
+The `channel` attribute specifies the channel to which a tracking request should be sent. If this attribute is not present, the default value configured in `ff-communication` will be used.
 
 
 ```HTML
