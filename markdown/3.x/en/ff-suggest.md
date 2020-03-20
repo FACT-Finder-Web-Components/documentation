@@ -6,7 +6,7 @@ With the `suggest-onfocus` attribute, you can define if the suggest
 opens when the `ff-searchbox` gains focus. Values are boolean as String
 (default is `"false"`).
 
-With the `hidesuggest-onblur` attribute, you can define if the suggest
+With the `hide-suggest-onblur` attribute, you can define if the suggest
 will be closed when the `ff-searchbox` loses focus. Values are boolean
 as String (default is `"true"`).
 
@@ -14,7 +14,7 @@ The `ff-suggest` is triggered when at least 2 characters are in the
 search box.
 
 ```html
-<ff-searchbox suggest-onfocus="false" hidesuggest-onblur="true">
+<ff-searchbox suggest-onfocus="false" hide-suggest-onblur="true">
     <input placeholder="Search..." />
 </ff-searchbox>
 ```
