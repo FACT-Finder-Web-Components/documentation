@@ -50,11 +50,11 @@ open when the user clicks into the input or the input gets focus.
 
 ### Hiding Suggest
 Usually, you want the suggest to disappear once the user clicks
-somewhere else. With the attribute `hidesuggest-onblur` set to `"false"`
+somewhere else. With the attribute `hide-suggest-onblur` set to `"false"`
 the suggest will only disappear when less than 2 characters are in the
 input or when the ESC Key is pressed.
 ```html
-<ff-searchbox hidesuggest-onblur="false">
+<ff-searchbox hide-suggest-onblur="false">
     <input />
 </ff-searchbox>
 ```
