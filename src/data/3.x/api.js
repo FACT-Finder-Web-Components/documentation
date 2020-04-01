@@ -138,6 +138,11 @@ const api = {
             title: `Middleware`,
             noDemo: true
         },
+        "ff-loading-spinner": {
+            path: "ff-loading-spinner",
+            title: "Loading Spinner",
+            noDemo: true
+        },
         "ImageBindingBehavior": {
             path: `ImageBindingBehavior`,
             title: `Image binding`,
@@ -208,6 +213,7 @@ api.moreFeatures = [
     api.pages[`ff-tag-cloud`],
     api.pages[`ff-template`],
     api.pages[`ff-middleware`],
+    api.pages["ff-loading-spinner"],
     api.pages[`ImageBindingBehavior`],
 ];
 
