@@ -1,88 +1,82 @@
 ## Overview
 
-`ff-loading-spinner` is a lightweight spinning loading indicator that is 
-triggered by common events fired by FACT-Finder Web Components. It uses 
-inexpensive CSS animations and does not trigger `layout` or `paint` 
+`ff-loading-spinner` is a lightweight visual indicator of pending action. It is triggered by common events fired by 
+FACT-Finder Web Components. The spinner uses inexpensive CSS animations and does not trigger `layout` or `paint` 
 operations in Blink and Gecko-based browsers.
 
-_By default_ element gets activated by the following events:
+_By default_ the element is activated by the following events:
 - search
 - filter
 - clearFilter
 - sort
 - advisor
 
-It is deactivated when the action is completed.
+It is automatically deactivated when the action has completed.
 
-**Example:** When a search request is sent via the `ff-searchbox`, the spinner
-is activated. As soon as FACT-Finder's response is received, the spinner is 
-deactivated.
+**Example:** When a search request is sent via the `ff-searchbox`, the spinner is activated. As soon as the response from 
+FACT-Finder is received, the spinner is deactivated.
 
-## Usage 
+## Usage
 
 #### Default mode
 
-Assuming you have integrated `ff-communication` and `ff-searchbox` you simply
-need to place the `ff-loading-spinner` element in your HTML.
+Assuming that `ff-communication` and `ff-searchbox` have been integrated, `ff-loading-spinner` needs to be placed in HTML.
 
 ```html
 <ff-loading-spinner></ff-loading-spinner>
 ```
-As soon as a request is sent to FACT-Finder, `ff-loading-spinner` will
-be displayed. When the response is received, the element will be hidden again.
+As soon as a search request is sent to FACT-Finder, `ff-loading-spinner` will be displayed. When the response is received, 
+the element will be hidden again.
 
 #### Manual mode
 
-In addition to the default 'subscription' mode, the element also has a _manual mode_
-in which the element will _not_ be subscribed to any events. 
-It is activated if the `manual` HTML attribute is present. 
-Adding the attribute will unsubscribe the element form all events. Likewise, re-adding
-the attribute will subscribe the element again.
+In addition to the default subscription mode, the element also has a _manual mode_ in which the element will _not_ be 
+subscribed to any events. Manual mode is activated when the `manual` HTML attribute is present. Adding the attribute will 
+unsubscribe the element form all events. Likewise, removing the attribute will subscribe the element again. Manual mode 
+can also be set by changing `ff-loading-spinner`'s `manual` property value to `true` (activation) or `false` (deactivation) 
+directly in JavaScript code. The visibility of the element can be changed either with the `is-active` attribute or by calling
+its `show()` and `hide()` methods.
 
-**Why manual mode?**  
-The intention of manual mode is to provide a way for you to customize exactly _when_ 
-you want the element to be displayed.
-
-**Keep in mind:** You _don't_ have to be in manual mode to manipulate the visibility of the
-element via its API, however, the default subscription callbacks might interfere with your 
-intended animation flow.
-
-You can de-/activate the element using either the `is-active` attribute, or the corresponding
-wrappers `hide()` and `show()`.
+**NOTE:** It is not necessary to be in manual mode in order to manipulate the visibility of the element using its API. 
+However, the default subscription callbacks might interfere with the intended animation flow. Therefore it is recommended to 
+use 'manual' when implementing visibility customizations.
 
 ```html
-<!-- Active/Shown element -->
-<ff-loading-spinner is-active></ff-loading-spinner>
+<!-- Active (visible) element -->
+<ff-loading-spinner manual is-active></ff-loading-spinner>
 
 <script>
-/* Deactivating/Hiding the element*/
+/* Hiding the element */
 document.querySelector('ff-loading-spinner').isActive = false;
 </script>
 ```
 
-One obvious scenario for using the wrappers would be as a callback in a custom
-event handler, as seen below:
+An example of a scenario where the manual mode with visibility customizations can be applied is a custom event handler.
+
 ```html
-<!-- Active/Shown element -->
-<ff-loading-spinner></ff-loading-spinner>
+<!-- Hidden element -->
+<ff-loading-spinner manual></ff-loading-spinner>
 
 <script>
-const spinner = document.querySelector('ff-loading-spinner');
-/*using show() wrapper as callback*/
-document.addEventListener('your-event', () => spinner.show());
+/* using show wrapper in  callback */
+document.addEventListener('custom-event', function () {
+    const spinner = document.querySelector('ff-loading-spinner');
+    spinner.show();
+});
 </script>
 ```
 
 #### Changing color
 
-You can also change the element's stroke-color to fit into your design
-by passing a CSS color value.
+It is possible to change the element's stroke-color to fit into your website design. A CSS color value needs to be passed to the `stroke-color` attribute.
 
 ```html
 <!-- using HEX -->
 <ff-loading-spinner stroke-color="#0000ff"></ff-loading-spinner>
+
 <!-- using RGB -->
 <ff-loading-spinner stroke-color="rgb(65, 180, 170)"></ff-loading-spinner>
+
 <!-- using HSL -->
 <ff-loading-spinner stroke-color="hsl(120, 100%, 75%)"></ff-loading-spinner>
 ```

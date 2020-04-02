@@ -140,8 +140,7 @@ const api = {
         },
         "ff-loading-spinner": {
             path: "ff-loading-spinner",
-            title: "Loading Spinner",
-            noDemo: true
+            title: "Loading Spinner"
         },
         "ImageBindingBehavior": {
             path: `ImageBindingBehavior`,
