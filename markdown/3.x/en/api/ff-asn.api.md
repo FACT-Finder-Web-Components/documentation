@@ -25,6 +25,7 @@ ___
 | **select-box**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | Use this when the hiddenLinks should be an HTML select element |
 | **disable-auto-expand**&nbsp;(Boolean) | Prevents group from being automatically expanded when it contains any active filters. |
 | **not-searchable**&nbsp;(Boolean) (default: false) | Prevents group from being searchable even if it satisfies `searchable-from` condition.  |
+| **topic**&nbsp;(String) | Defines if the component should subscribe to a custom topic instead of the default one. Please note that in this case you need to manually dispatch asn data. |
 
 ### Methods
 | Name | Description |
