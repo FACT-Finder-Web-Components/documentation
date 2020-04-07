@@ -357,3 +357,17 @@ This template has to contain exactly one `input` element.
         </div>
     </ff-asn-group>
 ```
+
+### Dispatching data manually
+If you need to manually dispatch data, for instance when component is subscribed to custom topic, you can use `ResultDispatcher` to achieve that.
+ASN component requires `groups` property content of FACT-Finder response to be passed. Any additional preparation is not needed. 
+
+```js
+function dispatchAsnCustomTopic() {
+    factfinder.communication.ResultDispatcher.dispatch(
+        factfinder.communication.EventAggregator.currentSearchResult.groups,
+        {},
+        'customTopic'
+    );
+}
+```
