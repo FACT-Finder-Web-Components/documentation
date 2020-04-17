@@ -1,4 +1,5 @@
 ## Tracking Edge Cases
+---
 
 ### Discount Prices
 If your shop offers discount prices you need to change the returned data in order to track the discount price instead of the normal price.

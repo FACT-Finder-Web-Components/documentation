@@ -64,6 +64,10 @@ const guides = {
             path: `currency-guide`,
             title: `Currency Guide`,
         },
+        "category-urls": {
+            path: `category-urls`,
+            title: `Category URLs`,
+        },
         "routing": {
             path: `routing`,
             title: `Routing`,
@@ -93,6 +97,7 @@ guides.additionalFeatures = [
     guides.pages[`tracking-with-js`],
     guides.pages[`tracking-edge-cases`],
     guides.pages[`currency-guide`],
+    guides.pages[`category-urls`],
     guides.pages[`routing`],
 ];
 

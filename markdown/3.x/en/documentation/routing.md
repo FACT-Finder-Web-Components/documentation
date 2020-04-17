@@ -1,4 +1,5 @@
 ## Routing in non-SPA websites
+---
 
 This guide covers the recommended approach to handle redirects between different pages of an online shop that doesn't use a single-page application on the frontend layer.
 

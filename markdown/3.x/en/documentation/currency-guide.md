@@ -1,6 +1,6 @@
 ## Currencies and Number Format
-
 ---
+
 This guide covers everything to add `Currency Symbols` and `Number Formatting` like `£49.99 or 49,99 €` across all FACT-Finder Web Components and related parts.
 
 ### (TLDR;)Complete Example Configuration
