@@ -43,4 +43,4 @@ The other reason is that e-commerce platforms using Web Components are, in most 
 This kind of application requires developers to manage routing in the application's frontend to provide redirection to a search result page.
 For more details about routing, please refer to [Routing in non-SPA websites](documentation/3.x/routing).
 Although it is easy to detect whether a triggered event is a search or not, it is impossible to detect at this level if a given request will return one or more records in the response.
-Because of that, if search is triggered on page different than search result page (e.g. from home page), user need be redirected to a search result page first and only after that the Web Components redirects to product page, if they have to.
+Because of that, if search is triggered on a page other than a search result page (e.g. home page), users need to be redirected to a search result page first, and only after that the Web Components can redirect to the relevant product page.
