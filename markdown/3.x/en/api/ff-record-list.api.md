@@ -10,7 +10,7 @@ ___
 | **infinite-debounce-delay** (Number) (default: 32) | Sets the delay for when the next page should be loaded after the bottom is reached. This prevents loading multiple pages at once because it triggers to fast. The number is in milliseconds. |
 | **infinite-scroll-margin** (Number) (default: 0) |  Sets the margin of the page loading trigger element. This value can be positive or negative and is in 'px'. Is only applied when `infinite-scrolling` is `true`. |
 | **infinite-max-pages** (Number) (default: Infinity) |  Sets the maximum number of pages allowed to be loaded in infinite scrolling mode. |
-| **stamp-always** (Boolean) _(deprecated)_ | _(This attribute has no effect anymore. It was made redundant by a more sophisticated algorithm detecting changes in record data.)_ `ff-record`s are always reused and, in addition, if the new record set doesn't differ (determined using `oldRecord.id === newRecord.id`) the DOM is not updated. Add this attribute to disable this behavior. Using this attribute on `ff-record-list` will ensure all stamped `ff-record`s will have this attribute added. |
+| `(DEPRECATED)` **stamp-always** (Boolean) | _(This attribute has no effect anymore. It was made redundant by a more sophisticated algorithm detecting changes in record data.)_ `ff-record`s are always reused and, in addition, if the new record set doesn't differ (determined using `oldRecord.id === newRecord.id`) the DOM is not updated. Add this attribute to disable this behavior. Using this attribute on `ff-record-list` will ensure all stamped `ff-record`s will have this attribute added. |
 
 ### Methods
 | Name | Description |
@@ -31,7 +31,7 @@ ___
 | **is-recommendation** (Boolean) (default: false) | Indicates if this record-list is placed inside a ff-recommendation element. This attribute is set automatically by the ff-recommendation element and used for tracking purposes.|
 | **add-cart-click** (Boolean) |  [Tracking Guide](/guides/tracking-guide) |
 | **add-checkout-click** (Boolean) |  [Tracking Guide](/guides/tracking-guide) |
-| **stamp-always** (Boolean) _(deprecated)_ | _(This attribute has no effect anymore. It was made redundant by a more sophisticated algorithm detecting changes in record data.)_ `ff-record`s are always reused and, in addition, if the new record set doesn't differ (determined using `oldRecord.id === newRecord.id`) the DOM is not updated. Add this attribute to disable this behavior. Using this attribute on `ff-record-list` will ensure all stamped `ff-record`s will have this attribute added. |
+| `(DEPRECATED)` **stamp-always** (Boolean) | _(This attribute has no effect anymore. It was made redundant by a more sophisticated algorithm detecting changes in record data.)_ `ff-record`s are always reused and, in addition, if the new record set doesn't differ (determined using `oldRecord.id === newRecord.id`) the DOM is not updated. Add this attribute to disable this behavior. Using this attribute on `ff-record-list` will ensure all stamped `ff-record`s will have this attribute added. |
 
 ### Directives
 | Name | Description |
