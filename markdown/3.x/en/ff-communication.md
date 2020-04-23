@@ -40,7 +40,7 @@ Single hit redirect in this case will not work because the `ff-no-redirect` flag
 After that, the `ff-no-redirect` flag is turned off, and the next search request will be redirected, as expected.
 
 The other reason is that e-commerce platforms using Web Components are, in most cases, not an SPA (single page application).
-This kind of application requires developers to manage routing in the application's frontend to provide redirection, for instance from the home page to a search result page.
+This kind of application requires developers to manage routing in the application's frontend to provide redirection to the search result page.
 For more details about routing, please refer to [Routing in non-SPA websites](documentation/3.x/routing).
 Although it is easy to detect whether a triggered event is a search or not, it is impossible to detect at this level if a given request will return one or more records in the response.
-Because of that, the redirection to the search result page always needs to be done before Web Components redirect to the product page, if they have to.
+Because of that, if search is triggered on page different than search result page (e.g. from home page), user need be redirected to the search result page first and only after that, the Web Components redirects to product page if they have to.
