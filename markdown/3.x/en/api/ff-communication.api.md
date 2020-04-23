@@ -45,7 +45,7 @@ ___
 | **currency-min-digits**&nbsp;(String) | [Currency Guide](/documentation/3.x/currency-guide) |
 | **currency-max-digits**&nbsp;(String) | [Currency Guide](/documentation/3.x/currency-guide) |
 | **add-unit-to-filter-elements**&nbsp;(Boolean) `true` if present, else `false` | [Currency Guide](/documentation/3.x/currency-guide) |
-| `(DEPRECATED)`**disable-single-hit-redirect**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Disables the automatic redirect to the product detail page if only one record is found |
+| `(DEPRECATED)` **disable-single-hit-redirect**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Disables the automatic redirect to the product detail page if only one record is found |
 | `(DEPRECATED)` **single-hit-redirect-base-path**&nbsp;(String) | Use this as an absolute base path if deeplinks are relative |
 | **sort-url-parameters-alphabetically**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Sorts all query parameters and their values alphabetically. _This can be used for SEO._ |
 | **use-filter-url**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Push `categoryPath` to URL path |
