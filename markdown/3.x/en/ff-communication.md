@@ -39,7 +39,8 @@ If the user provides an `ff-searchbox` component on the product page, the next s
 Single hit redirect in this case will not work because the `ff-no-redirect` flag is toggled on and as a result the user will land on the search result page.
 After that, the `ff-no-redirect` flag is turned off, and the next search request will be redirected, as expected.
 
-The other reason is that e-commerce platforms using Web Components are, in the most situations, not SPA (single page application). That force developers to manage routing
-on application frontend to provide redirection, for instance from home page to search result page. For more details about routing, please refer to [Routing in non-SPA websites](documentation/3.x/routing).
+The other reason is that e-commerce platforms using Web Components are, in most cases, not an SPA (single page application).
+This kind of application requires developers to manage routing in the application's frontend to provide redirection, for instance from the home page to a search result page.
+For more details about routing, please refer to [Routing in non-SPA websites](documentation/3.x/routing).
 Although it is easy to detect whether a triggered event is a search or not, it is impossible to detect at this level if a given request will return one or more records in the response.
 Because of that, the redirection to the search result page always needs to be done before Web Components redirect to the product page, if they have to.
