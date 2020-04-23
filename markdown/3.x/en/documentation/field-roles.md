@@ -96,7 +96,7 @@ Both EventListeners have to be declared before our scripts are loaded or you cou
         };
     });
 </script>
-<link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
+<script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
 
 **NOTICE:** We omitted some roles in this example but

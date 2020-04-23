@@ -60,7 +60,7 @@ If you want to intercept a search request for example, you could do:
         });
     });
 </script>
-<link rel="import" href="path/to/ff-web-components.html">
+<script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
 
 ### `removeBeforeDispatchingCallback(key):boolean;`
@@ -79,7 +79,7 @@ Removes a registered callback identified by its `key`
         factfinder.communication.EventAggregator.removeBeforeDispatchingCallback(key);
     });
 </script>
-<link rel="import" href="path/to/ff-web-components.html">
+<script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
 
 ## Examples
