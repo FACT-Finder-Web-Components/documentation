@@ -36,7 +36,7 @@ In order to prevent infinite redirection after getting back from a product page 
 With this flag toggled Web Components will not redirect the next search, even if there is only one record returned back from FACT-Finder.
 However, the next search will not necessarily be the one that was issued after returning to the search results page.
 If the user provides an `ff-searchbox` component on the product page, the next search could also be issued from there.
-Single hit redirect in this case will not work because of the `ff-no-redirect` flag is toggled on and as a result the user will land on the search result page.
+Single hit redirect in this case will not work because the `ff-no-redirect` flag is toggled on and as a result the user will land on the search result page.
 After that, the `ff-no-redirect` flag is turned off, and the next search request will be redirected, as expected.
 
 The other reason is that e-commerce platforms using Web Components are, in the most situations, not SPA (single page application). That force developers to manage routing
