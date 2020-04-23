@@ -41,5 +41,5 @@ After that, the `ff-no-redirect` flag is turned off, and the next search request
 
 The other reason is that e-commerce platforms using Web Components are, in the most situations, not SPA (single page application). That force developers to manage routing
 on application frontend to provide redirection, for instance from home page to search result page. For more details about routing, please refer to [Routing in non-SPA websites](documentation/3.x/routing).
-Although its easy to detect wheter triggered event is a search type or not, its impossible to detect if given request will return one or more records in the response on this level. Because of that, the redirection
-to the search result page always need to be done before Web Components redirects to the product page, if they have to.
+Although it is easy to detect whether a triggered event is a search or not, it is impossible to detect at this level if a given request will return one or more records in the response.
+Because of that, the redirection to the search result page always needs to be done before Web Components redirect to the product page, if they have to.
