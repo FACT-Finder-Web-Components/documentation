@@ -109,8 +109,13 @@ done with the `{{id}}` syntax. Where each `div` container gets the id from its r
 
 ## On page load
 
-Finally trigger the `applyHover()` when the elements are loaded.
+Finally, trigger the `applyHover()` when the elements are loaded.
 
 ```html
-<link rel="import" href="elements.html" onload="applyHover();">
+<script>
+    document.addEventListener("WebComponentsReady", function () {
+        applyHover();
+    });
+</script>
+<script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```

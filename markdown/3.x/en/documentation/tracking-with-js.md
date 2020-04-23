@@ -140,6 +140,5 @@ you can query FACT-Finder for product information.
     })
 </script>
 <script src="my-field-roles.js"></script>
-<script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-<link rel="import" href="../bower_components/ff-web-components/dist/elements.build_with_dependencies.html">
+<script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```

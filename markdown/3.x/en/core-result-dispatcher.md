@@ -51,7 +51,7 @@ For example the `campaigns` are dispatched before the `asn`, but it is
         });
     });
 </script>
-<link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
+<script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```    
 
 ### `unsubscribe(topic, key)`
@@ -69,7 +69,7 @@ Unsubscribe during runtime from a specific topic
         resultDispatcher.unsubscribe("result", key);
     });
 </script>
-<link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
+<script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
 
 ### `addCallback(topic, fn, context)`
@@ -86,7 +86,7 @@ This is similar to `subscribe()` but it is guaranteed to be executed
         });
     });
 </script>
-<link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
+<script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
 
 ### `removeCallback(topic, key)`
@@ -105,5 +105,5 @@ registered callback.
         factfinder.communication.ResultDispatcher.removeCallback("asn", key);
     });
 </script>
-<link rel="import" href="pathToHtmlImport/elements.build.with_dependencies.html">
+<script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
