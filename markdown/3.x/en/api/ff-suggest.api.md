@@ -6,12 +6,6 @@ ___
 | **layout**&nbsp;(String) **Options**:&nbsp;"list", "block" (default: "list")| Determines how the individual sections are displayed. Either as block or as vertical list. |
 | **suggest-items**&nbsp;(Array) | The data from FACT-Finder. |
 
-### Mixins
-| Name | Description |
-| ---- | ----------- |
-| **--suggest-container** | Is applied to the container of the ff-suggest-item element. |
-| **--suggest-container-wrapper** | Is applied to the surrounding container of all ff-suggest-element elements. |
-
 ### Events
 | Name | Description |
 | ---- | ----------- |
