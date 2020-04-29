@@ -32,7 +32,7 @@ the element will be hidden again.
 
 In addition to the default subscription mode, the element also has a _manual mode_ in which the element will _not_ be 
 subscribed to any events. Manual mode is activated when the `manual` HTML attribute is present. Adding the attribute will 
-unsubscribe the element form all events. Likewise, removing the attribute will subscribe the element again. Manual mode 
+unsubscribe the element from all events. Likewise, removing the attribute will subscribe the element again. Manual mode 
 can also be set by changing `ff-loading-spinner`'s `manual` property value to `true` (activation) or `false` (deactivation) 
 directly in JavaScript code. The visibility of the element can be changed either with the `is-active` attribute or by calling
 its `show()` and `hide()` methods.
