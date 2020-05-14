@@ -360,7 +360,8 @@ This template has to contain exactly one `input` element.
 
 ## Dispatching data manually
 If you need to manually dispatch data, for instance when the component is subscribed to a custom topic, you can use `ResultDispatcher` to achieve that.
-ASN component requires `groups` property content of FACT-Finder response to be passed. Any additional preparation is not needed. 
+The ASN component requires the `groups` property's content of the FACT-Finder response to be passed.
+No additional preparation is needed. 
 
 ```js
 function dispatchAsnCustomTopic() {
