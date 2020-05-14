@@ -319,7 +319,7 @@ If you wish to exclude some groups from being searchable regardless of the numbe
 The default search field template is
 ```html
 <div slot="filterSearch"><input></div>
-    ```
+```
 However it can be changed by providing own content for `filterSearch` slot in `ff-asn-group` template. 
 This template has to contain exactly one `input` element.
 
@@ -356,4 +356,19 @@ This template has to contain exactly one `input` element.
             </div>
         </div>
     </ff-asn-group>
+```
+
+## Dispatching data manually
+If you need to manually dispatch data, for instance when the component is subscribed to a custom topic, you can use `ResultDispatcher` to achieve that.
+The ASN component requires the `groups` property's content of the FACT-Finder response to be passed.
+No additional preparation is needed. 
+
+```js
+function dispatchAsnCustomTopic() {
+    factfinder.communication.ResultDispatcher.dispatch(
+        factfinder.communication.EventAggregator.currentSearchResult.groups,
+        {},
+        'customTopic'
+    );
+}
 ```
