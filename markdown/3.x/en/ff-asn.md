@@ -358,7 +358,7 @@ This template has to contain exactly one `input` element.
     </ff-asn-group>
 ```
 
-### Dispatching data manually
+## Dispatching data manually
 If you need to manually dispatch data, for instance when the component is subscribed to a custom topic, you can use `ResultDispatcher` to achieve that.
 ASN component requires `groups` property content of FACT-Finder response to be passed. Any additional preparation is not needed. 
 
