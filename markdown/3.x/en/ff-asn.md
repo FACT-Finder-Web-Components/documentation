@@ -319,7 +319,7 @@ If you wish to exclude some groups from being searchable regardless of the numbe
 The default search field template is
 ```html
 <div slot="filterSearch"><input></div>
-    ```
+```
 However it can be changed by providing own content for `filterSearch` slot in `ff-asn-group` template. 
 This template has to contain exactly one `input` element.
 
