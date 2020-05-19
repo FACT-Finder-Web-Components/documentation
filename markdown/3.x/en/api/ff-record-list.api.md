@@ -11,6 +11,7 @@ ___
 | **infinite-debounce-delay** (Number) (default: 32) | Sets the delay for when the next page should be loaded after the bottom is reached. This prevents loading multiple pages at once because it triggers to fast. The number is in milliseconds. |
 | **infinite-scroll-margin** (Number) (default: 0) |  Sets the margin of the page loading trigger element. This value can be positive or negative and is in 'px'. Is only applied when `infinite-scrolling` is `true`. |
 | **infinite-max-pages** (Number) (default: Infinity) |  Sets the maximum number of pages allowed to be loaded in infinite scrolling mode. |
+| **infinite-scroll-container** (String) (default: empty) | Sets the selector for a container that triggers loading new records into record list when scrolled. Use only with `infinite-scrolling`, otherwise setting this value has no effect. If not set, the closest scrollable parent container of record list will be used. |
 | `(DEPRECATED)` **stamp-always** (Boolean) | _(This attribute has no effect anymore. It was made redundant by a more sophisticated algorithm detecting changes in record data.)_ `ff-record`s are always reused and, in addition, if the new record set doesn't differ (determined using `oldRecord.id === newRecord.id`) the DOM is not updated. Add this attribute to disable this behavior. Using this attribute on `ff-record-list` will ensure all stamped `ff-record`s will have this attribute added. |
 
 ### Methods

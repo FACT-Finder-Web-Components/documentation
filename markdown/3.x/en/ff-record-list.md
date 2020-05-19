@@ -124,7 +124,7 @@ With the attribute `[infinite-debounce-delay]`, you can set a delay for when the
 
 You can also define the margin for the page load trigger with the `[infinite-scroll-margin]` attribute. This is applied to the trigger element in 'px'
 
-Note: When you manually load a page, e.g. from an URL with the 3rd page set in its search result, this will not scroll back to page 1 and 2. You have no option to load the first two pages anymore.
+**Note:** When you manually load a page, e.g. from an URL with the 3rd page set in its search result, this will not scroll back to page 1 and 2. You have no option to load the first two pages anymore.
 
 We recommend using higher values for `[infinite-debounce-delay]` and `infinite-scroll-margin` like:
 
@@ -145,3 +145,25 @@ We recommend using higher values for `[infinite-debounce-delay]` and `infinite-s
 Please do not use `infinite-scrolling` when the `ff-record-list` is inside a component like `ff-recommendation` or `ff-pushed-products`. The attribute is not designed to work in this context and using it may cause unwanted side effects.
 
 The maximum number of pages that are loaded can be restricted with the `[infinite-max-pages]` attribute.
+
+By default, `ff-record-list` tries to find the closest scrollable parent element and loads new records when the container is scrolled. By setting `infinite-scroll-container` attribute on `ff-record-list`, it is possible to point the container
+directly. Use the appropriate CSS selector as a value of the attribute:
+
+```html
+<div class="scrollable-container">
+    <ff-record-list infinite-scrolling
+                    infinite-debounce-delay="300"
+                    infinite-scroll-margin="-700"
+                    infinite-scroll-container="scrollable-container">
+        <ff-record>
+            <img data-image={{record.ImageName}} data-image-onerror="../img_not_found.gif">
+            <div data-track>
+                <span id="title">{{record.Title}}</span>
+                <div>Price: <strong>{{record.Price}} €</strong></div>
+            </div>
+        </ff-record>
+    </ff-record-list>
+</div>
+```
+
+**Note:** When more than one container is hit by the selector, the first one will be used. In case no valid container pointed by the selector is found, `window` will be used as default one.
