@@ -154,7 +154,7 @@ directly. Use the appropriate CSS selector as a value of the attribute:
     <ff-record-list infinite-scrolling
                     infinite-debounce-delay="300"
                     infinite-scroll-margin="-700"
-                    infinite-scroll-container="scrollable-container">
+                    infinite-scroll-container=".scrollable-container">
         <ff-record>
             <img data-image={{record.ImageName}} data-image-onerror="../img_not_found.gif">
             <div data-track>
