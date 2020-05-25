@@ -12,7 +12,7 @@ This `ff-record-list` does not listen to the default search result and gets its 
 ```html
 <ff-recommendation>
     <div class="recommendationHeader">Recommendations</div>
-    <ff-record-list >
+    <ff-record-list>
         <!-- in this demo a click on the product sets the recommendation product-->
         <ff-record>
             <img data-image="{{record.ImageName}}">
