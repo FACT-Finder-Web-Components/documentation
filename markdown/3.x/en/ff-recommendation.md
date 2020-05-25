@@ -26,7 +26,7 @@ This `ff-record-list` does not listen to the default search result and gets its 
 </ff-recommendation>
 ```
 
-**IMPORTANT** Although `ff-recommendation` tries to find nested `ff-record-list` and change its `subscribe` property to `false`,
+**IMPORTANT** Although `ff-recommendation` tries to find a nested `ff-record-list` and change its `subscribe` property to `false`,
 it should be set explicitly to `false` by user in HTML code to prevent console warnings and avoid race conditions.
 
 ## Attributes
