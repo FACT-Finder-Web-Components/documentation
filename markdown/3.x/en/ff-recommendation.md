@@ -11,7 +11,7 @@ This `ff-record-list` does not listen to the default search result and gets its 
 ```html
 <ff-recommendation>
     <div class="recommendationHeader">Recommendations</div>
-    <ff-record-list >
+    <ff-record-list subscribe="false">
         <!-- in this demo a click on the product sets the recommendation product-->
         <ff-record>
             <img data-image="{{record.ImageName}}">
@@ -25,6 +25,9 @@ This `ff-record-list` does not listen to the default search result and gets its 
     </ff-record-list>
 </ff-recommendation>
 ```
+
+**IMPORTANT** Although `ff-recommendation` tries to find a nested `ff-record-list` and change its `subscribe` property to `false`,
+it should be set explicitly to `false` by user in HTML code to prevent console warnings and avoid race conditions.
 
 ## Attributes
 
