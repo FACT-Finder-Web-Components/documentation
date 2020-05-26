@@ -4,7 +4,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **disable-auto-tracking**&nbsp;(Boolean) (default: false) | Controls whether the element sends a tracking request upon its rendering. |
-| **records**&nbsp;(Array) | The records returned from FACT-Finder. |
+| `(DEPRECATED)` **records**&nbsp;(Array) | The records returned from FACT-Finder. |
 
 ### Methods
 | Name | Description |
