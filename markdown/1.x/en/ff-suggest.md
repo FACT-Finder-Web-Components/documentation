@@ -127,7 +127,7 @@ event `"suggest-item-clicked"`.
 
 See the following example:
 
-```html 
+```html
 <ff-suggest>
     //content...
 </ff-suggest>
@@ -143,7 +143,7 @@ See the following example:
         if (suggestionData.type === "productName") {
             // configure in the FACT-Finder backend which fields should be returned in the attributes property!
             var articleNr = suggestionData.attributes["articleNr"];
-            window.open("http://www.your-shop.example/"+articleNr, "_blank");
+            window.open("http://www.your-shop.example/" + articleNr, "_blank");
 
             // tell the suggest-item to skip its default action;
             ffSuggestItem.ffPreventDefault = true;
