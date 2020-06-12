@@ -189,7 +189,7 @@ See the following example:
         // check if the ffSuggestItem matches the desired type for which you want to override the action
         if (suggestionData.type === "productName") {
             // configure in the FACT-Finder backend which fields should be returned in the attributes property!
-            const articleNr = ffSuggestItem.attributes["articleNr"];
+            const articleNr = suggestionData.attributes["articleNr"];
             window.open("http://www.your-shop.example/"+articleNr, "_blank");
 
             // tell the suggest-item to skip its default action;
