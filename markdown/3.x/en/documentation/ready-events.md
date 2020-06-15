@@ -1,5 +1,5 @@
 ## Ready Events
-There are 2 essential events emitted on the main document.
+There are two essential events emitted on the main document.
 
 **IMPORTANT**
 
