@@ -53,14 +53,21 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
                     <a name="{{item.path}}" href="[[rootPath]]documentation/[[version]]/{{item.path}}">{{item.title}}</a>
                 </template>
 
-                <h3>Basics</h3>
-                <template is="dom-repeat" items="{{basics}}">
+                <h3>Essentials</h3>
+                <template is="dom-repeat" items="{{essentials}}">
                     <a name="{{item.path}}" href="[[rootPath]]documentation/[[version]]/{{item.path}}">{{item.title}}</a>
                 </template>
 
-                <h3>Additional Features</h3>
-                <template is="dom-repeat" items="{{additionalFeatures}}">
+                <h3>Advanced</h3>
+                <template is="dom-repeat" items="{{advanced}}">
                     <a name="{{item.path}}" href="[[rootPath]]documentation/[[version]]/{{item.path}}">{{item.title}}</a>
+                </template>
+
+                <template is="dom-if" if="{{migration.length}}">
+                    <h3>Migration</h3>
+                    <template is="dom-repeat" items="{{migration}}">
+                        <a name="{{item.path}}" href="[[rootPath]]documentation/[[version]]/{{item.path}}">{{item.title}}</a>
+                    </template>
                 </template>
             </iron-selector>
         </div>
@@ -108,8 +115,9 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
         }
 
         this.firstSteps = this.data[this.version].firstSteps;
-        this.basics = this.data[this.version].basics;
-        this.additionalFeatures = this.data[this.version].additionalFeatures;
+        this.essentials = this.data[this.version].essentials;
+        this.advanced = this.data[this.version].advanced;
+        this.migration = this.data[this.version].migration;
 
         this.filePath = `markdown/${this.version}/${this.language}/documentation/${this.subpage}.md`;
     }

@@ -19,6 +19,10 @@ const guides = {
             title: `4. Your First Search`,
         },
 
+        "field-roles": {
+            path: `field-roles`,
+            title: `Field Roles`,
+        },
         "attribute-basics": {
             path: `attribute-basics`,
             title: `Attributes`,
@@ -31,27 +35,19 @@ const guides = {
             path: `template-engine`,
             title: `Template Engine`,
         },
-        "communication": {
-            path: `communication`,
-            title: `Communication`,
-        },
-        "field-roles": {
-            path: `field-roles`,
-            title: `Field Roles`,
-        },
         "ready-events": {
             path: `ready-events`,
             title: `Ready Events`,
         },
-        "utils": {
-            path: `utils`,
-            title: `Utils`,
-        },
-
         "tracking-guide": {
             path: `tracking-guide`,
             title: `Tracking`,
         },
+        "currency-guide": {
+            path: `currency-guide`,
+            title: `Currency Guide`,
+        },
+
         "tracking-with-js": {
             path: `tracking-with-js`,
             title: `Tracking with JS`,
@@ -60,9 +56,13 @@ const guides = {
             path: `tracking-edge-cases`,
             title: `Tracking Edge Cases`,
         },
-        "currency-guide": {
-            path: `currency-guide`,
-            title: `Currency Guide`,
+        "communication": {
+            path: `communication`,
+            title: `Communication`,
+        },
+        "utils": {
+            path: `utils`,
+            title: `Utils`,
         },
     }
 };
@@ -74,21 +74,24 @@ guides.firstSteps = [
     guides.pages[`your-first-search`],
 ];
 
-guides.basics = [
+guides.essentials = [
+    guides.pages[`field-roles`],
     guides.pages[`attribute-basics`],
     guides.pages[`styling-elements`],
     guides.pages[`template-engine`],
-    guides.pages[`communication`],
-    guides.pages[`field-roles`],
     guides.pages[`ready-events`],
+    guides.pages[`tracking-guide`],
+    guides.pages[`currency-guide`],
+];
+
+guides.advanced = [
+    guides.pages[`tracking-with-js`],
+    guides.pages[`tracking-edge-cases`],
+    guides.pages[`communication`],
     guides.pages[`utils`],
 ];
 
-guides.additionalFeatures = [
-    guides.pages[`tracking-guide`],
-    guides.pages[`tracking-with-js`],
-    guides.pages[`tracking-edge-cases`],
-    guides.pages[`currency-guide`],
+guides.migration = [
 ];
 
 export default guides;

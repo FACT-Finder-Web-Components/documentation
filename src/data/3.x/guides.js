@@ -18,11 +18,11 @@ const guides = {
             path: `your-first-search`,
             title: `4. Your First Search`,
         },
-        "upgrade-guide": {
-            path: `upgrade-guide`,
-            title: `5. Upgrade Guide 1.2.x to 3.x`,
-        },
 
+        "field-roles": {
+            path: `field-roles`,
+            title: `Field Roles`,
+        },
         "attribute-basics": {
             path: `attribute-basics`,
             title: `Attributes`,
@@ -31,27 +31,19 @@ const guides = {
             path: `template-engine`,
             title: `Template Engine`,
         },
-        "communication": {
-            path: `communication`,
-            title: `Communication`,
-        },
-        "field-roles": {
-            path: `field-roles`,
-            title: `Field Roles`,
-        },
         "ready-events": {
             path: `ready-events`,
             title: `Ready Events`,
         },
-        "utils": {
-            path: `utils`,
-            title: `Utils`,
-        },
-
         "tracking-guide": {
             path: `tracking-guide`,
             title: `Tracking`,
         },
+        "currency-guide": {
+            path: `currency-guide`,
+            title: `Currency Guide`,
+        },
+
         "tracking-with-js": {
             path: `tracking-with-js`,
             title: `Tracking with JS`,
@@ -59,10 +51,6 @@ const guides = {
         "tracking-edge-cases": {
             path: `tracking-edge-cases`,
             title: `Tracking Edge Cases`,
-        },
-        "currency-guide": {
-            path: `currency-guide`,
-            title: `Currency Guide`,
         },
         "category-urls": {
             path: `category-urls`,
@@ -72,6 +60,19 @@ const guides = {
             path: `routing`,
             title: `Routing`,
         },
+        "communication": {
+            path: `communication`,
+            title: `Communication`,
+        },
+        "utils": {
+            path: `utils`,
+            title: `Utils`,
+        },
+
+        "upgrade-guide": {
+            path: `upgrade-guide`,
+            title: `Upgrade Guide 1.x to 3.x`,
+        },
     }
 };
 
@@ -80,25 +81,28 @@ guides.firstSteps = [
     guides.pages[`include-scripts`],
     guides.pages[`configuration`],
     guides.pages[`your-first-search`],
-    guides.pages[`upgrade-guide`],
 ];
 
-guides.basics = [
+guides.essentials = [
+    guides.pages[`field-roles`],
     guides.pages[`attribute-basics`],
     guides.pages[`template-engine`],
-    guides.pages[`communication`],
-    guides.pages[`field-roles`],
     guides.pages[`ready-events`],
+    guides.pages[`tracking-guide`],
+    guides.pages[`currency-guide`],
+];
+
+guides.advanced = [
+    guides.pages[`tracking-with-js`],
+    guides.pages[`tracking-edge-cases`],
+    guides.pages[`category-urls`],
+    guides.pages[`routing`],
+    guides.pages[`communication`],
     guides.pages[`utils`],
 ];
 
-guides.additionalFeatures = [
-    guides.pages[`tracking-guide`],
-    guides.pages[`tracking-with-js`],
-    guides.pages[`tracking-edge-cases`],
-    guides.pages[`currency-guide`],
-    guides.pages[`category-urls`],
-    guides.pages[`routing`],
+guides.migration = [
+    guides.pages[`upgrade-guide`],
 ];
 
 export default guides;
