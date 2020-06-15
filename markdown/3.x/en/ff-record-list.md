@@ -146,6 +146,7 @@ Please do not use `infinite-scrolling` when the `ff-record-list` is inside a com
 
 The maximum number of pages that are loaded can be restricted with the `[infinite-max-pages]` attribute.
 
+### Setting scroll container
 By default, `ff-record-list` tries to find the closest scrollable parent element and loads new records when you scroll that container element.
 It is possible to manually specify the container by using the `infinite-scroll-container` attribute on `ff-record-list`.
 Pass the appropriate CSS selector to the attribute:
@@ -170,3 +171,26 @@ Pass the appropriate CSS selector to the attribute:
 **Note:** `infinite-scroll-container` searches for elements by using `document.querySelector()`.
 This means than when more than one container is found, only the first will be used.
 In case no scrollable container is found, `window` will be used.
+
+### Placeholders
+For the time `ff-record-list` loads the records, it can add the placeholders for fill the empty space and increase the size of the scroll container.
+This feature might increase application user experience as user sees the blueprint of next records batch almost immediately after he reaches the `[infinite-scroll-margin]`.
+As soon as records are ready to be rendered, placeholders are removed and records are put in their place.
+It is possible to customize placeholders template by adding [data-container="infinite-scroll-placeholder"] to a specific container as shown in the example below.
+
+```html
+<ff-record-list infinite-scrolling>
+    <ff-record unresolved>
+    </ff-record>
+
+    <div data-container="infinite-scroll-placeholder">loading</div>
+</ff-record-list>
+```
+
+**Note:** Please do not hide or change width and size of placeholders to 0px. This could bring unexpected result to whole functionality.
+
+### Restoring of scroll position
+Infinite scrolling includes built-in mechanism which allows to restore user last scroll position before moving to record page. 
+In order to make it works, `restore-scroll-position` attribute needs to be added to the `ff-record-list` and attribute `[data-redirect]` has to be present inside `ff-record` element. For more information, see the [Tracking](/documentation/3.x/tracking-guide) section.
+
+**Note** Currently restore infinite scrolling works only for SPA application.
