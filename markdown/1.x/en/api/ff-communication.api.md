@@ -9,7 +9,7 @@ ___
 | **search-immediate**&nbsp;(Boolean) | If this property is present, FACT-Finder Web Components will start searching as soon as they are loaded. |
 | **use-url-parameter**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | If set to true, URL parameters are used instead of HTTP parameters. |
 | **use-cache**&nbsp;(Boolean) **Options**: &nbsp;true, &nbsp;false (default: false)| This value determines, if the browser should cache previous search requests or not. Some browsers support this feature and therefore speed up the search for repeated requests. |
-| **default-query**&nbsp; (String) (default: '*') | Determines which search term should is used by default if no search term provided in as http parameter or in a search event object. |
+| **default-query**&nbsp; (String) (default: '*') | Whenever a search is performed without a search query, this value will be used as default search term. |
 | **only-search-params**&nbsp;(Boolean) | If present, URL parameters like 'channel' and 'sid' are omitted in the URL. This can be used in conjunction with `parameter-whitelist`. |
 | **parameter-whitelist**&nbsp; (String) (default: "query,filter") | If any URL parameters are omitted through other attributes like `use-url-parameter="false"` or `only-search-params` you can add specific important parameters manually. Just use a comma separated list like: `parameter-whitelist="param1,myParam"` |
 | **add-params**&nbsp;(String)&nbsp;(default: empty) | _The parameter string has to be URL-encoded._ With this property you can deliver standard parameters which will then be attached to the search request. Example: `add-params="param1=abcd,param2=xyz"` |
