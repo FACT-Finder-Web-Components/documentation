@@ -176,7 +176,7 @@ In case no scrollable container is found, `window` will be used.
 For the time `ff-record-list` loads the records, it can add the placeholders for fill the empty space and increase the size of the scroll container.
 This feature might increase application user experience as user sees the blueprint of next records batch almost immediately after he reaches the `[infinite-scroll-margin]`.
 As soon as records are ready to be rendered, placeholders are removed and records are put in their place.
-It is possible to customize placeholders template by adding [data-container="infinite-scroll-placeholder"] to a specific container as shown in the example below.
+It is possible to customize placeholders template by adding `[data-container="infinite-scroll-placeholder"]` to a specific container as shown in the example below.
 
 ```html
 <ff-record-list infinite-scrolling>
