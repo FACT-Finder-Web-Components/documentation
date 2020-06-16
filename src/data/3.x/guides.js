@@ -66,6 +66,12 @@ const guides = {
             path: `utils`,
             title: `Utils`,
         },
+        "custom-components": {
+            path: `custom-components`,
+            title: `Custom Components`,
+        },
+
+
         "upgrade-guide": {
             path: `upgrade-guide`,
             title: `Upgrade Guide 1.x to 3.x`,
@@ -98,6 +104,7 @@ guides.advanced = [
     guides.pages[`tracking-edge-cases`],
     guides.pages[`category-urls`],
     guides.pages[`routing`],
+    guides.pages[`custom-components`],
     guides.pages[`communication`],
     guides.pages[`utils`],
     guides.pages[`single-hit-redirect`]
