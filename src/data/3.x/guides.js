@@ -18,7 +18,6 @@ const guides = {
             path: `your-first-search`,
             title: `4. Your First Search`,
         },
-
         "field-roles": {
             path: `field-roles`,
             title: `Field Roles`,
@@ -43,7 +42,6 @@ const guides = {
             path: `currency-guide`,
             title: `Currency Guide`,
         },
-
         "tracking-with-js": {
             path: `tracking-with-js`,
             title: `Tracking with JS`,
@@ -68,10 +66,13 @@ const guides = {
             path: `utils`,
             title: `Utils`,
         },
-
         "upgrade-guide": {
             path: `upgrade-guide`,
             title: `Upgrade Guide 1.x to 3.x`,
+        },
+        "single-hit-redirect": {
+            path: `single-hit-redirect`,
+            title: `Single Hit Redirect`,
         },
     }
 };
@@ -99,6 +100,7 @@ guides.advanced = [
     guides.pages[`routing`],
     guides.pages[`communication`],
     guides.pages[`utils`],
+    guides.pages[`single-hit-redirect`]
 ];
 
 guides.migration = [
