@@ -16,7 +16,7 @@ Here is the full condition used in built-in single hit redirect mechanism.
 
 ```html
 <script>
-        document.addEventListener("WebComponentsReady", function () {
+        document.addEventListener('ffReady', function () {
             factfinder.communication.ResultDispatcher.subscribe('result', function(result) {
                 if (result.resultArticleNumberStatus === 'resultsFound' 
                     && result.records 
@@ -52,7 +52,7 @@ The easiest way to implement such a guard is to store a boolean flag after detec
 This flag should be set or unset, depending on whether it is in the storage.
 
  ```javascript
-     if (!+factfinder.common.localStorage.getItem('ff_redirect_off')) {
+     if (factfinder.common.localStorage.getItem('ff_redirect_off') !== '1') {
         if (result.resultArticleNumberStatus === 'resultsFound' 
             && result.records 
             && result.records.length === 1) {
