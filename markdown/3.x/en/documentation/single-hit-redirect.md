@@ -32,7 +32,8 @@ Here is the full condition used in built-in single hit redirect mechanism.
 
 
 ### NG compatibility
-For Web Components version lower than `3.15.2` field `resultArticleNumberStatus` is not available when using FACT-Finder NG. Please use `articleNumberSearch` instead.
+For Web Components versions up to `3.15.1`, the field `resultArticleNumberStatus` is not available when using FACT-Finder NG.
+Please use `articleNumberSearch` instead.
 Please keep in mind that this field stores boolean values. 
 
   ```javascript
@@ -45,9 +46,10 @@ Please keep in mind that this field stores boolean values.
 
 
 ### Preventing redirection after getting back from record page
-If `search-immediate` is enabled, user might find himself in a situation where he will be unable to go back to the search result page, as the single hit redirect will keep redirecting him to record page.
-In order to prevent this some information have to be stored and passed between documents. That information should be intended to inform the single hit redirect mechanism to stop redirecting user as he is just got back from the record page, he was redirected to.
-The easiest way to implement such a guard is to store bool flag after detecting the exact search. This flag should be set or unset, depends on whether it is in the storage.
+If `search-immediate` is enabled, users might find themselves in a situation where they are unable to go back to the search result page, as the single hit redirect will keep redirecting them to the record page.
+In order to prevent this some information has to be stored and passed between documents. This information is intended to inform the single hit redirect mechanism to stop redirecting users when they got back from the record page they were just redirected to.
+The easiest way to implement such a guard is to store a boolean flag after detecting an exact search.
+This flag should be set or unset, depending on whether it is in the storage.
 
  ```javascript
      if (!+factfinder.common.localStorage.getItem('ff_redirect_off')) {
@@ -76,10 +78,11 @@ if (factfinder.common.localStorage.getItem('ff_redirect_referer') !== window.loc
 }   
  ```
 
-**NOTE** The above example uses `window.location.href`.It is a framework agnostic solution and may not work in more complicated cases. Please check the routing scope of the framework or libraries you are using to best adapt the algorithm to detect the return to the redirected page.
+**NOTE** The above example uses `window.location.href`. It is a framework agnostic solution and may not work in more complicated cases. Please check the routing scope of the framework or libraries you are using to best adapt the algorithm to detect the return to the redirecting page.
 
-Full example below. Please keep in mind, that on specific pages you might need to use different conditions, in order to cover all edge cases.
-That script should be placed in each document the `ff-searchbox` element is used.
+Full example below.
+Please keep in mind that on specific pages you might need to use different conditions in order to cover all edge cases.
+That script should be placed in every document the `ff-searchbox` element is used in.
  ```html
  <script>
          document.addEventListener("WebComponentsReady", function () {
