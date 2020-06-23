@@ -1,18 +1,19 @@
 ## Single Hit Redirect
 
-As is mentioned in `ff-communication` [API reference](/api/3.x/ff-communication#tab=api) built-in single hit redirect feature due to its limitation is now deprecated and will be removed in future releases.
-However, user is still able to implement similar mechanism using Core API.
-By definition single hit redirect is a mechanism which redirects user to record page only if he did the exact search i.e. asked for a specific product by providing its identifier.
+As is mentioned in the `ff-communication` [API reference](/api/3.x/ff-communication#tab=api), the built-in single hit redirect feature, due to its limitations, is now deprecated and will be removed in a future release.
+However, you are still able to implement a similar mechanism using the Core API.
+By definition single hit redirect is a mechanism which redirects users to a record page only if they did an exact search i.e. asked for a specific product by providing its identifier.
 
-Built-in mechanism checks the `resultArticleNumberStatus` property of search result object in order to determine if response contains only one record returned with 100% search similarity.
-That level of similarity is only possible to achieve if user search for the product using its number which in most cases is the only one way to determine if exact search takes place. 
-Here is the full condition used in built-in single hit redirect mechanism.
+The built-in mechanism checks the `resultArticleNumberStatus` property of the search result object in order to determine if the response contains only one record returned with 100% search similarity.
+This level of similarity is only possible to achieve if the user searches for the product using its produt number.
+In most cases is the only one way to determine if an exact search took place.
+Here is the full condition used in the built-in single hit redirect mechanism.
 `result.resultArticleNumberStatus === 'resultsFound' && result.records && result.records.length === 1`
 
-**NOTE** Value `resultFound` is returned only when user searches for a product by passing its number as a search phrase.
- Product number is the field which has a role `displayProductNumber`.
- For more information about field roles, see the [FieldRoles](/documentation/3.x/field-roles).
- Although it is not necessary to check the `result.resultArticleNumberStatus` we highly recommend checking that value to avoid redirecting to the record that is not necessarily the one, user was looking for.
+**NOTE** The value `resultsFound` is returned only when the user searched for a product by passing its product number as a search phrase.
+Product number is the field which has the role `displayProductNumber`.
+For more information about field roles, see [FieldRoles](/documentation/3.x/field-roles).
+Although it is not necessary to check `result.resultArticleNumberStatus`, we highly recommend checking that value to avoid redirecting to a record that is not necessarily the one, the user was looking for.
 
 ```html
 <script>
@@ -28,7 +29,7 @@ Here is the full condition used in built-in single hit redirect mechanism.
     });
 </script> 
 ```
-**NOTE**  Example above wil not working fully. Please continue with the article to learn more about the single hit redirect insights.
+**NOTE** The example above is not a full solution. Please continue with the article for more insights into single hit redirect.
 
 
 ### NG compatibility
@@ -65,9 +66,10 @@ This flag should be set or unset, depending on whether it is in the storage.
  ```
 
 ### Search from different locations
-The solution above works in general, but it has one flaw which might be fine-tuned, especially if used application framework is dedicated for creating non-SPA applications.
+The solution above works in general, but it has one flaw which may have to be fine-tuned, especially if your application framework is dedicated to creating non-SPA applications.
 Since `ff_redirect_on` flag is already set to `0`, next exact search will not be redirected.
-This might not be desired behaviour, because next search might be called from the page user is currently on so setting only one flag will not cover this case.
+This might not be desired behaviour, because the next search might be called from the page the user is currently on.
+Setting only one flag will not cover this case.
 What could help is to set an additional flag that says which page the `ff_redirect_on` flag was set to `0`, and to prevent redirection only if the current location is identical to the one stored in the warehouse, which means that the user has returned to the previous page.
   
  ```javascript
