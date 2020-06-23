@@ -17,14 +17,12 @@ Although it is not necessary to check `result.resultArticleNumberStatus`, we hig
 
 ```html
 <script>
-        document.addEventListener('ffReady', function () {
-            factfinder.communication.ResultDispatcher.subscribe('result', function(result) {
-                if (result.resultArticleNumberStatus === 'resultsFound' 
-                    && result.records 
-                    && result.records.length === 1) {
-                        const record = result.records[0].record;
-                        window.location.href = record.Deeplink; //field name might be different. Check your feed file 
-                }       
+    document.addEventListener('ffReady', function () {
+        factfinder.communication.ResultDispatcher.subscribe('result', function(result) {
+            if (result.resultArticleNumberStatus === 'resultsFound' && result.records && result.records.length === 1) {
+                const record = result.records[0].record;
+                window.location.href = record.Deeplink; //field name might be different. Check your feed file 
+            }       
         });
     });
 </script> 
@@ -53,30 +51,32 @@ The easiest way to implement such a guard is to store a boolean flag after detec
 This flag should be set or unset, depending on whether it is in the storage.
 
  ```javascript
-     if (factfinder.common.localStorage.getItem('ff_redirect_on') !== '0') {
-        if (result.resultArticleNumberStatus === 'resultsFound' 
-            && result.records 
-            && result.records.length === 1) {
-                factfinder.common.localStorage.setItem('ff_redirect_on', 0); 
-                // redirect user
-        }   
-      } else {
-            factfinder.common.localStorage.setItem('ff_redirect_on', 1); 
-      }   
+ if (localStorage.getItem('ff_redirect_on') !== '0') {
+    if (result.resultArticleNumberStatus === 'resultsFound' 
+        && result.records 
+        && result.records.length === 1) {
+            localStorage.setItem('ff_redirect_on', 0); 
+            // redirect user
+    }   
+} else {
+    localStorage.setItem('ff_redirect_on', 1); 
+}   
  ```
 
 ### Search from different locations
 The solution above works in general, but it has one flaw which may have to be fine-tuned, especially if your application framework is dedicated to creating non-SPA applications.
-Since `ff_redirect_on` flag is already set to `0`, next exact search will not be redirected.
+Since the `ff_redirect_on` flag is already set to `0`, the next exact search will not be redirected.
 This might not be desired behaviour, because the next search might be called from the page the user is currently on.
 Setting only one flag will not cover this case.
-What could help is to set an additional flag that says which page the `ff_redirect_on` flag was set to `0`, and to prevent redirection only if the current location is identical to the one stored in the warehouse, which means that the user has returned to the previous page.
+What could help is to set an additional value that stores which page the `ff_redirect_on` flag was set to `0`.
+It can be used to only prevent redirection if the current location is identical to the one stored in this value.
+The two locations being identical would mean that the user has returned to the previous page.
   
  ```javascript
-if (factfinder.common.localStorage.getItem('ff_redirect_referer') !== window.location.href) {
-    factfinder.common.localStorage.setItem('ff_redirect_referer', window.location.href);
+if (localStorage.getItem('ff_redirect_referer') !== window.location.href) {
+    localStorage.setItem('ff_redirect_referer', window.location.href);
 } else {                    
-    factfinder.common.localStorage.setItem('ff_redirect_referer', undefined); 
+    localStorage.setItem('ff_redirect_referer', undefined); 
 }   
  ```
 
@@ -86,24 +86,24 @@ Full example below.
 Please keep in mind that on specific pages you might need to use different conditions in order to cover all edge cases.
 That script should be placed in every document the `ff-searchbox` element is used in.
  ```html
- <script>
-         document.addEventListener("WebComponentsReady", function () {
-             factfinder.communication.ResultDispatcher.subscribe('result', function(result) {
-                 if (factfinder.common.localStorage.getItem('ff_redirect_on') !== '0' 
-                    || factfinder.common.localStorage.getItem('ff_redirect_referer') !== window.location.href) {
-                        if (result.resultArticleNumberStatus === 'resultsFound' 
-                                && result.records 
-                                && result.records.length === 1) {
-                                    factfinder.common.localStorage.setItem('ff_redirect_on', 0); 
-                                    factfinder.common.localStorage.setItem('ff_redirect_referer', window.location.href);
-                                    const record = result.records[0].record;
-                                    window.location.href = record.Deeplink; //field name might be different. Check your feed file 
-                          }   
-                     } else {
-                        factfinder.common.localStorage.setItem('ff_redirect_on', 1); 
-                        factfinder.common.localStorage.setItem('ff_redirect_referer', undefined); 
-                    }   
-         });
-     });
- </script> 
+<script>
+    document.addEventListener("ffReady ", function () {
+         factfinder.communication.ResultDispatcher.subscribe('result', function(result) {
+            const redirectOn = localStorage.getItem('ff_redirect_on');
+            const refererUrl = localStorage.getItem('ff_redirect_referer');
+
+            if (redirectOn !== '0' || refererUrl !== window.location.href) {                 
+                if (result.resultArticleNumberStatus === 'resultsFound' && result.records && result.records.length === 1) {
+                    localStorage.setItem('ff_redirect_on', 0); 
+                    localStorage.setItem('ff_redirect_referer', window.location.href);
+                    const record = result.records[0].record;
+                    window.location.href = record.Deeplink; //field name might be different. Check your feed file 
+                }  
+            } else {
+                localStorage.setItem('ff_redirect_on', 1); 
+                localStorage.setItem('ff_redirect_referer', undefined); 
+            }   
+        });
+    });
+</script> 
  ```
