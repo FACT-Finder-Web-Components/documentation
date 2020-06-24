@@ -5,7 +5,7 @@ However, you are still able to implement a similar mechanism using the Core API.
 By definition single hit redirect is a mechanism which redirects users to a record page only if they did an exact search i.e. asked for a specific product by providing its identifier.
 
 The built-in mechanism checks the `resultArticleNumberStatus` property of the search result object in order to determine if the response contains only one record returned with 100% search similarity.
-This level of similarity is only possible to achieve if the user searches for the product using its produt number.
+This level of similarity is only possible to achieve if the user searches for the product using its product number.
 In most cases is the only one way to determine if an exact search took place.
 Here is the full condition used in the built-in single hit redirect mechanism.
 `result.resultArticleNumberStatus === 'resultsFound' && result.records && result.records.length === 1`
@@ -84,10 +84,10 @@ if (localStorage.getItem('ff_redirect_referer') !== window.location.href) {
 
 Full example below.
 Please keep in mind that on specific pages you might need to use different conditions in order to cover all edge cases.
-That script should be placed in every document the `ff-searchbox` element is used in.
+The following script should be placed in every document the `ff-searchbox` element is used in.
  ```html
 <script>
-    document.addEventListener("ffReady ", function () {
+    document.addEventListener('ffReady', function () {
          factfinder.communication.ResultDispatcher.subscribe('result', function(result) {
             const redirectOn = localStorage.getItem('ff_redirect_on');
             const refererUrl = localStorage.getItem('ff_redirect_referer');
