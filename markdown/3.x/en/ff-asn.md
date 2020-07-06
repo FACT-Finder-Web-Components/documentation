@@ -312,7 +312,7 @@ The default value is `false`.
 When the number of available filters in the ASN group is large, you may want to render a search field inside the group to allow the user to narrow down displayed filters.
 
 To enable this feature you have to set the minimum number of filters required to render the search field in a given group. This is done by setting the `searchable-from` attribute on the `ff-asn` element.
-If you wish to exclude some groups from being searchable regardless of the number of filters, you can set the `non-searchable` attribute on such an `ff-asn-group` element.
+If you wish to exclude some groups from being searchable regardless of the number of filters, you can set the `not-searchable` attribute on such an `ff-asn-group` element.
 
 ### Search field template
 
