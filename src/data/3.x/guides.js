@@ -74,6 +74,10 @@ const guides = {
             path: `single-hit-redirect`,
             title: `Single Hit Redirect`,
         },
+        "server-side-rendering": {
+            path: `server-side-rendering`,
+            title: `Server Side Rendering`,
+        },
     }
 };
 
@@ -100,7 +104,8 @@ guides.advanced = [
     guides.pages[`routing`],
     guides.pages[`communication`],
     guides.pages[`utils`],
-    guides.pages[`single-hit-redirect`]
+    guides.pages[`single-hit-redirect`],
+    guides.pages[`server-side-rendering`]
 ];
 
 guides.migration = [
