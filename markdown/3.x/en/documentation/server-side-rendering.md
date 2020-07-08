@@ -10,7 +10,7 @@ Then the client side part of the application render the HTML once again content,
 In an opposite to SSR, stands CSR which is the standard way of running web applications.
 With this approach, server returns raw HTML, often containing framework-specific tags, which should not been visible to the end user.
 Then the client side part render for the first time, fully viewable page, but the rendered result is not available for scanning bots as they only scan the HTML returned by the server.
-That might be an issue, where an application renders content critical from its point of view (e.g e-shop rendering products).
+That might be an issue, where an application renders content critical from its point of view (e.g. e-shop rendering products).
 In that case web browsers will never index such application properly as they have no chance to detect what is the real and full page content. 
  
 To ensure that users can properly promote their websites on the Internet, Web Components  element `ff-record-list` have been enhanced with the possibility of SSR.
@@ -45,12 +45,12 @@ To implement SSR on the client side you have to adjust `ff-record-list`.
 Set the `ssr` property of the `ff-record-list` element to true.
 ```html
  <ff-record-list ssr>
- <!-- put fully pre-rendered records here -->
+ <!-- put pre-rendered records here -->
  </ff-record-list>
 ```
 Define the `ff-record` template which `ff-record-list` will use to rendering new records once it start to work.
 
-**Note**: While using SSR, the outputted HTML for `ff-record` will not contain any `mustache.js` expressions hence it will not be able to be used to render new records. 
+**Note**: While using SSR, the outputted HTML for `ff-record` will not contain any `mustache.js` expressions, hence it will not be able to be used to render new records. 
 ```html
     <template data-role="record">
         <!--put `ff-record` element template here  --->
