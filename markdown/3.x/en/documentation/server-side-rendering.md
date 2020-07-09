@@ -8,10 +8,10 @@ There are a couple of benefits from using this approach:
 With SSR, an application server responds with a page that is viewable but not yet functional.
 Then the client side part of the application renders the HTML once again making it fully functional for the user.
 Opposite to SSR stands CSR (client side rendering) which is the standard way of running web applications.
-With this approach, server returns raw HTML, often containing framework-specific tags, which should not been visible to the end user.
-Then the client side part render for the first time, fully viewable page, but the rendered result is not available for scanning bots as they only scan the HTML returned by the server.
-That might be an issue, where an application renders content critical from its point of view (e.g. e-shop rendering products).
-In that case web browsers will never index such application properly as they have no chance to detect what is the real and full page content. 
+With this approach the server returns raw HTML, often containing framework-specific tags, which should not be visible to the user.
+Then the client side application renders the fully viewable page.
+However, the rendered result is not available to scanning bots as they only scan the HTML returned by the server.
+This might be an issue where an application renders business critical content (e.g. an e-shop rendering products) and  has the effect that search engines will never index such applications properly as they have no chance to detect what the real and full page content is.
  
 To ensure that users can properly promote their websites on the Internet, Web Components' `ff-record-list` has been enhanced with SSR capability.
 The paragraphs below will show you how to implement SSR in your application.
@@ -20,7 +20,7 @@ The variety of technologies makes it impossible to fully describe each step in i
 
 ### Server Side 
 #### Sending Search Request
-In order to render records at the server side, application needs to send a `search` request to FACT-Finder to get a records data it will work with.
+In order to render records on the server side, your application needs to send a **search** request to FACT-Finder to get product data it will work with.
 
 #### Pre-rendering
 With given response, you need to prepare a specific view object representing a page to be outputted. 
