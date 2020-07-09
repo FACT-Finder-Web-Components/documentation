@@ -23,10 +23,10 @@ The variety of technologies makes it impossible to fully describe each step in i
 In order to render records on the server side, your application needs to send a **search** request to FACT-Finder to get product data it will work with.
 
 #### Pre-rendering
-With given response, you need to prepare a specific view object representing a page to be outputted. 
-At this stage, records fetched from the FACT-Finder should be converted into `ff-record` elements.
-To do so, you will need to use template engine which will hydrate raw template with a real data.
-Web Components uses mustache.js [template engine](/documentation/3.x/template-engine) so you can use it server side counterpart.
+With the response from the request above, you need to prepare a specific view object representing a page to be output. 
+At this stage, records fetched from FACT-Finder should be converted into `ff-record` elements.
+To do so, you may want to use a template engine which hydrates raw templates with real data.
+Web Components uses the mustache.js [template engine](/documentation/3.x/template-engine) so it may be the easiest to use its server side counterpart.
 
 Example libraries (the whole list of libraries can be found at [mustache.github.io](https://mustache.github.io/)):
 * java: https://github.com/spullara/mustache.java
