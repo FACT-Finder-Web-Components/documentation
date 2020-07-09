@@ -11,7 +11,7 @@ Opposite to SSR stands CSR (client side rendering) which is the standard way of 
 With this approach the server returns raw HTML, often containing framework-specific tags, which should not be visible to the user.
 Then the client side application renders the fully viewable page.
 However, the rendered result is not available to scanning bots as they only scan the HTML returned by the server.
-This might be an issue where an application renders business critical content (e.g. an e-shop rendering products) and  has the effect that search engines will never index such applications properly as they have no chance to detect what the real and full page content is.
+This might be an issue where an application renders business critical content (e.g. an e-shop rendering products) and has the effect that search engines will never index such applications properly as they have no chance to detect what the real and full page content is.
  
 To ensure that users can properly promote their websites on the Internet, Web Components' `ff-record-list` has been enhanced with SSR capability.
 The paragraphs below will show you how to implement SSR in your application.
