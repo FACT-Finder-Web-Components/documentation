@@ -19,7 +19,7 @@ Please keep in mind that the server side part is not a full tutorial, just a set
 The variety of technologies makes it impossible to fully describe each step in implementing such a solution.  
 
 ### Server Side 
-#### Sending Search Request
+#### Sending a search request
 In order to render records on the server side, your application needs to send a **search** request to FACT-Finder to get product data it will work with.
 
 #### Pre-rendering
