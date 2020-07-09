@@ -52,7 +52,7 @@ Place the `ssr` attribute on the `ff-record-list` element.
 ```
 Define the `ff-record` template which `ff-record-list` will use to render new records.
 
-**Note**: While using SSR, the outputted HTML for `ff-record` will not contain any `mustache.js` expressions, hence it will not be able to be used to render new records. 
+**Note**: While using SSR, the HTML for `ff-record` as returned from the server will not contain any **mustache.js** expressions, hence it will not be usable for rendering new records. 
 ```html
     <template data-role="record">
         <!--put `ff-record` element template here  --->
