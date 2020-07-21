@@ -6,6 +6,27 @@ Which version is the documentation referring to?
 Latest.
 
 ---
+
+#### Question:
+Can I contribute to the future development of WebComponents?
+
+#### Answer:
+Yes. Although the Web Components codebase is closed, you can still discuss and propose issues, changes and features at [GitHub issues](https://github.com/FACT-Finder-Web-Components/ff-web-components/issues).
+We are grateful for any feedback, so do not hesitate to ask questions or express concerns whenever you find something worth sharing.
+
+---
+
+#### Question:
+Can I see upcoming breaking changes and proposals?
+
+#### Answer:
+Yes, at [GitHub issues](https://github.com/FACT-Finder-Web-Components/ff-web-components/issues).
+You should have no troubles in finding them as all issues are tagged accordingly.
+Do not hesitate to propose your own ideas or functionalities you would like us to provide in the future.
+Please note that with no voices against, breaking changes will be applied according to the specified version.
+
+---
+
 #### Question:
 I want to use FACT-Finder Web Components with Angular, but data binding used in the components conflicts with Angular's `{{ }}` binding. Can you fix it?
 #### Answer:
@@ -97,26 +118,6 @@ One option is to use a polyfill that is compatible with the WebComponents polyfi
  Errors that could hint at such a clash may involve `Symbol.iterator` or `Promise`.
  For detailed information on which features the WebComponents polyfill implements, refer to the official [GitHub repository](https://github.com/webcomponents/polyfills).  
 If this doesn't seem to solve the issue, please contact us for a custom solution.
-
----
-
-#### Question:
-Can I contribute to the future development of WebComponents?
-
-#### Answer:
-Yes. Although the Web Components codebase is closed, you can still discuss and propose issues, changes and features at [GitHub issues](https://github.com/FACT-Finder-Web-Components/ff-web-components/issues).
-We are grateful for any feedback, so do not hesitate to ask questions or express concerns whenever you find something worth sharing.
-
----
-
-#### Question:
-Can I see upcoming breaking changes and proposals?
-
-#### Answer:
-Yes, at [GitHub issues](https://github.com/FACT-Finder-Web-Components/ff-web-components/issues).
-You should have no troubles in finding them as all issues are tagged accordingly.
-Do not hesitate to propose your own ideas or functionalities you would like us to provide in the future.
-Please note that with no voices against, breaking changes will be applied according to the specified version.
 
 ---
 
