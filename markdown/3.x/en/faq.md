@@ -100,6 +100,26 @@ If this doesn't seem to solve the issue, please contact us for a custom solution
 
 ---
 
+#### Question:
+Can i contribute?
+
+#### Answer:
+Yes. Although the Web Components codebase is closed, you can still discuss and propose at [GitHub issues](https://github.com/FACT-Finder-Web-Components/ff-web-components/issues).
+We are grateful for any feedback, so do not hesitate to ask questions, express concerns whenever you find something worth sharing.
+
+---
+
+#### Question:
+Can I see upcoming breaking changes and proposals?
+
+#### Answer:
+Yes, at [GitHub issues](https://github.com/FACT-Finder-Web-Components/ff-web-components/issues).
+You should have no troubles in finding them as all issues are tagged accordingly.
+Do not hesitate to propose your own ideas or  functionalities, we can provide in the future.
+Please note that with no voices against, breaking changes will be applied according to the specified version.
+
+---
+
 ## Errors
 
 #### Error: 
