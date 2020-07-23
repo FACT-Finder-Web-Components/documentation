@@ -15,7 +15,15 @@ Now invoke the search, two xhr requests will appear. The second one is the one w
 Every element with a visual component is bound to one or more of these objects. For example the `ff-record`
 element is bound to an item in the records array.
 
-**Note** the content of those data bindings gets escaped. If you do not want that, e.g. when your data contains HTML which should be displayed, you can use triple braces like `{{{data-binding}}}`. **Be aware** that any JavaScript included in your `data-binding` will be executed if put in triple braces.
+**Note** the content of those data bindings gets escaped. If you do not want that, e.g. when your data contains HTML which should be displayed, you can use triple braces like `{{{data-binding}}}`.
+
+### Danger of Cross Site Scripting (XSS)
+
+Be aware that any JavaScript included in your `{{{data-binding}}}` will be executed if put in triple curly braces.
+
+This is potentially dangerous where values from the URL are inserted.
+An example is the [Breadcrumb Trail](/api/3.x/ff-breadcrumb-trail) with `{{{text}}}` for items of type `search`.
+Following a malicious URL could result in unwanted code running in the user's browser.
 
 ### Data Binding Example
 
