@@ -1,30 +1,23 @@
 ## Tracking with JavaScript
 
-Instead of using the built-in tracking you are also able to use our
-JavaScript-API to send your tracking events.
+Instead of using the built-in tracking, you are also able to use WebComponents' JavaScript API to send your tracking events.
 
 ___
 **IMPORTANT**
 
-**This documentation is NOT a comprehensive [FACT-Finder Tracking Documentation](https://doku.fact-finder.de/endoc/latest/fact-finder-integration/tracking-interface-integration). Please refer to the official FACT-Finder documentation to read more about the tracking itself.**
+**This documentation is NOT a comprehensive FACT-Finder Tracking Documentation. Please refer to the [official FACT-Finder Documentation](https://doku.fact-finder.de/endoc/latest/fact-finder-integration/tracking-interface-integration) to read more about the tracking itself.**
 ___ 
 
  
 
-The [`Tracking12`](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/dist/ff-core.d.ts#L747) class contains the relevant tracking 
-methods all of which take one object as a parameter.
+The [`Tracking12`](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/dist/ff-core.d.ts#L747) class contains the relevant tracking methods.
+All of these methods take one object as a parameter.
 
-You can create instances like:
+You can create an instance like this:
 ```Javascript
 const track = new factfinder.communication.Tracking12();
 ```
 
- 
-
-**INFO**
-
-For more technical information about this class or to get code completion support in many IDEs take a look
-at our [ff-core.d.ts](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/dist/ff-core.d.ts) at [Github](https://github.com/FACT-Finder-Web-Components).
 
 ### Retrieving necessary information
 Some information is provided by FACT-Finder Web Components and/or FACT-Finder.
@@ -33,7 +26,9 @@ Some information is provided by FACT-Finder Web Components and/or FACT-Finder.
 #### sid
 You can retrieve the current FACT-Finder Web Components **sid** by calling this helper function: 
 
-`factfinder.common.localStorage.getItem("ff_sid");`
+```js
+factfinder.common.localStorage.getItem("ff_sid");
+````
 
 **NOTE** You should always rely on this function for Safari private mode compatibility!
 
