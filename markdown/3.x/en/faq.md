@@ -129,9 +129,7 @@ blocked by CORS policy: Response to preflight request doesn't pass access contro
 preflight request.`
 
 #### Solution:
-In order to use our Web Components library, this must be activated on your FACT-Finder server.   
-**Please contact our
-[Service Desk (service-desk@fact-finder.de)][1] for activation**!
+In order to use our Web Components library, **please contact our [Service Desk (service-desk@fact-finder.de)][1] for activation**!
 
 ---
 
