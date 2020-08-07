@@ -122,6 +122,16 @@ If this doesn't seem to solve the issue, please contact us for a custom solution
 ---
 
 ## Errors
+#### Error:
+
+`Access to XMLHttpRequest at 'https://my.fact-finder.de/FACT-Finder/Search.ff?query=*&channel=my_channel' has been
+blocked by CORS policy: Response to preflight request doesn't pass access control check: Redirect is not allowed for a
+preflight request.`
+
+#### Solution:
+In order to use our Web Components library, **please contact our [Service Desk (service-desk@fact-finder.de)][1] for activation**!
+
+---
 
 #### Error: 
 
@@ -129,3 +139,5 @@ If this doesn't seem to solve the issue, please contact us for a custom solution
 
 #### Solution:
 Add missing `defer` attribute on bundle.js like described [here](/documentation/3.x/include-scripts): `<script defer src="../dist/bundle.js"></script>`
+
+[1]: mailto:service-desk@fact-finder.de?subject=Web%20Components%20Activation
