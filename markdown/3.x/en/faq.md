@@ -28,6 +28,15 @@ Please note that with no voices against, breaking changes will be applied accord
 ---
 
 #### Question:
+Which browsers do FACT-Finder WebComponents support?
+
+#### Answer:
+FACT-Finder WebComponents utilises the official [Web Components polyfill](https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs#browser-support) which guarantees support for _Chrome_, _Firefox_, _Edge_, _Safari 9+_, _IE11+_, _Chrome Android_ and _Mobile Safari_.
+We test against the latest version of each of these.
+
+---
+
+#### Question:
 I want to use FACT-Finder Web Components with Angular, but data binding used in the components conflicts with Angular's `{{ }}` binding. Can you fix it?
 #### Answer:
 You can add Angular's `ngNonBindable` attribute to the parent element to prevent Angular from parsing double curly braces. If you have to keep both Angular and FACT-Finder WebComponents bindings within the same element, you can use: 
