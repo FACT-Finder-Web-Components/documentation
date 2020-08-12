@@ -28,7 +28,7 @@ You can retrieve the current FACT-Finder Web Components **sid** by calling this 
 
 ```js
 factfinder.common.localStorage.getItem("ff_sid");
-````
+```
 
 **NOTE** You should always rely on this function for Safari private mode compatibility!
 
