@@ -8,7 +8,6 @@ ___
 | **channel**&nbsp;(String)&nbsp;(default: empty) | Your channel name. Has to be the same as the channel name configured in the FACT-Finder backend. |
 | **search-immediate**&nbsp;(Boolean) | If this property is present, FACT-Finder Web Components will start searching as soon as they are loaded. |
 | **use-url-parameter**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | If set to false, FACT-Finder parameters are not pushed to the URL unless explicitly whitelisted. Note that this attribute has no effect when `only-search-params` is set. |
-| **use-cache**&nbsp;(Boolean) **Options**: &nbsp;true, &nbsp;false (default: false)| This value determines, if the browser should cache previous search requests or not. Some browsers support this feature and therefore speed up the search for repeated requests. |
 | **default-query**&nbsp; (String) (default: '*') | Whenever a search is performed without a search query, this value will be used as default search term. |
 | **only-search-params**&nbsp;(Boolean) | If set, only current search related parameters are pushed to the URL, i.e. `query`, `filter`, `sort`, `page` and `productsPerPage`. This can be used in conjunction with `parameter-whitelist`. Note that setting this attribute overrides the behaviour of `use-url-parameter`. |
 | **parameter-whitelist**&nbsp; (String) (default: '') | Comma separated values; if set, only specified parameters are pushed to the URL. E.g. `parameter-whitelist="query,page"`. |
