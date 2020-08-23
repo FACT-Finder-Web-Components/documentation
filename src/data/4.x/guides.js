@@ -72,11 +72,10 @@ const guides = {
         },
 
 
-        // TODO replace with 4.x guide
-        // "upgrade-guide": {
-        //     path: `upgrade-guide`,
-        //     title: `Upgrade Guide`,
-        // },
+        "upgrade-guide": {
+            path: `upgrade-guide`,
+            title: `Upgrade Guide 3.x to 4.0.0`,
+        },
         "single-hit-redirect": {
             path: `single-hit-redirect`,
             title: `Single Hit Redirect`,
@@ -117,6 +116,7 @@ guides.advanced = [
 ];
 
 guides.migration = [
+    guides.pages[`upgrade-guide`],
 ];
 
 export default guides;
