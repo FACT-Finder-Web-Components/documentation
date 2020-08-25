@@ -158,6 +158,13 @@ const api = {
 
         // --- experimental ---
 
+        "ff-predictive-basket": {
+            path: `ff-predictive-basket`,
+            title: `Predictive Basket`,
+            noDemo: true,
+            noApi: true,
+        },
+
 
         // --- obsolete pages ---
 
@@ -228,6 +235,7 @@ api.moreFeatures = [
 
 // set to undefined if section shall not be shown
 api.experimental = [
+    api.pages[`ff-predictive-basket`],
 ];
 
 export default api;
