@@ -4,6 +4,8 @@ import { hasMovedModifier } from '../pageHelper';
 // api are the pages under the "API" tab
 const api = {
     pages: {
+        // --- core ---
+
         "core-result-dispatcher": {
             path: `core-result-dispatcher`,
             title: `ResultDispatcher`,
@@ -19,6 +21,8 @@ const api = {
             noDemo: true
         },
 
+        // --- basics ---
+
         "ff-searchbox": {
             path: `ff-searchbox`,
             title: `Searchbox`,
@@ -31,6 +35,8 @@ const api = {
             path: `ff-suggest`,
             title: `Suggest`,
         },
+
+        // --- navigation ---
 
         "ff-breadcrumb-trail": {
             path: `ff-breadcrumb-trail`,
@@ -68,6 +74,8 @@ const api = {
             path: `ff-sortbox`,
             title: `Sortbox`,
         },
+
+        // --- more features ---
 
         "ff-campaign": {
             path: `ff-campaign`,
@@ -148,6 +156,8 @@ const api = {
             noDemo: true
         },
 
+        // --- experimental ---
+
 
         // --- obsolete pages ---
 
@@ -214,6 +224,10 @@ api.moreFeatures = [
     api.pages[`ff-middleware`],
     api.pages["ff-loading-spinner"],
     api.pages[`ImageBindingBehavior`],
+];
+
+// set to undefined if section shall not be shown
+api.experimental = [
 ];
 
 export default api;
