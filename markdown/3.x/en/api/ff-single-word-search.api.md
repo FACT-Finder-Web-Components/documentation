@@ -15,4 +15,4 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **clone** | Return a deep copy of the contained elements including all properties, behaviors, private fields, states and HTML templates. |
+| `(DEPRECATED)` **clone** | Return a deep copy of the contained elements including all properties, behaviors, private fields, states and HTML templates. |
