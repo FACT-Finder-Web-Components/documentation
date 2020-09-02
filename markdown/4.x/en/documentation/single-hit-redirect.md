@@ -1,10 +1,10 @@
 ## Single Hit Redirect
 
-As is mentioned in the `ff-communication` [API reference](/api/4.x/ff-communication#tab=api), the built-in single hit redirect feature, due to its limitations, is now deprecated and will be removed in a future release.
+The built-in single hit redirect feature, due to its limitations, was deprecated in version 3.x and since 4.x is removed.
 However, you are still able to implement a similar mechanism using the Core API.
 By definition single hit redirect is a mechanism which redirects users to a record page only if they did an exact search i.e. asked for a specific product by providing its identifier.
 
-The built-in mechanism checks the `resultArticleNumberStatus` property of the search result object in order to determine if the response contains only one record returned with 100% search similarity.
+The Removed mechanism was checking for the `resultArticleNumberStatus` property of the search result object in order to determine if the response contains only one record returned with 100% search similarity.
 This level of similarity is only possible to achieve if the user searches for the product using its product number.
 In most cases is the only one way to determine if an exact search took place.
 Here is the full condition used in the built-in single hit redirect mechanism.
