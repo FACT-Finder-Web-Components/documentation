@@ -1,4 +1,4 @@
-## `ff-single-word-search`
+c## `ff-single-word-search`
 ___
 ### Events
 | Name | Description |
@@ -11,8 +11,3 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **word**&nbsp;(Object) | The data from FACT-Finder. | 
-
-### Methods
-| Name | Description |
-| ---- | ----------- |
-| **clone** | Return a deep copy of the contained elements including all properties, behaviors, private fields, states and HTML templates. |
