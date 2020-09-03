@@ -32,6 +32,7 @@ Only the changes that do not emit deprecation warnings are left to address **IF*
 | Make `ff-asn-group[for-group]` target `associatedFieldName` | Very high | Low | N/A | No |
 | Removal of `records` property from `ff-checkout-tracking` | Very low | High | `3.15.0` | Yes |
 | Removal of `clone()` from `ff-breadcrumb-trail-item` | Close to zero | N/A | ` 3.2.0` | Yes |
+| Removal of `clone()` from `ff-single-word-search-record` | Close to zero | N/A | ` 3.15.0` | Yes |
 | Removal of Single Hit Redirect | Medium | High | `3.14.1` | Yes |
 
 
@@ -248,7 +249,7 @@ Of course, this highly depends on your actual implementation and is difficult to
 
 ```js
 // 'records' property no longer available.
-document.querySelector("ff-checkout-tracking").records;
+document.querySelector("ff-checkout-tracking").records
 ```
 
 
@@ -268,6 +269,25 @@ https://github.com/FACT-Finder-Web-Components/ff-web-components/issues/44
 ```js
 // 'clone' method no longer available.
 document.querySelector("ff-breadcrumb-trail-item").clone()
+```
+
+
+#### Removal of `clone()` from `ff-single-word-search-record`
+
+| Chance of being affected | Required effort to fix | Deprecated since |
+| ------------------------ | ---------------------- | ---------------- |
+| Close to zero            | N/A                    | ` 3.15.0`        |
+
+Original issue:  
+https://github.com/FACT-Finder-Web-Components/ff-web-components/issues/47
+
+`clone()` is no longer required and from `4.0.0` it is no longer available.
+
+##### JavaScript
+
+```js
+// 'clone' method no longer available.
+document.querySelector("ff-single-word-search-record").clone()
 ```
 
 
