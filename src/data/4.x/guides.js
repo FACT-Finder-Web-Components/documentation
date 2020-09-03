@@ -107,7 +107,6 @@ guides.advanced = [
     guides.pages[`custom-components`],
     guides.pages[`communication`],
     guides.pages[`utils`],
-    guides.pages[`single-hit-redirect`],
     guides.pages[`server-side-rendering`]
 ];
 
