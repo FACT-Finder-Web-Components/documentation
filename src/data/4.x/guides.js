@@ -76,10 +76,6 @@ const guides = {
             path: `upgrade-guide`,
             title: `Upgrade Guide 3.x to 4.0.0`,
         },
-        "single-hit-redirect": {
-            path: `single-hit-redirect`,
-            title: `Single Hit Redirect`,
-        },
         "server-side-rendering": {
             path: `server-side-rendering`,
             title: `Server Side Rendering`,
@@ -111,7 +107,6 @@ guides.advanced = [
     guides.pages[`custom-components`],
     guides.pages[`communication`],
     guides.pages[`utils`],
-    guides.pages[`single-hit-redirect`],
     guides.pages[`server-side-rendering`]
 ];
 
