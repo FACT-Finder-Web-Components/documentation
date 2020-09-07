@@ -104,7 +104,7 @@ If you set the `[filter-style]` attribute, the `ff-asn-group` acts as the defaul
 
 
 ## Defining filter group templates for individual groups
-By setting the `[for-group]` attribute you can apply a template to a single group identified by its name.
+By setting the `[for-group]` attribute you can apply a template to a single group identified by its source field name (associatedFieldName).
 ```html
 <ff-asn>
     <!-- Acts as a template for a specific group called "Category" -->
@@ -123,7 +123,7 @@ Note that you should also supply an `option` element that acts as a placeholder.
 You may optionally define a template for the regular `option` elements. It supports data binding as usual. Make sure to mark it with the `data-template` attribute.
 
 ```html
-<ff-asn-group for-group="YourGroupName" select-box="true">
+<ff-asn-group for-group="YourFieldName" select-box="true">
         <div data-container="detailedLinks">
             <div data-content="detailedLinks"></div>
         </div>

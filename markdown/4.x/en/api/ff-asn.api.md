@@ -21,7 +21,7 @@ ___
 | ---- | ----------- |
 | **opened**&nbsp;(Boolean) | Determines if the filter group is expanded. If you want to have a group opened by default: `<ff-asn-group opened>` does the trick. |
 | **collapsible**&nbsp;(String)&nbsp;**Options**:&nbsp;"true",&nbsp;"false"&nbsp;(default: "true") | Determines, if the filter group is collapsible. |
-| **for-group**&nbsp;(String)&nbsp;(default: "all")| Determines, which filter group the template should be applied to. If set to `"all"`, the template is applied to all groups if no other template matches the requirements. |
+| **for-group**&nbsp;(String)&nbsp;(default: "all")| Determines which filter group the template should be applied to. Its value should correspond to a source field name (associatedFieldName). If set to `"all"`, the template is applied to all groups if no other template matches the requirements. |
 | **group**&nbsp;(Object) | The data for the filter group. |
 | **filter-style**&nbsp;(String) | With the filter-style property it is possible to use the ff-asn-group element as a template for all groups which match the filter style. (TREE, DEFAULT, MULTISELECT, SINGLESELECT) |
 | **select-box**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | Use this when the hiddenLinks should be an HTML select element |
@@ -62,7 +62,7 @@ ___
 | ---- | ----------- |
 | **opened**&nbsp;(Boolean) | Determines if the filter group is expanded. If you want to have a group opened by default: `<ff-asn-group-slider opened>` does the trick. |
 | **collapsible**&nbsp;(String)&nbsp;**Options**:&nbsp;"true",&nbsp;"false" (default: "true") | Determines, if the filter group is collapsible. |
-| **for-group**&nbsp;(String)&nbsp;(default: "all") | Determines, which filter group the template should be applied to. If set to `"all"`, the template is applied to all groups if no other template matches the requirements. |
+| **for-group**&nbsp;(String)&nbsp;(default: "all") | Determines which filter group the template should be applied to. Its value should correspond to a source field name (associatedFieldName). If set to `"all"`, the template is applied to all groups if no other template matches the requirements. |
 | **group**&nbsp;(Object) | The data for the filter group. |
 | **filter-style**&nbsp;(String) | Read only property, always set to "SLIDER" |
 | **disable-auto-expand**&nbsp;(Boolean) | Prevents group from being automatically expanded when it contains any active filters. |
