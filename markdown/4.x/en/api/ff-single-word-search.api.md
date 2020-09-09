@@ -1,4 +1,4 @@
-c## `ff-single-word-search`
+## `ff-single-word-search`
 ___
 ### Events
 | Name | Description |
