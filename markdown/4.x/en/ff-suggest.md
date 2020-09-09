@@ -199,30 +199,3 @@ See the following example:
     });
 </script>
 ```
-
-## On-Click display of product detail page with Records API enabled
-
-If FACT-Finder's Records API is enabled, FACT-Finder Web Components will fetch
-the corresponding record of a `ff-suggest-item`, when it is clicked.
-
-`ff-suggest` fires the event `suggest-product-record` when the API
-returns the record. This event contains the clicked item's record.
-
-Provided the product detail page uses `ff-record` to display
-the product information, you can display the product's information by
-assigning the event's `event.detail.record` to `ff-record`'s
-`recordData` property as shown in the following example.
-
-
-```html
-<ff-suggest>
-    <!--content-->
-</ff-suggest>
-
-<script>
-    document.querySelector("ff-suggest").addEventListener("suggest-product-record", function (event) {
-        const record = event.detail.record;
-        document.querySelector("detailPage ff-record").recordData = record;
-    });
-</script>
-```
