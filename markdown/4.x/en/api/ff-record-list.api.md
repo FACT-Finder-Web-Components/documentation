@@ -12,7 +12,6 @@ ___
 | **infinite-scroll-margin** (Number) (default: 0) |  Sets the margin of the page loading trigger element. This value can be positive or negative and is in 'px'. Is only applied when `infinite-scrolling` is `true`. |
 | **infinite-max-pages** (Number) (default: Infinity) |  Sets the maximum number of pages allowed to be loaded in infinite scrolling mode. |
 | **infinite-scroll-container** (String) (default: empty) | Takes a CSS selector that determines the container whose scroll events shall be used to trigger loading of more data into the record list. This is the same kind of selector as used with `document.querySelector(selector)`. If not set, the closest scrollable parent container of the record list will be used. This attribute only has an effect if used in combination with `infinite-scrolling`. |
-| `(DEPRECATED)` **stamp-always** (Boolean) | _(This attribute has no effect anymore. It was made redundant by a more sophisticated algorithm detecting changes in record data.)_ `ff-record`s are always reused and, in addition, if the new record set doesn't differ (determined using `oldRecord.id === newRecord.id`) the DOM is not updated. Add this attribute to disable this behavior. Using this attribute on `ff-record-list` will ensure all stamped `ff-record`s will have this attribute added. |
 | **ssr** (Boolean) | Enables the SSR mode for the record list. |
 
 ### Methods
@@ -34,7 +33,6 @@ ___
 | **is-recommendation** (Boolean) (default: false) | Indicates if this record-list is placed inside a ff-recommendation element. This attribute is set automatically by the ff-recommendation element and used for tracking purposes.|
 | **add-cart-click** (Boolean) |  [Tracking Guide](/guides/tracking-guide) |
 | **add-checkout-click** (Boolean) |  [Tracking Guide](/guides/tracking-guide) |
-| `(DEPRECATED)` **stamp-always** (Boolean) | _(This attribute has no effect anymore. It was made redundant by a more sophisticated algorithm detecting changes in record data.)_ `ff-record`s are always reused and, in addition, if the new record set doesn't differ (determined using `oldRecord.id === newRecord.id`) the DOM is not updated. Add this attribute to disable this behavior. Using this attribute on `ff-record-list` will ensure all stamped `ff-record`s will have this attribute added. |
 
 ### Directives
 | Name | Description |

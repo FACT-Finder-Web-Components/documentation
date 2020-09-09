@@ -18,8 +18,3 @@ ___
 | ---- | ----------- |
 | **bread-crumb-trail-item**&nbsp;(Object) (default:empty) | The Breadcrumb data from FACT-Finder. |
 | **type**&nbsp;(String) **Options**:&nbsp;"search",&nbsp;"filter",&nbsp;"all",&nbsp;"advisor" (default: "search") | Determines, which kind of breadcrumb is present.|
-
-### Methods
-| Name | Description |
-| ---- | ----------- |
-| `(DEPRECATED)` **clone** | Return a deep copy of the contained elements including all properties, behaviors, private fields, states and HTML templates. |
