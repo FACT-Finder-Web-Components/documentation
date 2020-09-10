@@ -9,7 +9,7 @@ What we need:
 
 ## Parameter handling
 ```html
-<ff-communication use-url-parameter="false"></ff-communication>
+<ff-communication use-url-parameters="false"></ff-communication>
 ```
 Disables the usage of HTTP parameters entirely.
 
