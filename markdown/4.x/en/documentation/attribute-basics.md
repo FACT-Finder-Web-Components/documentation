@@ -28,8 +28,8 @@ In both cases `search-immediate` evaluates to `true` regardless of a value being
 Attributes of type `String` typically have several possible values defined. Only these values will be accepted while others will be ignored. A value can be case-sensitive depending on the implementation.
 
 ```html
-<ff-communication use-url-parameter="false"> <!-- evaluates to false -->
-<ff-communication use-url-parameter="true"> <!-- evaluates to true -->
+<ff-communication use-url-parameters="false"> <!-- evaluates to false -->
+<ff-communication use-url-parameters="true"> <!-- evaluates to true -->
 ``` 
 
 See the API section of an element for an overview of possible values. For example [`ff-searchbox`](/api/4.x/ff-searchbox#tab=api).
