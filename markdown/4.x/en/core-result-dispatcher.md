@@ -107,3 +107,18 @@ registered callback.
 </script>
 <script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
+
+### `dispatchRaw(response, topics)`
+___
+Manually dispatches a response to the Web Components.
+Topics argument is optional - skipping it causes the response will be dispatched as standard search result.
+
+```html
+<script type="text/javascript">
+  document.addEventListener('WebComponentsReady', function () {
+      factfinder.communication.ResultDispatcher.dispatchRaw(responseToDispatch);
+  });
+</script>
+```
+**Note**: Make sure you put `dispatchRaw` call inside `WebComponentsReady` listener.
+That guarantees all attributes set for `ff-communication` (e.g. `version`) will be reflected as communication parameters.

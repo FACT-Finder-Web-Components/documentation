@@ -35,7 +35,7 @@ Example libraries (the whole list of libraries can be found at [mustache.github.
 **Note**: You are not just limited to mustache. You can use any template engine your platform supports. The advantage of using mustache here is that you can use the same templates as in Web Components.  
 
 #### Sending the response
-The response to the browser contains the pre-rendered HTML.
+The response to the browser contains the pre-rendered HTML and raw response available to be used by Web Components.
 This step concludes the server side part.
 It does not exhaust the subject though.
 
@@ -57,9 +57,9 @@ Define the `ff-record` template which `ff-record-list` will use to render new re
     <template data-role="record">
         <!--put `ff-record` element template here  --->
     </template>
-```  
-Check the `ff-record-list` [documentation](/api/3.x/ff-record-list#tab=docs) for more details about its template.  
+```
+Check the `ff-record-list` [documentation](/api/3.x/ff-record-list#tab=docs) for more details about its template.
 
-After doing this, the only thing left to do is to trigger a `search` event with the same query used on the server side.
-You can achieve this either by using [EventAggregator](/api/3.x/core-event-aggregator) or by setting the `search-immediate` attribute on `ff-communication`.
-This will trigger `ff-record-list` to replace pre-rendered records with the actual ones. 
+After doing this, the only thing left to do is to dispatch response to the Web Components using `dispatchRaw`.
+See the [Result Dispatcher](/api/3.x/core-result-dispatcher) for more details regarding this utility.
+Dispatching response via `dispatchRaw` will trigger `ff-record-list` to replace pre-rendered records with the actual ones. 
