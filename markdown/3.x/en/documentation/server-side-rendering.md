@@ -35,14 +35,14 @@ Example libraries (the whole list of libraries can be found at [mustache.github.
 **Note**: You are not just limited to mustache. You can use any template engine your platform supports. The advantage of using mustache here is that you can use the same templates as in Web Components.  
 
 #### Sending the response
-The response to the browser contains the pre-rendered HTML and raw response available to be used by Web Components.
-Most convenient way to make the response available to use by the Web Components is to store it as JSON in a variable.
+The response to the browser contains the pre-rendered HTML and the raw response ready to be used by Web Components.
+The most convenient way to make the response available to use by Web Components is to store it as JSON in a variable.
 ```html
 <script>
-const rawResponse = JSON.parse(RESPONSE_TEXT);
+    const rawResponse = JSON.parse(RESPONSE_TEXT);
 </script> 
 ```
-**Note**: `RESPONSE_TEXT` in example above represents response text received from FACT-Finder. Passing it to variable depends on the used framework.
+**Note**: `RESPONSE_TEXT` in the example above represents the response text received from FACT-Finder. The way it is passed to a variable depends on the used framework.
 
 This step concludes the server side part.
 It does not exhaust the subject though.
@@ -62,9 +62,9 @@ Define the `ff-record` template which `ff-record-list` will use to render new re
 
 **Note**: While using SSR, the HTML for `ff-record` as returned from the server will not contain any **mustache.js** expressions, hence it will not be usable for rendering new records. 
 ```html
-    <template data-role="record">
-        <!--put `ff-record` element template here  --->
-    </template>
+<template data-role="record">
+    <!--put `ff-record` element template here  --->
+</template>
 ```
 Check the `ff-record-list` [documentation](/api/3.x/ff-record-list#tab=docs) for more details about its template.
 

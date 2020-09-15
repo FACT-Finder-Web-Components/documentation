@@ -112,7 +112,7 @@ registered callback.
 ___
 Manually dispatches a **response** to the Web Components.
 This method is useful when there is a need to dispatch FACT-Finder response received in different way than by AJAX request, sent by Web Components.
-That will be the case especially when implementing [Server Side Rendering](/documentation/3.x/server-side-rendering).
+That will be the case especially when implementing [Server Side Rendering](/documentation/4.x/server-side-rendering).
 
 Argument **topics** is optional - skipping it causes the response will be dispatched to all default topics causing updates all the actively subscribing elements.
 With **topics** argument passed only a part of the response, related to the passed topic will be dispatched (e.g. using`suggest` will cause an update only on elements which subscribe to that topic - by default `ff-suggest-element`).
