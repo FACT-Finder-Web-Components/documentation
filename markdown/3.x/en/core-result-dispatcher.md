@@ -120,5 +120,5 @@ Topics argument is optional - skipping it causes the response will be dispatched
   });
 </script>
 ```
-**Note**: Make sure you put `dispatchRaw` call inside `WebComponentsReady` listener.
-That guarantees all attributes set for `ff-communication` (e.g. `version`) will be reflected as communication parameters.
+**Note**: Make sure you put the `dispatchRaw` call inside a `WebComponentsReady` listener.
+This guarantees all `ff-communication` attributes (e.g. `version`) will be reflected as communication parameters.

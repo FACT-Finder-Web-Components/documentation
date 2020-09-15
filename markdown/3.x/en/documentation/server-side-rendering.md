@@ -60,6 +60,6 @@ Define the `ff-record` template which `ff-record-list` will use to render new re
 ```
 Check the `ff-record-list` [documentation](/api/3.x/ff-record-list#tab=docs) for more details about its template.
 
-After doing this, the only thing left to do is to dispatch response to the Web Components using `dispatchRaw`.
-See the [Result Dispatcher](/api/3.x/core-result-dispatcher) for more details regarding this utility.
-Dispatching response via `dispatchRaw` will trigger `ff-record-list` to replace pre-rendered records with the actual ones. 
+After doing this, the only thing left to do is to dispatch the response to Web Components using `dispatchRaw`.
+See [Result Dispatcher](/api/3.x/core-result-dispatcher) for more details regarding this utility.
+Dispatching the response via `dispatchRaw` will trigger `ff-record-list` to replace pre-rendered records with the actual ones. 
