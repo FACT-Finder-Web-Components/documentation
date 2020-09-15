@@ -110,8 +110,13 @@ registered callback.
 
 ### `dispatchRaw(response, topics)`
 ___
-Manually dispatches a response to the Web Components.
-Topics argument is optional - skipping it causes the response will be dispatched as standard search result.
+Manually dispatches a **response** to the Web Components.
+This method is useful when there is a need to dispatch FACT-Finder response received in different way than by AJAX request, sent by Web Components.
+That will be the case especially when implementing [Server Side Rendering](/documentation/3.x/server-side-rendering).
+
+Argument **topics** is optional - skipping it causes the response will be dispatched to all default topics causing updates all the actively subscribing elements.
+With **topics** argument passed only a part of the response, related to the passed topic will be dispatched (e.g. using`suggest` will cause an update only on elements which subscribe to that topic - by default `ff-suggest-element`).
+**Note** It is possible to pass multiple topics in an array.
 
 ```html
 <script type="text/javascript">
@@ -120,5 +125,5 @@ Topics argument is optional - skipping it causes the response will be dispatched
   });
 </script>
 ```
-**Note**: Make sure you put `dispatchRaw` call inside `WebComponentsReady` listener.
-That guarantees all attributes set for `ff-communication` (e.g. `version`) will be reflected as communication parameters.
+**Note**: Make sure you put the `dispatchRaw` call inside a `WebComponentsReady` listener.
+This guarantees all `ff-communication` attributes (e.g. `version`) will be reflected as communication parameters.

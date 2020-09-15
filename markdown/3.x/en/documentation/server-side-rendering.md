@@ -36,6 +36,14 @@ Example libraries (the whole list of libraries can be found at [mustache.github.
 
 #### Sending the response
 The response to the browser contains the pre-rendered HTML and raw response available to be used by Web Components.
+Most convenient way to make the response available to use by the Web Components is to store it as JSON in a variable.
+```html
+<script>
+const rawResponse = JSON.parse(RESPONSE_TEXT);
+</script> 
+```
+**Note**: `RESPONSE_TEXT` in example above represents response text received from FACT-Finder. Passing it to variable depends on the used framework.
+
 This step concludes the server side part.
 It does not exhaust the subject though.
 
@@ -63,3 +71,10 @@ Check the `ff-record-list` [documentation](/api/3.x/ff-record-list#tab=docs) for
 After doing this, the only thing left to do is to dispatch the response to Web Components using `dispatchRaw`.
 See [Result Dispatcher](/api/3.x/core-result-dispatcher) for more details regarding this utility.
 Dispatching the response via `dispatchRaw` will trigger `ff-record-list` to replace pre-rendered records with the actual ones. 
+```html
+<script type="text/javascript">
+  document.addEventListener('WebComponentsReady', function () {
+      factfinder.communication.ResultDispatcher.dispatchRaw(rawResponse);
+  });
+</script>
+```
