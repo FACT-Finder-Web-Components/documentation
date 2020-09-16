@@ -35,7 +35,15 @@ Example libraries (the whole list of libraries can be found at [mustache.github.
 **Note**: You are not just limited to mustache. You can use any template engine your platform supports. The advantage of using mustache here is that you can use the same templates as in Web Components.  
 
 #### Sending the response
-The response to the browser contains the pre-rendered HTML.
+The response to the browser contains the pre-rendered HTML and the raw response ready to be used by Web Components.
+The most convenient way to make the response available to use by Web Components is to store it as JSON in a variable.
+```html
+<script>
+    const rawResponse = JSON.parse(RESPONSE_TEXT);
+</script> 
+```
+**Note**: `RESPONSE_TEXT` in the example above represents the response text received from FACT-Finder. The way it is passed to a variable depends on the used framework.
+
 This step concludes the server side part.
 It does not exhaust the subject though.
 
@@ -57,9 +65,16 @@ Define the `ff-record` template which `ff-record-list` will use to render new re
     <template data-role="record">
         <!--put `ff-record` element template here  --->
     </template>
-```  
-Check the `ff-record-list` [documentation](/api/4.x/ff-record-list#tab=docs) for more details about its template.  
+```
+Check the `ff-record-list` [documentation](/api/4.x/ff-record-list#tab=docs) for more details about its template.
 
-After doing this, the only thing left to do is to trigger a `search` event with the same query used on the server side.
-You can achieve this either by using [EventAggregator](/api/4.x/core-event-aggregator) or by setting the `search-immediate` attribute on `ff-communication`.
-This will trigger `ff-record-list` to replace pre-rendered records with the actual ones. 
+After doing this, the only thing left to do is to dispatch the response to Web Components using `dispatchRaw`.
+See [Result Dispatcher](/api/4.x/core-result-dispatcher) for more details regarding this utility.
+Dispatching the response via `dispatchRaw` will trigger `ff-record-list` to replace pre-rendered records with the actual ones.
+```html
+<script type="text/javascript">
+    document.addEventListener('WebComponentsReady', function () {
+        factfinder.communication.ResultDispatcher.dispatchRaw(rawResponse);
+    });
+</script>
+```

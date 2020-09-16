@@ -91,8 +91,7 @@ This is similar to `subscribe()` but it is guaranteed to be executed
 
 ### `removeCallback(topic, key)`
 ___
-Remove a callback for a topic (ex:`asn`) with the **key** from the
-registered callback.
+Remove a callback for a topic (ex:`asn`) with the `key` from the registered callback.
 ```html
 <script>
     // listen for ffReady before HTML import is loaded or you'll miss the event
@@ -107,3 +106,25 @@ registered callback.
 </script>
 <script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
+
+### `dispatchRaw(response, topics)`
+___
+Manually dispatches a **response** to Web Components.
+This method is useful when there is a need to dispatch a FACT-Finder response received in a way other than by Web Components AJAX request.
+That will be the case especially when implementing [Server Side Rendering](/documentation/4.x/server-side-rendering).
+
+Argument `topics` is optional - skipping it causes the response to be dispatched to all default topics.
+It updates all subscribed elements.
+With the `topics` argument passed, only the part of the response related to the passed topic will be dispatched (e.g. using `suggest` will cause an update only on elements which subscribe to the `suggest` topic - by default `ff-suggest`).
+
+**Note**: It is possible to pass multiple topics in an array.
+
+```html
+<script type="text/javascript">
+  document.addEventListener('WebComponentsReady', function () {
+      factfinder.communication.ResultDispatcher.dispatchRaw(responseToDispatch);
+  });
+</script>
+```
+**Note**: Make sure you put the `dispatchRaw` call inside a `WebComponentsReady` listener.
+This guarantees all `ff-communication` attributes (e.g. `version`) will be reflected as communication parameters.
