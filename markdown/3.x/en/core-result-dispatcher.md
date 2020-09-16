@@ -91,8 +91,7 @@ This is similar to `subscribe()` but it is guaranteed to be executed
 
 ### `removeCallback(topic, key)`
 ___
-Remove a callback for a topic (ex:`asn`) with the **key** from the
-registered callback.
+Remove a callback for a topic (ex:`asn`) with the `key` from the registered callback.
 ```html
 <script>
     // listen for ffReady before HTML import is loaded or you'll miss the event
