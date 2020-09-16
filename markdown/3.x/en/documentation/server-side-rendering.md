@@ -73,8 +73,8 @@ See [Result Dispatcher](/api/3.x/core-result-dispatcher) for more details regard
 Dispatching the response via `dispatchRaw` will trigger `ff-record-list` to replace pre-rendered records with the actual ones. 
 ```html
 <script type="text/javascript">
-  document.addEventListener('WebComponentsReady', function () {
-      factfinder.communication.ResultDispatcher.dispatchRaw(rawResponse);
-  });
+    document.addEventListener('WebComponentsReady', function () {
+        factfinder.communication.ResultDispatcher.dispatchRaw(rawResponse);
+    });
 </script>
 ```

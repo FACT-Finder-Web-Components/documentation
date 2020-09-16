@@ -35,14 +35,14 @@ Example libraries (the whole list of libraries can be found at [mustache.github.
 **Note**: You are not just limited to mustache. You can use any template engine your platform supports. The advantage of using mustache here is that you can use the same templates as in Web Components.  
 
 #### Sending the response
-The response to the browser contains the pre-rendered HTML and raw response available to be used by Web Components.
-Most convenient way to make the response available to use by the Web Components is to store it as JSON in a variable.
+The response to the browser contains the pre-rendered HTML and the raw response ready to be used by Web Components.
+The most convenient way to make the response available to use by Web Components is to store it as JSON in a variable.
 ```html
 <script>
-const rawResponse = JSON.parse(RESPONSE_TEXT);
+    const rawResponse = JSON.parse(RESPONSE_TEXT);
 </script> 
 ```
-**Note**: `RESPONSE_TEXT` in example above represents response text received from FACT-Finder. Passing it to variable depends on the used framework.
+**Note**: `RESPONSE_TEXT` in the example above represents the response text received from FACT-Finder. The way it is passed to a variable depends on the used framework.
 
 This step concludes the server side part.
 It does not exhaust the subject though.
@@ -73,8 +73,8 @@ See [Result Dispatcher](/api/4.x/core-result-dispatcher) for more details regard
 Dispatching the response via `dispatchRaw` will trigger `ff-record-list` to replace pre-rendered records with the actual ones.
 ```html
 <script type="text/javascript">
-  document.addEventListener('WebComponentsReady', function () {
-      factfinder.communication.ResultDispatcher.dispatchRaw(rawResponse);
-  });
+    document.addEventListener('WebComponentsReady', function () {
+        factfinder.communication.ResultDispatcher.dispatchRaw(rawResponse);
+    });
 </script>
 ```

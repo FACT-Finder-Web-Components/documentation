@@ -117,6 +117,7 @@ That will be the case especially when implementing [Server Side Rendering](/docu
 Argument `topics` is optional - skipping it causes the response to be dispatched to all default topics.
 It updates all subscribed elements.
 With the `topics` argument passed, only the part of the response related to the passed topic will be dispatched (e.g. using `suggest` will cause an update only on elements which subscribe to the `suggest` topic - by default `ff-suggest`).
+
 **Note**: It is possible to pass multiple topics in an array.
 
 ```html
