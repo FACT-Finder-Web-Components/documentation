@@ -199,3 +199,20 @@ See the following example:
     });
 </script>
 ```
+
+## On-Click redirect
+The expected behavior after clicking on an `ff-suggest-item` element of type `productName` is a redirection to the clicked product's page.
+However, `ff-suggest` supports this functionality only if a `deeplink` field is available in the clicked item's attributes data.
+The `deeplink` field is populated with the data from the data feed export column configured with the `Deeplink` field role.
+
+**Note**: `ff-suggest` is redirecting both absolute and relative URLs.
+
+If no `deeplink` is provided for an item of type `productName`, then `ff-suggest` will try to obtain its value by emitting an additional request.
+Depending on the used FACT-Finder version it will be a search request (versions lower than `7.3`), or a records API call (versions `7.3` and up).
+Then `ff-suggest` will try to redirect the user once more, this time using the data received from the response to the mentioned request.
+
+If the clicked item is not of type `productName`, a standard search request will be issued to FACT-Finder with an additional parameter `queryFromSuggest` which is unique to `ff-suggest` and may be used to identify search requests issued by this element.
+
+To prevent the built-in behaviour, please set `ffPreventDefault` to `true` on a specific suggest item before the default event listener reacts to the `click` event.
+See the **"Overriding default click action"** section above for more information and example usage of how to set that flag.
+
