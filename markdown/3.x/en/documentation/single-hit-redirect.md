@@ -66,7 +66,7 @@ This flag should be set or unset, depending on whether it is in the storage.
 ### Search from different locations
 The solution above works in general, but it has one flaw which may have to be fine-tuned, especially if your application framework is dedicated to creating non-SPA applications.
 Since the `ff_redirect_on` flag is already set to `0`, the next exact search will not be redirected.
-This might not be desired behaviour, because the next search might be called from the page the user is currently on.
+This might not be desired behavior, because the next search might be called from the page the user is currently on.
 Setting only one flag will not cover this case.
 What could help is to set an additional value that stores which page the `ff_redirect_on` flag was set to `0`.
 It can be used to only prevent redirection if the current location is identical to the one stored in this value.

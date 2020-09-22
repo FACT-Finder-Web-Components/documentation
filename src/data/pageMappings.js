@@ -6,7 +6,7 @@ import { IsDefinedFunctor } from "../util/functors";
 
 
 // import() doesn't accept dynamic values/variables
-// to emulate the behaviour of dynamic importing wrap the import statement with its string literal in a callback
+// to emulate the behavior of dynamic importing wrap the import statement with its string literal in a callback
 export const pageImportInfoCollection = Object.freeze({
     home: createPageImportInfo(() => import("../views/home-view.js")),
     api: createPageImportInfo(() => import("../views/api-view.js"), api),

@@ -1,5 +1,5 @@
 *Please only use the headings and remove the descriptions including this line*
-#### Current behaviour
+#### Current behavior
 
 * Which part of the documentation are you referring to
 * What does it currently say
@@ -8,7 +8,7 @@
 Example:
 Search-bar doesn't show on mobile device
 
-#### Expected Behaviour
+#### Expected behavior
 
 * What do you expect the documentation to say
 * How do you expect it to behave

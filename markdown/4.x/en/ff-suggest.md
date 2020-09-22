@@ -213,6 +213,6 @@ Then `ff-suggest` will try to redirect the user once more, this time using the d
 
 If the clicked item is not of type `productName`, a standard search request will be issued to FACT-Finder with an additional parameter `queryFromSuggest` which is unique to `ff-suggest` and may be used to identify search requests issued by this element.
 
-To prevent the built-in behaviour, please set `ffPreventDefault` to `true` on a specific suggest item before the default event listener reacts to the `click` event.
+To prevent the built-in behavior, please set `ffPreventDefault` to `true` on a specific suggest item before the default event listener reacts to the `click` event.
 See the **"Overriding default click action"** section above for more information and example usage of how to set that flag.
 

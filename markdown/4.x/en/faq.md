@@ -111,7 +111,7 @@ Currently, we have a HTML structure limitation which forces us to place the `<di
 Hit highlighting in `ff-suggest` or `ff-asn-group` displays as raw HTML.
 How do I make it render correctly?
 #### Answer:
-The most common reason for this behaviour is that double curly braces `{{ }}` are used in the custom template.
+The most common reason for this behavior is that double curly braces `{{ }}` are used in the custom template.
 This causes text to be rendered as-is.
 To make the highlighting markup be interpreted as HTML use triple curly braces `{{{ }}}`.  
 See [Adding a suggest container](/api/4.x/ff-suggest) in the `ff-suggest` documentation or the [Template Engine documentation](/documentation/4.x/template-engine).
