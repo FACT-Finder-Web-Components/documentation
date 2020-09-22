@@ -88,7 +88,7 @@ If we missed anything, please get it touch with us.
     `Polymer.dom(HTMLElement).innerHTML = ...` you now have to use the native DOM API directly like
     `HTMLElement.innerHTML = ...`
     - Polymer 1 did remove `unresolved` attribute of `body`-tag automatically. Polymer 3 does not.
-    If you depend on the old behaviour, you can implement it with the following code:
+    If you depend on the old behavior, you can implement it with the following code:
         ```js
         function resolve() {
           document.body.removeAttribute('unresolved');
