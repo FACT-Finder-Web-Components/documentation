@@ -3,11 +3,11 @@
 The `ff-predictive-basket` element allows for easy integration with the FACT-Finder Predictive Basket feature.
 To use it, you need a version of FACT-Finder **NG** and WebComponents `3.15.5` or higher.
 
-### Experimental Status
+### Subject to Change
 
 _Note that this feature is at an experimental stage and changes may occur._
 
-Due to being experimental, the Predictive Basket feature is **not available** by default in WebComponents.
+Due to being subject to change, the Predictive Basket feature is **not available** by default in WebComponents.
 It must be **activated** by configuring two values on **page load** as follows:
 
 ```js

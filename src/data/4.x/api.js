@@ -156,7 +156,7 @@ const api = {
             noDemo: true
         },
 
-        // --- experimental ---
+        // --- subject to change ---
 
         "ff-predictive-basket": {
             path: `ff-predictive-basket`,
@@ -234,7 +234,7 @@ api.moreFeatures = [
 ];
 
 // set to undefined if section shall not be shown
-api.experimental = [
+api.subjectToChange = [
     api.pages[`ff-predictive-basket`],
 ];
 

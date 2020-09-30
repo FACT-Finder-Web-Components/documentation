@@ -97,9 +97,9 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
                     <a name="{{item.path}}" href="[[rootPath]]api/[[version]]/{{item.path}}">{{item.title}}</a>
                 </template>
 
-                <template is="dom-if" if="{{experimental}}">
-                    <h3>Experimental</h3>
-                    <template is="dom-repeat" items="{{experimental}}">
+                <template is="dom-if" if="{{subjectToChange}}">
+                    <h3>Subject to Change</h3>
+                    <template is="dom-repeat" items="{{subjectToChange}}">
                         <a name="{{item.path}}" href="[[rootPath]]api/[[version]]/{{item.path}}">{{item.title}}</a>
                     </template>
                 </template>
@@ -258,7 +258,7 @@ class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
         this.basics = this.data[this.version].basics;
         this.navigation = this.data[this.version].navigation;
         this.moreFeatures = this.data[this.version].moreFeatures;
-        this.experimental = this.data[this.version].experimental;
+        this.subjectToChange = this.data[this.version].subjectToChange;
 
         window.scrollTo(0, 0);
     }
