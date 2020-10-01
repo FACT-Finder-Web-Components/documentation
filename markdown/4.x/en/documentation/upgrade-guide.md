@@ -234,7 +234,7 @@ https://github.com/FACT-Finder-Web-Components/ff-web-components/issues/39
 
 
 The `records` property is redundant because it requires JavaScript to be used.
-If you need to manually do checkout tracking, please refer to [Tracking with JavaScript](https://web-components.fact-finder.de/documentation/4.x/tracking-with-js).
+If you need to manually do checkout tracking, please refer to [Tracking with JavaScript](/documentation/4.x/tracking-with-js).
 
 The purpose of the `ff-checkout-tracking` element is to facilitate tracking without the use of JavaScript.
 The `records` property contradicts this purpose and from `4.0.0` it is no longer available.
@@ -304,9 +304,9 @@ Single Hit Redirect has been having problems with distinguishing between cases w
 This usually resulted in either repeatedly redirecting after pressing the browser's back button or not redirecting at all.
 
 This feature is too specific to individual requirements in order to offer a generic solution.
-See details in the [3.x documentation](https://web-components.fact-finder.de/api/3.x/ff-communication#tab=docs).
+See details in the [3.x documentation](/api/3.x/ff-communication#tab=docs).
 
-A [guide](https://web-components.fact-finder.de/documentation/3.x/single-hit-redirect) and a [demo](https://github.com/FACT-Finder-Web-Components/demos/tree/release/3.x/single-hit-redirect) of a possible manual implementation are available.
+A [guide](/documentation/3.x/single-hit-redirect) and a [demo](https://github.com/FACT-Finder-Web-Components/demos/tree/release/3.x/single-hit-redirect) of a possible manual implementation are available.
 
 From `4.0.0`, Single Hit Redirect is no longer available.
 

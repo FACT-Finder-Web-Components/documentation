@@ -71,7 +71,7 @@ If you want to read the count from the `textContent` property, you need to set t
 
 
 ### Cart Tracking on a product page
-It is also necessary to track products that are added to cart from your product pages. For more information on how to do this, please refer to [Tracking with JavaScript](https://web-components.fact-finder.com/documentation/4.x/tracking-with-js)
+It is also necessary to track products that are added to cart from your product pages. For more information on how to do this, please refer to [Tracking with JavaScript](/documentation/4.x/tracking-with-js)
 
 ### Login Tracking
 
