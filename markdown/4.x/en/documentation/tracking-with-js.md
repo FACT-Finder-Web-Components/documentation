@@ -10,12 +10,12 @@ ___
 
  
 
-The [`Tracking12`](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/dist/ff-core.d.ts#L747) class contains the relevant tracking methods.
-All of these methods take one object as a parameter.
+The `Tracking` namespace contains the relevant tracking methods.
+All of the contained methods take one object as a parameter.
 
-You can create an instance like this:
+You can access it like this:
 ```Javascript
-const track = new factfinder.communication.Tracking12();
+const track = factfinder.communication.Tracking;
 ```
 
 
@@ -103,7 +103,7 @@ you can query FACT-Finder for product information.
 <script>
     document.addEventListener("WebComponentsReady", function () {
         const trackingHelper = factfinder.communication.Util.trackingHelper;
-        const track = new factfinder.communication.Tracking12();
+        const track = factfinder.communication.Tracking;
 
         factfinder.communication.ResultDispatcher.subscribe("productDetail", function (product) {
             if (product) {
