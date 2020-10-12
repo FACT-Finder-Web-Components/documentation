@@ -1,4 +1,10 @@
-export default {
+export const VersionStatus = Object.freeze({
+  latest: `latest`,
+  preview: `preview`,
+  obsolete: `obsolete`,
+});
+
+export const config = {
   githubDemosBasePath: `https://github.com/FACT-Finder-Web-Components/demos/blob/release`,
   demosBasePath: `https://search-web-components.fact-finder.de/demos`,
   factFinder: {
@@ -8,8 +14,12 @@ export default {
   },
   downloadToolUrl: `https://search-web-components.fact-finder.de/webcomponents-build-tool`,
   versions: [
-      // {name: `4.x`, displayName: `4.x (latest)`},  // TODO reactivate once 4.x is officially released
-      {name: `3.x`, displayName: `3.x (latest)`},
-      {name: `1.x`, displayName: `1.x`},
+    { name: `4.x`, displayName: `4.x (preview)`, status: VersionStatus.preview },
+    { name: `3.x`, displayName: `3.x (latest)`, status: VersionStatus.latest },
+    { name: `1.x`, displayName: `1.x`, status: VersionStatus.obsolete },
   ]
+};
+
+export function getLatestVersion() {
+  return config.versions.find(ver => ver.status === VersionStatus.latest);
 }

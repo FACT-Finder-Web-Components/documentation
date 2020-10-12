@@ -7,7 +7,7 @@ import '@polymer/paper-icon-button/paper-icon-button.js';
 import '../my-icons.js';
 import factfinder from '../../lib/ff-core.js';
 import '../styles/bootstrap-wrapper';
-import config from "../../config";
+import {config} from "../../config";
 
 class SdSearchBox extends PolymerElement {
     constructor() {

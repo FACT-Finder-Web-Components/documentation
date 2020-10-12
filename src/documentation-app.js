@@ -19,7 +19,7 @@ import ReduxMixin from "./util/polymer-redux-mixin";
 import {navigate, updateDrawerState} from "./actions/app";
 import './shared-styles.js';
 import './search/sd-search-box.js';
-import config from "../config";
+import {config} from "../config";
 
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.

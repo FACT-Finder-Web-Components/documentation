@@ -17,7 +17,7 @@ import '../shared-styles.js';
 import api from "../data/api";
 import ReduxMixin from "../util/polymer-redux-mixin";
 import ViewMixin from "../util/view-mixin";
-import config from "../../config"
+import {config} from "../../config"
 import '../shared/version-dropdown'
 
 class ApiView extends ViewMixin(ReduxMixin(PolymerElement)) {
