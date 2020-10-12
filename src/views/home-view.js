@@ -14,7 +14,7 @@ import ReduxMixin from "../util/polymer-redux-mixin";
 import ViewMixin from "../util/view-mixin";
 import '../shared-styles.js';
 import '../styles/font-awesome-wrapper.js';
-import config from '../../config';
+import {getLatestVersion} from '../../config';
 
 class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
     static get template() {
@@ -231,7 +231,7 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
 
     ready() {
         super.ready();
-        this.latestVersion = config.versions[0].name;
+        this.latestVersion = getLatestVersion().name;
     }
 
     _scrollTo(id) {

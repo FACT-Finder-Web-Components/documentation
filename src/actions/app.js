@@ -1,6 +1,6 @@
 import { pageImportInfoCollection } from '../data/pageMappings';
 import { getTabFromParams, urlPathToPages } from '../util/url';
-import config from '../../config';
+import { config, getLatestVersion } from '../../config';
 
 
 export const UPDATE_PAGE = `UPDATE_PAGE`;
@@ -13,7 +13,7 @@ export const navigate = (path, params) => (dispatch) => {
 
     const subpageRequired = page === `api` || page === `documentation` || page === `faq`;
     if (subpageRequired && !subpage) { // URL without version part
-        const latestVersion = config.versions[0].name;
+        const latestVersion = getLatestVersion().name;
         window.history.replaceState({}, ``, [page, latestVersion, version].join(`/`));
         dispatch(loadPage(page, latestVersion, version, tab));
     } else {

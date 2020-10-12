@@ -2,11 +2,11 @@ import {
     UPDATE_PAGE,
     UPDATE_DRAWER_STATE
 } from '../actions/app.js';
-import config from "../../config";
+import {config, getLatestVersion} from "../../config";
 
 const initialState = {
     drawerOpened: false,
-    version: config.versions[0].name,
+    version: getLatestVersion().name,
 };
 
 const app = (state = initialState, action) => {

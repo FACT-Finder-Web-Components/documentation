@@ -3,7 +3,7 @@ import '@polymer/paper-listbox/paper-listbox.js';
 import '@polymer/paper-item/paper-item.js';
 import '@polymer/paper-dropdown-menu/paper-dropdown-menu.js';
 
-import config from '../../config';
+import {config, getLatestVersion, VersionStatus} from '../../config';
 import ReduxMixin from '../util/polymer-redux-mixin';
 
 class VersionDropdown extends ReduxMixin(PolymerElement) {
@@ -15,13 +15,13 @@ class VersionDropdown extends ReduxMixin(PolymerElement) {
         padding: 0 1em 1em 1em;
     }
     
-    .version-selector .isNotLatestVersion {
+    .version-selector .isObsoleteVersion {
         border: 4px solid red;
         padding: 0 0.5em;   
         background-color: palevioletred;
     }
     
-    .version-selector .isNotLatestVersion a {
+    .version-selector .isObsoleteVersion a {
         color: darkred;
         border-bottom: 2px solid darkred;
         text-decoration: none; 
@@ -63,8 +63,8 @@ class VersionDropdown extends ReduxMixin(PolymerElement) {
         </paper-listbox>
     </paper-dropdown-menu>
     
-    <template is="dom-if" if="[[isNotLatestVersion]]">
-        <div class="isNotLatestVersion">
+    <template is="dom-if" if="[[isObsoleteVersion]]">
+        <div class="isObsoleteVersion">
             <h4>You are viewing an old version. We recommend to always use the latest version, which is currently
                 <a href="[[_versionUrl(page, latestVersion, subpage, tab)]]">[[latestVersion]]</a>.
             </h4>    
@@ -99,7 +99,7 @@ class VersionDropdown extends ReduxMixin(PolymerElement) {
     constructor() {
         super();
         this.allVersions = config.versions;
-        this.latestVersion = config.versions[0].name;
+        this.latestVersion = getLatestVersion().name;
     }
 
     _versionUrl(page, version, subpage, tab) {
@@ -108,7 +108,11 @@ class VersionDropdown extends ReduxMixin(PolymerElement) {
     }
 
     _versionChanged() {
-        this.isNotLatestVersion = this.version !== this.latestVersion;
+        const versionObj = config.versions.find(v => v.name === this.version);
+
+        this.isObsoleteVersion = versionObj
+            ? versionObj.status === VersionStatus.obsolete
+            : false;
     }
 }
 
