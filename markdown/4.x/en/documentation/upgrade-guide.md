@@ -25,6 +25,7 @@ Only the changes that do not emit deprecation warnings are left to address **IF*
 
 | Breaking change | Chance of being affected | Required effort to fix | Deprecated since | Emits deprecation message |
 | --------------- | ------------------------ | ---------------------- | --- | --- |
+| Increment default FACT-Finder version vom `7.2` to `7.3` | Very low | Very Low | N/A | No |
 | Renaming of `ff-searchbox` attribute `hidesuggest-onblur` | Low | Very Low | `3.12.1` | Yes |
 | Removal of attribute `stamp-always` from `ff-record-list` and `ff-record` | Low | Very low | `3.14.1` | Yes |
 | Renaming of `FFCommunicationEventAggregator` | High | Very low | `3.10.0` | Yes |
@@ -37,6 +38,36 @@ Only the changes that do not emit deprecation warnings are left to address **IF*
 
 
 ### Detailed description of changes
+
+#### Increment default FACT-Finder version vom `7.2` to `7.3`
+
+| Chance of being affected | Required effort to fix | Deprecated since |
+| ------------------------ | ---------------------- | ---------------- |
+| Very low                 | Very low               | N/A              |
+
+Original issue:  
+https://github.com/FACT-Finder-Web-Components/ff-web-components/issues/48
+
+WebComponents requires configuring of the targeted FACT-Finder version. This can be done explicitly by specifying the `version` attribute on the `ff-communication` element or implicitly by omitting it. When the `version` attribute is omitted, FACT-Finder `7.2` will be targeted.
+
+The default value is now `7.3`.
+
+**Note:** This change only affects you if you do not specify the `version` attribute.
+
+It is recommended to always specify `version`.
+
+##### JavaScript
+
+Before:
+```html
+<ff-communication></ff-communication>
+```
+
+Now:
+```html
+<ff-communication version="7.2"></ff-communication>
+```
+
 
 #### Renaming of `ff-searchbox` attribute `hidesuggest-onblur`
 
