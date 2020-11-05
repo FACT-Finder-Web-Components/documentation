@@ -4,7 +4,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **record-id**&nbsp;(Number) (default: empty) | The record ID of the product, for which similar products are returned. This also works for multiple products. In this case the record IDs have to be separated with `,`. |
-| **id-type**&nbsp;(String) (default: undefined) | The type of identifier for which the corresponding value should be passed in the **record-id**. Available values: "id", "productNumber"  |
+| **id-type**&nbsp;(String) **Options**: &nbsp;"id", &nbsp;"productNumber" (default: undefined) | The type of identifier for which the corresponding value should be passed in the **record-id**. This attribute is mandatory when using FACT-Finder NG. |
 | **max-results**&nbsp;(Number) (default: 4) | The maximum amount of returned similar products. |
 
 ### Methods
