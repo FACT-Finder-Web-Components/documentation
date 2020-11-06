@@ -41,7 +41,7 @@ Let's consider the following case:
     //WRONG
     document.addEventListener("ffReady", function () {
             //the core is ready lets search
-            factfinder.communication.FFCommunicationEventAggregatgor.addFFEvent({
+            factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
                 type: "search",
                 query: "some query"
             });
@@ -59,7 +59,7 @@ Instead we want to use the `WebComponentsReady` to wait until all FACT-Finder We
     //CORRECT
     document.addEventListener("WebComponentsReady", function () {
         //the core is ready lets search
-        factfinder.communication.FFCommunicationEventAggregatgor.addFFEvent({
+        factfinder.communication.FFCommunicationEventAggregator.addFFEvent({
             type: "search",
             query: "some query"
         });

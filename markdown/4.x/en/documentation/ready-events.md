@@ -100,7 +100,7 @@ Instead we want to use the `WebComponentsReady` to wait until all FACT-Finder We
     //CORRECT
     document.addEventListener("WebComponentsReady", function () {
         //the core is ready, let's search
-        factfinder.communication.FFCommunicationEventAggregatgor.addFFEvent({
+        factfinder.communication.EventAggregator.addFFEvent({
             type: "search",
             query: "some query"
         });
