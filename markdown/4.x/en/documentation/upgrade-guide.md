@@ -25,7 +25,8 @@ Only the changes that do not emit deprecation warnings are left to address **IF*
 
 | Breaking change | Chance of being affected | Required effort to fix | Deprecated since | Emits deprecation message |
 | --------------- | ------------------------ | ---------------------- | --- | --- |
-| Increment default FACT-Finder version vom `7.2` to `7.3` | Very low | Very Low | N/A | No |
+| Require `version` attribute | Close to zero | Close to zero | N/A | No |
+| Require `api` attribute | Medium | Close to zero | N/A | No |
 | Renaming of `ff-searchbox` attribute `hidesuggest-onblur` | Low | Very Low | `3.12.1` | Yes |
 | Removal of attribute `stamp-always` from `ff-record-list` and `ff-record` | Low | Very low | `3.14.1` | Yes |
 | Renaming of `FFCommunicationEventAggregator` | High | Very low | `3.10.0` | Yes |
@@ -39,24 +40,30 @@ Only the changes that do not emit deprecation warnings are left to address **IF*
 
 ### Detailed description of changes
 
-#### Increment default FACT-Finder version vom `7.2` to `7.3`
+#### Require `version` attribute
+
+**Note:** This change only affects you if you do not already specify the `version` attribute.
 
 | Chance of being affected | Required effort to fix | Deprecated since |
 | ------------------------ | ---------------------- | ---------------- |
-| Very low                 | Very low               | N/A              |
+| Close to zero            | Close to zero          | N/A              |
 
 Original issue:  
-https://github.com/FACT-Finder-Web-Components/ff-web-components/issues/48
+https://github.com/FACT-Finder-Web-Components/ff-web-components/issues/49
 
-WebComponents requires configuring of the targeted FACT-Finder version. This can be done explicitly by specifying the `version` attribute on the `ff-communication` element or implicitly by omitting it. When the `version` attribute is omitted, FACT-Finder `7.2` will be targeted.
+WebComponents requires configuring the targeted FACT-Finder version.
+This is usually done through the `ff-communication` element:
+```html
+<ff-communication version="7.3">
+```
 
-The default value is now `7.3`.
+The default value of `7.2` has become outdated and very uncommon.
+It seems no longer reasonable to define a default version at all as it becomes outdated fairly frequently.
 
-**Note:** This change only affects you if you do not specify the `version` attribute.
+From `4.0.0` there will be no default value anymore and `version` must be specified explicitly.
+WebComponents will throw an error if it fails to detect a version.
 
-It is recommended to always specify `version`.
-
-##### JavaScript
+##### HTML
 
 Before:
 ```html
@@ -66,6 +73,43 @@ Before:
 Now:
 ```html
 <ff-communication version="7.2"></ff-communication>
+```
+
+
+#### Require `api` attribute
+
+**Note:** This change only affects you if you do not already specify the `api` attribute.
+
+| Chance of being affected | Required effort to fix | Deprecated since |
+| ------------------------ | ---------------------- | ---------------- |
+| Medium                   | Close to zero          | N/A              |
+
+Original issue:  
+https://github.com/FACT-Finder-Web-Components/ff-web-components/issues/50
+
+WebComponents requires configuring the targeted FACT-Finder version.
+If the version is set to `ng`, the `api` attribute becomes relevant because FACT-Finder NG updates its API from time to time.
+
+This is usually done through the `ff-communication` element:
+```html
+<ff-communication version="ng" api="v3">`
+```
+
+It seems no longer reasonable to define a default API at all as it becomes outdated fairly frequently.
+
+From `4.0.0` there will be no default value anymore and `api` must be specified explicitly when `version="ng"`.
+WebComponents will throw an error if it fails to detect a value.
+
+##### HTML
+
+Before:
+```html
+<ff-communication version="ng"></ff-communication>
+```
+
+Now:
+```html
+<ff-communication version="ng" api="v4"></ff-communication>
 ```
 
 
