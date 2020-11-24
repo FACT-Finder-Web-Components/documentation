@@ -11,7 +11,9 @@ The integration of Click Tracking for products, recommendations and campaigns is
 
 The `ff-record-list` element detects automatically if the displayed products belong to campaigns, recommendations or the search result. So there is no need to distinguish between recommendation click, campaign click or common product click.
 
-
+**Note:** Click tracking for `ff-campaign-landing-page` requires `api="v4"`. See the `ff-communication` [API tab](/api/4.x/ff-communication#tab=api) for more details about that attribute.
+      
+      
 #### Tracking with `data-redirect`
 The `[data-redirect]` attribute redirects the user on click to the product detail page. We added the tracking behavior to this directive as page reloads may be too fast for tracking requests to succeed when not using the `[data-redirect]` attribute.
 ````html
