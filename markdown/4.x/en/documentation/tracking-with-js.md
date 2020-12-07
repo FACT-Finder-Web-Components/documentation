@@ -99,41 +99,19 @@ track.checkout({
 If you can't access the necessary field using your shop-system's API,
 you can query FACT-Finder for product information.
 
-```html
-<script>
-    document.addEventListener("WebComponentsReady", function () {
-        const trackingHelper = factfinder.communication.Util.trackingHelper;
-        const track = factfinder.communication.Tracking;
-
-        factfinder.communication.ResultDispatcher.subscribe("productDetail", function (product) {
-            if (product) {
-                // Retrieve field values based on field roles
-                const masterId = trackingHelper.getMasterArticleNumber(product);
-                const id = trackingHelper.getTrackingProductId(product);
-                const channel = factfinder.communication.globalSearchParameter.channel;
-                const sid = factfinder.common.localStorage.getItem("ff_sid");
-                
-                //track some information e.g. a checkout
-                track.checkout({
-                    channel: channel
-                    sid: sid,
-                    id: id,
-                    price: 95.95,
-                    masterId: masterId,
-                    count: 99
-                });
-                
-            } else {
-                console.log("not found");
-            }
-        });
-
-        factfinder.communication.EventAggregator.addFFEvent({
-            type: "productDetail",
-            id: "a333c0c6f62671727535b2542e168",
-        });
+```javascript
+const id = '105-1687-0512';
+const track = factfinder.communication.Tracking;
+factfinder.communication.EventAggregator.addFFEvent({
+    type: 'getRecords',
+    recordId: id,
+    success: ([product]) => track.cart({
+        channel: factfinder.communication.globalSearchParameter.channel,
+        sid: localStorage.getItem('ff_sid'),
+        id,
+        masterId: product.record.MasterID,
+        price: product.record.Price,
+        count: 1, // CHANGE_ME
     })
-</script>
-<script src="my-field-roles.js"></script>
-<script defer src="pathToFFWebComponents/dist/bundle.js"></script>
+});
 ```
