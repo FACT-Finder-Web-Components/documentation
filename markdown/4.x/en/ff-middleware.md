@@ -10,6 +10,7 @@ To register middleware modules using FACT-Finder Web Components place the `ff-mi
 ```html
 <ff-communication url="..."
                   version="..."
+                  api="..."
                   channel="...">
     <ff-middleware></ff-middleware>
 </ff-communication>

@@ -34,6 +34,7 @@ Consider the following configuration:
 <ff-communication url="https://fact-finder.de/your-ff" 
                   channel="en"
                   version="ng"
+                  api="v4"
                   add-params="param1=ONE,param2=TWO"
                   search-immediate
                   default-query="shoes"></ff-communication>

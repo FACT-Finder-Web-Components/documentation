@@ -12,11 +12,13 @@ The following sections cover all necessary steps to adjust the demo to fit your 
 ---
 In case you skipped previous sections please read more about the configuration [here](/documentation/4.x/configuration).
 
-First of all you want to change the `url`, `channel` and the `version` attributes. If you don't know the channel name or your FACT-Finder version, please refer to your FACT-Finder UI.
+First, you want to change the `url`, `channel`, `version` and possibly the `api` attributes.
+If you don't know the channel name or FACT-Finder version, please refer to your FACT-Finder UI.
 
 ```html
 <ff-communication url="http://your-ff.fact-finder.de/ContextName"
                   version="yourFFVersion"
+                  api="yourFFAPIVersion"
                   default-query="backpack"
                   channel="YourChannel"
                   search-immediate>

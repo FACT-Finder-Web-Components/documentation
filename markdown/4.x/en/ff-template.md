@@ -88,13 +88,14 @@ The `ff-template` element has the attribute 'scope'. When you set it to "result"
 Configure the connection to the FF-Search backend and a default query.
 
 ```html
-<ff-communication url="http://web-components.fact-finder.de/FACT-Finder7.1-Demoshop"
-                  version="7.1"
-                  default-query="tasche"
+<ff-communication url="https://web-components.fact-finder.de/FACT-Finder"
+                  version="ng"
+                  api="v4"
                   channel="bergfreunde-de"
-                  search-immediate>
-</ff-communication>
-<p>Access the values in from the Searchresult</p>
+                  default-query="tasche"
+                  search-immediate
+></ff-communication>
+<p>Access the values in from the search result</p>
 <ff-searchbox>
     <input />
 </ff-searchbox>

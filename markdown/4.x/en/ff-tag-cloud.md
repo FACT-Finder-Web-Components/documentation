@@ -1,3 +1,8 @@
+## Availability
+
+The Tag Cloud is a discontinued feature and no longer available in FACT-Finder NG.
+
+
 ## Display the most searched words in a tag cloud
 With the `ff-tag-cloud`, you can display the most searched words in your shop. The terms displayed in the Tag Cloud are provided by the Logfile Analysis which uses data provided by the Tracking API. Since this module is updated once per day by default, the terms appearing in the Tag Cloud will also be updated daily. Therefore, it is imperative that you integrate the Tracking API.
 
