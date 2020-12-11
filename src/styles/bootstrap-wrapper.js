@@ -1486,8 +1486,13 @@
     blockquote {
       padding: 10px 20px;
       margin: 0 0 20px;
-      font-size: 17.5px;
       border-left: 5px solid #eee;
+      background-color: #f8f8f8;
+    }
+    blockquote p:first-child {
+      font-weight: bold;
+      font-style: italic;
+      text-transform: uppercase;
     }
     blockquote p:last-child,
     blockquote ul:last-child,
