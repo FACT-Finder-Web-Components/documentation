@@ -7,12 +7,12 @@ for activation**!
 ### Using Node.js
 
 ---
-Add FACT-Finder Web Components as a dependency to your `package.json`.
+Add the desired version of FACT-Finder Web Components as a dependency to your `package.json`.
 
 ```json
 {
   "dependencies": {
-    "ff-web-components": "https://github.com/FACT-Finder-Web-Components/ff-web-components.git#3.0.0"
+    "ff-web-components": "https://github.com/FACT-Finder-Web-Components/ff-web-components.git#4.0.0"
   }
 }
 ```
