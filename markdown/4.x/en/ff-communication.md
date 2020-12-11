@@ -1,16 +1,11 @@
 ## Setup the communication
-Add the `ff-communication` tag to every page that uses
-**FACT-Finder Web Components**. This element is used to define certain
-parameters for the communication between FACT-Finder Web Components and FACT-Finder
-and their behavior. You need to configure the location of your
-FACT-Finder Server and the target channel by setting the `url` and
-`channel` HTML attributes.
+Add the `ff-communication` tag to every page that uses **FACT-Finder Web Components**.
+This element is used to define certain parameters for the communication between FACT-Finder Web Components and FACT-Finder and their behavior.
+You need to configure the location of your FACT-Finder Server and the target channel by setting the `url` and `channel` HTML attributes.
 
-The `ff-communication` element has more attributes. One example is the
-`default-query` attribute used to define a default search term that is
-always used on pageload. When using the `search-immediate` attribute,
-which requires no parameter, the search query is fired once the page has
-finished loading.
+The `ff-communication` element has more attributes.
+One example is the `default-query` attribute used to define a default search term that is always used on page load.
+When using the `search-immediate` attribute, which requires no parameter, the search query is fired once the page has finished loading.
 
 The following code-example shows the aforementioned configuration.
 
