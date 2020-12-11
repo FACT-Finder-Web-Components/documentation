@@ -111,14 +111,11 @@ Instead we want to use the `WebComponentsReady` to wait until all FACT-Finder We
 
 **NOTE**
 
-Basically you can set the necessary communication information at `ffReady` time in the js itself and fire events to factfinder earlier.
+Actually, you can set the necessary communication information in the `ffReady` handler yourself with JavaScript and fire events to FACT-Finder earlier.
 
-    **Caution**
-        Version <= 1.2.11:
-        This will lead to lost updates in cases where FACT-Finder's response arrives before all components have been upgraded.
-        
-        Version >= 1.2.12:
-        The dispatching of FACT-Finder responses to all subscribers is cached and postponed until all components have been upgraded. So there will be no lost updates anymore. Be aware that currently added _callbacks_ are invoked through `factfinder.communication.ResultDispatcher.addCallback` as soon as the FACT-Finder response arrives. In case any of the callbacks have side-effects other than manipulating the response, this might lead to unexpected behavior.
+Be aware that the dispatching of FACT-Finder responses to all subscribers is cached and postponed until all components have been upgraded.
+Current added _callbacks_ are invoked through `factfinder.communication.ResultDispatcher.addCallback` as soon as the FACT-Finder response arrives.
+In case any of the callbacks has side effects other than manipulating the response, this might lead to unexpected behavior.
 
 
 ### Element Order
@@ -142,7 +139,7 @@ Let me show you a wrong example:
     <!-- ff-record-list ....-->
 </ff-recommendation>
 
-<ff-communication url="https://some.ff.url" channel="aChannel" version="7.2"></ff-communication>
+<ff-communication url="https://some.ff.url" channel="aChannel" version="ng" api="v4"></ff-communication>
 ```
 
 The `ff-recommendation` element is responsible for querying the FACT-Finder recommendation API. At the time the element is _upgraded_ and sends its request, the 'ff-communication' hasn't published all its configuration and therefore the request can't even be sent because no _URL_ and _CHANNEL_ information are available.
@@ -150,7 +147,7 @@ The `ff-recommendation` element is responsible for querying the FACT-Finder reco
 To fix this issue you have to place the `ff-communication` element before the `ff-recommendation` element:
 ```html
 <!--CORRECT-->
-<ff-communication url="https://some.ff.url" channel="aChannel" version="7.2"></ff-communication>
+<ff-communication url="https://some.ff.url" channel="aChannel" version="ng" api="v4"></ff-communication>
 
 <ff-recommendation record-id="1234">
     <!-- ff-record-list ....-->

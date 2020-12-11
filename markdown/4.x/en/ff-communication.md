@@ -15,16 +15,16 @@ finished loading.
 The following code-example shows the aforementioned configuration.
 
 ```html
-<ff-communication url="http://web-components.fact-finder.de/FACT-Finder7.3-Demoshop"
-                  version="7.3"
-                  default-query="backpack"
-                  channel="bergfreunde-co-uk"
-                  search-immediate>
-</ff-communication>
+<ff-communication
+        url="https://web-components.fact-finder.de/FACT-Finder"
+        version="ng"
+        api="v4"
+        channel="bergfreunde-co-uk"
+        default-query="backpack"
+        search-immediate
+></ff-communication>
 ```
-`url`, `channel` and `version` are mandatory parameters and should be explicitly set to make the the components work
-correctly.
-
-**NOTE**: Although `version` defaults to `7.2` when not set, it is recommended to set it as default value may change with feature releases.
+`url`, `channel` and `version` are mandatory parameters and should be explicitly set to make the the components work correctly.
+In addition, if you are using FACT-Finder NG, you also have to specify the API version of your FACT-Finder through the `api` attribute.
 
 For more information, see the [API reference](/api/4.x/ff-communication#tab=api).
