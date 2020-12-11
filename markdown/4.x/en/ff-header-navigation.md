@@ -93,7 +93,7 @@ You can also insert custom content after each group. Just add an element with th
 ```html
 <ff-header-navigation>
     <div slot="Outdoor jackets">
-        <a href="http://www.myshop.de">
+        <a href="https://www.myshop.de">
             More Outdoor jackets...
         </a>
     </div>
@@ -150,7 +150,7 @@ For this element, the structure of the elements inside the navigation is fixed. 
                             <a href="...">Bike brakes</a></ff-nav-element>
 
                         <div slot="Bike parts">  <!-- custom element in group slot -->
-                            <a href="http://www.myshop.de">More bike parts...</a>
+                            <a href="https://www.myshop.de">More bike parts...</a>
                         </div>
                     </div>
 

@@ -34,7 +34,8 @@ In this case, an `event` object will have three additional parameters passed.
         const factfinder       = event.factfinder;
         const eventAggregator  = event.eventAggregator;
         const resultDispatcher = event.resultDispatcher;
-        //add eventlistener as described in https://web-components.fact-finder.de/api/core-result-dispatcher
+
+        // Add event listener as described in https://web-components.fact-finder.de/api/core-result-dispatcher
     });
 </script>
 <script defer src="pathToFFWebComponents/dist/bundle.js"></script>
@@ -44,7 +45,7 @@ If you run your code in browsers which natively support ES6 or use JS code trans
 ```html
 <script>
     document.addEventListener("ffReady", function ({factfinder, eventAggregator, resultDispatcher}) {
-        //add eventlistener as described in https://web-components.fact-finder.de/api/core-result-dispatcher
+        // Add event listener as described in https://web-components.fact-finder.de/api/core-result-dispatcher
     });
 </script>
 <script defer src="pathToFFWebComponents/dist/bundle.js"></script>
@@ -57,7 +58,7 @@ You can even destructure nested objects to select only those properties you need
             type: "search",
             query: "some query"
         });
-        //add eventlistener as described in https://web-components.fact-finder.de/api/core-result-dispatcher
+        // Add event listener as described in https://web-components.fact-finder.de/api/core-result-dispatcher
     });
 </script>
 <script defer src="pathToFFWebComponents/dist/bundle.js"></script>
@@ -81,7 +82,7 @@ Let's consider the following case:
     //WRONG
     document.addEventListener("ffReady", function (event) {
         const eventAggregator  = event.eventAggregator;
-            //the core is ready, let's search
+            // The core is ready. Let's search!
             eventAggregator.addFFEvent({
                 type: "search",
                 query: "some query"
@@ -92,7 +93,8 @@ Let's consider the following case:
 
 **This will actually result in an error.**
 
-As described above the `ffReady` event indicates the core library is ready but not the elements itself. At the time the search is executed `<ff-communication></ff-communication>` element isn't initialized and therefore no communication information is available.
+As described above the `ffReady` event indicates the core library is ready but not the elements.
+At the time the search is executed, the `ff-communication` element isn't initialized yet and therefore no communication information is available.
 
 Instead we want to use the `WebComponentsReady` to wait until all FACT-Finder Web Components are upgraded:
 ```html
@@ -119,11 +121,11 @@ In case any of the callbacks has side effects other than manipulating the respon
 
 
 ### Element Order
-Even without using `ffReady` to trigger a search you stumble across an error message like:
+Even without using `ffReady` to trigger a search you may stumble across an error message like:
 
-_Required search params are not available: [url(globalSearchParameter): ""], [url(event): "undefined"], [channel: ""], [version:"NaN"]_
+`Required search params are not available: [url(globalSearchParameter): ""], [url(event): "undefined"], [channel: ""], [version:"NaN"]`
 
-If you are sure the message is not related to a custom js snippet, it is possibly related to the order of elements.
+If you are sure the message is not related to custom JavaScript code, it is possibly related to the order of elements.
 
 **IMPORTANT**
 
@@ -142,7 +144,8 @@ Let me show you a wrong example:
 <ff-communication url="https://some.ff.url" channel="aChannel" version="ng" api="v4"></ff-communication>
 ```
 
-The `ff-recommendation` element is responsible for querying the FACT-Finder recommendation API. At the time the element is _upgraded_ and sends its request, the 'ff-communication' hasn't published all its configuration and therefore the request can't even be sent because no _URL_ and _CHANNEL_ information are available.
+The `ff-recommendation` element is responsible for querying the FACT-Finder recommendation API.
+At the time the element is _upgraded_ and sends its request, `ff-communication` hasn't registered all its configuration and therefore the request can't even be sent because no _URL_ and _CHANNEL_ information are available.
 
 To fix this issue you have to place the `ff-communication` element before the `ff-recommendation` element:
 ```html
@@ -155,6 +158,7 @@ To fix this issue you have to place the `ff-communication` element before the `f
 ```
 
 **NOTE**
-We recommend putting the `ff-communication` element right after the `body` tag. This way no one can mess up the order.
+We recommend putting the `ff-communication` element immediately after the opening `body` tag.
+This should prevent accidental misplacement of elements.
 
 It is advisable to add a comment explaining this requirement.
