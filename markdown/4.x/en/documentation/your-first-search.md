@@ -16,13 +16,13 @@ First, you want to change the `url`, `channel`, `version` and possibly the `api`
 If you don't know the channel name or FACT-Finder version, please refer to your FACT-Finder UI.
 
 ```html
-<ff-communication url="http://your-ff.fact-finder.de/ContextName"
+<ff-communication url="https://your-ff.fact-finder.de/ContextName"
                   version="yourFFVersion"
                   api="yourFFAPIVersion"
                   default-query="backpack"
                   channel="YourChannel"
-                  search-immediate>
-</ff-communication>
+                  search-immediate
+></ff-communication>
 ```
 
 In most cases the `default-query="backpack"` won't make sense for your shop. Simply change it to a term suitable to your product range. If you don't want to specify a default query term, just remove the attribute entirely and it will default to `*` which is the shorthand for searching for all products.
@@ -33,7 +33,7 @@ In most cases the `default-query="backpack"` won't make sense for your shop. Sim
 ---
 The data used to display product information is provided by the CSV file you specified in the FACT-Finder UI to teach FACT-Finder about your product data.
 
-**This product data is returned in a one-to-one manner.** This means that a field named `Price` in the CSV file will also appear as `Price` (case sensitive) in the `searchResult.records[index].record` property of the HTTP response's JSON.
+**This product data is returned in a one-to-one manner.** This means that a field named `Price` in the CSV file will also appear as `Price` (case-sensitive) in the `searchResult.records[index].record` property of the HTTP response's JSON.
 
 The same `record` object is also available in several FACT-Finder Web Components. You can insert its values into your custom HTML using the double curly braces syntax `{{record.Title}}`. Here is an example using the [`ff-record`](/api/4.x/ff-record-list#tab=docs) element:
 

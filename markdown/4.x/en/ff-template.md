@@ -1,6 +1,9 @@
-With an `ff-template` element you can see how the data binding for the ff-webcomponents works and use a model to update the view.
+## Summary
 
-Set a **data** object for a template to store your data. With the "**{{}}**" mustache syntax you can access the data inside of that object:
+With an `ff-template` element you can see how the data binding of FACT-Finder Web Components works and use a model to update the view.
+
+Set a **data** object for a template to store your data.
+With the `{{ }}` mustache syntax you can access the data inside of that object:
 
 ```html
 <script>
@@ -9,6 +12,7 @@ Set a **data** object for a template to store your data. With the "**{{}}**" mus
         template1.data = {test: "This is my Test Data"};
     }
 </script>
+
 <p>Set simple data into a Template</p>
 <button onclick="setTemplate1()">Set simple Data</button>
 <ff-template id="demoTemplate1">

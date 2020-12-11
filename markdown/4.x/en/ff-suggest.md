@@ -194,7 +194,7 @@ See the following example:
             // The fields contained in "attributes" must be configured in the FACT-Finder UI
             const articleNr = suggestionData.attributes["articleNr"];
 
-            window.open("http://www.your-shop.example" + articleNr, "_blank");
+            window.open("https://www.your-shop.example" + articleNr, "_blank");
         }
     });
 </script>

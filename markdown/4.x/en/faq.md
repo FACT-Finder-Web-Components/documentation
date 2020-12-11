@@ -8,7 +8,7 @@ Latest.
 ---
 
 #### Question:
-Can I contribute to the future development of WebComponents?
+Can I contribute to the future development of FACT-Finder Web Components?
 
 #### Answer:
 Yes. Although the Web Components codebase is closed, you can still discuss and propose issues, changes and features at [GitHub issues](https://github.com/FACT-Finder-Web-Components/ff-web-components/issues).
@@ -28,10 +28,10 @@ Please note that with no voices against, breaking changes will be applied accord
 ---
 
 #### Question:
-Which browsers do FACT-Finder WebComponents support?
+Which browsers do FACT-Finder Web Components support?
 
 #### Answer:
-FACT-Finder WebComponents utilises the official [Web Components polyfill](https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs#browser-support) which guarantees support for _Chrome_, _Firefox_, _Edge_, _Safari 9+_, _IE11+_, _Chrome Android_ and _Mobile Safari_.
+FACT-Finder Web Components utilises the official [Web Components polyfill](https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs#browser-support) which guarantees support for _Chrome_, _Firefox_, _Edge_, _Safari 9+_, _IE11+_, _Chrome Android_ and _Mobile Safari_.
 We test against the latest version of each of these.
 
 ---
@@ -39,7 +39,7 @@ We test against the latest version of each of these.
 #### Question:
 I want to use FACT-Finder Web Components with Angular, but data binding used in the components conflicts with Angular's `{{ }}` binding. Can you fix it?
 #### Answer:
-You can add Angular's `ngNonBindable` attribute to the parent element to prevent Angular from parsing double curly braces. If you have to keep both Angular and FACT-Finder WebComponents bindings within the same element, you can use: 
+You can add Angular's `ngNonBindable` attribute to the parent element to prevent Angular from parsing double curly braces. If you have to keep both Angular and FACT-Finder Web Components bindings within the same element, you can use: 
 ```html
 <ff-record> 
     {{Angular Binding}}
@@ -119,13 +119,13 @@ See [Adding a suggest container](/api/4.x/ff-suggest) in the `ff-suggest` docume
 ---
 
 #### Question:
-Our polyfills seem to be clashing with the WebComponents polyfills.
+Our polyfills seem to be clashing with the Web Components polyfills.
 #### Answer:
-One option is to use a polyfill that is compatible with the WebComponents polyfill.
+One option is to use a polyfill that is compatible with the Web Components polyfill.
 
  A polyfill clash may not always be obvious at first.
  Errors that could hint at such a clash may involve `Symbol.iterator` or `Promise`.
- For detailed information on which features the WebComponents polyfill implements, refer to the official [GitHub repository](https://github.com/webcomponents/polyfills).  
+ For detailed information on which features the Web Components polyfill implements, refer to the official [GitHub repository](https://github.com/webcomponents/polyfills).  
 If this doesn't seem to solve the issue, please contact us for a custom solution.
 
 ---

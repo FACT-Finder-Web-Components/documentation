@@ -66,7 +66,7 @@ So basically all you need to do is strip everything before the API-Name away and
 
     `http://your.shop-endpoint.com/FACT-Finder-Endpoint/Search.ff?query=shoe&channel=shoeshop_en`
     `http://your.factfinder.com/FACT-Finder/Search.ff?query=shoe&channel=shoeshop_en`
-#### 3. Receive JSON Respone
+#### 3. Receive JSON Response
 
 ---
 Now you just need to make the HTTP GET request and receive the data.
