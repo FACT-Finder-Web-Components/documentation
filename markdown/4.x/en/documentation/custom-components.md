@@ -26,7 +26,9 @@ eventAggregator.addFFEvent({
 * `query` is populated from the component prop
 * `topics` function defines to which topic the results will be dispatched. In this case, we want this topic to be unique for each component instance. Otherwise, other carousels would interfere with each other
 
-**NOTE**: When designing a production-ready component, it is advisable to implement a `query` prop watcher to react to its possible changes with consecutive search requests.
+> Note
+>
+> When designing a production-ready component, it is advisable to implement a `query` prop watcher to react to its possible changes with consecutive search requests.
 
 #### 2. `subscribe`
 

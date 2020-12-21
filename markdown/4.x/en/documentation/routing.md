@@ -38,11 +38,12 @@ function isSearchPage() {
 }
 ```
 
-#### NOTE
+> Note
+>
+> Please do not use `search-immediate` on non-search pages, or you will be immediately redirected to the search page.
+> If for some reason you need to use this parameter on non-search pages, you can prevent being continuously redirected by using the `cancel` method of the event issued this way.
+> You can check if the event is 'immediate' by checking its property `searchImmediate`.
 
-Please do not use `search-immediate` on non-search pages or you will be immediately redirected to the search page.
-If for some reason you need to use this parameter on non-search pages, you can prevent being continuously redirected by using the `cancel` method of the event issued this way.
-You can check if the event is 'immediate' by checking its property `searchImmediate`
 ```javascript
 document.addEventListener("ffReady", function (event) {
     const eventAggregator = event.eventAggregator;

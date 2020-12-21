@@ -11,8 +11,10 @@ Specify the FACT-Finder endpoint.
 Please note the context name `/FACT-Finder`.
 It is not sufficient to provide the top-level domain like `https://web-components.fact-finder.de/` which will result in an error.
 
-**Note:** Make sure you are using the same protocol (`http://`, `https://`) for the `url` setting and webapp.
-Using `url="http://web-components.fact-finder.de/FACT-Finder"` on a page hosted via **HTTPS** will result in an error.
+> Note
+>
+> Make sure you are using the same protocol (`http://`, `https://`) for the `url` setting and webapp.
+> Using `url="http://web-components.fact-finder.de/FACT-Finder"` on a page hosted via **HTTPS** will result in an error.
 
 ---
 
@@ -43,11 +45,11 @@ You can find the available channels in your FACT-Finder UI.
     ></ff-communication>
 ```
 
-**IMPORTANT**
+> Important
+>
+> The `ff-communication` element must be the first FACT-Finder Web Component in DOM order!
 
-**The** `ff-communication` **element must be the first FF Web Component in DOM order!**
-
-[Read Why](/documentation/4.x/ready-events)
+[Read why](/documentation/4.x/ready-events).
 
 We recommend placing the `ff-communication` element immediately after the `body` tag to reduce the risk of accidental reordering.
 Furthermore, we advise to add a comment explaining this requirement.
@@ -59,13 +61,13 @@ For example:
 
 #### **search-immediate**
 The `search-immediate` attribute ensures, that a search is automatically triggered as soon as `ff-communication` was successfully attached to the DOM.
-The triggered search request uses the current URL parameters in conjunction with the settings provided by `ff-communication`-attributes.
+The triggered search request uses the current URL parameters in conjunction with the settings provided by `ff-communication` attributes.
 If no search query is provided through the URL or an attribute, `*` will be used as default (search for all products).
 
-**NOTE**
-
-You don't want the `search-immediate` attribute to be present on your landing (home) page because this would trigger a search every time a user enters your shop.
-Usually you only want to use it on category pages and on the search result page.
+> Note
+>
+> You don't want the `search-immediate` attribute to be present on your landing (home) page because this would trigger a search every time a user enters your shop.
+> Usually you only want to use it on category pages and on the search result page.
 
 
 ## JavaScript Approach
@@ -89,11 +91,11 @@ document.addEventListener("ffReady", function (event) { // "ffReady" event ensur
 });
 ```
 
-**NOTE**
-
-To prevent Web Components from missing a FACT-Finder response before they are loaded, dispatching of results to subscribers is cached and deferred until all components are ready to receive the response.
-As soon as FACT-Finder Web Components have finished loading, `ff-communication` calls `factfinder.communication.ResultDispatcher.startDispatching()`.
-If `ff-communication` is not used, `factfinder.communication.ResultDispatcher.startDispatching()` must be called manually in JavaScript.
+> Note
+>
+> To prevent Web Components from missing a FACT-Finder response before they are loaded, dispatching of results to subscribers is cached and deferred until all components are ready to receive the response.
+> As soon as FACT-Finder Web Components have finished loading, `ff-communication` calls `factfinder.communication.ResultDispatcher.startDispatching()`.
+> If `ff-communication` is not used, `factfinder.communication.ResultDispatcher.startDispatching()` must be called manually in JavaScript.
 
 Although the entire configuration can be done using JavaScript, we discourage direct use of custom JavaScript to do so and strongly recommend configuring everything through FACT-Finder Web Components.
 

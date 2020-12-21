@@ -11,7 +11,10 @@ The integration of Click Tracking for products, recommendations and campaigns is
 
 The `ff-record-list` element detects automatically if the displayed products belong to campaigns, recommendations or the search result. So there is no need to distinguish between recommendation click, campaign click or common product click.
 
-**Note:** Click tracking for `ff-campaign-landing-page` requires `api="v4"`. See the `ff-communication` [API tab](/api/4.x/ff-communication#tab=api) for more details about that attribute.
+> Note
+>
+> Click tracking for `ff-campaign-landing-page` requires `api="v4"`.
+> See the `ff-communication` [API tab](/api/4.x/ff-communication#tab=api) for more details about that attribute.
       
       
 #### Tracking with `data-redirect`
@@ -114,9 +117,13 @@ If you want to send the tracking request to a channel different from the one con
 </ff-checkout-tracking>
 ```
 
-**NOTE:** the `<ff-checkout-tracking>` element relies on the FACT-Finder Record API. If this API is not supported by your FACT-Finder version, it won't work.
+> Note
+>
+> The `ff-checkout-tracking` element relies on the FACT-Finder Record API.
+> If this API is not supported by your FACT-Finder version, it won't work.
 
 To have the new element resolve the correct field for tracking on your detail page, you have to set the `fieldRoles` property manually (normally, the `fieldRoles` property is set by receiving a search response from a search request) like: 
+
 ```html
 <script>
 document.addEventListener("ffReady", function (event) {
@@ -137,4 +144,9 @@ document.addEventListener("ffReady", function (event) {
 });
 </script>
 ```
-**NOTE:** You have to replace the right hand side (like `BrandFieldName`) with your own values. If you can't find a way to retrieve the field roles via the FACT-Finder UI, you can open a FACT-Finder Web Components search page, trigger a search with your own FACT-Finder and afterwards open the Browser Dev Tools, navigate to the `console`  tab and type: `factfinder.communication.fieldRoles` -> Hit enter
+
+> Note
+>
+> You have to replace the right hand side (like `BrandFieldName`) with your own values.
+> If you can't find a way to retrieve the field roles via the FACT-Finder UI, you can open a FACT-Finder Web Components search page and trigger a search with your own FACT-Finder.
+> Then, open the browser's dev tools, navigate to the `console` tab and type: `factfinder.communication.fieldRoles`.

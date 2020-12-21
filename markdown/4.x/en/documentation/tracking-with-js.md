@@ -2,16 +2,13 @@
 
 Instead of using the built-in tracking, you are also able to use WebComponents' JavaScript API to send your tracking events.
 
-___
-**IMPORTANT**
-
-**This documentation is NOT a comprehensive FACT-Finder Tracking Documentation. Please refer to the [official FACT-Finder Documentation](https://doku.fact-finder.de/endoc/latest/fact-finder-integration/tracking-interface-integration) to read more about the tracking itself.**
-___ 
-
- 
+> Important
+>
+> This documentation is NOT a comprehensive FACT-Finder Tracking Documentation.
+> Please refer to the [official FACT-Finder Documentation](https://doku.fact-finder.de/endoc/latest/fact-finder-integration/tracking-interface-integration) to read more about the tracking itself.
 
 The `Tracking` namespace contains the relevant tracking methods.
-All of the contained methods take one object as a parameter.
+All contained methods take one object as a parameter.
 
 You can access it like this:
 ```Javascript
@@ -20,30 +17,38 @@ const track = factfinder.communication.Tracking;
 
 
 ### Retrieving necessary information
+
 Some information is provided by FACT-Finder Web Components and/or FACT-Finder.
 
 
 #### sid
+
 You can retrieve the current FACT-Finder Web Components **sid** by calling this helper function: 
 
 ```js
 factfinder.common.localStorage.getItem("ff_sid");
 ```
 
-**NOTE** You should always rely on this function for Safari private mode compatibility!
+> Notes
+>
+> You should always rely on this function for Safari private mode compatibility!
 
 
 #### id 
+
 The **id** parameter has to match the field value of the field configured as `trackingProductNumber ` [field role](/documentation/4.x/field-roles).
 
 
 #### masterId
+
 The **masterId** parameter has to match the field value of the field configured as `masterArticleNumber` [field role](/documentation/4.x/field-roles).
 
 
 #### channel
+
 The channel parameter is a property of the `<ff-communication>` element.
 You can access it like this:
+
 ```javascript
 const channel = document.querySelector("ff-communication").channel;
 ```
@@ -53,6 +58,7 @@ For more explanation please refer to the [FACT-Finder Tracking Documentation](ht
 
 
 ### Tracking Examples
+
 You can use the tracking object like this:
 
 ```javascript
@@ -96,8 +102,8 @@ track.checkout({
 ```
 
 ### Retrieve product information via FACT-Finder Web Components
-If you can't access the necessary field using your shop-system's API,
-you can query FACT-Finder for product information.
+
+If you can't access the necessary field using your shop-system's API, you can query FACT-Finder for product information.
 
 ```javascript
 const id = '105-1687-0512';
