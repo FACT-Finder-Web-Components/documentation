@@ -1,9 +1,10 @@
 ## Ready Events
+
 There are two essential events emitted on the main document.
 
-**IMPORTANT**
-
-Both EventListeners have to be declared before our scripts are loaded or you could miss the event **and your code is never executed**!
+> Important
+>
+> Both event listeners have to be declared before the Web Components scripts are loaded, or you could miss the event, **and your code is never executed**!
 
 ### ffReady
 This event is fired if our core library has loaded and is fully functional.
@@ -20,8 +21,9 @@ In this case, an `event` object will have three additional parameters passed.
 * eventAggregator - reference to `factfinder.communication.EventAggregator`
 * resultDispatcher - reference to `factfinder.communication.ResultDispatcher`
 
-**NOTE:**
- Variable `factfinder` is also always available from the global scope.
+> Note
+>
+> The `factfinder` reference is also always available from the global scope.
 
 **Example usage**
 ```html
@@ -63,11 +65,15 @@ You can even destructure nested objects to select only those properties you need
 </script>
 <script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
-**NOTE:**
-Internet Explorer does not support destructuring assignment. Do not use it unless your code is transpiled before deployment.
-You can find more information in the documentation: [Destructuring assignment](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
+
+> Note
+>
+> Internet Explorer does not support destructuring assignments.
+> Do not use it unless your code is transpiled before deployment.
+> You can find more information in the JavaScript documentation: [Destructuring assignment](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
 
 ### WebComponentsReady
+
 The `WebComponentsReady` event is fired if all FACT-Finder Web Components are ready to use.
 
 **What does that mean?**
@@ -96,7 +102,7 @@ Let's consider the following case:
 As described above the `ffReady` event indicates the core library is ready but not the elements.
 At the time the search is executed, the `ff-communication` element isn't initialized yet and therefore no communication information is available.
 
-Instead we want to use the `WebComponentsReady` to wait until all FACT-Finder Web Components are upgraded:
+Instead, we want to use the `WebComponentsReady` to wait until all FACT-Finder Web Components are upgraded:
 ```html
 <script>
     //CORRECT
@@ -111,9 +117,9 @@ Instead we want to use the `WebComponentsReady` to wait until all FACT-Finder We
 <script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
 
-**NOTE**
-
-Actually, you can set the necessary communication information in the `ffReady` handler yourself with JavaScript and fire events to FACT-Finder earlier.
+> Note
+>
+> Actually, you can set the necessary communication information in the `ffReady` handler yourself with JavaScript and fire events to FACT-Finder earlier.
 
 Be aware that the dispatching of FACT-Finder responses to all subscribers is cached and postponed until all components have been upgraded.
 Current added _callbacks_ are invoked through `factfinder.communication.ResultDispatcher.addCallback` as soon as the FACT-Finder response arrives.
@@ -127,9 +133,9 @@ Even without using `ffReady` to trigger a search you may stumble across an error
 
 If you are sure the message is not related to custom JavaScript code, it is possibly related to the order of elements.
 
-**IMPORTANT**
-
-**The `<ff-communication></ff-communication>` element has to be the first FF Web Component in DOM order!**
+> Important
+>
+> The `ff-communication` element has to be the first FF Web Component in DOM order!
 
 **What does that mean?**
 
@@ -157,8 +163,9 @@ To fix this issue you have to place the `ff-communication` element before the `f
 </ff-recommendation>
 ```
 
-**NOTE**
-We recommend putting the `ff-communication` element immediately after the opening `body` tag.
-This should prevent accidental misplacement of elements.
+> Note
+>
+> We recommend putting the `ff-communication` element immediately after the opening `body` tag.
+> This should prevent accidental misplacement of elements.
 
 It is advisable to add a comment explaining this requirement.

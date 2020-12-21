@@ -3,10 +3,10 @@
 
 This guide covers everything to add `Currency Symbols` and `Number Formatting` like `£49.99 or 49,99 €` across all FACT-Finder Web Components and related parts.
 
-### (TLDR;)Complete Example Configuration
+### Example Configurations
 
 ---
-This configurations adds the currency and all the number formatting to every price:
+These configurations add the currency and all the number formatting to every price:
 
 #### German Number Format
 ````html

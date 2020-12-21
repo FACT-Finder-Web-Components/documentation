@@ -30,9 +30,9 @@ product in the campaign manager.
 - `masterArticleNumber` – product number of the main product if product
 variants are used
 
-**IMPORTANT:** During set-up of a channel in the FACT-Finder-UI you have
-to assign each of the `fieldRoles` listed above to one field/column in
-your product database.
+> Important
+>
+> During the setup of a channel in the FACT-Finder-UI you have to assign each of the `fieldRoles` listed above to one field/column in your product database.
 
 This means in order for FACT-Finder and FACT-Finder Web Components to process your
 data properly you also need to provide a mapping of `fieldRoles` to
@@ -57,9 +57,10 @@ role `price` to your field `prix` in the FACT-Finder-UI. In order to use the [Cu
 `prix` in the `factfinder.communication.fieldRoles` property in your
 front-end.
 
-**NOTICE:** The `fieldRoles` are configured in the FACT-Finder-UI during
-the set-up process. It is essential the roles you define in the browser
-match the ones defined in FACT-Finder.
+> Notice
+>
+> The `fieldRoles` are configured in the FACT-Finder-UI during the setup process.
+> It is essential that the roles you define in the browser match the ones defined in FACT-Finder.
 
 #### How to define `fieldRoles` on the FACT-Finder Web Components side
 
@@ -79,9 +80,9 @@ the set-up.
 
 This is how you set the `fieldRoles`:
 
-**IMPORTANT**
-
-Both EventListeners have to be declared before our scripts are loaded or you could miss the event **and your code is never executed**!
+> Important
+>
+> Both event listeners have to be declared before the Web Components scripts are loaded, or you could miss the event, **and your code is never executed**!
 
 ```html
 <script>
@@ -99,9 +100,9 @@ Both EventListeners have to be declared before our scripts are loaded or you cou
 <script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
 
-**NOTICE:** We omitted some roles in this example but
-_you always have to set all_ `fieldRoles` in the back- as well as
-front-end.
+> Notice
+>
+> We omitted some roles in this example but _you always have to set all_ `fieldRoles` in the back- as well as in the front-end.
 
 
 #### How to look up your `fieldRoles`

@@ -12,7 +12,7 @@ See below for details.
 ### Preparation for 4.x migration
 
 Before you install `4.0.0`, make sure your application is using the latest `3.x` release.
-All except two deprecated features that will affect your implementation emit **deprecation warnings**.
+Most deprecated features that will affect your implementation emit **deprecation warnings**.
 
 Address those deprecation warnings with the help of this guide or by referring to the **4.0 Milestone** on GitHub:  
 https://github.com/FACT-Finder-Web-Components/ff-web-components/milestone/1
@@ -42,7 +42,9 @@ Only the changes that do not emit deprecation warnings are left to address **IF*
 
 #### Require `version` attribute
 
-**Note:** This change only affects you if you do not already specify the `version` attribute.
+> Note
+>
+> This change only affects you if you do not already specify the `version` attribute.
 
 | Chance of being affected | Required effort to fix | Deprecated since |
 | ------------------------ | ---------------------- | ---------------- |
@@ -75,10 +77,13 @@ Now:
 <ff-communication version="7.2"></ff-communication>
 ```
 
+---
 
 #### Require `api` attribute
 
-**Note:** This change only affects you if you do not already specify the `api` attribute.
+> Note
+>
+> This change only affects you if you do not already specify the `api` attribute.
 
 | Chance of being affected | Required effort to fix | Deprecated since |
 | ------------------------ | ---------------------- | ---------------- |
@@ -112,6 +117,7 @@ Now:
 <ff-communication version="ng" api="v4"></ff-communication>
 ```
 
+---
 
 #### Renaming of `ff-searchbox` attribute `hidesuggest-onblur`
 
@@ -152,6 +158,7 @@ Now:
 document.querySelector("ff-searchbox").hideSuggestOnblur = false;
 ```
 
+---
 
 #### Removal of attribute `stamp-always` from `ff-record-list` and `ff-record`
 
@@ -169,7 +176,9 @@ This attribute has no effect anymore.
 It was made redundant by a more sophisticated algorithm to detect changes in record data.
 Therefore, it requires no replacement.
 
-**Note**: As `stamp-always` already has no effect anymore, its removal is technically **not a breaking change**, but it may render implementations that build around it redundant.
+> Note
+>
+> As `stamp-always` already has no effect anymore, its removal is technically **not a breaking change**, but it may render implementations that build around it redundant.
 
 Unless you have custom logic or styling attached to `stamp-always`, you can safely remove it.
 
@@ -189,6 +198,7 @@ After:
 </ff-record-list>
 ```
 
+---
 
 #### Renaming of `FFCommunicationEventAggregator`
 
@@ -219,6 +229,7 @@ Now:
 factfinder.communication.EventAggregator.addFFEvent(event);
 ```
 
+---
 
 #### Removal of `search` event from `ff-slider`
 
@@ -260,6 +271,7 @@ factfinder.communication.EventAggregator.addBeforeDispatchingCallback(event => {
 });
 ```
 
+---
 
 #### Make `ff-asn-group[for-group]` target `associatedFieldName`
 
@@ -297,6 +309,7 @@ Now:
 </ff-asn>
 ```
 
+---
 
 #### Removal of `records` property from `ff-checkout-tracking`
 
@@ -327,6 +340,7 @@ Of course, this highly depends on your actual implementation and is difficult to
 document.querySelector("ff-checkout-tracking").records
 ```
 
+---
 
 #### Removal of `clone()` from `ff-breadcrumb-trail-item`
 
@@ -346,6 +360,7 @@ https://github.com/FACT-Finder-Web-Components/ff-web-components/issues/44
 document.querySelector("ff-breadcrumb-trail-item").clone()
 ```
 
+---
 
 #### Removal of `clone()` from `ff-single-word-search-record`
 
@@ -365,6 +380,7 @@ https://github.com/FACT-Finder-Web-Components/ff-web-components/issues/47
 document.querySelector("ff-single-word-search-record").clone()
 ```
 
+---
 
 #### Removal of Single Hit Redirect
 
