@@ -166,7 +166,9 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
             </iron-selector>
             
             <a id="impressumLink" style="font-size: 12px" href="https://www.fact-finder.de/impressum.html">Impressum</a>
-            <sd-search-box records-text="{{recordsText}}" records-api="{{recordsApi}}" query="{{query}}" page="[[page]]"></sd-search-box>
+
+            <!-- Search is broken. Reimplement it correctly one day. -->
+            <!--<sd-search-box records-text="{{recordsText}}" records-api="{{recordsApi}}" query="{{query}}" page="[[page]]"></sd-search-box>-->
         </app-toolbar>
     </app-header>
 
