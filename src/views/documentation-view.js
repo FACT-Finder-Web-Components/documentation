@@ -48,6 +48,14 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
                            attr-for-selected="name"
                            class="drawer-list"
                            role="navigation">
+
+                <template is="dom-if" if="{{migration.length}}">
+                    <h3>Migration</h3>
+                    <template is="dom-repeat" items="{{migration}}">
+                        <a name="{{item.path}}" href="[[rootPath]]documentation/[[version]]/{{item.path}}">{{item.title}}</a>
+                    </template>
+                </template>
+
                 <h3>First Steps</h3>
                 <template is="dom-repeat" items="{{firstSteps}}">
                     <a name="{{item.path}}" href="[[rootPath]]documentation/[[version]]/{{item.path}}">{{item.title}}</a>
@@ -61,13 +69,6 @@ class DocumentationView extends ViewMixin(ReduxMixin(PolymerElement)) {
                 <h3>Advanced</h3>
                 <template is="dom-repeat" items="{{advanced}}">
                     <a name="{{item.path}}" href="[[rootPath]]documentation/[[version]]/{{item.path}}">{{item.title}}</a>
-                </template>
-
-                <template is="dom-if" if="{{migration.length}}">
-                    <h3>Migration</h3>
-                    <template is="dom-repeat" items="{{migration}}">
-                        <a name="{{item.path}}" href="[[rootPath]]documentation/[[version]]/{{item.path}}">{{item.title}}</a>
-                    </template>
                 </template>
             </iron-selector>
         </div>
