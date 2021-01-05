@@ -6,7 +6,11 @@ To send queries to FACT-Finder, you need to fire events via the `addFFEvent()` f
 ### `addFFEvent(event)`
 Each event has a `type` which defines what API on FACT-Finder is called and which other properties it operates on.
 
-**NOTE**: Each property which is not a function or an object is translated to an http request parameter with a few exceptions:
+> Important
+>
+> Each property which is not a function or an object, is translated to an HTTP request parameter.
+
+A few reserved properties are never translated to HTTP parameters:
 
 *  type 
 *  url 

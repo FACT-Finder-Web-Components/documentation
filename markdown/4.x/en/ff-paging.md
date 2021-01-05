@@ -67,7 +67,9 @@ You have to set a `type` attribute in the `ff-paging-item` where you select a "p
     * _Usually this link is displayed as an arrow or something similar._ 
 * **currentLink** : points to the current page. You can add or subtract to define a specific page like `currentLink+2` or `currentLink-1`
 
-**Note**: The `ff-paging-item` will only be visible, when the expression validates for a page!
+> Note
+>
+> The `ff-paging-item` will only be visible when the expression resolves to a valid page!
 
 Each element has a `{{caption}}` property which you can define in the FACT-Finder backend.
 Mostly used to design the first- / last- / next- /previous- link elements.

@@ -24,7 +24,8 @@ When setup like in the example above, the rendered HTML could look like this:
 ```
 
 ### Setup
-To customize filter element appearance, you can add an HTML element annotated with `[data-template=filter]`. You can access the filter group's name through `{{group.name}}`:
+To customize filter element appearance, you can add an HTML element annotated with `data-template="filter"`.
+You can access the filter group's name through `{{group.name}}`:
 ```html
 <ff-filter-cloud>
     <span data-template="filter">{{group.name}}: {{element.name}}</span>
@@ -82,8 +83,10 @@ When setup like in the example above, the rendered HTML could look like this:
 </ff-filter-cloud>
 ```
 
-**NOTE** If no element annotated with `[data-template=filter]` is specified, a console error will be displayed and the component will not render itself.
-The only exception where `[data-template=filter]` may be omitted is when `ff-filter-cloud` is left completely empty.
+> Note
+>
+> If no element annotated with `data-template="filter"` is specified, a console error will be displayed and the component will not render itself.
+> The only exception where `data-template="filter"` may be omitted is when `ff-filter-cloud` is left completely empty.
 
 ### Setup
 The following is an error - `ff-filter-cloud` has no way of determining where to render its filter-item elements.

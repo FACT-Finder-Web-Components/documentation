@@ -16,7 +16,9 @@ To customize filter groups you add `ff-asn-group` elements. However, adding an e
 
 
 ## Changing the group caption
-If you want to change the group caption, you can annotate an HTML element with the `[slot="groupCaption"]` attribute. You can access the group's name through `{{group.name}}`. Here is an example of how a custom group caption could be implemented:
+If you want to change the group caption, you can annotate an HTML element with the `slot="groupCaption"` attribute.
+You can access the group's name through `{{group.name}}`.
+Here is an example of how a custom group caption could be implemented:
 ```html
 <ff-asn-group>
     <div slot="groupCaption" class="groupCaption">
@@ -24,7 +26,10 @@ If you want to change the group caption, you can annotate an HTML element with t
     </div>
 </ff-asn-group>
 ```
-**NOTE**: The group caption will always be displayed at the top of the `ff-asn-group`. No other elements are altered in any way.
+> Note
+>
+> The group caption will always be displayed at the top of the `ff-asn-group`.
+> No other elements are altered in any way.
 
 
 ## Structuring the filter group
@@ -59,8 +64,9 @@ You can define the structure of your custom filter group through certain predefi
 </ff-asn-group>
 ```
 
-**NOTE**: You can change the animation duration by changing the CSS
-`transition-duration` property of `ff-asn-group .ffw-wrapper`.
+> Note
+>
+> You can change the animation duration by changing the CSS `transition-duration` property of `ff-asn-group .ffw-wrapper`.
 
 
 ## Adding a filter element template
@@ -88,7 +94,7 @@ The `{{data-binding}}` for the `ff-asn-group-element` allows accessing both scop
 
 
 ## Restricting filter group templates to filter-style
-If you set the `[filter-style]` attribute, the `ff-asn-group` acts as the default template for all groups that match this **filter-style**.
+If you set the `filter-style` attribute, the `ff-asn-group` acts as the default template for all groups that match this **filter-style**.
 ```html
 <ff-asn>
     <!-- Acts as a template for all TREE configured filter groups -->
@@ -104,7 +110,7 @@ If you set the `[filter-style]` attribute, the `ff-asn-group` acts as the defaul
 
 
 ## Defining filter group templates for individual groups
-By setting the `[for-group]` attribute you can apply a template to a single group identified by its source field name (associatedFieldName).
+By setting the `for-group` attribute you can apply a template to a single group identified by its source field name (associatedFieldName).
 ```html
 <ff-asn>
     <!-- Acts as a template for a specific group called "Category" -->
@@ -112,7 +118,10 @@ By setting the `[for-group]` attribute you can apply a template to a single grou
 </ff-asn>
 ```
 
-**NOTE**: The `[for-group]` attribute has a higher priority than the `[filter-style]` attribute. This allows overriding certain groups even if you have a default template for that `[filter-style]`.
+> Note
+>
+> The `for-group` attribute has a higher priority than the `filter-style` attribute.
+> This allows overriding certain groups even if you have a default template for that `filter-style`.
 
 
 ## Using native select box
@@ -147,7 +156,7 @@ Slider groups are handled in a different way. To style them you need to use the 
 <ff-asn-group-slider></ff-asn-group-slider>
 ```
 
-A slider can have a `[slot="groupCaption"]` attribute, a `[data-container="removeFilter"]` element and an `ff-slider-control` element.
+A slider can have a `slot="groupCaption"` attribute, an element with `data-container="removeFilter"` and an `ff-slider-control` element.
 
 If no templates are provided for the `ff-slider-control`, the templates default to the example below. If you want to customize the templates, you must provide an `ff-slider` and an `input` element with attribute `data-control='1'` as well as one with `data-control='2'`. 
 
@@ -320,7 +329,7 @@ The default search field template is
 ```html
 <div slot="filterSearch"><input></div>
 ```
-However it can be changed by providing own content for `filterSearch` slot in `ff-asn-group` template. 
+However, it can be changed by providing own content for `filterSearch` slot in `ff-asn-group` template. 
 This template has to contain exactly one `input` element.
 
 ### Example

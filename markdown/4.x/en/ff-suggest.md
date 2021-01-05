@@ -46,7 +46,7 @@ attribute for each suggest type configured in the FACT-Finder backend.
 The `ff-suggest` element hides the annotated container if no suggestions
 are found for this type.
 
-In addition you need to add a `ff-suggest-item` element inside the
+In addition, you need to add a `ff-suggest-item` element inside the
 container. All received suggestions of this `"suggestType"` are inserted
 at this position and will be an exact copy of this element. `ff-suggest-item` supports [image binding](/api/4.x/ImageBindingBehavior#tab=docs).
 
@@ -69,21 +69,15 @@ Repeat this process for all configured `"suggestTypes"`.
 </ff-suggest>
 ```
 
-**Note** the triple curly braces in `<span>{{{name}}}</span>`, which
-enable the rendering of HTML code in our template engine.
-`ff-suggest` inserts HTML here and the matched string from your search
-box is wrapped in a `<span class="query">` tag to allow you to highlight
-the matched text through CSS. If you used the regular double curly
-braces and typed "back" in the search box, the HTML source code would be
-shown as a plain text: `<span class="query">Back</span>packs`
-rather than the rendered: "**Back**packs".
+Note the triple curly braces in `<span>{{{name}}}</span>`, which enable the rendering of HTML code in the template engine.
+`ff-suggest` inserts HTML here, and the matched string from your search box is wrapped in a `<span class="query">` tag to allow you to highlight the matched text through CSS.
+If you used the regular double curly braces and typed "back" in the search box, the HTML source code would be shown as plain text: `<span class="query">Back</span>packs` rather than the rendered: "**Back**packs".
 
 See [Template Engine](/documentation/4.x/template-engine) for more details.
 
 ### Rendered HTML
 
-Container templates provided inside `<ff-suggest>` tag will be rendered inside
-several additional wrapping `<div>` HTML elements.
+Container templates provided inside the `ff-suggest` tag will be rendered inside several additional `div` elements.
 
 For example, the following HTML provided by the user:
 
@@ -205,7 +199,9 @@ The expected behavior after clicking on an `ff-suggest-item` element of type `pr
 However, `ff-suggest` supports this functionality only if a `deeplink` field is available in the clicked item's attributes data.
 The `deeplink` field is populated with the data from the data feed export column configured with the `Deeplink` field role.
 
-**Note**: `ff-suggest` is redirecting both absolute and relative URLs.
+> Note
+>
+> `ff-suggest` redirects both absolute and relative URLs.
 
 If no `deeplink` is provided for an item of type `productName`, then `ff-suggest` will try to obtain its value by emitting an additional request.
 Depending on the used FACT-Finder version it will be a search request (versions lower than `7.3`), or a records API call (versions `7.3` and up).

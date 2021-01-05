@@ -101,13 +101,12 @@ Use the `compareRecords` method in such instances.
 
 To display the comparison information you have multiple options:
 
-#### `[data-attribute]`
+#### Comparing attributes
 
 Normally, you would use a `ff-record-list` inside a `ff-compare` element.
 Now you can add the attribute `data-attribute="fieldName"` to an HTML Element inside the `ff-record-list`.
 
-After the comparison, each field with a difference will add the CSS class `ffw-compare-diff` to the
-corresponding HTML Element.
+After the comparison, each field with a difference will be marked with the CSS class `ffw-compare-diff` on the corresponding HTML Element.
 Or, when the fields are identical, it will add the `ffw-compare-equal` class.
 If the compare service has no results for that given field, all `ffw-compare-*` CSS classes will be removed.
 

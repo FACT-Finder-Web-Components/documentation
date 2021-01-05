@@ -37,9 +37,11 @@ can also be set by changing `ff-loading-spinner`'s `manual` property value to `t
 directly in JavaScript code. The visibility of the element can be changed either with the `is-active` attribute or by calling
 its `show()` and `hide()` methods.
 
-**NOTE:** It is not necessary to be in manual mode in order to manipulate the visibility of the element using its API. 
-However, the default subscription callbacks might interfere with the intended animation flow. Therefore it is recommended to 
-use 'manual' when implementing visibility customizations.
+> Note
+>
+> It is not necessary to be in manual mode in order to manipulate the visibility of the element using its API.
+> However, the default subscription callbacks might interfere with the intended animation flow.
+> Therefore it is recommended to use 'manual' when implementing visibility customizations.
 
 ```html
 <!-- Active (visible) element -->

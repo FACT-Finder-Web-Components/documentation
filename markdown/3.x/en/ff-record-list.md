@@ -80,7 +80,7 @@ This might be useful if you don't want to redirect to a product detail page but 
 
 ## Cart and checkout tracking
 If you want to add cart and/or checkout tracking to your search result page you can enable the tracking functionality by add one or both of `[add-checkout-click]`, `[add-cart-click]` to the ff-record element.
-This will enable additional information for the data-track attribute. For checkout tracking you can add `[data-track="checkoutClick"]` or for cart tracking `[data-track="cartClick"]` to any ancestor.
+This will enable additional information for the data-track attribute. For checkout tracking you can add `[data-track="checkoutClick"]` or for cart tracking `[data-track="cartClick"]` to any descendant element.
 
 ```html
 <ff-record-list>

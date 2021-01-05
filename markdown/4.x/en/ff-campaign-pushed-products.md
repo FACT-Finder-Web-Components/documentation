@@ -21,7 +21,7 @@ Adding a Pushed Products campaign is as simple as adding the products to your se
 ```
 
 ## Adding a (Product) Pushed Product campaign
-To make your `ff-campaign-pushed-products` react to product detail campaigns just add the `[is-product-campaign]` attribute.
+To make your `ff-campaign-pushed-products` react to product detail campaigns just add the `is-product-campaign` attribute.
 
 ```html
 <ff-campaign-pushed-products is-product-campaign>

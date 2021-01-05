@@ -117,7 +117,9 @@ Argument `topics` is optional - skipping it causes the response to be dispatched
 It updates all subscribed elements.
 With the `topics` argument passed, only the part of the response related to the passed topic will be dispatched (e.g. using `suggest` will cause an update only on elements which subscribe to the `suggest` topic - by default `ff-suggest`).
 
-**Note**: It is possible to pass multiple topics in an array.
+> Tip
+>
+> It is possible to pass multiple topics in an array.
 
 ```html
 <script type="text/javascript">
@@ -126,5 +128,8 @@ With the `topics` argument passed, only the part of the response related to the 
   });
 </script>
 ```
-**Note**: Make sure you put the `dispatchRaw` call inside a `WebComponentsReady` listener.
-This guarantees all `ff-communication` attributes (e.g. `version`) will be reflected as communication parameters.
+
+> Note
+>
+> Make sure you put the `dispatchRaw` call inside a `WebComponentsReady` listener.
+> This guarantees all `ff-communication` attributes (e.g. `version`) will be reflected as communication parameters.
