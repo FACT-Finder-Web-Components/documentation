@@ -101,6 +101,11 @@ track.checkout({
 });
 ```
 
+> Note
+>
+> During the checkout tracking each product has to be tracked separately.
+> Passing an array of entries to the checkout tracking function is currently not supported.
+
 ### Retrieve product information via FACT-Finder Web Components
 
 If you can't access the necessary field using your shop-system's API, you can query FACT-Finder for product information.
