@@ -26,7 +26,7 @@ ___
 | **use-aso**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | Allows activating/deactivating of automated search optimization. true = the search result is automatically optimized. false = the search result is not optimized. |
 | **use-browser-history**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true")| If set to true, the search history is pushed to the browser history, even without using URL parameter. |
 | **user-id**&nbsp;(String) (default: '') | As soon as this attribute is set, a Login tracking request is sent to FACT-Finder. |
-| **sid**&nbsp;(String) **any** | If set, the value provided in this property is used in every request as FACT-Finder session id parameter (sid). |
+| **sid**&nbsp;(String) | If set, the value provided in this property is used in every request as FACT-Finder session id parameter (sid). |
 | **use-seo**&nbsp;(String)**Options**: &nbsp;"true", &nbsp;"false" (default: "false") |If set to true, FACT-Finder Web Components will use the FACT-Finder SEO API. Set this only to true if the module is active in FACT-Finder. |
 | **seo-prefix**&nbsp;(String)&nbsp;(default: "") | The seo-prefix is used to show a piece of path between your domain the actual seo-path. E.g. domain.com/prefix/seoPath |
 | **search-url**&nbsp;(String) | Define a custom URL for the Search Service. Example: `search-url="http://www.myproxy.de/services"` Omit the `Search.ff` in the url. |
