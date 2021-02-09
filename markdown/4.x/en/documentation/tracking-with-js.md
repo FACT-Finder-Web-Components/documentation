@@ -111,18 +111,47 @@ track.checkout({
 If you can't access the necessary field using your shop-system's API, you can query FACT-Finder for product information.
 
 ```javascript
-const id = '105-1687-0512';
+const recordId = '105-1687-0512';
 const track = factfinder.communication.Tracking;
+const trackingHelper = factfinder.communication.Util.trackingHelper;
+
 factfinder.communication.EventAggregator.addFFEvent({
     type: 'getRecords',
-    recordId: id,
+    recordId,
+    idType: 'id',
     success: ([product]) => track.cart({
-        channel: factfinder.communication.globalSearchParameter.channel,
-        sid: localStorage.getItem('ff_sid'),
-        id,
-        masterId: product.record.MasterID,
-        price: product.record.Price,
-        count: 1, // CHANGE_ME
+        id: trackingHelper.getTrackingProductId(product),
+        masterId: trackingHelper.getMasterArticleNumber(product),
+        price: trackingHelper.getPrice(product),
+        count: 1,  // change as required
     })
+});
+```
+
+> Hint
+>
+> We recommend the use of `trackingHelper` to access fields that are defined as [field roles](/documentation/4.x/field-roles).
+
+You can, however, also access the fields of `record` directly.
+If you do so, be aware that the **price fields** from your data feed may have been **localized** according to your [currency settings](/documentation/4.x/currency-guide).
+Once they are localized **strings**, they cannot be used for tracking requests anymore because these requests require **numeric** price values.
+
+Web Components preserves these unmodified price values in separate properties which are added to `record`.
+For example, a price field named `Price` would be localized and its original numeric value would be stored in a new property `__ORIG_PRICE__`.
+
+The names of the additional properties are generated from the original field name.
+The original value of a field named `Old_Price` would be stored in `__ORIG_OLD_PRICE__`.
+
+The following will likely result in an error because `Old_Price` may have been modified into a localized string:
+```js
+track.cart({
+    price: product.record.Old_Price,
+});
+```
+
+The original numeric value that can be used for tracking can be accessed directly like this:
+```js
+track.cart({
+    price: product.record.__ORIG_OLD_PRICE__,
 });
 ```
