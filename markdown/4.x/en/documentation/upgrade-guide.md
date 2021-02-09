@@ -29,6 +29,7 @@ Only the changes that do not emit deprecation warnings are left to address **IF*
 | Require `api` attribute | Medium | Close to zero | N/A | No |
 | Renaming of `ff-searchbox` attribute `hidesuggest-onblur` | Low | Very Low | `3.12.1` | Yes |
 | Removal of attribute `stamp-always` from `ff-record-list` and `ff-record` | Low | Very low | `3.14.1` | Yes |
+| Localisation of response to `getRecords` event type | Low | Very low | N/A | No |
 | Renaming of `FFCommunicationEventAggregator` | High | Very low | `3.10.0` | Yes |
 | Removal of `search` event from `ff-slider` | Low | Low | `3.15.3` | No |
 | Make `ff-asn-group[for-group]` target `associatedFieldName` | Very high | Low | N/A | No |
@@ -196,6 +197,60 @@ After:
 <ff-record-list>
     <ff-record></ff-record>
 </ff-record-list>
+```
+
+---
+
+#### Localisation of response to `getRecords` event type
+
+| Chance of being affected | Required effort to fix | Deprecated since |
+| ------------------------ | ---------------------- | ---------------- |
+| Low                      | Very low               | N/A              |
+
+Original issue:  
+https://github.com/FACT-Finder-Web-Components/ff-web-components/issues/52
+
+The response to the `getRecords` event type wasn't localised like other result types.
+The _price_ field was left unchanged even though [currency settings](https://web-components.fact-finder.de/documentation/3.x/currency-guide) were provided.
+This had the potential to cause problems when implementing product detail pages with this event type.
+
+Fields that are specified as price fields will be localised from now on.
+The unmodified value will be supplied as a new property named `__ORIG_PRICE__`.
+
+> Note
+>
+> The name `__ORIG_PRICE__` is generated from the original field's name.
+> If the original field was called `OldPrice`, the field with the unmodified value would be called `__ORIG_OLDPRICE__`.
+
+This may affect some implementations.
+Most likely [Tracking implementations with JS](https://web-components.fact-finder.de/documentation/3.x/tracking-with-js) that aren't utilising the `getPrice` tracking helper.
+
+##### JavaScript
+
+Before:
+```js
+factfinder.communication.EventAggregator.addFFEvent({
+    type: 'getRecords',
+    recordId: id,
+    success: ([product]) => factfinder.communication.Tracking.cart({
+        id,
+        price: product.record.Price,  // previously unlocalised Price field
+        count: 1,
+    })
+});
+```
+
+Now:
+```js
+factfinder.communication.EventAggregator.addFFEvent({
+    type: 'getRecords',
+    recordId: id,
+    success: ([product]) => factfinder.communication.Tracking.cart({
+        id,
+        price: product.record.__ORIG_PRICE__,  // new unlocalised Price field (direct field access)
+        count: 1,
+    })
+});
 ```
 
 ---
