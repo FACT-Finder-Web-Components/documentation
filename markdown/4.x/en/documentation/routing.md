@@ -5,7 +5,7 @@ This guide covers the recommended approach to handle redirects between different
 
 ### Redirect to the search page
 
-In order to redirect all search events triggered on the homepage or other non-search pages to the product listing page the following script should be placed above the Web-Components import tag:
+In order to redirect all search events triggered on the homepage or other non-search pages to the product listing page, the following script should be placed above the FACT-Finder Web Components import tag:
 ```javascript
 document.addEventListener("ffReady", function (event) {
     const factfinder = event.factfinder;
@@ -13,23 +13,22 @@ document.addEventListener("ffReady", function (event) {
     eventAggregator.addBeforeDispatchingCallback(function (event) {
         const isSearchEvent = event.type === "search" || event.type === "navigation-search";
         if (isSearchEvent && !isSearchPage()) {
-            delete event.type; // prevents the request from being sent before redirecting
-
-            // extra decoding is required for category suggestions 
-            Object.keys(event).forEach(function (key) {
-                if (key.indexOf("ROOT") !== -1) {
-                    event[key] = decodeURIComponent(event[key]);
-                }
+            event.cancel(); // prevents the request from being sent before redirecting
+            
+            // we don't need these to appear in the redirect URL, they will be populated automatically
+            ["channel", "version", "sid", "dispatchId"].forEach(function (param) { 
+                delete event[param];
             });
 
-            const params = factfinder.common.dictToParameterString(event);
+            const dict = factfinder.common.encodeDict(event);
+            const params = factfinder.common.dictToParameterString(dict);
             window.location.href = SEARCH_URL + params;
         }
     });
 });
 ```
 
-`SEARCH_URL` variable should contain the search URL __without__ the `?` and any parameters.
+`SEARCH_URL` variable should contain the search URL __without__ `?` and any parameters.
 
 `&& !isSearchPage()` condition is only required if the script is also included in the actual search page to prevent redirect loops. A simple implementation of the `isSearchPage()` function could be:
 ```javascript
