@@ -33,9 +33,7 @@ Inside the `factfinder.middleware` namespace you have the option to choose for w
 
 ## Available Modules
 
-All modules can be registered through FACT-Finder Web Components or through JavaScript. When using FACT-Finder Web Components, as with `ff-middleware` and `ff-communication`, modules must be placed immediately inside the `ff-middelware` element or an error will occur. Again, this is to ensure correct registration with the application.
-
-There is currently one module available. More modules are expected to be added in future releases.
+All modules can be registered through FACT-Finder Web Components or through JavaScript. When using FACT-Finder Web Components, as with `ff-middleware` and `ff-communication`, modules must be placed immediately inside the `ff-middelware` element, or an error will occur. Again, this is to ensure correct registration with the application.
 
 ### Response
 
