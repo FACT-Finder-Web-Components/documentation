@@ -69,9 +69,11 @@ Repeat this process for all configured `"suggestTypes"`.
 </ff-suggest>
 ```
 
+#### Hit highlighting
+
 Note the triple curly braces in `<span>{{{name}}}</span>`, which enable the rendering of HTML code in the template engine.
-`ff-suggest` inserts HTML here, and the matched string from your search box is wrapped in a `<span class="query">` tag to allow you to highlight the matched text through CSS.
-If you used the regular double curly braces and typed "back" in the search box, the HTML source code would be shown as plain text: `<span class="query">Back</span>packs` rather than the rendered: "**Back**packs".
+`ff-suggest` inserts HTML here, and the matched string from your search box is wrapped in a `<span class="ffw-query">` tag to allow you to highlight the matched text through CSS.
+If you used the regular double curly braces and typed "back" in the search box, the HTML source code would be shown as plain text: `<span class="ffw-query">Back</span>packs` rather than the rendered: "**Back**packs".
 
 See [Template Engine](/documentation/4.x/template-engine) for more details.
 
@@ -108,10 +110,10 @@ for 2 suggestions of ```suggestType``` will be rendered as:
                         <span>Suggestions for suggestType</span>
                         <div>
                             <ff-suggest-item type="suggestType">
-                                <span>Suggestion 1</span>
+                                <span><span class="ffw-query">Sugg</span>estion 1</span>
                             </ff-suggest-item>
                             <ff-suggest-item type="suggestType">
-                                <span>Suggestion 2</span>
+                                <span><span class="ffw-query">Sugg</span>estion 2</span>
                             </ff-suggest-item>
                         </div>
                     </div>
