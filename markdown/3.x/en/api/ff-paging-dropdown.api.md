@@ -13,7 +13,7 @@ ___
 | ---- | ----------- |
 | **show()** |  Opens the dropdown element. |
 | **hide()** |  Closes the dropdown element. |
-| **toggle(forcehide?: boolean)**| Opens or closes the element depending on the current state. |
+| **toggle(forcehide?: Boolean)**| Opens or closes the element depending on the current state. |
 
 ### Events
 | Name | Description |
