@@ -24,8 +24,8 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **hideSelf** | Hides the paging set.|
-| **showSelf** | Shows the paging set.|
+| **hideSelf()** | Hides the paging set.|
+| **showSelf()** | Shows the paging set.|
 
 ## `ff-paging-item`
 ___

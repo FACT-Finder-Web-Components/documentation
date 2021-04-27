@@ -11,7 +11,7 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **toggle(forceHide?: Boolean)** | Opens or closes the element depending on the current state. |
+| **toggle(collapse?: Boolean)** | Opens or closes the element depending on the current state. |
 | **show()** | Opens the dropdown element. |
 | **hide()** | Closes the dropdown element. |
 

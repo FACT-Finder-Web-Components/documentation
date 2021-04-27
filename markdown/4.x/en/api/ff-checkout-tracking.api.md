@@ -8,7 +8,7 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **trackCheckoutItems** | Dispatches a tracking checkout event for each of its `ff-checkout-tracking-item` children. |
+| **trackCheckoutItems()** | Dispatches a tracking checkout event for each of its `ff-checkout-tracking-item` children. |
 
 
 ## `ff-checkout-tracking-item`

@@ -90,7 +90,7 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **submit** | Send the filter request with the current values. |
+| **submit()** | Send the filter request with the current values. |
 
 ## `ff-slider-control`
 ___

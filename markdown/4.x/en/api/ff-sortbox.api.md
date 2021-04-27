@@ -12,7 +12,7 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **toggle(forceHide?: Boolean)** | Opens or closes the element based on its current state. |
+| **toggle(collapse?: Boolean)** | Opens or closes the element based on its current state. |
 | **show()** | Opens the drop down element. |
 | **hide()** | Closes the drop down element. |
 
