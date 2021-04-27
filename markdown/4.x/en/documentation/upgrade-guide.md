@@ -33,6 +33,7 @@ Only the changes that do not emit deprecation warnings are left to address **IF*
 | Renaming of `FFCommunicationEventAggregator` | High | Very low | `3.10.0` | Yes |
 | Removal of `search` event from `ff-slider` | Low | Low | `3.15.3` | No |
 | Make `ff-asn-group[for-group]` target `associatedFieldName` | Very high | Low | N/A | No |
+| Introduction of `is-landing-page-campaign` attribute | Medium | Very Low | N/A | No |
 | Removal of `records` property from `ff-checkout-tracking` | Very low | High | `3.15.0` | Yes |
 | Removal of `clone()` from `ff-breadcrumb-trail-item` | Close to zero | N/A | ` 3.2.0` | Yes |
 | Removal of `clone()` from `ff-single-word-search-record` | Close to zero | N/A | ` 3.15.0` | Yes |
@@ -362,6 +363,40 @@ Now:
 <ff-asn>
     <ff-asn-group for-group="Manufacturer"></ff-asn-group>
 </ff-asn>
+```
+
+---
+
+#### Introduction of `is-landing-page-campaign` attribute
+
+| Chance of being affected | Required effort to fix | Deprecated since |
+| ------------------------ | ---------------------- | ---------------- |
+| Medium                   | Very Low               | N/A              |
+
+Elements `ff-campaign-pushed-products` and `ff-campaign-feedbacktext` received a new attribute `is-landing-page-campaign`.
+The elements used to receive landing page campaign data without this attribute.
+It is now required.
+
+##### HTML
+
+Before:
+```html
+<ff-campaign-feedbacktext label="...">{{{text}}</ff-campaign-feedbacktext>
+<ff-campaign-pushed-products>
+    <ff-record-list>...</ff-record-list>
+</ff-campaign-pushed-products>
+
+<ff-campaign-landing-page page-id="home"></ff-campaign-landing-page>
+```
+
+Now:
+```html
+<ff-campaign-feedbacktext label="..." is-landing-page-campaign>{{{text}}</ff-campaign-feedbacktext>
+<ff-campaign-pushed-products is-landing-page-campaign>
+    <ff-record-list>...</ff-record-list>
+</ff-campaign-pushed-products>
+
+<ff-campaign-landing-page page-id="home"></ff-campaign-landing-page>
 ```
 
 ---
