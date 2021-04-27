@@ -294,12 +294,14 @@ The following is a listing of possible HTML that is rendered by `ff-asn`. Notice
 
 
 ## Remove all filters
-Sometimes you may want to reset all filters at once and go back to the original search result. For this case there is an dedicated element which you can place anywhere on your page. This element will trigger a new search request with the current search query.
+Sometimes you may want to reset all filters at once and go back to the original search result.
+For this case there is a dedicated element which you can place anywhere on your page.
+This element will trigger a new search request with the current search query.
 
 The `ff-asn-remove-all-filter` element has the following properties:
 
 ### show-always
-With the `show-always` property you can define if the element is only visible when at least one removable filter is set, or always.  
+With the `show-always` property you can define whether the element is always visible or only when at least one removable filter is set.  
 The default value is `false`.
 
 ### remove-params
@@ -329,7 +331,7 @@ The default search field template is
 ```html
 <div slot="filterSearch"><input></div>
 ```
-However, it can be changed by providing own content for `filterSearch` slot in `ff-asn-group` template. 
+However, it can be changed by providing own content for the `filterSearch` slot in the `ff-asn-group` template.
 This template has to contain exactly one `input` element.
 
 ### Hit highlighting
