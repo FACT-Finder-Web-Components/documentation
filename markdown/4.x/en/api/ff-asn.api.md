@@ -31,15 +31,15 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **toggle(animate?: boolean)** | Toggles the asn-group |
-| **show(animate?: boolean)** | Opens the asn-group |
-| **hide(animate?: boolean)** | Closes the asn-group |
-| **showDetailedLinksContainer(animate?: boolean)** | Opens the detailedLink container. Parameter `animate: boolean` is optional. |
-| **hideDetailedLinksContainer(animate?: boolean)** | Close the detailedLink container. Parameter `animate: boolean` is optional. |
-| **toggleDetailedLinksContainer(animate?: boolean)** | Toggle the detailedLink container. Parameter `animate: boolean` is optional. |
-| **showHiddenLinksContainer(animate?: boolean)** | Opens the hiddenLink container. Parameter `animate: boolean` is optional. |
-| **hideHiddenLinksContainer(animate?: boolean)** | Close the hiddenLink container. Parameter `animate: boolean` is optional. |
-| **toggleHiddenLinksContainer(animate?: boolean)** |Toggle the hiddenLink container. Parameter `animate: boolean` is optional. |
+| **toggle(animate?: Boolean)** | Toggles the asn-group |
+| **show(animate?: Boolean)** | Opens the asn-group |
+| **hide(animate?: Boolean)** | Closes the asn-group |
+| **showDetailedLinksContainer(animate?: Boolean)** | Opens the detailedLink container. Parameter `animate: Boolean` is optional. |
+| **hideDetailedLinksContainer(animate?: Boolean)** | Close the detailedLink container. Parameter `animate: Boolean` is optional. |
+| **toggleDetailedLinksContainer(animate?: Boolean)** | Toggle the detailedLink container. Parameter `animate: Boolean` is optional. |
+| **showHiddenLinksContainer(animate?: Boolean)** | Opens the hiddenLink container. Parameter `animate: Boolean` is optional. |
+| **hideHiddenLinksContainer(animate?: Boolean)** | Close the hiddenLink container. Parameter `animate: Boolean` is optional. |
+| **toggleHiddenLinksContainer(animate?: Boolean)** |Toggle the hiddenLink container. Parameter `animate: Boolean` is optional. |
 
 ## `ff-asn-group-element`
 ___
@@ -70,9 +70,9 @@ ___
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **toggle(animate?: boolean)** | Toggles the asn-group-slider |
-| **show(animate?: boolean)** | Opens the asn-group-slider |
-| **hide(animate?: boolean)** | Closes the asn-group-slider |
+| **toggle(animate?: Boolean)** | Toggles the asn-group-slider |
+| **show(animate?: Boolean)** | Opens the asn-group-slider |
+| **hide(animate?: Boolean)** | Closes the asn-group-slider |
 
 ## `ff-slider`
 ___
