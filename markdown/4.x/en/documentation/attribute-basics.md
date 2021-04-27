@@ -12,14 +12,15 @@ Every element can have attributes of various types. These types are `Boolean`, `
 For attributes of type `Boolean` only their presence on the HTML element is relevant. Their assigned value is ignored. The presence of a boolean attribute on an element represents the `true` value, and the absence of the attribute represents the `false` value.
 
 ```html
-<ff-communication search-immediate></ff-communication>
-<ff-communication search-immediate="false"></ff-communication>
+<ff-asn-group opened></ff-asn-group>
+<ff-asn-group opened="false"></ff-asn-group>
 ``` 
 
-In both cases `search-immediate` evaluates to `true` regardless of a value being assigned or not. In order to have it evaluate to `false` simply omit the attribute altogether.
+In both cases `opened` evaluates to `true` regardless of a value being assigned or not.
+In order to have it evaluate to `false` simply omit the attribute altogether.
 
 ```html
-<ff-communication></ff-communication> <!-- search-immediate evaluates to false -->
+<ff-asn-group></ff-asn-group> <!-- opened evaluates to false -->
 ``` 
 
 ### String
@@ -28,8 +29,8 @@ In both cases `search-immediate` evaluates to `true` regardless of a value being
 Attributes of type `String` typically have several possible values defined. Only these values will be accepted while others will be ignored. A value can be case-sensitive depending on the implementation.
 
 ```html
-<ff-communication use-url-parameters="false"> <!-- evaluates to false -->
-<ff-communication use-url-parameters="true"> <!-- evaluates to true -->
+<ff-searchbox use-suggest="false"> <!-- evaluates to false -->
+<ff-searchbox use-suggest="true"> <!-- evaluates to true -->
 ``` 
 
 See the API section of an element for an overview of possible values. For example [`ff-searchbox`](/api/4.x/ff-searchbox#tab=api).
