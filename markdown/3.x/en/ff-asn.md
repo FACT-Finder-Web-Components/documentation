@@ -323,13 +323,34 @@ The default search field template is
 However it can be changed by providing own content for `filterSearch` slot in `ff-asn-group` template. 
 This template has to contain exactly one `input` element.
 
+### Hit highlighting
+
+The searchable ASN groups feature comes with hit highlighting.
+Strings that match the search term will be wrapped with a `<span class="ffw-query">` element to allow you to apply appropriate styling.
+In order to tell the template engine to interpret the HTML instead of render it as plain text you have to use triple curly braces for the group element's name.
+See [Template Engine](/documentation/3.x/template-engine) for details.
+
+```html
+<div slot="selected"><span>{{{element.name}}}</span></div>
+```
+
 ### Example
+
+Suppose you type `art` into _Manufacturer_'s search box.
 
 #### Setup
 ```html
 <ff-asn searchable-from="31">
     <ff-asn-group for-group="Manufacturer">
         <div slot="filterSearch" class="customGroup1"><input></div>
+        <ff-asn-group-element>
+            <div slot="selected">
+                <span>{{{element.name}}}</span>
+            </div>
+            <div slot="unselected">
+                <span>{{{element.name}}}</span>
+            </div>
+        </ff-asn-group-element>
     </ff-asn-group>
     <ff-asn-group for-group="Usage" not-searchable>
         <div slot="filterSearch" class="customGroup2"><input></div>
@@ -344,7 +365,16 @@ This template has to contain exactly one `input` element.
         <div class="ffw-asn-group-container">
             <div class="ffw-wrapper">
                 <div slot="filterSearch" class="customGroup1"><input></div>
-                [redacted]
+                <div class="ffw-asn-group-searchable-results">
+                    <ff-asn-group-element>
+                        <div class="ffw-asn-unselected">
+                            <div slot="unselected">
+                                <span>Sm<span class="ffw-query">art</span>wool</span>
+                            </div>
+                        </div>
+                    </ff-asn-group-element>
+                    ...
+                </div>
             </div>
         </div>
     </ff-asn-group>
@@ -352,7 +382,7 @@ This template has to contain exactly one `input` element.
         <div class="ffw-asn-group-container">
             <div class="ffw-wrapper">
                 <!-- no [slot="filterSearch"] container due to [not-searchable] attribute -->
-                [redacted]
+                ...
             </div>
         </div>
     </ff-asn-group>
