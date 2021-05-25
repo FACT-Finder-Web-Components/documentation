@@ -149,42 +149,98 @@ You may optionally define a template for the regular `option` elements. It suppo
 ```
 
 
-## Styling slider groups
-Slider groups are handled in a different way. To style them you need to use the `ff-asn-group-slider` element.
+## Sliders
+
+FACT-Finder Web Components offer two kinds of sliders with different ways to interact.
+Sliders use their own ASN group element: `ff-asn-group-slider`.
+Both types of sliders require the same basic setup.
 
 ```html
-<ff-asn-group-slider></ff-asn-group-slider>
-```
+<ff-asn>
+    <ff-asn-group-slider>
+        <div slot="groupCaption">
+            <span>{{group.name}}</span>
+        </div>
 
-A slider can have a `slot="groupCaption"` attribute, an element with `data-container="removeFilter"` and an `ff-slider-control` element.
+        <div data-container="removeFilter">
+            <span>Reset Filter</span>
+        </div>
 
-If no templates are provided for the `ff-slider-control`, the templates default to the example below. If you want to customize the templates, you must provide an `ff-slider` and an `input` element with attribute `data-control='1'` as well as one with `data-control='2'`. 
-
-The input elements automatically react to user input ('Enter' key pressed) and start filtering. You can change the behavior of the controls by using the appropriate attributes as described in `ff-slider-control` section's [API documentation](/api/4.x/ff-asn#tab=api)
-
-```html
-<ff-asn-group-slider>
-    <div slot="groupCaption" class="groupCaption">
-        {{group.name}}<span class="filterArrowDown">&nbsp;</span>
-    </div>
-
-    <ff-slider-control submit-on-input="true">
-       <div>
-           <ff-slider step-size="1" submit-on-release="true">
-               <div slot="slider1"></div>
-               <div slot="slider2"></div>
-           </ff-slider>
-           <div style="display: flex; justify-content: space-around; align-items: center">
-               <input data-control="1" style="width: 60px;">
-               <span style="width: 20px; height: 2px; background-color: black; display: inline-block"></span>
-               <input data-control="2" style="width: 60px;">
+        <ff-slider-control submit-on-input="true">
+            <div>
+                <input data-control='1'>  <!-- input for min value -->
+                <input data-control='2'>  <!-- input for max value -->
             </div>
-       </div>
-       
-       <div data-container="removeFilter">Reset Filter</div>
-    </ff-slider-control>
-</ff-asn-group-slider>
+
+            <!-- EITHER: One Touch Slider -->
+            <ff-slider-one-touch></ff-slider-one-touch>
+
+            <!-- OR: Classic slider -->
+            <ff-slider>
+                <div slot="slider1"></div>
+                <div slot="slider2"></div>
+            </ff-slider>
+
+        </ff-slider-control>
+    </ff-asn-group-slider>
+</ff-asn>
 ```
+
+Instead of detailed and hidden links, `ff-asn-group-slider` requires an `ff-slider-control` element.
+Here you define how the input fields for the upper and lower values shall be displayed and how they shall behave.
+You also specify whether you want to use the _One Touch Slider_ or the classic slider.
+
+### One Touch Slider
+
+![One Touch Slider](/images/elements/asn-one-touch-slider.gif)
+
+```html
+<ff-slider-one-touch></ff-slider-one-touch>
+```
+
+The One Touch Slider is special in that it allows you to control both min and max values at the same time.
+This has the effect that you need only a single request to FACT-Finder to select your desired value range.
+Nevertheless, this slider still allows you to move the min and max handles individually for the classic slider experience.
+
+The One Touch Slider takes no further HTML template.
+It relies heavily on CSS and inline styling.
+To find suitable CSS rules for customization please inspect the rendered HTML from an official or self-made demo.
+
+CSS classes involved in the One Touch Slider are:
+`ffw-triangle`,
+`ffw-slider-button-left`,
+`ffw-slider-button-right`,
+`ffw-line`,
+`ffw-selected-range`
+`ffw-no-transition`,
+`ffw-active`.
+
+Also see [default-styles.css](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/release/4.x/dist/default-styles.css) in the Web Components distribution for further details.
+
+> Note
+>
+> The `default-styles.css` file is only provided as a human-readable reference.
+> This file is not used by Web Components and changes to it will have no effect.
+> These style rules are bundled separately with the Web Components JavaScript library.
+
+### Classic slider
+
+![Classic slider](/images/elements/asn-slider.png)
+
+```html
+<ff-slider>
+    <div slot="slider1"></div>
+    <div slot="slider2"></div>
+</ff-slider>
+```
+
+The classic slider allows you to manipulate one handle at a time.
+Each change issues a filter request to FACT-Finder.
+
+The `ff-slider` takes two elements with a `slot` attribute.
+These elements are used as the min and max handles.
+
+Additional HTML in the template will be discarded.
 
 
 ## Rendered HTML
