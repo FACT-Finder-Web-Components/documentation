@@ -13,6 +13,7 @@ import '@polymer/polymer/polymer-element.js';
 import './styles/sidebar-styles.js';
 import './styles/markdown-styles.js';
 import './styles/bootstrap-wrapper.js';
+import './styles/special-styles.js';
 
 const $_documentContainer = document.createElement(`template`);
 $_documentContainer.innerHTML =
@@ -62,6 +63,7 @@ $_documentContainer.innerHTML =
                 margin: 30px auto;
             }
         </style>
+        <style include="special-styles"></style>
     </template>
 </dom-module>`;
 
