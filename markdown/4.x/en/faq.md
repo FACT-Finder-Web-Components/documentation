@@ -37,6 +37,31 @@ We test against the latest version of each of these.
 ---
 
 #### Question:
+How can I find out which data is available in a Web Component's HTML template?
+
+#### Answer:
+Each FACT-Finder Web Component has a property that holds the data it is displaying.
+You can access its contents from the browser console.
+
+Some examples:
+```js
+document.querySelector("ff-record-list").records
+document.querySelector("ff-record").recordData
+document.querySelector("ff-asn-group").group
+document.querySelector("ff-breadcrumb-trail-item").breadCrumbIrailItem
+```
+
+Note that most browsers support the shortcut selector `$0` which references the element that is currently selected in the browser's dev tools' _Elements_ tab.
+E.g.:
+```js
+$0.pagingItem
+```
+
+See the _API_ tab of each element for available properties.
+
+---
+
+#### Question:
 I want to use FACT-Finder Web Components with Angular, but data binding used in the components conflicts with Angular's `{{ }}` binding. Can you fix it?
 #### Answer:
 You can add Angular's `ngNonBindable` attribute to the parent element to prevent Angular from parsing double curly braces. If you have to keep both Angular and FACT-Finder Web Components bindings within the same element, you can use: 
