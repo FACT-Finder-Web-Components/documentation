@@ -3,4 +3,4 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **record-id**&nbsp;(Number) (default: empty) | If the **record-id** attribute is set, an ajax request is made to retrieve all shopping cart campaigns for the given product id/s. |
+| **record-id**&nbsp;(Number) (default: empty) | When the **record-id** attribute is set, an AJAX request is made to retrieve all product campaigns for the given product ID. |
