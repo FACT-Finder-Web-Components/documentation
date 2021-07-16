@@ -8,6 +8,7 @@
     "serve-https": "polymer serve --open --protocol h2",
     "build": "polymer build",
     "build-es6": "polymer build --preset es6-bundled",
+    "postbuild-es6": "node compressES6Build.js",
     "lint": "polymer lint",
     "test": "polymer test",
     "test:integration": "polymer build # test that psk builds without error with the CLI"
@@ -46,6 +47,7 @@
     "web-animations-js": "^2.3.2"
   },
   "devDependencies": {
+    "adm-zip": "^0.5.5",
     "polymer-cli": "^1.9.11",
     "wct-browser-legacy": "^1.0.2"
   },
