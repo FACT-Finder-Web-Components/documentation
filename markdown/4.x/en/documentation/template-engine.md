@@ -3,7 +3,7 @@
 ---
 All `{{data-bindings}}` used in FACT-Finder Web Components refer to the underlying JSON response returned by FACT-Finder.
 
-You can take a look at all available bindings by opening your browsers **Dev Tools** (__Press F12 Key__) and navigating to the **Network** tab.
+You can take a look at all available bindings by opening your browser's **Dev Tools** (__press F12 key__) and navigating to the **Network** tab.
 Filtering by **XHR** makes things easier.
 
 > Important
@@ -58,20 +58,70 @@ Consider the following data-binding example to see how to access the data.
 </ff-record-list>
 ```
 
-## Underlying Engine (Mustache)
+## Underlying Engine (mustache.js)
 
 ---
-All bindings are resolved by the underlying template engine [mustache.js](https://github.com/janl/mustache.js/#mustachejs---logic-less-mustache-templates-with-javascript).
- For a bit more flexibility you can rely on some of its functionalities.
+FACT-Finder Web Components uses **mustache.js** as the engine to resolve its HTML templates.
+Please refer to the official documentation for available features and their usage:
 
-For example, you can render parts of the template conditionally by using [this syntax](https://github.com/janl/mustache.js/#false-values-or-empty-lists).
-If the data is not formatted correctly, use the [ResultDispatcher](/api/4.x/core-result-dispatcher) to modify it accordingly.
+[https://github.com/janl/mustache.js/](https://github.com/janl/mustache.js/#mustachejs---logic-less-mustache-templates-with-javascript)
 
-You can also change mustache.js default delimiters via `ff-communication`'s `mustache-delimiters` attribute in scenarios where double curly braces are already in use by your framework.
-For example, setting it to `[[,]]` will allow you to bind the data as follows:
+For example, you can render parts of your template conditionally by using [this syntax](https://github.com/janl/mustache.js/#false-values-or-empty-lists):
+
+```html
+<ff-record>
+    <div>{{record.Title}}</div>
+    {{#record.isOnSale}}
+        <div>Special discount: {{record.Discount}}</div>
+    {{/record.isOnSale}}
+</ff-record>
+```
+
+In the example above, only when `record.isOnSale` holds a truthy value will the contained `div` with _"Special discount"_ be rendered.
+
+As **mustache.js** does not offer logic in templates, your data must adhere to a certain format in some situations.
+If the data to be displayed is not provided in the required format, use [ResultDispatcher.addCallback()](/api/4.x/core-result-dispatcher) to modify it accordingly.
+
+### Clashes with Third Party Frameworks' Data Binding
+
+Most front-end frameworks provide their own data binding syntax.
+As it stands, `{{ }}` seems to be the most popular choice for these data bindings.
+
+This often leads to conflicts when you are embedding FACT-Finder Web Components in third party frameworks.
+Typically, your framework resolves all data bindings _before_ the resulting HTML is accessible to Web Components.
+
+> Important
+>
+> Make sure that your framework renders the Web Components HTML templates with intact data bindings.
+
+To combat such conflicts your framework might offer a way to render parts of your template verbatim.
+
+An example with JSX syntax:
+
+```jsx
+return (
+    <ff-template>
+        <div>Regular binding: {'{{name}}'}</div>
+        <div>HTML binding: {'{{{html}}}'}</div>
+    </ff-template>
+);
+```
+
+Another method that can provide a viable solution is to define custom delimiters to be used by Web Components' template engine.
+You can do so by setting the `mustache-delimiters` attribute on [ff-communication](/api/4.x/ff-communication#tab=api) accordingly.
+For example:
+
+```html
+<ff-communication
+    mustache-delimiters="[[,]]"
+></ff-communication>
+```
+
+This allows you to define your HTML templates like this:
+
 ```html
 <ff-template>
-    <div>Regular binding: [[foo]]</div>
-    <div>HTML binding: [[{htmlFoo}]]</div>
+    <div>Regular binding: [[name]]</div>
+    <div>HTML binding: [[{html}]]</div>
 </ff-template>
 ```

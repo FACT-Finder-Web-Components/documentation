@@ -2,6 +2,7 @@
 
 #### Question:
 Which version is the documentation referring to?
+
 #### Answer:
 Latest.
 
@@ -63,6 +64,7 @@ See the _API_ tab of each element for available properties.
 
 #### Question:
 I want to use FACT-Finder Web Components with Angular, but data binding used in the components conflicts with Angular's `{{ }}` binding. Can you fix it?
+
 #### Answer:
 You can add Angular's `ngNonBindable` attribute to the parent element to prevent Angular from parsing double curly braces. If you have to keep both Angular and FACT-Finder Web Components bindings within the same element, you can use: 
 ```html
@@ -84,8 +86,28 @@ Alternatively, you can change the default FACT-Finder Web Components binding del
 In this case, please use triple curly braces, no matter the custom delimiters you chose.
 
 ---
+
+#### Question:
+How can I embed FACT-Finder Web Components into React templates?
+
+#### Answer:
+Make sure that React does not resolve the Web Components data bindings.
+One possible solution is to render the data bindings as verbatim strings.
+
+```jsx
+return (
+    <ff-template>
+        <div>{'{{regular}}'}</div>         
+        <div>{'{{{html}}}'}</div>         
+    </ff-template>
+);
+```
+
+---
+
 #### Question:
 SEO Crawlers are indexing https://shop.com/{{data.binding}} URLs which results in a 404.
+
 #### Answer:
 Please use our `data-*` attributes for images and redirecting.
 
@@ -135,6 +157,7 @@ Currently, we have a HTML structure limitation which forces us to place the `<di
 #### Question:
 Hit highlighting in `ff-suggest` or `ff-asn-group` displays as raw HTML.
 How do I make it render correctly?
+
 #### Answer:
 The most common reason for this behavior is that double curly braces `{{ }}` are used in the custom template.
 This causes text to be rendered as-is.
@@ -145,6 +168,7 @@ See [Adding a suggest container](/api/4.x/ff-suggest) in the `ff-suggest` docume
 
 #### Question:
 Our polyfills seem to be clashing with the Web Components polyfills.
+
 #### Answer:
 One option is to use a polyfill that is compatible with the Web Components polyfill.
 
