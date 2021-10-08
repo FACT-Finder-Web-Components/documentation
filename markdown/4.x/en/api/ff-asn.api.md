@@ -108,4 +108,4 @@ ___
 | ---- | ----------- |
 | **show-always**&nbsp;(Boolean) |  Defines if the element is only visible when at least one removable filter is set, or always. |
 | **remove-params**&nbsp;(Boolean) | Setting this attribute removes all parameters (except the search query) from the resetting request. When not set, only parameters that were applied by the ASN (recognizable by the `filter*` prefix) are removed. Other parameters like `products-per-page`, `sort` and custom parameters will be unaffected. |
-| **keep-category-path**&nbsp;(Boolean) | Setting this property preserves the category filters. |
+| `(DEPRECATED)` **keep-category-path**&nbsp;(Boolean) | _(Use `ff-communication/category-page` instead to implement category pages.)_ Setting this property preserves the category filters. |
