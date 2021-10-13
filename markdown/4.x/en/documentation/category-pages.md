@@ -20,7 +20,15 @@ This article explores the tools offered by FACT-Finder Web Components to correct
 
 ### Implementation
 
-TODO
+#### Hybrid applications (NO-SPA)
+If you are running standard application where each request comes through a server and generate new HTML document you will probably want to stay with the navigation offered by a given platform.
+It is because Web Components navigation elements are not aware of the internal application routing and don't know which page user should be redirected to.
+Built-in navigation will guarantee that any form of routing configuration will be persisted.
+From the Web Components perspective such a setup requires a user to manually set the `category-page` attribute on `ff-communication`.
+In addition, a FACT-Finder request needs to be initiated automatically, right after user lands on a given category page.
+To achieve that a `search-immediate` attribute should be set on `ff-communication`.
+
+
 
 
 #### FACT-Finder NG
