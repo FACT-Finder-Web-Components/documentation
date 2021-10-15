@@ -15,7 +15,7 @@ This article explores the tools offered by FACT-Finder Web Components to correct
 > Hint
 >
 > In principle the implementation of category pages is the same for all scenarios.
-Details vary depending on whether you are using **FACT-Finder NG** or prior, or whether your app architecture is **static pages** or **single-page-application**.
+> Details vary depending on whether you are using **FACT-Finder NG** or prior, or whether your app architecture is **dynamic pages** or **single-page application**.
 
 
 ### Implementation in a nutshell
@@ -36,6 +36,7 @@ You pass it the filter string that corresponds to your relevant category page.
 These filters are _fixed_, and cannot be removed by users while they are on the current category page.
 
 The filter string looks like a string you would pass to `add-params`.
+Assuming your category facet is called `Category` a basic setup could look like this:
 
 Example:
 ```html
@@ -125,41 +126,44 @@ Example output (shortened):
 
 #### Pre-NG
 
-add-params="navigation=true,filter=category...."
+Setups using FACT-Finder versions prior to NG don't have the `category-page` attribute available and therefore have to use a different configuration.
+You use the `add-params` attribute with your category filters and the additional `navigation=true` filter.
+
+Example:
+```html
+<ff-communication
+        url="your.fact-finder.instance"
+        version="7.3"
+
+        add-params="navigation=true,filterCategoryROOT=Outdoor+clothing,filterCategoryROOT/Outdoor+clothing=Outdoor+trousers"
+
+        search-immediate
+></ff-communication>
+```
+
+Note that the pre-selected filters here are not fixed and can be deselected by users.
 
 
-encoding:
-7.3 -> url encoded
+### Application types
+
+Navigation and stuff are important
 
 
-example:
+#### Dynamic pages
 
-7.3
+The most common app type for web shops is dynamic pages.
+Each request runs through the server which generates a new HTML document.
 
-add-params="navigation=true,filterCategoryROOT=Outdoor%20clothing,filterCategoryROOT/Outdoor%20clothing=Headwear"
-
-7.2
-
-add-params="navigation=true,filterCategoryROOT=Outdoor%20clothing,filterCategoryROOT/Outdoor%20clothing=Headwear"
-
+If you are using this kind of application, you will probably want to stay with the navigation provided by your platform.
+Web Components' navigation elements are not aware of the internal application routing and don't know which page to redirect to.
+The built-in navigation guarantees that routing is handled correctly.
 
 
+**TODO**
 
-### App types
+render HTML with `category-page` (NG) or `add-params` (pre-NG)
 
-
-#### static pages, Hybrid applications (NO-SPA)
-If you are running standard application where each request comes through a server and generate new HTML document you will probably want to stay with the navigation offered by a given platform.
-It is because Web Components navigation elements are not aware of the internal application routing and don't know which page user should be redirected to.
-
-Built-in navigation will guarantee that any form of routing configuration will be persisted.
-From the Web Components perspective such a setup requires a user to manually set the `category-page` attribute on `ff-communication`.
-In addition, a FACT-Finder request needs to be initiated automatically, right after user lands on a given category page.
-To achieve that a `search-immediate` attribute should be set on `ff-communication`.
-
-
-
-works in hybrid setups
+remember to use `search-immediate`
 
 remember to redirect from searchbox
 
