@@ -7,7 +7,7 @@ From an implementer's perspective, however, they are basically regular search re
 
 Typically, you arrive at a category page after using the shop's navigation.
 This has a few implications regarding how to communicate with the FACT-Finder API.
-Responses to navigation requests and search requests can be configured separately.
+Responses to navigation and search requests can be configured separately.
 This has the effect that seemingly identical requests may receive different responses depending on whether they target the **navigation** or the **search** API.
 
 This article explores the tools offered by FACT-Finder Web Components to correctly implement category pages.
@@ -115,10 +115,10 @@ _Explicit_ refers to filters that were directly selected by the user.
 Example output (shortened):
 ```html
 <ff-asn-group for-group="Category">
-    <ff-asn-group-element selected fixed>Level 0</ff-asn-group-element>
-    <ff-asn-group-element selected>Level 1</ff-asn-group-element>
-    <ff-asn-group-element selected implicit>Level 2</ff-asn-group-element>
-    <ff-asn-group-element>Level 3</ff-asn-group-element>
+    <ff-asn-group-element selected fixed>    Level 0 </ff-asn-group-element>
+    <ff-asn-group-element selected>          Level 1 </ff-asn-group-element>
+    <ff-asn-group-element selected implicit> Level 2 </ff-asn-group-element>
+    <ff-asn-group-element>                   Level 3 </ff-asn-group-element>
 </ff-asn-group>
 ```
 
@@ -134,7 +134,7 @@ Example:
         url="your.fact-finder.instance"
         version="7.3"
 
-        add-params="navigation=true,filterCategoryROOT=Outdoor+clothing,filterCategoryROOT/Outdoor+clothing=Outdoor+trousers"
+        add-params="navigation=true,filterCategoryROOT=Outdoor+clothing,filterCategoryROOT%2FOutdoor+clothing=Outdoor+trousers,filterCategoryROOT%2FOutdoor+clothing%2FOutdoor+trousers=Shorts+%26+3%252F4+length+trousers"
 
         search-immediate
 ></ff-communication>
@@ -145,15 +145,19 @@ Note that the pre-selected filters here are not fixed and can be deselected by u
 
 ##### Encoding
 
-**TODO** ?
+Like `category-page` in FACT-Finder NG setups, category paths to `add-params` must be _URL-plus_ encoded.
+
+Sub-categories must be encoded individually, then joined with `/`, and, lastly, the joined string must be encoded once more as a whole.
 
 
 ### Application types
 
-**TODO**
+This section describes the requirements specific to the application types _dynamic pages_ and _single-page application_.
 
-Navigation and stuff are important
-general note on leaving cat pages perhaps
+The tasks to handle are _entering_ and _exiting a category page_ and _managing browser history_.
+
+Depending on the application type _entering a category_ page and _browser history management_ may not require additional attention.
+_Exiting a category page_, however, always needs an individual implementation.
 
 
 #### Dynamic pages
@@ -213,7 +217,7 @@ The actual URL you are redirecting to depends on your application's individual r
 
 SPAs require a more involved setup because Web Components must be detached completely from URL and browser history manipulation.
 Then, Web Components and your SPA's routing must be connected.
-There are several connection points which are outlined in this section.
+The connection points are outlined in this section.
 
 Web Components holds some inner state to distinguish whether it is in _search mode_ or in _navigation mode_.
 This is important to target the correct FACT-Finder API and to create the correct behaviour by the HTML elements.
@@ -241,7 +245,7 @@ This is important for handling the browser history.
 ##### Entering and exiting _navigation mode_
 
 The moment Web Components wants to enter or exit _navigation mode_ is captured with `addBeforeDispatchingCallback`.
-Analyzing the provided event's `type` property you distinguish between entering and exiting.
+By analyzing the provided event's `type` property you distinguish between entering and exiting.
 
 A `navigation-search` event means that _navigation mode_ is about to be entered.
 It is emitted when the navigation elements (`ff-navigation` and `ff-header-navigation`) receive a click or when a relevant event is invoked manually via [addFFEvent](/api/4.x/core-event-aggregator).
@@ -287,8 +291,8 @@ The connection points to handle browser history are the Web Components event `ff
 As Web Components cannot detect browser navigation when _sandbox mode_ is enabled, you have to manually synchronize.
 
 ```js
-document.addEventListener("ffUrlWrite", historyResultCallback);
-window.addEventListener("popstate", popstateHandler);
+document.addEventListener(`ffUrlWrite`, historyResultCallback);
+window.addEventListener(`popstate`, popstateHandler);
 ```
 
 New history entries are dealt with in the `ffUrlWrite` event handler.
@@ -302,7 +306,7 @@ export const historyResultCallback = (event) => {
     const currentSearchResult = factfinder.communication.EventAggregator.currentSearchResult;
 
     // Some types of search result don't contain groups or breadcrumb data. E.g. sorting and paging.
-    // Add the last available data so it isn't lost during navigating the browser history.
+    // Add the last available data so it isn't lost while navigating the browser history.
     result.groups = result.groups.length > 0 ? result.groups : currentSearchResult.groups;
     result.breadCrumbTrailItems = result.breadCrumbTrailItems.length > 0
         ? result.breadCrumbTrailItems
