@@ -368,7 +368,7 @@ The default value is `false`.
 > Deprecated
 >
 > This attribute is deprecated and no longer required.
-> To implement category pages use `<ff-communication category-page="...""`> instead.
+> To implement category pages use `<ff-communication category-page="...">` instead.
 > See [Category Pages](/documentation/4.x/category-pages) for details.
 
 Setting the `keep-category-path` property preserves the category filters.

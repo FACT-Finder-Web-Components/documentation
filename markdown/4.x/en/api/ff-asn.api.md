@@ -46,7 +46,9 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **selected**&nbsp;(String)&nbsp;**Options**:&nbsp;"true",&nbsp;"false" (default: "false") | The alignment of the After Search Navigation. |
+| **selected**&nbsp;(Boolean)&nbsp;(default: `false`) | Rendered whenever element is selected. |
+| **fixed**&nbsp;(Boolean)&nbsp;(default: `false`) | Rendered when element is defined in [`category-page`](/api/4.x/ff-communication#tab=api). Element cannot be deselected. |
+| **implicit**&nbsp;(Boolean)&nbsp;(default: `false`) | Rendered when FACT-Finder considers the element as implicitly selected. Element cannot be deselected. |
 | **element**&nbsp;(Object)&nbsp;(default: empty) | The filter data. |
 | **group**&nbsp;(Object)&nbsp;(default: empty) | The filter group data. |
 
