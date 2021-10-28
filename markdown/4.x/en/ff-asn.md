@@ -365,6 +365,12 @@ Setting this attribute removes all parameters (except the search query) from the
 The default value is `false`.
 
 ### keep-category-path
+> Deprecated
+>
+> This attribute is deprecated and no longer required.
+> To implement category pages use `<ff-communication category-page="...">` instead.
+> See [Category Pages](/documentation/4.x/category-pages) for details.
+
 Setting the `keep-category-path` property preserves the category filters.
 The default value is `false`.
 

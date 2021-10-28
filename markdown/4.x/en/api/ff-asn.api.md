@@ -46,7 +46,9 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **selected**&nbsp;(String)&nbsp;**Options**:&nbsp;"true",&nbsp;"false" (default: "false") | The alignment of the After Search Navigation. |
+| **selected**&nbsp;(Boolean)&nbsp;(default: `false`) | Rendered whenever element is selected. |
+| **fixed**&nbsp;(Boolean)&nbsp;(default: `false`) | Rendered when element is defined in [`category-page`](/api/4.x/ff-communication#tab=api). Element cannot be deselected. |
+| **implicit**&nbsp;(Boolean)&nbsp;(default: `false`) | Rendered when FACT-Finder considers the element as implicitly selected. Element cannot be deselected. |
 | **element**&nbsp;(Object)&nbsp;(default: empty) | The filter data. |
 | **group**&nbsp;(Object)&nbsp;(default: empty) | The filter group data. |
 
@@ -108,4 +110,4 @@ ___
 | ---- | ----------- |
 | **show-always**&nbsp;(Boolean) |  Defines if the element is only visible when at least one removable filter is set, or always. |
 | **remove-params**&nbsp;(Boolean) | Setting this attribute removes all parameters (except the search query) from the resetting request. When not set, only parameters that were applied by the ASN (recognizable by the `filter*` prefix) are removed. Other parameters like `products-per-page`, `sort` and custom parameters will be unaffected. |
-| **keep-category-path**&nbsp;(Boolean) | Setting this property preserves the category filters. |
+| `(DEPRECATED)` **keep-category-path**&nbsp;(Boolean) | _(Use `ff-communication/category-page` instead to implement [Category Pages](/documentation/4.x/category-pages).)_ Setting this property preserves the category filters. |
