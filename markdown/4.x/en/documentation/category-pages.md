@@ -223,7 +223,7 @@ Web Components holds some inner state to distinguish whether it is in _search mo
 This is important to target the correct FACT-Finder API and to create the correct behaviour by the HTML elements.
 The switching between these two modes must be synchronized with your SPA's state.
 
-Using Web Components' navigation elements (`ff-navigation` and `ff-header-navigation`) makes the setup a bit easier.
+Using Web Components' navigation elements (`ff-navigation` and `ff-header-navigation`) makes the setup easier.
 Navigating through one of these elements puts Web Components automatically into _navigation mode_ (or _category page mode_).
 
 
