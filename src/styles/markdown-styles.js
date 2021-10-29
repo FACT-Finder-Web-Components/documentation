@@ -7,6 +7,15 @@
     $_documentContainer.innerHTML = `<dom-module id="markdown-styles">
         <template>
             <style>
+                marked-element h2,
+                marked-element h3,
+                marked-element h4,
+                marked-element h5,
+                marked-element h6 {
+                    font-weight: bold;
+                    margin-top: 1em;
+                }
+
                 marked-element {
                     padding: 0 25px 50px 25px;
                 }
@@ -30,16 +39,17 @@
                 app-drawer-layout marked-element th {
                     background-color: #1b4385;
                     color: white;
-                    padding: 15px;
+                    padding: 12px 15px;
                 }
     
                 app-drawer-layout marked-element td {
-                    padding: 15px;
+                    padding: 12px 15px;
                 }
     
                 app-drawer-layout marked-element table {
                     border: 1px solid #1b4385;
                     width: 100%;
+                    margin: 0 0 10px;
                 }
     
                 app-drawer-layout marked-element table code {
