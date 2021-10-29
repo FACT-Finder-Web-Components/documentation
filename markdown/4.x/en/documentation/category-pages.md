@@ -53,6 +53,12 @@ Assuming your category facet is called `Category` a basic setup could look like 
 
 Attributes `category-page` and `add-params` can be used together.
 
+> Important
+>
+> `category-page` depends on the targeted FACT-Finder version.
+> Make sure to define `url`, `version`, `api` and `channel` _before_ `category-page`.
+> Also see [ff-communication](/api/4.x/ff-communication) for order of attributes.
+
 > Note
 >
 > `category-page` only works with category filters.

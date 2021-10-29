@@ -19,7 +19,20 @@ The following code-example shows the aforementioned configuration.
         search-immediate
 ></ff-communication>
 ```
-`url`, `channel` and `version` are mandatory parameters and should be explicitly set to make the the components work correctly.
-In addition, if you are using FACT-Finder NG, you also have to specify the API version of your FACT-Finder through the `api` attribute.
+`url`, `version` and `channel` are mandatory parameters and should be explicitly set to make the components work correctly.
+In addition, if you are using FACT-Finder NG, you also have to specify the API version of your FACT-Finder in the `api` attribute.
 
 For more information, see the [API reference](/api/4.x/ff-communication#tab=api).
+
+
+### Order of attributes is important
+
+Browsers may differ in the order they process an element's attributes.
+Some attributes depend on others and may cause incorrect behaviour or even errors if defined in the wrong order.
+
+To ensure correct configuration across browsers, the first attributes you define on `ff-communication` should always be:
+
+- `url`
+- `version`
+- `api` (can omit if using FACT-Finder older than NG)
+- `channel`
