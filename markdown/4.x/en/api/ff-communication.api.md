@@ -31,6 +31,7 @@ _(`*` - required, `†` - conditionally required)_
 | **use-browser-history**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true")| If set to true, the search history is pushed to the browser history, even without using URL parameter. |
 | **user-id**&nbsp;(String) (default: '') | As soon as this attribute is set, a Login tracking request is sent to FACT-Finder. |
 | **purchaser-id**&nbsp;(String) (default: empty) | The purchaser ID is for Customer Specific Pricing and is added to all requests to FACT-Finder that support it. |
+| **market-id**&nbsp;(String) (default: empty) | Comma separated values; only show products that have values for these market IDs. |
 | **sid**&nbsp;(String) | A session identifier used in every request sent to FACT-Finder. We recommend not to set this attribute manually as it is generated automatically by Web Components. If for some reason you have to overwrite it, please note that it must be **exactly 30 characters long**. |
 | **use-seo**&nbsp;(String)**Options**: &nbsp;"true", &nbsp;"false" (default: "false") |If set to true, FACT-Finder Web Components will use the FACT-Finder SEO API. Set this only to true if the module is active in FACT-Finder. |
 | **seo-prefix**&nbsp;(String)&nbsp;(default: "") | The seo-prefix is used to show a piece of path between your domain the actual seo-path. E.g. domain.com/prefix/seoPath |
