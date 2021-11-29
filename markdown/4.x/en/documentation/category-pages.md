@@ -90,15 +90,6 @@ Encoded: `Category%3AOutdoor+clothing%2FOutdoor+trousers%2FShorts+%26+3%252F4+le
 
 Note that the `/` in `3/4 length trousers` has to be encoded even in the plaintext because it would otherwise be recognised as a category separator.
 
-> Known issue
->
-> Encoded hex-values must be upper-case or filter handling will not work.
-> Compare `%3A` and `%3a` for `:`.
->
-> Good: `category-page="filter=Category%3AEquipment"`
->
-> Bad: `category-page="filter=Category%3aEquipment"`
-
 
 ##### Styling
 
