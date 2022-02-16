@@ -18,7 +18,7 @@ This article explores the tools offered by FACT-Finder Web Components to correct
 > Details vary depending on whether you are using **FACT-Finder NG** or prior, or whether your app architecture is **dynamic pages** or **single-page application**.
 
 
-### Implementation in a nutshell
+### Implementation in general
 
 Your category page corresponds to a certain filter string.
 This filter string must be passed to Web Components' configuration where it is processed into pre-defined filters.
@@ -36,6 +36,7 @@ You pass it the filter string that corresponds to your relevant category page.
 These filters are _fixed_, and cannot be removed by users while they are on the current category page.
 
 The filter string looks like a string you would pass to `add-params`.
+Note that it is **case-sensitive**.
 
 Assuming your category facet is called `Category` a basic setup could look like this example:
 ```html
@@ -55,7 +56,7 @@ Attributes `category-page` and `add-params` can be used together.
 
 > Important
 >
-> `category-page` depends on the targeted FACT-Finder version.
+> `category-page` depends on other configuration values.
 > Make sure to define `url`, `version`, `api` and `channel` _before_ `category-page`.
 > Also see [ff-communication](/api/4.x/ff-communication) for order of attributes.
 
@@ -79,16 +80,41 @@ document.addEventListener(`ffReady`, ({ factfinder }) => {
 
 ##### Encoding
 
-Values of the filter string must be _"URL-plus"_ encoded.
+> Important
+>
+> It is extremely important to encode the `category-page` value correctly.
+> Failing to do so will result in wrong requests, incorrect recognition of fixed filters and other undefined behavior.
+
+The filter string passed to `category-page` requires a special **two-step encoding pattern**.
+Special purpose characters (`%`, `+`, `/`) inside each part of the category path must be encoded first.
+Then, the whole filter string must be _"URL-plus"_ encoded.
 This means regular URL encoding with spaces converted to `+` characters.
 
-Example:
+The result is that the above-mentioned special purpose characters are double encoded when they shall be interpreted literally.
 
-Plain:`Category:Outdoor clothing/Outdoor trousers/Shorts & 3%2F4 length trousers`
+_This two-step encoding is necessary because a category path's levels are separated by `/`.
+However, `/` can also appear as part of a filter name (e.g. `3/4 length`).
+Encoding literal `/` allows FACT-Finder to distinguish them from category path separators.  
+`+` characters must be double encoded or FACT-Finder would interpret them as spaces.  
+Lastly, due to this double encoding, `%` must be double encoded, too, or the decoding process would fail as `%` alone would be misinterpreted as a not yet decoded value._
 
-Encoded: `Category%3AOutdoor+clothing%2FOutdoor+trousers%2FShorts+%26+3%252F4+length+trousers`
 
-Note that the `/` in `3/4 length trousers` has to be encoded even in the plaintext because it would otherwise be recognised as a category separator.
+###### Example
+
+The following is an example routine that you can use outside your shop application to produce the correct filter string.
+The resulting string is then set as the `category-page` value.
+
+```js
+const categoryFieldName = `Category`;
+const pathToBeEncoded = [`Outdoor clothing`, `100% cotton + wool`, `3/4 sleeve`];
+
+const encodedParts = pathToBeEncoded.map(part => part.replaceAll(`%`, `%25`).replaceAll(`+`, `%2B`).replaceAll(`/`, `%2F`));
+const unencodedFilterString = categoryFieldName + `:` + encodedParts.join(`/`);
+const filterString = `filter=` + encodeURIComponent(unencodedFilterString).replaceAll(`%20`, `+`);
+
+console.log(filterString);
+// filter=Category%3AOutdoor+clothing%2F100%2525+cotton+%252B+wool%2F3%252F4+sleeve
+```
 
 
 ##### Styling
@@ -130,8 +156,7 @@ Example:
 <ff-communication
         url="your.fact-finder.instance"
         version="7.3"
-
-        add-params="navigation=true,filterCategoryROOT=Outdoor+clothing,filterCategoryROOT%2FOutdoor+clothing=Outdoor+trousers,filterCategoryROOT%2FOutdoor+clothing%2FOutdoor+trousers=Shorts+%26+3%252F4+length+trousers"
+        add-params="navigation=true,filterCategoryROOT=Outdoor+clothing,filterCategoryROOT%2FOutdoor+clothing=100%25+cotton+%2B+wool,filterCategoryROOT%2FOutdoor+clothing%2F100%2525+cotton+%252B+wool=3%2F4+sleeve"
 
         search-immediate
 ></ff-communication>
@@ -142,9 +167,24 @@ Note that the pre-selected filters here are not fixed and can be deselected by u
 
 ##### Encoding
 
-Like `category-page` in FACT-Finder NG setups, category paths to `add-params` must be _URL-plus_ encoded.
+Each level of category filter requires a key/value pair.
 
-Sub-categories must be encoded individually, then joined with `/`, and, lastly, the joined string must be encoded once more as a whole.
+_Keys_ require the same two-step encoding pattern like in FACT-Finder NG.
+Special purpose characters must be encoded individually, then the parts joined with `/` before being _"URL-plus"_ encoded as a whole.
+
+```
+before: ["filterCategoryROOT", "Outdoor clothing", "100% cotton + wool"]
+after:  "filterCategoryROOT%2FOutdoor+clothing%2F100%2525+cotton+%252B+wool"
+```
+
+_Values_ are only _"URL-plus"_ encoded.
+
+```
+before: "3/4 sleeve"
+after:  "3%2F4+sleeve"
+```
+
+Please see _"Encoding"_ in _"FACT-Finder NG"_ for more details.
 
 
 ### Application types
@@ -217,7 +257,7 @@ Then, Web Components and your SPA's routing must be connected.
 The connection points are outlined in this section.
 
 Web Components holds some inner state to distinguish whether it is in _search mode_ or in _navigation mode_.
-This is important to target the correct FACT-Finder API and to create the correct behaviour by the HTML elements.
+This is important to target the correct FACT-Finder API and to create the correct behavior by the HTML elements.
 The switching between these two modes must be synchronized with your SPA's state.
 
 Using Web Components' navigation elements (`ff-navigation` and `ff-header-navigation`) makes the setup easier.
