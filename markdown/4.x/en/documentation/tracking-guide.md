@@ -81,9 +81,13 @@ It is also necessary to track products that are added to cart from your product 
 ### Login Tracking
 
 ---
-The `<ff-communication>` element provides a `user-id` attribute. When setting this attribute, a login request is sent automatically to FACT-Finder a soon as the page has loaded.
+The `<ff-communication>` element provides a `user-id` attribute.
+When setting this attribute, a login request is sent automatically to FACT-Finder as soon as the page has loaded.
+After setting it, the `user-id` will be added to subsequent requests such as _search_ or _recommendations_ for more personalized results.
 
+```html
 <ff-communication user-id="YourShopUserId">
+```
 
 In case a user is not logged in just leave it empty. **Never use a FakeId or something similar!** 
 
@@ -147,6 +151,6 @@ document.addEventListener("ffReady", function (event) {
 
 > Note
 >
-> You have to replace the right hand side (like `BrandFieldName`) with your own values.
+> You have to replace the right-hand side (like `BrandFieldName`) with your own values.
 > If you can't find a way to retrieve the field roles via the FACT-Finder UI, you can open a FACT-Finder Web Components search page and trigger a search with your own FACT-Finder.
 > Then, open the browser's dev tools, navigate to the `console` tab and type: `factfinder.communication.fieldRoles`.
