@@ -156,8 +156,7 @@ Example:
 <ff-communication
         url="your.fact-finder.instance"
         version="7.3"
-
-        add-params="navigation=true,filterCategoryROOT=Outdoor+clothing,filterCategoryROOT%2FOutdoor+clothing=Outdoor+trousers,filterCategoryROOT%2FOutdoor+clothing%2FOutdoor+trousers=Shorts+%26+3%252F4+length+trousers"
+        add-params="navigation=true,filterCategoryROOT=Outdoor+clothing,filterCategoryROOT%2FOutdoor+clothing=100%25+cotton+%2B+wool,filterCategoryROOT%2FOutdoor+clothing%2F100%2525+cotton+%252B+wool=3%2F4+sleeve"
 
         search-immediate
 ></ff-communication>
@@ -168,11 +167,24 @@ Note that the pre-selected filters here are not fixed and can be deselected by u
 
 ##### Encoding
 
-Like `category-page` in FACT-Finder NG setups, category paths to `add-params` require a two-step encoding pattern.
-The difference to NG is that both _key_ and _value_ need this two-step encoding.
+Each level of category filter requires a key/value pair.
 
-Special purpose characters in sub-categories must be encoded individually, then the parts joined with `/` to form the _key_ before being _"URL-plus"_ encoded as a whole.
-The same procedure applies to the _values_ of each filter pair.
+_Keys_ require the same two-step encoding pattern like in FACT-Finder NG.
+Special purpose characters must be encoded individually, then the parts joined with `/` before being _"URL-plus"_ encoded as a whole.
+
+```
+before: ["filterCategoryROOT", "Outdoor clothing", "100% cotton + wool"]
+after:  "filterCategoryROOT%2FOutdoor+clothing%2F100%2525+cotton+%252B+wool"
+```
+
+_Values_ are only _"URL-plus"_ encoded.
+
+```
+before: "3/4 sleeve"
+after:  "3%2F4+sleeve"
+```
+
+Please see _"Encoding"_ in _"FACT-Finder NG"_ for more details.
 
 
 ### Application types
