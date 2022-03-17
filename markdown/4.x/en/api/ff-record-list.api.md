@@ -5,18 +5,12 @@ ___
 | ---- | ----------- |
 | **subscribe**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | If this is set to false the element no longer listens to events and therefore does not receive new data. This is useful if you want to dispatch your own data to the element. |
 | **records**&nbsp;(Array) | An Array of Objects containing the record data returned by FACT-Finder. |
-| **infinite-scrolling** (Boolean) | When present, the record list will load the next page when the bottom of the record list comes in view. |
-| **restore-scroll-position** (Boolean) (default: true) | When present, the record list will restore the scroll position, which the user was at before being redirected to a record page. **NOTE** To work correctly, attribute `[data-redirect]` has to be present inside `ff-record`. For more information, see the [Tracking](documentation/4.x/tracking-guide).   |
-| **infinite-debounce-delay** (Number) (default: 32) | Sets the delay for when the next page should be loaded after the bottom is reached. This prevents loading multiple pages at once because it triggers to fast. The number is in milliseconds. |
-| **infinite-scroll-margin** (Number) (default: 0) |  Sets the margin of the page loading trigger element. This value can be positive or negative and is in 'px'. Is only applied when `infinite-scrolling` is `true`. |
-| **infinite-max-pages** (Number) (default: Infinity) |  Sets the maximum number of pages allowed to be loaded in infinite scrolling mode. |
-| **infinite-scroll-container** (String) (default: empty) | Takes a CSS selector that determines the container whose scroll events shall be used to trigger loading of more data into the record list. This is the same kind of selector as used with `document.querySelector(selector)`. If not set, the closest scrollable parent container of the record list will be used. This attribute only has an effect if used in combination with `infinite-scrolling`. |
 | **ssr** (Boolean) | Enables the SSR mode for the record list. |
 
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **loadNextPage()** | Load the next page. Automatically used if infinite-scrolling is active |
+| **loadNextPage()** | Load the next page. |
 
 ### Events
 | Name | Description |
