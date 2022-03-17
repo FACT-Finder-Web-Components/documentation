@@ -39,7 +39,7 @@
     "@webcomponents/webcomponentsjs": "^2.5.0",
     "express": "^4.17.1",
     "highlightjs": "^9.16.2",
-    "polymer-redux": "git://github.com/tur-nr/polymer-redux.git#polymer-3",
+    "polymer-redux": "https://github.com/tur-nr/polymer-redux.git#polymer-3",
     "pwa-helpers": "^0.8.4",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
