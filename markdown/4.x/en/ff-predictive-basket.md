@@ -84,12 +84,12 @@ This method issues a request to FACT-Finder with the currently set values.
 <ff-predictive-basket user-id="123456" max-results="10" blacklist="art-id1,art-id2">
     <ff-record-list subscribe="false">
         <ff-record>
-            <img data-image="{{record.image}}" data-image-onerror="../img_not_found.gif">
+            <img data-image="{{values.image}}" data-image-onerror="../img_not_found.gif">
             <div>
-                <a data-anchor="{{record.deeplink}}" data-redirect="{{record.deeplink}}">
-                    {{record.name}}
+                <a data-anchor="{{values.deeplink}}" data-redirect="{{values.deeplink}}">
+                    {{values.name}}
                 </a>
-                <div>Price: <strong>{{record.price}}</strong></div>
+                <div>Price: <strong>{{values.price}}</strong></div>
             </div>
         </ff-record>
     </ff-record-list>
