@@ -31,6 +31,9 @@ The `[data-redirect]` attribute redirects the user on click to the product detai
 </ff-record-list>
 ````
 
+If you want to use anchor tags (`a`), you additionally have to use the `data-anchor` attribute.
+See [Adding links](/api/4.x/ff-record-list) on `ff-record-list` for details.
+
 ### Cart/Checkout Tracking on search result page
 
 ---
