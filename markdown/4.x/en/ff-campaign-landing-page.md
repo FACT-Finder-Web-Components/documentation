@@ -1,8 +1,34 @@
 ## Adding a Landing Page
-With the `ff-campaign-landing-page` you can display product campaigns on a custom display location (e.g. the start page of your website). All you need to do is add the `ff-campaign-landing-page` element to your page and set the attribute page-id to the value of the corresponding FACT-Finder campaign you configured.
+
+With the `ff-campaign-landing-page` element you can display product campaigns independently of search requests.
+A common use case is the start page of your website.
 
 ```html
 <ff-campaign-landing-page page-id="home"></ff-campaign-landing-page>
 ```
 
-The element triggers the campaign but doesn't display anything. Depending on the configured campaign, you need to add a `ff-campaign-feedbacktext` to display the feedback text and/or a `ff-campaign-pushed-products` to display pushed products. For more information, see: [Campaign](/api/4.x/ff-campaign) and [Pushed Products](/api/4.x/ff-campaign-pushed-products).
+`ff-campaign-landing-page` triggers the FACT-Finder campaign that corresponds to the `page-id` attribute.
+
+Note that the element itself **does not display anything**, nor does it take any child elements.
+It is merely a trigger that you place on those pages you want to display a landing page campaign.
+
+**Visualisation** of the triggered campaign is done through the elements `ff-campaign-feedbacktext` and `ff-campaign-pushed-products`.
+In order to display landing page campaigns they must be given the `is-landing-page-campaign` attribute.
+
+```html
+<ff-campaign-landing-page page-id="page-id-according-to-FF-config"></ff-campaign-landing-page>
+
+<ff-campaign-feedbacktext is-landing-page-campaign label="your-label">
+    {{{text}}}
+</ff-campaign-feedbacktext>
+
+<ff-campaign-pushed-products is-landing-page-campaign>
+    <ff-record-list subscribe="false">
+        <ff-record>
+            ...
+        </ff-record>
+    </ff-record-list>
+</ff-campaign-pushed-products>
+```
+
+For more information see [Adding Feedback campaigns](/api/4.x/ff-campaign) and [Pushed Products](/api/4.x/ff-campaign-pushed-products).
