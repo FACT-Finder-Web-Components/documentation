@@ -20,36 +20,85 @@ The only necessary data binding is `{{text}}`.
 </ff-campaign-feedbacktext>
 ```
 
+
 ## Adding Advisor campaigns
-To integrate Advisor campaigns properly, you need to use the `ff-campaign-advisor`, `ff-campaign-advisor-question` and `ff-campaign-advisor-answer` elements.
 
-The `ff-campaign-advisor-question` is copied for each question configured in FACT-Finder. It is inserted at its current position on element load.
-Annotate any HTML-Element inside the question with the `data-question` attribute to use it for data binding purposes.
+To integrate advisor campaigns you need the following elements:
 
-The `ff-campaign-advisor-answer` is copied for each answer which is configured in FACT-Finder. It is inserted at its current position on element load. In the following example the answers are always inserted at firstChild position
+- `ff-campaign-advisor`
+- `ff-campaign-advisor-question`
+- `ff-campaign-advisor-answer`
 
-You can use the `name` attribute to use the `ff-campaign-advisor-answer` element as a template for a campaign with that name.
-
-You can use the `not` attribute to use the `ff-campaign-advisor-answer` element NOT as a template for a campaign with that name.
-
-> Note
->
-> In order for advisor campaigns to work correctly, `ff-communication` parameters `use-browser-history` and `use-url-parameters` can't be set to false.
+Whenever there is an active advisor campaign in the search result, the `ff-campaign-advisor` element will display it.
 
 ```html
-<ff-campaign-advisor name="Advisor Schuhe">
+<ff-campaign-advisor></ff-campaign-advisor>
+```
+
+`ff-campaign-advisor` is the outer element that contains `ff-campaign-advisor-question`
+and `ff-campaign-advisor-answer`.
+It offers two optional attributes `name` and `not` to limit which campaigns the element shall display.
+
+With `name` you can restrict the element to display only one particular advisor campaign.
+The attribute's value corresponds to a campaign name that you configure in your FACT-Finder UI.
+
+```html
+<ff-campaign-advisor name="your-advisor-campaign-name">
+    ...
+</ff-campaign-advisor>
+```
+
+The `not` attribute takes a comma-separated list of campaign names that shall be ignored.
+
+```html
+<ff-campaign-advisor not="ignored-campaign-1,ignored-campaign-2">
+    ...
+</ff-campaign-advisor>
+```
+
+`ff-campaign-advisor-question` is used as a template for each **question** configured in FACT-Finder.
+It is rendered at the position you define it in the HTML.
+
+To enable **data binding** to the underlying `question` object from the FACT-Finder response, you must place a `data-question` attribute (without a value) on a child element of `ff-campaign-advisor-question`.
+
+```html
+<ff-campaign-advisor>
     <ff-campaign-advisor-question>
-        <span><h1 data-question>{{text}}</h1></span>
-        <div class="shoes-answers-box">
+        <h2 data-question>{{{text}}}</h2>
+        ...
+    </ff-campaign-advisor-question>
+</ff-campaign-advisor>
+```
+
+If the `text` of your question contains HTML, use **triple curly braces**.
+Double curly braces render the contained text verbatim without interpreting it as HTML.
+
+`ff-campaign-advisor-answer` is used as a template for each **answer** in the applied advisor campaign.
+It must be nested inside `ff-campaign-advisor-question` where it is rendered at the position it is defined in the HTML.
+
+Unlike `ff-campaign-advisor-question`, it does not require further attributes and **data binding** to the underlying `answer` object is available inside the entire `ff-campaign-advisor-answer` element.
+
+```html
+<ff-campaign-advisor>
+    <ff-campaign-advisor-question>
+        <h2 data-question>{{{text}}}</h2>
+        <div class="answers-box">
             <ff-campaign-advisor-answer>
-                <div class="shoes-answers">
-                    {{text}}
+                <div class="answer">
+                    {{{text}}}
                 </div>
             </ff-campaign-advisor-answer>
         </div>
     </ff-campaign-advisor-question>
 </ff-campaign-advisor>
 ```
+
+Again, use **triple curly braces** for data binding if your answer `text` contains HTML.
+
+> Attention
+>
+> In order for advisor campaigns to work correctly, `ff-communication` parameters `use-browser-history` and `use-url-parameters` must not be set to false.
+
 
 ## Adding Redirect campaigns
 The `ff-campaign-redirect` element redirects the browser to a destination specified in a redirect campaign. If the latest request to FACT-Finder triggered a redirect campaign, all further processing of the response will be suspended and the redirect will happen immediately.
