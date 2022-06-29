@@ -1,9 +1,11 @@
 ### Which components support image binding?
-The following components support image binding: `ff-suggest-item`, `ff-asn-group-element`
+
+The following components support image binding: `ff-record`, `ff-suggest-item` and `ff-asn-group-element`.
+
 
  ### Understanding image binding
-By default `src="{{image}}"` will be added to all children of an image binding element, that have a `data-image` 
-attribute. 
+
+By default, `src="{{image}}"` will be added to all children of an image binding element that have a `data-image` attribute.
 
 > Note
 >
