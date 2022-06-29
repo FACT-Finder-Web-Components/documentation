@@ -33,9 +33,38 @@ Here is an example of how a custom group caption could be implemented:
 
 
 ## Structuring the filter group
-A common After Search Navigation group consists of two basic parts. The **detailedLinks** and the **hiddenLinks**. The **detailedLinks** are the filter items which should be displayed immediately when the group receives data. The **hiddenLinks** instead are the filter items which should stay hidden until they are needed. In FACT-Finder you can configure how many items shall appear for each type.
 
-You can define the structure of your custom filter group through certain predefined attributes.
+After Search Navigation groups offer various parts to interact with.
+They are marked with the `data-container` attribute.
+
+There are two containers to hold the group's filter items.
+- `data-container="detailedLinks"`
+- `data-container="hiddenLinks"`
+
+**detailedLinks** are the filter items which should be displayed immediately when the group receives data.
+
+**hiddenLinks** are the filter items which should stay hidden until they are needed.
+
+> Hint
+>
+> You can configure how many items shall appear for each filter group through your FACT-Finder UI.
+
+For further interaction there are:
+- `data-container="showMore"`
+- `data-container="showLess"`
+- `data-container="removeFilter"`
+
+These three elements are optional.
+If you don't define them in your template, they will be generated automatically.
+
+**showMore** provides a clickable element to expand the **hiddenLinks**.
+It is only visible when there actually are **hiddenLinks** and these are not already expanded.
+
+**showLess** provides the opposite function by collapsing expanded **hiddenLinks**.
+
+**removeFilter** allows you to deselect all filters of the ASN group.
+It only appears when there are selected filters that can be deselected.
+That means that if there are only _implicitly_ selected or _fixed_ filters, the **removeFilter** element will not appear.
 
 ```html
 <ff-asn-group>
@@ -60,6 +89,10 @@ You can define the structure of your custom filter group through certain predefi
     </div>
     <div data-container="showLess">
         <span class="text">Show Less</span>
+    </div>
+
+    <div data-container="removeFilter">
+        <span class="text">Reset filter group</span>
     </div>
 </ff-asn-group>
 ```
