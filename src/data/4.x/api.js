@@ -155,6 +155,12 @@ const api = {
             title: `Image binding`,
             noDemo: true
         },
+        "DeferredAttributeResolving": {
+            path: `DeferredAttributeResolving`,
+            title: `Deferred attribute resolving`,
+            noDemo: true,
+            noApi: true,
+        },
 
         // --- subject to change ---
 
@@ -231,6 +237,7 @@ api.moreFeatures = [
     api.pages[`ff-middleware`],
     api.pages["ff-loading-spinner"],
     api.pages[`ImageBindingBehavior`],
+    api.pages[`DeferredAttributeResolving`],
 ];
 
 // set to undefined if section shall not be shown
