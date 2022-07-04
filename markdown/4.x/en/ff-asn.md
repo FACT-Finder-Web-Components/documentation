@@ -199,7 +199,8 @@ Both types of sliders require the same basic setup.
             <span>Reset Filter</span>
         </div>
 
-        <ff-slider-control submit-on-input="true">
+        <!-- specifying decimal-places is optional and can be used to override default currency formatting -->
+        <ff-slider-control submit-on-input="true" decimal-places="0">
             <div>
                 <input data-control='1'>  <!-- input for min value -->
                 <input data-control='2'>  <!-- input for max value -->
