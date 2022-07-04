@@ -97,11 +97,12 @@ ___
 ## `ff-slider-control`
 ___
 ### Properties
-| Name | Description |
-| ---- | ----------- |
-| **disable-input-fields**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | If this attribute is set to false, the input fields accept values. If set to true, the fields are disabled by setting the `disabled` attribute on them. Then they cannot be focused. |
-| **submit-on-input**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | If this is set to true, a filter request is made immediately upon key stroke instead of waiting for an ENTER key press. |
-| **unit**&nbsp;(String) | The unit of measurement. E.g. € |
+| Name                                                                                             | Description                                                                                                                                                                                                                                                                    |
+|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **disable-input-fields**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | If this attribute is set to false, the input fields accept values. If set to true, the fields are disabled by setting the `disabled` attribute on them. Then they cannot be focused.                                                                                           |
+| **submit-on-input**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false")      | If this is set to true, a filter request is made immediately upon key stroke instead of waiting for an ENTER key press.                                                                                                                                                        |
+| **unit**&nbsp;(String)                                                                           | The unit of measurement. E.g. €                                                                                                                                                                                                                                                |
+| **decimal-places**&nbsp;(Number)                                                                 | The number of fraction digits to use in the slider inputs. If set, it takes precedence over the currency formatting. Otherwise, currency fields rely on [ISO 4217](https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list_one.xml). |
 
 ## `ff-asn-remove-all-filter`
 ___
