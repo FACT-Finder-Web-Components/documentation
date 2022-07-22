@@ -24,7 +24,7 @@ Specify the FACT-Finder version. E.g. `ng` or  `7.3`.
 ---
 
 #### **api**
-When using FACT-Finder **NG**, specify the FACT-Finder **API** version. E.g. `v4`, `v3` or `v2`.
+When using FACT-Finder **NG**, specify the FACT-Finder **API** version. E.g. `v5`, `v4`, `v3` or `v2`.
 
 ---
 
@@ -39,7 +39,7 @@ You can find the available channels in your FACT-Finder UI.
 <body>
     <ff-communication url="https://web-components.fact-finder.de/FACT-Finder"
                       version="ng"
-                      api="v4"
+                      api="v5"
                       channel="bergfreunde-co-uk"
                       search-immediate
     ></ff-communication>
@@ -80,7 +80,7 @@ document.addEventListener("ffReady", function (event) { // "ffReady" event ensur
 
     factfinder.communication.globalSearchParameter.url = "https://web-components.fact-finder.de/FACT-Finder";
     factfinder.communication.globalSearchParameter.version = "ng";
-    factfinder.communication.globalCommunicationParameter.ngApi = "v4";
+    factfinder.communication.globalCommunicationParameter.ngApi = "v5";
     factfinder.communication.globalSearchParameter.channel = "bergfreunde-co-uk";
 
     /* after this minimal configuration, a search can be triggered manual e.g. through */

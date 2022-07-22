@@ -139,7 +139,7 @@ If you are sure the message is not related to custom JavaScript code, it is poss
 
 **What does that mean?**
 
-Let me show you a wrong example:
+Here is a wrong example:
 
 ```html
 <!--WRONG-->
@@ -147,7 +147,7 @@ Let me show you a wrong example:
     <!-- ff-record-list ....-->
 </ff-recommendation>
 
-<ff-communication url="https://some.ff.url" channel="aChannel" version="ng" api="v4"></ff-communication>
+<ff-communication url="https://some.ff.url" channel="aChannel" version="ng" api="v5"></ff-communication>
 ```
 
 The `ff-recommendation` element is responsible for querying the FACT-Finder recommendation API.
@@ -156,7 +156,7 @@ At the time the element is _upgraded_ and sends its request, `ff-communication` 
 To fix this issue you have to place the `ff-communication` element before the `ff-recommendation` element:
 ```html
 <!--CORRECT-->
-<ff-communication url="https://some.ff.url" channel="aChannel" version="ng" api="v4"></ff-communication>
+<ff-communication url="https://some.ff.url" channel="aChannel" version="ng" api="v5"></ff-communication>
 
 <ff-recommendation record-id="1234">
     <!-- ff-record-list ....-->

@@ -87,14 +87,15 @@ If you have raw HTML in the data, e.g. configured in the FF-Backend as result fo
 ```
 
 ## Template scope
-The `ff-template` element has the attribute 'scope'. When you set it to "result" the data inserted as a model for this template is the search result from a search request.
+The `ff-template` element has the attribute 'scope'.
+When you set it to `result`, the data inserted as a model for this template is the search result from a search request.
 
 Configure the connection to the FF-Search backend and a default query.
 
 ```html
 <ff-communication url="https://web-components.fact-finder.de/FACT-Finder"
                   version="ng"
-                  api="v4"
+                  api="v5"
                   channel="bergfreunde-de"
                   default-query="tasche"
                   search-immediate

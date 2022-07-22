@@ -8,7 +8,7 @@ _(`*` - required, `†` - conditionally required)_
 |----|-----------|
 | **url**`*`&nbsp;(String) | **(Should always be defined first)** Your FACT-Finder URL. Please note that the URL has to contain the FACT-Finder context name like: `https://web-components.fact-finder.de/FACT-Finder` |
 | **version**`*`&nbsp;(String) | **(Should always be defined second)** Your FACT-Finder version. Only major and minor version like `ng` or `7.3`. |
-| **api**`†`&nbsp;(String) | **(Should always be defined third)** Only relevant when `version="ng"`. The version of your FACT-Finder NG REST API. Allowed values are `v4`, `v3` and `v2`. |
+| **api**`†`&nbsp;(String) | **(Should always be defined third)** Only relevant when `version="ng"`. The version of your FACT-Finder NG REST API. Allowed values are `v5`, `v4`, `v3` and `v2`. |
 | **channel**`*`&nbsp;(String) | **(Should always be defined fourth)** Your channel name. Has to be the same as the channel name configured in the FACT-Finder backend. |
 | **search-immediate**&nbsp;(Boolean) | If this property is present, FACT-Finder Web Components will start searching as soon as they are loaded. For this to work, a `default-query` needs to be set with a correct value or to be not set at all (see `default-query` description). |
 | **use-url-parameters**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | If set to false, FACT-Finder parameters are not pushed to the URL unless explicitly whitelisted. Note that this attribute has no effect when `only-search-params` is set. |

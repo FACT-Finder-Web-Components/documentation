@@ -43,7 +43,7 @@ Assuming your category facet is called `Category` a basic setup could look like 
 <ff-communication
     url="your.fact-finder.instance"
     version="ng"
-    api="v4"
+    api="v5"
 
     category-page="filter=Category%3AEquipment"
     add-params="filter=Properties%3AWaterproof"

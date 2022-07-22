@@ -13,8 +13,8 @@ The `ff-record-list` element detects automatically if the displayed products bel
 
 > Note
 >
-> Click tracking for `ff-campaign-landing-page` requires `api="v4"`.
-> See the `ff-communication` [API tab](/api/4.x/ff-communication#tab=api) for more details about that attribute.
+> Click tracking for `ff-campaign-landing-page` requires at least `api="v4"`.
+> See the `ff-communication` [API tab](/api/4.x/ff-communication#tab=api) for more details about the `api` attribute.
       
       
 #### Tracking with `data-redirect`

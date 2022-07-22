@@ -53,7 +53,7 @@ Change the URL settings in the `ff-communication` element.
 
 The request made by FACT-Finder Web Components will look something like:
 ```
-https://your.shop-endpoint.com/optional-path/rest/v4/search/shoeshop_en?query=shoe
+https://your.shop-endpoint.com/optional-path/rest/v5/search/shoeshop_en?query=shoe
 ```
 
 The URL follows this pattern:
@@ -67,10 +67,10 @@ Taking the URLs from step one the URL changes would look like this:
 
 ```
 Client to shop system:
-https://your.shop-endpoint.com/optional-path/rest/v4/search/shoeshop_en?query=shoe
+https://your.shop-endpoint.com/optional-path/rest/v5/search/shoeshop_en?query=shoe
 
 Shop system to FACT-Finder:
-https://your.factfinder.com/FACT-Finder/rest/v4/search/shoeshop_en?query=shoe
+https://your.factfinder.com/FACT-Finder/rest/v5/search/shoeshop_en?query=shoe
 ```
 
 #### 3. Receive JSON Response

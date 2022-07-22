@@ -13,7 +13,7 @@ The following code-example shows the aforementioned configuration.
 <ff-communication
         url="https://web-components.fact-finder.de/FACT-Finder"
         version="ng"
-        api="v4"
+        api="v5"
         channel="bergfreunde-co-uk"
         default-query="backpack"
         search-immediate
