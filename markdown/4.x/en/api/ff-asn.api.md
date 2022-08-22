@@ -76,7 +76,7 @@ ___
 | **show(animate?: Boolean)** | Opens the asn-group-slider |
 | **hide(animate?: Boolean)** | Closes the asn-group-slider |
 
-## `ff-slider`
+## `ff-slider` / `ff-slider-one-touch`
 ___
 ### Properties
 | Name | Description |
@@ -84,7 +84,6 @@ ___
 | **step-size**&nbsp;(Number) | Determines step size used when the slider is dragged. |
 | **selected-min-value**&nbsp;(Number)| The currently selected minimum value. Cannot be less than `absolute-min-value`. |
 | **selected-max-value**&nbsp;(Number)| The currently selected maximum value. Cannot be more than `absolute-max-value`. |
-| **submit-on-release**&nbsp;(Boolean) **Options**:&nbsp;true,&nbsp;false (default: true) | If this is set to true, a filter request is made immediately upon releasing the slider button. |
 | **absolute-min-value**&nbsp;(Number) | Indicates the minimum lower end e.g. if set to 50, dragging the slider button to the most left will result in a value of 50. |
 | **absolute-max-value**&nbsp;(Number) | Indicates the maximum upper end e.g. if set to 500, dragging the slider button to the most right will result in a value of 500. |
 |**unit**&nbsp;(String)| The unit of measurement. E.g. € |
@@ -93,6 +92,23 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **submit()** | Send the filter request with the current values. |
+
+
+## `ff-slider-one-touch`
+___
+### Properties
+| Name | Description |
+| ---- | ----------- |
+| **ratio**&nbsp;(Number) (default: `0.5`) | The height-to-width ratio of the triangle that controls the slider's values. A value of `1` means height and width will be the same. A value of `0.5` means the triangle will be half as high as it is wide. |
+
+
+## `ff-slider`
+___
+### Properties
+| Name | Description |
+| ---- | ----------- |
+| **submit-on-release**&nbsp;(Boolean) **Options**:&nbsp;true,&nbsp;false (default: true) | If this is set to true, a filter request is made immediately upon releasing the slider button. |
+
 
 ## `ff-slider-control`
 ___
