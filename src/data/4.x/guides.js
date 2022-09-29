@@ -50,6 +50,10 @@ const guides = {
             path: `tracking-edge-cases`,
             title: `Tracking Edge Cases`,
         },
+        "login-tracking": {
+            path: `login-tracking`,
+            title: `Login Tracking`,
+        },
         "category-pages": {
             path: `category-pages`,
             title: `Category Pages`,
@@ -106,6 +110,7 @@ guides.essentials = [
 guides.advanced = [
     guides.pages[`tracking-with-js`],
     guides.pages[`tracking-edge-cases`],
+    guides.pages[`login-tracking`],
     guides.pages[`category-pages`],
     guides.pages[`category-urls`],
     guides.pages[`routing`],

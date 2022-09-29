@@ -84,15 +84,28 @@ It is also necessary to track products that are added to cart from your product 
 ### Login Tracking
 
 ---
-The `<ff-communication>` element provides a `user-id` attribute.
-When setting this attribute, a login request is sent automatically to FACT-Finder as soon as the page has loaded.
-After setting it, the `user-id` will be added to subsequent requests such as _search_ or _recommendations_ for more personalized results.
+To integrate login tracking there are, generally speaking, two approaches.
+Both involve setting a _user ID_ on Web Components which then adds it to subsequent requests such as _search_ or _recommendations_ for more personalized results.
+
+**Always anonymize the user ID for data protection!**
+
+For simple setups you can set the `user-id` attribute on the `ff-communication` element whenever a user is logged in to your shop platform.
+When the `user-id` attribute is set, a login tracking request is sent automatically and Web Components stores the _user ID_ in the browser's storage.
+If the same _user ID_ is set again (even on other pages), another login tracking request will **not** be sent.
+
+Note however that this approach is generally **not recommended** out of privacy concerns, and because it doesn't reliably track re-logins.
 
 ```html
-<ff-communication user-id="YourShopUserId">
+<ff-communication user-id="AnonymizedShopUserId">
 ```
 
-In case a user is not logged in just leave it empty. **Never use a FakeId or something similar!** 
+The other approach is more involved but gives you more control over when exactly login events shall be tracked.
+It does not make use of `user-id` and `search-immediate` attributes of `ff-communication`.
+Instead, they must be set via JavaScript and the initial search request must be triggered manually.
+The shop's server will be more involved, too.
+
+For a detailed guide to login tracking see [Login Tracking](/documentation/4.x/login-tracking).
+
 
 ### Checkout Tracking
 
