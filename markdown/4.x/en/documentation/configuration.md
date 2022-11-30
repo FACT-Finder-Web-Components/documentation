@@ -83,7 +83,7 @@ document.addEventListener("ffReady", function (event) { // "ffReady" event ensur
     factfinder.communication.globalCommunicationParameter.ngApi = "v5";
     factfinder.communication.globalSearchParameter.channel = "bergfreunde-co-uk";
 
-    /* after this minimal configuration, a search can be triggered manual e.g. through */
+    /* after this minimal configuration, a search can be triggered manually e.g. through */
     eventAggregator.addFFEvent({
          type: "search",
          query: "*"
@@ -91,16 +91,10 @@ document.addEventListener("ffReady", function (event) { // "ffReady" event ensur
 });
 ```
 
-> Note
->
-> To prevent Web Components from missing a FACT-Finder response before they are loaded, dispatching of results to subscribers is cached and deferred until all components are ready to receive the response.
-> As soon as FACT-Finder Web Components have finished loading, `ff-communication` calls `factfinder.communication.ResultDispatcher.startDispatching()`.
-> If `ff-communication` is not used, `factfinder.communication.ResultDispatcher.startDispatching()` must be called manually in JavaScript.
-
 Although the entire configuration can be done using JavaScript, we discourage direct use of custom JavaScript to do so and strongly recommend configuring everything through FACT-Finder Web Components.
 
 > Caution
 >
 > Web Components' JavaScript API has been stable for a while and changes are introduced very carefully.
-> Nevertheless, there is no guarantee for its stability and therefore it is not documented any further.
+> Nevertheless, there is no guarantee for its stability, and therefore it is not documented any further.
 > Future versions are planned to put more focus on JavaScript approaches.
