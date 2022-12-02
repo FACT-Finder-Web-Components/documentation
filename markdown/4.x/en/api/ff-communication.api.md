@@ -55,3 +55,8 @@ _(`*` - required, `†` - conditionally required)_
 | **use-filter-url**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Push `categoryPath` to URL path |
 | **filter-url-prefix**&nbsp;(String) (default: "") | Prefix `use-filter-url` e.g. `filter-url-prefix="categories"` -> `www.myshop.com/categories/cat1/cat2?query=...`  |
 | **mustache-delimiters**&nbsp;(String) (default: "{{,}}") | Delimiters used by mustache.js [template engine](/documentation/4.x/template-engine), separated by a comma |
+
+### Events
+| Name | Description |
+| ---- | ----------- |
+| **ffCommunicationReady** | Emitted on the `document` object once `ff-communication` connects to the DOM. The `event` object passed to the event handler has property `factfinder` (same as global reference) and function `searchImmediate` (to manually invoke the search request that would otherwise be triggered by the `search-immediate` attribute). |

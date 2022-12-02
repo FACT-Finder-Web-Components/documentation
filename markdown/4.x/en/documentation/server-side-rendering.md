@@ -94,7 +94,7 @@ Dispatching the response via `dispatchRaw` will trigger `ff-record-list` to repl
 
 ```html
 <script type="text/javascript">
-    document.addEventListener('WebComponentsReady', function () {
+    document.addEventListener('ffCommunicationReady', ({ factfinder }) => {
         factfinder.communication.ResultDispatcher.dispatchRaw(rawResponse);
     });
 </script>

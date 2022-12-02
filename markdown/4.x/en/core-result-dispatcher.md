@@ -123,7 +123,7 @@ With the `topics` argument passed, only the part of the response related to the 
 
 ```html
 <script type="text/javascript">
-  document.addEventListener('WebComponentsReady', function () {
+  document.addEventListener("ffCommunicationReady", function ({ factfinder }) {
       factfinder.communication.ResultDispatcher.dispatchRaw(responseToDispatch);
   });
 </script>
@@ -131,5 +131,5 @@ With the `topics` argument passed, only the part of the response related to the 
 
 > Note
 >
-> Make sure you put the `dispatchRaw` call inside a `WebComponentsReady` listener.
+> Make sure you put the `dispatchRaw` call inside an `ffCommunicationReady` listener.
 > This guarantees all `ff-communication` attributes (e.g. `version`) will be reflected as communication parameters.
