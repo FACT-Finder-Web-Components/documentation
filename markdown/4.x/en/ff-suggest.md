@@ -1,20 +1,24 @@
 ## `ff-searchbox` properties for Suggest
 
-The search box has 2 attributes which affect the `ff-suggest`:
+The search box has two attributes which affect the `ff-suggest`:
 
-With the `suggest-onfocus` attribute, you can define if the suggest
-opens when the `ff-searchbox` gains focus. Values are boolean as String
-(default is `"false"`).
+With the `suggest-onfocus` attribute, you can define if the Suggest opens when the `ff-searchbox` gains focus.
+Possible values are `"true"` and `"false"` (default is `"false"`).
 
-With the `hide-suggest-onblur` attribute, you can define if the suggest
-will be closed when the `ff-searchbox` loses focus. Values are boolean
-as String (default is `"true"`).
+With the `hide-suggest-onblur` attribute, you can define if the Suggest
+will be closed when the `ff-searchbox` loses focus.
+Possible values are `"true"` and `"false"` (default is `"true"`).
 
-The `ff-suggest` is triggered when at least 2 characters are in the
-search box.
+> Important
+>
+> Using `hide-suggest-onblur="true"` is **no longer recommended** as this approach regularly causes problems on mobile devices and, under some circumstances, on desktop devices.
+> You should use `hide-suggest-onblur="false"` and `ff-suggest`'s `hide-onblur="true"` instead.
+> More info below.
+
+The `ff-suggest` is triggered when at least two characters are in the search box.
 
 ```html
-<ff-searchbox suggest-onfocus="false" hide-suggest-onblur="true">
+<ff-searchbox suggest-onfocus="false" hide-suggest-onblur="false">
     <input placeholder="Search..." />
 </ff-searchbox>
 ```
@@ -38,7 +42,7 @@ The `section` elements are used for the built-in list/block layout.
 </ff-suggest>
 ```
 
-## Adding a suggest container
+## Adding a Suggest container
 
 You need to annotate an element with the `data-container="suggestType"`
 attribute for each suggest type configured in the FACT-Finder backend.
@@ -214,3 +218,28 @@ If the clicked item is not of type `productName`, a standard search request will
 To prevent the built-in behavior, please set `ffPreventDefault` to `true` on a specific suggest item before the default event listener reacts to the `click` event.
 See the **"Overriding default click action"** section above for more information and example usage of how to set that flag.
 
+
+## Closing the Suggest popup
+
+In order to automatically close the Suggest's popup when appropriate, you best set the attribute `hide-onblur="true"`.
+This adds a click listener to the page's `document` object.
+The Suggest's popup will close whenever you click outside the popup **and** outside the `ff-searchbox` that triggered the Suggest.
+
+Take care to not prevent the click event from bubbling up to the `document` or the popup will not close.
+
+> Important
+>
+> Make sure to always set `ff-searchbox`'s `hide-suggest-onblur` to `"false"` when using this feature.
+> It will otherwise cause undefined behavior.
+
+`ff-searchbox`'s `hide-suggest-onblur="true"` is the old approach to closing the Suggest's popup that is no longer recommended because it does not work with touch devices and long clicks.
+For backward compatibility, however, it remains available.
+
+Both approaches cause the Suggest to disappear when there are less than two characters in the search box or when you press the ESC key.
+
+This is the **recommended setup**:
+
+```html
+<ff-searchbox hide-suggest-onblur="false"></ff-searchbox>
+<ff-suggest hide-onblur="true"></ff-suggest>
+```

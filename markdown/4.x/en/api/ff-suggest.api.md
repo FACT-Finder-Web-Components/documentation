@@ -5,6 +5,7 @@ ___
 | ---- | ----------- |
 | **layout**&nbsp;(String) **Options**:&nbsp;"list", "block" (default: "list")| Determines how the individual sections are displayed. Either as block or as vertical list. |
 | **suggest-items**&nbsp;(Array) | The data from FACT-Finder. |
+| **hide-onblur**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | When `"true"`, attaches a click listener to `document`. Clicks outside the Suggest and the related search box close the Suggest popup. Setting to `"true"` is recommended. |
 
 ### Events
 | Name | Description |

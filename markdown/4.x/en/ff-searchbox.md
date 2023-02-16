@@ -28,10 +28,10 @@ should be selected when the search box gets focus. *(default is `"false"`)*
 ```
 
 ## Adding Suggest
-If you want a suggest functionality on your page you can set the
+If you want a Suggest functionality on your page you can set the
 `use-suggest` attribute to `"true"` *(default is `"true"`)*. You also need
 to implement the `ff-suggest` tag on your page. For more information
-take a look at the [Suggest Example](/api/4.x/ff-suggest). The suggest will
+take a look at the [Suggest Example](/api/4.x/ff-suggest). The Suggest will
 only trigger when at least 2 characters are typed in the input field.
 ```html
 <ff-searchbox use-suggest="true">
@@ -40,7 +40,7 @@ only trigger when at least 2 characters are typed in the input field.
 ```
 
 ### On Focus
-With the property `suggest-onfocus` set to `"true"`, the suggest will
+With the property `suggest-onfocus` set to `"true"`, the Suggest will
 open when the user clicks into the input or the input gets focus.
 ```html
 <ff-searchbox suggest-onfocus="true">
@@ -49,14 +49,17 @@ open when the user clicks into the input or the input gets focus.
 ```
 
 ### Hiding Suggest
-Usually, you want the suggest to disappear once the user clicks
-somewhere else. With the attribute `hide-suggest-onblur` set to `"false"`
-the suggest will only disappear when less than 2 characters are in the
-input or when the ESC Key is pressed.
+Usually, you want the Suggest to disappear once the user clicks somewhere else.
+This happens with the default settings.
+
+The default settings are **no longer recommended**, however.
+
+Instead, you should prefer to set `ff-searchbox`'s `hide-suggest-onblur` attribute to `"false"` and set `ff-suggest`'s `hide-onblur` to `"true"`.
+
+See [ff-suggest](/api/4.x/ff-suggest) for more details.
+
 ```html
-<ff-searchbox hide-suggest-onblur="false">
-    <input />
-</ff-searchbox>
+<ff-searchbox hide-suggest-onblur="false"></ff-searchbox>
 ```
 
 ## Wrapping button element with ff-searchbutton
