@@ -11,6 +11,22 @@ You can limit the auto-expansion and instead have "Load more" buttons appear to 
 
 ## Setup
 
+Several things need to be considered when integrating Infinite Scrolling.
+These are:
+
+- [Turn off personalization](turn-off-personalization)
+- [Prevent `page` parameter from appearing in the URL](prevent-page-parameter-from-appearing-in-the-url)
+- [HTML templates](html-templates)
+- [Record template](record-template)
+- [Show next/prev button templates](show-nextprev-button-templates)
+- [Do not use `search-immediate` attribute](do-not-use-search-immediate-attribute)
+- [Triggering the initial search and restoring the last scroll position](triggering-the-initial-search-and-restoring-the-last-scroll-position)
+- [Styling](styling)
+- [Products per page](products-per-page)
+- [Providing data to the placeholders](providing-data-to-the-placeholders)
+- [Manipulating page results](manipulating-page-results)
+
+
 ### Turn off personalization
 
 To get reliable search results it is best to turn off **personalization**.
@@ -33,19 +49,6 @@ document.addEventListener(`ffReady`, ({ factfinder }) => {
         event.usePersonalization = false;
     });
 });
-```
-
-
-### Do not use `search-immediate`
-
-`ff-record-list-scrolling` requires a special approach to triggering the initial search.
-Therefore, you should not use the `search-immediate` attribute on `ff-communication`.
-Instead, the search must be triggered with JavaScript.
-
-```html
-<ff-communication
-    search-immediate  <!-- Do not use this attribute! -->
-></ff-communication>
 ```
 
 
@@ -164,11 +167,17 @@ If you don't define button templates, they will be rendered as:
 ```
 
 
-### Styling
+### Do not use `search-immediate` attribute
 
-Records must have a fixed height for reliable scrolling results.
+`ff-record-list-scrolling` requires a special approach to triggering the initial search.
+Therefore, you should not use the `search-immediate` attribute on `ff-communication`.
+Instead, the search must be triggered with JavaScript.
 
-Make sure to test your styling with placeholders and regular records.
+```html
+<ff-communication
+    search-immediate  <!-- Do not use this attribute! -->
+></ff-communication>
+```
 
 
 ### Triggering the initial search and restoring the last scroll position
@@ -232,9 +241,102 @@ document.addEventListener(`ffHistoryReplace`, event => {
 ```
 
 
-### Parameters
+### Styling
 
-#### `max-pages`
+Records must have a **fixed height** for reliable scrolling results.
+
+Make sure to test your styling with placeholders and regular records.
+
+
+### Products per page
+
+Infinite scrolling looks best if the number of products per page is divisible by the number of rows per page.
+**Choose a layout that doesn't leave you with "incomplete" rows.**
+
+For example, 10 products per page, 3 products per row gives you three complete rows while the fourth row has only one product.
+The first product of the second page would be placed in the second position of the fourth row.
+As long as you are adding pages, this is not much of a problem.
+But if you go to the product detail page (of a product from the second page) and return to the result page, the second page will be the first to be rendered and its first product will be in the first position of the first row even though it should be in the second position.
+This happens because the previous pages aren't loaded yet and their positioning cannot be taken into account.
+This creates a shift in the displayed products.
+
+```
+Avoid:      Instead:
+
+X X X        X X X
+X X X        X X X
+X X X        X X X
+X            X X X
+```
+
+> Hint
+>
+> If you are using a **responsive layout**, make sure that all layouts produce full rows.
+
+
+### Providing data to the placeholders
+
+While placeholders are waiting for proper data to arrive, you can display custom data.
+If the HTML template does not meet your requirements, you have the option to define this data via JavaScript.
+
+```js
+factfinder.elements.InfiniteScrolling.setPlaceholderData({ foo: `bar` });
+```
+
+The object you pass to `setPlaceholderData(object)` will be available in the `ff-record` HTML template through the `{{_inf.custom}}` data binding.
+
+Example:
+
+```html
+<ff-record>
+    {{#_inf.placeholder}}
+        <span>Display "bar": {{_inf.custom.foo}}</span>
+    {{/_inf.placeholder}}
+    {{^_inf.placeholder}}
+        <span>Regular record template.</span>
+    {{/_inf.placeholder}}
+</ff-record>
+```
+
+
+### Manipulating page results
+
+If you need to manipulate the response data, you can subscribe to the special `ResultDispatcher` topic `paging:scroll`.
+
+While the initial search result still triggers the `records` topic, all follow-up pages that are loaded through scrolling will only be available through the `paging:scroll` topic.
+This topic receives the **entire response object**.
+(This is different from the regular `paging` topic.)
+
+```js
+factfinder.communication.ResultDispatcher.addCallback(`paging:scroll`, ({ searchResult }) => {
+    // Your data manipulation.
+});
+```
+
+To consistently manipulate all record data, you typically will have to subscribe to `records` (or `result`) as well.
+
+```js
+factfinder.communication.ResultDispatcher.addCallback(`records`, records => {
+    // Your data manipulation.
+});
+```
+
+
+## Parameters
+
+These parameters can be added to the `ff-record-list-scrolling` element.
+
+Example:
+
+```html
+<ff-record-list-scrolling
+    max-pages="5"
+    scroll-container="main"
+></ff-record-list-scrolling>
+```
+
+
+### `max-pages`
 
 Defines the **number** of additional pages that are loaded in the infinite manner.
 When the number of pages is reached, a "Load more" is displayed to load subsequent pages one by one.
@@ -244,14 +346,14 @@ This parameter applies to both scrolling down and scrolling up.
 Default value is `Infinity`.
 
 
-#### `max-pages-prev`
+### `max-pages-prev`
 
 Same as `max-pages` except that it only applies to _scrolling up_.
 
 Default value is equal to `max-pages`.
 
 
-#### `request-delay`
+### `request-delay`
 
 Defines the delay in **milliseconds** before the contents of a page are requested.
 When the list expands on scrolling, it first shows placeholders.
@@ -262,7 +364,7 @@ This allows you to quickly scroll over pages without needlessly sending search r
 Default is `1000`, i.e. one second.
 
 
-#### `resize-debounce`
+### `resize-debounce`
 
 The amount of time in **milliseconds** that the list uses after `resize` events to correct its scroll position.
 If this value is too small, the list might lose track of its last scroll position and scroll to a wrong position.
@@ -270,7 +372,7 @@ If this value is too small, the list might lose track of its last scroll positio
 Default is `50`.
 
 
-#### `trigger-margin`
+### `trigger-margin`
 
 Defines the height of the scroll container's trigger margin in **pixels**.
 If an end of the list is scrolled to within this margin, the list expands.
@@ -281,14 +383,14 @@ Both margins start at their respective edge of the scroll container and extend a
 Default is `200`.
 
 
-#### `scroll-container`
+### `scroll-container`
 
 The **selector** to the scroll container.
 
 Default is `window`.
 
 
-#### `scroll-behavior`
+### `scroll-behavior`
 
 One of `auto`, `smooth` and `instant`.
 This behavior is used whenever the list corrects its scroll position.
@@ -297,7 +399,7 @@ This behavior is used whenever the list corrects its scroll position.
 Default is `auto`.
 
 
-#### `ssr`
+### `ssr`
 
 A **boolean** attribute that, when set, enables server side rendering mode for `ff-record-list-scrolling`.
 

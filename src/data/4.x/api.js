@@ -161,6 +161,12 @@ const api = {
             noDemo: true,
             noApi: true,
         },
+        "ff-record-list-scrolling": {
+            path: `ff-record-list-scrolling`,
+            title: `Infinite Scrolling`,
+            noDemo: true,
+            noApi: true,
+        },
 
         // --- subject to change ---
 
@@ -238,6 +244,7 @@ api.moreFeatures = [
     api.pages["ff-loading-spinner"],
     api.pages[`ImageBindingBehavior`],
     api.pages[`DeferredAttributeResolving`],
+    api.pages[`ff-record-list-scrolling`],
 ];
 
 // set to undefined if section shall not be shown
