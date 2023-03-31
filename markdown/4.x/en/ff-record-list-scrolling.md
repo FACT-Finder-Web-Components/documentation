@@ -6,7 +6,7 @@ See [ff-record-list](/api/4.x/ff-record-list) for basics.
 The list expands as soon as you approach its end without waiting for the next data to arrive.
 This lets you scroll smoothly over multiple pages both up and down without interruption.
 
-You can limit the auto-expansion and instead have "Load more" buttons appear to continue advancing one at a time.
+You can limit the auto-expansion and instead have "Show more" buttons appear to continue advancing one at a time.
 
 
 ## Setup
@@ -330,27 +330,59 @@ Example:
 
 ```html
 <ff-record-list-scrolling
-    max-pages="5"
+    pages-until-infinite="1"
     scroll-container="main"
 ></ff-record-list-scrolling>
 ```
 
 
-### `max-pages`
+### `pages-until-infinite`
+
+Defines the **number** of pages that need to be loaded via a "Show more" button before the list switches to infinite scrolling.
+The relevant button will show automatically until the specified number is reached.
+
+This is handy if you want to allow users to reach your page footer before giving them the opportunity to scroll infinitely without interruption.
+
+This parameter applies to both scrolling down and scrolling up.
+
+Default value is `0`.
+
+
+### `pages-until-infinite-prev`
+
+Same as `pages-until-infinite` except that it only applies to _scrolling up_.
+
+Default value is equal to `pages-until-infinite`.
+This means that if unset, it will receive its value from `pages-until-infinite`.
+
+
+### `max-infinite-pages`
 
 Defines the **number** of additional pages that are loaded in the infinite manner.
-When the number of pages is reached, a "Load more" is displayed to load subsequent pages one by one.
+When the specified number of pages is reached, a "Show more" button is displayed to load subsequent pages one by one.
 
 This parameter applies to both scrolling down and scrolling up.
 
 Default value is `Infinity`.
 
+> Note
+>
+> This value counts from the **initially loaded page**.
+> It does not take `pages-until-infinite` into account.
+>
+> If you, for example, set `max-infinite-pages` to `5` and you start on page `1`, pages `2` to `6` will be loaded automatically.
+> From then, the "Show more" button appears.
+>
+> If you additionally set `pages-until-infinite` to `1`, the "Show more" button to load page `2` will appear immediately.
+> Once pressed, it disappears and pages until page `6` (notice it's the same page number as without `pages-until-infinite`) will load automatically.
 
-### `max-pages-prev`
 
-Same as `max-pages` except that it only applies to _scrolling up_.
+### `max-infinite-pages-prev`
 
-Default value is equal to `max-pages`.
+Same as `max-infinite-pages` except that it only applies to _scrolling up_.
+
+Default value is equal to `max-infinite-pages`.
+This means that if unset, it will receive its value from `max-infinite-pages`.
 
 
 ### `request-delay`
