@@ -247,6 +247,8 @@ Records must have a **fixed height** for reliable scrolling results.
 
 Make sure to test your styling with placeholders and regular records.
 
+Also, see [Rendered HTML](#rendered-html) for the element's HTML output and where to apply CSS rules to.
+
 
 ### Products per page
 
@@ -319,6 +321,63 @@ To consistently manipulate all record data, you typically will have to subscribe
 factfinder.communication.ResultDispatcher.addCallback(`records`, records => {
     // Your data manipulation.
 });
+```
+
+
+## Rendered HTML
+
+The basic structure of the element's HTML output is fixed.
+The button and record templates are rendered inside the relevant slots.
+
+**Example setup**:
+
+```html
+<ff-record-list-scrolling pages-until-infinite="1" pages-until-infinite-prev="1">
+
+    <template data-role="showPrev">
+        <button data-show="prev">Show previous</button>
+    </template>
+    <template data-role="showNext">
+        <button data-show="next">Show next</button>
+    </template>
+
+    <template data-role="record">
+        <ff-record>
+        </ff-record>
+    </template>
+
+</ff-record-list-scrolling>
+```
+
+Suppose the first page of the search result is being rendered, this could be the **rendered output**:
+
+```html
+<ff-record-list-scrolling pages-until-infinite="1" pages-until-infinite-prev="1">
+
+    <!-- This container is fixed. It is filled with the content of the [data-role="showPrev"] template. -->
+    <!-- The [hidden] attribute appears because we are on page 1 and there are no previous records to show. -->
+    <div class="ff-show-more-container ff-show-more-prev" hidden>
+        <button data-show="prev">Show previous</button>
+    </div>
+
+    <!-- Records are rendered in the 'runway'. Apply CSS to the `.ff-runway` class if necessary. -->
+    <div class="ff-runway" style="position:relative;">
+        <ff-record>
+            ...
+        </ff-record>
+        <ff-record>
+            ...
+        </ff-record>
+    </div>
+
+    <!-- Here, there is no [hidden] attribute because the [pages-until-infinite] setting requires -->
+    <!-- the user to click on the button once before the list switches to infinite mode. -->
+    <div class="ff-show-more-container ff-show-more-next">
+        <!-- The content from the [data-role="showNext"] template. -->
+        <button data-show="next">Show next</button>
+    </div>
+
+</ff-record-list-scrolling>
 ```
 
 
