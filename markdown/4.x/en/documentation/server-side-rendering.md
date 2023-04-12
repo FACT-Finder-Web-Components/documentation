@@ -1,7 +1,7 @@
 ## Server Side Rendering
 
-Server Side Rendering (SSR) is currently a trending technique which enables pre-rendering a whole page's HTML on the server side before sending it back to the client.
-There are a couple of benefits from using this approach:
+Server Side Rendering (SSR) is a technique which enables pre-rendering a whole page's HTML on the server side before sending it back to the client.
+There are a couple of benefits in using this approach:
 * HTML content is available to web crawlers for scanning which is important for SEO
 * Unified performance, conditioned by the application server, not the user's web browser
 
@@ -29,7 +29,7 @@ In order to render records on the server side, your application needs to send a 
 With the response from the request above, you need to prepare a specific view object representing a page to be output. 
 At this stage, records fetched from FACT-Finder should be converted into `ff-record` elements.
 To do so, you may want to use a template engine which hydrates raw templates with real data.
-Web Components uses the mustache.js [template engine](/documentation/4.x/template-engine) so it may be the easiest to use its server side counterpart.
+Web Components uses the mustache.js [template engine](/documentation/4.x/template-engine), so it may be the easiest to use its server side counterpart.
 
 Example libraries (the whole list of libraries can be found at [mustache.github.io](https://mustache.github.io/)):
 * java: https://github.com/spullara/mustache.java
@@ -65,37 +65,72 @@ It should be considered as a mock and must be replaced with another instance - t
 
 ### Client Side
 
-To implement SSR on the client side you have to adjust `ff-record-list`.
-Place the `ssr` attribute on the `ff-record-list` element.
+#### HTML setup
+
+First, the `ff-record-list` element needs the `ssr` attribute.
+The pre-rendered `ff-record` elements go directly inside the `ff-record-list` element.
 
 ```html
- <ff-record-list ssr>
- <!-- put pre-rendered records here -->
- </ff-record-list>
+<ff-record-list ssr>
+    <!-- Put pre-rendered records here. -->
+</ff-record-list>
 ```
 
-Define the `ff-record` template which `ff-record-list` will use to render new records.
-
-> Note
->
-> While using SSR, the HTML for `ff-record` as returned from the server will not contain any **mustache.js** expressions, hence it will not be usable for rendering new records.
+As the pre-rendered `ff-record` elements do not contain **mustache.js** data bindings, they cannot be used as a template to render new records.
+Therefore, the `ff-record` template must be specified separately.
 
 ```html
+<ff-record-list ssr>
     <template data-role="record">
-        <!--put `ff-record` element template here  --->
+        <!-- Put the `ff-record` element template here. --->
     </template>
+</ff-record-list>
 ```
 
-Check the `ff-record-list` [documentation](/api/4.x/ff-record-list#tab=docs) for more details about its template.
+See the `ff-record-list` [documentation](/api/4.x/ff-record-list#tab=docs) for more details about its template.
 
-After doing this, the only thing left to do is to dispatch the response to Web Components using `dispatchRaw`.
-See [Result Dispatcher](/api/4.x/core-result-dispatcher) for more details regarding this utility.
+
+##### Example
+
+Here is a schematic example of the complete HTML setup.
+
+```html
+<ff-record-list ssr>
+    <ff-record class="someClass">Product title 1</ff-record>
+    <ff-record class="someClass">Product title 2</ff-record>
+    <ff-record class="someClass">Product title 3</ff-record>
+    <ff-record class="someClass">Product title 4</ff-record>
+    
+    <template data-role="record">
+        <ff-record class="someClass">{{record.title}}</ff-record>
+    </template>
+</ff-record-list>
+```
+
+
+#### Dispatching the response
+
+After setting up the HTML, the only thing left to do is dispatch the response to Web Components using `dispatchRaw`.
+See [Result Dispatcher](/api/4.x/core-result-dispatcher) for details regarding this utility.
+
 Dispatching the response via `dispatchRaw` will trigger `ff-record-list` to replace pre-rendered records with the actual ones.
 
 ```html
 <script type="text/javascript">
-    document.addEventListener('ffCommunicationReady', ({ factfinder }) => {
+    document.addEventListener(`ffCommunicationReady`, ({ factfinder }) => {
+        const rawResponse = JSON.parse(RESPONSE_TEXT);
         factfinder.communication.ResultDispatcher.dispatchRaw(rawResponse);
     });
 </script>
+```
+
+
+#### No initial search required
+
+Dispatching the raw response replaces the initial search request that is typically triggered through the `search-immediate` attribute on the `ff-communication` element.
+
+```html
+<ff-communication
+    search-immediate  <!-- Do not use this attribute. -->
+></ff-communication>
 ```
