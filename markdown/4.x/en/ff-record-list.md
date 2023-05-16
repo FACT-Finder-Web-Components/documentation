@@ -129,3 +129,16 @@ If the element has no value property, it will default to `1`.
     </ff-record>
 </ff-record-list>
 ```
+
+
+## Server Side Rendering
+
+`ff-record-list` supports Server Side Rendering when using the `ssr` attribute.
+
+```html
+<ff-record-list ssr>
+    ...
+</ff-record-list>
+```
+
+For integration details see the [SSR page](/documentation/4.x/server-side-rendering).

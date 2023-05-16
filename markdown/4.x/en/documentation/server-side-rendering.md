@@ -22,7 +22,7 @@ The variety of technologies makes it impossible to fully describe each step in i
 
 #### Sending a search request
 
-In order to render records on the server side, your application needs to send a **search** request to FACT-Finder to get product data it will work with.
+In order to render records on the server side, your application needs to send a **search** request to FACT-Finder to get product data to work with.
 
 #### Pre-rendering
 
@@ -76,7 +76,10 @@ The pre-rendered `ff-record` elements go directly inside the `ff-record-list` el
 </ff-record-list>
 ```
 
-As the pre-rendered `ff-record` elements do not contain **mustache.js** data bindings, they cannot be used as a template to render new records.
+
+##### Record template
+
+As the pre-rendered `ff-record` elements do not contain **mustache.js** data bindings, Web Components cannot use them as a template to render new records.
 Therefore, the `ff-record` template must be specified separately.
 
 ```html
@@ -90,6 +93,33 @@ Therefore, the `ff-record` template must be specified separately.
 See the `ff-record-list` [documentation](/api/4.x/ff-record-list#tab=docs) for more details about its template.
 
 
+##### Record insertion point
+
+You can define explicitly at which location records of future searches shall be inserted into `ff-record-list`.
+
+Usually, `ff-record-list` guesses the correct location but in case a server side rendered page produces an _empty result_, there is no information where records shall be inserted, and therefore they will always be added to the very bottom.
+This may not be the correct location if you have additional custom HTML inside `ff-record-list`.
+
+```html
+<ff-record-list ssr>
+    <div>Custom HTML before records.</div>
+    
+    <!-- Pre-rendered records from server-side request. -->
+    <ff-record class="someClass">Product title 1</ff-record>
+    <ff-record class="someClass">Product title 2</ff-record>
+    
+    <!-- Always add the insertion marker AFTER the records. -->
+    <template data-role="records-insertion-point"></template>
+    
+    <div>Custom HTML after records.</div>
+</ff-record-list>
+```
+
+Even though this step is _optional_, it is **recommended** you always specify the insertion point.
+
+Make sure to always place the insertion marker **after** the records or the order in which records are rendered may get compromised.
+
+
 ##### Example
 
 Here is a schematic example of the complete HTML setup.
@@ -100,6 +130,8 @@ Here is a schematic example of the complete HTML setup.
     <ff-record class="someClass">Product title 2</ff-record>
     <ff-record class="someClass">Product title 3</ff-record>
     <ff-record class="someClass">Product title 4</ff-record>
+    
+    <template data-role="records-insertion-point"></template>
     
     <template data-role="record">
         <ff-record class="someClass">{{record.title}}</ff-record>
