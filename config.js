@@ -16,7 +16,7 @@ export const config = {
   versions: [
 
     { name: `5.x`, displayName: `5.x (latest)`, status: VersionStatus.latest },
-    { name: `4.x`, displayName: `4.x`, status: VersionStatus.latest },
+    { name: `4.x`, displayName: `4.x`, status: VersionStatus.obsolete },
     { name: `3.x`, displayName: `3.x`, status: VersionStatus.obsolete },
     { name: `1.x`, displayName: `1.x`, status: VersionStatus.obsolete },
   ]
