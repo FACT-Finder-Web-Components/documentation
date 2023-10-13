@@ -66,10 +66,6 @@ const guides = {
             path: `routing`,
             title: `Routing`,
         },
-        "communication": {
-            path: `communication`,
-            title: `Communication`,
-        },
         "utils": {
             path: `utils`,
             title: `Utils`,
@@ -78,8 +74,6 @@ const guides = {
             path: `custom-components`,
             title: `Custom Components`,
         },
-
-
         "upgrade-guide": {
             path: `upgrade-guide`,
             title: `Upgrade Guide 4.x to 5.0.0`,
