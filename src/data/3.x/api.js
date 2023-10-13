@@ -50,10 +50,6 @@ const api = {
             path: `ff-filter-cloud`,
             title: `Filter Cloud`
         },
-        "ff-navigation": {
-            path: `ff-navigation`,
-            title: `Navigation`,
-        },
         "ff-header-navigation": {
             path: `ff-header-navigation`,
             title: `Header Navigation`,
@@ -102,10 +98,6 @@ const api = {
             path: `ff-campaign-product`,
             title: `Product Campaign`,
         },
-        "ff-search-feedback": {
-            path: `ff-search-feedback`,
-            title: `Search Feedback`,
-        },
         "ff-recommendation": {
             path: `ff-recommendation`,
             title: `Recommendation`,
@@ -117,19 +109,6 @@ const api = {
         "ff-similar-products": {
             path: `ff-similar-products`,
             title: `Similar Products`,
-        },
-        "ff-single-word-search": {
-            path: `ff-single-word-search`,
-            title: `Single Word Search`,
-        },
-        // TODO removed for 3.0 release -- might get reintroduced afterwards
-        // "ff-carousel": {
-        //     path: `ff-carousel`,
-        //     title: `Carousel`,
-        // },
-        "ff-tag-cloud": {
-            path: `ff-tag-cloud`,
-            title: `Tag Cloud`,
         },
         "ff-template": {
             path: `ff-template`,
@@ -145,10 +124,6 @@ const api = {
             path: `ff-middleware`,
             title: `Middleware`,
             noDemo: true
-        },
-        "ff-loading-spinner": {
-            path: "ff-loading-spinner",
-            title: "Loading Spinner"
         },
         "ImageBindingBehavior": {
             path: `ImageBindingBehavior`,
@@ -203,7 +178,6 @@ api.navigation = [
     api.pages[`ff-breadcrumb-trail`],
     api.pages[`ff-asn`],
     api.pages[`ff-filter-cloud`],
-    api.pages[`ff-navigation`],
     api.pages[`ff-header-navigation`],
     api.pages[`ff-paging`],
     api.pages[`ff-paging-dropdown`],
@@ -219,17 +193,11 @@ api.moreFeatures = [
     api.pages[`ff-campaign-landing-page`],
     api.pages[`ff-product-teaser-campaign-processor`],
     api.pages[`ff-checkout-tracking`],
-    api.pages[`ff-search-feedback`],
     api.pages[`ff-recommendation`],
     api.pages[`ff-compare`],
     api.pages[`ff-similar-products`],
-    api.pages[`ff-single-word-search`],
-    // TODO removed for 3.0 release -- might get reintroduced afterwards
-    // api.pages[`ff-carousel`],
-    api.pages[`ff-tag-cloud`],
     api.pages[`ff-template`],
     api.pages[`ff-middleware`],
-    api.pages["ff-loading-spinner"],
     api.pages[`ImageBindingBehavior`],
 ];
 
