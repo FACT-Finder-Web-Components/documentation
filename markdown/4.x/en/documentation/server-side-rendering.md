@@ -142,16 +142,16 @@ Here is a schematic example of the complete HTML setup.
 
 #### Dispatching the response
 
-After setting up the HTML, the only thing left to do is dispatch the response to Web Components using `dispatchRaw`.
+After setting up the HTML, the only thing left to do is dispatch the response to Web Components using `dispatchSSR`.
 See [Result Dispatcher](/api/4.x/core-result-dispatcher) for details regarding this utility.
 
-Dispatching the response via `dispatchRaw` will trigger `ff-record-list` to replace pre-rendered records with the actual ones.
+Dispatching the response via `dispatchSSR` will trigger `ff-record-list` to replace pre-rendered records with the actual ones.
 
 ```html
 <script type="text/javascript">
     document.addEventListener(`ffCommunicationReady`, ({ factfinder }) => {
         const rawResponse = JSON.parse(RESPONSE_TEXT);
-        factfinder.communication.ResultDispatcher.dispatchRaw(rawResponse);
+        factfinder.communication.ResultDispatcher.dispatchSSR(rawResponse);
     });
 </script>
 ```
