@@ -107,7 +107,7 @@ Remove a callback for a topic (ex:`asn`) with the `key` from the registered call
 <script defer src="pathToFFWebComponents/dist/bundle.js"></script>
 ```
 
-### `dispatchRaw(response, topics)`
+### `dispatchSSR(response, topics)`
 ___
 Manually dispatches a **response** to Web Components.
 This method is useful when there is a need to dispatch a FACT-Finder response received in a way other than by Web Components AJAX request.
@@ -124,12 +124,47 @@ With the `topics` argument passed, only the part of the response related to the 
 ```html
 <script type="text/javascript">
   document.addEventListener("ffCommunicationReady", function ({ factfinder }) {
-      factfinder.communication.ResultDispatcher.dispatchRaw(responseToDispatch);
+      factfinder.communication.ResultDispatcher.dispatchSSR(responseToDispatch);
   });
 </script>
 ```
 
 > Note
 >
-> Make sure you put the `dispatchRaw` call inside an `ffCommunicationReady` listener.
+> Make sure you put the `dispatchSSR` call inside an `ffCommunicationReady` listener.
 > This guarantees all `ff-communication` attributes (e.g. `version`) will be reflected as communication parameters.
+
+## Auto Fetching
+
+By its nature, the ResultDispatcher communicates with Web Components in a publish-subscribe fashion.
+While this architecture has multiple advantages, like loose coupling and dynamic targeting, it comes with a caveat.
+Web Components that are dynamically attached to DOM by JS might subscribe too late to receive the data sent out by the ResultDispatcher after receiving a FACT-Finder response.
+In certain setups, where the elements are rendered in parallel with the FACT-Finder request sequence, this might also lead to race conditions causing inconsistent HTML outputs.
+
+As one of the options to overcome this issue, FACT-Finder Web Components features the Auto Fetching mode. 
+With Auto Fetching enabled, the ResultDispatcher will feed the newly subscribed Web Components with the latest data, even if they subscribe after a regular dispatch cycle.
+
+To globally enable Auto Fetching, set the `globalCommunicationParameter.autoFetch` configuration parameter to `AlwaysOn`:
+```javascript
+document.addEventListener("ffReady", ({ factfinder }) => {
+    factfinder.communication.globalCommunicationParameter.autoFetch = factfinder.enums.AutoFetch.AlwaysOn;
+});
+```
+
+> Mind the consequences
+>
+> In some SPA shops, Auto Fetching might cause outdated data to be rendered once the components are replaced when navigating between pages.
+
+### SSR
+
+The default value for Auto Fetching is `SsrOnly`. 
+It means Auto Fetching is enabled by default after an SSR-driven dispatch occurs.
+Auto Fetching stops automatically once a user interaction-based dispatch occurs.
+That allows heavily-optimized web apps to render just the record list first and dynamically render non-SEO critical components later on, without having to worry about missed dispatches.
+This behavior can be turned off by setting the Auto Fetching parameter to `AlwaysOff`:
+
+```javascript
+document.addEventListener("ffReady", ({ factfinder }) => {
+    factfinder.communication.globalCommunicationParameter.autoFetch = factfinder.enums.AutoFetch.AlwaysOff;
+});
+```
