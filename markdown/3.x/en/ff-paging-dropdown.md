@@ -4,7 +4,7 @@ The `ff-paging-dropdown` acts like the `ff-paging` element, but is displayed as 
 You can access the value of a paging item with the **{{caption}}** syntax.
 
 **Note:** If you want to configure the number of possible pages shown in the dropdown, refer to your
-FACT-Finder-UI backend -> Basic Settings -> Result listing -> Paging (Number of Links)
+FactFinder-UI backend -> Basic Settings -> Result listing -> Paging (Number of Links)
 
 ```html
 <ff-paging-dropdown>
@@ -101,7 +101,7 @@ Or both of them:
 
 ### Rendered HTML
 
-Assuming FACT-Finder is set to display 5 links, the latest example will produce the following HTML:
+Assuming FactFinder is set to display 5 links, the latest example will produce the following HTML:
 ```html
 <ff-paging-select>
     <select class="user-class">

@@ -1,28 +1,28 @@
 ## Configuration
 
 ---
-This chapter describes the minimal configuration necessary to search and retrieve results from FACT-Finder. You can configure the communication via the custom element `ff-communication` or directly via JavaScript.
+This chapter describes the minimal configuration necessary to search and retrieve results from FactFinder. You can configure the communication via the custom element `ff-communication` or directly via JavaScript.
 
 ### A minimal configuration consists of the following settings:
 
 #### **URL**
-Specify the FACT-Finder endpoint. Please note the context name `/FACT-Finder-7.2`. It is not sufficient to provide the top-level domain like `http://web-components.fact-finder.de/` which will result in an error.
+Specify the FactFinder endpoint. Please note the context name `/FACT-Finder-7.2`. It is not sufficient to provide the top-level domain like `http://web-components.fact-finder.de/` which will result in an error.
 
 **Note:** Make sure you are using the same protocol (http://, https://) for the `url` setting and webapp. Using `url="http://web-components.fact-finder.de/FACT-Finder-7.2"` on a page hosted via **HTTPS** will result in an error.
 
 ---
 
 #### **version**
-Specify the FACT-Finder version. E.g. `7.2` or  `7.3`.
+Specify the FactFinder version. E.g. `7.2` or  `7.3`.
 
 ---
 
 #### **channel** 
-Specify the name of the channel which is used for the search. You can find the available channels in the FACT-Finder UI.
+Specify the name of the channel which is used for the search. You can find the available channels in the FactFinder UI.
 
 ---
 
-## FACT-Finder Web Components Approach
+## FactFinder Web Components Approach
 ```html
 <body>
     <ff-communication url="http://web-components.fact-finder.de/FACT-Finder-7.2"
@@ -40,8 +40,8 @@ Specify the name of the channel which is used for the search. You can find the a
 
 We recommend placing the `ff-communication` element immediately after the `body` tag to reduce the risk of accidental reordering. Furthermore we advise to add a comment explaining this requirement. For example:
 ```html
-<!-- The ff-communication element sets up the FF FACT-Finder Web Components and must not be moved!
-     All other FF FACT-Finder Web Components must be placed hereafter. -->
+<!-- The ff-communication element sets up the FF FactFinder Web Components and must not be moved!
+     All other FF FactFinder Web Components must be placed hereafter. -->
 ```
 
 #### **search-immediate**
@@ -74,6 +74,6 @@ document.addEventListener("ffReady", function (event) { // "ffReady" event ensur
 
 **NOTE**
 
-To prevent FACT-Finder Web Components from missing a factfinder response, before they are loaded, dispatching of results to subscribers is cached and deferred until all components are ready to receive the response. As soon as FACT-Finder Web Components have finished loading `ff-communication` calls `factfinder.communication.ResultDispatcher.startDispatching()`. If `ff-communication` is not used, `factfinder.communication.ResultDispatcher.startDispatching()` has to be called manually in JavaScript.
+To prevent FactFinder Web Components from missing a factfinder response, before they are loaded, dispatching of results to subscribers is cached and deferred until all components are ready to receive the response. As soon as FactFinder Web Components have finished loading `ff-communication` calls `factfinder.communication.ResultDispatcher.startDispatching()`. If `ff-communication` is not used, `factfinder.communication.ResultDispatcher.startDispatching()` has to be called manually in JavaScript.
 
-Although the entire configuration can be done using JavaScript, we discourage direct use of custom JavaScript to do so and strongly recommend to configure everything through FACT-Finder Web Components. You might want to take a closer look at [ff-core.d.ts](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/dist/ff-core.d.ts).
+Although the entire configuration can be done using JavaScript, we discourage direct use of custom JavaScript to do so and strongly recommend to configure everything through FactFinder Web Components. You might want to take a closer look at [ff-core.d.ts](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/master/dist/ff-core.d.ts).

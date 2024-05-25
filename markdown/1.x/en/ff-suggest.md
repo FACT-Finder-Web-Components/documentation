@@ -42,7 +42,7 @@ The `section` elements are used for the built-in list/block layout.
 ## Adding a suggest container
 
 You need to annotate an element with the `data-container="suggestType"`
-attribute for each suggest type configured in the FACT-Finder backend.
+attribute for each suggest type configured in the FactFinder backend.
 
 The `ff-suggest` element hides the annotated container if no suggestions
 are found for this type.
@@ -141,7 +141,7 @@ See the following example:
 
         // check if the ffSuggestItem matches the desired type for which you want to override the action
         if (suggestionData.type === "productName") {
-            // configure in the FACT-Finder backend which fields should be returned in the attributes property!
+            // configure in the FactFinder backend which fields should be returned in the attributes property!
             var articleNr = suggestionData.attributes["articleNr"];
             window.open("http://www.your-shop.example/" + articleNr, "_blank");
 
@@ -154,7 +154,7 @@ See the following example:
 
 ## On-Click display of product detail page with Records API enabled
 
-If FACT-Finder's Records API is enabled, FACT-Finder Web Components will fetch
+If FactFinder's Records API is enabled, FactFinder Web Components will fetch
 the corresponding record of a `ff-suggest-item`, when it is clicked.
 
 `ff-suggest` fires the event `suggest-product-record` when the API

@@ -55,7 +55,7 @@ Only the changes that do not emit deprecation warnings are left to address **IF*
 Original issue:  
 https://github.com/FACT-Finder-Web-Components/ff-web-components/issues/49
 
-WebComponents requires configuring the targeted FACT-Finder version.
+WebComponents requires configuring the targeted FactFinder version.
 This is usually done through the `ff-communication` element:
 ```html
 <ff-communication version="7.3">
@@ -94,8 +94,8 @@ Now:
 Original issue:  
 https://github.com/FACT-Finder-Web-Components/ff-web-components/issues/50
 
-WebComponents requires configuring the targeted FACT-Finder version.
-If the version is set to `ng`, the `api` attribute becomes relevant because FACT-Finder NG updates its API from time to time.
+WebComponents requires configuring the targeted FactFinder version.
+If the version is set to `ng`, the `api` attribute becomes relevant because FactFinder NG updates its API from time to time.
 
 This is usually done through the `ff-communication` element:
 ```html
@@ -339,7 +339,7 @@ Original issue:
 https://github.com/FACT-Finder-Web-Components/ff-web-components/issues/35
 
 Previously, the specified value had to match the group's display name.
-This was problematic in multi-language environments (often realised through multiple FACT-Finder channels) because display names likely differ across channels.
+This was problematic in multi-language environments (often realised through multiple FactFinder channels) because display names likely differ across channels.
 For each language and ASN group you had to configure a separate template.
 Typically, the only difference however would have been the `for-group` value.
 
@@ -347,7 +347,7 @@ The `associatedFieldName` is consistent across channels.
 Therefore, from `4.0.0`, `ff-asn-group`'s `for-group` attribute references the connected filter group's `associatedFieldName`.
 Multiple definitions of a template are no longer necessary.
 
-Inspect your FACT-Finder configuration to find out what the relevant `associatedFieldName` is for each filter group.
+Inspect your FactFinder configuration to find out what the relevant `associatedFieldName` is for each filter group.
 
 ##### HTML
 

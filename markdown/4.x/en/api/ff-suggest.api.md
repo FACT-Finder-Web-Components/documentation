@@ -4,7 +4,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **layout**&nbsp;(String) **Options**:&nbsp;"list", "block" (default: "list")| Determines how the individual sections are displayed. Either as block or as vertical list. |
-| **suggest-items**&nbsp;(Array) | The data from FACT-Finder. |
+| **suggest-items**&nbsp;(Array) | The data from FactFinder. |
 | **hide-onblur**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "false") | When `"true"`, attaches a click listener to `document`. Clicks outside the Suggest and the related search box close the Suggest popup. Setting to `"true"` is recommended. |
 
 ### Events
@@ -18,8 +18,8 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **type**(String)&nbsp;**Options:** "product", "brand", "search", "category", "all" (default: "all") | The suggest type as it corresponds to your suggest type configuration in the FACT-Finder backend. |
-| **suggestion** | The data from FACT-Finder for one item. |
+| **type**(String)&nbsp;**Options:** "product", "brand", "search", "category", "all" (default: "all") | The suggest type as it corresponds to your suggest type configuration in the FactFinder backend. |
+| **suggestion** | The data from FactFinder for one item. |
 
 ### Events
 | Name | Description |

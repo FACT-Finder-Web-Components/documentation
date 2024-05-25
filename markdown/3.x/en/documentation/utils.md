@@ -15,9 +15,9 @@ We have split this function into two libraries:
 Check it out on [GitHub](https://github.com/FACT-Finder-Web-Components/java-proxy-utils)
 
 With this library you can easily hook into a Servlet based java proxy and prepare a request for the
-FACT-Finder instance.
-The FACT-Finder Web Components work with a special CORS handler for security and authentication. Therefore you
-need to route the HTTP OPTIONS request from the shop to FACT-Finder.
+FactFinder instance.
+The FactFinder Web Components work with a special CORS handler for security and authentication. Therefore you
+need to route the HTTP OPTIONS request from the shop to FactFinder.
 The proxy-utils allows you with just a few lines of code to handle that usecase.
 ```java
 private ProxyUtils          utils;
@@ -28,7 +28,7 @@ public void init() throws ServletException {
     settings = new FACTFinderSettings();
     settings.setAccount("admin");
     settings.setPassword("myPassowrd");
-    // URL to your FACT-Finder instance for example:
+    // URL to your FactFinder instance for example:
     settings.setUrl("http://my-factfinder-isntacne.de/FACT-Finder-7.2");
     utils = new ProxyUtils(settings);
     super.init();
@@ -43,8 +43,8 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 };
 ```
 
-Initialize the <code>FACTFinderSettings</code> with your FACT-Finder account and password and the
-URL of your FACT-Finder setup. All the necessary authentication information will be injected into the
+Initialize the <code>FACTFinderSettings</code> with your FactFinder account and password and the
+URL of your FactFinder setup. All the necessary authentication information will be injected into the
 request.
 
 If you know what you are doing, you can also build a request from scratch.
@@ -88,7 +88,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 };
 ```
 
-You can also work with the data response and modify it. Therefore you can use the [Java FACT-Finder Domain Model](https://github.com/FACT-Finder-Web-Components/java-factfinder-domain-model)
+You can also work with the data response and modify it. Therefore you can use the [Java FactFinder Domain Model](https://github.com/FACT-Finder-Web-Components/java-factfinder-domain-model)
 ```java
 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     ProxyUtils.copyHeaders(req, resp);
@@ -98,10 +98,10 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 };
 ```
 
-### Java FACT-Finder Domain Model
+### Java FactFinder Domain Model
 Check it out on [GitHub](https://github.com/FACT-Finder-Web-Components/java-factfinder-domain-model)
 
-This little library allows you to parse a response from FACT-Finder and provides you with a Object
+This little library allows you to parse a response from FactFinder and provides you with a Object
 Model you can work with. For example filter some results or add records.
 ```java
 String json = "...";

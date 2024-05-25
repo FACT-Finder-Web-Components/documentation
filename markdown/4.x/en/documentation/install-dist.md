@@ -7,7 +7,7 @@ for activation**!
 ### Using Node.js
 
 ---
-Add the desired version of FACT-Finder Web Components as a dependency to your `package.json`.
+Add the desired version of FactFinder Web Components as a dependency to your `package.json`.
 
 ```json
 {

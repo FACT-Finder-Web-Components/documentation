@@ -7,7 +7,7 @@ A common use case is the start page of your website.
 <ff-campaign-landing-page page-id="home"></ff-campaign-landing-page>
 ```
 
-`ff-campaign-landing-page` triggers the FACT-Finder campaign that corresponds to the `page-id` attribute.
+`ff-campaign-landing-page` triggers the FactFinder campaign that corresponds to the `page-id` attribute.
 
 Note that the element itself **does not display anything**, nor does it take any child elements.
 It is merely a trigger that you place on those pages you want to display a landing page campaign.

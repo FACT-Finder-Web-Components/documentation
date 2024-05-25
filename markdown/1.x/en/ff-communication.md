@@ -1,9 +1,9 @@
 ## Setup the communication
 Add the `ff-communication` tag to every page that uses
-**FACT-Finder Webcomponents**. This element is used to define certain
-parameters for the communication between FACT-Finder Web Components and FACT-Finder
+**FactFinder Webcomponents**. This element is used to define certain
+parameters for the communication between FactFinder Web Components and FactFinder
 and their behavior. You need to configure the location of your
-FACT-Finder Server and the target channel by setting the `url` and
+FactFinder Server and the target channel by setting the `url` and
 `channel` HTML attributes.
 
 The `ff-communication` element has more attributes. One example is the

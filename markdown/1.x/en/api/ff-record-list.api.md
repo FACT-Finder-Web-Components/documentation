@@ -4,7 +4,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **subscribe**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | If this is set to false the element no longer listens to events and therefore does not receive new data. This is useful if you want to dispatch your own data to the element. |
-| **records**&nbsp;(Array) | An Array of Objects containing the record data returned by FACT-Finder. |
+| **records**&nbsp;(Array) | An Array of Objects containing the record data returned by FactFinder. |
 | **is-recommendation** (Boolean) | Indicates if this record-list is placed inside a ff-recommendation element. This attribute is set automatically by the ff-recommendation element and used for tracking purposes. |
 | **infinite-scrolling** (Boolean) | When present, the record list will load the next page when the bottom of the record list comes in view. |
 | **infinite-debounce-delay** (Number) (default: 32) | Sets the delay for when the next page should be loaded after the bottom is reached. This prevents loading multiple pages at once because it triggers to fast. The number is in milliseconds. |
@@ -26,7 +26,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **record-data** (Object) | The record object returned by FACT-Finder. |
+| **record-data** (Object) | The record object returned by FactFinder. |
 | **is-recommendation** (Boolean) (default: false) | Indicates if this record-list is placed inside a ff-recommendation element. This attribute is set automatically by the ff-recommendation element and used for tracking purposes.|
 | **add-cart-click** (Boolean) |  [Tracking Guide](/guides/tracking-guide) |
 | **add-checkout-click** (Boolean) |  [Tracking Guide](/guides/tracking-guide) |

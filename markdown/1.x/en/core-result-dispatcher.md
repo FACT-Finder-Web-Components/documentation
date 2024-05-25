@@ -1,6 +1,6 @@
 You can subscribe to the ResultDispatcher for raw data or to change the
 result before it is dispatched. This is indeed what all
-data related FACT-Finder Web Components do. They subscribe to
+data related FactFinder Web Components do. They subscribe to
 ResultDispatcher to get notified when new data is available.
 
 The ResultDispatcher is in the module:

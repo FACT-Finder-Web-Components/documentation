@@ -1,6 +1,6 @@
 ## Wrapping input element with ff-searchbox
 The `ff-searchbox` wraps a regular HTML `<input>` element. Simply place
-`<input>` between `<ff-searchbox>` tags. On ENTER a search query to FACT-Finder
+`<input>` between `<ff-searchbox>` tags. On ENTER a search query to FactFinder
 is fired with the current input value.
 ```html
 <ff-searchbox>
@@ -65,7 +65,7 @@ See [ff-suggest](/api/4.x/ff-suggest) for more details.
 ## Wrapping button element with ff-searchbutton
 The `ff-searchbutton` wraps a regular HTML `<button>` element. Surrounded
 with `<ff-searchbutton>` tag it becomes a special button which connects
-to the search box and sends a search request to FACT-Finder.
+to the search box and sends a search request to FactFinder.
 ```html
 <ff-searchbutton>
     <button>Search</button>

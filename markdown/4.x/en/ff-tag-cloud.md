@@ -1,6 +1,6 @@
 ## Availability
 
-The Tag Cloud is a discontinued feature and no longer available in FACT-Finder NG.
+The Tag Cloud is a discontinued feature and no longer available in FactFinder NG.
 
 
 ## Display the most searched words in a tag cloud
@@ -16,10 +16,10 @@ Basic usage:
 ```
 > Note
 >
-> Changing `word-count` when `disable-auto` is not set will trigger a tag cloud request to FACT-Finder followed by a DOM update.
-> The default action of a click on a tag cloud child element will trigger a FACT-Finder search for that word.
+> Changing `word-count` when `disable-auto` is not set will trigger a tag cloud request to FactFinder followed by a DOM update.
+> The default action of a click on a tag cloud child element will trigger a FactFinder search for that word.
 > You can prevent this behavior by setting the `ffPreventDefault` on the `entry-clicked` event.
-> `word-count` is the only property which triggers a request to FACT-Finder when its value is changed.
+> `word-count` is the only property which triggers a request to FactFinder when its value is changed.
 
 **Example snippet: Prevent default click event and redirect to different page:**
 

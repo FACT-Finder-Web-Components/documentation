@@ -95,7 +95,7 @@ The following is an error - `ff-filter-cloud` has no way of determining where to
 
 ## Blacklist
 If you want to exclude specific filter groups from the filter cloud, you can use the `blacklist` attribute. You may specify 
-as many groups as you need, separated by commas. The values must correspond to the group name or associatedFieldName property returned by FACT-Finder.
+as many groups as you need, separated by commas. The values must correspond to the group name or associatedFieldName property returned by FactFinder.
 
 ### Setup
 This example will blacklist all filters applied by the `Price` and `Size` groups.
@@ -109,7 +109,7 @@ This example will blacklist all filters applied by the `Price` and `Size` groups
 
 ## Whitelist
 If you want to exclusively specify each filter group, you can use the `whitelist` attribute. Like in blacklist, you may specify 
-as many groups as you need, separated by commas. The values must correspond to the group name or associatedFieldName property returned by FACT-Finder.
+as many groups as you need, separated by commas. The values must correspond to the group name or associatedFieldName property returned by FactFinder.
 
 ### Setup
 This example will whitelist only filters applied by the `Gender` and `Category` groups.

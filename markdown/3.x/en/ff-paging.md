@@ -69,7 +69,7 @@ You have to set a `type` attribute in the `ff-paging-item` where you select a "p
 
 **Note**: The `ff-paging-item` will only be visible, when the expression validates for a page!
 
-Each element has a `{{caption}}` property which you can define in the FACT-Finder backend.
+Each element has a `{{caption}}` property which you can define in the FactFinder backend.
 Mostly used to design the first- / last- / next- /previous- link elements.
 
 The paging-item also has a `show-only` attribute and works like the `show-only` on the

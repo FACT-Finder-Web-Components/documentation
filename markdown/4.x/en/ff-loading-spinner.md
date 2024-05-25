@@ -1,7 +1,7 @@
 ## Overview
 
 `ff-loading-spinner` is a lightweight visual indicator of pending action. It is triggered by common events fired by 
-FACT-Finder Web Components. The spinner uses inexpensive CSS animations and does not trigger `layout` or `paint` 
+FactFinder Web Components. The spinner uses inexpensive CSS animations and does not trigger `layout` or `paint` 
 operations in Blink and Gecko-based browsers.
 
 _By default_ the element is activated by the following events:
@@ -14,7 +14,7 @@ _By default_ the element is activated by the following events:
 It is automatically deactivated when the action has completed.
 
 **Example:** When a search request is sent via the `ff-searchbox`, the spinner is activated. As soon as the response from 
-FACT-Finder is received, the spinner is deactivated.
+FactFinder is received, the spinner is deactivated.
 
 ## Usage
 
@@ -25,7 +25,7 @@ Assuming that `ff-communication` and `ff-searchbox` have been integrated, `ff-lo
 ```html
 <ff-loading-spinner></ff-loading-spinner>
 ```
-As soon as a search request is sent to FACT-Finder, `ff-loading-spinner` will be displayed. When the response is received, 
+As soon as a search request is sent to FactFinder, `ff-loading-spinner` will be displayed. When the response is received, 
 the element will be hidden again.
 
 #### Manual mode

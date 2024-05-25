@@ -6,16 +6,16 @@ Category pages play a special role in a web shop.
 From an implementer's perspective, however, they are basically regular search result pages with pre-applied category filters.
 
 Typically, you arrive at a category page after using the shop's navigation.
-This has a few implications regarding how to communicate with the FACT-Finder API.
+This has a few implications regarding how to communicate with the FactFinder API.
 Responses to navigation and search requests can be configured separately.
 This has the effect that seemingly identical requests may receive different responses depending on whether they target the **navigation** or the **search** API.
 
-This article explores the tools offered by FACT-Finder Web Components to correctly implement category pages.
+This article explores the tools offered by FactFinder Web Components to correctly implement category pages.
 
 > Hint
 >
 > In principle the implementation of category pages is the same for all scenarios.
-> Details vary depending on whether you are using **FACT-Finder NG** or prior, or whether your app architecture is **dynamic pages** or **single-page application**.
+> Details vary depending on whether you are using **FactFinder NG** or prior, or whether your app architecture is **dynamic pages** or **single-page application**.
 
 
 ### Implementation in general
@@ -29,9 +29,9 @@ Lastly, to present your visitors a category page with results you set the `searc
 Without `search-immediate` the page will remain empty.
 
 
-#### FACT-Finder NG
+#### FactFinder NG
 
-When you are using FACT-Finder NG, you implement category pages with the `category-page` attribute on `ff-communication`.
+When you are using FactFinder NG, you implement category pages with the `category-page` attribute on `ff-communication`.
 You pass it the filter string that corresponds to your relevant category page.
 These filters are _fixed_, and cannot be removed by users while they are on the current category page.
 
@@ -94,8 +94,8 @@ The result is that the above-mentioned special purpose characters are double enc
 
 _This two-step encoding is necessary because a category path's levels are separated by `/`.
 However, `/` can also appear as part of a filter name (e.g. `3/4 length`).
-Encoding literal `/` allows FACT-Finder to distinguish them from category path separators.  
-`+` characters must be double encoded or FACT-Finder would interpret them as spaces.  
+Encoding literal `/` allows FactFinder to distinguish them from category path separators.  
+`+` characters must be double encoded or FactFinder would interpret them as spaces.  
 Lastly, due to this double encoding, `%` must be double encoded, too, or the decoding process would fail as `%` alone would be misinterpreted as a not yet decoded value._
 
 
@@ -148,7 +148,7 @@ Example output (shortened):
 
 #### Pre-NG
 
-Setups using FACT-Finder versions prior to NG don't have the `category-page` attribute available and therefore have to use a different configuration.
+Setups using FactFinder versions prior to NG don't have the `category-page` attribute available and therefore have to use a different configuration.
 You use the `add-params` attribute with your category filters and the additional `navigation=true` filter.
 
 Example:
@@ -169,7 +169,7 @@ Note that the pre-selected filters here are not fixed and can be deselected by u
 
 Each level of category filter requires a key/value pair.
 
-_Keys_ require the same two-step encoding pattern like in FACT-Finder NG.
+_Keys_ require the same two-step encoding pattern like in FactFinder NG.
 Special purpose characters must be encoded individually, then the parts joined with `/` before being _"URL-plus"_ encoded as a whole.
 
 ```
@@ -184,7 +184,7 @@ before: "3/4 sleeve"
 after:  "3%2F4+sleeve"
 ```
 
-Please see _"Encoding"_ in _"FACT-Finder NG"_ for more details.
+Please see _"Encoding"_ in _"FactFinder NG"_ for more details.
 
 
 ### Application types
@@ -235,7 +235,7 @@ document.querySelector(`#mutual-parent-of-searchbox-and-searchbutton`).addEventL
 The `before-search` event is emitted by both `ff-searchbox` and `ff-searchbutton`.
 This event bubbles, so you can catch it with a single event listener on a mutual parent.
 
-`event.preventDefault()` cancels the request to FACT-Finder.
+`event.preventDefault()` cancels the request to FactFinder.
 It is not needed on the original page.
 Instead, you have to carry over the search query to the redirect destination and re-trigger the search request there.
 
@@ -246,7 +246,7 @@ The actual URL you are redirecting to depends on your application's individual r
 
 > Caution
 >
-> This section only considers the setup with FACT-Finder NG.
+> This section only considers the setup with FactFinder NG.
 > Furthermore, the presented implementation is merely an abstract example to convey the concept.
 > It must be adjusted to your application's requirements.
 >
@@ -257,7 +257,7 @@ Then, Web Components and your SPA's routing must be connected.
 The connection points are outlined in this section.
 
 Web Components holds some inner state to distinguish whether it is in _search mode_ or in _navigation mode_.
-This is important to target the correct FACT-Finder API and to create the correct behavior by the HTML elements.
+This is important to target the correct FactFinder API and to create the correct behavior by the HTML elements.
 The switching between these two modes must be synchronized with your SPA's state.
 
 Using Web Components' navigation elements (`ff-navigation` and `ff-header-navigation`) makes the setup easier.
@@ -333,7 +333,7 @@ window.addEventListener(`popstate`, popstateHandler);
 ```
 
 New history entries are dealt with in the `ffUrlWrite` event handler.
-It is invoked after a search request to FACT-Finder returns.
+It is invoked after a search request to FactFinder returns.
 Suggest or tracking requests do not trigger this event.
 
 ```js

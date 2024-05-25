@@ -1,10 +1,10 @@
-The **EventAggregator** (`factfinder.communication.EventAggregator`) is used to query the FACT-Finder API with an event based approach. You can also hook into the communication pipeline.
+The **EventAggregator** (`factfinder.communication.EventAggregator`) is used to query the FactFinder API with an event based approach. You can also hook into the communication pipeline.
 
 ## Fire Events       
-To send queries to FACT-Finder, you need to fire events via the `addFFEvent()` function. Internally, the same method is used for all elements which communicate with FACT-Finder.
+To send queries to FactFinder, you need to fire events via the `addFFEvent()` function. Internally, the same method is used for all elements which communicate with FactFinder.
 
 ### `addFFEvent(event)`
-Each event has a `type` which defines what API on FACT-Finder is called and which other properties it operates on.
+Each event has a `type` which defines what API on FactFinder is called and which other properties it operates on.
 
 **NOTE**: Each property which is not a function or an object is translated to an http request parameter with a few exceptions:
 
@@ -218,8 +218,8 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
         value: <sortItem.description>
     });
 
-    // NOTE the corresponding supplied value has to match your FACT-Finder configuration.
-    // If you want to change the available values/options, change the options in the FACT-Finder UI.
+    // NOTE the corresponding supplied value has to match your FactFinder configuration.
+    // If you want to change the available values/options, change the options in the FactFinder UI.
     factfinder.communication.EventAggregator.addFFEvent({
         type: "sort",
         value: "Title A-Z"
@@ -235,8 +235,8 @@ Now you can register/subscribe a callback to the ResultDispatcher with that topi
                 value: < productsPerPageItem.value >
     });
 
-    // NOTE the corresponding supplied value has to match your FACT-Finder configuration.
-    // If you want to change the available values/options, change the options in the FACT-Finder UI.
+    // NOTE the corresponding supplied value has to match your FactFinder configuration.
+    // If you want to change the available values/options, change the options in the FactFinder UI.
     factfinder.communication.EventAggregator.addFFEvent({
         type: "ppp",
         value: 36

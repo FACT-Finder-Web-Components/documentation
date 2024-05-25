@@ -1,13 +1,13 @@
 ## Configuration
 
 ---
-This chapter describes the minimal configuration necessary to search and retrieve results from FACT-Finder.
+This chapter describes the minimal configuration necessary to search and retrieve results from FactFinder.
 You can configure the communication via the custom element `ff-communication` or directly via JavaScript.
 
 ### A minimal configuration consists of the following settings:
 
 #### **URL**
-Specify the FACT-Finder endpoint.
+Specify the FactFinder endpoint.
 Please note the context name `/FACT-Finder`.
 It is not sufficient to provide the top-level domain like `https://web-components.fact-finder.de/` which will result in an error.
 
@@ -19,22 +19,22 @@ It is not sufficient to provide the top-level domain like `https://web-component
 ---
 
 #### **version**
-Specify the FACT-Finder version. E.g. `ng` or  `7.3`.
+Specify the FactFinder version. E.g. `ng` or  `7.3`.
 
 ---
 
 #### **api**
-When using FACT-Finder **NG**, specify the FACT-Finder **API** version. E.g. `v5`, `v4`, `v3` or `v2`.
+When using FactFinder **NG**, specify the FactFinder **API** version. E.g. `v5`, `v4`, `v3` or `v2`.
 
 ---
 
 #### **channel**
 Specify the name of the channel which is used for the search.
-You can find the available channels in your FACT-Finder UI.
+You can find the available channels in your FactFinder UI.
 
 ---
 
-## FACT-Finder Web Components Approach
+## FactFinder Web Components Approach
 ```html
 <body>
     <ff-communication url="https://web-components.fact-finder.de/FACT-Finder"
@@ -47,7 +47,7 @@ You can find the available channels in your FACT-Finder UI.
 
 > Important
 >
-> The `ff-communication` element must be the first FACT-Finder Web Component in DOM order!
+> The `ff-communication` element must be the first FactFinder Web Component in DOM order!
 
 [Read why](/documentation/4.x/ready-events).
 
@@ -55,8 +55,8 @@ We recommend placing the `ff-communication` element immediately after the `body`
 Furthermore, we advise to add a comment explaining this requirement.
 For example:
 ```html
-<!-- The ff-communication element sets up the FF FACT-Finder Web Components and must not be moved!
-     All other FACT-Finder Web Components must be placed hereafter. -->
+<!-- The ff-communication element sets up the FF FactFinder Web Components and must not be moved!
+     All other FactFinder Web Components must be placed hereafter. -->
 ```
 
 #### **search-immediate**
@@ -91,7 +91,7 @@ document.addEventListener("ffReady", function (event) { // "ffReady" event ensur
 });
 ```
 
-Although the entire configuration can be done using JavaScript, we discourage direct use of custom JavaScript to do so and strongly recommend configuring everything through FACT-Finder Web Components.
+Although the entire configuration can be done using JavaScript, we discourage direct use of custom JavaScript to do so and strongly recommend configuring everything through FactFinder Web Components.
 
 > Caution
 >

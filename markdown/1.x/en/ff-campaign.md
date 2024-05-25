@@ -2,9 +2,9 @@
 
 Feedback campaigns can be displayed using `ff-campaign-feedbacktext` elements. There may be multiple elements and they can be placed anywhere in the document.
 
-Through the `label` attribute you define which campaigns can be displayed by the element. The attribute's value must match one of the campaigns' **labels** that are defined in FACT-Finder. If multiple campaigns are configured to target the same **label**, the `ff-campaign-feedbacktext` element with the corresponding `label` will serve as the outlet to all these campaigns.
+Through the `label` attribute you define which campaigns can be displayed by the element. The attribute's value must match one of the campaigns' **labels** that are defined in FactFinder. If multiple campaigns are configured to target the same **label**, the `ff-campaign-feedbacktext` element with the corresponding `label` will serve as the outlet to all these campaigns.
 
-Remember that a campaign's trigger condition must still be satisfied before it can be displayed by `ff-campaign-feedbacktext`. If multiple campaigns targeting the same **label** are triggered simultaneously, the campaign appearing last in the FACT-Finder response will be displayed.
+Remember that a campaign's trigger condition must still be satisfied before it can be displayed by `ff-campaign-feedbacktext`. If multiple campaigns targeting the same **label** are triggered simultaneously, the campaign appearing last in the FactFinder response will be displayed.
 
 The only necessary data binding is `{{text}}`.
 
@@ -21,10 +21,10 @@ The only necessary data binding is `{{text}}`.
 ## Adding Advisor campaigns
 To integrate Advisor campaigns properly, you need to use the `ff-campaign-advisor`, `ff-campaign-advisor-question` and `ff-campaign-advisor-answer` elements.
 
-The `ff-campaign-advisor-question` is copied for each question configured in FACT-Finder. It is inserted at its current position on element load.
+The `ff-campaign-advisor-question` is copied for each question configured in FactFinder. It is inserted at its current position on element load.
 Annotate any HTML-Element inside the question with the `[data-question]` attribute to use it for data binding purposes.
 
-The `ff-campaign-advisor-answer` is copied for each answer which is configured in FACT-Finder. It is inserted at its current position on element load. In the following example the answers are always inserted at firstChild position
+The `ff-campaign-advisor-answer` is copied for each answer which is configured in FactFinder. It is inserted at its current position on element load. In the following example the answers are always inserted at firstChild position
 
 You can use the `[name]` attribute to use the `ff-campaign-advisor-answer` element as a template for a campaign with that name.
 
@@ -48,7 +48,7 @@ You can use the `[not]` attribute to use the `ff-campaign-advisor-answer` elemen
 ```
 
 ## Adding Redirect campaigns
-The `ff-campaign-redirect` element redirects the browser to a destination specified in a redirect campaign. If the latest request to FACT-Finder triggered a redirect campaign, all further processing of the response will be suspended and the redirect will happen immediately.
+The `ff-campaign-redirect` element redirects the browser to a destination specified in a redirect campaign. If the latest request to FactFinder triggered a redirect campaign, all further processing of the response will be suspended and the redirect will happen immediately.
 
 To ensure it is executed before any other elements, `ff-campaign-redirect` should be placed directly after the opening `<body>` tag.
 

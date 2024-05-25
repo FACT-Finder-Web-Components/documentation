@@ -3,7 +3,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **suggest-onfocus**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | If this property is set to true a FACT-Finder Suggest recommendation is displayed as soon as the search box is in focus. |
+| **suggest-onfocus**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | If this property is set to true a FactFinder Suggest recommendation is displayed as soon as the search box is in focus. |
 | **hidesuggest-onblur**&nbsp; (String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | Determines if Suggest recommendations are hidden as soon as the cursor leaves the input field. This property is intended for development and styling purposes. |
 | **select-onclick**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Determines if the contents of the search box should be selected if the inside of the box is clicked. |
 | **use-suggest**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | Determines if a request should be sent to the suggest interface as soon as a user starts typing in a search term. |

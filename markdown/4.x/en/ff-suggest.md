@@ -45,7 +45,7 @@ The `section` elements are used for the built-in list/block layout.
 ## Adding a Suggest container
 
 You need to annotate an element with the `data-container="suggestType"`
-attribute for each suggest type configured in the FACT-Finder backend.
+attribute for each suggest type configured in the FactFinder backend.
 
 The `ff-suggest` element hides the annotated container if no suggestions
 are found for this type.
@@ -191,7 +191,7 @@ See the following example:
             // Tell the suggest-item to skip its default action
             ffSuggestItem.ffPreventDefault = true;
 
-            // The fields contained in "attributes" must be configured in the FACT-Finder UI
+            // The fields contained in "attributes" must be configured in the FactFinder UI
             const articleNr = suggestionData.attributes["articleNr"];
 
             window.open("https://www.your-shop.example" + articleNr, "_blank");
@@ -210,10 +210,10 @@ The `deeplink` field is populated with the data from the data feed export column
 > `ff-suggest` redirects both absolute and relative URLs.
 
 If no `deeplink` is provided for an item of type `productName`, then `ff-suggest` will try to obtain its value by emitting an additional request.
-Depending on the used FACT-Finder version it will be a search request (versions lower than `7.3`), or a records API call (versions `7.3` and up).
+Depending on the used FactFinder version it will be a search request (versions lower than `7.3`), or a records API call (versions `7.3` and up).
 Then `ff-suggest` will try to redirect the user once more, this time using the data received from the response to the mentioned request.
 
-If the clicked item is not of type `productName`, a standard search request will be issued to FACT-Finder with an additional parameter `queryFromSuggest` which is unique to `ff-suggest` and may be used to identify search requests issued by this element.
+If the clicked item is not of type `productName`, a standard search request will be issued to FactFinder with an additional parameter `queryFromSuggest` which is unique to `ff-suggest` and may be used to identify search requests issued by this element.
 
 To prevent the built-in behavior, please set `ffPreventDefault` to `true` on a specific suggest item before the default event listener reacts to the `click` event.
 See the **"Overriding default click action"** section above for more information and example usage of how to set that flag.

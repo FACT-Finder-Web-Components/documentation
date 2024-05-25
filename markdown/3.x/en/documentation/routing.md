@@ -48,7 +48,7 @@ document.addEventListener("ffReady", function (event) {
     const eventAggregator = event.eventAggregator;
     eventAggregator.addBeforeDispatchingCallback(function (event) {
         if (event.searchImmediate) {
-            event.cancel(); // prevents issuing requests to FACT-Finder and following redirect
+            event.cancel(); // prevents issuing requests to FactFinder and following redirect
         }
     })
 });

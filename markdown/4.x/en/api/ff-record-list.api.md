@@ -4,7 +4,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **subscribe**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | If this is set to false the element no longer listens to events and therefore does not receive new data. This is useful if you want to dispatch your own data to the element. |
-| **records**&nbsp;(Array) | An Array of Objects containing the record data returned by FACT-Finder. |
+| **records**&nbsp;(Array) | An Array of Objects containing the record data returned by FactFinder. |
 | **ssr** (Boolean) | Enables the SSR mode for the record list. |
 
 ### Methods
@@ -22,7 +22,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **record-data** (Object) | The record object returned by FACT-Finder. |
+| **record-data** (Object) | The record object returned by FactFinder. |
 | **add-cart-click** (Boolean) |  [Tracking Guide](/guides/tracking-guide) |
 | **add-checkout-click** (Boolean) |  [Tracking Guide](/guides/tracking-guide) |
 

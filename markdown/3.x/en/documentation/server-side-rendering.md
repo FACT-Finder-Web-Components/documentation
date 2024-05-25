@@ -22,12 +22,12 @@ The variety of technologies makes it impossible to fully describe each step in i
 
 #### Sending a search request
 
-In order to render records on the server side, your application needs to send a **search** request to FACT-Finder to get product data it will work with.
+In order to render records on the server side, your application needs to send a **search** request to FactFinder to get product data it will work with.
 
 #### Pre-rendering
 
 With the response from the request above, you need to prepare a specific view object representing a page to be output. 
-At this stage, records fetched from FACT-Finder should be converted into `ff-record` elements.
+At this stage, records fetched from FactFinder should be converted into `ff-record` elements.
 To do so, you may want to use a template engine which hydrates raw templates with real data.
 Web Components uses the mustache.js [template engine](/documentation/3.x/template-engine), so it may be the easiest to use its server side counterpart.
 
@@ -54,7 +54,7 @@ The most convenient way to make the response available to use by Web Components 
 
 > Note
 >
-> `RESPONSE_TEXT` in the example above represents the response text received from FACT-Finder.
+> `RESPONSE_TEXT` in the example above represents the response text received from FactFinder.
 > The way it is passed to a variable depends on the used framework.
 
 This step concludes the server side part.

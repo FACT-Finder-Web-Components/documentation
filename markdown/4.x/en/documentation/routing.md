@@ -5,7 +5,7 @@ This guide covers the recommended approach to handle redirects between different
 
 ### Redirect to the search page
 
-In order to redirect all search events triggered on the homepage or other non-search pages to the product listing page, the following script should be placed above the FACT-Finder Web Components import tag:
+In order to redirect all search events triggered on the homepage or other non-search pages to the product listing page, the following script should be placed above the FactFinder Web Components import tag:
 ```javascript
 document.addEventListener("ffReady", function (event) {
     const factfinder = event.factfinder;
@@ -48,7 +48,7 @@ document.addEventListener("ffReady", function (event) {
     const eventAggregator = event.eventAggregator;
     eventAggregator.addBeforeDispatchingCallback(function (event) {
         if (event.searchImmediate) {
-            event.cancel(); // prevents issuing requests to FACT-Finder and following redirect
+            event.cancel(); // prevents issuing requests to FactFinder and following redirect
         }
     })
 });

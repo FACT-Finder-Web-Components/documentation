@@ -1,18 +1,18 @@
 ## Implementing custom components 
 
 ---
-FACT-Finder Web Components API can be used to implement custom components in any web framework.
-In a typical scenario, we can use [EventAggregator's](/api/3.x/core-event-aggregator) `addFFEvent()` to query FACT-Finder and [ResultDispatcher's](/api/3.x/core-result-dispatcher) `subscribe()` to receive its response. 
+FactFinder Web Components API can be used to implement custom components in any web framework.
+In a typical scenario, we can use [EventAggregator's](/api/3.x/core-event-aggregator) `addFFEvent()` to query FactFinder and [ResultDispatcher's](/api/3.x/core-result-dispatcher) `subscribe()` to receive its response. 
 Below you will find two examples following this approach implementing a product carousel component, one in VueJS and one as a native custom element.
 
 ### VueJS
 
 The source code is available [here](https://github.com/FACT-Finder-Web-Components/demos/blob/release/3.x/custom-components/vuejs-carousel/carousel.js).
-Let's take a closer look at the parts where FACT-Finder Web Components API is utilized:
+Let's take a closer look at the parts where FactFinder Web Components API is utilized:
 
 #### 1. `addFFEvent`
 
-We call `addFFEvent()` in the `mounted` hook to trigger FACT-Finder search when the component renders for the first time:
+We call `addFFEvent()` in the `mounted` hook to trigger FactFinder search when the component renders for the first time:
 ```javascript
 eventAggregator.addFFEvent({
     type: 'search',
@@ -52,7 +52,7 @@ if (carousel.subscriptionKey) {
 ### Native custom element
 
 The source code is available [here](https://github.com/FACT-Finder-Web-Components/demos/blob/release/3.x/custom-components/native-carousel/carousel.js).
-The usage of FACT-Finder Web Components API here is very similar to the usage in the VueJS example.
+The usage of FactFinder Web Components API here is very similar to the usage in the VueJS example.
 
 #### 1. `addFFEvent`
 

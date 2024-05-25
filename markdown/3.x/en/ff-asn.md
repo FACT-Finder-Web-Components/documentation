@@ -28,7 +28,7 @@ If you want to change the group caption, you can annotate an HTML element with t
 
 
 ## Structuring the filter group
-A common After Search Navigation group consists of two basic parts. The **detailedLinks** and the **hiddenLinks**. The **detailedLinks** are the filter items which should be displayed immediately when the group receives data. The **hiddenLinks** instead are the filter items which should stay hidden until they are needed. In FACT-Finder you can configure how many items shall appear for each type.
+A common After Search Navigation group consists of two basic parts. The **detailedLinks** and the **hiddenLinks**. The **detailedLinks** are the filter items which should be displayed immediately when the group receives data. The **hiddenLinks** instead are the filter items which should stay hidden until they are needed. In FactFinder you can configure how many items shall appear for each type.
 
 You can define the structure of your custom filter group through certain predefined attributes.
 
@@ -40,7 +40,7 @@ You can define the structure of your custom filter group through certain predefi
         </div>
     </div>
     <div data-container="showMore">
-        <!-- The "showMore" container will only be rendered if there are "hiddenLinks" in the FACT-Finder response.
+        <!-- The "showMore" container will only be rendered if there are "hiddenLinks" in the FactFinder response.
              It disappears after being clicked and reappears after "showLess" was clicked. -->
         <span class="text">Show More</span>
     </div>
@@ -392,7 +392,7 @@ Suppose you type `art` into _Manufacturer_'s search box.
 
 ## Dispatching data manually
 If you need to manually dispatch data, for instance when the component is subscribed to a custom topic, you can use `ResultDispatcher` to achieve that.
-The ASN component requires the `groups` property's content of the FACT-Finder response to be passed.
+The ASN component requires the `groups` property's content of the FactFinder response to be passed.
 No additional preparation is needed. 
 
 ```js

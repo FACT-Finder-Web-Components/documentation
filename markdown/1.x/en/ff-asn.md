@@ -157,7 +157,7 @@ detailedLinks and the hiddenLinks. The detailedLinks are the amount of
 filter items which should be displayed immediately when the group receives
 data. The hiddenLinks instead are the filter items which should stay
 hidden until they are needed. You can configure these numbers in the
-FACT-Finder backend.
+FactFinder backend.
 
 Lets take a look at the example
 

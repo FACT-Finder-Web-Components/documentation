@@ -1,5 +1,5 @@
 ## Adding a Landing Page
-With the `ff-campaign-landing-page` you can display product campaigns on a custom display location (e.g. the start page of your website). All you need to do is add the `ff-campaign-landing-page` element to your page and set the attribute page-id to the value of the corresponding FACT-Finder campaign you configured.
+With the `ff-campaign-landing-page` you can display product campaigns on a custom display location (e.g. the start page of your website). All you need to do is add the `ff-campaign-landing-page` element to your page and set the attribute page-id to the value of the corresponding FactFinder campaign you configured.
 
 ```html
 <ff-campaign-landing-page page-id="home"></ff-campaign-landing-page>

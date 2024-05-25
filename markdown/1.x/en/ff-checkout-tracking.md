@@ -39,8 +39,8 @@ const trackingElement = document.querySelector('ff-checkout-tracking');
 trackingElement.trackCheckoutItems();
 ```
 
-**NOTE:** `<ff-checkout-tracking>` element depends on FACT-Finder's Record API.
-The element won't work unless your FACT-Finder version supports this API.
+**NOTE:** `<ff-checkout-tracking>` element depends on FactFinder's Record API.
+The element won't work unless your FactFinder version supports this API.
 
 To have the new element resolve the correct field for tracking on your
 detail page, you have to set the `fieldRoles` property manually (normally
@@ -67,7 +67,7 @@ document.addEventListener("ffReady", function () {
 
 **NOTE:** You have to replace the right hand side (e.g. BrandFieldName)
 with your own values. If you can't find a way to retrieve the `fieldRoles`
-via the FACT-Finder UI, you can trigger a search on a page that uses
-FACT-Finder Web Components and your FACT-Finder instance. Afterwards open the
+via the FactFinder UI, you can trigger a search on a page that uses
+FactFinder Web Components and your FactFinder instance. Afterwards open the
 Browser Dev Tools, navigate to the Console Tab and enter:
 `factfinder.communication.fieldRoles`

@@ -44,8 +44,8 @@ trackingElement.trackCheckoutItems();
 
 > Note
 >
-> The `ff-checkout-tracking` element depends on FACT-Finder's Record API.
-> The element won't work unless your FACT-Finder version supports this API.
+> The `ff-checkout-tracking` element depends on FactFinder's Record API.
+> The element won't work unless your FactFinder version supports this API.
 
 ### Setting field roles is required
 
@@ -83,5 +83,5 @@ See the article on [field roles](/documentation/4.x/field-roles) for more detail
 > Note
 >
 > You have to replace the right-hand side (e.g. "BrandFieldName") with your own values.
-> If you can't find a way to retrieve the `fieldRoles` via the FACT-Finder UI, you can trigger a search on a page that uses FACT-Finder Web Components and your FACT-Finder instance.
+> If you can't find a way to retrieve the `fieldRoles` via the FactFinder UI, you can trigger a search on a page that uses FactFinder Web Components and your FactFinder instance.
 > Afterwards, open the browser's Dev Tools, navigate to the Console Tab and enter: `factfinder.communication.fieldRoles`

@@ -10,7 +10,7 @@ Basic usage:
 <ff-tag-cloud min-font-size="10" max-font-size="40" word-count="50" unit="px"></ff-tag-cloud>
 ```
 **NOTE:**
-Changes to any property of the element, except `disable-auto`, will trigger a tag cloud request to FACT-Finder followed by a DOM update. The default action on a click of a tag cloud child element will trigger a FACT-Finder search for that word. You can prevent this behavior by setting the `ffPreventDefault` on the `entry-clicked` event.
+Changes to any property of the element, except `disable-auto`, will trigger a tag cloud request to FactFinder followed by a DOM update. The default action on a click of a tag cloud child element will trigger a FactFinder search for that word. You can prevent this behavior by setting the `ffPreventDefault` on the `entry-clicked` event.
 
 **Example snippet: Prevent default click event and redirect to different page:**
 

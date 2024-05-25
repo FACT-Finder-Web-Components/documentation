@@ -41,7 +41,7 @@ The `section` elements are used for the built-in list/block layout.
 ## Adding a suggest container
 
 You need to annotate an element with the `data-container="suggestType"`
-attribute for each suggest type configured in the FACT-Finder backend.
+attribute for each suggest type configured in the FactFinder backend.
 
 The `ff-suggest` element hides the annotated container if no suggestions
 are found for this type.
@@ -188,7 +188,7 @@ See the following example:
             // Tell the suggest-item to skip its default action
             ffSuggestItem.ffPreventDefault = true;
 
-            // The fields contained in "attributes" must be configured in the FACT-Finder UI
+            // The fields contained in "attributes" must be configured in the FactFinder UI
             const articleNr = suggestionData.attributes["articleNr"];
 
             window.open("http://www.your-shop.example" + articleNr, "_blank");

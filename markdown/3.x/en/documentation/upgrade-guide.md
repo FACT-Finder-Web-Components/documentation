@@ -1,14 +1,14 @@
 ## Upgrade from version 1.2.x to 3.0.0
-We strongly recommend upgrading your system to use the latest version of FACT-Finder Web Components. While we will do critical bug fixes for older versions, new features will likely only be implemented in newer versions. In addition, the newer versions utilize newer technology, decreasing your loading time and improving internal speed. We promise to make each upgrade go as smoothly as possible.
+We strongly recommend upgrading your system to use the latest version of FactFinder Web Components. While we will do critical bug fixes for older versions, new features will likely only be implemented in newer versions. In addition, the newer versions utilize newer technology, decreasing your loading time and improving internal speed. We promise to make each upgrade go as smoothly as possible.
 
 In general you can keep track of our progress, changes and new features in the [changelog](https://github.com/FACT-Finder-Web-Components/ff-web-components/blob/release/3.x/CHANGELOG.md) of the _3.x_ branch or on the [release page](https://github.com/FACT-Finder-Web-Components/ff-web-components/releases).
 
 The main difference between _1.2.x_ and _3.0.0_ is that we internally moved from [Polymer 1](https://polymer-library.polymer-project.org/1.0/docs/devguide/feature-overview) to [Polymer 3](https://polymer-library.polymer-project.org/3.0/docs/about_30) and are half way done migrating to [LitElement](https://lit-element.polymer-project.org/).
 
-There are only two major changes and some minor API changes to take care of when upgrading from version _1.2.x_ to version _3.0.0_. In addition, CSS mixins have been removed. You can use regular CSS selectors instead. Furthermore, `ffw-` is introduced as the prefix for FACT-Finder Web Components custom class names.
+There are only two major changes and some minor API changes to take care of when upgrading from version _1.2.x_ to version _3.0.0_. In addition, CSS mixins have been removed. You can use regular CSS selectors instead. Furthermore, `ffw-` is introduced as the prefix for FactFinder Web Components custom class names.
 
 ### 2 major changes
-- As [HTML-Imports](https://w3c.github.io/webcomponents/spec/imports/) didn't become part of the HTML and DOM specs, unlike the rest of the Web Components spec, FACT-Finder Web Components now ship as plain JavaScript instead of HTML. Which is why you have to load `bundle.js` instead of the previous HTML-Imports.
+- As [HTML-Imports](https://w3c.github.io/webcomponents/spec/imports/) didn't become part of the HTML and DOM specs, unlike the rest of the Web Components spec, FactFinder Web Components now ship as plain JavaScript instead of HTML. Which is why you have to load `bundle.js` instead of the previous HTML-Imports.
    
 ```html
     <!-- Before -->

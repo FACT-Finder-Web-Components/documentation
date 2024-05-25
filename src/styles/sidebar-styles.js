@@ -57,8 +57,8 @@ $_documentContainer.innerHTML = `<dom-module id="sidebar-styles">
             }
 
             .panel-menus > iron-selector a.iron-selected {
-                border-left: 6px solid rgb(27, 67, 133);
-                color: rgb(27, 67, 133);
+                border-left: 6px solid #230871;
+                color: #230871;
             }
         </style>
     </template>

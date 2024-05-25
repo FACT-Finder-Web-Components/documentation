@@ -3,7 +3,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **suggest-onfocus**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | If this property is set to true a FACT-Finder Suggest recommendation is displayed as soon as the search box is in focus. |
+| **suggest-onfocus**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | If this property is set to true a FactFinder Suggest recommendation is displayed as soon as the search box is in focus. |
 | **hide-suggest-onblur**&nbsp; (String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | Determines if Suggest recommendations are hidden as soon as the cursor leaves the input field. This property is intended for development and styling purposes. |
 | **select-onclick**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "false") | Determines if the contents of the search box should be selected if the inside of the box is clicked. |
 | **use-suggest**&nbsp;(String) **Options**: &nbsp;"true", &nbsp;"false" (default: "true") | Determines if a request should be sent to the suggest interface as soon as a user starts typing in a search term. |
@@ -32,4 +32,4 @@ ___
 ### Events
 | Name | Description |
 | ---- | ----------- |
-| **before-search** | Is emitted when the button is pressed and bubbles up the DOM tree. Its `detail` property contains the actual search event that is used to trigger the FACT-Finder API call. |
+| **before-search** | Is emitted when the button is pressed and bubbles up the DOM tree. Its `detail` property contains the actual search event that is used to trigger the FactFinder API call. |

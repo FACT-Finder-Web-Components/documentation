@@ -43,17 +43,17 @@ When setup like in the last example above, the rendered HTML could look like thi
 
 
 ## Custom-built dropdown
-Adding `<ff-sortbox></ff-sortbox>` to your page will add a custom-built HTML dropdown containing all criteria defined in the FACT-Finder back-end.  
-Optionally, you can specify your own templates by adding `ff-sortbox-item` elements with their `key` attribute set to the relevant value. If you don't specify any templates, rendered `ff-sortbox-item`s will contain their plain text description as provided by FACT-Finder.
+Adding `<ff-sortbox></ff-sortbox>` to your page will add a custom-built HTML dropdown containing all criteria defined in the FactFinder back-end.  
+Optionally, you can specify your own templates by adding `ff-sortbox-item` elements with their `key` attribute set to the relevant value. If you don't specify any templates, rendered `ff-sortbox-item`s will contain their plain text description as provided by FactFinder.
 
 Available keys are as follows:
 
 | Key | Description |
 | --- | --- |
 | default.template | This is the fallback template for all options that have no other template defined. |
-| ff.relevance | FACT-Finder always returns an option to sort by relevance. |
-| _{key from FACT-Finder response}_.asc | An option as specified in FACT-Finder in ascending order. (e.g. `Price.asc`, `Title.asc`) |
-| _{key from FACT-Finder response}_.desc | An option as specified in FACT-Finder in descending order. |
+| ff.relevance | FactFinder always returns an option to sort by relevance. |
+| _{key from FactFinder response}_.asc | An option as specified in FactFinder in ascending order. (e.g. `Price.asc`, `Title.asc`) |
+| _{key from FactFinder response}_.desc | An option as specified in FactFinder in descending order. |
 
 Inside the `ff-sortbox-item` you can access the sort option name with `{{description}}`.
 
@@ -70,7 +70,7 @@ Inside the `ff-sortbox-item` you can access the sort option name with `{{descrip
     <ff-sortbox-item key="ff.relevance">Relevance</ff-sortbox-item>
 
     <!--
-    other keys are related to data returned by FACT-Finder. their format is always FIELDNAME.ORDER
+    other keys are related to data returned by FactFinder. their format is always FIELDNAME.ORDER
     -->
     <ff-sortbox-item key="Price.asc">
         <span style="font-size: 18px">Overridden for: {{description}}</span>

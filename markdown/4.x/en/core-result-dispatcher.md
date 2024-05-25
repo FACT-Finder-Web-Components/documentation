@@ -1,6 +1,6 @@
 You can subscribe to the ResultDispatcher for raw data or to change the
 result before it is dispatched. This is indeed what all
-data related FACT-Finder Web Components do. They subscribe to
+data related FactFinder Web Components do. They subscribe to
 ResultDispatcher to get notified when new data is available.
 
 The ResultDispatcher is in the module:
@@ -110,7 +110,7 @@ Remove a callback for a topic (ex:`asn`) with the `key` from the registered call
 ### `dispatchSSR(response, topics)`
 ___
 Manually dispatches a **response** to Web Components.
-This method is useful when there is a need to dispatch a FACT-Finder response received in a way other than by Web Components AJAX request.
+This method is useful when there is a need to dispatch a FactFinder response received in a way other than by Web Components AJAX request.
 That will be the case especially when implementing [Server Side Rendering](/documentation/4.x/server-side-rendering).
 
 Argument `topics` is optional - skipping it causes the response to be dispatched to all default topics.
@@ -138,10 +138,10 @@ With the `topics` argument passed, only the part of the response related to the 
 
 By its nature, the ResultDispatcher communicates with Web Components in a publish-subscribe fashion.
 While this architecture has multiple advantages, like loose coupling and dynamic targeting, it comes with a caveat.
-Web Components that are dynamically attached to DOM by JS might subscribe too late to receive the data sent out by the ResultDispatcher after receiving a FACT-Finder response.
-In certain setups, where the elements are rendered in parallel with the FACT-Finder request sequence, this might also lead to race conditions causing inconsistent HTML outputs.
+Web Components that are dynamically attached to DOM by JS might subscribe too late to receive the data sent out by the ResultDispatcher after receiving a FactFinder response.
+In certain setups, where the elements are rendered in parallel with the FactFinder request sequence, this might also lead to race conditions causing inconsistent HTML outputs.
 
-As one of the options to overcome this issue, FACT-Finder Web Components features the Auto Fetching mode. 
+As one of the options to overcome this issue, FactFinder Web Components features the Auto Fetching mode. 
 With Auto Fetching enabled, the ResultDispatcher will feed the newly subscribed Web Components with the latest data, even if they subscribe after a regular dispatch cycle.
 
 To globally enable Auto Fetching, set the `globalCommunicationParameter.autoFetch` configuration parameter to `AlwaysOn`:

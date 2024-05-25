@@ -10,7 +10,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **word**&nbsp;(Object) | The data from FACT-Finder. | 
+| **word**&nbsp;(Object) | The data from FactFinder. | 
 
 ### Methods
 | Name | Description |

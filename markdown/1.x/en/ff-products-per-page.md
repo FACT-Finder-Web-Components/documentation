@@ -1,6 +1,6 @@
 ## Overview
 This element lets the user set the number of products shown per page. The available options are
-predefined in the FACT-Finder backend. We provide three different kinds of elements you can choose from.
+predefined in the FactFinder backend. We provide three different kinds of elements you can choose from.
 The `ff-products-per-page-select` is a native HTML `select` element. The `ff-products-per-page` is a
 custom-built dropdown element. And `ff-products-per-page-list` shows all options in a horizontal list next to each other.
 All three elements can be used with or without additional customization.

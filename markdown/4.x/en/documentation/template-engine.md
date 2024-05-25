@@ -1,14 +1,14 @@
 ## Template Engine
 
 ---
-All `{{data-bindings}}` used in FACT-Finder Web Components refer to the underlying JSON response returned by FACT-Finder.
+All `{{data-bindings}}` used in FactFinder Web Components refer to the underlying JSON response returned by FactFinder.
 
 You can take a look at all available bindings by opening your browser's **Dev Tools** (__press F12 key__) and navigating to the **Network** tab.
 Filtering by **XHR** makes things easier.
 
 > Important
 >
-> For backward compatibility the response received from FACT-Finder NG is transformed into the pre-NG format.
+> For backward compatibility the response received from FactFinder NG is transformed into the pre-NG format.
 > While it is mostly identical, you cannot reliably refer to the response reported by the browser to lookup your data bindings.
 > Instead, inspect the actual data that arrives at the elements.
 
@@ -41,10 +41,10 @@ Following a malicious URL could result in unwanted code running in the user's br
 ### Data Binding Example
 
 By expanding the records array and one of its items we can take a look at the fields returned by
-FACT-Finder.
+FactFinder.
 In this specific example product data is stored in a record object.
 All fields returned in this object are imported during the data feed process.
-The fields to be returned can be configured in the FACT-Finder UI.
+The fields to be returned can be configured in the FactFinder UI.
 
 ![record_json.PNG](/images/templateEngine/record_json.PNG "slots")
 
@@ -61,7 +61,7 @@ Consider the following data-binding example to see how to access the data.
 ## Underlying Engine (mustache.js)
 
 ---
-FACT-Finder Web Components uses **mustache.js** as the engine to resolve its HTML templates.
+FactFinder Web Components uses **mustache.js** as the engine to resolve its HTML templates.
 Please refer to the official documentation for available features and their usage:
 
 [https://github.com/janl/mustache.js/](https://github.com/janl/mustache.js/#mustachejs---logic-less-mustache-templates-with-javascript)
@@ -87,7 +87,7 @@ If the data to be displayed is not provided in the required format, use [ResultD
 Most front-end frameworks provide their own data binding syntax.
 As it stands, `{{ }}` seems to be the most popular choice for these data bindings.
 
-This often leads to conflicts when you are embedding FACT-Finder Web Components in third party frameworks.
+This often leads to conflicts when you are embedding FactFinder Web Components in third party frameworks.
 Typically, your framework resolves all data bindings _before_ the resulting HTML is accessible to Web Components.
 
 > Important

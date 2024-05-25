@@ -1,11 +1,11 @@
 ## Middleware
 
-Starting from version `1.2.13` FACT-Finder Web Components support the concept of middleware. You can register and configure pre-defined modules to manipulate the data being exchanged between FACT-Finder Web Components and FACT-Finder.
-Middleware modules can be registered through FACT-Finder Web Components themselves or directly through JavaScript.
+Starting from version `1.2.13` FactFinder Web Components support the concept of middleware. You can register and configure pre-defined modules to manipulate the data being exchanged between FactFinder Web Components and FactFinder.
+Middleware modules can be registered through FactFinder Web Components themselves or directly through JavaScript.
 
-## FACT-Finder Web Components Approach
+## FactFinder Web Components Approach
 
-To register middleware modules using FACT-Finder Web Components place the `ff-middleware` element directly inside the `ff-communication` element. It is a container for all modules that shall be configured.
+To register middleware modules using FactFinder Web Components place the `ff-middleware` element directly inside the `ff-communication` element. It is a container for all modules that shall be configured.
 
 ```html
 <ff-communication url="..."
@@ -27,11 +27,11 @@ window.addEventListener("ffReady", function () {
 });
 ```
 
-Inside the `factfinder.middleware` namespace you have the option to choose for which part of data exchange you want to register a middleware module. In this example it is `response`. That means after a request to FACT-Finder returns, but before it is emitted by the [ResultDispatcher](/api/1.x/core-result-dispatcher#tab=docs) to its listeners (including the FACT-Finder Web Components on the page), the specified module is applied to the response manipulating it in the way configured.
+Inside the `factfinder.middleware` namespace you have the option to choose for which part of data exchange you want to register a middleware module. In this example it is `response`. That means after a request to FactFinder returns, but before it is emitted by the [ResultDispatcher](/api/1.x/core-result-dispatcher#tab=docs) to its listeners (including the FactFinder Web Components on the page), the specified module is applied to the response manipulating it in the way configured.
 
 ## Available Modules
 
-All modules can be registered through FACT-Finder Web Components or through JavaScript. When using FACT-Finder Web Components, as with `ff-middleware` and `ff-communication`, modules must be placed immediately inside the `ff-middelware` element, or an error will occur. Again, this is to ensure correct registration with the application.
+All modules can be registered through FactFinder Web Components or through JavaScript. When using FactFinder Web Components, as with `ff-middleware` and `ff-communication`, modules must be placed immediately inside the `ff-middelware` element, or an error will occur. Again, this is to ensure correct registration with the application.
 
 ### Response
 
@@ -39,7 +39,7 @@ Modules in this namespace are aimed at manipulating response data. They are loca
 
 #### MultiAttributeParsing
 
-This module is used to parse _multi-attribute fields_ and make their values more easily accessible. FACT-Finder returns multi-attribute fields as a string:
+This module is used to parse _multi-attribute fields_ and make their values more easily accessible. FactFinder returns multi-attribute fields as a string:
 
 ```javascript
 "|Size=M|Material=Cotton|Material=Synthetic fibres|Weight~~g=80|Recommended use=Leisure"
@@ -92,9 +92,9 @@ Assuming there is a multi-attribute field called `MultiFilter` and its value was
 
 _Note that mustache allows spaces in names as seen in_ `Recommended use`.
 
-Registration of `MultiAttributeParsing` using either FACT-Finder Web Components or JavaScript is done as follows.
+Registration of `MultiAttributeParsing` using either FactFinder Web Components or JavaScript is done as follows.
 
-FACT-Finder Web Components:
+FactFinder Web Components:
 ```html
 <ff-communication>
     <ff-middleware>
@@ -126,11 +126,11 @@ See the [API tab](/api/1.x/ff-middleware#tab=api) for more details on configurat
 
 #### ProductTeaserCampaignProcessor
 
-Starting with FACT-Finder version 7.3.5-42 and FACT-Finder Web Components version 1.2.16 _feedback text campaigns_ can be configured as _teaser_.
+Starting with FactFinder version 7.3.5-42 and FactFinder Web Components version 1.2.16 _feedback text campaigns_ can be configured as _teaser_.
 
-Applying this module will insert all _teaser feedback text campaigns_ into `searchResult.records` at the configured positions. Hence, for each _teaser feedback text campaign_, a rendered `ff-record-list` will contain an `ff-record` element with an `is-teaser` attribute and its inner HTML set to the text specified in FACT-Finder.
+Applying this module will insert all _teaser feedback text campaigns_ into `searchResult.records` at the configured positions. Hence, for each _teaser feedback text campaign_, a rendered `ff-record-list` will contain an `ff-record` element with an `is-teaser` attribute and its inner HTML set to the text specified in FactFinder.
 
-Configuration with FACT-Finder Web Components:
+Configuration with FactFinder Web Components:
 ```html
 <ff-communication>
     <ff-middleware>

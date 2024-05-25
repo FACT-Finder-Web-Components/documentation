@@ -71,7 +71,7 @@ If you want to read the count from the `textContent` property, you need to set t
 ### Login Tracking
 
 ---
-The `<ff-communication>` element provides a `user-id` attribute. When setting this attribute, a login request is sent automatically to FACT-Finder a soon as the page has loaded.
+The `<ff-communication>` element provides a `user-id` attribute. When setting this attribute, a login request is sent automatically to FactFinder a soon as the page has loaded.
 
 <ff-communication user-id="YourShopUserId">
 
@@ -100,7 +100,7 @@ If you want to prevent the auto requests, you can disable them with the Boolean 
 ```
 If you do so, you can search for the child elements by invoking the `checkoutTrackingElement.trackCheckoutItems()` function manually.
 
-**NOTE:** the `<ff-checkout-tracking>` element relies on the FACT-Finder Record API. If this API is not supported by your FACT-Finder version, it won't work.
+**NOTE:** the `<ff-checkout-tracking>` element relies on the FactFinder Record API. If this API is not supported by your FactFinder version, it won't work.
 
 To have the new element resolve the correct field for tracking on your detail page, you have to set the `fieldRoles` property manually (normally, the `fieldRoles` property is set by receiving a search response from a search request) like: 
 ```
@@ -120,4 +120,4 @@ document.addEventListener("ffReady", function () {
     };
 });
 ```
-**NOTE:** You have to replace the right hand side (like `BrandFieldName`) with your own values. If you can't find a way to retrieve the field roles via the FACT-Finder UI, you can open a FACT-Finder Web Components search page, trigger a search with your own FACT-Finder and afterwards open the Browser Dev Tools, navigate to the `console`  tab and type: `factfinder.communication.fieldRoles` -> Hit enter
+**NOTE:** You have to replace the right hand side (like `BrandFieldName`) with your own values. If you can't find a way to retrieve the field roles via the FactFinder UI, you can open a FactFinder Web Components search page, trigger a search with your own FactFinder and afterwards open the Browser Dev Tools, navigate to the `console`  tab and type: `factfinder.communication.fieldRoles` -> Hit enter

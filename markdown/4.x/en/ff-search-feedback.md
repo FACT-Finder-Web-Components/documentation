@@ -19,7 +19,7 @@ A rating can also contain a user's feedback text.
 For this you need to include **any** HTMLElement which has a **value** property.
 You need to add the attribute `data-message` on that HTMLElement.
 
-To send the feedback to FACT-Finder you need to include another HTMLElement with the attribute `data-send` which triggers the request when clicked.
+To send the feedback to FactFinder you need to include another HTMLElement with the attribute `data-send` which triggers the request when clicked.
 
 ```html
 <ff-search-feedback align="right" style="position: fixed; top: 40%" unresolved reset-on-toggle reset-on-send>
