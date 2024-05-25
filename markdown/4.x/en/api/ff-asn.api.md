@@ -6,7 +6,7 @@ ___
 | **align**&nbsp;(String) **Options**:&nbsp;"vertical",&nbsp;"horizontal" (default: "vertical") | The alignment of the After Search Navigation. |
 | **asn-groups**&nbsp;(Array) | The data for all filter groups/facets. |
 | **searchable-from**&nbsp;(Number) (default: Infinity) | The minimum number of filters in a group to render search field. The value refers to the sum of **detailed and hidden links**. |
-| **subscribe**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | Defines if component should automatically subscribe to `asn` event and use ASN data retrieved from FACT-Finder. |
+| **subscribe**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | Defines if component should automatically subscribe to `asn` event and use ASN data retrieved from FactFinder. |
 | **topic**&nbsp;(String) | Defines if the component should subscribe to a custom topic instead of the default one. Please note that in this case you need to manually dispatch ASN data. For more information regarding the data's structure, please refer to **Dispatching data manually** in the [ff-asn documentation](/api/4.x/ff-asn#tab=docs). |
 
 ### Events
@@ -48,7 +48,7 @@ ___
 | ---- | ----------- |
 | **selected**&nbsp;(Boolean)&nbsp;(default: `false`) | Rendered whenever element is selected. |
 | **fixed**&nbsp;(Boolean)&nbsp;(default: `false`) | Rendered when element is defined in [`category-page`](/api/4.x/ff-communication#tab=api). Element cannot be deselected. |
-| **implicit**&nbsp;(Boolean)&nbsp;(default: `false`) | Rendered when FACT-Finder considers the element as implicitly selected. Element cannot be deselected. |
+| **implicit**&nbsp;(Boolean)&nbsp;(default: `false`) | Rendered when FactFinder considers the element as implicitly selected. Element cannot be deselected. |
 | **element**&nbsp;(Object)&nbsp;(default: empty) | The filter data. |
 | **group**&nbsp;(Object)&nbsp;(default: empty) | The filter group data. |
 

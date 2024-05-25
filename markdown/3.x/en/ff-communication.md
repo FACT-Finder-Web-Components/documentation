@@ -1,9 +1,9 @@
 ## Setup the communication
 Add the `ff-communication` tag to every page that uses
-**FACT-Finder Web Components**. This element is used to define certain
-parameters for the communication between FACT-Finder Web Components and FACT-Finder
+**FactFinder Web Components**. This element is used to define certain
+parameters for the communication between FactFinder Web Components and FactFinder
 and their behavior. You need to configure the location of your
-FACT-Finder Server and the target channel by setting the `url` and
+FactFinder Server and the target channel by setting the `url` and
 `channel` HTML attributes.
 
 The `ff-communication` element has more attributes. One example is the
@@ -33,7 +33,7 @@ For more information, see the [API reference](/api/3.x/ff-communication#tab=api)
 Due to the feature's limitations described below, it will be removed in a future version.
 
 In order to prevent infinite redirection after getting back from a product page to the search results page, an internal `ff-no-redirect` flag is toggled after the first redirection takes place.
-With this flag toggled Web Components will not redirect the next search, even if there is only one record returned back from FACT-Finder.
+With this flag toggled Web Components will not redirect the next search, even if there is only one record returned back from FactFinder.
 However, the next search will not necessarily be the one that was issued after returning to the search results page.
 If the user provides an `ff-searchbox` component on the product page, the next search could also be issued from there.
 Single hit redirect in this case will not work because the `ff-no-redirect` flag is toggled on and as a result the user will land on the search result page.

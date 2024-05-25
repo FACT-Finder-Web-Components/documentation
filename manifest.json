@@ -1,7 +1,7 @@
 {
-  "name": "FACT-Finder Web Components Documentation",
-  "short_name": "FACT-Finder Web Components Documentation",
-  "description": "FACT-Finder Web Components Documentation",
+  "name": "FactFinder Web Components Documentation",
+  "short_name": "FactFinder Web Components Documentation",
+  "description": "FactFinder Web Components Documentation",
   "start_url": "./home",
   "display": "standalone",
   "theme_color": "#1b4385",

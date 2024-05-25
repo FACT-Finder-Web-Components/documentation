@@ -5,7 +5,7 @@ Instead of using the built-in tracking, you are also able to use WebComponents' 
 ___
 **IMPORTANT**
 
-**This documentation is NOT a comprehensive FACT-Finder Tracking Documentation. Please refer to the [official FACT-Finder Documentation](https://doku.fact-finder.de/endoc/latest/fact-finder-integration/tracking-interface-integration) to read more about the tracking itself.**
+**This documentation is NOT a comprehensive FactFinder Tracking Documentation. Please refer to the [official FactFinder Documentation](https://doku.fact-finder.de/endoc/latest/fact-finder-integration/tracking-interface-integration) to read more about the tracking itself.**
 ___ 
 
  
@@ -20,11 +20,11 @@ const track = new factfinder.communication.Tracking12();
 
 
 ### Retrieving necessary information
-Some information is provided by FACT-Finder Web Components and/or FACT-Finder.
+Some information is provided by FactFinder Web Components and/or FactFinder.
 
 
 #### sid
-You can retrieve the current FACT-Finder Web Components **sid** by calling this helper function: 
+You can retrieve the current FactFinder Web Components **sid** by calling this helper function: 
 
 ```js
 factfinder.common.localStorage.getItem("ff_sid");
@@ -49,7 +49,7 @@ const channel = document.querySelector("ff-communication").channel;
 ```
 or using the global JS property `factfinder.communication.globalSearchParameter.channel`.
 
-For more explanation please refer to the [FACT-Finder Tracking Documentation](https://doku.fact-finder.de/endoc/latest/fact-finder-integration/tracking-interface-integration).
+For more explanation please refer to the [FactFinder Tracking Documentation](https://doku.fact-finder.de/endoc/latest/fact-finder-integration/tracking-interface-integration).
 
 
 ### Tracking Examples
@@ -100,9 +100,9 @@ track.checkout({
 > During the checkout tracking each product has to be tracked separately.
 > Passing an array of entries to the checkout tracking function is currently not supported.
 
-### Retrieve product information via FACT-Finder Web Components
+### Retrieve product information via FactFinder Web Components
 If you can't access the necessary field using your shop-system's API,
-you can query FACT-Finder for product information.
+you can query FactFinder for product information.
 
 ```javascript
 const id = '105-1687-0512';

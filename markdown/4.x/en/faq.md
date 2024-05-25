@@ -9,7 +9,7 @@ Latest.
 ---
 
 #### Question:
-Can I contribute to the future development of FACT-Finder Web Components?
+Can I contribute to the future development of FactFinder Web Components?
 
 #### Answer:
 Yes. Although the Web Components codebase is closed, you can still discuss and propose issues, changes and features at [GitHub issues](https://github.com/FACT-Finder-Web-Components/ff-web-components/issues).
@@ -29,10 +29,10 @@ Please note that with no voices against, breaking changes will be applied accord
 ---
 
 #### Question:
-Which browsers do FACT-Finder Web Components support?
+Which browsers do FactFinder Web Components support?
 
 #### Answer:
-FACT-Finder Web Components utilises the official [Web Components polyfill](https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs#browser-support) which guarantees support for _Chrome_, _Firefox_, _Edge_, _Safari 9+_, _IE11+_, _Chrome Android_ and _Mobile Safari_.
+FactFinder Web Components utilises the official [Web Components polyfill](https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs#browser-support) which guarantees support for _Chrome_, _Firefox_, _Edge_, _Safari 9+_, _IE11+_, _Chrome Android_ and _Mobile Safari_.
 We test against the latest version of each of these.
 
 ---
@@ -41,7 +41,7 @@ We test against the latest version of each of these.
 How can I find out which data is available in a Web Component's HTML template?
 
 #### Answer:
-Each FACT-Finder Web Component has a property that holds the data it is displaying.
+Each FactFinder Web Component has a property that holds the data it is displaying.
 You can access its contents from the browser console.
 
 Some examples:
@@ -63,10 +63,10 @@ See the _API_ tab of each element for available properties.
 ---
 
 #### Question:
-I want to use FACT-Finder Web Components with Angular, but data binding used in the components conflicts with Angular's `{{ }}` binding. Can you fix it?
+I want to use FactFinder Web Components with Angular, but data binding used in the components conflicts with Angular's `{{ }}` binding. Can you fix it?
 
 #### Answer:
-You can add Angular's `ngNonBindable` attribute to the parent element to prevent Angular from parsing double curly braces. If you have to keep both Angular and FACT-Finder Web Components bindings within the same element, you can use: 
+You can add Angular's `ngNonBindable` attribute to the parent element to prevent Angular from parsing double curly braces. If you have to keep both Angular and FactFinder Web Components bindings within the same element, you can use: 
 ```html
 <ff-record> 
     {{Angular Binding}}
@@ -77,7 +77,7 @@ You can add Angular's `ngNonBindable` attribute to the parent element to prevent
 ```
 The `<ng-container>` tag will not be rendered in the DOM.
 
-Alternatively, you can change the default FACT-Finder Web Components binding delimiters via `ff-communication`'s `mustache-delimiters` attribute. For more information please check the `Underlying Engine (Mustache)` section of the [Template Engine documentation](/documentation/4.x/template-engine). Please note that binding HTML still requires an additional pair of curly brackets, what will cause an Angular error. You can utilize `ngNonBindable` to handle this issue as well:
+Alternatively, you can change the default FactFinder Web Components binding delimiters via `ff-communication`'s `mustache-delimiters` attribute. For more information please check the `Underlying Engine (Mustache)` section of the [Template Engine documentation](/documentation/4.x/template-engine). Please note that binding HTML still requires an additional pair of curly brackets, what will cause an Angular error. You can utilize `ngNonBindable` to handle this issue as well:
 ```html
 <ng-container ngNonBindable>
     {{{FF HTML Binding}}}
@@ -88,7 +88,7 @@ In this case, please use triple curly braces, no matter the custom delimiters yo
 ---
 
 #### Question:
-How can I embed FACT-Finder Web Components into React templates?
+How can I embed FactFinder Web Components into React templates?
 
 #### Answer:
 Make sure that React does not resolve the Web Components data bindings.
@@ -148,7 +148,7 @@ Currently, we have a HTML structure limitation which forces us to place the `<di
         </div>
     </div>
     <div data-container="showMore">
-        <!-- The "showMore" container will only be rendered if there are "hiddenLinks" in the FACT-Finder response.
+        <!-- The "showMore" container will only be rendered if there are "hiddenLinks" in the FactFinder response.
              It disappears after being clicked and reappears after "showLess" was clicked. -->
         <span class="text">Show More</span>
     </div>

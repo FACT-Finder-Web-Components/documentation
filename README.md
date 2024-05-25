@@ -1,6 +1,6 @@
 # Documentation
 
-This repository contains the source code for the FACT-Finder-Web-Components
+This repository contains the source code for the FactFinder-Web-Components
 Documentation. You can find the live version
 [here](https://web-components.fact-finder.de/documentation/install-dist)
 

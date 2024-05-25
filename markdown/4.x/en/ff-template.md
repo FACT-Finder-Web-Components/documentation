@@ -1,6 +1,6 @@
 ## Summary
 
-With an `ff-template` element you can see how the data binding of FACT-Finder Web Components works and use a model to update the view.
+With an `ff-template` element you can see how the data binding of FactFinder Web Components works and use a model to update the view.
 
 Set a **data** object for a template to store your data.
 With the `{{ }}` mustache syntax you can access the data inside of that object:

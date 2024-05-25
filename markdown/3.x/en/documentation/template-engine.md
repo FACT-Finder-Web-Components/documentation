@@ -1,8 +1,8 @@
 ## Template Engine
 
 ---
-All `{{data-bindings}}` used in FACT-Finder Web Components refer to the underlying JSON response returned by
-FACT-Finder.
+All `{{data-bindings}}` used in FactFinder Web Components refer to the underlying JSON response returned by
+FactFinder.
 
 You can take a look at all available bindings by opening your browsers **Dev Tools** (__Press F12
 Key__) and navigating to the **Network** tab. Filtering by **XHR** makes things easier.
@@ -29,9 +29,9 @@ Following a malicious URL could result in unwanted code running in the user's br
 
 ---
 By expanding the records array and one of its items we can take a look at the fields returned by
-FACT-Finder. In this specific example product data is stored in an record object. All fields returned in
+FactFinder. In this specific example product data is stored in an record object. All fields returned in
 this object are imported during the data feed process. You can configure which fields are returned in the
-FACT-Finder backend.
+FactFinder backend.
 
 ![record_json.PNG](/images/templateEngine/record_json.PNG "slots")
 

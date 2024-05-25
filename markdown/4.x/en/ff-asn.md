@@ -47,7 +47,7 @@ There are two containers to hold the group's filter items.
 
 > Hint
 >
-> You can configure how many items shall appear for each filter group through your FACT-Finder UI.
+> You can configure how many items shall appear for each filter group through your FactFinder UI.
 
 For further interaction there are:
 - `data-container="showMore"`
@@ -74,7 +74,7 @@ That means that if there are only _implicitly_ selected or _fixed_ filters, the 
         </div>
     </div>
     <div data-container="showMore">
-        <!-- The "showMore" container will only be rendered if there are "hiddenLinks" in the FACT-Finder response.
+        <!-- The "showMore" container will only be rendered if there are "hiddenLinks" in the FactFinder response.
              It disappears after being clicked and reappears after "showLess" was clicked. -->
         <span class="text">Show More</span>
     </div>
@@ -184,7 +184,7 @@ You may optionally define a template for the regular `option` elements. It suppo
 
 ## Sliders
 
-FACT-Finder Web Components offer two kinds of sliders with different ways to interact.
+FactFinder Web Components offer two kinds of sliders with different ways to interact.
 Sliders use their own ASN group element: `ff-asn-group-slider`.
 Both types of sliders require the same basic setup.
 
@@ -233,7 +233,7 @@ You also specify whether you want to use the _One Touch Slider_ or the classic s
 ```
 
 The One Touch Slider is special in that it allows you to control both min and max values at the same time.
-This has the effect that you need only a single request to FACT-Finder to select your desired value range.
+This has the effect that you need only a single request to FactFinder to select your desired value range.
 Nevertheless, this slider still allows you to move the min and max handles individually for the classic slider experience.
 
 The One Touch Slider takes no further HTML template.
@@ -269,7 +269,7 @@ Also see [default-styles.css](https://github.com/FACT-Finder-Web-Components/ff-w
 ```
 
 The classic slider allows you to manipulate one handle at a time.
-Each change issues a filter request to FACT-Finder.
+Each change issues a filter request to FactFinder.
 
 The `ff-slider` takes two elements with a `slot` attribute.
 These elements are used as the min and max handles.
@@ -497,7 +497,7 @@ Suppose you type `art` into _Manufacturer_'s search box.
 
 ## Dispatching data manually
 If you need to manually dispatch data, for instance when the component is subscribed to a custom topic, you can use `ResultDispatcher` to achieve that.
-The ASN component requires the `groups` property's content of the FACT-Finder response to be passed.
+The ASN component requires the `groups` property's content of the FactFinder response to be passed.
 No additional preparation is needed. 
 
 ```js

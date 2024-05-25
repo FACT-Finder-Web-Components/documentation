@@ -28,7 +28,7 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
     .link-box {
         flex: 1 auto;
         flex-grow: 1;
-        background-color: #35a9e1;
+        background-color: #230871;
         color: #fff;
         margin: 1px;
         padding: 30px;
@@ -49,7 +49,7 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
     }
 
     .link-box > i {
-        color: rgb(45, 132, 174);
+        color: #ffffff;
         float: left !important;
         width: 1.28571429em;
         text-align: center;
@@ -77,7 +77,7 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
 
     button {
         color: #fff;
-        background-color: #3498db;
+        background-color: #230871;
 
         border: none;
         font-size: 40px;
@@ -87,10 +87,6 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
         line-height: normal;
         padding: 18px 36px 19px;
         transition: background-color 0.8s;
-    }
-
-    button:hover {
-        background-color: #007bbf;
     }
 
     img {
@@ -125,7 +121,7 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
 <div class="container">
     <div class="row">
         <div class="row-item">
-            <h1><b>FACT-Finder Web Components</b></h1>
+            <h1><b>FactFinder Web Components</b></h1>
         </div>
     </div>
 
@@ -153,11 +149,11 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
     <hr>
     <div id="cost" class="row" style="text-align: center">
         <div>
-            <h1><b>Integrating FACT-Finder has never been easier</b></h1>
+            <h1><b>Integrating FactFinder has never been easier</b></h1>
             <p>
-                As of now, FACT-Finder can be integrated into your online shop as easy as a YouTube video or a
+                As of now, FactFinder can be integrated into your online shop as easy as a YouTube video or a
                 Google map – by means of prefabricated HTML elements, so called Web Components. This enables you
-                to gain the ROI of FACT-Finder even faster.
+                to gain the ROI of FactFinder even faster.
             </p>
         </div>
     </div>
@@ -184,9 +180,9 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
         <div class="row-item">
             <h1><b>Updates – made simple</b></h1>
             <p>
-                Whenever there’s an update for a newer version of FACT-Finder, you can get it up and running
+                Whenever there’s an update for a newer version of FactFinder, you can get it up and running
                 with minimal adjustments. And when it comes to updating your shop system, Web Components
-                ensure all FACT-Finder functions remain fully operational.
+                ensure all FactFinder functions remain fully operational.
             </p>
         </div>
         <div class="row-item">
@@ -202,7 +198,7 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
         <div class="row-item">
             <h1><b>Compatible with all major browsers</b></h1>
             <p>
-                Web Components display the FACT-Finder functions directly in the browser and can be arranged
+                Web Components display the FactFinder functions directly in the browser and can be arranged
                 according to the look and feel of your online shop. In addition, they are functional
                 regardless of the shop system and web technologies that you are using.
             </p>

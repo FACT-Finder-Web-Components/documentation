@@ -3,7 +3,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **items**&nbsp;(Object) (default:empty) | The paging data from FACT-Finder. Can only be set through JavaScript. |
+| **items**&nbsp;(Object) (default:empty) | The paging data from FactFinder. Can only be set through JavaScript. |
 | **show-selected**&nbsp;(Boolean) |  If this attribute is present, regardless of its value, the currently selected paging element is shown in the drop down container. |
 | **collapse-onblur**&nbsp;(Boolean) |  If this attribute is present, regardless of its value, the element is automatically closed when it loses focus. |
 | **opened**&nbsp;(Boolean) (default: false) | Indicates if this element is opened by default or not. |
@@ -25,7 +25,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **pagingData**&nbsp;(Object) (default:undefined) | The paging data from FACT-Finder. Can only be set through JavaScript. |
+| **pagingData**&nbsp;(Object) (default:undefined) | The paging data from FactFinder. Can only be set through JavaScript. |
 
 ### Events
 | Name | Description |

@@ -71,7 +71,7 @@ Next we fire a FFEvent to the `factfinder.communication.EventAggregator`.
 
 The type of the event has to be `"suggest"` and as query we take the input value from the `input`  tag.
 ```js
-// Calls the FACT-Finder suggest event.
+// Calls the FactFinder suggest event.
 function raiseSuggestEvent(e) {
     const inputValue = e.value;
     if (inputValue && inputValue.length >= 2) {

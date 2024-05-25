@@ -9,7 +9,7 @@ need to add the following to your page:
 
 This will setup a three-layer navigation.
 
-* The first layer constitutes the always visible navigation bar and consists of the categories in the FACT-Finder navigation data
+* The first layer constitutes the always visible navigation bar and consists of the categories in the FactFinder navigation data
 * The second and third layers are shown when you hover over a first layer element
 * Layer 2 are 'groups'
 * Layer 3 are the 'links' inside a 'group'
@@ -183,7 +183,7 @@ For this element, the structure of the elements inside the navigation is fixed. 
 
 ## Manipulating href of navigation elements
 
-The URL a navigation element points to is configured in FACT-Finder. You have, however, the opportunity to change these URLs client-side. This could be useful if you want to open a new page with a full page reload. By default `ff-header-navigation` changes pages in-place like a single page application.
+The URL a navigation element points to is configured in FactFinder. You have, however, the opportunity to change these URLs client-side. This could be useful if you want to open a new page with a full page reload. By default `ff-header-navigation` changes pages in-place like a single page application.
 
 To access navigation data you have to subscribe to the `ResultDispatcher`'s `navigation` event.
 ```javascript
@@ -195,7 +195,7 @@ document.addEventListener(`ffReady`, function (event) {
     });
 });
 ```
-The event handler receives an `Array` of all navigation elements as its first parameter (here: `navData`). These elements are grouped by their `clusterLevel`. That means `navData` is an array with the length of the amount of `clusterLevel`s defined in FACT-Finder. Each element contains another `Array` with all navigation elements on the `clusterLevel` equal to the index in the array.
+The event handler receives an `Array` of all navigation elements as its first parameter (here: `navData`). These elements are grouped by their `clusterLevel`. That means `navData` is an array with the length of the amount of `clusterLevel`s defined in FactFinder. Each element contains another `Array` with all navigation elements on the `clusterLevel` equal to the index in the array.
 ```javascript
 navData === [
     [{ clusterLevel: 0, ... }, ...],

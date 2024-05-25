@@ -14,14 +14,14 @@ ___
 ### Events
 | Name | Description |
 | ---- | ----------- |
-| **entry-clicked** | Fired when a tag cloud entry is clicked and before the search for that entry is triggered. The event contains a reference to this element where you can set the property `ffPreventDefault` to skip its default action: Search for the clicked word. The event also contains an object with all the tag cloud entry information: <br /> 1. query: The searched word <br /> 2. count: The number of searches for that word 3. params: The search parameters to execute a FACT-Finder search for that word. |
+| **entry-clicked** | Fired when a tag cloud entry is clicked and before the search for that entry is triggered. The event contains a reference to this element where you can set the property `ffPreventDefault` to skip its default action: Search for the clicked word. The event also contains an object with all the tag cloud entry information: <br /> 1. query: The searched word <br /> 2. count: The number of searches for that word 3. params: The search parameters to execute a FactFinder search for that word. |
 | **before-search** | Fired directly before the search for the tag cloud entry is executed. |
 | **dom-updated** | Fired every time the tag cloud element is re rendered. |
 
 ### Methods
 | Name | Description |
 | ---- | ----------- |
-| **getTagCloud()**| Manually obtains the tag cloud entries from FACT-Finder. Useful when `disable-auto` is set to true and one wants to display the entries on a certain action. |
+| **getTagCloud()**| Manually obtains the tag cloud entries from FactFinder. Useful when `disable-auto` is set to true and one wants to display the entries on a certain action. |
 
 ### Mixins
 | Name | Description |

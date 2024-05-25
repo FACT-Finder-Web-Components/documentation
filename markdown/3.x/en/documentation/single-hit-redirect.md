@@ -31,7 +31,7 @@ Although it is not necessary to check `result.resultArticleNumberStatus`, we hig
 
 
 ### NG compatibility
-For Web Components versions up to `3.15.1`, the field `resultArticleNumberStatus` is not available when using FACT-Finder NG.
+For Web Components versions up to `3.15.1`, the field `resultArticleNumberStatus` is not available when using FactFinder NG.
 Please use `articleNumberSearch` instead.
 Please keep in mind that this field stores boolean values. 
 

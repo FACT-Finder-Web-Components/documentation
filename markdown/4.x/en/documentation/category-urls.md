@@ -1,11 +1,11 @@
 ## Category URLs
 ---
 
-This guide covers how to build and use more SEO friendly URLs like `https://www.your-shop.com/c/shoes/sneakers` with FACT-Finder Web Components.
+This guide covers how to build and use more SEO friendly URLs like `https://www.your-shop.com/c/shoes/sneakers` with FactFinder Web Components.
 
 What we need:
 - disable the URL parameters
-- map the URL to a FACT-Finder request
+- map the URL to a FactFinder request
 
 ## Parameter handling
 ```html
@@ -27,7 +27,7 @@ Exactly define which parameters are going to appear in the browser URL.
 ## Map URL to a request
 The mapping is done on server side via an additional `ff-communication` attribute called `add-params`. 
 
-`add-params` takes a comma-separated list of HTTP parameters which will be added to the FACT-Finder request. 
+`add-params` takes a comma-separated list of HTTP parameters which will be added to the FactFinder request. 
 Consider the following configuration:
 
 ```html
@@ -41,13 +41,13 @@ Consider the following configuration:
 ```
 This will result in a request that will look like: `https://fact-finder.de/your-ff/en?query=shoes&param1=ONE&param2=TWO`.
 A typical use case for this feature is adding a category filter to a page, returning all products that are associated with a given category.
-This way FACT-Finder will be used for product lists, facets, sorting options, paging, recommendations, etc. while letting your shop system take care of URL handling and CMS content.
+This way FactFinder will be used for product lists, facets, sorting options, paging, recommendations, etc. while letting your shop system take care of URL handling and CMS content.
 
 ## Generating `add-params` values
 This is a very individual case and depends on the shop system you are using and on your data.
 
 In general, filter parameters should be generated in a similar way as you do for the data export.
-The FACT-Finder filter parameter pattern is:
+The FactFinder filter parameter pattern is:
 
 | FF 7.x | FF NG |
 | ------ | ----- |

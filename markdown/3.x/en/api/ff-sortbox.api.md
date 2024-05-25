@@ -3,7 +3,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **items** (Array) (default: empty) | The data from FACT-Finder. Can only be set through JavaScript.|
+| **items** (Array) (default: empty) | The data from FactFinder. Can only be set through JavaScript.|
 | **opened** (Boolean) *Options* true, false (default: false) | Determines if the sort box is opened. |
 | **show-selected** (String) *Options* "true", "false" (default: "false") | Determines if the currently selected sort option is also shown inside the dropdown. |
 | **show-selected-first** (String) *Options* "true", "false" (default: "false") | Determines if the currently selected sort option is displayed at the top of the dropdown list or at its actual position. To take effect `show-selected` must be set to `true`. |
@@ -26,7 +26,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **sort-item** (Object) (default: empty) | The data from FACT-Finder. |
+| **sort-item** (Object) (default: empty) | The data from FactFinder. |
 
 ### Events
 | Name | Description |

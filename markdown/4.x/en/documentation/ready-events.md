@@ -90,9 +90,9 @@ Also see [ff-communication](/api/4.x/ff-communication).
 
 ### WebComponentsReady
 
-The `WebComponentsReady` event is fired when all FACT-Finder Web Components are ready to use.
+The `WebComponentsReady` event is fired when all FactFinder Web Components are ready to use.
 
-All FACT-Finder Web Components are unknown to the browser until the JavaScript is loaded and each Web Component is registered and upgraded.
+All FactFinder Web Components are unknown to the browser until the JavaScript is loaded and each Web Component is registered and upgraded.
 This means no functions, attributes or behaviors are working until an element is upgraded.
 
 > Caution
@@ -120,7 +120,7 @@ Let's consider the following case:
 As described above, the `ffReady` event indicates the core library is ready but not the elements.
 At the time the search is executed, the `ff-communication` element isn't initialized yet and therefore no communication information is available.
 
-Instead, we want to use the `WebComponentsReady` to wait until all FACT-Finder Web Components are upgraded:
+Instead, we want to use the `WebComponentsReady` to wait until all FactFinder Web Components are upgraded:
 ```html
 <script>
     //CORRECT
@@ -137,10 +137,10 @@ Instead, we want to use the `WebComponentsReady` to wait until all FACT-Finder W
 
 > Note
 >
-> Actually, you can set the necessary communication information in the `ffReady` handler yourself with JavaScript and fire events to FACT-Finder earlier.
+> Actually, you can set the necessary communication information in the `ffReady` handler yourself with JavaScript and fire events to FactFinder earlier.
 
-Be aware that the dispatching of FACT-Finder responses to all subscribers is cached and postponed until all components have been upgraded.
-Current added _callbacks_ are invoked through `factfinder.communication.ResultDispatcher.addCallback` as soon as the FACT-Finder response arrives.
+Be aware that the dispatching of FactFinder responses to all subscribers is cached and postponed until all components have been upgraded.
+Current added _callbacks_ are invoked through `factfinder.communication.ResultDispatcher.addCallback` as soon as the FactFinder response arrives.
 In case any of the callbacks has side effects other than manipulating the response, this might lead to unexpected behavior.
 
 
@@ -167,7 +167,7 @@ Here is a wrong example:
 <ff-communication url="https://some.ff.url" channel="aChannel" version="ng" api="v5"></ff-communication>
 ```
 
-The `ff-recommendation` element is responsible for querying the FACT-Finder recommendation API.
+The `ff-recommendation` element is responsible for querying the FactFinder recommendation API.
 At the time the element is _upgraded_ and sends its request, `ff-communication` hasn't registered all its configuration and therefore the request can't even be sent because no _URL_ and _CHANNEL_ information are available yet.
 
 To fix this issue you have to place the `ff-communication` element before the `ff-recommendation` element:

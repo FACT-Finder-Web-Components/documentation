@@ -2,9 +2,9 @@
 
 Feedback campaigns can be displayed using `ff-campaign-feedbacktext` elements. There may be multiple elements and they can be placed anywhere in the document.
 
-Through the `label` attribute you define which campaigns can be displayed by the element. The attribute's value must match one of the campaigns' **labels** that are defined in FACT-Finder. If multiple campaigns are configured to target the same **label**, the `ff-campaign-feedbacktext` element with the corresponding `label` will serve as the outlet to all these campaigns.
+Through the `label` attribute you define which campaigns can be displayed by the element. The attribute's value must match one of the campaigns' **labels** that are defined in FactFinder. If multiple campaigns are configured to target the same **label**, the `ff-campaign-feedbacktext` element with the corresponding `label` will serve as the outlet to all these campaigns.
 
-Remember that a campaign's trigger condition must still be satisfied before it can be displayed by `ff-campaign-feedbacktext`. If multiple campaigns targeting the same **label** are triggered simultaneously, the campaign appearing last in the FACT-Finder response will be displayed.
+Remember that a campaign's trigger condition must still be satisfied before it can be displayed by `ff-campaign-feedbacktext`. If multiple campaigns targeting the same **label** are triggered simultaneously, the campaign appearing last in the FactFinder response will be displayed.
 
 The only necessary data binding is `{{text}}`.
 
@@ -40,7 +40,7 @@ and `ff-campaign-advisor-answer`.
 It offers two optional attributes `name` and `not` to limit which campaigns the element shall display.
 
 With `name` you can restrict the element to display only one particular advisor campaign.
-The attribute's value corresponds to a campaign name that you configure in your FACT-Finder UI.
+The attribute's value corresponds to a campaign name that you configure in your FactFinder UI.
 
 ```html
 <ff-campaign-advisor name="your-advisor-campaign-name">
@@ -56,10 +56,10 @@ The `not` attribute takes a comma-separated list of campaign names that shall be
 </ff-campaign-advisor>
 ```
 
-`ff-campaign-advisor-question` is used as a template for each **question** configured in FACT-Finder.
+`ff-campaign-advisor-question` is used as a template for each **question** configured in FactFinder.
 It is rendered at the position you define it in the HTML.
 
-To enable **data binding** to the underlying `question` object from the FACT-Finder response, you must place a `data-question` attribute (without a value) on a child element of `ff-campaign-advisor-question`.
+To enable **data binding** to the underlying `question` object from the FactFinder response, you must place a `data-question` attribute (without a value) on a child element of `ff-campaign-advisor-question`.
 
 ```html
 <ff-campaign-advisor>
@@ -101,7 +101,7 @@ Again, use **triple curly braces** for data binding if your answer `text` contai
 
 
 ## Adding Redirect campaigns
-The `ff-campaign-redirect` element redirects the browser to a destination specified in a redirect campaign. If the latest request to FACT-Finder triggered a redirect campaign, all further processing of the response will be suspended and the redirect will happen immediately.
+The `ff-campaign-redirect` element redirects the browser to a destination specified in a redirect campaign. If the latest request to FactFinder triggered a redirect campaign, all further processing of the response will be suspended and the redirect will happen immediately.
 
 To ensure it is executed before any other elements, `ff-campaign-redirect` should be placed directly after the opening `<body>` tag.
 

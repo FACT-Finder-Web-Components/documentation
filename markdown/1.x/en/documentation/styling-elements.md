@@ -1,7 +1,7 @@
 ## Style Encapsulated HTML
 
 ---
-FACT-Finder Web Components can be styled via CSS like regular HTML. Some elements have an internal HTML structure. Because of the style encapsulation of shadow DOM those elements can no longer be reached as usual. Because the [/deep/ and ::shadow](https://blog.polymer-project.org/announcements/2015/12/01/deprecating-deep/) style rules are deprecated, [custom properties and mixins](https://www.polymer-project.org/1.0/docs/devguide/styling.html) have been introduced in order to pass on styles across the borders of shadow DOM.
+FactFinder Web Components can be styled via CSS like regular HTML. Some elements have an internal HTML structure. Because of the style encapsulation of shadow DOM those elements can no longer be reached as usual. Because the [/deep/ and ::shadow](https://blog.polymer-project.org/announcements/2015/12/01/deprecating-deep/) style rules are deprecated, [custom properties and mixins](https://www.polymer-project.org/1.0/docs/devguide/styling.html) have been introduced in order to pass on styles across the borders of shadow DOM.
 
 You can find all mixins and custom properties in the documentation or the HTML files of the individual elements.
 
@@ -52,7 +52,7 @@ In browsers where Web Components are not natively supported you might encounter 
 ```html
 <ff-record-list unresolved></ff-record-list>
 ```
-Also add the following CSS rule on top of the page before the appearance of your FACT-Finder Web Components:
+Also add the following CSS rule on top of the page before the appearance of your FactFinder Web Components:
 
 The full example would look like this: 
 ```html

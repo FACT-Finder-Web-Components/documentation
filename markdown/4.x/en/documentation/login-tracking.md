@@ -6,7 +6,7 @@ This page discusses the **requirements** and **challenges** that need to be cons
 It also explores some options for the configuration.
 
 The key parameter in login tracking is the shop visitor's **_user ID_** managed by your **shop system**.
-When you configure Web Components with this _user ID_, it will be added to subsequent requests (e.g. _search_ or _recommendations_) to FACT-Finder which produces more **personalized results**.
+When you configure Web Components with this _user ID_, it will be added to subsequent requests (e.g. _search_ or _recommendations_) to FactFinder which produces more **personalized results**.
 
 > Hint
 >
@@ -137,7 +137,7 @@ This listing represents a server-side HTML template.
             const hasJustLoggedOut = getCookie(`shop_hasJustLoggedOut`);
 
             if (hasJustLoggedOut) {
-                // Caution! `clearAllSessionData` clears the session ID which starts a new FACT-Finder Analytics session.
+                // Caution! `clearAllSessionData` clears the session ID which starts a new FactFinder Analytics session.
                 // Avoid calling it on each page because non-logged-in sessions shall persist.
                 factfinder.communication.sessionManager.clearAllSessionData();
             } else {

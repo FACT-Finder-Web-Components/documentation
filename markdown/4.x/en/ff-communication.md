@@ -1,8 +1,8 @@
 ## Set up the communication
 
-Add the `ff-communication` tag to every page that uses **FACT-Finder Web Components**.
-This element is used to define certain parameters for the communication between FACT-Finder Web Components and FACT-Finder and their behavior.
-You need to configure the location of your FACT-Finder server and the target channel by setting the `url` and `channel` HTML attributes.
+Add the `ff-communication` tag to every page that uses **FactFinder Web Components**.
+This element is used to define certain parameters for the communication between FactFinder Web Components and FactFinder and their behavior.
+You need to configure the location of your FactFinder server and the target channel by setting the `url` and `channel` HTML attributes.
 
 The `ff-communication` element has more attributes.
 One example is the `default-query` attribute used to define a default search term that is always used on page load.
@@ -21,7 +21,7 @@ The following code-example shows the aforementioned configuration.
 ></ff-communication>
 ```
 `url`, `version` and `channel` are mandatory parameters and should be explicitly set to make the components work correctly.
-In addition, if you are using **FACT-Finder NG**, you also have to specify the API version of your FACT-Finder in the `api` attribute.
+In addition, if you are using **FactFinder NG**, you also have to specify the API version of your FactFinder in the `api` attribute.
 
 For more information, see the [API reference](/api/4.x/ff-communication#tab=api).
 
@@ -35,7 +35,7 @@ To ensure correct configuration across browsers, the first attributes you define
 
 - `url`
 - `version`
-- `api` (not required if using FACT-Finder older than NG)
+- `api` (not required if using FactFinder older than NG)
 - `channel`
 
 

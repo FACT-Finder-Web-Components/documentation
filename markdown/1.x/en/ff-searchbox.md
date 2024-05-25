@@ -49,7 +49,7 @@ input or when the ESC Key is pressed.
 ## Button extension
 The `ff-searchbutton` is an extension of a normal `button`. With the
 attribute `is="ff-searchbutton"` it becomes a special button which
-connects to the search box and sends a search request to FACT-Finder.
+connects to the search box and sends a search request to FactFinder.
 ```html
 <button is="ff-searchbutton" >Search</button>
 ```

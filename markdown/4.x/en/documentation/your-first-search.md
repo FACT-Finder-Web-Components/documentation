@@ -1,7 +1,7 @@
 ## Your First Search
 
 ---
-We recommend using the [ff-record-list demo](https://github.com/FACT-Finder-Web-Components/demos/blob/release/4.x/ff-record-list/index.html) as a starting point. It is lightweight and therefore ideal to get familiar with FACT-Finder Web Components.
+We recommend using the [ff-record-list demo](https://github.com/FACT-Finder-Web-Components/demos/blob/release/4.x/ff-record-list/index.html) as a starting point. It is lightweight and therefore ideal to get familiar with FactFinder Web Components.
 
 If you want a **quick overview** about all possible features, please refer to [`ff-record-list`](/api/4.x/ff-record-list#tab=docs) in the API documentation.
 
@@ -13,7 +13,7 @@ The following sections cover all necessary steps to adjust the demo to fit your 
 In case you skipped previous sections please read more about the configuration [here](/documentation/4.x/configuration).
 
 First, you want to change the `url`, `channel`, `version` and possibly the `api` attributes.
-If you don't know the channel name or FACT-Finder version, please refer to your FACT-Finder UI.
+If you don't know the channel name or FactFinder version, please refer to your FactFinder UI.
 
 ```html
 <ff-communication url="https://your-ff.fact-finder.de/ContextName"
@@ -31,11 +31,11 @@ In most cases the `default-query="backpack"` won't make sense for your shop. Sim
 ### Change Template Strings
 
 ---
-The data used to display product information is provided by the CSV file you specified in the FACT-Finder UI to teach FACT-Finder about your product data.
+The data used to display product information is provided by the CSV file you specified in the FactFinder UI to teach FactFinder about your product data.
 
 **This product data is returned in a one-to-one manner.** This means that a field named `Price` in the CSV file will also appear as `Price` (case-sensitive) in the `searchResult.records[index].record` property of the HTTP response's JSON.
 
-The same `record` object is also available in several FACT-Finder Web Components. You can insert its values into your custom HTML using the double curly braces syntax `{{record.Title}}`. Here is an example using the [`ff-record`](/api/4.x/ff-record-list#tab=docs) element:
+The same `record` object is also available in several FactFinder Web Components. You can insert its values into your custom HTML using the double curly braces syntax `{{record.Title}}`. Here is an example using the [`ff-record`](/api/4.x/ff-record-list#tab=docs) element:
 
 ```html
 <ff-record>

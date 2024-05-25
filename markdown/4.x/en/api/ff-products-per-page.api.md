@@ -6,7 +6,7 @@ ___
 | **show-selected** (String) **Options**: "true", "false" (default: "false") | Determines if the currently selected ff-products-per-page-item-element should also be shown in the list from which it was selected. |
 | **opened** (Boolean) **Options**: true, false (default: false) |  Is automatically set when the drop down menu is opened. Can be used for styling. |
 | **collapse-onblur** (String) **Options**: "true", "false" (default: "false") | Determines if the element is automatically closed when the element loses focus. |
-| **items** (Array) | FACT-Finder Data |
+| **items** (Array) | FactFinder Data |
 
 ### Methods
 | Name | Description |
@@ -32,4 +32,4 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **products-per-page-item** (Object) (default: empty) | The required data object from FACT-Finder. |
+| **products-per-page-item** (Object) (default: empty) | The required data object from FactFinder. |

@@ -3,7 +3,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **paging** (Object) (default:empty) | The paging data from FACT-Finder. |
+| **paging** (Object) (default:empty) | The paging data from FactFinder. |
 | **show-only** (String) **Options**: "true", "false" (default: "false") | Determines if pages should only be displayed but not be clickable. |
 
 
@@ -19,7 +19,7 @@ ___
 | ---- | ----------- |
 | **state** (String) (default: "all") | This property sets the condition under which the `ff-paging-set` element will become _active_. This is achieved by setting the numbers behind `currentPage` - for the currently selected page - and `pageCount` - for the amount of pages - through any calculation to the desired value. The condition is then based on this value (e.g. `currentPage > 3 && pageCount - currentPage >= 3`). |
 | **is-active** (Boolean) **Options**: true, false (default: true) | Determines if the paging set is currently active. |
-| **paging** (Object) (default:empty) | The data from FACT-Finder. |
+| **paging** (Object) (default:empty) | The data from FactFinder. |
 
 ### Methods
 | Name | Description |
@@ -33,7 +33,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **type** (String)&nbsp;**Options**:&nbsp;"currentLink", "firstLink", "lastLink", "nextLink", "previousLink", "pageLink" (default: "pageLink") | Using this property you can configure and style different pages and navigation elements of the paging. See documentation above. |
-| **products-per-page-item**&nbsp;(Object)&nbsp;(default: empty) |  The paging item data from FACT-Finder. |
+| **products-per-page-item**&nbsp;(Object)&nbsp;(default: empty) |  The paging item data from FactFinder. |
 | **show-only**&nbsp;(String)&nbsp;**Options**: "true", "false" (default: empty) | Determines if pages should only be displayed but not be clickable. |
 | **show-selected** (Boolean) | |
 

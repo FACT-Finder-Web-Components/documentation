@@ -14,7 +14,7 @@ optional. It will default to `<option>{{description}}</option>` if not present.
 
 ## Custom-built dropdown
 Simply adding `<ff-sortbox></ff-sortbox>` to your page will add a custom-built HTML dropdown containing all criteria
-defined in the FACT-Finder backend. With the `key` attribute you can define different templates for these options.
+defined in the FactFinder backend. With the `key` attribute you can define different templates for these options.
 
 Use `"default.template"` as the key to define a default template for all options.
 
@@ -32,7 +32,7 @@ Inside the `ff-sortbox-item`, you can access the sort option name with `{{descri
     </ff-sortbox-item>
 
     <!--
-    this key is related to data returned by FACT-Finder its always FIELDNAME.ORDER
+    this key is related to data returned by FactFinder its always FIELDNAME.ORDER
     except for relevance its "null.desc"
     -->
     <ff-sortbox-item key="Price.asc">

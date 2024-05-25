@@ -4,7 +4,7 @@
 If your shop offers discount prices you need to change the returned data in order to track the discount price instead of the normal price.
 
 #### The Problem
-FACT-Finder is using `Field Roles` to identify the field which should be used for specific actions.
+FactFinder is using `Field Roles` to identify the field which should be used for specific actions.
 
 **Example Field Roles**
 ```javascript
@@ -24,7 +24,7 @@ FACT-Finder is using `Field Roles` to identify the field which should be used fo
 ```
 
 Reading through the field roles we can see that the field `PriceField` contains the price.
-FACT-Finder Web components are resolving fields when they prepare a tracking request or something else that requires knowledge about specific parts of your data. 
+FactFinder Web components are resolving fields when they prepare a tracking request or something else that requires knowledge about specific parts of your data. 
 
 So in case of a discount price field, they would look up the wrong field because discountPrice != price. 
 

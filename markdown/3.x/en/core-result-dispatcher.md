@@ -1,6 +1,6 @@
 You can subscribe to the ResultDispatcher for raw data or to change the
 result before it is dispatched. This is indeed what all
-data related FACT-Finder Web Components do. They subscribe to
+data related FactFinder Web Components do. They subscribe to
 ResultDispatcher to get notified when new data is available.
 
 The ResultDispatcher is in the module:
@@ -110,7 +110,7 @@ Remove a callback for a topic (ex:`asn`) with the `key` from the registered call
 ### `dispatchRaw(response, topics)`
 ___
 Manually dispatches a **response** to Web Components.
-This method is useful when there is a need to dispatch a FACT-Finder response received in a way other than by Web Components AJAX request.
+This method is useful when there is a need to dispatch a FactFinder response received in a way other than by Web Components AJAX request.
 That will be the case especially when implementing [Server Side Rendering](/documentation/3.x/server-side-rendering).
 
 Argument `topics` is optional - skipping it causes the response to be dispatched to all default topics.

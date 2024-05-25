@@ -36,7 +36,7 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
         --app-primary-color: #3c3c3b;;
         --app-secondary-color: white;
       
-        --button-active-background-color: #1b4385;
+        --button-active-background-color: #a175ea;
         --button-hover-background-color: var(--paper-blue-900);
         display: block;
         font-family: "Open Sans", sans-serif !important;
@@ -82,7 +82,6 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
     }
 
     div[main-title] {
-        background: url(/images/logo_background.webp) no-repeat;
         height: 100%;
         display: flex;
         justify-content: flex-start;
@@ -138,7 +137,8 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
     <app-header slot="header" fixed="" effects="waterfall">
         <app-toolbar>
             <div main-title="">
-                <img src="/images/logo_fact-finder.png"
+                <img src="/images/logo_fact-finder.svg"
+                     height="64"
                      alt="FF Logo">
             </div>
             <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
