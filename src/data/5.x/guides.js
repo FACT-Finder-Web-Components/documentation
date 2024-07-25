@@ -20,6 +20,15 @@ const guides = {
             path: `your-first-search`,
             title: `4. Your First Search`,
         },
+
+
+        // --- Migration ---
+
+
+        "upgrade-guide": {
+            path: `upgrade-guide`,
+            title: `Upgrade Guide 4.x to 5.0.0`,
+        },
     },
 };
 
@@ -37,6 +46,7 @@ guides.advanced = [
 ];
 
 guides.migration = [
+    guides.pages[`upgrade-guide`],
 ];
 
 
