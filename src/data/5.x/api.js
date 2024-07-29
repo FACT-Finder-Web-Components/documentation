@@ -6,6 +6,19 @@ const api = {
 
         // --- basics ---
 
+        "ff-searchbox": {
+            path: `ff-searchbox`,
+            title: `Searchbox`,
+        },
+        "ff-record-list": {
+            path: `ff-record-list`,
+            title: `Record List`,
+        },
+        "ff-suggest": {
+            path: `ff-suggest`,
+            title: `Suggest`,
+        },
+
 
         // --- navigation ---
 
@@ -19,6 +32,9 @@ api.core = [
 ];
 
 api.basics = [
+    api.pages[`ff-searchbox`],
+    api.pages[`ff-record-list`],
+    api.pages[`ff-suggest`],
 ];
 
 api.navigation = [
