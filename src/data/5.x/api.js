@@ -22,9 +22,19 @@ const api = {
 
         // --- navigation ---
 
+        "ff-breadcrumb-trail": {
+            path: `ff-breadcrumb-trail`,
+            title: `Breadcrumb`,
+        },
+
 
         // --- more features ---
 
+        "ImageBindingBehavior": {
+            path: `ImageBindingBehavior`,
+            title: `Image Binding`,
+            noDemo: true,
+        },
     },
 };
 
@@ -38,9 +48,11 @@ api.basics = [
 ];
 
 api.navigation = [
+    api.pages[`ff-breadcrumb-trail`],
 ];
 
 api.moreFeatures = [
+    api.pages[`ImageBindingBehavior`],
 ];
 
 // set to undefined if section shall not be shown

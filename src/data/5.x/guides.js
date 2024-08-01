@@ -22,6 +22,22 @@ const guides = {
         },
 
 
+        // --- Essentials ---
+
+        "template-engine": {
+            path: `template-engine`,
+            title: `Template Engine`,
+        },
+
+
+        // --- Advanced ---
+
+        "server-side-rendering": {
+            path: `server-side-rendering`,
+            title: `Server Side Rendering`,
+        },
+
+
         // --- Migration ---
 
 
@@ -40,9 +56,11 @@ guides.firstSteps = [
 ];
 
 guides.essentials = [
+    guides.pages[`template-engine`],
 ];
 
 guides.advanced = [
+    guides.pages[`server-side-rendering`],
 ];
 
 guides.migration = [
