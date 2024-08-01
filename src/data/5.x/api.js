@@ -3,6 +3,11 @@ const api = {
     pages: {
         // --- core ---
 
+        "core-configuration": {
+            path: `core-configuration`,
+            title: `Configuration`,
+        },
+
 
         // --- basics ---
 
@@ -39,6 +44,7 @@ const api = {
 };
 
 api.core = [
+    api.pages[`core-configuration`],
 ];
 
 api.basics = [

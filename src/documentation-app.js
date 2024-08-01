@@ -151,7 +151,12 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
                         <a name="documentation" href="[[rootPath]]documentation/[[version]]/install-dist">Guides</a>
                     </paper-tab>
                     <paper-tab name="api">
-                        <a name="api" href="[[rootPath]]api/[[version]]/ff-communication">API</a>
+                        <template is="dom-if" if="[[isV5]]">
+                            <a name="api" href="[[rootPath]]api/[[version]]/core-configuration">API</a>
+                        </template>
+                        <template is="dom-if" if="[[!isV5]]">
+                            <a name="api" href="[[rootPath]]api/[[version]]/ff-communication">API</a>
+                        </template>
                     </paper-tab>
                     <paper-tab name="faq">
                         <a name="faq" href="[[rootPath]]faq/[[version]]/faq">FAQ</a>
@@ -211,6 +216,10 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
                 type: String,
                 statePath: `app.version`,
             },
+            isV5: {
+                type: Boolean,
+                computed: `_isV5(version)`,
+            },
         };
     }
 
@@ -219,6 +228,10 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
             window.history.pushState({}, null, `/search`);
             this.dispatch(navigate(window.decodeURIComponent(location.pathname), location.hash));
         }
+    }
+
+    _isV5(version) {
+        return version === `5.x`;
     }
 
     ready() {
