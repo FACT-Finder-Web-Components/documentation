@@ -35,6 +35,14 @@ const api = {
 
         // --- more features ---
 
+        "ff-recommendation": {
+            path: `ff-recommendation`,
+            title: `Recommendation`,
+        },
+        "ff-similar-products": {
+            path: `ff-similar-products`,
+            title: `Similar Products`,
+        },
         "ImageBindingBehavior": {
             path: `ImageBindingBehavior`,
             title: `Image Binding`,
@@ -58,6 +66,8 @@ api.navigation = [
 ];
 
 api.moreFeatures = [
+    api.pages[`ff-recommendation`],
+    api.pages[`ff-similar-products`],
     api.pages[`ImageBindingBehavior`],
 ];
 
