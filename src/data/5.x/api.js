@@ -43,6 +43,11 @@ const api = {
             path: `ff-similar-products`,
             title: `Similar Products`,
         },
+        "ff-checkout-tracking": {
+            path: `ff-checkout-tracking`,
+            title: `Checkout Tracking`,
+            noDemo: true
+        },
         "ImageBindingBehavior": {
             path: `ImageBindingBehavior`,
             title: `Image Binding`,
@@ -68,6 +73,7 @@ api.navigation = [
 api.moreFeatures = [
     api.pages[`ff-recommendation`],
     api.pages[`ff-similar-products`],
+    api.pages[`ff-checkout-tracking`],
     api.pages[`ImageBindingBehavior`],
 ];
 
