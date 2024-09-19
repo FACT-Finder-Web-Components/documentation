@@ -43,6 +43,11 @@ const api = {
             path: `ff-similar-products`,
             title: `Similar Products`,
         },
+        "ff-template": {
+            path: `ff-template`,
+            title: `Template`,
+            noApi: true
+        },
         "ff-checkout-tracking": {
             path: `ff-checkout-tracking`,
             title: `Checkout Tracking`,
@@ -74,6 +79,7 @@ api.moreFeatures = [
     api.pages[`ff-recommendation`],
     api.pages[`ff-similar-products`],
     api.pages[`ff-checkout-tracking`],
+    api.pages[`ff-template`],
     api.pages[`ImageBindingBehavior`],
 ];
 
