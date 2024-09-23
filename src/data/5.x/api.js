@@ -43,6 +43,10 @@ const api = {
             path: `ff-similar-products`,
             title: `Similar Products`,
         },
+        "ff-single-word-search": {
+            path: `ff-single-word-search`,
+            title: `Single Word Search`,
+        },
         "ff-template": {
             path: `ff-template`,
             title: `Template`,
@@ -79,6 +83,7 @@ api.moreFeatures = [
     api.pages[`ff-recommendation`],
     api.pages[`ff-similar-products`],
     api.pages[`ff-checkout-tracking`],
+    api.pages[`ff-single-word-search`],
     api.pages[`ff-template`],
     api.pages[`ImageBindingBehavior`],
 ];
