@@ -24,7 +24,7 @@ ___
 ### Directives
 | Name | Description |
 | ---- | ----------- |
-| **data-redirect** | Forwards to the product details page if a valid URL is provided. This attributes takes the URL of the product detail page and can be used in conjunction with data-binding e.g. `<div data-redirect="{{variantValues.0..YourProductUrlFieldname}}"></div>` |
+| **data-redirect** | Forwards to the product details page if a valid URL is provided. This attribute takes the URL of the product detail page and can be used in conjunction with data-binding e.g. `<div data-redirect="{{variantValues.0..YourProductUrlFieldname}}"></div>` |
 | **data-redirect-target** | Indicates the target for the `[data-redirect]` attribute. Can take all [w3c compliant values](https://www.w3schools.com/TAGS/att_a_target.asp).|
 | **data-track** | Triggers a tracking request if the annotated element is clicked. |
 | **data-image** | Annotate a `<img>` tag with this attribute. Can be used in Conjunction with the {{data-binding}} e.g. `<img data-image="{{variantValues.0..YourImageUrlFieldname}}" />`|

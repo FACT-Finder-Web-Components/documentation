@@ -4,7 +4,7 @@
 This chapter describes the minimum required configuration to search and retrieve results from FactFinder.
 The configuration of the Web Components application is done with JavaScript.
 
-For an in-depth look at the configuration, see [Configuration](/api/5.x/core-configuration).
+For a detailed look at the configuration, see [Configuration](/api/5.x/core-configuration).
 
 
 ### A minimal configuration consists of the following components

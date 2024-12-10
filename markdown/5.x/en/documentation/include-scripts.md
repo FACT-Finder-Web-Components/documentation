@@ -34,6 +34,8 @@ If you must support old browsers that do not implement the [_Web Components **We
 
 `custom-elements-es5-adapter.js` and `webcomponents-loader.js` will load the required polyfills minimized to the needs of the calling browser.
 
+If the Web Components library detects that the browser does not support the _Web Components Web API_ and there is no polyfill loaded, it will emit an error to the browser console.
+
 
 ### A note on default styles
 
