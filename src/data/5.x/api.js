@@ -1,15 +1,27 @@
 // api are the pages under the "API" tab
 const api = {
     pages: {
-        // --- core ---
+        // --- Core API ---
 
+        "core-overview": {
+            path: `core-overview`,
+            title: `API Overview`,
+        },
+        "request-pipelines": {
+            path: `request-pipelines`,
+            title: `Request Pipelines`,
+        },
         "core-configuration": {
             path: `core-configuration`,
             title: `Configuration`,
         },
+        "type-definitions": {
+            path: `type-definitions`,
+            title: `Type Definitions`,
+        },
 
 
-        // --- basics ---
+        // --- Basic Elements ---
 
         "ff-searchbox": {
             path: `ff-searchbox`,
@@ -25,7 +37,7 @@ const api = {
         },
 
 
-        // --- navigation ---
+        // --- Navigation ---
 
         "ff-breadcrumb-trail": {
             path: `ff-breadcrumb-trail`,
@@ -33,7 +45,7 @@ const api = {
         },
 
 
-        // --- more features ---
+        // --- More Features ---
 
         "ff-recommendation": {
             path: `ff-recommendation`,
@@ -62,11 +74,20 @@ const api = {
             title: `Image Binding`,
             noDemo: true,
         },
+        "url-manipulation": {
+            path: `url-manipulation`,
+            title: `URL Manipulation`,
+            noDemo: true,
+            noApi: true,
+        },
     },
 };
 
 api.core = [
+    api.pages[`core-overview`],
+    api.pages[`request-pipelines`],
     api.pages[`core-configuration`],
+    api.pages[`type-definitions`],
 ];
 
 api.basics = [
@@ -86,6 +107,7 @@ api.moreFeatures = [
     api.pages[`ff-single-word-search`],
     api.pages[`ff-template`],
     api.pages[`ImageBindingBehavior`],
+    api.pages[`url-manipulation`],
 ];
 
 // set to undefined if section shall not be shown

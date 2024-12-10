@@ -152,7 +152,7 @@ class DocumentationApp extends ReduxMixin(PolymerElement) {
                     </paper-tab>
                     <paper-tab name="api">
                         <template is="dom-if" if="[[isV5]]">
-                            <a name="api" href="[[rootPath]]api/[[version]]/core-configuration">API</a>
+                            <a name="api" href="[[rootPath]]api/[[version]]/core-overview">API</a>
                         </template>
                         <template is="dom-if" if="[[!isV5]]">
                             <a name="api" href="[[rootPath]]api/[[version]]/ff-communication">API</a>

@@ -28,6 +28,10 @@ const guides = {
             path: `template-engine`,
             title: `Template Engine`,
         },
+        "formatting": {
+            path: `formatting`,
+            title: `Formatting and Localization`,
+        },
 
 
         // --- Advanced ---
@@ -35,6 +39,10 @@ const guides = {
         "server-side-rendering": {
             path: `server-side-rendering`,
             title: `Server Side Rendering`,
+        },
+        "sandbox-mode": {
+            path: `sandbox-mode`,
+            title: `Sandbox Mode`,
         },
 
 
@@ -57,10 +65,12 @@ guides.firstSteps = [
 
 guides.essentials = [
     guides.pages[`template-engine`],
+    guides.pages[`formatting`],
 ];
 
 guides.advanced = [
     guides.pages[`server-side-rendering`],
+    guides.pages[`sandbox-mode`],
 ];
 
 guides.migration = [
