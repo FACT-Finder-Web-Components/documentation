@@ -203,7 +203,7 @@ factfinder: {
             login:               (CancellableSubscriber RequestInfoTrackLogin) => SubscriberID,
             predbasketClick:     (CancellableSubscriber RequestInfoTrackPredBasketClick) => SubscriberID,
             recommendationClick: (CancellableSubscriber RequestInfoTrackRecommendationClick) => SubscriberID,
-         },
+        },
     },
     config: {
         get:          () => Config,
