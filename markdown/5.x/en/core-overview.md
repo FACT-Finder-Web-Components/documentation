@@ -96,11 +96,11 @@ The event handler receives an event object with three additional properties.
 
 - `factfinder`
   - A reference to the Web Components API, also called _Core_.
-- `init`
+- `init(config)`
   - A function that **must be called exactly once** before the event handler returns and before `initialSearch` is invoked.
     It takes various parameters to initialize the Web Components application.
     Failing to call it correctly results in the Web Components library to throw an exception.
-- `initialSearch`
+- `initialSearch(searchOrNavigationParams, searchOrNavigationOptions?)`
   - A function to invoke the initial search request.
     It invokes either a _Search_ or a _Navigation_ request depending on whether the application is configured for regular search result pages or category pages.
     Always use this function for the initial search request as it handles the browser history differently from regular search requests.

@@ -7,12 +7,11 @@ In this article we will be looking at how to initiate a search request with `ini
 We recommend using the [ff-record-list demo](https://github.com/FACT-Finder-Web-Components/demos/blob/release/5.x/ff-record-list/index.html) to follow along and to familiarize yourself with FactFinder Web Components.
 
 
-### Change Configuration
+### Configure and Search
 
----
 In case you skipped previous sections please read more about the configuration [here](/documentation/5.x/quick-configuration).
 
-First, adjust `url`, `channel` and `apiKey` to your environment.
+First, call `init` with adjusted `url`, `channel` and `apiKey` parameters.
 
 ```js
 document.addEventListener(`ffCoreReady`, ({ factfinder, init, initialSearch }) => {
@@ -30,9 +29,31 @@ document.addEventListener(`ffCoreReady`, ({ factfinder, init, initialSearch }) =
 ```
 
 
+To initiate the first search, call `initialSearch`.
+This function takes one or two parameters.
+
+The first is either a _SearchParams_ or a _NavigationParams_ object that is **required**.
+They are defined in FactFinder's REST API documentation.
+
+The second parameter is an **optional** _SearchOptions_ or _NavigationOptions_ object.
+Their fields are documented in [Type Definitions](/api/5.x/type-definitions).
+
+Depending on whether the application is configured to be a category page or a regular search page, `initialSearch` will invoke either a `search` or `navigation` request from the `factfinder.request` namespace.
+
+Make sure to always use this function for the initial search request as it provides different handling of the browser history than a regular search request.
+
+Example:
+
+```js
+initialSearch({ query: `deck chair` }, { userId: `user123` });
+```
+
+You can always pass a _SearchParams_ object to `initialSearch`, even when the application is configured to category page.
+In such a case, `initialSearch` will internally convert the _SearchParams_ to _NavigationParams_.
+
+
 ### Change Template Strings
 
----
 The data used to display product information is provided by the data import file you specified in the FactFinder UI.
 
 **This product data is returned in a one-to-one manner.**
