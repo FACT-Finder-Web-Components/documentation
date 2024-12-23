@@ -43,6 +43,10 @@ const api = {
             path: `ff-breadcrumb-trail`,
             title: `Breadcrumb`,
         },
+        "ff-asn": {
+            path: `ff-asn`,
+            title: `Facets (ASN)`,
+        },
 
 
         // --- More Features ---
@@ -98,6 +102,7 @@ api.basics = [
 
 api.navigation = [
     api.pages[`ff-breadcrumb-trail`],
+    api.pages[`ff-asn`],
 ];
 
 api.moreFeatures = [
