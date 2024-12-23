@@ -51,6 +51,10 @@ const api = {
             path: `ff-filter-cloud`,
             title: `Filter Cloud`
         },
+        "ff-paging": {
+            path: `ff-paging`,
+            title: `Paging`,
+        },
 
 
         // --- More Features ---
@@ -108,6 +112,7 @@ api.navigation = [
     api.pages[`ff-breadcrumb-trail`],
     api.pages[`ff-asn`],
     api.pages[`ff-filter-cloud`],
+    api.pages[`ff-paging`],
 ];
 
 api.moreFeatures = [
