@@ -59,6 +59,10 @@ const api = {
             path: `ff-paging-dropdown`,
             title: `Paging Dropdown`,
         },
+        "ff-products-per-page": {
+            path: `ff-products-per-page`,
+            title: `Products Per Page`,
+        },
 
 
         // --- More Features ---
@@ -118,6 +122,7 @@ api.navigation = [
     api.pages[`ff-filter-cloud`],
     api.pages[`ff-paging`],
     api.pages[`ff-paging-dropdown`],
+    api.pages[`ff-products-per-page`],
 ];
 
 api.moreFeatures = [
