@@ -63,6 +63,10 @@ const api = {
             path: `ff-products-per-page`,
             title: `Products Per Page`,
         },
+        "ff-sortbox": {
+            path: `ff-sortbox`,
+            title: `Sortbox`,
+        },
 
 
         // --- More Features ---
@@ -123,6 +127,7 @@ api.navigation = [
     api.pages[`ff-paging`],
     api.pages[`ff-paging-dropdown`],
     api.pages[`ff-products-per-page`],
+    api.pages[`ff-sortbox`],
 ];
 
 api.moreFeatures = [
