@@ -47,7 +47,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **selected**&nbsp;(Boolean)&nbsp;(default: `false`) | Rendered whenever element is selected. |
-| **fixed**&nbsp;(Boolean)&nbsp;(default: `false`) | Rendered when element is defined in [`category-page`](/api/4.x/ff-communication#tab=api). Element cannot be deselected. |
+| **fixed**&nbsp;(Boolean)&nbsp;(default: `false`) | Rendered when element is defined in [`category-page`](/documentation/5.x/category-pages). Element cannot be deselected. |
 | **implicit**&nbsp;(Boolean)&nbsp;(default: `false`) | Rendered when FactFinder considers the element as implicitly selected. Element cannot be deselected. |
 | **element**&nbsp;(Object)&nbsp;(default: empty) | The filter data. |
 | **group**&nbsp;(Object)&nbsp;(default: empty) | The filter group data. |
