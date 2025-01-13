@@ -79,6 +79,18 @@ const api = {
             path: `ff-campaign-pushed-products`,
             title: `Pushed Products`,
         },
+        "ff-campaign-landing-page": {
+            path: `ff-campaign-landing-page`,
+            title: `Landing Page Campaign`,
+        },
+        "ff-campaign-product": {
+            path: `ff-campaign-product`,
+            title: `Product Campaign`,
+        },
+        "ff-campaign-shopping-cart": {
+            path: `ff-campaign-shopping-cart`,
+            title: `Shopping Cart Campaign`,
+        },
         "ff-recommendation": {
             path: `ff-recommendation`,
             title: `Recommendation`,
@@ -141,6 +153,9 @@ api.navigation = [
 api.moreFeatures = [
     api.pages[`ff-campaign`],
     api.pages[`ff-campaign-pushed-products`],
+    api.pages[`ff-campaign-landing-page`],
+    api.pages[`ff-campaign-product`],
+    api.pages[`ff-campaign-shopping-cart`],
     api.pages[`ff-recommendation`],
     api.pages[`ff-similar-products`],
     api.pages[`ff-checkout-tracking`],
