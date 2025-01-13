@@ -71,6 +71,10 @@ const api = {
 
         // --- More Features ---
 
+        "ff-campaign": {
+            path: `ff-campaign`,
+            title: `Campaign`,
+        },
         "ff-recommendation": {
             path: `ff-recommendation`,
             title: `Recommendation`,
@@ -131,6 +135,7 @@ api.navigation = [
 ];
 
 api.moreFeatures = [
+    api.pages[`ff-campaign`],
     api.pages[`ff-recommendation`],
     api.pages[`ff-similar-products`],
     api.pages[`ff-checkout-tracking`],
