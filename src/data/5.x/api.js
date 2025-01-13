@@ -26,14 +26,17 @@ const api = {
         "ff-searchbox": {
             path: `ff-searchbox`,
             title: `Searchbox`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-record-list": {
             path: `ff-record-list`,
             title: `Record List`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-suggest": {
             path: `ff-suggest`,
             title: `Suggest`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
 
 
@@ -42,30 +45,37 @@ const api = {
         "ff-breadcrumb-trail": {
             path: `ff-breadcrumb-trail`,
             title: `Breadcrumb`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-asn": {
             path: `ff-asn`,
             title: `Facets (ASN)`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-filter-cloud": {
             path: `ff-filter-cloud`,
-            title: `Filter Cloud`
+            title: `Filter Cloud`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-paging": {
             path: `ff-paging`,
             title: `Paging`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-paging-dropdown": {
             path: `ff-paging-dropdown`,
             title: `Paging Dropdown`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-products-per-page": {
             path: `ff-products-per-page`,
             title: `Products Per Page`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-sortbox": {
             path: `ff-sortbox`,
             title: `Sortbox`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
 
 
@@ -74,38 +84,47 @@ const api = {
         "ff-campaign": {
             path: `ff-campaign`,
             title: `Campaign`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-campaign-pushed-products": {
             path: `ff-campaign-pushed-products`,
             title: `Pushed Products`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-campaign-landing-page": {
             path: `ff-campaign-landing-page`,
             title: `Landing Page Campaign`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-campaign-product": {
             path: `ff-campaign-product`,
             title: `Product Campaign`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-campaign-shopping-cart": {
             path: `ff-campaign-shopping-cart`,
             title: `Shopping Cart Campaign`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-recommendation": {
             path: `ff-recommendation`,
             title: `Recommendation`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-similar-products": {
             path: `ff-similar-products`,
             title: `Similar Products`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-single-word-search": {
             path: `ff-single-word-search`,
             title: `Single Word Search`,
+            noDemo: true,  // Temporary until demos are migrated.
         },
         "ff-template": {
             path: `ff-template`,
             title: `Template`,
+            noDemo: true,  // Temporary until demos are migrated.
             noApi: true
         },
         "ff-checkout-tracking": {
