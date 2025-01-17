@@ -37,6 +37,14 @@ As these parameters are usually irrelevant to FactFinder and they are too generi
 If you must have `customParameters`, you can always manually add them to the _SearchParams_ as well as you can customize the URL generation process to include them.
 
 
+#### Preserving URL parameters unrelated to FactFinder
+
+Web Components' default URL handling only considers parameters that are relevant to FactFinder.
+Unrelated parameters are ignored and discarded.
+
+For an example on how to preserve these parameters see `postStringifier` of the _UrlParamMappingOptions_ section later in this page.
+
+
 ## SearchParams to URL params
 
 When the response pipeline of a **search** or **navigation** request reaches the point where Web Components is about to write the latest _SearchParams_ to the URL, the `setUrlParamOptionsListener` [pipeline hook](/api/5.x/request-pipelines) is called.
@@ -196,6 +204,25 @@ factfinder.routing.setUrlParamOptionsListener(() => ({
 }));
 
 // URL: ?custom=pole-position&query=jacket&filter=size:L&filter=features:waterproof
+```
+
+
+##### Example of how to preserve non-FactFinder URL parameters
+
+As parameters unknown to FactFinder are discarded by default, you can use the `postStringifier` to re-add them before Web Components overwrites the URL.
+
+```js
+factfinder.routing.setUrlParamOptionsListener(() => ({
+    postStringifier: pairs => {
+        const additionalPairs = [];
+        new URLSearchParams(window.location.search).entries().forEach(([key, value]) => {
+            if (!pairs.find(p => p.key === key)) {
+                additionalPairs.push({ key, value });
+            }
+        });
+        return [...pairs, ...additionalPairs];
+    },
+}));
 ```
 
 

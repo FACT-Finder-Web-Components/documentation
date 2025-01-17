@@ -52,6 +52,25 @@ You can always pass a _SearchParams_ object to `initialSearch`, even when the ap
 In such a case, `initialSearch` will internally convert the _SearchParams_ to _NavigationParams_.
 
 
+#### Get SearchParams from URL
+
+In many cases your URL will contain parameters that describe the current search.
+For the **initial search** you would typically parse the URL parameters to build a _SearchParams_ object from them.
+Web Components offers a utility function for this purpose.
+
+```js
+document.addEventListener(`ffCoreReady`, ({ factfinder, init, initialSearch }) => {
+    init({ ... });
+
+    const searchParams = factfinder.utils.env.searchParamsFromUrl();
+
+    initialSearch(searchParams);
+});
+```
+
+Find more details about parsing options at [URL Manipulation](/api/5.x/url-manipulation).
+
+
 ### Change Template Strings
 
 The data used to display product information is provided by the data import file you specified in the FactFinder UI.
