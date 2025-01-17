@@ -14,8 +14,8 @@ export const config = {
   },
   downloadToolUrl: `https://search-web-components.fact-finder.de/webcomponents-build-tool`,
   versions: [
-    { name: `5.x`, displayName: `5.x (preview)`, status: VersionStatus.preview },
-    { name: `4.x`, displayName: `4.x (latest)`, status: VersionStatus.latest },
+    { name: `5.x`, displayName: `5.x (latest)`, status: VersionStatus.latest },
+    { name: `4.x`, displayName: `4.x`, status: VersionStatus.obsolete },
     { name: `3.x`, displayName: `3.x`, status: VersionStatus.obsolete },
     { name: `1.x`, displayName: `1.x`, status: VersionStatus.obsolete },
   ]
