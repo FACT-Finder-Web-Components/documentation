@@ -25,7 +25,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **data-redirect** | Forwards to the product details page if a valid URL is provided. This attribute takes the URL of the product detail page and can be used in conjunction with data-binding e.g. `<div data-redirect="{{variantValues.0..YourProductUrlFieldname}}"></div>` |
-| **data-redirect-target** | Indicates the target for the `[data-redirect]` attribute. Can take all [w3c compliant values](https://www.w3schools.com/TAGS/att_a_target.asp).|
+| **data-redirect-target** | Indicates the target for the `[data-redirect]` attribute. Can take all values that [window.open](https://developer.mozilla.org/en-US/docs/Web/API/Window/open#target)'s `target` parameter accepts.|
 | **data-track** | Triggers a tracking request if the annotated element is clicked. |
 | **data-image** | Annotate a `<img>` tag with this attribute. Can be used in Conjunction with the {{data-binding}} e.g. `<img data-image="{{variantValues.0..YourImageUrlFieldname}}" />`|
 | **data-anchor** | Annotate a `<a>` tag with this attribute. Can be used in Conjunction with the {{data-binding}} e.g. `<a data-anchor="www.myshop.de/{{variantValues.0..YourImageUrlFieldname}}" />`. This will resolve in a proper href attribute for that anchor. |
