@@ -81,12 +81,12 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
+| **one-touch**&nbsp;(Boolean) | Toggles between classic and One-Touch slider type. |
 | **step**&nbsp;(Number) | Determines step size used when the slider is dragged. |
 | **selected-min-value**&nbsp;(Number)| The currently selected minimum value. Cannot be less than `absolute-min-value`. |
 | **selected-max-value**&nbsp;(Number)| The currently selected maximum value. Cannot be more than `absolute-max-value`. |
 | **absolute-min-value**&nbsp;(Number) | Indicates the minimum lower end e.g. if set to 50, dragging the slider button to the most left will result in a value of 50. |
 | **absolute-max-value**&nbsp;(Number) | Indicates the maximum upper end e.g. if set to 500, dragging the slider button to the most right will result in a value of 500. |
-| **one-touch**&nbsp;(Boolean) | Toggles between classic and One-Touch slider type. |
 | **ratio**&nbsp;(Number) (default: `0.5`) | Only when `one-touch`: The height-to-width ratio of the triangle that controls the slider's values. A value of `1` means height and width will be the same. A value of `0.5` means the triangle will be half as high as it is wide. |
 
 ### Methods

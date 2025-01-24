@@ -459,42 +459,45 @@ These are applied automatically and shall provide you an easy way to apply custo
         </div>
     </ff-asn-group>
 
-    <ff-asn-group-slider opened filter-style="SLIDER" for-group="Price">
+    <ff-asn-group-slider filter-style="SLIDER" opened style="opacity: 1;" for-group="Price">
         <div data-container="groupCaption">
             <div slot="groupCaption">Price</div>
         </div>
+
         <div class="ffw-container">
             <div class="ffw-wrapper" opened>
-                <ff-slider-control show-controls-bottom fraction-digits="2" style="opacity: 1;">
+
+                <ff-slider-control fraction-digits="2" style="opacity: 1;">
                     <div class="ffw-sliderSection">
-                        <ff-slider step=".5">
-                            <div class="ffw-slider-container"
-                                 style="left:-210px;margin-top:-98px;margin-bottom:-98px;width:420px;height:196px">
-                                <div class="ffw-line" style="width:210px;left:210px"></div>
-                                <div class="ffw-selected-range" style="left: 235px; right: 9px;"></div>
-                                <div class="ffw-slider-button ffw-slider-button-left" style="left: 235px;"></div>
-                                <div class="ffw-slider-button ffw-slider-button-right" style="left: 404px;"></div>
-                            </div>
-                        </ff-slider>
+                        <div class="ffw-slider-control-default">
 
-                        <div style="display: flex;justify-content: space-around;align-items: center">
-                            <div style="position:relative;display:flex;align-items:center;border:1px solid #000;">
-                                <input data-control="min"
-                                       style="width: 60px;border:0;padding:4px 1em 4px .5em;text-align:center;">
-                                <span data-unit>€</span>
+                            <div class="ffw-slider-control-inputs">
+                                <div class="ffw-input-container">
+                                    <input data-control="min"> <span data-unit>€</span>
+                                </div>
+                                <span class="ffw-slider-control-line"></span>
+                                <div class="ffw-input-container">
+                                    <input data-control="max"> <span data-unit>€</span>
+                                </div>
                             </div>
 
-                            <span style="width: 20px; height: 2px; background-color: black;display: inline-block"></span>
+                            <ff-slider one-touch>
+                                <div class="ffw-slider-container">
+                                    <div class="ffw-triangle"
+                                         style="left: 96px; border-width: 0px 0px 89px 178px; top: 50%;"></div>
 
-                            <div style="position:relative;display:flex;align-items:center;border:1px solid #000;">
-                                <input data-control="max"
-                                       style="width: 60px;border:0;padding:4px 1em 4px .5em;text-align:center;">
-                                <span data-unit>€</span>
-                            </div>
+                                    <div class="ffw-line"></div>
+                                    <div class="ffw-selected-range" style="left: 0px; right: 0px;"></div>
+
+                                    <div class="ffw-slider-button ffw-slider-button-left" style="left: 0px;"></div>
+                                    <div class="ffw-slider-button ffw-slider-button-right" style="left: 185px;"></div>
+                                </div>
+                            </ff-slider>
                         </div>
                     </div>
                 </ff-slider-control>
-                <div data-container="removeFilter" style="display: inline;">Reset Filter</div>
+
+                <div data-container="removeFilter" style="display: none;">Reset Filter</div>
             </div>
         </div>
     </ff-asn-group-slider>
