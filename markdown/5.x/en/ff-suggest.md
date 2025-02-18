@@ -76,7 +76,7 @@ Container templates provided inside the `ff-suggest` tag will be rendered inside
 For example, consider the following HTML **setup**.
 
 ```html
-<ff-suggest layout="block">
+<ff-suggest>
     <template data-role="suggestions">
         <section>
             <div data-container="suggestType">
@@ -96,10 +96,10 @@ Suppose there are two suggestions of `suggestType`.
 This will result in the following HTML **output**.
 
 ```html
-<ff-suggest layout="block">
+<ff-suggest layout="list">
     <div style="position:relative;width:100%">
         <div class="ffw-suggestContainerWrapper">
-            <div class="ffw-suggestContainer ffw-blockLayout">
+            <div class="ffw-suggestContainer ffw-listLayout">
                 <section>
                     <div data-container="suggestType">
                         <span>Suggestions for suggestType</span>
@@ -150,28 +150,6 @@ So you simply need to add CSS rules to highlight the selected item.
         background-color: lightgray;
     }
 </style>
-```
-
-
-## Changing the layout (block/list)
-
-Using the `layout` attribute you can define a basic layout for the `ff-suggest-items`.
-
-Setting its value to `block` results in a layout, in which all section child elements are displayed horizontally.
-
-Setting it to `list` (default) results in a layout, in which all section child elements are displayed vertically.
-
-```html
-<ff-suggest layout="block">
-    <!--section elements are displayed horizontally-->
-    <section></section>  <section></section>
-</ff-suggest>
-
-<ff-suggest layout="list">
-    <!-- section elements are displayed vertically-->
-    <section></section>
-    <section></section>
-</ff-suggest>
 ```
 
 

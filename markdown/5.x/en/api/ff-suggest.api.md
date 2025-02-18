@@ -3,7 +3,6 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
-| **layout**&nbsp;(String) **Options**:&nbsp;"list", "block" (default: "list")| Determines how the individual sections are displayed. Either as block or as vertical list. |
 | **suggest-items**&nbsp;(Array) | The data from FactFinder. |
 | **hide-onblur**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | When `"true"`, clicks outside the Suggest and the related search box close the Suggest popup. |
 | **request-mapping-search**&nbsp;(String, comma-separated list) (default: "searchTerm") | A list of suggest types that shall invoke a **search** request. |
