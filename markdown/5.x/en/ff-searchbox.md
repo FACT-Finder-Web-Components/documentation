@@ -105,3 +105,14 @@ With the property `suggest-onfocus` set to `"true"`, the _Suggest_ will open whe
 ```html
 <ff-searchbox suggest-onfocus="true"></ff-searchbox>
 ```
+
+
+## Adding Popular Searches
+
+To activate the Popular Searches feature you set the `popular-searches` attribute.
+
+```html
+<ff-searchbox popular-searches></ff-searchbox>
+```
+
+See the [Popular Searches](/api/5.x/popular-searches) article for details.

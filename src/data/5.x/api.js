@@ -81,6 +81,11 @@ const api = {
 
         // --- More Features ---
 
+        "popular-searches": {
+            path: `popular-searches`,
+            title: `Popular Searches`,
+            noDemo: true,  // Temporary until demos are migrated.
+        },
         "ff-campaign": {
             path: `ff-campaign`,
             title: `Campaign`,
@@ -170,6 +175,7 @@ api.navigation = [
 ];
 
 api.moreFeatures = [
+    api.pages[`popular-searches`],
     api.pages[`ff-campaign`],
     api.pages[`ff-campaign-pushed-products`],
     api.pages[`ff-campaign-landing-page`],

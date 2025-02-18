@@ -1,16 +1,29 @@
 ## The basics
 
-The `ff-suggest` element only accepts `section` child elements.
-These `section` elements are used for the built-in list/block layout.
+The `ff-suggest` element can render both regular suggestions and Popular Searches.
+This article focuses on the setup for regular suggestions.
+
+See the [Popular Searches](/api/5.x/popular-searches) article for details.
+
+
+### Templating concept
+
+The suggestions template is defined through a `template` element with the `data-role="suggestions"` attribute.
+
+It only accepts `section` elements at the root level.
+(This is due to legacy constraints.
+A future version will remove this requirement.)
 
 ```html
 <ff-suggest>
-    <section>
-        <!--content-->
-    </section>
-    <section>
-        <!--content-->
-    </section>
+    <template data-role="suggestions">
+        <section>
+            <!--content-->
+        </section>
+        <section>
+            <!--content-->
+        </section>
+    </template>
 </ff-suggest>
 ```
 
@@ -29,18 +42,20 @@ Repeat this process for all configured `"suggestTypes"`.
 
 ```html
 <ff-suggest>
-    <section>
-        <div data-container="suggestType">
-            <span>Suggestions for suggestType</span>
-            <div>
-                <!--ff-suggest-items are always added at the original position of the template-->
-                <ff-suggest-item type="suggestType">
-                    <div>{{{name}}}</div>
-                    <img width="100" height="100" data-image />
-                </ff-suggest-item>
+    <template data-role="suggestions">
+        <section>
+            <div data-container="suggestType">
+                <span>Suggestions for suggestType</span>
+                <div>
+                    <!--ff-suggest-items are always added at the original position of the template-->
+                    <ff-suggest-item type="suggestType">
+                        <div>{{{name}}}</div>
+                        <img width="100" height="100" data-image />
+                    </ff-suggest-item>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </template>
 </ff-suggest>
 ```
 
@@ -62,16 +77,18 @@ For example, consider the following HTML **setup**.
 
 ```html
 <ff-suggest layout="block">
-    <section>
-        <div data-container="suggestType">
-            <span>Suggestions for suggestType</span>
-            <div>
-                <ff-suggest-item type="suggestType">
-                    <span>{{{name}}}</span>
-                </ff-suggest-item>
+    <template data-role="suggestions">
+        <section>
+            <div data-container="suggestType">
+                <span>Suggestions for suggestType</span>
+                <div>
+                    <ff-suggest-item type="suggestType">
+                        <span>{{{name}}}</span>
+                    </ff-suggest-item>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </template>
 </ff-suggest>
 ```
 
