@@ -28,11 +28,13 @@ Also, you can set the `data-search="singleWord"` attribute on any element to att
 
         <!-- Use a regular ff-record-list to display the found records. -->
         <ff-record-list>
-            <ff-record>
-                <img data-image="{{variantValues.0.ImageName}}">
-                <div class="title">{{variantValues.0.Title}}</div>
-                <div class="price">{{$ variantValues.0.Price}}</div>
-            </ff-record>
+            <template data-role="record">
+                <ff-record>
+                    <img data-image="{{variantValues.0.ImageName}}">
+                    <div class="title">{{variantValues.0.Title}}</div>
+                    <div class="price">{{$ variantValues.0.Price}}</div>
+                </ff-record>
+            </template>
         </ff-record-list>
     </ff-single-word-search-record>
 </ff-single-word-search>
