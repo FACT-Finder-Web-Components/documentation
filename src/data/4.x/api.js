@@ -18,6 +18,7 @@ const api = {
         "ff-communication": {
             path: `ff-communication`,
             title: `Communication`,
+            showTabs: true,
             noDemo: true
         },
 
@@ -26,14 +27,17 @@ const api = {
         "ff-searchbox": {
             path: `ff-searchbox`,
             title: `Searchbox`,
+            showTabs: true,
         },
         "ff-record-list": {
             path: `ff-record-list`,
             title: `Record List`,
+            showTabs: true,
         },
         "ff-suggest": {
             path: `ff-suggest`,
             title: `Suggest`,
+            showTabs: true,
         },
 
         // --- navigation ---
@@ -41,38 +45,47 @@ const api = {
         "ff-breadcrumb-trail": {
             path: `ff-breadcrumb-trail`,
             title: `Breadcrumb`,
+            showTabs: true,
         },
         "ff-asn": {
             path: `ff-asn`,
             title: `Facets (ASN)`,
+            showTabs: true,
         },
         "ff-filter-cloud": {
             path: `ff-filter-cloud`,
-            title: `Filter Cloud`
+            title: `Filter Cloud`,
+            showTabs: true,
         },
         "ff-navigation": {
             path: `ff-navigation`,
             title: `Navigation`,
+            showTabs: true,
         },
         "ff-header-navigation": {
             path: `ff-header-navigation`,
             title: `Header Navigation`,
+            showTabs: true,
         },
         "ff-paging": {
             path: `ff-paging`,
             title: `Paging`,
+            showTabs: true,
         },
         "ff-paging-dropdown": {
             path: `ff-paging-dropdown`,
             title: `Paging Dropdown`,
+            showTabs: true,
         },
         "ff-products-per-page": {
             path: `ff-products-per-page`,
             title: `Products Per Page`,
+            showTabs: true,
         },
         "ff-sortbox": {
             path: `ff-sortbox`,
             title: `Sortbox`,
+            showTabs: true,
         },
 
         // --- more features ---
@@ -80,47 +93,58 @@ const api = {
         "ff-campaign": {
             path: `ff-campaign`,
             title: `Campaign`,
+            showTabs: true,
         },
         "ff-campaign-pushed-products": {
             path: `ff-campaign-pushed-products`,
             title: `Pushed Products`,
+            showTabs: true,
         },
         "ff-campaign-landing-page": {
             path: `ff-campaign-landing-page`,
             title: `Landing Page Campaign`,
+            showTabs: true,
         },
         "ff-campaign-shopping-cart": {
             path: `ff-campaign-shopping-cart`,
             title: `Shopping Cart Campaign`,
+            showTabs: true,
         },
         "ff-product-teaser-campaign-processor": {
             path: `ff-product-teaser-campaign-processor`,
             title: `Product Teaser Campaign`,
+            showTabs: true,
             noApi: true,
         },
         "ff-campaign-product": {
             path: `ff-campaign-product`,
             title: `Product Campaign`,
+            showTabs: true,
         },
         "ff-search-feedback": {
             path: `ff-search-feedback`,
             title: `Search Feedback`,
+            showTabs: true,
         },
         "ff-recommendation": {
             path: `ff-recommendation`,
             title: `Recommendation`,
+            showTabs: true,
         },
         "ff-compare": {
             path: `ff-compare`,
             title: `Compare`,
+            showTabs: true,
         },
         "ff-similar-products": {
             path: `ff-similar-products`,
             title: `Similar Products`,
+            showTabs: true,
         },
         "ff-single-word-search": {
             path: `ff-single-word-search`,
             title: `Single Word Search`,
+            showTabs: true,
         },
         // TODO removed for 3.0 release -- might get reintroduced afterwards
         // "ff-carousel": {
@@ -130,29 +154,35 @@ const api = {
         "ff-tag-cloud": {
             path: `ff-tag-cloud`,
             title: `Tag Cloud`,
+            showTabs: true,
         },
         "ff-template": {
             path: `ff-template`,
             title: `Template`,
+            showTabs: true,
             noApi: true
         },
         "ff-checkout-tracking": {
             path: `ff-checkout-tracking`,
             title: `Checkout Tracking`,
+            showTabs: true,
             noDemo: true
         },
         "ff-middleware": {
             path: `ff-middleware`,
             title: `Middleware`,
+            showTabs: true,
             noDemo: true
         },
         "ff-loading-spinner": {
             path: "ff-loading-spinner",
-            title: "Loading Spinner"
+            title: "Loading Spinner",
+            showTabs: true,
         },
         "ImageBindingBehavior": {
             path: `ImageBindingBehavior`,
             title: `Image binding`,
+            showTabs: true,
             noDemo: true
         },
         "DeferredAttributeResolving": {
