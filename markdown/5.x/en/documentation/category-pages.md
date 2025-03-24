@@ -59,12 +59,26 @@ document.addEventListener(`ffCoreReady`, ({ factfinder, init, initialSearch }) =
 
     init(initOptions);
 
-    // The configured category filter must be passed to the initial search request.
-    initialSearch({
-        filters: initOptions.appConfig.categoryPage,
-    });
+    // You will likely carry search parameters in the URL. Parse them here.
+    // This is particularly important when users change search settings and reload the page.
+    const searchParams = factfinder.utils.env.searchParamsFromUrl();
+
+    // The category filter is typically not in the URL's search parameters. Add it manually.
+    searchParams.filters = [
+        ...initOptions.appConfig.categoryPage,
+
+        // Provide a fallback value in case there are currently no filters in the URL.
+        ...(searchParams.filters || []),
+    ];
+
+    initialSearch(searchParams);
 });
 ```
+
+> Attention
+>
+> If you do have the category filter in the URL, the call to `searchParamsFromUrl` needs options.
+> See [URL Manipulation](/api/5.x/url-manipulation) for details.
 
 
 #### Brand pages
