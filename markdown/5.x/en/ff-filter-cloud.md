@@ -17,7 +17,7 @@ You can use `ff-filter-cloud` by adding one line to your HTML code:
 A default template will be applied to all filters:
 
 ```html
-<span data-template="filter">{{element.name}}</span>
+<span data-template="filter">{{element.text}}</span>
 ```
 
 
@@ -42,7 +42,7 @@ You can access the facet's display name through `{{facet.name}}`:
 
 ```html
 <ff-filter-cloud>
-    <span data-template="filter">{{facet.name}}: {{element.name}}</span>
+    <span data-template="filter">{{facet.name}}: {{element.text}}</span>
 </ff-filter-cloud>
 ```
 
@@ -73,7 +73,7 @@ A custom filter template can be used with some additional custom HTML.
         <div>Custom above</div>
 
         <div data-template="filter" class="filter-element">
-            <span>{{facet.name}}: {{element.name}}</span><span> ×</span>
+            <span>{{facet.name}}: {{element.text}}</span><span> ×</span>
         </div>
 
         <div>Custom below</div>
@@ -139,7 +139,7 @@ This example will blacklist all filters applied by the `Price` and `Size` facets
 ```html
 <ff-filter-cloud blacklist="Price,Size">
     <div>
-         <span data-template="filter">{{facet.name}}: {{element.name}}</span>
+         <span data-template="filter">{{facet.name}}: {{element.text}}</span>
     </div>
 </ff-filter-cloud>
 ```
@@ -159,7 +159,7 @@ This example will whitelist only filters applied by the `Brand` and `Category` f
 ```html
 <ff-filter-cloud whitelist="Brand,Category">
     <div>
-         <span data-template="filter">{{facet.name}}: {{element.name}}</span>
+         <span data-template="filter">{{facet.name}}: {{element.text}}</span>
     </div>
 </ff-filter-cloud>
 ```
@@ -192,7 +192,7 @@ See the example below that shows how to create a filter element with a clickable
 </script>
 <ff-filter-cloud unresolved>
     <div data-template="filter" class="filter" onclick="userOnClick(event)">
-        <span>{{element.name}}</span> <span class="btn-deselect">×</span>
+        <span>{{element.text}}</span> <span class="btn-deselect">×</span>
     </div>
 </ff-filter-cloud>
 ```
