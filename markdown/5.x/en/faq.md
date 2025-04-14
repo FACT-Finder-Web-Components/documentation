@@ -71,6 +71,22 @@ See the _API_ tab of each element's page for available properties.
 
 ---
 
+#### Question:
+
+How frequently do you release breaking changes?
+
+#### Answer:
+
+No more than once every six months.
+
+Find the release date of the last `x.0.0` release and add six months to determine when a breaking release becomes possible.
+
+Breaking changes are released as the need arises.
+Typically, this is much less frequent than six months.
+Emergency fixes that introduce breaking changes may be exempted.
+
+---
+
 #### Problem:
 
 I want to use FactFinder Web Components with another front end framework, but data bindings (`{{ }}`) in templates collide.
