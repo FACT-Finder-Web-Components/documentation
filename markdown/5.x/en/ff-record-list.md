@@ -75,11 +75,16 @@ In the example below, the image URL field is named _ImageName_.
 In addition, you can add an error image which is displayed if the image at `data-image` can't be loaded.
 Add the error image by annotating the `img` tag with `data-image-onerror="urlToErrorImage"`.
 
+You might also want to add the `alt` attribute in case the image can't be displayed.
+
 ```html
 <ff-record-list>
     <template data-role="record">
         <ff-record>
-            <img data-image="{{variantValues.0.ImageName}}" data-image-onerror="shop123.com/error.png">
+            <img data-image="{{variantValues.0.ImageName}}"
+                 data-image-onerror="shop123.com/error.png"
+                 alt="{{variantValues.0.Title}}"
+            >
             <span>{{variantValues.0.Title}}</span>
         </ff-record>
     </template>

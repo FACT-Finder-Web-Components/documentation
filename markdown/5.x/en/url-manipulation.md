@@ -33,7 +33,7 @@ document.addEventListener(`ffCoreReady`, ({ factfinder, init, initialSearch }) =
 #### `customParameters` are not processed by default
 
 The FactFinder _SearchParams_ object has a `customParameters` field.
-As these parameters are usually irrelevant to FactFinder and they are too generic to reasonably auto-translate them to URL parameters, Web Components ignores this field by default.
+As these parameters are usually irrelevant to FactFinder and they are too generic to reasonably auto-translate to URL parameters, Web Components ignores this field by default.
 If you must have `customParameters`, you can always manually add them to the _SearchParams_ as well as you can customize the URL generation process to include them.
 
 

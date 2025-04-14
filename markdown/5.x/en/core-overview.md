@@ -379,6 +379,15 @@ factfinder.response.subscribeSearchAndNavigation((...args) => {
 ```
 
 
+##### Instant invocation when auto-fetching
+
+Typically, when you subscribe a listener to the pipeline, nothing will happen immediately.
+However, if the Web Components app is configured to do auto-fetching and a search request had already been processed previously, the listener will be invoked immediately with that last search result.
+In this case, the listener will be subscribed after its invocation.
+
+For more details, see _Auto fetching_ in [Configuration](/api/5.x/core-configuration).
+
+
 #### Transformers
 
 Transformers are used to manipulate a FactFinder result **before** it is dispatched to the Web Components.
