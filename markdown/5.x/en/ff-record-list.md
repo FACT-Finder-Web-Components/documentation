@@ -66,6 +66,40 @@ Records from a **Predictive Basket** result use `TypedFlatRecord`.
 ```
 
 
+### When the template clashes with 3rd party frameworks
+
+3rd party rendering frameworks might also use the `template` element to define their templates.
+It can happen that those frameworks 'steal' the template from Web Components and leave a broken `ff-record-list`.
+
+There are two fallback methods to define the `ff-record` template.
+While the wrapping `template` tag is replaced, the template's body remains the same.
+Your rendering framework might accept one of these approaches.
+
+
+#### Via `script` tag
+
+```html
+<ff-record-list>
+    <script type="text/ff-compat-template" data-role="record">
+        <ff-record>...</ff-record>
+    </script>
+</ff-record-list>
+```
+
+
+#### Via comment
+
+```html
+<ff-record-list>
+    <div data-compat-template-role="record">
+        <!--
+        <ff-record>...</ff-record>
+        -->
+    </div>
+</ff-record-list>
+```
+
+
 ## Adding an image
 
 To display an image you use the `data-image` attribute.

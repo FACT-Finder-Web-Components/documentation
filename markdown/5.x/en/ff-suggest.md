@@ -120,6 +120,40 @@ This will result in the following HTML **output**.
 ```
 
 
+### When the template clashes with 3rd party frameworks
+
+3rd party rendering frameworks might also use the `template` element to define their templates.
+It can happen that those frameworks 'steal' the template from Web Components and leave a broken `ff-suggest`.
+
+There are two fallback methods to define the templates for `suggestions` and `popularSearches`.
+While the wrapping `template` tag is replaced, the template's body remains the same.
+Your rendering framework might accept one these approaches.
+
+
+#### Via `script` tag
+
+```html
+<ff-suggest>
+    <script type="text/ff-compat-template" data-role="suggestions">
+        <section>...</section>
+    </script>
+</ff-suggest>
+```
+
+
+#### Via comment
+
+```html
+<ff-suggest>
+    <div data-compat-template-role="suggestions">
+        <!--
+        <section>...</section>
+        -->
+    </div>
+</ff-suggest>
+```
+
+
 ## `ff-searchbox` properties for Suggest
 
 The `ff-searchbox` element has two attributes which affect `ff-suggest`.
