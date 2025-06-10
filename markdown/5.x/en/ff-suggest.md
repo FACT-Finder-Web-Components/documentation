@@ -242,11 +242,12 @@ See the _Suggest_ click pipeline diagram for a visualization of the exact data f
 ## Closing the Suggest popup
 
 The _Suggest_'s popup automatically closes when the element detects a click that happened outside the popup **and** outside the `ff-searchbox` that triggered the _Suggest_.
+(Note that custom search boxes are not recognized and clicking into them closes the popup because they are considered "outside".)
 
 It does so by adding a click listener to the page's `document` object.
 Take care to not prevent the click event from bubbling up to the `document` or the popup will not close.
 
-You can prevent automatic closing by setting the `hide-onblur` attribute to `"false"`.
+You can **prevent** automatic closing by setting the `hide-onblur` attribute to `"false"`.
 
 ```html
 <ff-suggest hide-onblur="false"></ff-suggest>

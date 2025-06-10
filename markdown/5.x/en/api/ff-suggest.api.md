@@ -4,7 +4,7 @@ ___
 | Name | Description |
 | ---- | ----------- |
 | **suggest-items**&nbsp;(Array) | The data from FactFinder. |
-| **hide-onblur**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | When `"true"`, clicks outside the Suggest and the related search box close the Suggest popup. |
+| **hide-onblur**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | When `"true"`, clicks outside the Suggest and the related `ff-searchbox` close the Suggest popup. |
 | **request-mapping-search**&nbsp;(String, comma-separated list) (default: "searchTerm") | A list of suggest types that shall invoke a **search** request. |
 | **request-mapping-navigation**&nbsp;(String, comma-separated list) (default: "category,brand") | A list of suggest types that shall invoke a **navigation** request. |
 | **request-mapping-detail**&nbsp;(String, comma-separated list) (default: "productName") | A list of suggest types that shall invoke the _suggest-detail-listener_ from the `factfinder.notifications` API. |
