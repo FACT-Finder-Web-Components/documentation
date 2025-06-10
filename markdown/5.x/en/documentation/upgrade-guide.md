@@ -625,7 +625,14 @@ Therefore, restored search results that pass through the response pipeline do no
 `factfinder.communication.globalElementValues.currentFFSearchBoxValue` was removed without replacement.
 
 `factfinder.communication.EvventAggregator.currentSearchResult` was removed without replacement.
-If you need a reference to the latest search result outside of the pipeline context, you could register a subscriber `factfinder.response.subscribeSearch` and store the received result in a variable of your choosing. 
+If you need a reference to the latest search result outside of the pipeline context, you could register a subscriber `factfinder.response.subscribeSearchAndNavigation` and store the received result in a variable of your choosing.
+
+A simple approach could look like this:
+
+```js
+let lastResult;
+factfinder.response.subscribeSearchAndNavigation(result => { lastResult = result; });
+```
 
 
 ## Initialization of the Web Components application
