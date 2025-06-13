@@ -24,6 +24,10 @@ const guides = {
 
         // --- Essentials ---
 
+        "for-developers": {
+            path: `for-developers`,
+            title: `For Developers`,
+        },
         "category-pages": {
             path: `category-pages`,
             title: `Category Pages`,
@@ -68,6 +72,7 @@ guides.firstSteps = [
 ];
 
 guides.essentials = [
+    guides.pages[`for-developers`],
     guides.pages[`category-pages`],
     guides.pages[`template-engine`],
     guides.pages[`formatting`],
