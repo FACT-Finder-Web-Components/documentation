@@ -50,19 +50,19 @@ For an example on how to preserve these parameters see `postStringifier` of the 
 When the response pipeline of a **search** or **navigation** request reaches the point where Web Components is about to write the latest _SearchParams_ to the URL, the `setUrlParamOptionsListener` [pipeline hook](/api/5.x/request-pipelines) is called.
 The listener's return value is a _UrlParamMappingOptions_ object with various options to manipulate the resulting URL.
 
-Registering this listener is optional.
+Registering this listener is **optional**.
 Typically, it is registered once during app initialization.
-All options are also optional.
+All options are also **optional**.
 Specifying an option overrides the default value (as opposed to append to it).
 
 ```js
 document.addEventListener(`ffCoreReady`, ({ factfinder, init, initialSearch }) => {
     init({ ... });
 
-    // Registering the listener with its default options.
+    // Registering the listener with its default options. This has the same effect as not registering it at all.
     factfinder.routing.setUrlParamOptionsListener(() => ({
         allow: [],
-        block: [`activeAbTests`, `followSearch`, `purchaserId`],
+        block: [`activeAbTests`, `followSearch`, `purchaserId`, `showMarkets`, `showPermutedSearchParams`],
         blockFilters: [],
         keyMapping: {},
         order: [`query`, `filters`, `sortItems`],
@@ -75,6 +75,11 @@ document.addEventListener(`ffCoreReady`, ({ factfinder, init, initialSearch }) =
 
 ### UrlParamMappingOptions
 
+In the following, the options are listed in the order they are applied to the incoming _SearchParams_ object.
+
+At the end, there is a flowchart visualizing the process and the relation between its elements.
+
+
 #### allow
 
 `allow` specifies a list of search parameter names (as they appear on the _SearchParams_ object used for the current request pipeline) that shall be considered for stringification.
@@ -86,6 +91,28 @@ If the list is empty, all parameters are considered.
 #### block
 
 `block` is a list of parameter names (as they appear on a _SearchParams_ object) that shall not appear in the URL.
+
+Blocked by default parameters are: `['activeAbTests', 'followSearch', 'purchaserId', 'showMarkets', 'showPermutedSearchParams']`.
+
+Specifying your own list of blocked parameters **removes** the default list.
+You therefore might want to add those parameters to your list.
+
+
+#### order
+
+`order` is a list of _SearchParams_ keys that specifies which parameters shall appear **first** and in which order in the URL.
+Parameters that are not specified will appear in alphabetical order after the specified parameters.
+
+If you do not specify an order, the default is: `['query', 'filters', 'sortItems']`.
+
+```js
+// searchParams:
+// { page: 2, query: "chisel" }
+
+factfinder.routing.setUrlParamOptionsListener(() => ({ order: [`query`] }));
+
+// URL: ?query=chisel&page=2
+```
 
 
 #### blockFilters
@@ -107,78 +134,68 @@ factfinder.routing.setUrlParamOptionsListener(() => ({
 ```
 
 
-#### keyMapping
+#### stringifiers
 
-`keyMapping` is an object with which you can specify how URL parameters shall be renamed.
-The _keys_ in the object are the **default names** as Web Components would write them to the URL (these are the names that are defined in the parameter list of the related GET request of `/search` or `/navigation`).
-The _values_ are the parameter names as you want them to **actually appear** in the URL.
+`stringifiers` allows you to define custom stringifiers.
+It is the counterpart to `searchParamsFromUrl`'s `preparsers`.
+It takes an object with _SearchParams_ keys and the stringifier functions.
 
-Without mapping:
+In addition to the parameter **values**, stringifier functions also define the parameter **names** that shall appear in the URL.
+Although these names can be manipulated again in later steps of the process.
 
-```js
-// SearchParams
-// { query: "atlantis" , location: { latitude: 30.8, longitude: -42.8 } }
+When you don't define stringifiers, Web Components' built-in stringifiers will produce the parameter names that are defined in the REST API's parameter list of the related GET request of `/search` or `/navigation`.
+(Apart from a few exceptions, these are identical to the keys in the _SearchParams_ object.)
 
-factfinder.routing.setUrlParamOptionsListener(() => ({
-    keyMapping: {},
-}));
+The following example shows how one could merge the two-component `location` parameter into one.
+Instead of producing two URL parameters `latitude` and `longitude`, it will only output one `loc` parameter.
 
-// URL: ?query=atlantis&latitude=30.8&longitude=-42.8
-```
-
-With mapping:
-
-```js
-// SearchParams
-// { query: "atlantis" , location: { latitude: 30.8, longitude: -42.8 } }
-
-factfinder.routing.setUrlParamOptionsListener(() => ({
-    keyMapping: {
-        query: `q`,
-        latitude: `lat`,
-        longitude: `lon`,
-    },
-}));
-
-// URL: ?q=atlantis&lat=30.8&lon=-42.8
-```
-
-> Important
->
-> The `keyMapping` here is the same as in the _parsing options_ of the counterpart `factfinder.utils.env.searchParamsFromUrl(parsingOptions)`.
->
-> Always use the same mapping object!
-
-```js
-const keyMapping = { query: `q` };
-
-factfinder.routing.setUrlParamOptionsListener(() => ({ keyMapping }));
-
-initialSearch(factfinder.utils.env.searchParamsFromUrl({ keyMapping }));
-```
-
-Mapping happens **after** stringification (including the post-stringifier).
-
-
-#### order
-
-`order` is a list of _SearchParams_ keys that specifies which parameters shall appear **first** and in which order in the URL.
-Parameters that are not specified will appear in alphabetical order after the specified parameters.
+The section on `searchParamsFromUrl` contains an example on the reverse action.
 
 ```js
 // searchParams:
-// { page: 2, query: "chisel" }
+// { query: "atlantis" , location: { latitude: 30.8, longitude: -42.8 } }
 
-factfinder.routing.setUrlParamOptionsListener(() => ({ order: [`query`] }));
+factfinder.routing.setUrlParamOptionsListener(() => ({
 
-// URL: ?query=chisel&page=2
+    keyMapping: { latitude: `loc` },
+
+    stringifiers: {
+        location: (addParam, location) => {
+            // All stringifiers receive two arguments.
+            // An `addParam` function and the SearchParams value that is to be stringified.
+            // - `addParam(value, key?)` is a function that takes the stringified value and an optional output key.
+            // - `location` is the value from the _SearchParams_ object that is to be stringified.
+
+            const value = `${location.latitude}:${location.longitude}`;
+
+            // Using `latitude` as a temporary output. It will later be renamed by the `keyMapping`.
+            // Attention: While it is possible to immediately specify the final key `loc` here and skip the `keyMapping`,
+            // during URL parsing you will have to map the custom key back to a known key such as `latitude`.
+            // See later sections about `keyMapping` and URL parsing.
+            const key = `latitude`;
+
+            // `key` is optional. If you don't specify it, the related _SearchParams_ key is used.
+            // Here it would be "location".
+            addParam(value, key);
+
+            // You can call `addParam` as many times as you require.
+
+            // If you wanted to produce the same result as the default `location` stringifier,
+            // you would call `addParam` once for each location component.
+
+            // addParam(location.latitude, `latitude`);
+            // addParam(location.longitude, `longitude`);
+        },
+    },
+}));
+
+// URL: ?query=atlantis&loc=30.8:-42.8
 ```
 
 
 #### postStringifier
 
 `postStringifier` takes a function that receives an array of ordered and stringified key/value pairs and returns an array of the same format.
-The post-stringifier is called after all other operations (except key mapping) are complete.
 
 Each key/value pair the post-stringifier receives represents one URL parameter as it is about to be written to the browser's URL.
 
@@ -226,54 +243,86 @@ factfinder.routing.setUrlParamOptionsListener(() => ({
 ```
 
 
-#### stringifiers
+#### keyMapping
 
-`stringifiers` allows you to define custom stringifiers.
-It is the counterpart to `searchParamsFromUrl`'s `preparsers`.
-It takes an object with _SearchParams_ keys and the stringifier functions.
+`keyMapping` is an object with which you can specify how URL parameters shall be renamed.
 
-The following example shows how one could merge the two-component `location` parameter into one.
-Instead of producing two URL parameters `latitude` and `longitude`, it will only output one `loc` parameter.
+The _keys_ in the object are the parameter names that were produced by the stringifiers (and, potentially, modified by the post-stringifier).
 
-The section on `searchParamsFromUrl` contains an example on the reverse action.
+The _values_ are the parameter names as you want them to **actually appear** in the URL.
+
+Without mapping:
 
 ```js
-// searchParams:
+// SearchParams
 // { query: "atlantis" , location: { latitude: 30.8, longitude: -42.8 } }
 
 factfinder.routing.setUrlParamOptionsListener(() => ({
+    keyMapping: {},
+}));
 
-    keyMapping: { latitude: `loc` },
+// URL: ?query=atlantis&latitude=30.8&longitude=-42.8
+```
 
-    stringifiers: {
-        location: (addParam, location) => {
-            // All stringifiers receive two arguments.
-            // An `addParam` function and the SearchParams value that is to be stringified.
-            // - `addParam(value, key?)` is a function that takes the stringified value and an optional output key.
-            // - `location` is the value from the _SearchParams_ object that is to be stringified.
+With mapping:
 
-            const value = `${location.latitude}:${location.longitude}`;
+```js
+// SearchParams
+// { query: "atlantis" , location: { latitude: 30.8, longitude: -42.8 } }
 
-            // Using `latitude` as a temporary output. It will later be renamed by the `keyMapping`.
-            const key = `latitude`;
-
-            // `key` is optional. If you don't specify it, the related _SearchParams_ key is used.
-            // In this case: "location"
-            addParam(value, key);
-
-            // You can call `addParam` as many times as you require.
-
-            // If you wanted to produce the same result as the default `location` stringifier,
-            // you would call `addParam` once for each location component.
-
-            // addParam(location.latitude, `latitude`);
-            // addParam(location.longitude, `longitude`);
-        },
+factfinder.routing.setUrlParamOptionsListener(() => ({
+    keyMapping: {
+        query: `q`,
+        latitude: `lat`,
+        longitude: `lon`,
     },
 }));
 
-// URL: ?query=atlantis&loc=30.8:-42.8
+// URL: ?q=atlantis&lat=30.8&lon=-42.8
 ```
+
+> Important
+>
+> The `keyMapping` here is the same as in the _parsing options_ of the counterpart `factfinder.utils.env.searchParamsFromUrl(parsingOptions)`.
+>
+> Always use the same mapping object!
+
+```js
+const keyMapping = { query: `q` };
+
+factfinder.routing.setUrlParamOptionsListener(() => ({ keyMapping }));
+
+initialSearch(factfinder.utils.env.searchParamsFromUrl({ keyMapping }));
+```
+
+
+#### Flowchart
+
+Below, you will find a flowchart of how the options are applied while the _SearchParams_ object is processed into a URL string.
+It also highlights the relations between the various parameters that appear in the whole chain.
+
+It might look intimidating as a whole.
+Look at it step by step while reading the related descriptions above.
+
+On the left, there is an example _SearchParams_ object.
+On the right are the available options with example values.
+These values are chosen to demonstrate their effect.
+They don't necessarily make much sense in a real world scenario.
+
+Below each step, a URL is shown that would be the final result if you had only specified the options up until that point.
+I.e.:
+
+- no options
+- only `allow`
+- `allow` and `block`
+- `allow`, `block` and `order`
+- etc.
+
+Remember that no option is required, and any combination of options is allowed.
+
+Also note that even though subsequent options are considered unspecified at each station, Web Components still has default values that will be applied in this case.
+
+![](/images/pipeline/url-manipulation-sp2url.jpg "Flowchart SearchParams to URL params")
 
 
 ## URL params to SearchParams
@@ -298,7 +347,7 @@ document.addEventListener(`ffCoreReady`, ({ factfinder, init, initialSearch }) =
 >
 > If you need a _NavigationParams_ object, you can use the `factfinder.utils.toNavigationParams(searchParams)` conversion function.
 
-All options to `searchParamsFromUrl` are _optional_.
+All options to `searchParamsFromUrl` are **optional**.
 
 ```js
 const searchParams = factfinder.utils.env.searchParamsFromUrl({
@@ -467,7 +516,7 @@ As we only have a single parameter in the URL, simple key mapping is insufficien
 
 First, `keyMapping: { latitude: 'loc' }` translates the custom `loc` to the known `latitude` which causes the `location` parser to be invoked.
 However, this is incomplete data because the `longitude` parameter is missing.
-The `location` **preparser** must then convert the custom value and add the missing parameter.
+The `location` **preparser** must therefore convert the custom value and add the missing parameter.
 
 ```js
 preparser: {
