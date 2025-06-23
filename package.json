@@ -1,7 +1,7 @@
 {
   "name": "ff-documentation",
-  "version": "3.18.7",
-  "description": "FACT-Finder Web Components Documentation",
+  "version": "3.19.0",
+  "description": "FactFinder Web Components Documentation",
   "license": "UNLICENSED",
   "scripts": {
     "start": "polymer serve",
