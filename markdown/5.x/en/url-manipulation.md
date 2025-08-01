@@ -64,6 +64,7 @@ document.addEventListener(`ffCoreReady`, ({ factfinder, init, initialSearch }) =
         allow: [],
         block: [`activeAbTests`, `followSearch`, `purchaserId`, `showMarkets`, `showPermutedSearchParams`],
         blockFilters: [],
+        categoryInfo: undefined,
         keyMapping: {},
         order: [`query`, `filters`, `sortItems`],
         postStringifier: undefined,
@@ -131,6 +132,80 @@ factfinder.routing.setUrlParamOptionsListener(() => ({
     // Assuming your category filter's field name is 'Category'.
     blockFilters: [`Category`],
 }));
+```
+
+
+#### categoryInfo
+
+`categoryInfo` enables you to further customize the blocking of the category filter.
+While `blockFilters` would block the entire category filter, `categoryInfo` allows you to only **partially** block the category filter's path.
+
+> Use case
+>
+> This option is only relevant in one specific scenario:
+> On a category page that allows users to filter deeper into the page's sub-categories.
+>
+> If your category page does not offer further category filtering, this option is unnecessary, and you better use the simpler `blockFilters` option for your category filter.
+
+This option is only relevant for category pages where a part of the category filter is already encoded in the URL's path.
+E.g.: `www.your.shop/Clothing/Outdoor?filter=Category:Outdoor+jackets`
+
+Here, the fixed part is `['Clothing', 'Outdoor']` while the deeper, user selected part is `['Outdoor jackets']`.
+This should result in the complete category filter path of `['Clothing', 'Outdoor', 'Outdoor jackets']`.
+
+The option's format is `{ fieldName: String, fixedPath: [String] }`
+
+- `fieldName` is the category's field name from your data feed
+- `fixedPath` is an array of strings representing the page's category path that the user cannot deselect
+
+Both values are the same that you specify during category page setup at `appConfig.categoryPage`.
+
+
+##### Example
+
+When you use this option, its setup always requires **three parts**.
+
+- `appConfig.categoryPage`
+- `factfinder.routing.setUrlParamOptionsListener`
+- `factfinder.utils.env.searchParamsFromUrl`
+
+Note how all three contact points use `categoryFieldName` and `fixedCategoryPath`.
+**Always provide the same values as shown below!**
+
+```js
+document.addEventListener(`ffCoreReady`, ({ factfinder, init, initialSearch }) => {
+
+    const categoryFieldName = `Your_category_field_name`;
+    const fixedCategoryPath = [`The page's`, `category path`];
+
+    const initOptions = {
+        // ...
+        appConfig: {
+            // Setting the Web Components application to category page mode.
+            categoryPage: factfinder.utils.filterBuilders.categoryFilter(categoryFieldName, fixedCategoryPath)
+        },
+    };
+
+    // Setup for writing TO the URL.
+    factfinder.routing.setUrlParamOptionsListener(() => ({
+        // Not using `blockFilters` as it would block the entire category filter path.
+        // Here, we only want to prevent the page's FIXED category path from appearing in the URL's query string.
+        // blockFilters: [categoryFieldName],
+        categoryInfo: { fieldName: categoryFieldName, fixedPath: fixedCategoryPath },
+    }));
+
+    // Reading FROM the URL.
+    const searchParams = factfinder.utils.env.searchParamsFromUrl({
+        categoryFieldName,
+        fixedCategoryPath,
+    });
+
+    // Initialize the Web Components application.
+    init(initOptions);
+
+    // Trigger the initial search with the parameters that we just read from the URL.
+    initialSearch(searchParams);
+});
 ```
 
 
@@ -353,6 +428,7 @@ All options to `searchParamsFromUrl` are **optional**.
 const searchParams = factfinder.utils.env.searchParamsFromUrl({
     block,              // array of strings
     categoryFieldName,  // string
+    fixedCategoryPath,  // array of strings
     keyMapping,         // object
     preparsers,         // object
 });
@@ -385,6 +461,24 @@ You can find the correct field name in your data feed or, in a search response, 
 
 ```js
 factfinder.utils.env.searchParamsFromUrl({ categoryFieldName: `Category` });
+```
+
+
+#### fixedCategoryPath
+
+`fixedCategoryPath` can be used when you are implementing a **category page** that allows users to filter deeper into the page's sub-categories.
+It takes an array of strings that is the page's fixed category path.
+It is the _same array_ that you use to set up the category page during app configuration and also provide to `factfinder.routing.setUrlParamOptionsListener`.
+
+If you specify this option, you must also specify `categoryFieldName`.
+
+See the related section `categoryInfo` above in _SearchParams to URL params_ for details and examples.
+
+```js
+const searchParams = factfinder.utils.env.searchParamsFromUrl({
+    categoryFieldName: `Category`,
+    fixedCategoryPath: [`Clothing`, `Outdoor`],
+});
 ```
 
 
