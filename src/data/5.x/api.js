@@ -145,6 +145,12 @@ const api = {
             showTabs: true,
             noDemo: true,
         },
+        "DeferredAttributeResolving": {
+            path: `DeferredAttributeResolving`,
+            title: `Deferred attribute resolving`,
+            noDemo: true,
+            noApi: true,
+        },
         "url-manipulation": {
             path: `url-manipulation`,
             title: `URL Manipulation`,
@@ -188,6 +194,7 @@ api.moreFeatures = [
     api.pages[`ff-single-word-search`],
     api.pages[`ff-template`],
     api.pages[`ImageBindingBehavior`],
+    api.pages[`DeferredAttributeResolving`],
     api.pages[`url-manipulation`],
 ];
 
