@@ -206,6 +206,22 @@ class HomeView extends ViewMixin(ReduxMixin(PolymerElement)) {
     </div>
 
     <hr>
+    <div id="intro-video" class="row">
+        <div class="row-item">
+            <h1><b>See it in action</b></h1>
+            <p>
+                This video demonstrates the most commonly used features of Web Components
+                and what it looks like to integrate them into a web page.
+            </p>
+        </div>
+    </div>
+    <div class="row" style="text-align: center">
+        <div class="row-item">
+            <video controls src="https://search-web-components.fact-finder.de/demos/video/webcomp-presales-demo.mp4"></video>
+        </div>
+    </div>
+
+    <hr>
     <div class="row" style="text-align: center">
         <a href="[[rootPath]]documentation/[[latestVersion]]/install-dist">
             <button style="margin: 0 auto">Get Started</button>
