@@ -98,12 +98,34 @@ If you do **not** wish `ff-searchbox` to query suggestions, you can turn this be
 ```
 
 
-### On Focus
+### Open Suggest on focus
 
-With the property `suggest-onfocus` set to `"true"`, the _Suggest_ will open when the user clicks into the input or the input gets focus.
+With the property `suggest-onfocus` set to `"true"`, the _Suggest_ will open whenever the related search box receives focus.
 
 ```html
 <ff-searchbox suggest-onfocus="true"></ff-searchbox>
+```
+
+
+#### Caching
+
+When you use `suggest-onfocus="true"`, `ff-searchbox` will cache the last _Suggest_ result and reuse it whenever possible.
+
+It will redispatch the result and the related _SuggestParams_ through Web Components' [response pipeline](/api/5.x/request-pipelines).
+To pipeline subscribers, such as `ff-suggest` or your custom handlers, it will appear as if a new _Suggest_ request has been issued.
+
+However, the _RequestOptions_ will be a generic object containing only the `origin` (the `ff-searchbox`).
+See [RequestInfoSuggest](/api/5.x/type-definitions) for data structure.
+
+```js
+factfinder.response.transformSuggest((suggestionResult, requestInfoSuggest) => {
+    // This transformer would be invoked again when the cached result is redispatched.
+
+    // `suggestionResult`   - The unmodified cached result.
+    // `requestInfoSuggest` - Consists of:
+    //                        - `suggestParams` from the original request
+    //                        - `generic `requestOptions` object
+});
 ```
 
 

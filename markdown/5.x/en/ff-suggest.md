@@ -1,6 +1,8 @@
 ## The basics
 
-The `ff-suggest` element can render both regular suggestions and Popular Searches.
+### Two features in one element
+
+The `ff-suggest` element can render both regular **Suggestions** and **Popular Searches**.
 This article focuses on the setup for regular suggestions.
 
 See the [Popular Searches](/api/5.x/popular-searches) article for details.

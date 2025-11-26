@@ -101,7 +101,7 @@ Note however, that `ff-searchbox` elements operate unaware of other elements in 
 
 Also note that if you change the FactFinder channel during runtime, the cached Popular Searches result in `ff-searchbox` will not get updated.
 
-Lastly, when `ff-searchbox` dispatches a cached result to the response pipeline, it will do so with a generic RequestInfo object.
+Lastly, when `ff-searchbox` dispatches a cached result to the response pipeline, it will do so with a generic _RequestInfo_ object.
 Usually, this is not a problem but you should be aware of it in case you modify the request options with `factfinder.request.before.popularSearches` during the initial Popular Searches request.
 
 
