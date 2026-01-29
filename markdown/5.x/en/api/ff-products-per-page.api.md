@@ -23,7 +23,7 @@ ___
 | ---- | ----------- |
 | **values** (String) (_required_) | A comma-separated list of page sizes. |
 | **show-selected** (Boolean) | Determines if the currently selected `ff-products-per-page-item` element should also be shown in the list from which it was selected. |
-| **opened** (Boolean) | Is set automatically when the drop down menu is opened. Can be used for styling. |
+| **opened** (Boolean) | _(Not intended for manual use.)_ Is set automatically when the drop down menu is opened. Can be used for styling. |
 | **collapse-onblur** (String) **Options**: "true", "false" (default: "true") | Determines if the element is automatically closed when the element loses focus. |
 
 ### Methods
