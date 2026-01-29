@@ -20,6 +20,12 @@ ___
 
 ## `ff-searchbutton`
 ___
+### Properties
+| Name | Description |
+|------|-------------|
+| **for**&nbsp;(String) | Specify the `id` of an `ff-searchbox` element to link the button to that search box. |
+
+
 ### Methods
 | Name | Description |
 | ---- |-------------|
