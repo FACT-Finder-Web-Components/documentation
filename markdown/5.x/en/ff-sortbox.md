@@ -107,6 +107,12 @@ Inside the `ff-sortbox-item` you can access the sort option name with `{{descrip
     <ff-sortbox-item key="Rating.desc">
         <span><em>Overridden for: {{description}}</em></span>
     </ff-sortbox-item>
+
+    <!-- If the body is empty, the item's `description` will be filled in automatically.  -->
+    <ff-sortbox-item key="Discount.desc"></ff-sortbox-item>
+    <!-- Equivalent to: -->
+    <ff-sortbox-item key="Discount.desc">{{description}}</ff-sortbox-item>
+
 </ff-sortbox>
 ```
 
