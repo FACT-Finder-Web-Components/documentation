@@ -254,3 +254,33 @@ You can **prevent** automatic closing by setting the `hide-onblur` attribute to 
 ```html
 <ff-suggest hide-onblur="false"></ff-suggest>
 ```
+
+
+## Triggering the Suggest manually
+
+Even though **typically not necessary**, you can invoke Suggest requests via Web Components' JavaScript API as you can with any other request type.
+
+```js
+factfinder.request.suggest({ query: `bulldozer` });
+```
+
+This request will travel through the request and response pipelines as usual.
+However, no `ff-suggest` element will react to it.
+
+`ff-suggest` is designed to closely interact with `ff-searchbox` and apply some optimizations.
+In order to have `ff-suggest` react to your manual request invocation, you have to supply an `origin` that mimics `ff-searchbox`.
+
+This can be an actual HTML `input` element or an object with a `value` field.
+The values of `value` and `query` must match.
+
+```js
+factfinder.request.suggest({ query: `bulldozer` }, { origin: document.querySelector(`#my-searchbox`) });
+
+factfinder.request.suggest({ query: `bulldozer` }, { origin: { value: `bulldozer` }});
+```
+
+If your `ff-suggest` has the `for-searchbox` attribute configured, you additionally have to specify an `id` on your `origin`.
+
+```js
+factfinder.request.suggest({ query: `bulldozer` }, { origin: { value: `bulldozer`, id: `my-searchbox` }});
+```
