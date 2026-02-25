@@ -5,6 +5,7 @@ ___
 | ---- | ----------- |
 | **suggest-items**&nbsp;(Array) | The data from FactFinder. |
 | **hide-onblur**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | When `"true"`, clicks outside the Suggest and the related `ff-searchbox` close the Suggest popup. |
+| **hide-delay**&nbsp;(Number) (default: `300`) | Defines the time in _milliseconds_ the Suggest popup remains open after it received a hide command. Some delay is necessary because certain input devices trigger their click event with a delay (e.g. touchpads). Increase this value if it seems the Suggest closes too fast when you click on it. |
 | **request-mapping-search**&nbsp;(String, comma-separated list) (default: "searchTerm") | A list of suggest types that shall invoke a **search** request. |
 | **request-mapping-navigation**&nbsp;(String, comma-separated list) (default: "category,brand") | A list of suggest types that shall invoke a **navigation** request. |
 | **request-mapping-detail**&nbsp;(String, comma-separated list) (default: "productName") | A list of suggest types that shall invoke the _suggest-detail-listener_ from the `factfinder.notifications` API. |

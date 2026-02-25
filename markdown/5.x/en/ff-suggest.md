@@ -256,6 +256,20 @@ You can **prevent** automatic closing by setting the `hide-onblur` attribute to 
 ```
 
 
+### Issues with touchpads and other input methods
+
+Some input devices such as touchpads emit a delayed click event.
+If this delay is too long, it can happen that the Suggest closes before your click on a suggestion is registered and nothing happens.
+
+`ff-suggest`'s default delay should be long enough to capture all devices without feeling sluggish.
+If, however, your users are still experiencing problems, you can increase the `hide-delay` value until you observe consistent behavior.
+See the [related API reference](/api/5.x/ff-suggest#tab=api).
+
+```html
+<ff-suggest hide-delay="350"></ff-suggest>
+```
+
+
 ## Triggering the Suggest manually
 
 Even though **typically not necessary**, you can invoke Suggest requests via Web Components' JavaScript API as you can with any other request type.
