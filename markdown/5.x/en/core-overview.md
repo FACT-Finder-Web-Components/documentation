@@ -230,6 +230,15 @@ factfinder: {
             setSessionReadWriteListeners: ({ read, write }) => undefined,
         },
     },
+    components: {
+        recentlyViewed: {
+            config: (options) => undefined,
+            addEntry: (FlatRecord) => undefined,
+            getEntries: () => [String],
+            getEntriesAfterUpdate: () => Promise [String],
+            clear: () => undefined,
+        },
+    },
     utils: {
         env: {
             searchParamsFromUrl: (options) => SearchParams,
@@ -623,6 +632,13 @@ A typical use case is in single-page-applications.
 These functions allow you to interface Web Components' history and session management with your application.
 
 For details, see [Sandbox Mode](/documentation/5.x/sandbox-mode).
+
+
+### Components
+
+#### Recently Viewed
+
+TODO
 
 
 ### Utils
