@@ -230,6 +230,15 @@ factfinder: {
             setSessionReadWriteListeners: ({ read, write }) => undefined,
         },
     },
+    components: {
+        recentlyViewed: {
+            config: (options) => undefined,
+            addEntry: (FlatRecord) => undefined,
+            getEntries: () => [String],
+            getEntriesAfterUpdate: () => Promise [String],
+            clear: () => undefined,
+        },
+    },
     utils: {
         env: {
             searchParamsFromUrl: (options) => SearchParams,
@@ -623,6 +632,20 @@ A typical use case is in single-page-applications.
 These functions allow you to interface Web Components' history and session management with your application.
 
 For details, see [Sandbox Mode](/documentation/5.x/sandbox-mode).
+
+
+### Components
+
+In the `factfinder.components` namespace you will find component-specific APIs.
+
+
+#### Recently Viewed
+
+`factfinder.components.recentlyViewed`
+
+The Recently Viewed feature encompasses the `ff-recently-viewed` HTML element for visualization and various methods to manage the storage of related data.
+
+See [Recently Viewed](/api/5.x/ff-recently-viewed) for details.
 
 
 ### Utils

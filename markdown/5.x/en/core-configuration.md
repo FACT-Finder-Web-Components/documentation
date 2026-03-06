@@ -194,14 +194,18 @@ The most important aim of _live mode_ is to prevent system level exceptions that
 #### Field Roles
 
 By setting this property you can tell Web Components the field role mapping without waiting for a response from FactFinder.
-Here you can override the field roles defined in FactFinder.
+Here you can also override the field roles defined in FactFinder.
 
 If unset, the first response with field roles from FactFinder will set it.
 
-While most scenarios don't require this value to be set, it is still advisable to always do so to avoid unexpectedly encountering situations that do require this value.
+While most scenarios don't require this value to be set, it is still **best practice** to always do so to avoid unexpectedly encountering situations that do require this value.
 
 You do need to set it when you want to issue requests that rely on the field roles, but you don't want to first invoke a search request.
-This is typically limited to checkout-tracking requests.
+Typical scenarios are checkout page, product detail page, shopping cart page, etc.
+
+> Attention
+>
+> Unset field roles frequently result in tracking failure.
 
 
 #### Formatting / localization

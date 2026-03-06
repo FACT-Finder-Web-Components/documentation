@@ -122,6 +122,11 @@ const api = {
             title: `Similar Products`,
             showTabs: true,
         },
+        "ff-recently-viewed": {
+            path: `ff-recently-viewed`,
+            title: `Recently Viewed`,
+            showTabs: true,
+        },
         "ff-single-word-search": {
             path: `ff-single-word-search`,
             title: `Single Word Search`,
@@ -190,6 +195,7 @@ api.moreFeatures = [
     api.pages[`ff-campaign-shopping-cart`],
     api.pages[`ff-recommendation`],
     api.pages[`ff-similar-products`],
+    api.pages[`ff-recently-viewed`],
     api.pages[`ff-checkout-tracking`],
     api.pages[`ff-single-word-search`],
     api.pages[`ff-template`],
