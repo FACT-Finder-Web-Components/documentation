@@ -234,8 +234,8 @@ factfinder: {
         recentlyViewed: {
             config: (options) => undefined,
             addEntry: (FlatRecord) => undefined,
-            getEntries: () => [String],
-            getEntriesAfterUpdate: () => Promise [String],
+            getEntries: () => [Object],
+            getEntriesAfterUpdate: () => Promise [Object],
             clear: () => undefined,
         },
     },

@@ -221,7 +221,7 @@ Always call it with every product page load.
 There is no need to distinguish first-time visits and page reloads.
 
 
-### `getEntries() => [String]`
+### `getEntries() => [Object]`
 
 Returns an array of all stored entries.
 It does **not** return the entry most recently added via `addEntry` within the current page session.
@@ -229,7 +229,7 @@ It does **not** return the entry most recently added via `addEntry` within the c
 You only need this function if you want to visualize the view history yourself.
 
 
-### `getEntriesAfterUpdate() => Promise<[String]>`
+### `getEntriesAfterUpdate() => Promise<[Object]>`
 
 The same as `getEntries` but it returns a _Promise_ that resolves once `addEntry` was called.
 It is only required on product pages.
