@@ -17,7 +17,7 @@ It only accepts `section` elements at the root level.
 A future version will remove this requirement.)
 
 ```html
-<ff-suggest>
+<ff-suggest no-auto-highlight>
     <template data-role="suggestions">
         <section>
             <!--content-->
@@ -28,6 +28,12 @@ A future version will remove this requirement.)
     </template>
 </ff-suggest>
 ```
+
+> Note
+>
+> All code listings use the `no-auto-highlight` attribute on `ff-suggest`.
+> We strongly recommend to always set it.
+> See the section on _Hit highlighting_ for details.
 
 
 ## Adding a Suggest container
@@ -43,7 +49,7 @@ All received suggestions of this `"suggestType"` are inserted at this position a
 Repeat this process for all configured `"suggestTypes"`.
 
 ```html
-<ff-suggest>
+<ff-suggest no-auto-highlight>
     <template data-role="suggestions">
         <section>
             <div data-container="suggestType">
@@ -51,7 +57,7 @@ Repeat this process for all configured `"suggestTypes"`.
                 <div>
                     <!--ff-suggest-items are always added at the original position of the template-->
                     <ff-suggest-item type="suggestType">
-                        <div>{{{name}}}</div>
+                        <div>{{{ff-hitHighlight name}}}</div>
                         <img width="100" height="100" data-image />
                     </ff-suggest-item>
                 </div>
@@ -64,11 +70,23 @@ Repeat this process for all configured `"suggestTypes"`.
 
 ### Hit highlighting
 
-Note the triple curly braces in `<span>{{{name}}}</span>`, which enable the rendering of HTML code in the template engine.
-`ff-suggest` inserts HTML here, and the matched string from your search box is wrapped in a `<span class="ffw-query">` tag to allow you to highlight the matched text through CSS.
-If you used the regular double curly braces and typed "back" in the search box, the HTML source code would be shown as plain text: `<span class="ffw-query">Back</span>packs` rather than the rendered: "**Back**packs".
+You can highlight the parts in the Suggest's response that match the query in the search box.
+Matches are wrapped in a `<span class="ffw-query">` element so you can apply appropriate CSS.
 
-See [Template Engine](/documentation/5.x/template-engine) for more details.
+Using hit highlighting requires three parts:
+
+- Set the `no-auto-highlight` attribute on `ff-suggest`.
+- Use triple curly braces in the data binding.
+- Add the `ff-hitHighlight` formatter into the data binding.
+
+The triple curly braces in `<span>{{{ff-hitHighlight name}}}</span>` tell the template engine to interpret the HTML instead of render it as plain text.
+See [Template Engine](/documentation/5.x/template-engine) for details.
+
+The `ff-hitHighlight` formatter wraps the text in the relevant HTML without modifying the original data.
+
+> The `no-auto-highlight` attribute is necessary to prevent the component from overwriting the suggest-item's original data with the HTML wrapper instead of applying it only to the display layer.
+> This is an internal artifact of an old integration method.
+> In a future version, `no-auto-highlight` will become redundant.
 
 
 ### Rendered HTML
@@ -78,7 +96,7 @@ Container templates provided inside the `ff-suggest` tag will be rendered inside
 For example, consider the following HTML **setup**.
 
 ```html
-<ff-suggest>
+<ff-suggest no-auto-highlight>
     <template data-role="suggestions">
         <section>
             <div data-container="suggestType">
@@ -98,7 +116,7 @@ Suppose there are two suggestions of `suggestType`.
 This will result in the following HTML **output**.
 
 ```html
-<ff-suggest layout="list">
+<ff-suggest layout="list" no-auto-highlight>
     <div style="position:relative;width:100%">
         <div class="ffw-suggestContainerWrapper">
             <div class="ffw-suggestContainer ffw-listLayout">
@@ -135,7 +153,7 @@ Your rendering framework might accept one these approaches.
 #### Via `script` tag
 
 ```html
-<ff-suggest>
+<ff-suggest no-auto-highlight>
     <script type="text/ff-compat-template" data-role="suggestions">
         <section>...</section>
     </script>
@@ -146,7 +164,7 @@ Your rendering framework might accept one these approaches.
 #### Via comment
 
 ```html
-<ff-suggest>
+<ff-suggest no-auto-highlight>
     <div data-compat-template-role="suggestions">
         <!--
         <section>...</section>
@@ -206,7 +224,7 @@ Note that returning `false` does not prevent subsequent listeners from being inv
 Each click will always invoke **all listeners**.
 
 ```html
-<ff-suggest>
+<ff-suggest no-auto-highlight>
     <!-- content -->
 </ff-suggest>
 
@@ -252,7 +270,7 @@ Take care to not prevent the click event from bubbling up to the `document` or t
 You can **prevent** automatic closing by setting the `hide-onblur` attribute to `"false"`.
 
 ```html
-<ff-suggest hide-onblur="false"></ff-suggest>
+<ff-suggest hide-onblur="false" no-auto-highlight></ff-suggest>
 ```
 
 
@@ -266,7 +284,7 @@ If, however, your users are still experiencing problems, you can increase the `h
 See the [related API reference](/api/5.x/ff-suggest#tab=api).
 
 ```html
-<ff-suggest hide-delay="350"></ff-suggest>
+<ff-suggest hide-delay="350" no-auto-highlight></ff-suggest>
 ```
 
 

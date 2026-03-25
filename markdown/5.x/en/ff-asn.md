@@ -4,16 +4,22 @@ The ASN visualizes the `facets` portion of the FactFinder search response.
 You can use the ASN by adding one line to your HTML code.
 
 ```html
-<ff-asn></ff-asn>
+<ff-asn no-auto-highlight></ff-asn>
 ```
 Doing so will cause the ASN to use default HTML templates for all filters.
 You can customize the ASN's appearance by providing your own templates for its elements.
+
+> Note
+>
+> All code listings use the `no-auto-highlight` attribute on `ff-asn`.
+> We strongly recommend to always set it.
+> See the section on _Hit highlighting_ for details.
 
 
 ## Adding a filter group
 
 ```html
-<ff-asn>
+<ff-asn no-auto-highlight>
     <ff-asn-group></ff-asn-group>
 </ff-asn>
 ```
@@ -150,7 +156,7 @@ In addition, `ff-asn-group-element` does support [image binding](/api/5.x/ImageB
 
 If you set the `filter-style` attribute, the `ff-asn-group` acts as the default template for all groups that match this **filter-style**.
 ```html
-<ff-asn>
+<ff-asn no-auto-highlight>
     <!-- Acts as a template for all TREE configured filter groups -->
     <ff-asn-group filter-style="TREE"></ff-asn-group>
 
@@ -168,7 +174,7 @@ If you set the `filter-style` attribute, the `ff-asn-group` acts as the default 
 By setting the `for-group` attribute you can apply a template to a single group identified by its source field name (`associatedFieldName`).
 
 ```html
-<ff-asn>
+<ff-asn no-auto-highlight>
     <!-- Acts as a template for a specific group called "Category" -->
     <ff-asn-group for-group="Category"></ff-asn-group>
 </ff-asn>
@@ -251,12 +257,25 @@ This template has to contain exactly one `input` element.
 
 The searchable ASN groups feature comes with hit highlighting.
 Strings that match the search term will be wrapped with a `<span class="ffw-query">` element to allow you to apply appropriate styling.
-In order to tell the template engine to interpret the HTML instead of render it as plain text you have to use triple curly braces for the group element's name.
+
+Using hit highlighting requires three parts:
+
+- Set the `no-auto-highlight` attribute on `ff-asn`.
+- Use triple curly braces in the data binding.
+- Add the `ff-hitHighlight` formatter into the data binding.
+
+Remember, the triple curly braces are necessary to tell the template engine to interpret the HTML instead of render it as plain text.
 See [Template Engine](/documentation/5.x/template-engine) for details.
 
+The `ff-hitHighlight` formatter wraps the text in the relevant HTML without modifying the original data.
+
 ```html
-<div slot="selected"><span>{{{element.text}}}</span></div>
+<div slot="selected"><span>{{{ff-hitHighlight element.text}}}</span></div>
 ```
+
+> The `no-auto-highlight` attribute is necessary to prevent the component from overwriting the element's original text data with the HTML wrapper instead of applying it only to the display layer.
+> This is an internal artifact of an old integration method.
+> In a future version, `no-auto-highlight` will become redundant.
 
 
 ### Example
@@ -267,15 +286,15 @@ Suppose you type `art` into _Manufacturer_'s search box.
 #### Setup
 
 ```html
-<ff-asn searchable-from="31">
+<ff-asn searchable-from="31" no-auto-highlight>
     <ff-asn-group for-group="Manufacturer">
         <div slot="filterSearch" class="customGroup1"><input></div>
         <ff-asn-group-element>
             <div slot="selected">
-                <span>{{{element.text}}}</span>
+                <span>{{{ff-hitHighlight element.text}}}</span>
             </div>
             <div slot="unselected">
-                <span>{{{element.text}}}</span>
+                <span>{{{ff-hitHighlight element.text}}}</span>
             </div>
         </ff-asn-group-element>
     </ff-asn-group>
@@ -289,7 +308,7 @@ Suppose you type `art` into _Manufacturer_'s search box.
 #### Rendered HTML
 
 ```html
-<ff-asn searchable-from="31">
+<ff-asn searchable-from="31" no-auto-highlight>
     <ff-asn-group for-group="Manufacturer">
         <div class="ffw-asn-group-container">
             <div class="ffw-wrapper">
@@ -326,7 +345,7 @@ There are two types of slider available.
 Both require the same basic setup.
 
 ```html
-<ff-asn>
+<ff-asn no-auto-highlight>
     <ff-asn-group-slider>
         <div slot="groupCaption">
             <span>{{group.name}}</span>
@@ -434,7 +453,7 @@ Notice the CSS classes starting with `ffw-`.
 These are applied automatically and shall provide you an easy way to apply custom style rules.
 
 ```html
-<ff-asn align="vertical">
+<ff-asn align="vertical" no-auto-highlight>
     <ff-asn-group for-group="Color" opened filter-style="DEFAULT">
         <div data-container="groupCaption">
             <div slot="groupCaption" class="groupCaption">Color</div>

@@ -3,6 +3,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
+| **no-auto-highlight**&nbsp;(Boolean) | **Always set this attribute!** Ensures underlying data does not get corrupted. Use together with `{{{ff-hitHighlight name}}}` formatter. |
 | **suggest-items**&nbsp;(Array) | The data from FactFinder. |
 | **hide-onblur**&nbsp;(String) **Options**:&nbsp;"true",&nbsp;"false" (default: "true") | When `"true"`, clicks outside the Suggest and the related `ff-searchbox` close the Suggest popup. |
 | **hide-delay**&nbsp;(Number) (default: `300`) | Defines the time in _milliseconds_ the Suggest popup remains open after it received a hide command. Some delay is necessary because certain input devices trigger their click event with a delay (e.g. touchpads). Increase this value if it seems the Suggest closes too fast when you click on it. |

@@ -112,6 +112,24 @@ The following are the built-in formatters:
   </ff-asn>
   ```
 
+- `ff-hitHighlight` (text): This formatter is available in elements `ff-suggest` and `ff-asn`.
+  It takes one argument of type String.
+  When a search query (available in contexts of `ff-suggest` and `ff-asn`) matches part of the text, the matched portion is wrapped in a `<span class="ffw-query">` element for highlighting via CSS.
+  No wrapping occurs if there is no match.
+  Always use it together with triple curly braces.
+
+  Suppose the passed text is `Gardening` and the context's search term is `garden`.
+
+  Template setup:
+  ```html
+  <p>{{{ff-hitHighlight element.text}}}</p>
+  ```
+
+  Rendered output:
+  ```html
+  <p><span class="ffw-query">Garden</span>ing</p>
+  ```
+
 
 ### Custom formatters
 

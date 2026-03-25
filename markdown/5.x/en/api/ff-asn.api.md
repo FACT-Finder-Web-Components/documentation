@@ -3,6 +3,7 @@ ___
 ### Properties
 | Name | Description |
 | ---- | ----------- |
+| **no-auto-highlight**&nbsp;(Boolean) | **Always set this attribute!** Ensures underlying data does not get corrupted. Use together with `{{{ff-hitHighlight element.text}}}` formatter. |
 | **align**&nbsp;(String) **Options**:&nbsp;"vertical",&nbsp;"horizontal" (default: "vertical") | The alignment of the After Search Navigation. |
 | **asn-groups**&nbsp;(Array) | The data for all filter groups/facets. |
 | **searchable-from**&nbsp;(Number) (default: Infinity) | The minimum number of filters in a group to render search field. The value refers to the sum of **detailed and hidden links**. |
