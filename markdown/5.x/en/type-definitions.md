@@ -260,6 +260,7 @@ ConfigAppConfig
         formatOptions: Object,      // Same options as in platform-native `Intl.NumberFormat(locales, options)`.
     },
     sandboxMode:     Boolean,       // Default: false
+    atlasAiMode:     Boolean,       // Default: false
 }
 ```
 

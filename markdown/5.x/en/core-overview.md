@@ -231,6 +231,11 @@ factfinder: {
         },
     },
     components: {
+        atlasAi: {
+            sandboxed: {
+                setReadWriteListeners: ({ read, write }) => undefined,
+            },
+        },
         recentlyViewed: {
             config: (options) => undefined,
             addEntry: (FlatRecord) => undefined,
@@ -520,7 +525,7 @@ factfinder.config.setFFParams({
 });
 ```
 
-`setAppConfig` updates the library's configuration with parameters that are exclusively relevant to how the client-side application behaves.
+`setAppConfig` updates the library's configuration with parameters that are relevant to how the client-side application behaves.
 It takes an object with the following fields:
 
 ```js
@@ -536,6 +541,7 @@ factfinder.config.setAppConfig({
         formatOptions,  // Same as `options` object in platform-native `Intl.NumberFormat(locales, options)`.
     },
     sandboxMode,      // Boolean
+    atlasAiMode,      // Boolean
 });
 ```
 
@@ -637,6 +643,18 @@ For details, see [Sandbox Mode](/documentation/5.x/sandbox-mode).
 ### Components
 
 In the `factfinder.components` namespace you will find component-specific APIs.
+
+
+#### Atlas AI
+
+`factfinder.components.atlasAi`
+
+The Atlas AI namespace is only relevant if you are using Web Components in [Sandbox Mode](/documentation/5.x/sandbox-mode).
+
+Atlas AI uses a special user ID that Web Components stores in `localStorage`.
+As Sandbox Mode prevents app interactions with `localStorage`, you have to subscribe you own read and write listeners with `factfinder.components.atlasAi.sandboxed.setReadWriteListeners` to store and provide this user ID to the application yourself.
+
+The mechanism is the same as in `factfinder.routing.sandboxed.setSessionReadWriteListeners`.
 
 
 #### Recently Viewed

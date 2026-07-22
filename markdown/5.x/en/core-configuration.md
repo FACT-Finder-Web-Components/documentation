@@ -102,6 +102,7 @@ document.addEventListener(`ffCoreReady`, ({ factfinder, init, initialSearch }) =
             fieldRoles: undefined,       // Object
             formatting: undefined,       // Object { locale, formatOptions }
             sandboxMode: false,          // Boolean
+            atlasAiMode: false,          // Boolean
         },
     });
 });
@@ -247,6 +248,15 @@ From within these listeners you are free to invoke actions as your individual in
 Sandbox mode is typically used in single-page-applications but may also provide the required flexibility whenever Web Components' history management conflicts with your integration.
 
 
+#### Atlas AI mode
+
+Enable Atlas AI support by setting `atlasAiMode` to `true`.
+
+When enabled, Web Components handles Atlas AI-specific requirements automatically. This includes creating a dedicated Atlas AI user ID and storing it on the client side across sessions.
+
+No additional configuration is required.
+
+
 ## Re-configuration at runtime
 
 The `factfinder.config` namespace allows you to interact with the application's configuration **at runtime**.
@@ -299,5 +309,6 @@ factfinder.config.setAppConfig({
         formatOptions,
     },
     sandboxMode,      // Boolean
+    atlasAiMode,      // Boolean
 });
 ```
