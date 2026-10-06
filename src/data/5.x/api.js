@@ -160,6 +160,14 @@ const api = {
             path: `url-manipulation`,
             title: `URL Manipulation`,
         },
+
+
+        // --- Subject to change ---
+
+        "ff-ai-assistant": {
+            path: `ff-ai-assistant`,
+            title: `AI Assistant`,
+        },
     },
 };
 
@@ -205,7 +213,9 @@ api.moreFeatures = [
 ];
 
 // set to undefined if section shall not be shown
-api.subjectToChange = undefined;
+api.subjectToChange = [
+    api.pages[`ff-ai-assistant`],
+];
 
 
 export default api;
