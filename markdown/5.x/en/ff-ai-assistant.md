@@ -199,6 +199,7 @@ ff-ai-assistant-launcher {
     --color-border: #1a1a181a;
     --color-white: #fff;
     --color-foreground: #1a1a18;
+    --color-foreground-disabled: #babab9;
     --color-muted-foreground: #888880;
     --color-secondary: #eceae4;
 
@@ -298,6 +299,13 @@ ff-ai-assistant button {
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    transition-duration: var(--default-transition-duration);
+}
+ff-ai-assistant button:not(:disabled):hover {
+    transition-duration: var(--default-transition-duration);
+}
+ff-ai-assistant button:disabled {
+    cursor: default;
 }
 ff-ai-assistant .ffw-assistant-header {
     align-items: center;
@@ -327,12 +335,10 @@ ff-ai-assistant .ffw-assistant-header button.ffw-assistant-close {
     color: var(--color-muted-foreground);
     line-height: .5;
     padding: calc(var(--spacing) * 1.5);
-    transition-duration: var(--default-transition-duration);
 }
 ff-ai-assistant .ffw-assistant-header button.ffw-assistant-close:hover {
     background-color: var(--color-secondary);
     color: var(--color-foreground);
-    transition-duration: var(--default-transition-duration);
 }
 
 ff-ai-assistant .ffw-assistant-body {
@@ -452,11 +458,9 @@ ff-ai-assistant .ffw-assistant-body .ffw-assistant-clarification-block button {
     font-weight: var(--font-weight-medium);
     line-height: var(--text-xs--line-height);
     padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
-    transition-duration: var(--default-transition-duration);
 }
 ff-ai-assistant .ffw-assistant-body .ffw-assistant-clarification-block button:hover {
     border-color: color-mix(in oklab, var(--color-foreground) 40%, transparent);
-    transition-duration: var(--default-transition-duration);
 }
 
 ff-ai-assistant .ffw-assistant-body > :last-child {
@@ -501,28 +505,24 @@ ff-ai-assistant .ffw-assistant-footer form button {
     color: var(--color-background);
     line-height: .5;
     padding: calc(var(--spacing) * 2);
-    transition-duration: var(--default-transition-duration);
 }
 ff-ai-assistant .ffw-assistant-footer form button:not(:disabled):hover {
     background-color: color-mix(in oklab, var(--color-foreground) 80%, transparent);
-    transition-duration: var(--default-transition-duration);
 }
 ff-ai-assistant .ffw-assistant-footer form button:disabled {
     cursor: default;
-    opacity: .3;
+    background-color: var(--color-foreground-disabled);
 }
-ff-ai-assistant .ffw-assistant-footer .ffw-assistant-restart {
+ff-ai-assistant .ffw-assistant-footer button.ffw-assistant-restart {
     color: var(--color-muted-foreground);
     font-size: var(--text-xs);
     line-height: var(--text-xs--line-height);
     margin-top: calc(var(--spacing) * 2);
     padding: var(--spacing);
     text-align: center;
-    transition-duration: var(--default-transition-duration);
 }
-ff-ai-assistant .ffw-assistant-footer .ffw-assistant-restart:hover {
+ff-ai-assistant .ffw-assistant-footer button.ffw-assistant-restart:not(:disabled):hover {
     color: var(--color-foreground);
-    transition-duration: var(--default-transition-duration);
 }
 
 ff-ai-assistant .ffw-assistant-error {
@@ -532,7 +532,7 @@ ff-ai-assistant .ffw-assistant-error {
     margin: calc(var(--spacing) * 6) 0;
     text-align: center;
 }
-ff-ai-assistant .ffw-assistant-error-restart {
+ff-ai-assistant button.ffw-assistant-error-restart {
     background-color: var(--color-foreground);
     border-radius: var(--radius);
     color: var(--color-background);
@@ -540,10 +540,11 @@ ff-ai-assistant .ffw-assistant-error-restart {
     font-weight: var(--font-weight-medium);
     line-height: var(--text-sm--line-height);
     padding: calc(var(--spacing) * 2.5) 0;
-    transition-duration: var(--default-transition-duration);
 }
-ff-ai-assistant .ffw-assistant-error-restart:hover {
+ff-ai-assistant button.ffw-assistant-error-restart:not(:disabled):hover {
     background-color: color-mix(in oklab, var(--color-foreground) 85%, transparent);
-    transition-duration: var(--default-transition-duration);
+}
+ff-ai-assistant button.ffw-assistant-error-restart:disabled {
+    background-color: var(--color-foreground-disabled);
 }
 ```
