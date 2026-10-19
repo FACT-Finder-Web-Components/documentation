@@ -197,6 +197,7 @@ ff-ai-assistant-launcher {
     --color-assistant-background: #fff;
     --color-background: #f5f3ee;
     --color-border: #1a1a181a;
+    --color-warning: #f00;
     --color-white: #fff;
     --color-foreground: #1a1a18;
     --color-foreground-disabled: #babab9;
@@ -483,17 +484,32 @@ ff-ai-assistant .ffw-assistant-footer fieldset {
     display: flex;
     gap: calc(var(--spacing) * 2);
 }
+ff-ai-assistant .ffw-assistant-footer form .ffw-assistant-input-wrapper {
+    position: relative;
+    flex-grow: 1;
+}
 ff-ai-assistant .ffw-assistant-footer form input {
     background-color: var(--color-secondary);
     border: 1px solid transparent;
     border-radius: var(--radius);
-    flex-grow: 1;
     font-size: var(--text-sm);
     font-weight: var(--font-weight-normal);
     line-height: var(--text-sm--line-height);
     outline-style: none;
     padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
     transition-duration: var(--default-transition-duration);
+    width: 100%;
+}
+ff-ai-assistant .ffw-assistant-footer form .ffw-assistant-charlimit-counter {
+    color: var(--color-muted-foreground);
+    font-size: var(--text-xs);
+    position: absolute;
+    right: 0;
+    top: calc(100% + 2px);
+}
+ff-ai-assistant .ffw-assistant-footer form .ffw-assistant-charlimit-counter.ffw-assistant-charlimit-exceeded {
+    color: var(--color-warning);
+    font-weight: var(--font-weight-semibold);
 }
 ff-ai-assistant .ffw-assistant-footer form input:focus {
     border-color: color-mix(in oklab, var(--color-foreground) 30%, transparent);
