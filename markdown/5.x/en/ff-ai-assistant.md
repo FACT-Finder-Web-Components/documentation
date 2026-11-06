@@ -1,24 +1,31 @@
-> **Beta:** This component is currently in beta. Its features, behavior, and configuration may change.
+> **Beta:** This component is currently in beta.
+> Its features, behavior, and configuration may change.
 
 
 ## Overview
 
-The AI Shopping Assistant turns product discovery into a natural conversation. It supports text interaction, product suggestions, and guided follow-up prompts while handling API communication and tracking behind the scenes.
+The AI Shopping Assistant turns product discovery into a natural conversation.
+It supports text interaction, product suggestions, and guided follow-up prompts while handling API communication and tracking behind the scenes.
 
-The Assistant supports one conversation at a time. Starting a new conversation replaces the current one. The conversation is stored in the browser, allowing shoppers to continue where they left off after page reloads or navigation.
+The Assistant supports one conversation at a time.
+Starting a new conversation replaces the current one.
+The conversation is stored in the browser, allowing shoppers to continue where they left off after page reloads or navigation.
 
-**Use it with or without other Web Components.** The Assistant is part of the FactFinder Web Components library. Existing Web Components integrations can add it alongside other components, while integrations that use only the Assistant do not require any other Web Components.
+**Use it with or without other Web Components.**
+The Assistant is part of the FactFinder Web Components library.
+Existing Web Components integrations can add it alongside other components, while integrations that use only the Assistant do not require any other Web Components.
 
 
 ## Before you start
 
-If you already use FactFinder Web Components, most of the setup will be familiar. The Assistant adds two new elements and some component-specific configuration.
+If you already use FactFinder Web Components, most of the setup will be familiar.
+The Assistant adds two new elements and some component-specific configuration.
 
 If you intend to use only the Assistant, review the core library setup first:
 
-- [Install the library](#) (Manual installation)
-- [Include Web Components in your page](#)
-- Basic configuration (partially relevant when using only the Assistant): [https://web-components.fact-finder.de/api/5.x/core-configuration](https://web-components.fact-finder.de/api/5.x/core-configuration)
+- [Install the library](/documentation/5.x/install-dist) (Manual installation)
+- [Include Web Components in your page](/documentation/5.x/include-scripts)
+- [Basic configuration](/api/5.x/core-configuration) (partially relevant when using only the Assistant)
 
 
 ## HTML setup
@@ -39,13 +46,18 @@ If you intend to use only the Assistant, review the core library setup first:
 </body>
 ```
 
-Add the `unresolved` attribute to every Assistant element and define the corresponding style rule in the document `head`. This ensures the rule is available before the elements render and keeps components hidden during initialization.
+Add the `unresolved` attribute to every Assistant element and define the corresponding style rule in the document `head`.
+This ensures the rule is available before the elements render and keeps components hidden during initialization.
 
-`ff-ai-assistant` provides the complete chat interface. Use exactly one instance per page. Its internal HTML structure is managed by the component and cannot be customized directly; use CSS to adapt its appearance.
+`ff-ai-assistant` provides the complete chat interface.
+Use exactly one instance per page.
+Its internal HTML structure is managed by the component and cannot be customized directly; use CSS to adapt its appearance.
 
-`ff-ai-assistant-launcher` renders a button that opens the chat window. You can add any number of launchers and place them wherever an entry point is needed—for example, as a floating button or inside a suggestion popup.
+`ff-ai-assistant-launcher` renders a button that opens the chat window.
+You can add any number of launchers and place them wherever an entry point is needed—for example, as a floating button or inside a suggestion popup.
 
-In this example, the `custom-floating` class positions the launcher in a corner of the viewport. CSS customization is covered later.
+In this example, the `custom-floating` class positions the launcher in a corner of the viewport.
+CSS customization is covered later.
 
 
 ## JavaScript configuration
@@ -86,22 +98,28 @@ document.addEventListener(`ffCoreReady`, ({ factfinder, init }) => {
 
 ## `ff-ai-assistant`
 
-The `ff-ai-assistant` component provides the text-based interaction between the shopper and the Assistant. In addition to conversational responses, it can render product suggestions and predefined follow-up prompts. These prompts appear as selectable buttons, allowing shoppers to clarify or refine their request without typing a full response.
+The `ff-ai-assistant` component provides the text-based interaction between the shopper and the Assistant.
+In addition to conversational responses, it can render product suggestions and predefined follow-up prompts.
+These prompts appear as selectable buttons, allowing shoppers to clarify or refine their request without typing a full response.
 
 A built-in **Start new chat** button lets shoppers replace the current conversation and begin a new one.
 
-If an error occurs during a conversation, the component displays an error message in the chat. If the error is irrecoverable—for example, because the session has expired—the component stops accepting further input. The shopper must start a new chat to continue.
+If an error occurs during a conversation, the component displays an error message in the chat.
+If the error is irrecoverable—for example, because the session has expired—the component stops accepting further input.
+The shopper must start a new chat to continue.
 
 
 ### Language configuration
 
-The `lang-de` attribute controls the language of the Assistant interface. It is a boolean attribute: omit it for English, or add it to `ff-ai-assistant` to use the German interface.
+The `lang-de` attribute controls the language of the Assistant interface.
+It is a boolean attribute: omit it for English, or add it to `ff-ai-assistant` to use the German interface.
 
 ```html
 <ff-ai-assistant lang-de unresolved></ff-ai-assistant>
 ```
 
-The attribute affects only the interface, not the language of the conversation. It should match the Assistant’s back-end language setting.
+The attribute affects only the interface, not the language of the conversation.
+It should match the Assistant’s back-end language setting.
 
 > **Beta:** This language configuration is likely to change for the production release.
 
@@ -110,7 +128,8 @@ The attribute affects only the interface, not the language of the conversation. 
 
 The `opened` attribute is read-only: the component adds it while the Assistant is visible and removes it when the Assistant is closed.
 
-The attribute does not control visibility by itself. Add a CSS rule that hides the element when `opened` is absent:
+The attribute does not control visibility by itself.
+Add a CSS rule that hides the element when `opened` is absent:
 
 ```css
 ff-ai-assistant {
@@ -121,19 +140,26 @@ ff-ai-assistant[opened] {
 }
 ```
 
-For a quick start, use the complete example stylesheet at the end of this guide. It includes the required visibility rules, can be copied as-is, and provides a starting point for adapting the Assistant to your storefront.
+For a quick start, use the complete example stylesheet at the end of this guide.
+It includes the required visibility rules, can be copied as-is, and provides a starting point for adapting the Assistant to your storefront.
 
 
 ## `ff-ai-assistant-launcher`
 
-The `ff-ai-assistant-launcher` supports two modes. You can add any number of launchers, and each launcher can use either mode. In both modes, a launcher opens the chat window and either starts a new conversation or resumes an existing one.
+The `ff-ai-assistant-launcher` supports two modes.
+You can add any number of launchers, and each launcher can use either mode.
+In both modes, a launcher opens the chat window and either starts a new conversation or resumes an existing one.
 
-Launcher components have no built-in language configuration, and the `lang-de` attribute on `ff-ai-assistant` does not affect them. To localize launcher text, define custom HTML templates in the desired language.
+Launcher components have no built-in language configuration, and the `lang-de` attribute on `ff-ai-assistant` does not affect them.
+To localize launcher text, define custom HTML templates in the desired language.
 
 
 ### Standalone
 
-Standalone is the default and requires no component configuration. This mode is intended for a floating button, which automatically disappears while the chat window is open. The example stylesheet includes positioning rules for `.custom-floating`. The class is only a styling hook—you can rename it or omit it entirely when using your own styles.
+Standalone is the default and requires no component configuration.
+This mode is intended for a floating button, which automatically disappears while the chat window is open.
+The example stylesheet includes positioning rules for `.custom-floating`.
+The class is only a styling hook—you can rename it or omit it entirely when using your own styles.
 
 ```html
 <ff-ai-assistant-launcher class="custom-floating" unresolved></ff-ai-assistant-launcher>
@@ -156,9 +182,12 @@ To connect a launcher to a search box, set its `for` attribute to the `id` of th
 
 ### Custom template
 
-You can define a custom HTML template for a launcher. The markup can be structured freely; the only requirement is that it contains a `button` element. Leave the `ff-ai-assistant-launcher` element empty to use the default template.
+You can define a custom HTML template for a launcher.
+The markup can be structured freely; the only requirement is that it contains a `button` element.
+Leave the `ff-ai-assistant-launcher` element empty to use the default template.
 
-To include the default icon, use the optional `{{{icon}}}` data binding. Keep all three opening and closing braces; the binding renders an SVG icon.
+To include the default icon, use the optional `{{{icon}}}` data binding.
+Keep all three opening and closing braces; the binding renders an SVG icon.
 
 The examples below reproduce the default templates for both launcher modes: the first applies when `for` is absent, and the second when `for` is present.
 
@@ -175,7 +204,9 @@ The examples below reproduce the default templates for both launcher modes: the 
 
 ## Example stylesheet
 
-Use the stylesheet below for a quick start. It includes the Assistant’s visibility rules and styling for a floating launcher, and can be adapted to match your storefront. Keep the `[unresolved]` rule from the basic setup in the document `head` so it is available before the components initialize.
+Use the stylesheet below for a quick start.
+It includes the Assistant’s visibility rules and styling for a floating launcher, and can be adapted to match your storefront.
+Keep the `[unresolved]` rule from the basic setup in the document `head` so it is available before the components initialize.
 
 ```css
 ff-ai-assistant,
@@ -468,6 +499,10 @@ ff-ai-assistant .ffw-assistant-body > :last-child {
     margin-bottom: calc(var(--spacing) * 6);
 }
 
+ff-ai-assistant .ffw-assistant-body .ffw-assistant-spacer {
+    margin-bottom: 0;
+}
+
 ff-ai-assistant .ffw-assistant-footer {
     align-items: center;
     border-top: 1px solid var(--color-border);
@@ -545,7 +580,7 @@ ff-ai-assistant .ffw-assistant-error {
     color: var(--color-muted-foreground);
     font-size: var(--text-sm);
     font-style: italic;
-    margin: calc(var(--spacing) * 6) 0;
+    margin: calc(var(--spacing) * 12) 0;
     text-align: center;
 }
 ff-ai-assistant button.ffw-assistant-error-restart {
