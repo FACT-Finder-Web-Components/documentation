@@ -96,6 +96,58 @@ document.addEventListener(`ffCoreReady`, ({ factfinder, init }) => {
 ```
 
 
+### Sandbox mode
+
+Sandbox mode lets your application take control of data persistence and navigation instead of leaving these operations to Web Components.
+Through custom listeners, your application reads and writes the Assistant’s session and history data and handles navigation.
+
+> **Caution:** Sandbox mode is intended for edge cases and is not recommended for most integrations.
+> Leave it disabled unless your application needs to manage these operations itself.
+
+- **History and state listeners** are invoked whenever the Assistant would otherwise read from or write to browser storage.
+- **The navigation listener** is a Web Components-wide hook.
+  For the Assistant, it is invoked when a shopper clicks a product suggestion, unless they open it in a new browser tab.
+
+> **Important:** Treat the exchanged session and history data as opaque.
+> Store and return it unchanged; do not modify its contents or structure.
+
+
+#### Example
+
+This schematic example illustrates the required listeners.
+Your actual integration will likely look different, depending on your application’s architecture.
+
+```javascript
+document.addEventListener(`ffCoreReady`, ({ factfinder, init }) => {
+    init({
+        ff: {},  // Section omitted for brevity.
+
+        appConfig: {
+            sandboxMode: true,
+        },
+    });
+
+    factfinder.components.aiAssistant.config({
+        // URL, channel, and API key as shown above.
+    });
+
+    factfinder.components.aiAssistant.sandboxed.setHistoryReadWriteListeners({
+        read: () => yourApp.getAiAssistantHistory(),
+        write: history => yourApp.storeAiAssistantHistory(history),
+    });
+
+    factfinder.components.aiAssistant.sandboxed.setStateReadWriteListeners({
+        read: () => yourApp.getAiAssistantState(),
+        write: state => yourApp.storeAiAssistantState(state),
+    });
+
+    factfinder.routing.setNavigateListener((url, origin) => {
+        yourApp.navigate(url);
+    });
+});
+```
+
+
 ## `ff-ai-assistant`
 
 The `ff-ai-assistant` component provides the text-based interaction between the shopper and the Assistant.
