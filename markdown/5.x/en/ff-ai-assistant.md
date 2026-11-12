@@ -161,19 +161,43 @@ If the error is irrecoverable—for example, because the session has expired—t
 The shopper must start a new chat to continue.
 
 
-### Language configuration
+### Interface texts and localization
 
-The `lang-de` attribute controls the language of the Assistant interface.
-It is a boolean attribute: omit it for English, or add it to `ff-ai-assistant` to use the German interface.
+Customize the Assistant’s labels by passing a dictionary of strings to `setStrings`.
+Any field you omit falls back to its default English text.
+You can override individual labels or supply a complete translation in any language; there is no separate language-switching setting.
 
-```html
-<ff-ai-assistant lang-de unresolved></ff-ai-assistant>
+These strings affect only the component’s interface, not the language of the conversation.
+
+Set the strings immediately after configuring the component.
+You can also call `setStrings` at any time and as often as needed at runtime; the component updates immediately.
+Call `setStrings` with an empty object to reset all labels to their default English texts.
+
+The example below lists all default values.
+These texts are used automatically if you do not call `setStrings`.
+
+```javascript
+document.addEventListener(`ffCoreReady`, ({ factfinder }) => {
+    // Library initialization omitted for brevity.
+
+    factfinder.components.aiAssistant.config({
+        // URL, channel, and API key as shown above.
+    });
+
+    // Default English texts; override only the fields you want to change.
+    factfinder.components.aiAssistant.setStrings({
+        title: `AI Shopping Assistant`,
+        startNew: `Start new chat`,
+        inputPlaceholder: `Ask me anything...`,
+        errorUnavailable: `The assistant is temporarily unavailable. Please try again later.`,
+        errorExpired: `Your previous session has expired. Start a new chat to keep exploring.`,
+        errorGeneric: `Some error occurred. Please try again or start a new chat.`,
+    });
+
+    // Reset all labels to their default English texts.
+    // factfinder.components.aiAssistant.setStrings({});
+});
 ```
-
-The attribute affects only the interface, not the language of the conversation.
-It should match the Assistant’s back-end language setting.
-
-> **Beta:** This language configuration is likely to change for the production release.
 
 
 ### Visibility state
@@ -202,7 +226,7 @@ The `ff-ai-assistant-launcher` supports two modes.
 You can add any number of launchers, and each launcher can use either mode.
 In both modes, a launcher opens the chat window and either starts a new conversation or resumes an existing one.
 
-Launcher components have no built-in language configuration, and the `lang-de` attribute on `ff-ai-assistant` does not affect them.
+Launcher components have no built-in language configuration.
 To localize launcher text, define custom HTML templates in the desired language.
 
 
